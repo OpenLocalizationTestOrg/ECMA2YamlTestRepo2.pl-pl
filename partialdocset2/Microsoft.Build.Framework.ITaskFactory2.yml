@@ -1,0 +1,192 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Build.Framework.ITaskFactory2
+  id: ITaskFactory2
+  children:
+  - Microsoft.Build.Framework.ITaskFactory2.CreateTask(Microsoft.Build.Framework.IBuildEngine,System.Collections.Generic.IDictionary{System.String,System.String})
+  - Microsoft.Build.Framework.ITaskFactory2.Initialize(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo},System.String,Microsoft.Build.Framework.IBuildEngine)
+  langs:
+  - csharp
+  name: ITaskFactory2
+  nameWithType: ITaskFactory2
+  fullName: Microsoft.Build.Framework.ITaskFactory2
+  type: Interface
+  summary: "Zawiera opis i rozszerzone <xref href=&quot;Microsoft.Build.Framework.ITaskFactory&quot;> </xref> interfejs, który należy zaimplementować wystąpienia fabryki zadań."
+  syntax:
+    content: 'public interface ITaskFactory2 : Microsoft.Build.Framework.ITaskFactory'
+  implements:
+  - Microsoft.Build.Framework.ITaskFactory
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ITaskFactory2.CreateTask(Microsoft.Build.Framework.IBuildEngine,System.Collections.Generic.IDictionary{System.String,System.String})
+  id: CreateTask(Microsoft.Build.Framework.IBuildEngine,System.Collections.Generic.IDictionary{System.String,System.String})
+  parent: Microsoft.Build.Framework.ITaskFactory2
+  langs:
+  - csharp
+  name: CreateTask(IBuildEngine,IDictionary<String,String>)
+  nameWithType: ITaskFactory2.CreateTask(IBuildEngine,IDictionary<String,String>)
+  fullName: Microsoft.Build.Framework.ITaskFactory2.CreateTask(IBuildEngine,IDictionary<String,String>)
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Utwórz wystąpienie zadania, które mają być używane, za pomocą opcjonalny zestaw ustawione w wywołaniu poszczególnych zadań przy użyciu parametrów MSBuildRuntime i MSBuildArchitecture zadań domyślne parametry &quot;specjalne&quot;. Program MSBuild oferuje implementację tego interfejsu TaskHostFactory, który korzysta z wartości &quot;CLR2&quot;, &quot;CLR4&quot;, &quot;CurrentRuntime&quot;, &quot;MSBuildRuntime&quot; i &quot;*&quot; (wszystkie); i &quot;MSBuildArchitecture&quot; o wartości &quot;x86&quot;, &quot;x64&quot;, &quot;CurrentArchitecture&quot; i &quot;\\*&quot; (wszystkie). Realizator ITaskFactory2 używać tych wstępnie zdefiniowanych wartości MSBuildRuntime i MSBuildArchitecture lub określić nowe wartości tych parametrów."
+  remarks: "Jeśli fabryki zadań implementuje ITaskFactory2, program MSBuild będzie wywołania tej metody zamiast ITaskFactory.CreateTask."
+  syntax:
+    content: public Microsoft.Build.Framework.ITask CreateTask (Microsoft.Build.Framework.IBuildEngine taskFactoryLoggingHost, System.Collections.Generic.IDictionary<string,string> taskIdentityParameters);
+    parameters:
+    - id: taskFactoryLoggingHost
+      type: Microsoft.Build.Framework.IBuildEngine
+      description: "Host rejestrowania fabryki zadań zarejestrują wiadomości w kontekście tego zadania."
+    - id: taskIdentityParameters
+      type: System.Collections.Generic.IDictionary{System.String,System.String}
+      description: "Parametry specjalne, które fabryki zadań służy do modyfikowania, jak wykonuje zadania, takie jak środowisko uruchomieniowe i architektura."
+    return:
+      type: Microsoft.Build.Framework.ITask
+      description: "Wygenerowany zadania lub `null` , jeśli nie można utworzyć zadania."
+  overload: Microsoft.Build.Framework.ITaskFactory2.CreateTask*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ITaskFactory2.Initialize(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo},System.String,Microsoft.Build.Framework.IBuildEngine)
+  id: Initialize(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo},System.String,Microsoft.Build.Framework.IBuildEngine)
+  parent: Microsoft.Build.Framework.ITaskFactory2
+  langs:
+  - csharp
+  name: Initialize(String,IDictionary<String,String>,IDictionary<String,TaskPropertyInfo>,String,IBuildEngine)
+  nameWithType: ITaskFactory2.Initialize(String,IDictionary<String,String>,IDictionary<String,TaskPropertyInfo>,String,IBuildEngine)
+  fullName: Microsoft.Build.Framework.ITaskFactory2.Initialize(String,IDictionary<String,String>,IDictionary<String,TaskPropertyInfo>,String,IBuildEngine)
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Inicjuje tej fabryki dla tworzenia wystąpienia zadania z wbudowanego określonego bloku zadań i zestaw parametrów UsingTask. Program MSBuild oferuje implementację tego interfejsu TaskHostFactory, używający &quot;Runtime&quot; o wartości &quot;CLR2&quot;, &quot;CLR4&quot;, &quot;CurrentRuntime&quot; i &quot;*&quot; (wszystkie); i &quot;Architektura&quot; o wartości &quot;x86&quot;, &quot;x64&quot;, &quot;CurrentArchitecture&quot; i &quot;\\*&quot; (wszystkie). Realizator ITaskFactory2 używać tych wstępnie zdefiniowanych wartości środowiska uruchomieniowego i architektura lub określić nowe wartości tych parametrów."
+  remarks: "Aparat MSBuild wywołuje to zainicjować fabryki. Należy zainicjować fabryki, wystarczająco, dzięki czemu w fabryce można poprosić czy nazwy zadań można tworzyć za pomocą fabryki. Jeśli fabryki zadań implementuje ITaskFactory2, zamiast ITaskFactory.Initialize będzie można wywołać tej metody inicjowania.       TaskFactoryLoggingHost zarejestrują wiadomości w zakresie docelowym, gdzie najpierw używane jest zadanie."
+  syntax:
+    content: public bool Initialize (string taskName, System.Collections.Generic.IDictionary<string,string> factoryIdentityParameters, System.Collections.Generic.IDictionary<string,Microsoft.Build.Framework.TaskPropertyInfo> parameterGroup, string taskBody, Microsoft.Build.Framework.IBuildEngine taskFactoryLoggingHost);
+    parameters:
+    - id: taskName
+      type: System.String
+      description: "Nazwa zadania."
+    - id: factoryIdentityParameters
+      type: System.Collections.Generic.IDictionary{System.String,System.String}
+      description: "Parametry specjalne, które fabryki zadań służy do modyfikowania, jak wykonuje zadania, takie jak środowisko uruchomieniowe i architektura. Nazwa parametru jest klucz i wartość jest wartością parametru. Jest to zbiór parametrów został ustawiony na UsingTask przy użyciu np. UsingTask środowiska uruchomieniowego i architektura parametrów."
+    - id: parameterGroup
+      type: System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo}
+      description: "Grupa parametru."
+    - id: taskBody
+      type: System.String
+      description: "Treść zadań."
+    - id: taskFactoryLoggingHost
+      type: Microsoft.Build.Framework.IBuildEngine
+      description: "Host rejestrowania fabryki zadań."
+    return:
+      type: System.Boolean
+      description: "Wartość wskazująca, czy inicjowanie zakończyła się powodzeniem."
+  overload: Microsoft.Build.Framework.ITaskFactory2.Initialize*
+  exceptions: []
+  platform:
+  - net462
+references:
+- uid: Microsoft.Build.Framework.ITaskFactory2.CreateTask(Microsoft.Build.Framework.IBuildEngine,System.Collections.Generic.IDictionary{System.String,System.String})
+  parent: Microsoft.Build.Framework.ITaskFactory2
+  isExternal: false
+  name: CreateTask(IBuildEngine,IDictionary<String,String>)
+  nameWithType: ITaskFactory2.CreateTask(IBuildEngine,IDictionary<String,String>)
+  fullName: Microsoft.Build.Framework.ITaskFactory2.CreateTask(IBuildEngine,IDictionary<String,String>)
+- uid: Microsoft.Build.Framework.ITask
+  parent: Microsoft.Build.Framework
+  isExternal: false
+  name: ITask
+  nameWithType: ITask
+  fullName: Microsoft.Build.Framework.ITask
+- uid: Microsoft.Build.Framework.IBuildEngine
+  parent: Microsoft.Build.Framework
+  isExternal: false
+  name: IBuildEngine
+  nameWithType: IBuildEngine
+  fullName: Microsoft.Build.Framework.IBuildEngine
+- uid: System.Collections.Generic.IDictionary{System.String,System.String}
+  parent: System.Collections.Generic
+  isExternal: true
+  name: IDictionary<String,String>
+  nameWithType: IDictionary<String,String>
+  fullName: System.Collections.Generic.IDictionary<System.String,System.String>
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    nameWithType: IDictionary
+    fullName: IDictionary<System.String,System.String>
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: String
+  - name: ','
+    nameWithType: ','
+    fullName: ','
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: String
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+- uid: Microsoft.Build.Framework.ITaskFactory2.Initialize(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo},System.String,Microsoft.Build.Framework.IBuildEngine)
+  parent: Microsoft.Build.Framework.ITaskFactory2
+  isExternal: false
+  name: Initialize(String,IDictionary<String,String>,IDictionary<String,TaskPropertyInfo>,String,IBuildEngine)
+  nameWithType: ITaskFactory2.Initialize(String,IDictionary<String,String>,IDictionary<String,TaskPropertyInfo>,String,IBuildEngine)
+  fullName: Microsoft.Build.Framework.ITaskFactory2.Initialize(String,IDictionary<String,String>,IDictionary<String,TaskPropertyInfo>,String,IBuildEngine)
+- uid: System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo}
+  parent: System.Collections.Generic
+  isExternal: true
+  name: IDictionary<String,TaskPropertyInfo>
+  nameWithType: IDictionary<String,TaskPropertyInfo>
+  fullName: System.Collections.Generic.IDictionary<System.String,Microsoft.Build.Framework.TaskPropertyInfo>
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    nameWithType: IDictionary
+    fullName: IDictionary<System.String,Microsoft.Build.Framework.TaskPropertyInfo>
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: String
+  - name: ','
+    nameWithType: ','
+    fullName: ','
+  - uid: Microsoft.Build.Framework.TaskPropertyInfo
+    name: TaskPropertyInfo
+    nameWithType: TaskPropertyInfo
+    fullName: TaskPropertyInfo
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+- uid: Microsoft.Build.Framework.ITaskFactory2.CreateTask*
+  parent: Microsoft.Build.Framework.ITaskFactory2
+  isExternal: false
+  name: CreateTask
+  nameWithType: ITaskFactory2.CreateTask
+- uid: Microsoft.Build.Framework.ITaskFactory2.Initialize*
+  parent: Microsoft.Build.Framework.ITaskFactory2
+  isExternal: false
+  name: Initialize
+  nameWithType: ITaskFactory2.Initialize
