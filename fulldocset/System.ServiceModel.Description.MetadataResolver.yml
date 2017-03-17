@@ -22,8 +22,8 @@ items:
   nameWithType: MetadataResolver
   fullName: System.ServiceModel.Description.MetadataResolver
   type: Class
-  summary: "Retrieves and imports metadata as <xref:System.ServiceModel.Description.ServiceEndpoint> objects."
-  remarks: "Use the MetadataResolver class to quickly import endpoints for a service from metadata. This class downloads and converts metadata into <xref:System.ServiceModel.Description.ServiceEndpoint> objects. To download metadata and process that information as a <xref:System.ServiceModel.Description.MetadataSet?displayProperty=fullName>, see <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>."
+  summary: "Pobiera i importuje metadane jako <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów.</xref:System.ServiceModel.Description.ServiceEndpoint>"
+  remarks: "Klasy MetadataResolver umożliwia szybkie importowanie punktów końcowych usługi z metadanych. Ta klasa pliki do pobrania i konwertuje metadanych do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów.</xref:System.ServiceModel.Description.ServiceEndpoint> Aby pobrać metadane i przetworzyć tych informacji <xref:System.ServiceModel.Description.MetadataSet?displayProperty=fullName>zobacz <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> </xref:System.ServiceModel.Description.MetadataSet?displayProperty=fullName>"
   example:
   - "The following code example shows the use of the MetadataResolver class to return metadata as a collection of <xref:System.ServiceModel.Description.ServiceEndpoint> objects that are then used to connect to a service instance.  \n  \n [!code-cs[MetadataResolver#1](~/add/codesnippet/csharp/metadataresolver.client/client.cs#1)]  \n  \n The following code example shows the use of the MetadataResolver to download and return metadata as a collection of <xref:System.ServiceModel.Description.ServiceEndpoint> objects using an HTTP GET request rather than WS-Transfer.  \n  \n [!code-cs[MetadataResolver#2](~/add/codesnippet/csharp/metadataresolver.client/client.cs#2)]"
   syntax:
@@ -46,34 +46,34 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Begins an asynchronous call that resolves a metadata address into the <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contracts, using the specified address and asynchronous state and delegate."
-  remarks: "The default settings on the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> are used to retrieve the metadata and the default <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName> is <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>.       To download metadata but not resolve the information into <xref:System.ServiceModel.Description.ServiceEndpoint> objects, use the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> directly.      > [!NOTE] >  An empty collection is returned if no endpoints were imported or if no endpoints matched the contract. If an empty collection is returned, a warning trace is written."
+  summary: "Rozpoczyna wywołanie asynchroniczne, który jest rozpoznawany jako adres metadanych do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla określonej umów, przy użyciu określonego adresu i stan asynchroniczne i delegata.</xref:System.ServiceModel.Description.ServiceEndpoint>"
+  remarks: "Ustawienia domyślne <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>są używane do pobierania metadanych i domyślna <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>jest <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>.</xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName> </xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName> </xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>       Pobieranie metadanych, ale nie rozpoznać informacje do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów, użyj <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>bezpośrednio.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> </xref:System.ServiceModel.Description.ServiceEndpoint>      > [!NOTE] > Pustej kolekcji jest zwracany, jeśli punkty końcowe nie zostały zaimportowane, lub jeśli punkty końcowe nie są dopasowane kontraktu. Jeśli zostanie zwrócony pustą kolekcję, Ostrzeżenie śledzenia są zapisywane."
   syntax:
     content: public static IAsyncResult BeginResolve (System.Collections.Generic.IEnumerable<System.ServiceModel.Description.ContractDescription> contracts, System.ServiceModel.EndpointAddress address, AsyncCallback callback, object asyncState);
     parameters:
     - id: contracts
       type: System.Collections.Generic.IEnumerable{System.ServiceModel.Description.ContractDescription}
-      description: "The contracts for which to download and resolve metadata."
+      description: "Kontrakty, do których chcesz pobrać i rozpoznania metadanych."
     - id: address
       type: System.ServiceModel.EndpointAddress
-      description: "The metadata address."
+      description: "Adres metadanych."
     - id: callback
       type: System.AsyncCallback
-      description: "The asynchronous callback delegate invoked when the call is complete."
+      description: "Delegat asynchroniczne wywołanie zwrotne wywoływane, gdy połączenie zostanie zakończone."
     - id: asyncState
       type: System.Object
-      description: "The state associated with the asynchronous call."
+      description: "Stan skojarzony z wywołania asynchronicznego."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous resolve operation."
+      description: "<xref:System.IAsyncResult>, Która odwołuje się operacja rozpoznawania asynchronicznego.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Description.MetadataResolver.BeginResolve*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The address, contract, or callback is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Adres, kontrakt lub wywołania zwrotnego jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>contracts</code> is empty, at least one member of <code>contracts</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, or <code>contracts</code> contains more than one contract with the same name and namespace."
+    description: "<code>contracts</code>jest pusta, co najmniej jeden element członkowski <code>contracts</code> jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, lub <code>contracts</code> zawiera więcej niż jeden kontrakt z taką samą nazwę i przestrzeń nazw."
   platform:
   - net462
 - uid: System.ServiceModel.Description.MetadataResolver.BeginResolve(System.Type,System.ServiceModel.EndpointAddress,System.AsyncCallback,System.Object)
@@ -88,31 +88,31 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Begins an asynchronous call that resolves a metadata address into the <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contract using the specified address and asynchronous state and delegate."
-  remarks: "The default settings on the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> are used to retrieve the metadata and the default <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName> is <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>.       To download metadata but not resolve the information into <xref:System.ServiceModel.Description.ServiceEndpoint> objects, use the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> directly.      > [!NOTE] >  An empty collection is returned if no endpoints were imported or if no endpoints matched the contract. If an empty collection is returned, a warning trace is written.       This method requires that you specify a contract type. You can specify the contract by declaring the service interface in the client code or by using a [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] client generated by Svcutil.exe. If the interface changes (adding a new operation, for example) you must update the interface in the client code or generate a new [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] client. If you do not, an exception is thrown. For example, you have a service that implements a service contract called ICalculator that defines Add(), Sub(), Mult(), and Div(). You create a client application and generate [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] client. You then add a method to ICalculator called Echo(). If you then write an application that calls <xref:System.ServiceModel.Description.MetadataResolver.Resolve%28System.Type%2CSystem.ServiceModel.EndpointAddress%29> without generating a new [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] client you get the following exception.       `Unhandled Exception: System.ServiceModel.Description.WsdlImporter+WsdlImportException: Cannot locate operation Echo in Contract ICalculator`."
+  summary: "Rozpoczyna wywołanie asynchroniczne, który jest rozpoznawany jako adres metadanych do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla określonego zamówienia przy użyciu określonego adresu i stan asynchronicznego a obiektem delegowanym.</xref:System.ServiceModel.Description.ServiceEndpoint>"
+  remarks: "Ustawienia domyślne <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>są używane do pobierania metadanych i domyślna <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>jest <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>.</xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName> </xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName> </xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>       Pobieranie metadanych, ale nie rozpoznać informacje do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów, użyj <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>bezpośrednio.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> </xref:System.ServiceModel.Description.ServiceEndpoint>      > [!NOTE] > Pustej kolekcji jest zwracany, jeśli punkty końcowe nie zostały zaimportowane, lub jeśli punkty końcowe nie są dopasowane kontraktu. Jeśli zostanie zwrócony pustą kolekcję, Ostrzeżenie śledzenia są zapisywane.       Ta metoda wymaga, aby określić typ kontraktu. Można określić kontrakt deklarowanie interfejsu usługi w kodzie klienta lub przy użyciu [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] generowane przez Svcutil.exe klienta. W przypadku zmiany interfejsu (Dodawanie nowej operacji, na przykład) należy zaktualizować interfejs w kodzie klienta lub wygenerować nowy [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] klienta. W przeciwnym razie jest zwracany wyjątek. Na przykład masz usługa, która implementuje kontraktu usługi o nazwie ICalculator, który definiuje Add(), Sub() Mult() i Div(). Tworzenie aplikacji klienckich i generowanie [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] klienta. Metoda jest następnie dodać do ICalculator o nazwie Echo(). Jeśli następnie napisać aplikację, która wywołuje <xref:System.ServiceModel.Description.MetadataResolver.Resolve%28System.Type%2CSystem.ServiceModel.EndpointAddress%29>bez generowania nowego [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] klienta otrzymasz następujący wyjątek.</xref:System.ServiceModel.Description.MetadataResolver.Resolve%28System.Type%2CSystem.ServiceModel.EndpointAddress%29>       `Unhandled Exception: System.ServiceModel.Description.WsdlImporter+WsdlImportException: Cannot locate operation Echo in Contract ICalculator`."
   syntax:
     content: public static IAsyncResult BeginResolve (Type contract, System.ServiceModel.EndpointAddress address, AsyncCallback callback, object asyncState);
     parameters:
     - id: contract
       type: System.Type
-      description: "The contract for which to download and resolve metadata."
+      description: "Kontrakt, do których chcesz pobrać i rozpoznania metadanych."
     - id: address
       type: System.ServiceModel.EndpointAddress
-      description: "The metadata address."
+      description: "Adres metadanych."
     - id: callback
       type: System.AsyncCallback
-      description: "The asynchronous callback delegate invoked when the call is complete."
+      description: "Delegat asynchroniczne wywołanie zwrotne wywoływane, gdy połączenie zostanie zakończone."
     - id: asyncState
       type: System.Object
-      description: "The state associated with the asynchronous call."
+      description: "Stan skojarzony z wywołania asynchronicznego."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous resolve operation."
+      description: "<xref:System.IAsyncResult>, Która odwołuje się operacja rozpoznawania asynchronicznego.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Description.MetadataResolver.BeginResolve*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The address, contract, or callback is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Adres, kontrakt lub wywołania zwrotnego jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.ServiceModel.Description.MetadataResolver.BeginResolve(System.Collections.Generic.IEnumerable{System.ServiceModel.Description.ContractDescription},System.ServiceModel.EndpointAddress,System.ServiceModel.Description.MetadataExchangeClient,System.AsyncCallback,System.Object)
@@ -127,37 +127,37 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Begins an asynchronous call that resolves a metadata address into the <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contracts, using the specified address, <xref href=&quot;System.ServiceModel.Description.MetadataExchangeClient&quot;></xref>, asynchronous state and delegate."
-  remarks: "The default <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName> is <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>.       To download metadata but not resolve the information into <xref:System.ServiceModel.Description.ServiceEndpoint> objects, use the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> directly.      > [!NOTE] >  An empty collection is returned if no endpoints were imported or if no endpoints matched the contract. If an empty collection is returned, a warning trace is written."
+  summary: "Rozpoczyna wywołanie asynchroniczne, który jest rozpoznawany jako adres metadanych do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla określonej umów, przy użyciu określonego adresu <xref href=&quot;System.ServiceModel.Description.MetadataExchangeClient&quot;> </xref>, stan asynchronicznego a obiektem delegowanym.</xref:System.ServiceModel.Description.ServiceEndpoint>"
+  remarks: "Domyślnie <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>jest <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>.</xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName> </xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>       Pobieranie metadanych, ale nie rozpoznać informacje do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów, użyj <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>bezpośrednio.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> </xref:System.ServiceModel.Description.ServiceEndpoint>      > [!NOTE] > Pustej kolekcji jest zwracany, jeśli punkty końcowe nie zostały zaimportowane, lub jeśli punkty końcowe nie są dopasowane kontraktu. Jeśli zostanie zwrócony pustą kolekcję, Ostrzeżenie śledzenia są zapisywane."
   syntax:
     content: public static IAsyncResult BeginResolve (System.Collections.Generic.IEnumerable<System.ServiceModel.Description.ContractDescription> contracts, System.ServiceModel.EndpointAddress address, System.ServiceModel.Description.MetadataExchangeClient client, AsyncCallback callback, object asyncState);
     parameters:
     - id: contracts
       type: System.Collections.Generic.IEnumerable{System.ServiceModel.Description.ContractDescription}
-      description: "The contracts for which to download and resolve metadata."
+      description: "Kontrakty, do których chcesz pobrać i rozpoznania metadanych."
     - id: address
       type: System.ServiceModel.EndpointAddress
-      description: "The metadata address."
+      description: "Adres metadanych."
     - id: client
       type: System.ServiceModel.Description.MetadataExchangeClient
-      description: "The <xref href=&quot;System.ServiceModel.Description.MetadataExchangeClient&quot;></xref> used to retrieve the metadata."
+      description: "<xref href=&quot;System.ServiceModel.Description.MetadataExchangeClient&quot;> </xref> Używane do pobierania metadanych."
     - id: callback
       type: System.AsyncCallback
-      description: "The asynchronous callback delegate invoked when the call is complete."
+      description: "Delegat asynchroniczne wywołanie zwrotne wywoływane, gdy połączenie zostanie zakończone."
     - id: asyncState
       type: System.Object
-      description: "The state associated with the asynchronous call."
+      description: "Stan skojarzony z wywołania asynchronicznego."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous resolve operation."
+      description: "<xref:System.IAsyncResult>, Która odwołuje się operacja rozpoznawania asynchronicznego.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Description.MetadataResolver.BeginResolve*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The address, contract, client, or callback is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Adres, kontrakt, klienta lub wywołania zwrotnego jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>contracts</code> is empty, at least one member of <code>contracts</code> is null, or <code>contracts</code> contains more than one contract with the same name and namespace."
+    description: "<code>contracts</code>jest pusta, co najmniej jeden element członkowski <code>contracts</code> ma wartość null, lub <code>contracts</code> zawiera więcej niż jeden kontrakt z taką samą nazwę i przestrzeń nazw."
   platform:
   - net462
 - uid: System.ServiceModel.Description.MetadataResolver.BeginResolve(System.Collections.Generic.IEnumerable{System.ServiceModel.Description.ContractDescription},System.Uri,System.ServiceModel.Description.MetadataExchangeClientMode,System.AsyncCallback,System.Object)
@@ -172,37 +172,37 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Begins an asynchronous call that resolves a metadata address into the <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contracts, using the specified address, <xref href=&quot;System.ServiceModel.Description.MetadataExchangeClientMode&quot;></xref> value, asynchronous state and delegate."
-  remarks: "The default settings on the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> are used to retrieve the metadata.       To download metadata but not resolve the information into <xref:System.ServiceModel.Description.ServiceEndpoint> objects, use the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> directly.      > [!NOTE] >  An empty collection is returned if no endpoints were imported or if no endpoints matched the contract. If an empty collection is returned, a warning trace is written."
+  summary: "Rozpoczyna wywołanie asynchroniczne, który jest rozpoznawany jako adres metadanych do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla określonej umów, przy użyciu określonego adresu <xref href=&quot;System.ServiceModel.Description.MetadataExchangeClientMode&quot;> </xref> wartości, stan asynchronicznego a obiektem delegowanym.</xref:System.ServiceModel.Description.ServiceEndpoint>"
+  remarks: "Ustawienia domyślne <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>są używane do pobierania metadanych.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>       Pobieranie metadanych, ale nie rozpoznać informacje do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów, użyj <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>bezpośrednio.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> </xref:System.ServiceModel.Description.ServiceEndpoint>      > [!NOTE] > Pustej kolekcji jest zwracany, jeśli punkty końcowe nie zostały zaimportowane, lub jeśli punkty końcowe nie są dopasowane kontraktu. Jeśli zostanie zwrócony pustą kolekcję, Ostrzeżenie śledzenia są zapisywane."
   syntax:
     content: public static IAsyncResult BeginResolve (System.Collections.Generic.IEnumerable<System.ServiceModel.Description.ContractDescription> contracts, Uri address, System.ServiceModel.Description.MetadataExchangeClientMode mode, AsyncCallback callback, object asyncState);
     parameters:
     - id: contracts
       type: System.Collections.Generic.IEnumerable{System.ServiceModel.Description.ContractDescription}
-      description: "The contracts for which to download and resolve metadata."
+      description: "Kontrakty, do których chcesz pobrać i rozpoznania metadanych."
     - id: address
       type: System.Uri
-      description: "The metadata address."
+      description: "Adres metadanych."
     - id: mode
       type: System.ServiceModel.Description.MetadataExchangeClientMode
-      description: "The mode of retrieval."
+      description: "Tryb pobierania."
     - id: callback
       type: System.AsyncCallback
-      description: "The asynchronous callback delegate invoked when the call is complete."
+      description: "Delegat asynchroniczne wywołanie zwrotne wywoływane, gdy połączenie zostanie zakończone."
     - id: asyncState
       type: System.Object
-      description: "The state associated with the asynchronous call."
+      description: "Stan skojarzony z wywołania asynchronicznego."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous resolve operation."
+      description: "<xref:System.IAsyncResult>, Która odwołuje się operacja rozpoznawania asynchronicznego.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Description.MetadataResolver.BeginResolve*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The address, contract, or callback is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Adres, kontrakt lub wywołania zwrotnego jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>contracts</code> is empty, at least one member of <code>contracts</code> is null, or <code>contracts</code> contains more than one contract with the same name and namespace."
+    description: "<code>contracts</code>jest pusta, co najmniej jeden element członkowski <code>contracts</code> ma wartość null, lub <code>contracts</code> zawiera więcej niż jeden kontrakt z taką samą nazwę i przestrzeń nazw."
   platform:
   - net462
 - uid: System.ServiceModel.Description.MetadataResolver.BeginResolve(System.Type,System.Uri,System.ServiceModel.Description.MetadataExchangeClientMode,System.AsyncCallback,System.Object)
@@ -217,34 +217,34 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Begins an asynchronous call that resolves a metadata address into the <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contract, using the specified address, <xref href=&quot;System.ServiceModel.Description.MetadataExchangeClientMode&quot;></xref>, asynchronous state and delegate."
-  remarks: "The default settings on the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> are used to retrieve the metadata.       To download metadata but not resolve the information into <xref:System.ServiceModel.Description.ServiceEndpoint> objects, use the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> directly.      > [!NOTE] >  An empty collection is returned if no endpoints were imported or if no endpoints matched the contract. If an empty collection is returned, a warning trace is written."
+  summary: "Rozpoczyna wywołanie asynchroniczne, który jest rozpoznawany jako adres metadanych do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla określonego kontraktu, przy użyciu określonego adresu <xref href=&quot;System.ServiceModel.Description.MetadataExchangeClientMode&quot;> </xref>, stan asynchronicznego a obiektem delegowanym.</xref:System.ServiceModel.Description.ServiceEndpoint>"
+  remarks: "Ustawienia domyślne <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>są używane do pobierania metadanych.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>       Pobieranie metadanych, ale nie rozpoznać informacje do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów, użyj <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>bezpośrednio.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> </xref:System.ServiceModel.Description.ServiceEndpoint>      > [!NOTE] > Pustej kolekcji jest zwracany, jeśli punkty końcowe nie zostały zaimportowane, lub jeśli punkty końcowe nie są dopasowane kontraktu. Jeśli zostanie zwrócony pustą kolekcję, Ostrzeżenie śledzenia są zapisywane."
   syntax:
     content: public static IAsyncResult BeginResolve (Type contract, Uri address, System.ServiceModel.Description.MetadataExchangeClientMode mode, AsyncCallback callback, object asyncState);
     parameters:
     - id: contract
       type: System.Type
-      description: "The contract for which to download and resolve metadata."
+      description: "Kontrakt, do których chcesz pobrać i rozpoznania metadanych."
     - id: address
       type: System.Uri
-      description: "The metadata address."
+      description: "Adres metadanych."
     - id: mode
       type: System.ServiceModel.Description.MetadataExchangeClientMode
-      description: "The mode of retrieval."
+      description: "Tryb pobierania."
     - id: callback
       type: System.AsyncCallback
-      description: "The asynchronous callback delegate invoked when the call is complete."
+      description: "Delegat asynchroniczne wywołanie zwrotne wywoływane, gdy połączenie zostanie zakończone."
     - id: asyncState
       type: System.Object
-      description: "The state associated with the asynchronous call."
+      description: "Stan skojarzony z wywołania asynchronicznego."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous resolve operation."
+      description: "<xref:System.IAsyncResult>, Która odwołuje się operacja rozpoznawania asynchronicznego.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Description.MetadataResolver.BeginResolve*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The address, contract, or callback is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Adres, kontrakt lub wywołania zwrotnego jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.ServiceModel.Description.MetadataResolver.BeginResolve(System.Collections.Generic.IEnumerable{System.ServiceModel.Description.ContractDescription},System.Uri,System.ServiceModel.Description.MetadataExchangeClientMode,System.ServiceModel.Description.MetadataExchangeClient,System.AsyncCallback,System.Object)
@@ -259,40 +259,40 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Begins an asynchronous call that resolves a metadata address into the <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contracts, using the specified address, <xref href=&quot;System.ServiceModel.Description.MetadataExchangeClient&quot;></xref>, <xref href=&quot;System.ServiceModel.Description.MetadataExchangeClientMode&quot;></xref>, asynchronous state, and delegate."
-  remarks: "To download metadata but not resolve the information into <xref:System.ServiceModel.Description.ServiceEndpoint> objects, use the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> directly.      > [!NOTE] >  An empty collection is returned if no endpoints were imported or if no endpoints matched the contract. If an empty collection is returned, a warning trace is written."
+  summary: "Rozpoczyna wywołanie asynchroniczne, który jest rozpoznawany jako adres metadanych do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla określonej umów, przy użyciu określonego adresu <xref href=&quot;System.ServiceModel.Description.MetadataExchangeClient&quot;> </xref>, <xref href=&quot;System.ServiceModel.Description.MetadataExchangeClientMode&quot;> </xref>, stan asynchroniczne, a obiektem delegowanym.</xref:System.ServiceModel.Description.ServiceEndpoint>"
+  remarks: "Pobieranie metadanych, ale nie rozpoznać informacje do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów, użyj <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>bezpośrednio.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> </xref:System.ServiceModel.Description.ServiceEndpoint>      > [!NOTE] > Pustej kolekcji jest zwracany, jeśli punkty końcowe nie zostały zaimportowane, lub jeśli punkty końcowe nie są dopasowane kontraktu. Jeśli zostanie zwrócony pustą kolekcję, Ostrzeżenie śledzenia są zapisywane."
   syntax:
     content: public static IAsyncResult BeginResolve (System.Collections.Generic.IEnumerable<System.ServiceModel.Description.ContractDescription> contracts, Uri address, System.ServiceModel.Description.MetadataExchangeClientMode mode, System.ServiceModel.Description.MetadataExchangeClient client, AsyncCallback callback, object asyncState);
     parameters:
     - id: contracts
       type: System.Collections.Generic.IEnumerable{System.ServiceModel.Description.ContractDescription}
-      description: "The contracts for which to download and resolve metadata."
+      description: "Kontrakty, do których chcesz pobrać i rozpoznania metadanych."
     - id: address
       type: System.Uri
-      description: "The metadata address."
+      description: "Adres metadanych."
     - id: mode
       type: System.ServiceModel.Description.MetadataExchangeClientMode
-      description: "The mode of retrieval."
+      description: "Tryb pobierania."
     - id: client
       type: System.ServiceModel.Description.MetadataExchangeClient
-      description: "The <xref href=&quot;System.ServiceModel.Description.MetadataExchangeClient&quot;></xref> used to retrieve the metadata."
+      description: "<xref href=&quot;System.ServiceModel.Description.MetadataExchangeClient&quot;> </xref> Używane do pobierania metadanych."
     - id: callback
       type: System.AsyncCallback
-      description: "The asynchronous callback delegate invoked when the call is complete."
+      description: "Delegat asynchroniczne wywołanie zwrotne wywoływane, gdy połączenie zostanie zakończone."
     - id: asyncState
       type: System.Object
-      description: "The state associated with the asynchronous call."
+      description: "Stan skojarzony z wywołania asynchronicznego."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous resolve operation."
+      description: "<xref:System.IAsyncResult>, Która odwołuje się operacja rozpoznawania asynchronicznego.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Description.MetadataResolver.BeginResolve*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The address, contract, or callback is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Adres, kontrakt lub wywołania zwrotnego jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>contracts</code> is empty, at least one member of <code>contracts</code> is null, or <code>contracts</code> contains more than one contract with the same name and namespace."
+    description: "<code>contracts</code>jest pusta, co najmniej jeden element członkowski <code>contracts</code> ma wartość null, lub <code>contracts</code> zawiera więcej niż jeden kontrakt z taką samą nazwę i przestrzeń nazw."
   platform:
   - net462
 - uid: System.ServiceModel.Description.MetadataResolver.EndResolve(System.IAsyncResult)
@@ -307,17 +307,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Completes an asynchronous call to resolve metadata into a collection of endpoints."
-  remarks: "Ends an asynchronous call to one of the <xref:System.ServiceModel.Description.MetadataResolver.BeginResolve%2A> methods."
+  summary: "Kończy wywołanie asynchroniczne do rozpoznania metadanych do kolekcji punktów końcowych."
+  remarks: "Kończy wywołanie asynchroniczne do jednego z <xref:System.ServiceModel.Description.MetadataResolver.BeginResolve%2A>metody.</xref:System.ServiceModel.Description.MetadataResolver.BeginResolve%2A>"
   syntax:
     content: public static System.ServiceModel.Description.ServiceEndpointCollection EndResolve (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> object that was received from a call to the <xref:System.ServiceModel.Description.MetadataResolver.BeginResolve*> method."
+      description: "<xref:System.IAsyncResult>Obiekt, który został odebrany po wywołaniu <xref:System.ServiceModel.Description.MetadataResolver.BeginResolve*>metody.</xref:System.ServiceModel.Description.MetadataResolver.BeginResolve*> </xref:System.IAsyncResult>"
     return:
       type: System.ServiceModel.Description.ServiceEndpointCollection
-      description: "A collection of <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the endpoints contained in the metadata."
+      description: "Kolekcja <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla punktów końcowych zawarte w metadanych.</xref:System.ServiceModel.Description.ServiceEndpoint>"
   overload: System.ServiceModel.Description.MetadataResolver.EndResolve*
   exceptions: []
   platform:
@@ -334,28 +334,28 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Resolves a metadata address into the <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contracts using the specified metadata address."
-  remarks: "The default settings on the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> are used to retrieve the metadata and the default <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName> is <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>.       To download metadata but not resolve the information into <xref:System.ServiceModel.Description.ServiceEndpoint> objects, use the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> directly.      > [!NOTE] >  An empty collection is returned if no endpoints were imported or if no endpoints matched the contract. If an empty collection is returned, a warning trace is written."
+  summary: "Rozpoznaje adres metadanych do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla określonej umów przy użyciu adresu określonych metadanych.</xref:System.ServiceModel.Description.ServiceEndpoint>"
+  remarks: "Ustawienia domyślne <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>są używane do pobierania metadanych i domyślna <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>jest <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>.</xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName> </xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName> </xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>       Pobieranie metadanych, ale nie rozpoznać informacje do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów, użyj <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>bezpośrednio.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> </xref:System.ServiceModel.Description.ServiceEndpoint>      > [!NOTE] > Pustej kolekcji jest zwracany, jeśli punkty końcowe nie zostały zaimportowane, lub jeśli punkty końcowe nie są dopasowane kontraktu. Jeśli zostanie zwrócony pustą kolekcję, Ostrzeżenie śledzenia są zapisywane."
   syntax:
     content: public static System.ServiceModel.Description.ServiceEndpointCollection Resolve (System.Collections.Generic.IEnumerable<System.ServiceModel.Description.ContractDescription> contracts, System.ServiceModel.EndpointAddress address);
     parameters:
     - id: contracts
       type: System.Collections.Generic.IEnumerable{System.ServiceModel.Description.ContractDescription}
-      description: "The contracts for which to download and resolve metadata."
+      description: "Kontrakty, do których chcesz pobrać i rozpoznania metadanych."
     - id: address
       type: System.ServiceModel.EndpointAddress
-      description: "The metadata address."
+      description: "Adres metadanych."
     return:
       type: System.ServiceModel.Description.ServiceEndpointCollection
-      description: "A collection of <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contract."
+      description: "Kolekcja <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla określonego kontraktu.</xref:System.ServiceModel.Description.ServiceEndpoint>"
   overload: System.ServiceModel.Description.MetadataResolver.Resolve*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The address or contracts collection is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Kolekcja adres lub kontraktów jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>contracts</code> is empty, at least one member of <code>contracts</code> is null, or <code>contracts</code> contains more than one contract with the same name and namespace."
+    description: "<code>contracts</code>jest pusta, co najmniej jeden element członkowski <code>contracts</code> ma wartość null, lub <code>contracts</code> zawiera więcej niż jeden kontrakt z taką samą nazwę i przestrzeń nazw."
   platform:
   - net462
 - uid: System.ServiceModel.Description.MetadataResolver.Resolve(System.Type,System.ServiceModel.EndpointAddress)
@@ -370,8 +370,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Downloads and resolves a metadata address into a collection of <xref:System.ServiceModel.Description.ServiceEndpoint> objects for a specified contract at a specified address."
-  remarks: "Use the Resolve method to specify the contract and the metadata address to use when downloading and resolving metadata.       The default settings on the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> are used to retrieve the metadata and the default <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName> is <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>.       To download metadata but not resolve the information into <xref:System.ServiceModel.Description.ServiceEndpoint> objects, use the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> directly.      > [!NOTE] >  An empty collection is returned if no endpoints were imported or if no endpoints matched the contract. If an empty collection is returned, a warning trace is written.       This method requires that you specify a contract type. You can specify the contract by declaring the service interface in the client code or by using a [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] client generated by Svcutil.exe. If the interface changes (adding a new operation, for example) you must update the interface in the client code or generate a new [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] client. If you do not, an exception is thrown. For example, you have a service that implements a service contract called ICalculator that defines Add(), Sub(), Mult(), and Div(). You create a client application and generate [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] client. You then add a method to ICalculator called Echo(). If you then write an application that calls Resolve without generating a new [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] client you get the following exception.       `Unhandled Exception: System.ServiceModel.Description.WsdlImporter+WsdlImportException: Cannot locate operation Echo in Contract ICalculator`."
+  summary: "Pobiera i rozpoznaje adres metadanych w kolekcji <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla określonego kontraktu pod określonym adresem.</xref:System.ServiceModel.Description.ServiceEndpoint>"
+  remarks: "Metoda rozwiązanie umożliwia określenie, kontrakt i adres metadanych do użycia podczas pobierania i rozpoznawania metadanych.       Ustawienia domyślne <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>są używane do pobierania metadanych i domyślna <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>jest <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>.</xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName> </xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName> </xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>       Pobieranie metadanych, ale nie rozpoznać informacje do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów, użyj <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>bezpośrednio.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> </xref:System.ServiceModel.Description.ServiceEndpoint>      > [!NOTE] > Pustej kolekcji jest zwracany, jeśli punkty końcowe nie zostały zaimportowane, lub jeśli punkty końcowe nie są dopasowane kontraktu. Jeśli zostanie zwrócony pustą kolekcję, Ostrzeżenie śledzenia są zapisywane.       Ta metoda wymaga, aby określić typ kontraktu. Można określić kontrakt deklarowanie interfejsu usługi w kodzie klienta lub przy użyciu [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] generowane przez Svcutil.exe klienta. W przypadku zmiany interfejsu (Dodawanie nowej operacji, na przykład) należy zaktualizować interfejs w kodzie klienta lub wygenerować nowy [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] klienta. W przeciwnym razie jest zwracany wyjątek. Na przykład masz usługa, która implementuje kontraktu usługi o nazwie ICalculator, który definiuje Add(), Sub() Mult() i Div(). Tworzenie aplikacji klienckich i generowanie [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] klienta. Metoda jest następnie dodać do ICalculator o nazwie Echo(). Jeśli następnie pisania aplikacji czy wywołania rozwiązać bez generowania nowego [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] klienta otrzymasz następujący wyjątek.       `Unhandled Exception: System.ServiceModel.Description.WsdlImporter+WsdlImportException: Cannot locate operation Echo in Contract ICalculator`."
   example:
   - "The following code example shows the use of the <xref:System.ServiceModel.Description.MetadataResolver> class to return metadata as a collection of <xref:System.ServiceModel.Description.ServiceEndpoint> objects that are then used to connect to a service instance.  \n  \n [!code-cs[MetadataResolver#1](~/add/codesnippet/csharp/metadataresolver.client/client.cs#1)]"
   syntax:
@@ -379,18 +379,18 @@ items:
     parameters:
     - id: contract
       type: System.Type
-      description: "The contracts for which to download and resolve metadata."
+      description: "Kontrakty, do których chcesz pobrać i rozpoznania metadanych."
     - id: address
       type: System.ServiceModel.EndpointAddress
-      description: "The metadata address."
+      description: "Adres metadanych."
     return:
       type: System.ServiceModel.Description.ServiceEndpointCollection
-      description: "A collection of <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contract."
+      description: "Kolekcja <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla określonego kontraktu.</xref:System.ServiceModel.Description.ServiceEndpoint>"
   overload: System.ServiceModel.Description.MetadataResolver.Resolve*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The address or the contract is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Jest to adres lub kontrakt <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.ServiceModel.Description.MetadataResolver.Resolve(System.Collections.Generic.IEnumerable{System.ServiceModel.Description.ContractDescription},System.ServiceModel.EndpointAddress,System.ServiceModel.Description.MetadataExchangeClient)
@@ -405,31 +405,31 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Resolves a metadata address into the <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contracts using the specified metadata address and <xref href=&quot;System.ServiceModel.Description.MetadataExchangeClient&quot;></xref>."
-  remarks: "The default <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName> is <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>.       To download metadata but not resolve the information into <xref:System.ServiceModel.Description.ServiceEndpoint> objects, use the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> directly.      > [!NOTE] >  An empty collection is returned if no endpoints were imported or if no endpoints matched the contract. If an empty collection is returned, a warning trace is written."
+  summary: "Rozpoznaje adres metadanych do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla określonej umów przy użyciu adresu określonych metadanych i <xref href=&quot;System.ServiceModel.Description.MetadataExchangeClient&quot;> </xref>.</xref:System.ServiceModel.Description.ServiceEndpoint>"
+  remarks: "Domyślnie <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>jest <xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>.</xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName> </xref:System.ServiceModel.Description.MetadataExchangeClientMode?displayProperty=fullName>       Pobieranie metadanych, ale nie rozpoznać informacje do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów, użyj <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>bezpośrednio.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> </xref:System.ServiceModel.Description.ServiceEndpoint>      > [!NOTE] > Pustej kolekcji jest zwracany, jeśli punkty końcowe nie zostały zaimportowane, lub jeśli punkty końcowe nie są dopasowane kontraktu. Jeśli zostanie zwrócony pustą kolekcję, Ostrzeżenie śledzenia są zapisywane."
   syntax:
     content: public static System.ServiceModel.Description.ServiceEndpointCollection Resolve (System.Collections.Generic.IEnumerable<System.ServiceModel.Description.ContractDescription> contracts, System.ServiceModel.EndpointAddress address, System.ServiceModel.Description.MetadataExchangeClient client);
     parameters:
     - id: contracts
       type: System.Collections.Generic.IEnumerable{System.ServiceModel.Description.ContractDescription}
-      description: "The contracts for which to download and resolve metadata."
+      description: "Kontrakty, do których chcesz pobrać i rozpoznania metadanych."
     - id: address
       type: System.ServiceModel.EndpointAddress
-      description: "The metadata address."
+      description: "Adres metadanych."
     - id: client
       type: System.ServiceModel.Description.MetadataExchangeClient
-      description: "The <xref href=&quot;System.ServiceModel.Description.MetadataExchangeClient&quot;></xref> used to retrieve the metadata."
+      description: "<xref href=&quot;System.ServiceModel.Description.MetadataExchangeClient&quot;> </xref> Używane do pobierania metadanych."
     return:
       type: System.ServiceModel.Description.ServiceEndpointCollection
-      description: "A collection of <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contract."
+      description: "Kolekcja <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla określonego kontraktu.</xref:System.ServiceModel.Description.ServiceEndpoint>"
   overload: System.ServiceModel.Description.MetadataResolver.Resolve*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The address, contracts collection, or client is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Adres, umów kolekcji lub klient jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>contracts</code> is empty, at least one member of <code>contracts</code> is null, or <code>contracts</code> contains more than one contract with the same name and namespace."
+    description: "<code>contracts</code>jest pusta, co najmniej jeden element członkowski <code>contracts</code> ma wartość null, lub <code>contracts</code> zawiera więcej niż jeden kontrakt z taką samą nazwę i przestrzeń nazw."
   platform:
   - net462
 - uid: System.ServiceModel.Description.MetadataResolver.Resolve(System.Collections.Generic.IEnumerable{System.ServiceModel.Description.ContractDescription},System.Uri,System.ServiceModel.Description.MetadataExchangeClientMode)
@@ -444,31 +444,31 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Resolves a metadata address into the <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contracts using the specified address and transfer mode."
-  remarks: "The default settings on the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> are used to retrieve the metadata.       To download metadata but not resolve the information into <xref:System.ServiceModel.Description.ServiceEndpoint> objects, use the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> directly.      > [!NOTE] >  An empty collection is returned if no endpoints were imported or if no endpoints matched the contract. If an empty collection is returned, a warning trace is written."
+  summary: "Rozpoznaje adres metadanych do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla kontraktów określony przy użyciu określonego trybu adres i transfer.</xref:System.ServiceModel.Description.ServiceEndpoint>"
+  remarks: "Ustawienia domyślne <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>są używane do pobierania metadanych.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>       Pobieranie metadanych, ale nie rozpoznać informacje do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów, użyj <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>bezpośrednio.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> </xref:System.ServiceModel.Description.ServiceEndpoint>      > [!NOTE] > Pustej kolekcji jest zwracany, jeśli punkty końcowe nie zostały zaimportowane, lub jeśli punkty końcowe nie są dopasowane kontraktu. Jeśli zostanie zwrócony pustą kolekcję, Ostrzeżenie śledzenia są zapisywane."
   syntax:
     content: public static System.ServiceModel.Description.ServiceEndpointCollection Resolve (System.Collections.Generic.IEnumerable<System.ServiceModel.Description.ContractDescription> contracts, Uri address, System.ServiceModel.Description.MetadataExchangeClientMode mode);
     parameters:
     - id: contracts
       type: System.Collections.Generic.IEnumerable{System.ServiceModel.Description.ContractDescription}
-      description: "The contracts for which to download and resolve metadata."
+      description: "Kontrakty, do których chcesz pobrać i rozpoznania metadanych."
     - id: address
       type: System.Uri
-      description: "The metadata address."
+      description: "Adres metadanych."
     - id: mode
       type: System.ServiceModel.Description.MetadataExchangeClientMode
-      description: "The mode of retrieval."
+      description: "Tryb pobierania."
     return:
       type: System.ServiceModel.Description.ServiceEndpointCollection
-      description: "A collection of <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contract."
+      description: "Kolekcja <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla określonego kontraktu.</xref:System.ServiceModel.Description.ServiceEndpoint>"
   overload: System.ServiceModel.Description.MetadataResolver.Resolve*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The address or contracts collection is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Kolekcja adres lub kontraktów jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>contracts</code> is empty, at least one member of <code>contracts</code> is null, or <code>contracts</code> contains more than one contract with the same name and namespace."
+    description: "<code>contracts</code>jest pusta, co najmniej jeden element członkowski <code>contracts</code> ma wartość null, lub <code>contracts</code> zawiera więcej niż jeden kontrakt z taką samą nazwę i przestrzeń nazw."
   platform:
   - net462
 - uid: System.ServiceModel.Description.MetadataResolver.Resolve(System.Type,System.Uri,System.ServiceModel.Description.MetadataExchangeClientMode)
@@ -483,8 +483,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Resolves a metadata address into the <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contract using the specified address and transfer mode."
-  remarks: "Use the Resolve method to specify a contract, and address, and the download mechanism to use.       The default settings on the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> are used to retrieve the metadata.       To download metadata but not resolve the information into <xref:System.ServiceModel.Description.ServiceEndpoint> objects, use the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> directly.      > [!NOTE] >  An empty collection is returned if no endpoints were imported or if no endpoints matched the contract. If an empty collection is returned, a warning trace is written."
+  summary: "Rozpoznaje adres metadanych do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów kontraktu określony przy użyciu określonego trybu adres i transfer.</xref:System.ServiceModel.Description.ServiceEndpoint>"
+  remarks: "Metoda rozwiązanie umożliwia określenie kontraktu i adres oraz mechanizmu pobierania do użycia.       Ustawienia domyślne <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>są używane do pobierania metadanych.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>       Pobieranie metadanych, ale nie rozpoznać informacje do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów, użyj <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>bezpośrednio.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> </xref:System.ServiceModel.Description.ServiceEndpoint>      > [!NOTE] > Pustej kolekcji jest zwracany, jeśli punkty końcowe nie zostały zaimportowane, lub jeśli punkty końcowe nie są dopasowane kontraktu. Jeśli zostanie zwrócony pustą kolekcję, Ostrzeżenie śledzenia są zapisywane."
   example:
   - "The following code example shows the use of the <xref:System.ServiceModel.Description.MetadataResolver> to download and return metadata as a collection of <xref:System.ServiceModel.Description.ServiceEndpoint> objects using an HTTP GET request rather than WS-Transfer.  \n  \n [!code-cs[MetadataResolver#2](~/add/codesnippet/csharp/metadataresolver.client/client.cs#2)]"
   syntax:
@@ -492,21 +492,21 @@ items:
     parameters:
     - id: contract
       type: System.Type
-      description: "The contract for which to download and resolve metadata."
+      description: "Kontrakt, do których chcesz pobrać i rozpoznania metadanych."
     - id: address
       type: System.Uri
-      description: "The metadata address."
+      description: "Adres metadanych."
     - id: mode
       type: System.ServiceModel.Description.MetadataExchangeClientMode
-      description: "The mode of retrieval."
+      description: "Tryb pobierania."
     return:
       type: System.ServiceModel.Description.ServiceEndpointCollection
-      description: "A collection of <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contract."
+      description: "Kolekcja <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla określonego kontraktu.</xref:System.ServiceModel.Description.ServiceEndpoint>"
   overload: System.ServiceModel.Description.MetadataResolver.Resolve*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The address or contract is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Adres lub kontrakt jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.ServiceModel.Description.MetadataResolver.Resolve(System.Collections.Generic.IEnumerable{System.ServiceModel.Description.ContractDescription},System.Uri,System.ServiceModel.Description.MetadataExchangeClientMode,System.ServiceModel.Description.MetadataExchangeClient)
@@ -521,34 +521,34 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Resolves a metadata address into the <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contracts using the specified address, transfer mode, and transfer client."
-  remarks: "To download metadata but not resolve the information into <xref:System.ServiceModel.Description.ServiceEndpoint> objects, use the <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> directly.      > [!NOTE] >  An empty collection is returned if no endpoints were imported or if no endpoints matched the contract. If an empty collection is returned, a warning trace is written."
+  summary: "Rozpoznaje adres metadanych do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla określonej umów przy użyciu określonego adresu, tryb transferu i klient transferu.</xref:System.ServiceModel.Description.ServiceEndpoint>"
+  remarks: "Pobieranie metadanych, ale nie rozpoznać informacje do <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów, użyj <xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName>bezpośrednio.</xref:System.ServiceModel.Description.MetadataExchangeClient?displayProperty=fullName> </xref:System.ServiceModel.Description.ServiceEndpoint>      > [!NOTE] > Pustej kolekcji jest zwracany, jeśli punkty końcowe nie zostały zaimportowane, lub jeśli punkty końcowe nie są dopasowane kontraktu. Jeśli zostanie zwrócony pustą kolekcję, Ostrzeżenie śledzenia są zapisywane."
   syntax:
     content: public static System.ServiceModel.Description.ServiceEndpointCollection Resolve (System.Collections.Generic.IEnumerable<System.ServiceModel.Description.ContractDescription> contracts, Uri address, System.ServiceModel.Description.MetadataExchangeClientMode mode, System.ServiceModel.Description.MetadataExchangeClient client);
     parameters:
     - id: contracts
       type: System.Collections.Generic.IEnumerable{System.ServiceModel.Description.ContractDescription}
-      description: "The contracts for which to download and resolve metadata."
+      description: "Kontrakty, do których chcesz pobrać i rozpoznania metadanych."
     - id: address
       type: System.Uri
-      description: "The metadata address."
+      description: "Adres metadanych."
     - id: mode
       type: System.ServiceModel.Description.MetadataExchangeClientMode
-      description: "The mode of retrieval."
+      description: "Tryb pobierania."
     - id: client
       type: System.ServiceModel.Description.MetadataExchangeClient
-      description: "The <xref href=&quot;System.ServiceModel.Description.MetadataExchangeClient&quot;></xref> used to retrieve the metadata."
+      description: "<xref href=&quot;System.ServiceModel.Description.MetadataExchangeClient&quot;> </xref> Używane do pobierania metadanych."
     return:
       type: System.ServiceModel.Description.ServiceEndpointCollection
-      description: "A collection of <xref:System.ServiceModel.Description.ServiceEndpoint> objects for the specified contract."
+      description: "Kolekcja <xref:System.ServiceModel.Description.ServiceEndpoint>obiektów dla określonego kontraktu.</xref:System.ServiceModel.Description.ServiceEndpoint>"
   overload: System.ServiceModel.Description.MetadataResolver.Resolve*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The address, contracts collection, or client is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Adres, umów kolekcji lub klient jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>contracts</code> is empty, at least one member of <code>contracts</code> is null, or <code>contracts</code> contains more than one contract with the same name and namespace."
+    description: "<code>contracts</code>jest pusta, co najmniej jeden element członkowski <code>contracts</code> ma wartość null, lub <code>contracts</code> zawiera więcej niż jeden kontrakt z taką samą nazwę i przestrzeń nazw."
   platform:
   - net462
 references:

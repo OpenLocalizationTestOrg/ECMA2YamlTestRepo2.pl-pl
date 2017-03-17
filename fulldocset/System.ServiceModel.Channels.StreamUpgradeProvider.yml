@@ -16,8 +16,8 @@ items:
   nameWithType: StreamUpgradeProvider
   fullName: System.ServiceModel.Channels.StreamUpgradeProvider
   type: Class
-  summary: "Implements a custom upgrade provider, inherited from this <xref uid=&quot;langword_csharp_abstract&quot; name=&quot;abstract&quot; href=&quot;&quot;></xref> base class."
-  remarks: "An example of a stream upgrade is to build a compression stream directly on top of the transport stream. To add a security upgrade, you additionally implement a class that derives from <xref:System.ServiceModel.Channels.StreamSecurityUpgradeProvider>. You can implement multiple upgrades, each wrapping the preceding one.       The upgrade process has the following steps:      1.  Implement a class that derives from StreamUpgradeProvider.      2.  Register it. You do this by creating a binding element for it, and registering the provider in a custom binding.      3.  The derived class that you implement creates an instance of <xref:System.ServiceModel.Channels.StreamUpgradeInitiator>, which at run time initiates a request to the other end of its connection to upgrade the channel transport layer.      4.  The derived class that you implement creates an instance of <xref:System.ServiceModel.Channels.StreamUpgradeAcceptor>, which at run time receives the upgrade request from the preceding step and, if possible, accepts the upgrade and returns the upgraded stream to the other side of its connection.      5.  If there are additional upgrade requests, they are processed sequentially, as described in the preceding two steps."
+  summary: "Implementuje niestandardowego dostawcy uaktualnienia, to odziedziczone <xref uid=&quot;langword_csharp_abstract&quot; name=&quot;abstract&quot; href=&quot;&quot;> </xref> klasy podstawowej."
+  remarks: "Przykład uaktualnienia strumienia to tworzenie skompresowanego strumienia bezpośrednio na strumienia transportowego. Aby dodać uaktualnienie zabezpieczeń, dodatkowo implementuje klasy, która jest pochodną <xref:System.ServiceModel.Channels.StreamSecurityUpgradeProvider>.</xref:System.ServiceModel.Channels.StreamSecurityUpgradeProvider> Można zaimplementować kilku uaktualnień każdego zawijania mieszanego.       Proces uaktualniania zawiera następujące kroki: 1.  Implementuje klasę, która jest pochodną obiekt StreamUpgradeProvider.      2.  Zarejestruj go. W tym celu tworzenia elementu powiązania i rejestrowanie dostawcy do niestandardowego powiązania.      3.  Klasa pochodna, która zaimplementowaniem tworzy wystąpienie <xref:System.ServiceModel.Channels.StreamUpgradeInitiator>, który w czasie wykonywania inicjuje żądanie na końcu połączenie do uaktualnienia kanału warstwy transportowej.</xref:System.ServiceModel.Channels.StreamUpgradeInitiator>      4.  Klasa pochodna, która zaimplementowaniem tworzy wystąpienie <xref:System.ServiceModel.Channels.StreamUpgradeAcceptor>, który w czasie wykonywania odbiera żądanie uaktualnienia z poprzedniego kroku, jeśli to możliwe, akceptuje uaktualnienia i zwraca strumień uaktualnionego drugą stronę połączenia.</xref:System.ServiceModel.Channels.StreamUpgradeAcceptor>      5.  Jeśli istnieją dodatkowe żądania uaktualnienia, są przetwarzane sekwencyjnie, zgodnie z opisem w dwa poprzednie kroki."
   syntax:
     content: 'public abstract class StreamUpgradeProvider : System.ServiceModel.Channels.CommunicationObject'
   inheritance:
@@ -38,8 +38,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Channels.StreamUpgradeProvider&quot;></xref> class."
-  remarks: "Time-out properties are set to `null`."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.ServiceModel.Channels.StreamUpgradeProvider&quot;> </xref> klasy."
+  remarks: "Limit czasu właściwości są ustawione na `null`."
   syntax:
     content: protected StreamUpgradeProvider ();
     parameters: []
@@ -59,14 +59,14 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Channels.StreamUpgradeProvider&quot;></xref> class."
-  remarks: "The provided time-outs control the default Open and Close time-outs for a transport using this upgrade provider."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.ServiceModel.Channels.StreamUpgradeProvider&quot;> </xref> klasy."
+  remarks: "Podana limity czasu kontroli domyślnie otwierających i zamykających limitów czasu dla transportu przy użyciu tego dostawcy uaktualnienia."
   syntax:
     content: protected StreamUpgradeProvider (System.ServiceModel.IDefaultCommunicationTimeouts timeouts);
     parameters:
     - id: timeouts
       type: System.ServiceModel.IDefaultCommunicationTimeouts
-      description: "The default communication time-outs."
+      description: "Domyślnych limitów czasu komunikacji."
   overload: System.ServiceModel.Channels.StreamUpgradeProvider.#ctor*
   exceptions: []
   platform:
@@ -83,14 +83,14 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Creates an instance of <xref href=&quot;System.ServiceModel.Channels.StreamUpgradeAcceptor&quot;></xref>."
-  remarks: "This method creates the associated UpgradeAcceptor for this upgrade provider that can accept upgrade requests from the matching UpgradeInitiator."
+  summary: "Tworzy wystąpienie <xref href=&quot;System.ServiceModel.Channels.StreamUpgradeAcceptor&quot;> </xref>."
+  remarks: "Ta metoda tworzy skojarzone UpgradeAcceptor dla tego dostawcy uaktualnienia, który może zaakceptować żądania uaktualnienia z pasujących UpgradeInitiator."
   syntax:
     content: public abstract System.ServiceModel.Channels.StreamUpgradeAcceptor CreateUpgradeAcceptor ();
     parameters: []
     return:
       type: System.ServiceModel.Channels.StreamUpgradeAcceptor
-      description: "Returns an instance of <xref href=&quot;System.ServiceModel.Channels.StreamUpgradeAcceptor&quot;></xref>."
+      description: "Zwraca wystąpienie klasy <xref href=&quot;System.ServiceModel.Channels.StreamUpgradeAcceptor&quot;> </xref>."
   overload: System.ServiceModel.Channels.StreamUpgradeProvider.CreateUpgradeAcceptor*
   exceptions: []
   platform:
@@ -107,20 +107,20 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Creates an instance of <xref href=&quot;System.ServiceModel.Channels.StreamUpgradeInitiator&quot;></xref>."
-  remarks: "This method creates the associated <xref:System.ServiceModel.Channels.StreamUpgradeInitiator> for this upgrade provider that creates upgrade requests for the matching <xref:System.ServiceModel.Channels.StreamUpgradeAcceptor> at the endpoint provided."
+  summary: "Tworzy wystąpienie <xref href=&quot;System.ServiceModel.Channels.StreamUpgradeInitiator&quot;> </xref>."
+  remarks: "Ta metoda tworzy skojarzony <xref:System.ServiceModel.Channels.StreamUpgradeInitiator>tego uaktualnienia dostawcy, który tworzy uaktualnienia żądania dla dopasowywania <xref:System.ServiceModel.Channels.StreamUpgradeAcceptor>na określony punkt końcowy.</xref:System.ServiceModel.Channels.StreamUpgradeAcceptor> </xref:System.ServiceModel.Channels.StreamUpgradeInitiator>"
   syntax:
     content: public abstract System.ServiceModel.Channels.StreamUpgradeInitiator CreateUpgradeInitiator (System.ServiceModel.EndpointAddress remoteAddress, Uri via);
     parameters:
     - id: remoteAddress
       type: System.ServiceModel.EndpointAddress
-      description: "Endpoint address for the channel."
+      description: "Adres punktu końcowego kanału."
     - id: via
       type: System.Uri
-      description: "The address of the Via URI (an intermediate URI through which communication may be routed)."
+      description: "Adres URI za pośrednictwem (pośredniego identyfikatora URI za pomocą których mogą być kierowane komunikacji)."
     return:
       type: System.ServiceModel.Channels.StreamUpgradeInitiator
-      description: "Returns an instance of <xref href=&quot;System.ServiceModel.Channels.StreamUpgradeInitiator&quot;></xref>."
+      description: "Zwraca wystąpienie klasy <xref href=&quot;System.ServiceModel.Channels.StreamUpgradeInitiator&quot;> </xref>."
   overload: System.ServiceModel.Channels.StreamUpgradeProvider.CreateUpgradeInitiator*
   exceptions: []
   platform:
@@ -137,12 +137,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets the DefaultCloseTimeout."
+  summary: "Pobiera DefaultCloseTimeout."
   syntax:
     content: protected override TimeSpan DefaultCloseTimeout { get; }
     return:
       type: System.TimeSpan
-      description: "Returns a <xref:System.TimeSpan> for the DefaultCloseTimeout."
+      description: "Zwraca <xref:System.TimeSpan>dla DefaultCloseTimeout.</xref:System.TimeSpan>"
   overload: System.ServiceModel.Channels.StreamUpgradeProvider.DefaultCloseTimeout*
   exceptions: []
   platform:
@@ -159,12 +159,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets the DefaultOpenTimeout."
+  summary: "Pobiera DefaultOpenTimeout."
   syntax:
     content: protected override TimeSpan DefaultOpenTimeout { get; }
     return:
       type: System.TimeSpan
-      description: "Returns a <xref:System.TimeSpan> for the DefaultOpenTimeout."
+      description: "Zwraca <xref:System.TimeSpan>dla DefaultOpenTimeout.</xref:System.TimeSpan>"
   overload: System.ServiceModel.Channels.StreamUpgradeProvider.DefaultOpenTimeout*
   exceptions: []
   platform:
@@ -186,7 +186,7 @@ items:
     parameters: []
     return:
       type: T
-      description: "To be added."
+      description: "Do dodania."
   overload: System.ServiceModel.Channels.StreamUpgradeProvider.GetProperty<T>*
   exceptions: []
   platform:
