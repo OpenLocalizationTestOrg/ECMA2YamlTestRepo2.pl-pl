@@ -14,8 +14,8 @@ items:
   nameWithType: ExceptionHandler
   fullName: System.ServiceModel.Dispatcher.ExceptionHandler
   type: Class
-  summary: "Extend the ExceptionHandler class to create an exception handler for unhandled exceptions that occur within the [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] runtime."
-  remarks: "Extend the ExceptionHandler class and override the <xref:System.ServiceModel.Dispatcher.ExceptionHandler.HandleException%2A> method to determine whether an exception should terminate the application. Then create a new instance of your custom ExceptionHandler class and assign it to the static <xref:System.ServiceModel.Dispatcher.ExceptionHandler.AsynchronousThreadExceptionHandler%2A> or <xref:System.ServiceModel.Dispatcher.ExceptionHandler.TransportExceptionHandler%2A> property prior to creating [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] clients or services."
+  summary: "Rozszerzenie klasy ExceptionHandler, aby utworzyć program obsługi wyjątku dla nieobsługiwanych wyjątków, które wystąpią w ciągu [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] środowiska wykonawczego."
+  remarks: "Rozszerzenie klasy ExceptionHandler i zastąpić <xref:System.ServiceModel.Dispatcher.ExceptionHandler.HandleException%2A>metodę, aby określić, czy wyjątek powinien zakończyć działanie aplikacji.</xref:System.ServiceModel.Dispatcher.ExceptionHandler.HandleException%2A> Następnie utwórz nowe wystąpienie klasy ExceptionHandler niestandardowe i przypisać je do statycznego <xref:System.ServiceModel.Dispatcher.ExceptionHandler.AsynchronousThreadExceptionHandler%2A>lub <xref:System.ServiceModel.Dispatcher.ExceptionHandler.TransportExceptionHandler%2A>Właściwości przed utworzeniem [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] klientów lub usług.</xref:System.ServiceModel.Dispatcher.ExceptionHandler.TransportExceptionHandler%2A> </xref:System.ServiceModel.Dispatcher.ExceptionHandler.AsynchronousThreadExceptionHandler%2A>"
   example:
   - "The following code example shows an implementation of the ExceptionHandler abstract class that overrides the <xref:System.ServiceModel.Dispatcher.ExceptionHandler.HandleException%2A> method.  \n  \n [!code-cs[S_UEExceptionHandler#0](~/add/codesnippet/csharp/s_ueexceptionhandler.cs/program.cs#0)]\n [!code-vb[S_UEExceptionHandler#0](~/add/codesnippet/visualbasic/s_ueexceptionhandler.cs/module1.vb#0)]  \n  \n The following code example shows how to enable the custom `MyExceptionHandler` for unhandled exceptions that occur within the [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] runtime.  \n  \n [!code-cs[S_UEExceptionHandler#1](~/add/codesnippet/csharp/s_ueexceptionhandler.cs/program.cs#1)]\n [!code-vb[S_UEExceptionHandler#1](~/add/codesnippet/visualbasic/s_ueexceptionhandler.cs/module1.vb#1)]"
   syntax:
@@ -38,7 +38,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Dispatcher.ExceptionHandler&quot;></xref> class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.ServiceModel.Dispatcher.ExceptionHandler&quot;> </xref> klasy."
   syntax:
     content: protected ExceptionHandler ();
     parameters: []
@@ -58,12 +58,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Gets an instance of <xref href=&quot;System.ServiceModel.Dispatcher.ExceptionHandler&quot;></xref> that handles all exceptions."
+  summary: "Pobiera wystąpienie elementu <xref href=&quot;System.ServiceModel.Dispatcher.ExceptionHandler&quot;> </xref> obsługująca wszystkie wyjątki."
   syntax:
     content: public static System.ServiceModel.Dispatcher.ExceptionHandler AlwaysHandle { get; }
     return:
       type: System.ServiceModel.Dispatcher.ExceptionHandler
-      description: "An <xref href=&quot;System.ServiceModel.Dispatcher.ExceptionHandler&quot;></xref> object that returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> for all exceptions."
+      description: "<xref href=&quot;System.ServiceModel.Dispatcher.ExceptionHandler&quot;> </xref> Obiekt, który zwraca <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> wszystkie wyjątki."
   overload: System.ServiceModel.Dispatcher.ExceptionHandler.AlwaysHandle*
   exceptions: []
   platform:
@@ -80,13 +80,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Gets or sets the current <xref href=&quot;System.ServiceModel.Dispatcher.ExceptionHandler&quot;></xref> implementation for the application domain."
-  remarks: "By default, the AsynchronousThreadExceptionHandler property is `null`, and unhandled exceptions on asynchronous [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] threads terminate the application.  Set this property to an <xref:System.ServiceModel.Dispatcher.ExceptionHandler> object to receive and react to these exceptions.       If an unhandled exception occurs on an asynchronous [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] thread and reaches this handler, the state of the application domain may be compromised.  <xref:System.ServiceModel.Dispatcher.ExceptionHandler.HandleException%2A> should not return `true` for these exceptions."
+  summary: "Pobiera lub ustawia bieżący <xref href=&quot;System.ServiceModel.Dispatcher.ExceptionHandler&quot;> </xref> implementacji dla domeny aplikacji."
+  remarks: "Domyślnie jest właściwość AsynchronousThreadExceptionHandler `null`i nieobsługiwane wyjątki na asynchroniczne [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] wątków zakończyć działanie aplikacji.  Ta właściwość jest ustawiana <xref:System.ServiceModel.Dispatcher.ExceptionHandler>obiektu do pobierania i reagowania na tych wyjątków.</xref:System.ServiceModel.Dispatcher.ExceptionHandler>       Jeśli wystąpi nieobsługiwany wyjątek w asynchronicznej [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] wątku i osiągnie mogą zostać przejęte ten program obsługi, stan domeny aplikacji.  <xref:System.ServiceModel.Dispatcher.ExceptionHandler.HandleException%2A>nie może zwracać `true` dla tych wyjątków.</xref:System.ServiceModel.Dispatcher.ExceptionHandler.HandleException%2A>"
   syntax:
     content: public static System.ServiceModel.Dispatcher.ExceptionHandler AsynchronousThreadExceptionHandler { get; set; }
     return:
       type: System.ServiceModel.Dispatcher.ExceptionHandler
-      description: "Assign a custom <xref href=&quot;System.ServiceModel.Dispatcher.ExceptionHandler&quot;></xref> object that receives unhandled exceptions that occur on asynchronous [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] threads."
+      description: "Przypisz niestandardowego <xref href=&quot;System.ServiceModel.Dispatcher.ExceptionHandler&quot;> </xref> obiekt, który odbiera nieobsługiwanych wyjątków, które występują w asynchronicznej [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] wątków."
   overload: System.ServiceModel.Dispatcher.ExceptionHandler.AsynchronousThreadExceptionHandler*
   exceptions: []
   platform:
@@ -103,8 +103,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "When overridden in a derived class, returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the exception has been handled, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the exception should be rethrown and the application terminated."
-  remarks: "The HandleException property returns `true` if the exception has been handled. If it returns `false` or throws a different exception, the original exception is rethrown."
+  summary: "Po przesłonięciu w klasie pochodnej zwraca <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> Jeśli wyjątek został obsłużony, lub <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> powinien zostać zgłoszony wyjątek, jeśli aplikacja została zakończona."
+  remarks: "Zwraca właściwości w elemencie HandleException `true` Jeśli wyjątek został obsłużony. Jeśli zmienna zwraca `false` lub zgłasza wyjątek różnych, pierwotny wyjątek jest zgłoszony."
   example:
   - "The following code example shows an implementation of the <xref:System.ServiceModel.Dispatcher.ExceptionHandler> abstract class that overrides the HandleException method.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]  \n  \n The following code example shows how to enable the custom `MyExceptionHandler` for unhandled exceptions that occur within the [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] runtime.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -112,10 +112,10 @@ items:
     parameters:
     - id: exception
       type: System.Exception
-      description: "The exception the occurred within the [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] runtime and which may terminate the application."
+      description: "Wystąpił wyjątek w [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] środowiska uruchomieniowego, które może zakończyć działanie aplikacji."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the exception has been handled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli wyjątek został obsłużony; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Dispatcher.ExceptionHandler.HandleException*
   exceptions: []
   platform:
@@ -132,13 +132,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Gets or sets the current transport <xref href=&quot;System.ServiceModel.Dispatcher.ExceptionHandler&quot;></xref> implementation for the application domain."
-  remarks: "By default, the TransportExceptionHandler property is set to the value of <xref:System.ServiceModel.Dispatcher.ExceptionHandler.AlwaysHandle%2A>, causing unhandled exceptions within [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] transports to be ignored.  Set this property to an instance of <xref:System.ServiceModel.Dispatcher.ExceptionHandler> to receive and react to these exceptions.       If an unhandled exception occurs within a global [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] transport and reaches this handler, there is a possibility that the state of the application domain is compromised. <xref:System.ServiceModel.Dispatcher.ExceptionHandler.HandleException%2A> can return `false` for these exceptions to cause the application to be terminated."
+  summary: "Pobiera lub ustawia bieżący transport <xref href=&quot;System.ServiceModel.Dispatcher.ExceptionHandler&quot;> </xref> implementacji dla domeny aplikacji."
+  remarks: "Domyślnie właściwość TransportExceptionHandler ma ustawioną wartość <xref:System.ServiceModel.Dispatcher.ExceptionHandler.AlwaysHandle%2A>, powodując nieobsługiwanych wyjątków w [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] transportów mają być ignorowane.</xref:System.ServiceModel.Dispatcher.ExceptionHandler.AlwaysHandle%2A>  Ustaw tę właściwość na wystąpienie <xref:System.ServiceModel.Dispatcher.ExceptionHandler>Otrzymywanie i reagowania na tych wyjątków.</xref:System.ServiceModel.Dispatcher.ExceptionHandler>       Jeśli wystąpi nieobsługiwany wyjątek w globalnym [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] transportu i osiągnie ten program obsługi, istnieje możliwość złamane stan domeny aplikacji. <xref:System.ServiceModel.Dispatcher.ExceptionHandler.HandleException%2A>może zwrócić `false` te wyjątki spowodować, że aplikacja ma być zakończony.</xref:System.ServiceModel.Dispatcher.ExceptionHandler.HandleException%2A>"
   syntax:
     content: public static System.ServiceModel.Dispatcher.ExceptionHandler TransportExceptionHandler { get; set; }
     return:
       type: System.ServiceModel.Dispatcher.ExceptionHandler
-      description: "A custom <xref href=&quot;System.ServiceModel.Dispatcher.ExceptionHandler&quot;></xref> object that receives unhandled exceptions that occur within the global [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] transports."
+      description: "Niestandardowy <xref href=&quot;System.ServiceModel.Dispatcher.ExceptionHandler&quot;> </xref> obiekt, który odbiera nieobsługiwanych wyjątków, które występują w globalnej [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] transportów."
   overload: System.ServiceModel.Dispatcher.ExceptionHandler.TransportExceptionHandler*
   exceptions: []
   platform:
