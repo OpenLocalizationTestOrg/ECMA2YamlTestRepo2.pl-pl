@@ -20,8 +20,8 @@ items:
   nameWithType: PublisherMembershipCondition
   fullName: System.Security.Policy.PublisherMembershipCondition
   type: Class
-  summary: "Determines whether an assembly belongs to a code group by testing its software publisher&quot;s Authenticode X.509v3 certificate. This class cannot be inherited."
-  remarks: "A code assembly satisfies a publisher membership condition if that code is signed by the specified software publisher.       By default, code access security (CAS) does not check for <xref:System.Security.Policy.Publisher> evidence. Unless your computer has a custom code group based on the PublisherMembershipCondition class, you can improve performance by bypassing Authenticode signature verification. This is accomplished by configuring the runtime to not provide <xref:System.Security.Policy.Publisher> evidence for CAS. For more information about how to configure this option and which applications can use it, see the  element."
+  summary: "Określa, czy zestaw należy do grupy kodów testując certyfikatu Authenticode X.509v3 jego wydawcy oprogramowania. Ta klasa nie może być dziedziczona."
+  remarks: "Zestaw kodu spełnia warunek wydawcy członkostwa, jeśli kod jest podpisany przez wydawcę oprogramowania z określoną.       Domyślnie zabezpieczenia dostępu kodu (CAS) nie sprawdza <xref:System.Security.Policy.Publisher>dowód.</xref:System.Security.Policy.Publisher> Chyba że komputer oparty na klasie PublisherMembershipCondition grupy kod niestandardowy może poprawić wydajność pominięcie weryfikacji podpisu Authenticode. Jest to osiągane przez Konfigurowanie środowiska uruchomieniowego nie zapewniają <xref:System.Security.Policy.Publisher>dowody dla urzędów certyfikacji.</xref:System.Security.Policy.Publisher> Aby uzyskać więcej informacji o sposobie konfigurowania tej opcji i które aplikacje mogą go używać, zobacz element."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -45,14 +45,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Policy.PublisherMembershipCondition&quot;></xref> class with the Authenticode X.509v3 certificate that determines membership."
-  remarks: "Code satisfies the membership condition if it is signed by the software publisher with the private key that corresponds to the specified public key certificate."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Security.Policy.PublisherMembershipCondition&quot;> </xref> klasy przy użyciu certyfikatu Authenticode X.509v3 określająca członkostwa."
+  remarks: "Kod spełnia warunek członkostwa, jeśli jest on podpisany przez wydawcę oprogramowania z kluczem prywatnym, który odpowiada określonym certyfikatu klucza publicznego."
   syntax:
     content: public PublisherMembershipCondition (System.Security.Cryptography.X509Certificates.X509Certificate certificate);
     parameters:
     - id: certificate
       type: System.Security.Cryptography.X509Certificates.X509Certificate
-      description: "An <xref href=&quot;System.Security.Cryptography.X509Certificates.X509Certificate&quot;></xref> that contains the software publisher&quot;s public key."
+      description: "<xref href=&quot;System.Security.Cryptography.X509Certificates.X509Certificate&quot;> </xref> Zawierający klucz publiczny wydawcy oprogramowania."
   overload: System.Security.Policy.PublisherMembershipCondition.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -72,17 +72,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets or sets the Authenticode X.509v3 certificate for which the membership condition tests."
+  summary: "Pobiera lub ustawia certyfikatu Authenticode X.509v3, dla którego warunku członkostwa testów."
   syntax:
     content: public System.Security.Cryptography.X509Certificates.X509Certificate Certificate { get; set; }
     return:
       type: System.Security.Cryptography.X509Certificates.X509Certificate
-      description: "The <xref href=&quot;System.Security.Cryptography.X509Certificates.X509Certificate&quot;></xref> for which the membership condition tests."
+      description: "<xref href=&quot;System.Security.Cryptography.X509Certificates.X509Certificate&quot;> </xref> Dla które testy warunek członkostwa."
   overload: System.Security.Policy.PublisherMembershipCondition.Certificate*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The property value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Wartość właściwości jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.Security.Policy.PublisherMembershipCondition.Check(System.Security.Policy.Evidence)
@@ -97,22 +97,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Determines whether the specified evidence satisfies the membership condition."
-  remarks: "This membership condition tests only <xref:System.Security.Policy.Publisher> evidence."
+  summary: "Określa, czy określony dowód spełnia warunek członkostwa."
+  remarks: "Ten warunek członkostwa testuje tylko <xref:System.Security.Policy.Publisher>dowód.</xref:System.Security.Policy.Publisher>"
   syntax:
     content: public bool Check (System.Security.Policy.Evidence evidence);
     parameters:
     - id: evidence
       type: System.Security.Policy.Evidence
-      description: "The <xref href=&quot;System.Security.Policy.Evidence&quot;></xref> against which to make the test."
+      description: "<xref href=&quot;System.Security.Policy.Evidence&quot;> </xref> Za pomocą którego chcesz dokonać testu."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified evidence satisfies the membership condition; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli określona dowód spełnia warunek członkostwa; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Policy.PublisherMembershipCondition.Check*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <xref:System.Security.Policy.PublisherMembershipCondition.Certificate*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<xref:System.Security.Policy.PublisherMembershipCondition.Certificate*>Właściwość jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Security.Policy.PublisherMembershipCondition.Certificate*>"
   platform:
   - net462
 - uid: System.Security.Policy.PublisherMembershipCondition.Copy
@@ -127,18 +127,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Creates an equivalent copy of the membership condition."
+  summary: "Tworzy równoważne kopię warunek członkostwa."
   syntax:
     content: public System.Security.Policy.IMembershipCondition Copy ();
     parameters: []
     return:
       type: System.Security.Policy.IMembershipCondition
-      description: "A new, identical copy of the current membership condition."
+      description: "Nowe, identyczne kopię bieżącego warunek członkostwa."
   overload: System.Security.Policy.PublisherMembershipCondition.Copy*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <xref:System.Security.Policy.PublisherMembershipCondition.Certificate*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<xref:System.Security.Policy.PublisherMembershipCondition.Certificate*>Właściwość jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Security.Policy.PublisherMembershipCondition.Certificate*>"
   platform:
   - net462
 - uid: System.Security.Policy.PublisherMembershipCondition.Equals(System.Object)
@@ -153,22 +153,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Determines whether the publisher certificate from the specified object is equivalent to the publisher certificate contained in the current <xref href=&quot;System.Security.Policy.PublisherMembershipCondition&quot;></xref>."
-  remarks: "If the two publisher certificates are equal, they represent the same <xref:System.Security.Policy.Publisher>."
+  summary: "Określa, czy certyfikat wydawcy od określonego obiektu jest odpowiednikiem certyfikat wydawcy zawarte w bieżącym <xref href=&quot;System.Security.Policy.PublisherMembershipCondition&quot;> </xref>."
+  remarks: "Jeśli certyfikaty dwóch wydawcy są takie same, reprezentują tego samego <xref:System.Security.Policy.Publisher>.</xref:System.Security.Policy.Publisher>"
   syntax:
     content: public override bool Equals (object o);
     parameters:
     - id: o
       type: System.Object
-      description: "The object to compare to the current <xref href=&quot;System.Security.Policy.PublisherMembershipCondition&quot;></xref>."
+      description: "Obiekt do porównania z bieżącą <xref href=&quot;System.Security.Policy.PublisherMembershipCondition&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the publisher certificate from the specified object is equivalent to the publisher certificate contained in the current <xref href=&quot;System.Security.Policy.PublisherMembershipCondition&quot;></xref>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli certyfikat wydawcy od określonego obiektu jest odpowiednikiem certyfikat wydawcy zawarte w bieżącym <xref href=&quot;System.Security.Policy.PublisherMembershipCondition&quot;> </xref>; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Policy.PublisherMembershipCondition.Equals*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <xref:System.Security.Policy.PublisherMembershipCondition.Certificate*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<xref:System.Security.Policy.PublisherMembershipCondition.Certificate*>Właściwość jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Security.Policy.PublisherMembershipCondition.Certificate*>"
   platform:
   - net462
 - uid: System.Security.Policy.PublisherMembershipCondition.FromXml(System.Security.SecurityElement)
@@ -183,13 +183,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Reconstructs a security object with a specified state from an XML encoding."
+  summary: "Rekonstruuje obiektu zabezpieczeń o określonym stanie kodowania XML."
   syntax:
     content: public void FromXml (System.Security.SecurityElement e);
     parameters:
     - id: e
       type: System.Security.SecurityElement
-      description: "The XML encoding to use to reconstruct the security object."
+      description: "Kodowanie XML na potrzeby rekonstrukcji obiektu zabezpieczeń."
   overload: System.Security.Policy.PublisherMembershipCondition.FromXml*
   exceptions:
   - type: System.ArgumentNullException
@@ -197,7 +197,7 @@ items:
     description: "The <code>e</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>e</code> parameter is not a valid membership condition element."
+    description: "<code> e </code> Parametru nie jest elementem warunek członkostwa prawidłowe."
   platform:
   - net462
 - uid: System.Security.Policy.PublisherMembershipCondition.FromXml(System.Security.SecurityElement,System.Security.Policy.PolicyLevel)
@@ -212,16 +212,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Reconstructs a security object with a specified state from an XML encoding."
+  summary: "Rekonstruuje obiektu zabezpieczeń o określonym stanie kodowania XML."
   syntax:
     content: public void FromXml (System.Security.SecurityElement e, System.Security.Policy.PolicyLevel level);
     parameters:
     - id: e
       type: System.Security.SecurityElement
-      description: "The XML encoding to use to reconstruct the security object."
+      description: "Kodowanie XML na potrzeby rekonstrukcji obiektu zabezpieczeń."
     - id: level
       type: System.Security.Policy.PolicyLevel
-      description: "The <xref href=&quot;System.Security.Policy.PolicyLevel&quot;></xref> context, used to resolve <xref href=&quot;System.Security.NamedPermissionSet&quot;></xref> references."
+      description: "<xref href=&quot;System.Security.Policy.PolicyLevel&quot;> </xref> Kontekstu, używany do rozpoznania <xref href=&quot;System.Security.NamedPermissionSet&quot;> </xref> odwołania."
   overload: System.Security.Policy.PublisherMembershipCondition.FromXml*
   exceptions:
   - type: System.ArgumentNullException
@@ -229,7 +229,7 @@ items:
     description: "The <code>e</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>e</code> parameter is not a valid membership condition element."
+    description: "<code> e </code> Parametru nie jest elementem warunek członkostwa prawidłowe."
   platform:
   - net462
 - uid: System.Security.Policy.PublisherMembershipCondition.GetHashCode
@@ -244,18 +244,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets the hash code for the current membership condition."
+  summary: "Pobiera wartość skrótu dla bieżącego warunek członkostwa."
   syntax:
     content: public override int GetHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "The hash code for the current membership condition."
+      description: "Wartość skrótu dla bieżącego warunek członkostwa."
   overload: System.Security.Policy.PublisherMembershipCondition.GetHashCode*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <xref:System.Security.Policy.PublisherMembershipCondition.Certificate*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<xref:System.Security.Policy.PublisherMembershipCondition.Certificate*>Właściwość jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Security.Policy.PublisherMembershipCondition.Certificate*>"
   platform:
   - net462
 - uid: System.Security.Policy.PublisherMembershipCondition.ToString
@@ -270,18 +270,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Creates and returns a string representation of the <xref href=&quot;System.Security.Policy.PublisherMembershipCondition&quot;></xref>."
+  summary: "Tworzy i zwraca reprezentację ciągu <xref href=&quot;System.Security.Policy.PublisherMembershipCondition&quot;> </xref>."
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "A representation of the <xref href=&quot;System.Security.Policy.PublisherMembershipCondition&quot;></xref>."
+      description: "Reprezentacja <xref href=&quot;System.Security.Policy.PublisherMembershipCondition&quot;> </xref>."
   overload: System.Security.Policy.PublisherMembershipCondition.ToString*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <xref:System.Security.Policy.PublisherMembershipCondition.Certificate*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<xref:System.Security.Policy.PublisherMembershipCondition.Certificate*>Właściwość jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Security.Policy.PublisherMembershipCondition.Certificate*>"
   platform:
   - net462
 - uid: System.Security.Policy.PublisherMembershipCondition.ToXml
@@ -296,18 +296,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Creates an XML encoding of the security object and its current state."
+  summary: "Tworzy kodowania XML obiektu zabezpieczeń oraz w jego bieżącym stanie."
   syntax:
     content: public System.Security.SecurityElement ToXml ();
     parameters: []
     return:
       type: System.Security.SecurityElement
-      description: "An XML encoding of the security object, including any state information."
+      description: "Kodowanie XML obiektu zabezpieczeń, łącznie z żadnych informacji o stanie."
   overload: System.Security.Policy.PublisherMembershipCondition.ToXml*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <xref:System.Security.Policy.PublisherMembershipCondition.Certificate*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<xref:System.Security.Policy.PublisherMembershipCondition.Certificate*>Właściwość jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Security.Policy.PublisherMembershipCondition.Certificate*>"
   platform:
   - net462
 - uid: System.Security.Policy.PublisherMembershipCondition.ToXml(System.Security.Policy.PolicyLevel)
@@ -322,21 +322,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Creates an XML encoding of the security object and its current state with the specified <xref href=&quot;System.Security.Policy.PolicyLevel&quot;></xref>."
+  summary: "Tworzy kodowania XML obiektu zabezpieczeń i swojego bieżącego stanu z określonym <xref href=&quot;System.Security.Policy.PolicyLevel&quot;> </xref>."
   syntax:
     content: public System.Security.SecurityElement ToXml (System.Security.Policy.PolicyLevel level);
     parameters:
     - id: level
       type: System.Security.Policy.PolicyLevel
-      description: "The <xref href=&quot;System.Security.Policy.PolicyLevel&quot;></xref> context, which is used to resolve <xref href=&quot;System.Security.NamedPermissionSet&quot;></xref> references."
+      description: "<xref href=&quot;System.Security.Policy.PolicyLevel&quot;> </xref> Kontekstu, który jest używany do rozpoznawania <xref href=&quot;System.Security.NamedPermissionSet&quot;> </xref> odwołania."
     return:
       type: System.Security.SecurityElement
-      description: "An XML encoding of the security object, including any state information."
+      description: "Kodowanie XML obiektu zabezpieczeń, łącznie z żadnych informacji o stanie."
   overload: System.Security.Policy.PublisherMembershipCondition.ToXml*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <xref:System.Security.Policy.PublisherMembershipCondition.Certificate*> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<xref:System.Security.Policy.PublisherMembershipCondition.Certificate*>Właściwość jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Security.Policy.PublisherMembershipCondition.Certificate*>"
   platform:
   - net462
 references:

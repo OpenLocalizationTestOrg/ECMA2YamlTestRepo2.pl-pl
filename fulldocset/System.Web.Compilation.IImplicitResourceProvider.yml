@@ -11,8 +11,8 @@ items:
   nameWithType: IImplicitResourceProvider
   fullName: System.Web.Compilation.IImplicitResourceProvider
   type: Interface
-  summary: "Defines methods a class implements to act as an implicit resource provider."
-  remarks: "Resources can be declared explicitly or implicitly within a page. Implicit resources allow the developer to assign a collection of resource values to a control in one statement rather than assigning each value individually. When the page parser encounters an implicit resource in the form of `meta:resourcekey=&quot;WelcomeLabel&quot;`, it assigns all the values with the `WelcomeLabel` resource key prefix to the corresponding values in the control. For example, if a resource file defines values for `WelcomeLabel.Text` and `WelcomeLabel.ToolTip`, those values would be assigned to a `Label` control with an implicit reference to `WelcomeLabel`.       The IImplicitResourceProvider interface defines the methods a resource provider implements to access implicit resources. You can obtain a particular value using the <xref:System.Web.Compilation.IImplicitResourceProvider.GetObject%2A> method.       If you create a custom resource provider, you do not need to provide customized support for implicit resource localization. Implicit localization will work with your resource provider."
+  summary: "Definiuje metody, które implementuje klasy do działania jako dostawca zasobów niejawne."
+  remarks: "Zasoby mogą być deklarowane jawnie lub niejawnie na stronie. Niejawne zasobów umożliwiają deweloperom Przypisz kolekcję możliwych wartości zasobów do formantu w jednej instrukcji, a nie pojedynczo przypisywanie każdej wartości. Gdy analizator strony napotka niejawne zasobów w formie `meta:resourcekey=&quot;WelcomeLabel&quot;`, przypisuje wszystkie wartości z `WelcomeLabel` zasobów prefiks klucza odpowiednie wartości w formancie. Na przykład, jeśli plik zasobów definiuje wartości dla `WelcomeLabel.Text` i `WelcomeLabel.ToolTip`, może zostać przypisana te wartości `Label` formantu o niejawne odwołanie do `WelcomeLabel`.       Interfejs IImplicitResourceProvider definiuje metody, które implementuje dostawcy zasobów na dostęp do zasobów niejawnej. Można uzyskać przy użyciu określonej wartości <xref:System.Web.Compilation.IImplicitResourceProvider.GetObject%2A>metody.</xref:System.Web.Compilation.IImplicitResourceProvider.GetObject%2A>       W przypadku utworzenia dostawcy zasobów niestandardowych, zapewniają obsługę niestandardowych dla lokalizacji zasobów niejawne nie jest konieczne. Niejawne lokalizacja będzie działać z dostawcą zasobów."
   syntax:
     content: public interface IImplicitResourceProvider
   implements: []
@@ -30,17 +30,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets a collection of implicit resource keys as specified by the prefix."
-  remarks: "When implemented, the method returns a collection of implicit resource keys for a particular prefix. For example, `WelcomeLabel` is specified as the prefix in the expression `meta:resourcekey=&quot;WelcomeLabel&quot;`. Any properties in a local resource file with `WelcomeLabel` as a prefix should be returned with this method."
+  summary: "Pobiera kolekcję kluczy niejawne zasobów zgodnie z prefiksu."
+  remarks: "Po zaimplementowaniu, metoda zwraca kolekcję kluczy niejawne zasobów dla określonego prefiksu. Na przykład `WelcomeLabel` jest określony jako prefiksu w wyrażeniu `meta:resourcekey=&quot;WelcomeLabel&quot;`. Wszystkie właściwości w pliku zasobu lokalnego z `WelcomeLabel` jako prefiksu powinny być zwracane z tej metody."
   syntax:
     content: public System.Collections.ICollection GetImplicitResourceKeys (string keyPrefix);
     parameters:
     - id: keyPrefix
       type: System.String
-      description: "The prefix of the implicit resource keys to be collected."
+      description: "Prefiks klucze niejawne zasobów, które mają być zbierane."
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> of implicit resource keys."
+      description: "<xref:System.Collections.ICollection>Kluczy niejawne zasobów.</xref:System.Collections.ICollection>"
   overload: System.Web.Compilation.IImplicitResourceProvider.GetImplicitResourceKeys*
   exceptions: []
   platform:
@@ -57,20 +57,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets an object representing the value of the specified resource key."
-  remarks: "When implemented, the method returns the object for the value represented by the implicit resource key."
+  summary: "Pobiera obiekt reprezentujący wartość klucza określonego zasobu."
+  remarks: "Po zaimplementowaniu, metoda zwraca obiekt dla reprezentowaną przez klucz niejawne zasobu."
   syntax:
     content: public object GetObject (System.Web.Compilation.ImplicitResourceKey key, System.Globalization.CultureInfo culture);
     parameters:
     - id: key
       type: System.Web.Compilation.ImplicitResourceKey
-      description: "The resource key containing the prefix, filter, and property."
+      description: "Klucz zasobu zawierającego prefiksu, filtrów i właściwości."
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "The <xref:System.Globalization.CultureInfo> that represents the culture for which the resource is localized."
+      description: "<xref:System.Globalization.CultureInfo>Reprezentujący kultury, dla którego jest zlokalizowana zasobu.</xref:System.Globalization.CultureInfo>"
     return:
       type: System.Object
-      description: "An <xref:System.Object> representing the localized value of an implicit resource key."
+      description: "<xref:System.Object>Reprezentujący zlokalizowaną wartość klucza niejawne zasobów.</xref:System.Object>"
   overload: System.Web.Compilation.IImplicitResourceProvider.GetObject*
   exceptions: []
   platform:

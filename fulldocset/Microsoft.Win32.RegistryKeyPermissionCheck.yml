@@ -12,8 +12,8 @@ items:
   nameWithType: RegistryKeyPermissionCheck
   fullName: Microsoft.Win32.RegistryKeyPermissionCheck
   type: Enum
-  summary: "Specifies whether security checks are performed when opening registry keys and accessing their name/value pairs."
-  remarks: "When an application saves or retrieves a large number of registry settings from a set of subkeys, numerous redundant security checks are performed. This enumeration specifies when security checks on a key are to be omitted.       The following table shows when security checks are performed, based on the way the parent key and the current key are opened.      |Parent key opened with|Current key opened with|Result|   |----------------------------|-----------------------------|------------|   |Default|Default|A security check is performed when accessing any value in the current key, or when attempting to access a subkey. This is the behavior in the .NET Framework versions 1.0 and 1.1.|   |Default|ReadSubTree|A security check is performed when trying to open the current key.|   |Default|ReadWriteSubTree|A security check is performed when trying to open the current key.|   |ReadSubTree|Default or ReadSubTree|No security checks are performed when opening the current key or its values.|   |ReadSubTree|ReadWriteSubTree|A security check is performed when trying to open the current key.|   |ReadWriteSubTree|Any|No security checks are performed when opening the current key or its values.|"
+  summary: "Określa, czy kontroli zabezpieczeń są wykonywane podczas otwierania kluczy rejestru i uzyskiwania dostępu do swoich pary nazwa/wartość."
+  remarks: "Gdy aplikacja zapisuje lub pobiera wiele ustawień rejestru z zestawem podkluczy, wiele nadmiarowe zabezpieczeń są sprawdzane. To wyliczenie Określa, kiedy mają zostać pominięte kontroli zabezpieczeń dla klucza.       W poniższej tabeli zaprezentowano podczas kontroli zabezpieczeń są wykonywane, oparte na sposobie klucza nadrzędnego i bieżącego klucza są otwarte.      | Otwarty klucza nadrzędnego | Bieżący klucz otwarta z | Wynik |   |----------------------------|-----------------------------|------------|   | Domyślne | Domyślne | Sprawdzanie zabezpieczeń jest wykonywane podczas uzyskiwania dostępu do żadnej wartości bieżący klucz lub przy próbie uzyskania dostępu podklucz. Jest to zachowanie w wersji systemu .NET Framework 1.0 i 1.1. |   | Domyślne | ReadSubTree | Sprawdzanie zabezpieczeń jest wykonywane podczas próby otwarcia bieżącego klucza. |   | Domyślne | ReadWriteSubTree | Sprawdzanie zabezpieczeń jest wykonywane podczas próby otwarcia bieżącego klucza. |   | ReadSubTree | Domyślne lub ReadSubTree | Sprawdza zabezpieczeń nie są wykonywane podczas otwierania bieżącego klucza lub jego wartości. |   | ReadSubTree | ReadWriteSubTree | Sprawdzanie zabezpieczeń jest wykonywane podczas próby otwarcia bieżącego klucza. |   | ReadWriteSubTree | Wszelkie | Sprawdza zabezpieczeń nie są wykonywane podczas otwierania bieżącego klucza lub jego wartości. |"
   example:
   - "The following code example creates a subkey containing 100 key/value pairs and closes it. The example opens the subkey with Default and records the time it takes to read all the values. Then the example opens the subkey with ReadSubTree and records the time it takes to read all the values. Finally, the example computes and displays the percentage improvement.  \n  \n [!code-cs[RegistryKey.OpenSubKey_PermCheck#1](~/add/codesnippet/csharp/t-microsoft.win32.regist_3_1.cs)]\n [!code-vb[RegistryKey.OpenSubKey_PermCheck#1](~/add/codesnippet/visualbasic/t-microsoft.win32.regist_3_1.vb)]"
   syntax:
@@ -34,12 +34,12 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "The registry key inherits the mode of its parent. Security checks are performed when trying to access subkeys or values, unless the parent was opened with ReadSubTree or ReadWriteSubTree mode."
+  summary: "Klucz rejestru dziedziczy tryb jego elementu nadrzędnego. Zabezpieczenia są sprawdzane podczas próby dostępu podkluczy lub wartości, chyba że nadrzędny został otwarty w trybie ReadSubTree lub ReadWriteSubTree."
   syntax:
     content: Default
     return:
       type: Microsoft.Win32.RegistryKeyPermissionCheck
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -55,12 +55,12 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Security checks are not performed when accessing subkeys or values. A security check is performed when trying to open the current key, unless the parent was opened with ReadSubTree or ReadWriteSubTree."
+  summary: "Sprawdzanie zabezpieczeń nie są wykonywane podczas uzyskiwania dostępu do kluczy podrzędnych lub wartości. Sprawdzanie zabezpieczeń jest wykonywane podczas próby otwarcia bieżącego klucza, chyba że nadrzędnego została otwarta z ReadSubTree lub ReadWriteSubTree."
   syntax:
     content: ReadSubTree
     return:
       type: Microsoft.Win32.RegistryKeyPermissionCheck
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -76,12 +76,12 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Security checks are not performed when accessing subkeys or values. A security check is performed when trying to open the current key, unless the parent was opened with ReadWriteSubTree."
+  summary: "Sprawdzanie zabezpieczeń nie są wykonywane podczas uzyskiwania dostępu do kluczy podrzędnych lub wartości. Sprawdzanie zabezpieczeń jest wykonywane podczas próby otwarcia bieżącego klucza, chyba że nadrzędnego została otwarta z ReadWriteSubTree."
   syntax:
     content: ReadWriteSubTree
     return:
       type: Microsoft.Win32.RegistryKeyPermissionCheck
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462

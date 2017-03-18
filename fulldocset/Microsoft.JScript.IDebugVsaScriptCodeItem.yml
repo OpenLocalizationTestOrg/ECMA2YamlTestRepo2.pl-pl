@@ -11,7 +11,7 @@ items:
   nameWithType: IDebugVsaScriptCodeItem
   fullName: Microsoft.JScript.IDebugVsaScriptCodeItem
   type: Interface
-  summary: "Defines methods that evaluate expressions and parse strings. This interface is typically implemented by an object that represents a code block, and it is typically called by a debugger. This interface provides extra functionality that is needed by an IActiveScript host."
+  summary: "Definiuje metody obliczać wyrażeń i analizowanie ciągów. Ten interfejs jest zwykle implementowany przez obiekt, który reprezentuje blok kodu i jest zwykle nazywany przez debuger. Ten interfejs zapewnia dodatkowe funkcje, które są wymagane przez hosta IActiveScript."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -34,14 +34,14 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: "When implemented in a class, evaluates the block, expression, or statement represented by the code item and returns the value. It is typically called by a debugger that needs to evaluate an expression (in a Watch window, for example). For expressions, the value is the result of the expression. For blocks and statements, the resulting expression is the last expression calculated by the block or statement."
-  remarks: "Note that the Evaluate method is functionally identical to the <xref:Microsoft.JScript.IVsaScriptCodeItem.Execute%2A> method. Only the marshaling attributes differ. This version of the interface allows an unmanaged debugger to obtain the return value as an `IUnknown` pointer rather than a `VARIANT`."
+  summary: "Po zaimplementowaniu w klasie, ocenia bloku, wyrażenia lub instrukcji reprezentowany przez element kodu i zwraca wartość. Jest to zwykle przez debuger, który należy ocenić wyrażenia (okno czujki, na przykład). Wyrażeń wartość jest wynikiem wyrażenia. Bloków i instrukcje wynikowe wyrażenie jest ostatniego wyrażenie obliczane przez blok lub instrukcji."
+  remarks: "Należy pamiętać, że metoda Evaluate funkcjonalnie identyczne <xref:Microsoft.JScript.IVsaScriptCodeItem.Execute%2A>metody.</xref:Microsoft.JScript.IVsaScriptCodeItem.Execute%2A> Tylko atrybuty kierowania różnią się. Ta wersja interfejsu umożliwia niezarządzane debuger można uzyskać wartość zwracana jako `IUnknown` wskaźnika zamiast `VARIANT`."
   syntax:
     content: public object Evaluate ();
     parameters: []
     return:
       type: System.Object
-      description: "Returns a value that represents the evaluation of the statement, expression, or block."
+      description: "Zwraca wartość reprezentującą obliczania instrukcji, wyrażenia lub bloku."
   overload: Microsoft.JScript.IDebugVsaScriptCodeItem.Evaluate*
   exceptions: []
   platform:
@@ -58,31 +58,31 @@ items:
   assemblies:
   - Microsoft.JScript
   namespace: Microsoft.JScript
-  summary: 'When implemented in a class, parses strings and returns the parsed-out information. This method is typically called by a debugger that needs to parse information about a breakpoint that is represented as a <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;></xref>. The debugger might have a breakpoint typed in by the user in the form *functionname-arguments-ILoffset*. A named breakpoint string can have a complex format, for example, `F.B(C.D[], int, arg : double ) : C.Abc + 123.` The parameter list is optional, as is the IL offset.'
+  summary: 'Po zaimplementowaniu w klasie, analizuje parametry i zwraca informacje przeanalizowany w poziomie. Ta metoda jest zazwyczaj wywoływana przez debuger, które należy przeanalizować informacji na temat punktu przerwania reprezentowany jako <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;> </xref>. Debuger może być punkt przerwania wpisana przez użytkownika w postaci *functionname argumenty ILoffset*. Parametry nazwane punkt przerwania może mieć format złożonych, na przykład `F.B(C.D[], int, arg : double ) : C.Abc + 123.` listy parametrów jest opcjonalny, ponieważ jest przesunięciu IL.'
   syntax:
     content: public bool ParseNamedBreakPoint (string input, out string functionName, out int nargs, out string arguments, out string returnType, out ulong offset);
     parameters:
     - id: input
       type: System.String
-      description: "A well-formed named breakpoint string giving a function, optional argument list, and optional IL offset."
+      description: "Poprawnie sformułowany o nazwie ciąg punktu przerwania funkcji, opcjonalny argument listy i opcjonalnie przesunięciu IL."
     - id: functionName
       type: System.String
-      description: "Out parameter returning the name of the function parsed out of the input string, or the empty string if the input string is not well formed."
+      description: "Parametr wyjściowy zwraca nazwę funkcji analizowane poza ciąg wejściowy lub ciąg pusty ciąg wejściowy nie jest poprawnie sformułowany."
     - id: nargs
       type: System.Int32
-      description: "Out parameter returning the number of arguments in the optional argument list. Returns zero if there is no arguments list or if the string is not well formed."
+      description: "Parametr wyjściowy zwracając liczbę argumentów w liście argumentów opcjonalnych. Zwraca zero, jeśli nie ma żadnej listy argumentów lub jeśli nie jest poprawnie sformułowany ciąg."
     - id: arguments
       type: System.String
-      description: "Out parameter returning a space-separated list of the names of the types of all the arguments in the arguments list, or an empty string if the arguments list was missing or the input string was not well formed."
+      description: "Parametr wyjściowy zwracając rozdzieloną spacjami listę nazw typów wszystkie argumenty w listy argumentów lub pusty ciąg, jeśli brak listy argumentów lub ciąg wejściowy nie został dobrze uformowany."
     - id: returnType
       type: System.String
-      description: "Out parameter returning a string containing the return type of the function named in the input, or the empty string if the return type was missing or the input string was not well formed."
+      description: "Parametr wyjściowy zwraca ciąg zawierający typ zwracany funkcji o nazwie w danych wejściowych, lub pusty ciąg, jeśli brak zwracany typ lub ciąg wejściowy został nieprawidłowo sformułowany."
     - id: offset
       type: System.UInt64
-      description: "Unsigned long integer giving the IL offset from the input string, or zero if there was no IL offset or the string was not well formed."
+      description: "Niepodpisane długich liczb całkowitych nadanie przesunięciu IL od ciąg wejściowy lub zero, jeśli nie było żadnych przesunięciu IL lub ciąg nie został dobrze uformowany."
     return:
       type: System.Boolean
-      description: "Returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the named breakpoint is successfully parsed, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> otherwise."
+      description: "Zwraca <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> Jeśli Nazwany punkt przerwania jest pomyślnie przeanalizowano, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> inaczej."
   overload: Microsoft.JScript.IDebugVsaScriptCodeItem.ParseNamedBreakPoint*
   exceptions: []
   platform:
