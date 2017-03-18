@@ -15,8 +15,8 @@ items:
   nameWithType: XmlLanguage
   fullName: System.Windows.Markup.XmlLanguage
   type: Class
-  summary: "Represents a language tag for use in XAML markup."
-  remarks: "The language tag may or may not have a registered <xref:System.Globalization.CultureInfo> present on the system where the XAML is interpreted.       This class is useful for dealing with values represented using `xml:lang` in XML.       Language tags can be specified in two-character form or in a hyphenated language-locale form. See [RFC 3066](http://go.microsoft.com/fwlink/?LinkId=132454).       Note that the XML specification allows the empty string for `xml:lang`, although that is not permitted by RFC 3066; therefore, the XmlLanguage type permits &quot;&quot; (empty attribute string). A default-constructed XmlLanguage behaves as if constructed with &quot;&quot; (empty string).      <a name=&quot;xamlAttributeUsage_XmlLanguage&quot;></a>    ## XAML Attribute Usage      ```   <object property=&quot;prefix&quot;/>   - or -   <object property=&quot;prefix-subcode&quot;/>   ```      <a name=&quot;xamlValues_XmlLanguage&quot;></a>    ## XAML Values    *prefix*    Language prefix, using the ISO 639-1 language prefix values. For example &quot;en&quot;, or &quot;zh&quot;. Uppercase values are accepted and converted to lowercase. This may also be an empty attribute, &quot;&quot;.       *subcode*    If provided, must be preceded by a single hyphen. Then, a subcode as defined by RFC 3066. The most typical usage, and the one which is most likely to properly map to a <xref:System.Globalization.CultureInfo>, is a country or regional designation such as &quot;-us&quot; or &quot;-hk&quot;. Uppercase values are accepted and converted to lowercase."
+  summary: "Reprezentuje tag język do użycia w kodzie XAML."
+  remarks: "Znacznik języka może lub nie ma zarejestrowanego <xref:System.Globalization.CultureInfo>obecne w systemie, w którym XAML jest interpretowany.</xref:System.Globalization.CultureInfo>       Ta klasa jest przydatne w przypadku zajmowanie się przy użyciu wartości `xml:lang` w kodzie XML.       Tagi języka można określić w postaci dwóch znaków lub w postaci podzielonym języka ustawień regionalnych. Zobacz [RFC 3066](http://go.microsoft.com/fwlink/?LinkId=132454).       Należy zauważyć, że w specyfikacji XML pozwala pusty ciąg `xml:lang`, chociaż nie jest dozwolone przez RFC 3066; w związku z tym typ XmlLanguage pozwala &quot;&quot; (pusty ciąg atrybutu). XmlLanguage skonstruowany domyślne zachowuje się tak, jakby skonstruowany przy &quot;&quot; (pusty ciąg).      <a name=&quot;xamlAttributeUsage_XmlLanguage&quot;></a>## Użycie atrybutu XAML ```   <object property=&quot;prefix&quot;/>   - or -   <object property=&quot;prefix-subcode&quot;/>   ``` <a name=&quot;xamlValues_XmlLanguage&quot;> </a> ## wartości XAML *prefiks* prefiks języka, przy użyciu wartości prefiksu 639 1 języka ISO.       Na przykład &quot;en&quot; lub &quot;zh&quot;. Wielkie litery wartości są akceptowane i przekształcone na małe litery. Może to być również pustego atrybutu &quot;&quot;.       *Kod podrzędny* Jeśli zostanie podana, musi być poprzedzony przez pojedynczy łącznik. Następnie kod podrzędny zgodnie z definicją w dokumencie RFC 3066. Najbardziej typowy sposób i to, które najprawdopodobniej poprawnie mapowane do <xref:System.Globalization.CultureInfo>, jest takie jak kraj lub regionalne oznaczenie &quot;-us&quot; lub &quot;-hk&quot;.</xref:System.Globalization.CultureInfo> Wielkie litery wartości są akceptowane i przekształcone na małe litery."
   syntax:
     content: >-
       [System.ComponentModel.TypeConverter(typeof(System.Windows.Markup.XmlLanguageConverter))]
@@ -40,13 +40,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Markup
-  summary: "Gets a static <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;></xref> instance as would be created by <xref:System.Windows.Markup.XmlLanguage.GetLanguage*> with the language tag as an empty attribute string."
-  remarks: "This value is in effect the <xref:System.Windows.Markup.XmlLanguage> corresponding to <xref:System.String.Empty?displayProperty=fullName>, whose <xref:System.Windows.Markup.XmlLanguage.GetEquivalentCulture%2A> result is <xref:System.Globalization.CultureInfo.InvariantCulture%2A?displayProperty=fullName>."
+  summary: "Pobiera statycznego <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;> </xref> wystąpienia jako zostałyby utworzone przez <xref:System.Windows.Markup.XmlLanguage.GetLanguage*>z tagiem języka jako ciąg pusty atrybut.</xref:System.Windows.Markup.XmlLanguage.GetLanguage*>"
+  remarks: "Ta wartość jest obowiązująca <xref:System.Windows.Markup.XmlLanguage>odpowiadający <xref:System.String.Empty?displayProperty=fullName>, których <xref:System.Windows.Markup.XmlLanguage.GetEquivalentCulture%2A>wynikiem jest <xref:System.Globalization.CultureInfo.InvariantCulture%2A?displayProperty=fullName>.</xref:System.Globalization.CultureInfo.InvariantCulture%2A?displayProperty=fullName> </xref:System.Windows.Markup.XmlLanguage.GetEquivalentCulture%2A> </xref:System.String.Empty?displayProperty=fullName> </xref:System.Windows.Markup.XmlLanguage>"
   syntax:
     content: public static System.Windows.Markup.XmlLanguage Empty { get; }
     return:
       type: System.Windows.Markup.XmlLanguage
-      description: "The empty language tag version of <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;></xref>, for use in comparison operations."
+      description: "Wersja tag pusty języka <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;> </xref>, do użycia w ramach operacji porównania."
   overload: System.Windows.Markup.XmlLanguage.Empty*
   exceptions: []
   platform:
@@ -63,19 +63,19 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Markup
-  summary: "Returns the appropriate equivalent <xref:System.Globalization.CultureInfo> for this <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;></xref>, if and only if such a <xref:System.Globalization.CultureInfo> is registered for the <xref:System.Windows.Markup.XmlLanguage.IetfLanguageTag*> value of this <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;></xref>"
-  remarks: "If no equivalent <xref:System.Globalization.CultureInfo> can be produced, this method raises an exception. If you do not wish to handle exceptions, call <xref:System.Windows.Markup.XmlLanguage.GetSpecificCulture%2A> instead."
+  summary: "Zwraca odpowiednie równoważne <xref:System.Globalization.CultureInfo>dla tego <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;> </xref>, jeśli i tylko wtedy, gdy taki <xref:System.Globalization.CultureInfo>jest zarejestrowany dla <xref:System.Windows.Markup.XmlLanguage.IetfLanguageTag*>wartość <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;> </xref> </xref:System.Windows.Markup.XmlLanguage.IetfLanguageTag*> </xref:System.Globalization.CultureInfo> </xref:System.Globalization.CultureInfo>"
+  remarks: "Jeśli odpowiednika <xref:System.Globalization.CultureInfo>mogą być tworzone, ta metoda zgłasza wyjątek.</xref:System.Globalization.CultureInfo> Jeśli nie chcesz, aby obsługa wyjątków, wywołań <xref:System.Windows.Markup.XmlLanguage.GetSpecificCulture%2A>zamiast.</xref:System.Windows.Markup.XmlLanguage.GetSpecificCulture%2A>"
   syntax:
     content: public System.Globalization.CultureInfo GetEquivalentCulture ();
     parameters: []
     return:
       type: System.Globalization.CultureInfo
-      description: "A <xref:System.Globalization.CultureInfo> that can be used for localization-globalization API calls that take that type as an argument."
+      description: "A <xref:System.Globalization.CultureInfo>które mogą być używane w przypadku wywołań interfejsu API globalizacji lokalizacji, które przyjmują tego typu jako argumentu.</xref:System.Globalization.CultureInfo>"
   overload: System.Windows.Markup.XmlLanguage.GetEquivalentCulture*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "No registered <xref:System.Globalization.CultureInfo> for the provided <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;></xref> exists, as determined by a call to <xref:System.Globalization.CultureInfo.GetCultureInfoByIetfLanguageTag*>."
+    description: "Nie zarejestrowano <xref:System.Globalization.CultureInfo>dla udostępnionych <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;> </xref> istnieje, zgodnie z ustaleniami wywołanie <xref:System.Globalization.CultureInfo.GetCultureInfoByIetfLanguageTag*>.</xref:System.Globalization.CultureInfo.GetCultureInfoByIetfLanguageTag*> </xref:System.Globalization.CultureInfo>"
   platform:
   - net462
 - uid: System.Windows.Markup.XmlLanguage.GetLanguage(System.String)
@@ -90,25 +90,25 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Markup
-  summary: "Returns a <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;></xref> instance, based on a string representing the language per RFC 3066."
-  remarks: "This method is effectively the constructor.       The language string may be empty, or else must conform to [RFC 3066](http://go.microsoft.com/fwlink/?LinkId=132454) rules:      -   The first subtag must consist of only [!INCLUDE[TLA#tla_ascii](~/add/includes/tlasharptla-ascii-md.md)] letters.      -   Additional subtags must consist [!INCLUDE[TLA#tla_ascii](~/add/includes/tlasharptla-ascii-md.md)] letters or numerals.      -   Subtags are separated by a single hyphen character.      -   Every subtag must be 1 to 8 characters long.      -   No leading or trailing hyphens are permitted."
+  summary: "Zwraca <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;> </xref> wystąpienia, na podstawie ciągu reprezentujący języka na RFC 3066."
+  remarks: "Ta metoda jest skutecznie konstruktora.       Ciąg języka może być pusta, w przeciwnym razie musi być zgodna z [RFC 3066](http://go.microsoft.com/fwlink/?LinkId=132454) reguł:-Tag pierwszy podrzędny musi składać się z tylko [!INCLUDE[TLA#tla_ascii](~/add/includes/tlasharptla-ascii-md.md)] litery.      -Dodatkowe tagi podrzędne muszą składać się [!INCLUDE[TLA#tla_ascii](~/add/includes/tlasharptla-ascii-md.md)] litery lub cyfry.      -Tagi podrzędne są oddzielone znakiem pojedynczy łącznik.      -Co tag podrzędny musi być 1 – 8 znaków.      -Brak wiodących lub końcowych łączniki są dozwolone."
   syntax:
     content: public static System.Windows.Markup.XmlLanguage GetLanguage (string ietfLanguageTag);
     parameters:
     - id: ietfLanguageTag
       type: System.String
-      description: "An RFC 3066 language string, or empty string."
+      description: "Ciąg języka RFC 3066 lub pusty ciąg."
     return:
       type: System.Windows.Markup.XmlLanguage
-      description: "A new <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;></xref> with the provided string as its <xref:System.Windows.Markup.XmlLanguage.IetfLanguageTag*> value."
+      description: "Nowy <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;> </xref> z podanego ciągu jako jego <xref:System.Windows.Markup.XmlLanguage.IetfLanguageTag*>wartość.</xref:System.Windows.Markup.XmlLanguage.IetfLanguageTag*>"
   overload: System.Windows.Markup.XmlLanguage.GetLanguage*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>ietfLanguageTag</code> parameter cannot be null."
+    description: "<code>ietfLanguageTag</code>Parametr nie może mieć wartości null."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>ietfLanguageTag</code> parameter was non-empty, but did not conform to the syntax specified in RFC 3066. See Remarks."
+    description: "<code>ietfLanguageTag</code>Parametr był pusty, ale nie jest zgodny ze składni określona w dokumencie RFC 3066. Zobacz uwagi."
   platform:
   - net462
 - uid: System.Windows.Markup.XmlLanguage.GetSpecificCulture
@@ -123,19 +123,19 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Markup
-  summary: "Returns the most-closely-related non-neutral <xref:System.Globalization.CultureInfo> for this <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;></xref>."
-  remarks: "If this <xref:System.Windows.Markup.XmlLanguage> is equal to <xref:System.Windows.Markup.XmlLanguage.Empty%2A?displayProperty=fullName> then this method will return <xref:System.Globalization.CultureInfo.InvariantCulture%2A?displayProperty=fullName>.       This method finds the registered <xref:System.Globalization.CultureInfo> matching the longest-possible prefix of this <xref:System.Windows.Markup.XmlLanguage>. If that registered <xref:System.Globalization.CultureInfo> is neutral (<xref:System.Globalization.CultureInfo.IsNeutralCulture%2A> is `true`), then this method relies on a call to <xref:System.Globalization.CultureInfo.CreateSpecificCulture%2A> to map from a neutral <xref:System.Globalization.CultureInfo> to a specific one."
+  summary: "Zwraca blisko związane z systemem innym niż neutralne <xref:System.Globalization.CultureInfo>tego <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;> </xref>.</xref:System.Globalization.CultureInfo>"
+  remarks: "Jeśli to <xref:System.Windows.Markup.XmlLanguage>jest taki sam, <xref:System.Windows.Markup.XmlLanguage.Empty%2A?displayProperty=fullName>to ta metoda zwróci <xref:System.Globalization.CultureInfo.InvariantCulture%2A?displayProperty=fullName>.</xref:System.Globalization.CultureInfo.InvariantCulture%2A?displayProperty=fullName> </xref:System.Windows.Markup.XmlLanguage.Empty%2A?displayProperty=fullName> </xref:System.Windows.Markup.XmlLanguage>       Ta metoda umożliwia znalezienie zarejestrowanych <xref:System.Globalization.CultureInfo>dopasowanie prefiksu najdłuższym możliwe tym <xref:System.Windows.Markup.XmlLanguage>.</xref:System.Windows.Markup.XmlLanguage> </xref:System.Globalization.CultureInfo> Jeśli które zarejestrowane <xref:System.Globalization.CultureInfo>jest obojętny (<xref:System.Globalization.CultureInfo.IsNeutralCulture%2A> jest `true`), a następnie ta metoda polega na wywołanie <xref:System.Globalization.CultureInfo.CreateSpecificCulture%2A>mapować neutralnej <xref:System.Globalization.CultureInfo>na określoną.</xref:System.Globalization.CultureInfo> </xref:System.Globalization.CultureInfo.CreateSpecificCulture%2A> </xref:System.Globalization.CultureInfo.IsNeutralCulture%2A> </xref:System.Globalization.CultureInfo>"
   syntax:
     content: public System.Globalization.CultureInfo GetSpecificCulture ();
     parameters: []
     return:
       type: System.Globalization.CultureInfo
-      description: "A <xref:System.Globalization.CultureInfo> that can be used for localization-globalization [!INCLUDE[TLA2#tla_api](~/add/includes/tla2sharptla-api-md.md)] calls that take that type as an argument."
+      description: "A <xref:System.Globalization.CultureInfo>które mogą być używane dla lokalizacji globalizacji [!INCLUDE[TLA2#tla_api](~/add/includes/tla2sharptla-api-md.md)] wywołania, które przyjmują tego typu jako argumentu.</xref:System.Globalization.CultureInfo>"
   overload: System.Windows.Markup.XmlLanguage.GetSpecificCulture*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "No related non-neutral <xref:System.Globalization.CultureInfo> is registered for the current <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;></xref> <xref:System.Windows.Markup.XmlLanguage.IetfLanguageTag*>."
+    description: "Nie powiązanych nieneutralną <xref:System.Globalization.CultureInfo>jest zarejestrowany dla bieżącego <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;> </xref> <xref:System.Windows.Markup.XmlLanguage.IetfLanguageTag*>.</xref:System.Windows.Markup.XmlLanguage.IetfLanguageTag*> </xref:System.Globalization.CultureInfo>"
   platform:
   - net462
 - uid: System.Windows.Markup.XmlLanguage.IetfLanguageTag
@@ -150,13 +150,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Markup
-  summary: "Gets the string representation of the language tag."
-  remarks: "This property may return a normalized version of the originally-specified string as provided to <xref:System.Windows.Markup.XmlLanguage.GetLanguage%2A>.       This property may also return <xref:System.String.Empty> if an empty string was provided to <xref:System.Windows.Markup.XmlLanguage.GetLanguage%2A>."
+  summary: "Pobiera reprezentację ciągu znacznik języka."
+  remarks: "Ta właściwość może zwrócić znormalizowane wersję ciągu określona pierwotnie przewidzianych do <xref:System.Windows.Markup.XmlLanguage.GetLanguage%2A>.</xref:System.Windows.Markup.XmlLanguage.GetLanguage%2A>       Ta właściwość może również zwrócić <xref:System.String.Empty>Jeśli <xref:System.Windows.Markup.XmlLanguage.GetLanguage%2A>.</xref:System.Windows.Markup.XmlLanguage.GetLanguage%2A> dostarczono pusty ciąg</xref:System.String.Empty>"
   syntax:
     content: public string IetfLanguageTag { get; }
     return:
       type: System.String
-      description: "The string representation of the language tag."
+      description: "Reprezentacja ciągu znacznik języka."
   overload: System.Windows.Markup.XmlLanguage.IetfLanguageTag*
   exceptions: []
   platform:
@@ -173,14 +173,14 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Markup
-  summary: "Returns a <xref:System.String> that represents the current <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;></xref>."
-  remarks: "This returns the <xref:System.Windows.Markup.XmlLanguage.IetfLanguageTag%2A> value of the current <xref:System.Windows.Markup.XmlLanguage>."
+  summary: "Zwraca <xref:System.String>reprezentujący bieżącą <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;> </xref>.</xref:System.String>"
+  remarks: "To polecenie zwróci <xref:System.Windows.Markup.XmlLanguage.IetfLanguageTag%2A>wartość bieżącej <xref:System.Windows.Markup.XmlLanguage>.</xref:System.Windows.Markup.XmlLanguage> </xref:System.Windows.Markup.XmlLanguage.IetfLanguageTag%2A>"
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "A <xref:System.String> that represents the current <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;></xref>."
+      description: "A <xref:System.String>reprezentujący bieżącą <xref href=&quot;System.Windows.Markup.XmlLanguage&quot;> </xref>.</xref:System.String>"
   overload: System.Windows.Markup.XmlLanguage.ToString*
   exceptions: []
   platform:

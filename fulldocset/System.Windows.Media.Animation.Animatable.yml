@@ -19,7 +19,7 @@ items:
   nameWithType: Animatable
   fullName: System.Windows.Media.Animation.Animatable
   type: Class
-  summary: "Abstract class that provides animation support."
+  summary: "Klasa abstrakcyjna, która zapewnia obsługę animacji."
   syntax:
     content: 'public abstract class Animatable : System.Windows.Freezable, System.Windows.Media.Animation.IAnimatable'
   inheritance:
@@ -83,7 +83,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Media.Animation.Animatable&quot;></xref> class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Windows.Media.Animation.Animatable&quot;> </xref> klasy."
   syntax:
     content: protected Animatable ();
     parameters: []
@@ -103,17 +103,17 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Applies an <xref href=&quot;System.Windows.Media.Animation.AnimationClock&quot;></xref> to the specified <xref href=&quot;System.Windows.DependencyProperty&quot;></xref>. If the property is already animated, the <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;></xref> handoff behavior is used."
-  remarks: "Note that using this method to removing clocks from a property does not stop those clocks."
+  summary: "Stosuje <xref href=&quot;System.Windows.Media.Animation.AnimationClock&quot;> </xref> do określonego <xref href=&quot;System.Windows.DependencyProperty&quot;> </xref>. Jeśli właściwość jest już animowany, <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;> </xref> przekazaniem zachowanie jest używany."
+  remarks: "Należy pamiętać, że usunięcie zegary z właściwością przy użyciu tej metody nie zatrzymuje tych zegary."
   syntax:
     content: public void ApplyAnimationClock (System.Windows.DependencyProperty dp, System.Windows.Media.Animation.AnimationClock clock);
     parameters:
     - id: dp
       type: System.Windows.DependencyProperty
-      description: "The property to animate."
+      description: "Właściwość animacji."
     - id: clock
       type: System.Windows.Media.Animation.AnimationClock
-      description: "The clock with which to animate the specified property. If `clock` is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, all animations will be removed from the specified property (but not stopped)."
+      description: "Zegara, z którą ma zostać animować określonej właściwości. Jeśli `clock` jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, wszystkie animacje zostaną usunięte z określonej właściwości (ale nie zatrzymać)."
   overload: System.Windows.Media.Animation.Animatable.ApplyAnimationClock*
   exceptions: []
   platform:
@@ -130,8 +130,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Applies an <xref href=&quot;System.Windows.Media.Animation.AnimationClock&quot;></xref> to the specified <xref href=&quot;System.Windows.DependencyProperty&quot;></xref>. If the property is already animated, the specified <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;></xref> is used."
-  remarks: "Note that using this method to remove clocks from a property does not stop those clocks.      ## Using the Compose HandoffBehavior    When you apply a <xref:System.Windows.Media.Animation.Storyboard>, <xref:System.Windows.Media.Animation.AnimationTimeline>, or <xref:System.Windows.Media.Animation.AnimationClock> to a property using the <xref:System.Windows.Media.Animation.HandoffBehavior> <xref:System.Windows.Media.Animation.HandoffBehavior>, any <xref:System.Windows.Media.Animation.Clock> objects previously associated with that property continue to consume system resources; the timing system will not remove these clocks automatically.       To avoid performance issues when you apply a large number of clocks using <xref:System.Windows.Media.Animation.HandoffBehavior>, you should remove composing clocks from the animated property after they complete. There are several ways to remove a clock.      -   To remove all clocks from a property, use the <xref:System.Windows.Media.Animation.Animatable.ApplyAnimationClock%28System.Windows.DependencyProperty%2CSystem.Windows.Media.Animation.AnimationClock%29> or <xref:System.Windows.Media.Animation.Animatable.BeginAnimation%28System.Windows.DependencyProperty%2CSystem.Windows.Media.Animation.AnimationTimeline%29> method of the animated object. Specify the property being animated as the first parameter, and `null` as the second. This will remove all animation clocks from the property.      -   To remove a specific <xref:System.Windows.Media.Animation.AnimationClock> from a list of clocks, use the <xref:System.Windows.Media.Animation.Clock.Controller%2A> property of the <xref:System.Windows.Media.Animation.AnimationClock> to retrieve a <xref:System.Windows.Media.Animation.ClockController>, then call the <xref:System.Windows.Media.Animation.ClockController.Remove%2A> method of the <xref:System.Windows.Media.Animation.ClockController>. This is typically done in the <xref:System.Windows.Media.Animation.Clock.Completed> event handler for a clock. Note that only root clocks can be controlled by a <xref:System.Windows.Media.Animation.ClockController>; the <xref:System.Windows.Media.Animation.Clock.Controller%2A> property of a child clock will return `null`. Note also that the <xref:System.Windows.Media.Animation.Clock.Completed> event will not be called if the effective duration of the clock is forever.  In that case, the user will need to determine when to call <xref:System.Windows.Media.Animation.ClockController.Remove%2A>.       This is primarily an issue for animations on objects that have a long lifetime.  When an object is garbage collected, its clocks will also be disconnected and garbage collected.       For more information about clock objects, see the [Animation and Timing System Overview](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Stosuje <xref href=&quot;System.Windows.Media.Animation.AnimationClock&quot;> </xref> do określonego <xref href=&quot;System.Windows.DependencyProperty&quot;> </xref>. Jeśli właściwość jest już animowany, określony <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;> </xref> jest używany."
+  remarks: "Należy pamiętać, że za pomocą tej metody, aby usunąć z właściwości zegary nie zatrzymuje tych zegary.      ## Przy użyciu tworzą HandoffBehavior przy zastosowaniu <xref:System.Windows.Media.Animation.Storyboard>, <xref:System.Windows.Media.Animation.AnimationTimeline>, lub <xref:System.Windows.Media.Animation.AnimationClock>je przy użyciu właściwości <xref:System.Windows.Media.Animation.HandoffBehavior> <xref:System.Windows.Media.Animation.HandoffBehavior>oraz <xref:System.Windows.Media.Animation.Clock>obiekty wcześniej skojarzone z tą właściwością nadal zużywają zasoby systemowe; system chronometrażu nie spowoduje usunięcia zegary automatycznie.</xref:System.Windows.Media.Animation.Clock> </xref:System.Windows.Media.Animation.HandoffBehavior> </xref:System.Windows.Media.Animation.HandoffBehavior> </xref:System.Windows.Media.Animation.AnimationClock> </xref:System.Windows.Media.Animation.AnimationTimeline> </xref:System.Windows.Media.Animation.Storyboard>       Aby uniknąć problemów z wydajnością podczas stosowania dużej liczby zegary przy użyciu <xref:System.Windows.Media.Animation.HandoffBehavior>, tworzenie zegary należy usunąć z właściwości animowany po ich zakończeniu.</xref:System.Windows.Media.Animation.HandoffBehavior> Istnieje kilka sposobów, aby usunąć zegara.      -Aby usunąć wszystkie zegary z właściwością, użyj <xref:System.Windows.Media.Animation.Animatable.ApplyAnimationClock%28System.Windows.DependencyProperty%2CSystem.Windows.Media.Animation.AnimationClock%29>lub <xref:System.Windows.Media.Animation.Animatable.BeginAnimation%28System.Windows.DependencyProperty%2CSystem.Windows.Media.Animation.AnimationTimeline%29>metoda obiektu animowany.</xref:System.Windows.Media.Animation.Animatable.BeginAnimation%28System.Windows.DependencyProperty%2CSystem.Windows.Media.Animation.AnimationTimeline%29> </xref:System.Windows.Media.Animation.Animatable.ApplyAnimationClock%28System.Windows.DependencyProperty%2CSystem.Windows.Media.Animation.AnimationClock%29> Określ właściwość animowanej jako pierwszego parametru oraz `null` jako drugiego. Spowoduje to usunięcie wszystkich zegary animacji z właściwości.      -Aby usunąć określonego <xref:System.Windows.Media.Animation.AnimationClock>z listy zegary, użyj <xref:System.Windows.Media.Animation.Clock.Controller%2A>właściwości <xref:System.Windows.Media.Animation.AnimationClock>do pobrania <xref:System.Windows.Media.Animation.ClockController>następnie wywołaj <xref:System.Windows.Media.Animation.ClockController.Remove%2A>metodę <xref:System.Windows.Media.Animation.ClockController>.</xref:System.Windows.Media.Animation.ClockController> </xref:System.Windows.Media.Animation.ClockController.Remove%2A> </xref:System.Windows.Media.Animation.ClockController> </xref:System.Windows.Media.Animation.AnimationClock> </xref:System.Windows.Media.Animation.Clock.Controller%2A> </xref:System.Windows.Media.Animation.AnimationClock> Jest to zazwyczaj wykonywane <xref:System.Windows.Media.Animation.Clock.Completed>programu obsługi zdarzeń dla obiektu clock.</xref:System.Windows.Media.Animation.Clock.Completed> Należy pamiętać, że tylko zegary głównego mogą być kontrolowane przez <xref:System.Windows.Media.Animation.ClockController>; <xref:System.Windows.Media.Animation.Clock.Controller%2A>zwróci właściwości zegara podrzędnych `null`.</xref:System.Windows.Media.Animation.Clock.Controller%2A> </xref:System.Windows.Media.Animation.ClockController> Należy zauważyć, że <xref:System.Windows.Media.Animation.Clock.Completed>zdarzenie nie zostanie wywołany, jeśli efektywny czas trwania zegar jest nieskończoność.</xref:System.Windows.Media.Animation.Clock.Completed>  W takim przypadku użytkownik musi określić, kiedy wywołać metodę <xref:System.Windows.Media.Animation.ClockController.Remove%2A>.</xref:System.Windows.Media.Animation.ClockController.Remove%2A>       To przede wszystkim problemu dla animacji na obiektach, które mają długi okres istnienia.  Gdy obiekt jest bezużytecznych, jego zegary również zostanie rozłączona i w ramach odzyskiwania pamięci.       Aby uzyskać więcej informacji o obiektach zegara, zobacz [animacji i Przegląd systemu chronometrażu](~/add/includes/ajax-current-ext-md.md)."
   example:
   - The following example shows how to apply animation clocks using different <xref:System.Windows.Media.Animation.HandoffBehavior> settings.
   syntax:
@@ -139,13 +139,13 @@ items:
     parameters:
     - id: dp
       type: System.Windows.DependencyProperty
-      description: "The property to animate."
+      description: "Właściwość animacji."
     - id: clock
       type: System.Windows.Media.Animation.AnimationClock
-      description: "The clock with which to animate the specified property. If `handoffBehavior` is <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;></xref> and `clock` is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, all animations will be removed from the specified property (but not stopped). If `handoffBehavior` is <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;></xref> and clock is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, this method has no effect."
+      description: "Zegara, z którą ma zostać animować określonej właściwości. Jeśli `handoffBehavior` jest <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;> </xref> i `clock` jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, wszystkie animacje zostaną usunięte z określonej właściwości (ale nie zatrzymać). Jeśli `handoffBehavior` jest <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;> </xref> i zegarem <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, ta metoda nie ma wpływu."
     - id: handoffBehavior
       type: System.Windows.Media.Animation.HandoffBehavior
-      description: "A value that specifies how the new animation should interact with any current animations already affecting the property value."
+      description: "Wartość, która określa nowe animacji powinien interakcję z dowolne animacje bieżącego już wpływu na wartość właściwości."
   overload: System.Windows.Media.Animation.Animatable.ApplyAnimationClock*
   exceptions: []
   platform:
@@ -162,17 +162,17 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Applies an animation to the specified <xref href=&quot;System.Windows.DependencyProperty&quot;></xref>. The animation is started when the next frame is rendered. If the specified property is already animated, the <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;></xref> handoff behavior is used."
-  remarks: "If the animation has a <xref:System.Windows.Media.Animation.Timeline.BeginTime%2A> that is greater than zero, the animation begins after that amount of time has elapsed from the time the next frame is rendered."
+  summary: "Powoduje zastosowanie animacji do określonego <xref href=&quot;System.Windows.DependencyProperty&quot;> </xref>. Animacja została uruchomiona podczas renderowania następnej ramki. Jeśli określona właściwość jest już animowany, <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;> </xref> przekazaniem zachowanie jest używany."
+  remarks: "Jeśli animacja ma <xref:System.Windows.Media.Animation.Timeline.BeginTime%2A>większą niż zero, po upływie tego przedziału czasu od chwili renderowania następnej ramki rozpoczęcia animacji.</xref:System.Windows.Media.Animation.Timeline.BeginTime%2A>"
   syntax:
     content: public void BeginAnimation (System.Windows.DependencyProperty dp, System.Windows.Media.Animation.AnimationTimeline animation);
     parameters:
     - id: dp
       type: System.Windows.DependencyProperty
-      description: "The property to animate."
+      description: "Właściwość animacji."
     - id: animation
       type: System.Windows.Media.Animation.AnimationTimeline
-      description: "The animation used to animate the specified property.       If the animation&quot;s <xref:System.Windows.Media.Animation.Timeline.BeginTime*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, any current animations will be removed and the current value of the property will be held.       If `animation` is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, all animations will be removed from the property and the property value will revert back to its base value."
+      description: "Animacja użyć do animowania określonej właściwości.       Jeśli animacji <xref:System.Windows.Media.Animation.Timeline.BeginTime*>jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, zostaną usunięte wszystkie bieżące animacji i będzie on wstrzymany bieżącej wartości właściwości.</xref:System.Windows.Media.Animation.Timeline.BeginTime*>       Jeśli `animation` jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, wszystkie animacje zostanie usunięta z właściwości i wartość właściwości zostanie przywrócona do jego wartości podstawowej."
   overload: System.Windows.Media.Animation.Animatable.BeginAnimation*
   exceptions: []
   platform:
@@ -189,8 +189,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Applies an animation to the specified <xref href=&quot;System.Windows.DependencyProperty&quot;></xref>. The animation is started when the next frame is rendered. If the specified property is already animated, the specified <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;></xref> is used."
-  remarks: "If the animation has a <xref:System.Windows.Media.Animation.Timeline.BeginTime%2A> that is greater than zero, the animation begins after that amount of time has elapsed from the time the next frame is rendered.      ## Using the Compose HandoffBehavior    When you apply a <xref:System.Windows.Media.Animation.Storyboard>, <xref:System.Windows.Media.Animation.AnimationTimeline>, or <xref:System.Windows.Media.Animation.AnimationClock> to a property using the <xref:System.Windows.Media.Animation.HandoffBehavior> <xref:System.Windows.Media.Animation.HandoffBehavior>, any <xref:System.Windows.Media.Animation.Clock> objects previously associated with that property continue to consume system resources; the timing system will not remove these clocks automatically.       To avoid performance issues when you apply a large number of clocks using <xref:System.Windows.Media.Animation.HandoffBehavior>, you should remove composing clocks from the animated property after they complete. There are several ways to remove a clock.      -   To remove all clocks from a property, use the <xref:System.Windows.Media.Animation.Animatable.ApplyAnimationClock%28System.Windows.DependencyProperty%2CSystem.Windows.Media.Animation.AnimationClock%29> or <xref:System.Windows.Media.Animation.Animatable.BeginAnimation%28System.Windows.DependencyProperty%2CSystem.Windows.Media.Animation.AnimationTimeline%29> method of the animated object. Specify the property being animated as the first parameter, and `null` as the second. This will remove all animation clocks from the property.      -   To remove a specific <xref:System.Windows.Media.Animation.AnimationClock> from a list of clocks, use the <xref:System.Windows.Media.Animation.Clock.Controller%2A> property of the <xref:System.Windows.Media.Animation.AnimationClock> to retrieve a <xref:System.Windows.Media.Animation.ClockController>, then call the <xref:System.Windows.Media.Animation.ClockController.Remove%2A> method of the <xref:System.Windows.Media.Animation.ClockController>. This is typically done in the <xref:System.Windows.Media.Animation.Clock.Completed> event handler for a clock. Note that only root clocks can be controlled by a <xref:System.Windows.Media.Animation.ClockController>; the <xref:System.Windows.Media.Animation.Clock.Controller%2A> property of a child clock will return `null`. Note also that the <xref:System.Windows.Media.Animation.Clock.Completed> event will not be called if the effective duration of the clock is forever.  In that case, the user will need to determine when to call <xref:System.Windows.Media.Animation.ClockController.Remove%2A>.       This is primarily an issue for animations on objects that have a long lifetime.  When an object is garbage collected, its clocks will also be disconnected and garbage collected.       For more information about clock objects, see the [Animation and Timing System Overview](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Powoduje zastosowanie animacji do określonego <xref href=&quot;System.Windows.DependencyProperty&quot;> </xref>. Animacja została uruchomiona podczas renderowania następnej ramki. Jeśli określona właściwość jest już animowany, określony <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;> </xref> jest używany."
+  remarks: "Jeśli animacja ma <xref:System.Windows.Media.Animation.Timeline.BeginTime%2A>większą niż zero, po upływie tego przedziału czasu od chwili renderowania następnej ramki rozpoczęcia animacji.</xref:System.Windows.Media.Animation.Timeline.BeginTime%2A>      ## Przy użyciu tworzą HandoffBehavior przy zastosowaniu <xref:System.Windows.Media.Animation.Storyboard>, <xref:System.Windows.Media.Animation.AnimationTimeline>, lub <xref:System.Windows.Media.Animation.AnimationClock>je przy użyciu właściwości <xref:System.Windows.Media.Animation.HandoffBehavior> <xref:System.Windows.Media.Animation.HandoffBehavior>oraz <xref:System.Windows.Media.Animation.Clock>obiekty wcześniej skojarzone z tą właściwością nadal zużywają zasoby systemowe; system chronometrażu nie spowoduje usunięcia zegary automatycznie.</xref:System.Windows.Media.Animation.Clock> </xref:System.Windows.Media.Animation.HandoffBehavior> </xref:System.Windows.Media.Animation.HandoffBehavior> </xref:System.Windows.Media.Animation.AnimationClock> </xref:System.Windows.Media.Animation.AnimationTimeline> </xref:System.Windows.Media.Animation.Storyboard>       Aby uniknąć problemów z wydajnością podczas stosowania dużej liczby zegary przy użyciu <xref:System.Windows.Media.Animation.HandoffBehavior>, tworzenie zegary należy usunąć z właściwości animowany po ich zakończeniu.</xref:System.Windows.Media.Animation.HandoffBehavior> Istnieje kilka sposobów, aby usunąć zegara.      -Aby usunąć wszystkie zegary z właściwością, użyj <xref:System.Windows.Media.Animation.Animatable.ApplyAnimationClock%28System.Windows.DependencyProperty%2CSystem.Windows.Media.Animation.AnimationClock%29>lub <xref:System.Windows.Media.Animation.Animatable.BeginAnimation%28System.Windows.DependencyProperty%2CSystem.Windows.Media.Animation.AnimationTimeline%29>metoda obiektu animowany.</xref:System.Windows.Media.Animation.Animatable.BeginAnimation%28System.Windows.DependencyProperty%2CSystem.Windows.Media.Animation.AnimationTimeline%29> </xref:System.Windows.Media.Animation.Animatable.ApplyAnimationClock%28System.Windows.DependencyProperty%2CSystem.Windows.Media.Animation.AnimationClock%29> Określ właściwość animowanej jako pierwszego parametru oraz `null` jako drugiego. Spowoduje to usunięcie wszystkich zegary animacji z właściwości.      -Aby usunąć określonego <xref:System.Windows.Media.Animation.AnimationClock>z listy zegary, użyj <xref:System.Windows.Media.Animation.Clock.Controller%2A>właściwości <xref:System.Windows.Media.Animation.AnimationClock>do pobrania <xref:System.Windows.Media.Animation.ClockController>następnie wywołaj <xref:System.Windows.Media.Animation.ClockController.Remove%2A>metodę <xref:System.Windows.Media.Animation.ClockController>.</xref:System.Windows.Media.Animation.ClockController> </xref:System.Windows.Media.Animation.ClockController.Remove%2A> </xref:System.Windows.Media.Animation.ClockController> </xref:System.Windows.Media.Animation.AnimationClock> </xref:System.Windows.Media.Animation.Clock.Controller%2A> </xref:System.Windows.Media.Animation.AnimationClock> Jest to zazwyczaj wykonywane <xref:System.Windows.Media.Animation.Clock.Completed>programu obsługi zdarzeń dla obiektu clock.</xref:System.Windows.Media.Animation.Clock.Completed> Należy pamiętać, że tylko zegary głównego mogą być kontrolowane przez <xref:System.Windows.Media.Animation.ClockController>; <xref:System.Windows.Media.Animation.Clock.Controller%2A>zwróci właściwości zegara podrzędnych `null`.</xref:System.Windows.Media.Animation.Clock.Controller%2A> </xref:System.Windows.Media.Animation.ClockController> Należy zauważyć, że <xref:System.Windows.Media.Animation.Clock.Completed>zdarzenie nie zostanie wywołany, jeśli efektywny czas trwania zegar jest nieskończoność.</xref:System.Windows.Media.Animation.Clock.Completed>  W takim przypadku użytkownik musi określić, kiedy wywołać metodę <xref:System.Windows.Media.Animation.ClockController.Remove%2A>.</xref:System.Windows.Media.Animation.ClockController.Remove%2A>       To przede wszystkim problemu dla animacji na obiektach, które mają długi okres istnienia.  Gdy obiekt jest bezużytecznych, jego zegary również zostanie rozłączona i w ramach odzyskiwania pamięci.       Aby uzyskać więcej informacji o obiektach zegara, zobacz [animacji i Przegląd systemu chronometrażu](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example shows how to apply animations using different <xref:System.Windows.Media.Animation.HandoffBehavior> settings.  \n  \n [!code-cpp[animateproperty#InteractiveAnimationExampleWholePage](~/add/codesnippet/cpp/animagionproperty_cpp/InteractiveExample.cpp#interactiveanimationexamplewholepage)]\n [!code-cs[animateproperty#InteractiveAnimationExampleWholePage](~/add/codesnippet/csharp/animateproperty_csharp/InteractiveExample.cs#interactiveanimationexamplewholepage)]\n [!code-vb[animateproperty#InteractiveAnimationExampleWholePage](~/add/codesnippet/visualbasic/animateproperty_vb/InteractiveExample.vb#interactiveanimationexamplewholepage)]"
   syntax:
@@ -198,13 +198,13 @@ items:
     parameters:
     - id: dp
       type: System.Windows.DependencyProperty
-      description: "The property to animate."
+      description: "Właściwość animacji."
     - id: animation
       type: System.Windows.Media.Animation.AnimationTimeline
-      description: "The animation used to animate the specified property.       If `handoffBehavior` is <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;></xref> and the animation&quot;s <xref:System.Windows.Media.Animation.Timeline.BeginTime*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, any current animations will be removed and the current value of the property will be held.       If `handoffBehavior` is <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;></xref> and `animation` is a <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> reference, all animations will be removed from the property and the property value will revert back to its base value.       If `handoffBehavior` is <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;></xref>, this method will have no effect if the animation or its <xref:System.Windows.Media.Animation.Timeline.BeginTime*> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Animacja użyć do animowania określonej właściwości.       Jeśli `handoffBehavior` jest <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;> </xref> i animacji <> </> *> jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, zostaną usunięte wszystkie bieżące animacji i będzie on wstrzymany bieżącej wartości właściwości.       Jeśli `handoffBehavior` jest <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;> </xref> i `animation` jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> odwołania, wszystkie animacje zostanie usunięta z właściwości i wartość właściwości zostanie przywrócona do jego wartości podstawowej.       Jeśli `handoffBehavior` jest <xref href=&quot;System.Windows.Media.Animation.HandoffBehavior&quot;> </xref>, ta metoda nie przyniesie efektu Jeśli animacji lub jego <> </> *> jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     - id: handoffBehavior
       type: System.Windows.Media.Animation.HandoffBehavior
-      description: "A value that specifies how the new animation should interact with any current animations already affecting the property value."
+      description: "Wartość, która określa nowe animacji powinien interakcję z dowolne animacje bieżącego już wpływu na wartość właściwości."
   overload: System.Windows.Media.Animation.Animatable.BeginAnimation*
   exceptions: []
   platform:
@@ -221,14 +221,14 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Creates a modifiable clone of this <xref href=&quot;System.Windows.Media.Animation.Animatable&quot;></xref>, making deep copies of this object&quot;s values. When copying this object&quot;s dependency properties, this method copies resource references and data bindings (but they might no longer resolve) but not animations or their current values."
-  remarks: "The Clone method can be used to produce modifiable copies of frozen <xref:System.Windows.Freezable> objects. For convenience, this method shadows the inherited <xref:System.Windows.Freezable.Clone%2A> method to provide a strongly typed implementation."
+  summary: "Tworzy modyfikowalną klonu tego <xref href=&quot;System.Windows.Media.Animation.Animatable&quot;> </xref>, tworzenie bezpośrednich kopii wartości tego obiektu. Podczas kopiowania właściwości zależności tego obiektu, ta metoda umożliwia skopiowanie powiązania odwołań i dane zasobów, ale nie rozpoznają może ale animacje lub ich bieżącymi wartościami."
+  remarks: "Metody Clone może służyć do tworzenia kopii można modyfikować zablokowane <xref:System.Windows.Freezable>obiektów.</xref:System.Windows.Freezable> Dla wygody, ta metoda zasłania dziedziczonego <xref:System.Windows.Freezable.Clone%2A>metodę w celu zapewnienia silnie typizowaną implementację.</xref:System.Windows.Freezable.Clone%2A>"
   syntax:
     content: public System.Windows.Media.Animation.Animatable Clone ();
     parameters: []
     return:
       type: System.Windows.Media.Animation.Animatable
-      description: "A modifiable clone of this instance. The returned clone is effectively a deep copy of the current object. The clone&quot;s <xref:System.Windows.Freezable.IsFrozen*> property is **false**."
+      description: "Można modyfikować klonu tego wystąpienia. Zwrócony klon skutecznie jest głęboką kopię bieżącego obiektu. Klonu <> </> *> właściwość jest * *false**."
   overload: System.Windows.Media.Animation.Animatable.Clone*
   exceptions: []
   platform:
@@ -245,17 +245,17 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Makes this <xref href=&quot;System.Windows.Media.Animation.Animatable&quot;></xref> object unmodifiable or determines whether it can be made unmodifiable."
-  remarks: "This method will return **false** when <xref:System.Windows.Media.Animation.Animatable.HasAnimatedProperties%2A> is **true**.       Do not call this method directly (except when calling base in an implementation). This method is called internally by <xref:System.Windows.Freezable.CanFreeze%2A> (with `isChecking` equal to `true`) and  <xref:System.Windows.Freezable.Freeze%2A> (with `isChecking` equal to `false`)."
+  summary: "Sprawia to, że <xref href=&quot;System.Windows.Media.Animation.Animatable&quot;> </xref> obiektu unmodifiable lub określa, czy można go było unmodifiable."
+  remarks: "Ta metoda zwróci **false** podczas <xref:System.Windows.Media.Animation.Animatable.HasAnimatedProperties%2A>jest **true**.</xref:System.Windows.Media.Animation.Animatable.HasAnimatedProperties%2A>       Nie wywołuj tej metody bezpośrednio (za wyjątkiem podczas wywoływania base w implementacji). Ta metoda jest wywoływana wewnętrznie przez <xref:System.Windows.Freezable.CanFreeze%2A>(z `isChecking` równa `true`) i <xref:System.Windows.Freezable.Freeze%2A>(z `isChecking` równa `false`).</xref:System.Windows.Freezable.Freeze%2A> </xref:System.Windows.Freezable.CanFreeze%2A>"
   syntax:
     content: protected override bool FreezeCore (bool isChecking);
     parameters:
     - id: isChecking
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this method should simply determine whether this instance can be frozen. <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if this instance should actually freeze itself when this method is called."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli ta metoda po prostu określić, czy to wystąpienie może być zablokowana. <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>Jeśli to wystąpienie faktycznie powinien zawieszać się się, gdy ta metoda jest wywoływana."
     return:
       type: System.Boolean
-      description: "If <code>isChecking</code> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, this method returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.Windows.Media.Animation.Animatable&quot;></xref> can be made unmodifiable, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if it cannot be made unmodifiable.       If <code>isChecking</code> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, this method returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the if this <xref href=&quot;System.Windows.Media.Animation.Animatable&quot;></xref> is now unmodifiable, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if it cannot be made unmodifiable, with the side effect of having begun to change the frozen status of this object."
+      description: "Jeśli <code> isChecking </code> jest <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>, ta metoda zwraca <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> Jeśli <xref href=&quot;System.Windows.Media.Animation.Animatable&quot;> </xref> może się unmodifiable, lub <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> , jeśli nie można dokonać unmodifiable.       Jeśli <code> isChecking </code> jest <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>, ta metoda zwraca <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> Jeśli Jeżeli to <xref href=&quot;System.Windows.Media.Animation.Animatable&quot;> </xref> jest teraz unmodifiable, lub <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> , jeśli nie można dokonać unmodifiable z efektem ubocznym o uruchomione zmiany zablokowane stanu tego obiektu."
   overload: System.Windows.Media.Animation.Animatable.FreezeCore*
   exceptions: []
   platform:
@@ -272,8 +272,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Returns the non-animated value of the specified <xref href=&quot;System.Windows.DependencyProperty&quot;></xref>."
-  remarks: "If the specified property is not animated, this method returns the same result as <xref:System.Windows.DependencyObject.GetValue%2A>."
+  summary: "Zwraca wartość animowany określonego <xref href=&quot;System.Windows.DependencyProperty&quot;> </xref>."
+  remarks: "Jeśli określona właściwość nie jest animowany, ta metoda zwraca takiego samego wyniku jako <xref:System.Windows.DependencyObject.GetValue%2A>.</xref:System.Windows.DependencyObject.GetValue%2A>"
   example:
   - "In the following example, the non-animated values of animated properties are retrieved and displayed.  \n  \n [!code-cs[timingbehaviors_procedural_snip#GetAnimationBaseValueExampleWholePage](~/add/codesnippet/csharp/TimingBehavior_csharp/GetAnimationBaseValueExample.cs#getanimationbasevalueexamplewholepage)]\n [!code-vb[timingbehaviors_procedural_snip#GetAnimationBaseValueExampleWholePage](~/add/codesnippet/visualbasic/timingbehavior_vb/getanimationbasevalueexample.vb#getanimationbasevalueexamplewholepage)]"
   syntax:
@@ -281,10 +281,10 @@ items:
     parameters:
     - id: dp
       type: System.Windows.DependencyProperty
-      description: "Identifies the property whose base (non-animated) value should be retrieved."
+      description: "Określa właściwość, której wartości podstawowej (z systemem innym niż animowane) powinny zostać pobrane."
     return:
       type: System.Object
-      description: "The value that would be returned if the specified property were not animated."
+      description: "Wartość, która będzie zwracany, jeśli określona właściwość nie zostały animowany."
   overload: System.Windows.Media.Animation.Animatable.GetAnimationBaseValue*
   exceptions: []
   platform:
@@ -301,8 +301,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Gets a value that indicates whether one or more <xref href=&quot;System.Windows.Media.Animation.AnimationClock&quot;></xref> objects is associated with any of this object&quot;s dependency properties."
-  remarks: "This property does not indicate whether this object contains animated sub-objects."
+  summary: "Pobiera wartość wskazującą, czy co najmniej jeden <xref href=&quot;System.Windows.Media.Animation.AnimationClock&quot;> </xref> obiektów jest skojarzona z żadną właściwości zależności tego obiektu."
+  remarks: "Ta właściwość nie wskazuje, czy ten obiekt zawiera animowany obiektów podrzędnych."
   syntax:
     content: public bool HasAnimatedProperties { get; }
     return:
@@ -324,17 +324,17 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Specifies whether a dependency object should be serialized."
-  remarks: "The <xref:System.ComponentModel.TypeDescriptor> class uses the ShouldSerializeStoredWeakReference method to determine if a property should be serialized."
+  summary: "Określa, czy powinien zostać Zserializowany obiekt zależności."
+  remarks: "<xref:System.ComponentModel.TypeDescriptor>Klasy używa metody ShouldSerializeStoredWeakReference w celu określenia właściwości powinny być serializowane.</xref:System.ComponentModel.TypeDescriptor>"
   syntax:
     content: public static bool ShouldSerializeStoredWeakReference (System.Windows.DependencyObject target);
     parameters:
     - id: target
       type: System.Windows.DependencyObject
-      description: "Represents an object that participates in the dependency property system."
+      description: "Reprezentuje obiekt, który uczestniczy w systemie właściwości zależności."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to serialize <code>target</code>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>to serialize <code>target</code>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. Wartość domyślna to <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Media.Animation.Animatable.ShouldSerializeStoredWeakReference*
   exceptions: []
   platform:

@@ -16,8 +16,8 @@ items:
   nameWithType: AccessKeyManager
   fullName: System.Windows.Input.AccessKeyManager
   type: Class
-  summary: "Maintains the registration of all access keys and the handling of interop keyboard commands between [!INCLUDE[TLA#tla_winforms](~/add/includes/ajax-current-ext-md.md)], [!INCLUDE[TLA#tla_win32](~/add/includes/tlasharptla-win32-md.md)], and [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)]."
-  remarks: "An AccessKeyManager object is created on demand with one per <xref:System.Windows.Threading.Dispatcher>.       The AccessKeyManager is attached as an event handler for <xref:System.Windows.Input.InputManager.PostProcessInput> and exposes methods to <xref:System.Windows.Input.AccessKeyManager.Register%2A> and <xref:System.Windows.Input.AccessKeyManager.Unregister%2A> access keys.       When the registered access key is pressed, the AccessKeyManager calls the <xref:System.Windows.UIElement.OnAccessKey%2A> method on the target element.       An element can be associated with any number of access keys."
+  summary: "Obsługuje rejestrację wszystkich kluczy dostępu i obsługę poleceń klawiatury międzyoperacyjnego między [!INCLUDE[TLA#tla_winforms](~/add/includes/ajax-current-ext-md.md)], [!INCLUDE[TLA#tla_win32](~/add/includes/tlasharptla-win32-md.md)], i [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)]."
+  remarks: "Obiekt AccessKeyManager jest tworzony na żądanie z jednym dla każdego <xref:System.Windows.Threading.Dispatcher>.</xref:System.Windows.Threading.Dispatcher>       AccessKeyManager jest dołączony jako program obsługi zdarzeń dla <xref:System.Windows.Input.InputManager.PostProcessInput>i udostępnia metody <xref:System.Windows.Input.AccessKeyManager.Register%2A>i <xref:System.Windows.Input.AccessKeyManager.Unregister%2A>klucze dostępu.</xref:System.Windows.Input.AccessKeyManager.Unregister%2A> </xref:System.Windows.Input.AccessKeyManager.Register%2A> </xref:System.Windows.Input.InputManager.PostProcessInput>       Po naciśnięciu klawisza dostępu zarejestrowanych, wywołania AccessKeyManager <xref:System.Windows.UIElement.OnAccessKey%2A>metody w elemencie docelowym.</xref:System.Windows.UIElement.OnAccessKey%2A>       Element można skojarzyć z dowolną liczbę kluczy dostępu."
   syntax:
     content: public sealed class AccessKeyManager
   inheritance:
@@ -38,12 +38,12 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Input
-  summary: "Identifies the <xref:System.Windows.Input.AccessKeyManager.AccessKeyPressed> routed event."
+  summary: "Identyfikuje <xref:System.Windows.Input.AccessKeyManager.AccessKeyPressed>kierowanego zdarzenia.</xref:System.Windows.Input.AccessKeyManager.AccessKeyPressed>"
   syntax:
     content: public static readonly System.Windows.RoutedEvent AccessKeyPressedEvent;
     return:
       type: System.Windows.RoutedEvent
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -59,16 +59,16 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Input
-  summary: "Adds a handler for the <xref:System.Windows.Input.AccessKeyManager.AccessKeyPressed> attached event."
+  summary: "Dodaje obsługę <xref:System.Windows.Input.AccessKeyManager.AccessKeyPressed>dołączony zdarzeń.</xref:System.Windows.Input.AccessKeyManager.AccessKeyPressed>"
   syntax:
     content: public static void AddAccessKeyPressedHandler (System.Windows.DependencyObject element, System.Windows.Input.AccessKeyPressedEventHandler handler);
     parameters:
     - id: element
       type: System.Windows.DependencyObject
-      description: "The <xref href=&quot;System.Windows.UIElement&quot;></xref> or <xref href=&quot;System.Windows.ContentElement&quot;></xref> that listens to this event."
+      description: "<xref href=&quot;System.Windows.UIElement&quot;> </xref> Lub <xref href=&quot;System.Windows.ContentElement&quot;> </xref> nasłuchującą do tego zdarzenia."
     - id: handler
       type: System.Windows.Input.AccessKeyPressedEventHandler
-      description: "The event handler to be added."
+      description: "Program obsługi zdarzeń do dodania."
   overload: System.Windows.Input.AccessKeyManager.AddAccessKeyPressedHandler*
   exceptions: []
   platform:
@@ -85,19 +85,19 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Input
-  summary: "Indicates whether the specified key is registered as an access keys in the specified scope."
+  summary: "Wskazuje, czy określony klucz jest zarejestrowany jako klucze dostępu w podanym zakresie."
   syntax:
     content: public static bool IsKeyRegistered (object scope, string key);
     parameters:
     - id: scope
       type: System.Object
-      description: "The presentation source to query for `key`."
+      description: "Źródło prezentacji można wyszukiwać `key`."
     - id: key
       type: System.String
-      description: "The key to query."
+      description: "Klucz do zapytania."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the key is registered; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli klucz jest zarejestrowany; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Input.AccessKeyManager.IsKeyRegistered*
   exceptions: []
   platform:
@@ -114,22 +114,22 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Input
-  summary: "Processes the specified access keys as if a <xref href=&quot;System.Windows.UIElement.KeyDown&quot;></xref> event for the key was passed to the <xref href=&quot;System.Windows.Input.AccessKeyManager&quot;></xref>."
+  summary: "Przetwarza klucze dostępu określonego tak, jakby <xref href=&quot;System.Windows.UIElement.KeyDown&quot;> </xref> zdarzenia dla klucza została przekazana do <xref href=&quot;System.Windows.Input.AccessKeyManager&quot;> </xref>."
   syntax:
     content: public static bool ProcessKey (object scope, string key, bool isMultiple);
     parameters:
     - id: scope
       type: System.Object
-      description: "The scope for the access key."
+      description: "Zakres klucz dostępu."
     - id: key
       type: System.String
-      description: "The access key."
+      description: "Klucz dostępu."
     - id: isMultiple
       type: System.Boolean
-      description: "Indicates if `key` has multiple matches."
+      description: "Wskazuje, czy `key` ma wiele dopasowań."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if there are more keys that match; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli istnieje więcej klucze, które odpowiadają; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Input.AccessKeyManager.ProcessKey*
   exceptions: []
   platform:
@@ -146,17 +146,17 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Input
-  summary: "Associates the specified access keys with the specified element."
-  remarks: "When the access keys is pressed, the  <xref:System.Windows.UIElement.OnAccessKey%2A> method of `element` is called.       An element can be associated with any number of access keys."
+  summary: "Kojarzy klucze dostępu określonego z określonego elementu."
+  remarks: "Po naciśnięciu klawiszy dostępu <xref:System.Windows.UIElement.OnAccessKey%2A>Metoda `element` jest wywoływana.</xref:System.Windows.UIElement.OnAccessKey%2A>       Element można skojarzyć z dowolną liczbę kluczy dostępu."
   syntax:
     content: public static void Register (string key, System.Windows.IInputElement element);
     parameters:
     - id: key
       type: System.String
-      description: "The access key."
+      description: "Klucz dostępu."
     - id: element
       type: System.Windows.IInputElement
-      description: "The element to associate `key` with."
+      description: "Element, aby skojarzyć `key` z."
   overload: System.Windows.Input.AccessKeyManager.Register*
   exceptions: []
   platform:
@@ -173,16 +173,16 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Input
-  summary: "Removes the specified <xref:System.Windows.Input.AccessKeyManager.AccessKeyPressed> event handler from the specified object."
+  summary: "Usuwa określoną <xref:System.Windows.Input.AccessKeyManager.AccessKeyPressed>obsługi zdarzeń od określonego obiektu.</xref:System.Windows.Input.AccessKeyManager.AccessKeyPressed>"
   syntax:
     content: public static void RemoveAccessKeyPressedHandler (System.Windows.DependencyObject element, System.Windows.Input.AccessKeyPressedEventHandler handler);
     parameters:
     - id: element
       type: System.Windows.DependencyObject
-      description: "The <xref href=&quot;System.Windows.UIElement&quot;></xref> or <xref href=&quot;System.Windows.ContentElement&quot;></xref> that listens to this event."
+      description: "<xref href=&quot;System.Windows.UIElement&quot;> </xref> Lub <xref href=&quot;System.Windows.ContentElement&quot;> </xref> nasłuchującą do tego zdarzenia."
     - id: handler
       type: System.Windows.Input.AccessKeyPressedEventHandler
-      description: "The event handler to be removed."
+      description: "Program obsługi zdarzeń do usunięcia."
   overload: System.Windows.Input.AccessKeyManager.RemoveAccessKeyPressedHandler*
   exceptions: []
   platform:
@@ -199,16 +199,16 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Input
-  summary: "Disassociates the specified access keys from the specified element."
+  summary: "Usuwa skojarzenie określonego dostępu klucze z określonego elementu."
   syntax:
     content: public static void Unregister (string key, System.Windows.IInputElement element);
     parameters:
     - id: key
       type: System.String
-      description: "The access key."
+      description: "Klucz dostępu."
     - id: element
       type: System.Windows.IInputElement
-      description: "The element from which to disassociate `key`."
+      description: "Element, z którego może anulować skojarzenia `key`."
   overload: System.Windows.Input.AccessKeyManager.Unregister*
   exceptions: []
   platform:
