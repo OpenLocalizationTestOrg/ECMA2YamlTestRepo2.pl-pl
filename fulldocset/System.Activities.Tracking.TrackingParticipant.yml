@@ -14,8 +14,8 @@ items:
   nameWithType: TrackingParticipant
   fullName: System.Activities.Tracking.TrackingParticipant
   type: Class
-  summary: "The base class for workflow extensions that interact with the workflow tracking infrastructure and access tracking records."
-  remarks: "A tracking participant is registered to receive tracking records. Currently, any class that implements the tracking participant can be registered with the workflow instance to receive tracking records. If the tracking participant is third party code, ensure that this is not malicious code. The tracking participants run in the same process as the workflow instance and in the case of malicious tracking participants, this code could affect the overall workflow execution. The tracking records are delivered to the registered tracking participants as the workflow executes, so the developer should ensure that the tracking participant does not affect the running workflow by performing unintended operations within the track method. Examples of this could be the alteration of workflow variables or operations that take a long time."
+  summary: "Klasa podstawowa dla rozszerzeń przepływu pracy, wchodzące w interakcje z śledzenia infrastruktury i dostępu do śledzenia rekordów przepływu pracy."
+  remarks: "Uczestnik śledzenia jest zarejestrowany do odbierania rekordów śledzenia. Obecnie można zarejestrować każda klasa implementująca uczestnika śledzenia z wystąpieniem przepływu pracy i odbierają rekordy śledzenia. Jeśli uczestnik śledzenia jest kod osób trzecich, upewnij się, że nie jest złośliwego kodu. Uruchom ten sam proces jako wystąpienia przepływu pracy, a w przypadku uczestników śledzenia złośliwych uczestników śledzenia, ten kod może wpłynąć na ogólną wykonywania przepływu pracy. Rekordy śledzenia są dostarczane do uczestników śledzenia zarejestrowane jako przepływu pracy wykonuje, więc deweloper powinien upewnij się, że uczestnika śledzenia nie wpływa na uruchomiony przepływ pracy, wykonując operacje niezamierzone w metodzie Śledź. Przykładem tego może być zmiany zmiennych przepływu pracy lub działania wykonywane przez długi czas."
   syntax:
     content: public abstract class TrackingParticipant
   inheritance:
@@ -36,7 +36,7 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, creates a new instance of the derived class."
+  summary: "Po zaimplementowaniu w klasie pochodnej tworzy nowe wystąpienie klasy pochodnej."
   syntax:
     content: protected TrackingParticipant ();
     parameters: []
@@ -56,26 +56,26 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, begins asynchronous processing of the tracking record."
-  remarks: "Participants are expected to begin a job to process the records and return an <xref:System.IAsyncResult> that the workflow runtime uses to wait for completion. The default implementation is to call <xref:System.Activities.Tracking.TrackingParticipant.Track%2A> and return a Completed status."
+  summary: "Po zaimplementowaniu w klasie pochodnej, rozpoczyna przetwarzanie asynchroniczne rekordu śledzenia."
+  remarks: "Oczekuje się rozpoczęcie dodawania zadania do przetwarzania rekordów i zwracać uczestników <xref:System.IAsyncResult>używającej czekać na zakończenie środowiska uruchomieniowego przepływu pracy.</xref:System.IAsyncResult> Domyślna implementacja jest wywołanie <xref:System.Activities.Tracking.TrackingParticipant.Track%2A>i zwrócenia stanu ukończone.</xref:System.Activities.Tracking.TrackingParticipant.Track%2A>"
   syntax:
     content: protected virtual IAsyncResult BeginTrack (System.Activities.Tracking.TrackingRecord record, TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: record
       type: System.Activities.Tracking.TrackingRecord
-      description: "The generated tracking record."
+      description: "Rekord śledzenia wygenerowany."
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which the provider aborts the attempt."
+      description: "Okres, po którym dostawca przerwanie przy próbie."
     - id: callback
       type: System.AsyncCallback
-      description: "The method to be called on completion of the operation."
+      description: "Metoda wywoływana po zakończeniu operacji."
     - id: state
       type: System.Object
-      description: "A user-defined object that uniquely identifies this asynchronous operation."
+      description: "Obiekt zdefiniowane przez użytkownika, który unikatowo identyfikuje tej operacji asynchronicznej."
     return:
       type: System.IAsyncResult
-      description: "The result of the operation."
+      description: "Wynik operacji."
   overload: System.Activities.Tracking.TrackingParticipant.BeginTrack*
   exceptions: []
   platform:
@@ -92,14 +92,14 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, represents the end of an asynchronous tracking operation."
-  remarks: "This method is expected to block until the tracking operation is complete."
+  summary: "Po zaimplementowaniu w klasie pochodnej, reprezentuje koniec operacji asynchronicznych śledzenia."
+  remarks: "Ta metoda powinna zablokować aż do zakończenia operacji śledzenia."
   syntax:
     content: protected virtual void EndTrack (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The status of the operation."
+      description: "Stan operacji."
   overload: System.Activities.Tracking.TrackingParticipant.EndTrack*
   exceptions: []
   platform:
@@ -116,17 +116,17 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, used to synchronously process the tracking record."
-  remarks: "The track method is called when the workflow instance emits a tracking record."
+  summary: "Po zaimplementowaniu w klasie pochodnej, używane do przetwarzania synchronicznego rekord śledzenia."
+  remarks: "Metoda śledzenia jest wywoływane, gdy rekord śledzenia emituje wystąpienia przepływu pracy."
   syntax:
     content: protected abstract void Track (System.Activities.Tracking.TrackingRecord record, TimeSpan timeout);
     parameters:
     - id: record
       type: System.Activities.Tracking.TrackingRecord
-      description: "The generated tracking record."
+      description: "Rekord śledzenia wygenerowany."
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which the provider aborts the attempt."
+      description: "Okres, po którym dostawca przerwanie przy próbie."
   overload: System.Activities.Tracking.TrackingParticipant.Track*
   exceptions: []
   platform:
@@ -143,13 +143,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "The tracking profile object used by the tracking participant. Before adding the tracking participant to the workflow extensions, the tracking profile is set on the participant."
-  remarks: "The tracking profile defines which tracking events are sent to this tracking participant."
+  summary: "Śledzenie profilu obiekt używany przez uczestnika śledzenia. Przed dodaniem tego uczestnika śledzenia do rozszerzenia przepływu pracy, profilu śledzenia jest ustawiona na uczestnika."
+  remarks: "Profil śledzenia definiuje zdarzenia śledzenia, które są wysyłane do tego uczestnika śledzenia."
   syntax:
     content: public virtual System.Activities.Tracking.TrackingProfile TrackingProfile { get; set; }
     return:
       type: System.Activities.Tracking.TrackingProfile
-      description: "The tracking profile."
+      description: "Profil śledzenia."
   overload: System.Activities.Tracking.TrackingParticipant.TrackingProfile*
   exceptions: []
   platform:
