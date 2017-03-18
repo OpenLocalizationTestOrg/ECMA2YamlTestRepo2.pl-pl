@@ -11,8 +11,8 @@ items:
   nameWithType: AuthenticationServiceManager
   fullName: System.Web.UI.AuthenticationServiceManager
   type: Class
-  summary: "Configures the location of a custom implementation of the authentication service."
-  remarks: "The AuthenticationServiceManager class corresponds to the <xref:System.Web.UI.ScriptManager.AuthenticationService%2A> property of the <xref:System.Web.UI.ScriptManager> or <xref:System.Web.UI.ScriptManagerProxy> control.       The authentication Web service is used by AJAX-enabled applications to log on and log off from client script. You can use AuthenticationServiceManager to provide the path of an alternative implementation of the authentication Web service instead of using the built-in Web service that is provided by the AJAX features of ASP.NET.       To use the authentication service in your application, you must enable it in the configuration file. If you use the built-in authentication Web service, you do not have to explicitly declare the authentication service manager on the page.       To create your own authentication service, you must implement a Web service that has two methods: `Login` and `Logout`. In addition, these methods require the same signature of the built-in authentication Web service.       The following example shows the basic class structure that must be implemented in a custom authentication Web service class.       [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]       To use a custom authentication Web service, you can add the service declaratively in markup by including an `<AuthenticationService>` element inside the `<asp:ScriptManager>` element on the page, as shown in the following example.      ```   <asp:ScriptManager ID=&quot;SM1&quot; runat=&quot;server&quot;>     <AuthenticationService Path=&quot;MyAuthenticationService.asmx&quot; />   </asp:ScriptManager>   ```       You can also programmatically configure <xref:System.Web.UI.AuthenticationServiceManager.Path%2A> to use a custom authentication Web service.       Regardless of whether the declarative section for the authentication service is on the page, if the authentication service is enabled in the configuration file, then AJAX-enabled applications will include an ECMAScript (JavaScript) variable in the rendered page. This allows client script to determine whether the current user is authenticated."
+  summary: "Określa lokalizację niestandardowej implementacji usługi uwierzytelniania."
+  remarks: "Klasa AuthenticationServiceManager odpowiada <xref:System.Web.UI.ScriptManager.AuthenticationService%2A>Właściwość <xref:System.Web.UI.ScriptManager>lub <xref:System.Web.UI.ScriptManagerProxy>kontroli.</xref:System.Web.UI.ScriptManagerProxy> </xref:System.Web.UI.ScriptManager> </xref:System.Web.UI.ScriptManager.AuthenticationService%2A>       Uwierzytelnianie usługi sieci Web jest używany przez aplikacje z włączoną obsługą technologii AJAX do logowania i wylogowywania z skrypt po stronie klienta. AuthenticationServiceManager służy do nadania ścieżkę alternatywną implementację uwierzytelniania usługi sieci Web zamiast wbudowanego usługi sieci Web, są udostępniane przez funkcje AJAX programu ASP.NET.       Aby korzystać z usługi uwierzytelniania w aplikacji, należy włączyć ją w pliku konfiguracji. Jeśli korzystasz z wbudowanego uwierzytelniania usługi sieci Web, nie trzeba jawnie deklarować uwierzytelniania programu service manager na stronie.       Aby utworzyć usługi uwierzytelniania, musisz zaimplementować usługi sieci Web, która ma dwie metody: `Login` i `Logout`. Ponadto te metody wymagają takiego samego podpisu wbudowane uwierzytelnianie usługi sieci Web.       Poniższy przykład przedstawia struktura klasy podstawowej, która musi zostać wdrożona w niestandardowe uwierzytelnianie klasy usługi sieci Web.       [!code-cs[XpsCreate #XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent) ] Aby użyć niestandardowego uwierzytelniania usługi sieci Web, można dodać usługi deklaratywnie w znacznikach przez dołączenie `<AuthenticationService>` element wewnątrz `<asp:ScriptManager>` elementu na stronie, jak pokazano w poniższym przykładzie.      ```   <asp:ScriptManager ID=&quot;SM1&quot; runat=&quot;server&quot;>     <AuthenticationService Path=&quot;MyAuthenticationService.asmx&quot; />   </asp:ScriptManager>   ```Można skonfigurować również programowo <xref:System.Web.UI.AuthenticationServiceManager.Path%2A>do użycia niestandardowego uwierzytelniania usługi sieci Web.</xref:System.Web.UI.AuthenticationServiceManager.Path%2A>       Bez względu na to czy sekcji deklaratywne dla usługi uwierzytelniania znajduje się na stronie, jeśli włączono usługę uwierzytelniania w pliku konfiguracji, a następnie aplikacji z włączoną obsługą technologii AJAX na renderowanej stronie uwzględni zmiennej ECMAScript (JavaScript). Dzięki temu skryptu klienta w celu ustalenia, czy bieżący użytkownik jest uwierzytelniony."
   syntax:
     content: >-
       [System.ComponentModel.DefaultProperty("Path")]
@@ -38,7 +38,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.AuthenticationServiceManager&quot;></xref> class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Web.UI.AuthenticationServiceManager&quot;> </xref> klasy."
   syntax:
     content: public AuthenticationServiceManager ();
     parameters: []
@@ -58,18 +58,18 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI
-  summary: "Gets or sets the path of the authentication service."
-  remarks: "If the Path property is not set, then the return value is <xref:System.String?displayProperty=fullName>. In this case, the AJAX functionality in ASP.NET will then use the built-in authentication Web service that corresponds to the following internal default path: ~/ScriptServices_AuthenticationService.asmx. The same behavior occurs if you set Path to an empty value or `null`.       Path can be specified in the <xref:System.Web.UI.ScriptManager> control or in an associated <xref:System.Web.UI.ScriptManagerProxy> control. When Path is set at the <xref:System.Web.UI.ScriptManagerProxy> level, the following caveats apply:      -   If there are multiple proxies in the control hierarchy, Path does not have to be set on each proxy instance.      -   If Path is explicitly set on a proxy instance, the value must be the same for all other proxies on which this property is explicitly set."
+  summary: "Pobiera lub ustawia ścieżkę usługi uwierzytelniania."
+  remarks: "Jeśli nie ustawiono właściwości Path, następnie zwracana wartość jest <xref:System.String?displayProperty=fullName>.</xref:System.String?displayProperty=fullName> W takim przypadku funkcjonalności interfejsu AJAX w programie ASP.NET będzie używać wbudowane uwierzytelnianie usługi sieci Web, która odnosi się do następującej ścieżki wewnętrznego ustawienia domyślnego: ~ / ScriptServices_AuthenticationService.asmx. Takie samo zachowanie występuje, jeśli zostanie ustawiona wartość pustą ścieżkę lub `null`.       Można określić ścieżkę w <xref:System.Web.UI.ScriptManager>kontroli lub skojarzony <xref:System.Web.UI.ScriptManagerProxy>kontroli.</xref:System.Web.UI.ScriptManagerProxy> </xref:System.Web.UI.ScriptManager> Jeśli ścieżka jest ustawiona na <xref:System.Web.UI.ScriptManagerProxy>poziomu, zastosuj następujące ostrzeżenia:-w przypadku wielu serwerów proxy w hierarchii kontroli, ścieżka nie ma można ustawić dla każdego wystąpienia serwera proxy.</xref:System.Web.UI.ScriptManagerProxy>      — Jeśli ścieżka jest jawnie ustawione na wystąpienie serwera proxy, wartość musi być taka sama dla wszystkich innych proxy, na których ta właściwość jest jawnie ustawiona."
   syntax:
     content: public string Path { get; set; }
     return:
       type: System.String
-      description: "The path of the custom authentication Web service."
+      description: "Ścieżka niestandardowe uwierzytelnianie usługi sieci Web."
   overload: System.Web.UI.AuthenticationServiceManager.Path*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "More than one unique path was set in the control hierarchy."
+    description: "Więcej niż jednej unikatowej ścieżki została ustawiona w hierarchii formantu."
   platform:
   - net462
 references:

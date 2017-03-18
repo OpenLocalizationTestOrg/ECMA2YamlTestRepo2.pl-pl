@@ -21,8 +21,8 @@ items:
   nameWithType: IsolatedStorageContainment
   fullName: System.Security.Permissions.IsolatedStorageContainment
   type: Enum
-  summary: "Specifies the permitted use of isolated storage."
-  remarks: "Isolated storage uses evidence to determine a unique storage area for use by an application or component. The identity of an assembly uniquely determines the root of a virtual file system for use by that assembly. Thus, rather than many applications and components sharing a common resource such as the file system or registry, each has its own file area inherently assigned to it.       Four basic isolation scopes are used when assigning isolated storage:      -   `User` - Code is always scoped according to the current user. The same assembly will receive different stores when being run by different users.      -   `Machine` - Code is always scoped according to the machine. The same assembly will receive the same stores when being run by different users on the same machine.      -   `Assembly` - Code is identified cryptographically by strong name (for example, Microsoft.Office.* or Microsoft.Office.Word), by publisher (based on public key), by URL (for example, http://www.fourthcoffee.com/process/grind.htm), by site, or by zone.      -   `Domain` - Code is identified based on evidence associated with the application domain. Web application identity is derived from the site&quot;s URL, or by the Web page&quot;s URL, site, or zone. Local code identity is based on the application directory path.       For definitions of URL, site, and zone, see <xref:System.Security.Permissions.UrlIdentityPermission>, <xref:System.Security.Permissions.SiteIdentityPermission>, and <xref:System.Security.Permissions.ZoneIdentityPermission>.       These identities are grouped together, in which case the identities are applied one after another until the desired isolated storage is created. The valid groupings are User+Assembly and User+Assembly+Domain. This grouping of identities is useful in many different applications.       If data is stored by domain, user, and assembly, the data is private in that only code in that assembly can access the data. The data store is also isolated by the application in which it runs, so that the assembly does not represent a potential leak by exposing data to other applications.       Isolation by assembly and user could be used for user data that applies across multiple applications; for example, license information, or a user&quot;s personal information (name, authentication credentials, and so on) that is independent of an application.       IsolatedStorageContainment exposes flags that determine whether an application is allowed to use isolated storage and, if so, which identity combinations are allowed to use it. It also determines whether an application is allowed to store information in a location that can roam with a user (Windows Roaming User Profiles or Folder Redirection must be configured)."
+  summary: "Określa dozwolone korzystanie z magazynu izolowanego."
+  remarks: "Izolowany magazyn korzysta dowód, aby określić unikatowy magazynowania do użycia przez aplikację lub składnik. Tożsamość zestawu unikatowo określa katalogu wirtualnym systemie plików do użytku przez tego zestawu. W związku z tym zamiast wiele aplikacji i składników Udostępnianie wspólnych zasobów takich jak system plików lub rejestrze, każdy ma własny obszar plików z założenia przypisane do niej.       Cztery podstawowe izolacji zakresy są używane podczas przypisywania izolowanego magazynu:- `User` -kod zawsze ma zakres zgodnie z bieżącego użytkownika. Tego samego zestawu zostanie wyświetlony sklepach, gdy uruchomione przez różnych użytkowników.      - `Machine` -Kod zawsze ma zakres zgodnie z komputera. Ten sam zestaw otrzymają tej samej magazynów, gdy uruchomione przez różnych użytkowników na tym samym komputerze.      - `Assembly` — Kod jest oznaczona kryptograficznie silnej nazwy (na przykład Microsoft.Office.* lub Microsoft.Office.Word), przez wydawcę (na podstawie klucz publiczny), przez adres URL (na przykład http://www.fourthcoffee.com/process/grind.htm), przez witrynę lub strefy.      - `Domain` — Kod jest identyfikowany na podstawie dowodów skojarzone z domeny aplikacji. Tożsamość aplikacji sieci Web pochodzi z adresu URL witryny lub adres URL strony sieci Web, witryny lub strefy. Kod lokalny tożsamości opiera się na ścieżce katalogu aplikacji.       Definicje adres URL, lokacji i strefy, zobacz <xref:System.Security.Permissions.UrlIdentityPermission>, <xref:System.Security.Permissions.SiteIdentityPermission>i <xref:System.Security.Permissions.ZoneIdentityPermission>.</xref:System.Security.Permissions.ZoneIdentityPermission> </xref:System.Security.Permissions.SiteIdentityPermission> </xref:System.Security.Permissions.UrlIdentityPermission>       Tymi tożsamościami są grupowane, w którym to przypadku tożsamości są stosowane po kolei do momentu utworzenia żądanego izolowanego magazynu. Prawidłowe grupowania są zestawu + użytkownika i domena + zestawu + użytkownika. Ta metoda grupowania tożsamości jest użyteczne w wielu różnych aplikacji.       Dane są przechowywane przez domeny, użytkownika i zestawu, dane są prywatne, w tym tylko kod w tym zestawie może uzyskać dostęp do danych. Magazynu danych jest również samodzielnie przez aplikację, w której jest uruchamiane, dzięki czemu zestawu nie reprezentuje przeciek potencjalnych przez udostępnianie danych do innych aplikacji.       Izolacji zestawu i użytkownik może służyć do danych użytkownika, która ma zastosowanie dla wielu aplikacji; na przykład licencji informacje lub przez użytkownika informacji osobistych (nazwa, poświadczenia uwierzytelniania itd.), która jest niezależna od aplikacji.       IsolatedStorageContainment przedstawia flagi, które określają, czy aplikacja może używać izolowanego magazynu, a jeśli tak, kombinacje tożsamości mogą z niego korzystać. Określa również, czy aplikacja może przechowywać informacje w lokalizacji, która może korzystać z usług z użytkownikiem (przekierowanie folderu lub profilów użytkowników mobilnych Windows musi być skonfigurowany)."
   example:
   - "This example shows how to tell the CLR that code in this assembly requires the <xref:System.Security.Permissions.IsolatedStoragePermission> and also demonstrates how to write and read from isolated storage.  \n  \n [!code-cs[IsolatedStoragePermissionAttribute#1](~/add/codesnippet/csharp/t-system.security.permis_13_1.cs)]\n [!code-vb[IsolatedStoragePermissionAttribute#1](~/add/codesnippet/visualbasic/t-system.security.permis_13_1.vb)]\n [!code-cpp[IsolatedStoragePermissionAttribute#1](~/add/codesnippet/cpp/t-system.security.permis_13_1.cpp)]"
   syntax:
@@ -46,12 +46,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Unlimited administration ability for the user store. Allows browsing and deletion of the entire user store, but not read access other than the user&quot;s own domain/assembly identity."
+  summary: "Nieograniczone administracyjnej możliwości magazynu użytkowników. Umożliwia przeglądanie i usuwanie magazynu wszystkich użytkowników, ale nie dostęp do odczytu niż tożsamości domeny/zestawu przez użytkownika."
   syntax:
     content: AdministerIsolatedStorageByUser
     return:
       type: System.Security.Permissions.IsolatedStorageContainment
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -67,12 +67,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Storage is isolated first by computer and then by application. This provides a data store for the application that is accessible in any domain context. The per-application data compartment requires additional trust because it potentially provides a &quot;tunnel&quot; between applications that could compromise the data isolation of applications in particular Web sites."
+  summary: "Magazyn jest izolowana, najpierw według komputera, a następnie przez aplikację. Zapewnia to magazynu danych dla aplikacji, która nie jest dostępny w dowolnym kontekście domeny. Przedział danych dla poszczególnych aplikacji wymaga zaufania, ponieważ potencjalnie zapewnia &quot;tunnel&quot; między aplikacjami, które mogą negatywnie wpłynąć na izolację danych aplikacji w określonych witryn sieci Web."
   syntax:
     content: ApplicationIsolationByMachine
     return:
       type: System.Security.Permissions.IsolatedStorageContainment
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -88,12 +88,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Storage is isolated first by user and then by application evidence. Storage will roam if Windows user data roaming is enabled. This provides a data store for the application that is accessible in any domain context. The per-application data compartment requires additional trust because it potentially provides a &quot;tunnel&quot; between applications that could compromise the data isolation of applications in particular Web sites."
+  summary: "Magazyn jest izolowana, najpierw przez użytkownika, a następnie według świadectwo aplikacji. Magazyn będzie są przekazywane, jeśli roaming danych użytkownika systemu Windows jest włączona. Zapewnia to magazynu danych dla aplikacji, która nie jest dostępny w dowolnym kontekście domeny. Przedział danych dla poszczególnych aplikacji wymaga zaufania, ponieważ potencjalnie zapewnia &quot;tunnel&quot; między aplikacjami, które mogą negatywnie wpłynąć na izolację danych aplikacji w określonych witryn sieci Web."
   syntax:
     content: ApplicationIsolationByRoamingUser
     return:
       type: System.Security.Permissions.IsolatedStorageContainment
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -109,12 +109,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Storage is isolated first by user and then by application. Storage is also isolated by computer. This provides a data store for the application that is accessible in any domain context. The per-application data compartment requires additional trust because it potentially provides a &quot;tunnel&quot; between applications that could compromise the data isolation of applications in particular Web sites."
+  summary: "Magazyn jest izolowana, najpierw przez użytkownika, a następnie przez aplikację. Magazyn jest również samodzielnie przez komputer. Zapewnia to magazynu danych dla aplikacji, która nie jest dostępny w dowolnym kontekście domeny. Przedział danych dla poszczególnych aplikacji wymaga zaufania, ponieważ potencjalnie zapewnia &quot;tunnel&quot; między aplikacjami, które mogą negatywnie wpłynąć na izolację danych aplikacji w określonych witryn sieci Web."
   syntax:
     content: ApplicationIsolationByUser
     return:
       type: System.Security.Permissions.IsolatedStorageContainment
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -130,12 +130,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Storage is isolated first by computer and then by code assembly. This provides a data store for the assembly that is accessible in any domain context. The per-assembly data compartment requires additional trust because it potentially provides a &quot;tunnel&quot; between applications that could compromise the data isolation of applications in particular Web sites."
+  summary: "Magazyn jest izolowana, najpierw przez komputer, a następnie według kodu zestawu. Zapewnia to magazynu danych dla zestawu, który jest dostępny w dowolnym kontekście domeny. Przedział danych na zestaw wymaga dodatkowych zaufania, ponieważ potencjalnie zapewnia &quot;tunnel&quot; między aplikacjami, które mogą negatywnie wpłynąć na izolację danych aplikacji w określonych witryn sieci Web."
   syntax:
     content: AssemblyIsolationByMachine
     return:
       type: System.Security.Permissions.IsolatedStorageContainment
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -151,12 +151,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Storage is isolated first by user and then by assembly evidence. Storage will roam if Windows user data roaming is enabled. This provides a data store for the assembly that is accessible in any domain context. The per-assembly data compartment requires additional trust because it potentially provides a &quot;tunnel&quot; between applications that could compromise the data isolation of applications in particular Web sites."
+  summary: "Magazyn jest izolowana, najpierw przez użytkownika, a następnie według świadectwa zestawu. Magazyn będzie są przekazywane, jeśli roaming danych użytkownika systemu Windows jest włączona. Zapewnia to magazynu danych dla zestawu, który jest dostępny w dowolnym kontekście domeny. Przedział danych na zestaw wymaga dodatkowych zaufania, ponieważ potencjalnie zapewnia &quot;tunnel&quot; między aplikacjami, które mogą negatywnie wpłynąć na izolację danych aplikacji w określonych witryn sieci Web."
   syntax:
     content: AssemblyIsolationByRoamingUser
     return:
       type: System.Security.Permissions.IsolatedStorageContainment
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -172,12 +172,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Storage is isolated first by user and then by code assembly. Storage is also isolated by computer. This provides a data store for the assembly that is accessible in any domain context. The per-assembly data compartment requires additional trust because it potentially provides a &quot;tunnel&quot; between applications that could compromise the data isolation of applications in particular Web sites."
+  summary: "Magazyn jest izolowana, najpierw przez użytkownika, a następnie według kodu zestawu. Magazyn jest również samodzielnie przez komputer. Zapewnia to magazynu danych dla zestawu, który jest dostępny w dowolnym kontekście domeny. Przedział danych na zestaw wymaga dodatkowych zaufania, ponieważ potencjalnie zapewnia &quot;tunnel&quot; między aplikacjami, które mogą negatywnie wpłynąć na izolację danych aplikacji w określonych witryn sieci Web."
   syntax:
     content: AssemblyIsolationByUser
     return:
       type: System.Security.Permissions.IsolatedStorageContainment
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -193,12 +193,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Storage is isolated first by computer and then by domain and assembly. Data can only be accessed within the context of the same application and only when run on the same computer. This is helpful when a third-party assembly wants to keep a private data store."
+  summary: "Magazyn jest izolowana, najpierw przez komputer, a następnie według domeny i zestawu. Dane są dostępne tylko w ramach tej samej aplikacji i tylko wtedy, gdy uruchamiane na tym samym komputerze. Jest to przydatne, gdy zestaw innych firm chce zachować magazynu danych."
   syntax:
     content: DomainIsolationByMachine
     return:
       type: System.Security.Permissions.IsolatedStorageContainment
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -214,12 +214,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Storage is isolated first by user and then by domain and assembly. Storage will roam if Windows user data roaming is enabled. Data can only be accessed within the context of the same application and only when run by the same user. This is helpful when a third-party assembly wants to keep a private data store."
+  summary: "Magazyn jest izolowana, najpierw przez użytkownika, a następnie według domeny i zestawu. Magazyn będzie są przekazywane, jeśli roaming danych użytkownika systemu Windows jest włączona. Dane są dostępne tylko w ramach tej samej aplikacji i tylko wtedy, gdy uruchomione przez tego użytkownika. Jest to przydatne, gdy zestaw innych firm chce zachować magazynu danych."
   syntax:
     content: DomainIsolationByRoamingUser
     return:
       type: System.Security.Permissions.IsolatedStorageContainment
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -235,12 +235,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Storage is isolated first by user and then by domain and assembly. Storage is also isolated by computer. Data can only be accessed within the context of the same application and only when run by the same user. This is helpful when a third-party assembly wants to keep a private data store."
+  summary: "Magazyn jest izolowana, najpierw przez użytkownika, a następnie według domeny i zestawu. Magazyn jest również samodzielnie przez komputer. Dane są dostępne tylko w ramach tej samej aplikacji i tylko wtedy, gdy uruchomione przez tego użytkownika. Jest to przydatne, gdy zestaw innych firm chce zachować magazynu danych."
   syntax:
     content: DomainIsolationByUser
     return:
       type: System.Security.Permissions.IsolatedStorageContainment
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -256,12 +256,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Use of isolated storage is not allowed."
+  summary: "Korzystanie z izolowanego magazynu jest niedozwolone."
   syntax:
     content: None
     return:
       type: System.Security.Permissions.IsolatedStorageContainment
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -277,12 +277,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Use of isolated storage is allowed without restriction. Code has full access to any part of the user store, regardless of the identity of the domain or assembly. This use of isolated storage includes the ability to enumerate the contents of the isolated storage data store."
+  summary: "Dozwolone jest użycie izolowanego magazynu bez ograniczeń. Kod ma pełny dostęp do dowolnej części magazynu użytkowników, niezależnie od tożsamości domeny lub zestawu. Ta korzystania z izolowanych magazynów obejmuje możliwość wyliczyć zawartości magazynu izolowanego magazynu danych."
   syntax:
     content: UnrestrictedIsolatedStorage
     return:
       type: System.Security.Permissions.IsolatedStorageContainment
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462

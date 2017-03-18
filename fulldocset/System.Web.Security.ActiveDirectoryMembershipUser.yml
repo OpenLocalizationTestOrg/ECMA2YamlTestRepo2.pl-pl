@@ -17,8 +17,8 @@ items:
   nameWithType: ActiveDirectoryMembershipUser
   fullName: System.Web.Security.ActiveDirectoryMembershipUser
   type: Class
-  summary: "Exposes and updates membership user information stored in an Active Directory data store."
-  remarks: "The ActiveDirectoryMembershipUser object is used to represent a single membership user in the Active Directory membership data store. It exposes information about the membership user such as the e-mail address, and provides functionality for the membership user such as the ability to change or reset his or her password.       An ActiveDirectoryMembershipUser object is returned by the application&quot;s membership provider whenever the application is configured to use an Active Directory data store. In an application that can be configured to use different data stores, or in an application that uses multiple data stores, you can refer to the base class, <xref:System.Web.Security.MembershipUser>. Because the ActiveDirectoryMembershipUser object does not implement the <xref:System.Web.Security.ActiveDirectoryMembershipUser.LastActivityDate%2A> and <xref:System.Web.Security.ActiveDirectoryMembershipUser.LastLoginDate%2A> properties, you must be prepared to handle the <xref:System.NotSupportedException> that is thrown when these members are accessed on an ActiveDirectoryMembershipUser object.       The ActiveDirectoryMembershipUser class implements internal optimizations used by the <xref:System.Web.Security.ActiveDirectoryMembershipProvider> class to minimize the number of attribute updates that occur when calling the <xref:System.Web.Security.ActiveDirectoryMembershipProvider.UpdateUser%2A> method. It also serializes the <xref:System.Security.Principal.SecurityIdentifier> representation (available in the <xref:System.Web.Security.ActiveDirectoryMembershipUser.ProviderUserKey%2A> property) so that an ActiveDirectoryMembershipUser object can be serialized and deserialized without throwing exceptions.       A ActiveDirectoryMembershipUser object is returned by the <xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetUser%2A> and <xref:System.Web.Security.ActiveDirectoryMembershipProvider.CreateUser%2A> methods or as part of a <xref:System.Web.Security.MembershipUserCollection> returned by the <xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetAllUsers%2A>, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByName%2A>, and <xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByEmail%2A> methods.       An ActiveDirectoryMembershipUser object is required by the <xref:System.Web.Security.ActiveDirectoryMembershipProvider.UpdateUser%2A> method when you want to update the information for an existing membership user.       ActiveDirectoryMembershipUser properties are mapped to Active Directory attributes. The following table lists the ActiveDirectoryMembershipUser properties and their default attribute mappings.      |Property|Default directory attribute|Can be mapped?|   |--------------|---------------------------------|--------------------|   |<xref:System.Web.Security.ActiveDirectoryMembershipUser.ProviderUserKey%2A>|`securityIdentifier`|No|   |<xref:System.Web.Security.MembershipUser.UserName%2A>|`userPrincipalName`|Yes, but must be either userPrincipalName or sAMAccountName|   |<xref:System.Web.Security.ActiveDirectoryMembershipUser.Comment%2A>|`comment`|No|   |<xref:System.Web.Security.MembershipUser.CreationDate%2A>|`whenCreated`|No|   |<xref:System.Web.Security.ActiveDirectoryMembershipUser.Email%2A>|`mail`|Yes, but must be a single-valued attribute of type Unicode String.|   |<xref:System.Web.Security.ActiveDirectoryMembershipUser.LastActivityDate%2A>|n/a|Not supported by <xref:System.Web.Security.ActiveDirectoryMembershipProvider>.|   |<xref:System.Web.Security.ActiveDirectoryMembershipUser.LastLoginDate%2A>|n/a|Not supported by <xref:System.Web.Security.ActiveDirectoryMembershipProvider>.|   |<xref:System.Web.Security.MembershipUser.LastPasswordChangedDate%2A>|`pwdLastSet`|No|   |<xref:System.Web.Security.MembershipUser.PasswordQuestion%2A>|none, but must be mapped to an attribute if using question-and-answer security for password reset or retrieval.|Yes, but must be a single-valued attribute of type Unicode String.|   |<xref:System.Web.Security.ActiveDirectoryMembershipUser.IsApproved%2A>|`User-Account-Control` (AD)<br /><br /> `mDS-UserAccountDisabled` (ADAM)|No|   |<xref:System.Web.Security.MembershipUser.IsLockedOut%2A>|computed from `lockoutTime` and the AD lockout duration (AD on Windows 2000)<br /><br /> `msDS-User-Account-Control-Computed` (AD on Windows Server 2003)<br /><br /> `msDS-User-Account-Control-Computed` (ADAM)|No|   |<xref:System.Web.Security.MembershipUser.LastLockoutDate%2A>|If locked out due to too many bad password attempts, the lockout time attribute is returned.<br /><br /> If locked out due to too many bad password answer attempts, the value stored in the attribute defined by `attributeMapFailedPasswordAnswerLockoutTime` is returned.<br /><br /> If locked out due to both a bad password and too many bad password attempts, the most recent date/time value is returned.<br /><br /> If the account is not locked out, return 1/1/1753 for SQL compatibility.|No|"
+  summary: "Opisuje, a następnie aktualizuje członkostwo użytkownika informacje przechowywane w magazynie danych usługi Active Directory."
+  remarks: "Obiekt ActiveDirectoryMembershipUser jest używany do reprezentowania pojedyncze członkostwo użytkownika w magazynie danych członkostwa w usłudze Active Directory. Przedstawia informacje o użytkowniku członkostwa, takie jak adres e-mail i udostępnia funkcje dla użytkownika członkostwa, takie jak możliwość zmiany lub resetowania hasła.       Obiekt ActiveDirectoryMembershipUser jest zwracany przez dostawcę członkostwa aplikacji zawsze, gdy aplikacja jest skonfigurowana do używania magazynu danych usługi Active Directory. W aplikacji, które mogą być skonfigurowane do używania innych danych przechowuje lub w aplikacji, która używa wielu magazynów danych, można odwołać się do klasy podstawowej <xref:System.Web.Security.MembershipUser>.</xref:System.Web.Security.MembershipUser> Ponieważ nie implementuje obiektu ActiveDirectoryMembershipUser <xref:System.Web.Security.ActiveDirectoryMembershipUser.LastActivityDate%2A>i <xref:System.Web.Security.ActiveDirectoryMembershipUser.LastLoginDate%2A>Właściwości, trzeba przygotować się do obsługi <xref:System.NotSupportedException>który jest zgłaszany, gdy elementy te są dostępne dla obiektu ActiveDirectoryMembershipUser.</xref:System.NotSupportedException> </xref:System.Web.Security.ActiveDirectoryMembershipUser.LastLoginDate%2A> </xref:System.Web.Security.ActiveDirectoryMembershipUser.LastActivityDate%2A>       Klasa ActiveDirectoryMembershipUser implementuje optymalizacje wewnętrzny używany przez <xref:System.Web.Security.ActiveDirectoryMembershipProvider>klasę, aby zminimalizować liczbę aktualizacji atrybutów, występujących podczas wywoływania metody <xref:System.Web.Security.ActiveDirectoryMembershipProvider.UpdateUser%2A>metody.</xref:System.Web.Security.ActiveDirectoryMembershipProvider.UpdateUser%2A> </xref:System.Web.Security.ActiveDirectoryMembershipProvider> Również serializuje <xref:System.Security.Principal.SecurityIdentifier>reprezentacja (dostępne w <xref:System.Web.Security.ActiveDirectoryMembershipUser.ProviderUserKey%2A>Właściwości), aby serializacji i deserializacji bez zgłaszanie wyjątków obiektu ActiveDirectoryMembershipUser.</xref:System.Web.Security.ActiveDirectoryMembershipUser.ProviderUserKey%2A> </xref:System.Security.Principal.SecurityIdentifier>       Zwraca obiekt ActiveDirectoryMembershipUser <xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetUser%2A>i <xref:System.Web.Security.ActiveDirectoryMembershipProvider.CreateUser%2A>metody lub jako część <xref:System.Web.Security.MembershipUserCollection>zwrócony przez <xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetAllUsers%2A>, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByName%2A>, i <xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByEmail%2A>metody.</xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByEmail%2A> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByName%2A> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetAllUsers%2A> </xref:System.Web.Security.MembershipUserCollection> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.CreateUser%2A> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetUser%2A>       Obiekt ActiveDirectoryMembershipUser jest wymagany przez <xref:System.Web.Security.ActiveDirectoryMembershipProvider.UpdateUser%2A>metody, jeśli chcesz zaktualizować informacje dla istniejącego użytkownika członkostwa.</xref:System.Web.Security.ActiveDirectoryMembershipProvider.UpdateUser%2A>       Właściwości ActiveDirectoryMembershipUser są mapowane na atrybuty usługi Active Directory. W poniższej tabeli wymieniono właściwości ActiveDirectoryMembershipUser i ich mapowań atrybutów domyślnych.      | Właściwość | Atrybut domyślny katalog | Można go mapować? |   |--------------|---------------------------------|--------------------|   | <xref:System.Web.Security.ActiveDirectoryMembershipUser.ProviderUserKey%2A>| `securityIdentifier`| Nie |   | <xref:System.Web.Security.MembershipUser.UserName%2A>| `userPrincipalName`| Tak, ale musi być userPrincipalName i sAMAccountName |   | <xref:System.Web.Security.ActiveDirectoryMembershipUser.Comment%2A>| `comment`| Nie |   | <xref:System.Web.Security.MembershipUser.CreationDate%2A>| `whenCreated`| Nie |   | <xref:System.Web.Security.ActiveDirectoryMembershipUser.Email%2A>| `mail`| Tak, ale musi być atrybutem pojedynczej wartości typu ciąg Unicode. |   | <xref:System.Web.Security.ActiveDirectoryMembershipUser.LastActivityDate%2A>|n/a| Nieobsługiwane przez <xref:System.Web.Security.ActiveDirectoryMembershipProvider>. |   | <xref:System.Web.Security.ActiveDirectoryMembershipUser.LastLoginDate%2A>|n/a| Nieobsługiwane przez <xref:System.Web.Security.ActiveDirectoryMembershipProvider>. |   | <xref:System.Web.Security.MembershipUser.LastPasswordChangedDate%2A>| `pwdLastSet`| Nie |   | <xref:System.Web.Security.MembershipUser.PasswordQuestion%2A>| none, ale musi być zamapowany na atrybut, jeśli używa pytanie i odpowiedź zabezpieczeń do resetowania hasła lub pobierania. | Tak, ale musi być atrybutem pojedynczej wartości typu ciąg Unicode. |   | <xref:System.Web.Security.ActiveDirectoryMembershipUser.IsApproved%2A>| `User-Account-Control` (AD)</xref:System.Web.Security.ActiveDirectoryMembershipUser.IsApproved%2A></xref:System.Web.Security.MembershipUser.PasswordQuestion%2A></xref:System.Web.Security.MembershipUser.LastPasswordChangedDate%2A></xref:System.Web.Security.ActiveDirectoryMembershipProvider></xref:System.Web.Security.ActiveDirectoryMembershipUser.LastLoginDate%2A></xref:System.Web.Security.ActiveDirectoryMembershipProvider></xref:System.Web.Security.ActiveDirectoryMembershipUser.LastActivityDate%2A></xref:System.Web.Security.ActiveDirectoryMembershipUser.Email%2A></xref:System.Web.Security.MembershipUser.CreationDate%2A></xref:System.Web.Security.ActiveDirectoryMembershipUser.Comment%2A></xref:System.Web.Security.MembershipUser.UserName%2A></xref:System.Web.Security.ActiveDirectoryMembershipUser.ProviderUserKey%2A><br /><br /> `mDS-UserAccountDisabled`(ADAM) | Nie |   | <xref:System.Web.Security.MembershipUser.IsLockedOut%2A>| obliczana na podstawie `lockoutTime` i czas trwania blokady AD (AD w systemie Windows 2000)</xref:System.Web.Security.MembershipUser.IsLockedOut%2A><br /><br /> `msDS-User-Account-Control-Computed`(AD w systemie Windows Server 2003)<br /><br /> `msDS-User-Account-Control-Computed`(ADAM) | Nie |   | <xref:System.Web.Security.MembershipUser.LastLockoutDate%2A>| Jeśli zablokowane z powodu zbyt wielu prób podania nieprawidłowego hasła, zwracany jest atrybut czasu blokady.</xref:System.Web.Security.MembershipUser.LastLockoutDate%2A><br /><br /> Jeśli zablokowane z powodu zbyt wielu nieprawidłowej odpowiedzi hasła próbuje, wartość przechowywana w atrybucie zdefiniowane przez `attributeMapFailedPasswordAnswerLockoutTime` jest zwracany.<br /><br /> Jeśli zablokowane z powodu wystąpienia zarówno nieprawidłowe hasło lub nieprawidłowe hasło zbyt wiele prób, zwracany jest najbardziej aktualną wartość daty/godziny.<br /><br /> Jeśli konto nie jest zablokowane, zwróć 1/1/1753 zgodności SQL. | Nie |"
   example:
   - "The following code example demonstrates using properties on the ActiveDirectoryMembershipUser object on a Web page that may return user information from multiple membership data stores. Because the ActiveDirectoryMembershipUser object that underlies the <xref:System.Web.Security.MembershipUser> object returned by the membership provider does not implement the <xref:System.Web.Security.ActiveDirectoryMembershipUser.LastActivityDate%2A> and <xref:System.Web.Security.ActiveDirectoryMembershipUser.LastLoginDate%2A> properties, the code first checks the type of the user object returned from the membership provider before displaying the contents of those properties.  \n  \n [!code-cs[System.Web.Security.ActiveDirectoryMembershipUser#1](~/add/codesnippet/csharp/t-system.web.security.ac_1.aspx)]\n [!code-vb[System.Web.Security.ActiveDirectoryMembershipUser#1](~/add/codesnippet/visualbasic/t-system.web.security.ac_1.aspx)]"
   syntax:
@@ -41,8 +41,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Initializes a new instance of an <xref href=&quot;System.Web.Security.ActiveDirectoryMembershipUser&quot;></xref> object for a class that inherits the <xref href=&quot;System.Web.Security.ActiveDirectoryMembershipUser&quot;></xref> class."
-  remarks: "The ActiveDirectoryMembershipUser constructor is not intended to be used from your code."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Web.Security.ActiveDirectoryMembershipUser&quot;> </xref> obiektu do klasy, która dziedziczy <xref href=&quot;System.Web.Security.ActiveDirectoryMembershipUser&quot;> </xref> klasy."
+  remarks: "Konstruktor ActiveDirectoryMembershipUser nie jest przeznaczony do użycia w kodzie."
   syntax:
     content: protected ActiveDirectoryMembershipUser ();
     parameters: []
@@ -62,50 +62,50 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Creates a new instance of the <xref href=&quot;System.Web.Security.ActiveDirectoryMembershipUser&quot;></xref> class with the specified property values."
-  remarks: "Creating a new <xref:System.Web.Security.ActiveDirectoryMembershipUser> object does not add a new membership user object to the membership data store. To add a new membership user to the membership data store, use the <xref:System.Web.Security.ActiveDirectoryMembershipProvider.CreateUser%2A> method. Note that the <xref:System.Web.Security.ActiveDirectoryMembershipProvider.CreateUser%2A> method returns an <xref:System.Web.Security.ActiveDirectoryMembershipUser> object for the membership user added to the data store.       <xref:System.Web.Security.ActiveDirectoryMembershipUser> objects are commonly constructed in application code for use with the <xref:System.Web.Security.ActiveDirectoryMembershipProvider.UpdateUser%2A> method, although you can also pass an <xref:System.Web.Security.ActiveDirectoryMembershipUser> object returned from the <xref:System.Web.Security.ActiveDirectoryMembershipProvider.CreateUser%2A>, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetUser%2A>, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetAllUsers%2A>, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByName%2A>, or <xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByEmail%2A> method to the <xref:System.Web.Security.ActiveDirectoryMembershipProvider.UpdateUser%2A> method as well.       <xref:System.Web.Security.ActiveDirectoryMembershipUser> objects are also commonly constructed by membership provider implementations for the <xref:System.Web.Security.ActiveDirectoryMembershipProvider.CreateUser%2A>, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetUser%2A>, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetAllUsers%2A>, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.UpdateUser%2A>, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByName%2A>, and <xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByEmail%2A> methods."
+  summary: "Tworzy nowe wystąpienie klasy <xref href=&quot;System.Web.Security.ActiveDirectoryMembershipUser&quot;> </xref> z wartościami określonej właściwości."
+  remarks: "Tworzenie nowego <xref:System.Web.Security.ActiveDirectoryMembershipUser>obiektu nie dodaje nowy obiekt użytkownika członkostwa w magazynie danych członkostwa.</xref:System.Web.Security.ActiveDirectoryMembershipUser> Aby dodać nowego użytkownika członkostwa w magazynie danych członkostwa, użyj <xref:System.Web.Security.ActiveDirectoryMembershipProvider.CreateUser%2A>metody.</xref:System.Web.Security.ActiveDirectoryMembershipProvider.CreateUser%2A> Należy pamiętać, że <xref:System.Web.Security.ActiveDirectoryMembershipProvider.CreateUser%2A>Metoda zwraca <xref:System.Web.Security.ActiveDirectoryMembershipUser>obiektów dla użytkownika członkostwa dodane do magazynu danych.</xref:System.Web.Security.ActiveDirectoryMembershipUser> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.CreateUser%2A>       <xref:System.Web.Security.ActiveDirectoryMembershipUser>obiekty są często zbudowane w kodzie aplikacji do użycia z <xref:System.Web.Security.ActiveDirectoryMembershipProvider.UpdateUser%2A>metody, mimo że można również przekazać <xref:System.Web.Security.ActiveDirectoryMembershipUser>obiektu zwróconego z <xref:System.Web.Security.ActiveDirectoryMembershipProvider.CreateUser%2A>, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetUser%2A>, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetAllUsers%2A>, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByName%2A>, lub <xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByEmail%2A>metodę <xref:System.Web.Security.ActiveDirectoryMembershipProvider.UpdateUser%2A>również metody.</xref:System.Web.Security.ActiveDirectoryMembershipProvider.UpdateUser%2A> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByEmail%2A> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByName%2A> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetAllUsers%2A> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetUser%2A> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.CreateUser%2A> </xref:System.Web.Security.ActiveDirectoryMembershipUser> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.UpdateUser%2A></xref:System.Web.Security.ActiveDirectoryMembershipUser>       <xref:System.Web.Security.ActiveDirectoryMembershipUser>obiekty są również powszechnie wykonane przez implementacje dostawcy członkostwa dla <xref:System.Web.Security.ActiveDirectoryMembershipProvider.CreateUser%2A>, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetUser%2A>, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetAllUsers%2A>, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.UpdateUser%2A>, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByName%2A>, i <xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByEmail%2A>metody.</xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByEmail%2A> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.FindUsersByName%2A> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.UpdateUser%2A> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetAllUsers%2A> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.GetUser%2A> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.CreateUser%2A></xref:System.Web.Security.ActiveDirectoryMembershipUser>"
   syntax:
     content: public ActiveDirectoryMembershipUser (string providerName, string name, object providerUserKey, string email, string passwordQuestion, string comment, bool isApproved, bool isLockedOut, DateTime creationDate, DateTime lastLoginDate, DateTime lastActivityDate, DateTime lastPasswordChangedDate, DateTime lastLockoutDate);
     parameters:
     - id: providerName
       type: System.String
-      description: "The <xref:System.Web.Security.MembershipUser.ProviderName*> for the membership user."
+      description: "<xref:System.Web.Security.MembershipUser.ProviderName*>Dla użytkownika członkostwa.</xref:System.Web.Security.MembershipUser.ProviderName*>"
     - id: name
       type: System.String
-      description: "The <xref:System.Web.Security.MembershipUser.UserName*> for the membership user."
+      description: "<xref:System.Web.Security.MembershipUser.UserName*>Dla użytkownika członkostwa.</xref:System.Web.Security.MembershipUser.UserName*>"
     - id: providerUserKey
       type: System.Object
-      description: "The <xref:System.Web.Security.ActiveDirectoryMembershipUser.ProviderUserKey*> for the membership user."
+      description: "<xref:System.Web.Security.ActiveDirectoryMembershipUser.ProviderUserKey*>Dla użytkownika członkostwa.</xref:System.Web.Security.ActiveDirectoryMembershipUser.ProviderUserKey*>"
     - id: email
       type: System.String
-      description: "The <xref:System.Web.Security.ActiveDirectoryMembershipUser.Email*> address of the membership user."
+      description: "<xref:System.Web.Security.ActiveDirectoryMembershipUser.Email*>Adres użytkownika członkostwa.</xref:System.Web.Security.ActiveDirectoryMembershipUser.Email*>"
     - id: passwordQuestion
       type: System.String
-      description: "The <xref:System.Web.Security.MembershipUser.PasswordQuestion*> for the membership user."
+      description: "<xref:System.Web.Security.MembershipUser.PasswordQuestion*>Dla użytkownika członkostwa.</xref:System.Web.Security.MembershipUser.PasswordQuestion*>"
     - id: comment
       type: System.String
-      description: "The <xref:System.Web.Security.ActiveDirectoryMembershipUser.Comment*> for the membership user."
+      description: "<xref:System.Web.Security.ActiveDirectoryMembershipUser.Comment*>Dla użytkownika członkostwa.</xref:System.Web.Security.ActiveDirectoryMembershipUser.Comment*>"
     - id: isApproved
       type: System.Boolean
-      description: "The <xref:System.Web.Security.ActiveDirectoryMembershipUser.IsApproved*> value for the membership user."
+      description: "<xref:System.Web.Security.ActiveDirectoryMembershipUser.IsApproved*>Wartość dla użytkownika członkostwa.</xref:System.Web.Security.ActiveDirectoryMembershipUser.IsApproved*>"
     - id: isLockedOut
       type: System.Boolean
-      description: "The <xref:System.Web.Security.MembershipUser.IsLockedOut*> value for the membership user."
+      description: "<xref:System.Web.Security.MembershipUser.IsLockedOut*>Wartość dla użytkownika członkostwa.</xref:System.Web.Security.MembershipUser.IsLockedOut*>"
     - id: creationDate
       type: System.DateTime
-      description: "The <xref:System.Web.Security.MembershipUser.CreationDate*> for the membership user."
+      description: "<xref:System.Web.Security.MembershipUser.CreationDate*>Dla użytkownika członkostwa.</xref:System.Web.Security.MembershipUser.CreationDate*>"
     - id: lastLoginDate
       type: System.DateTime
-      description: "The <xref:System.Web.Security.ActiveDirectoryMembershipUser.LastLoginDate*> for the membership user. This parameter is not used."
+      description: "<xref:System.Web.Security.ActiveDirectoryMembershipUser.LastLoginDate*>Dla użytkownika członkostwa.</xref:System.Web.Security.ActiveDirectoryMembershipUser.LastLoginDate*> Ten parametr nie jest używany."
     - id: lastActivityDate
       type: System.DateTime
-      description: "The <xref:System.Web.Security.ActiveDirectoryMembershipUser.LastActivityDate*> for the membership user. This parameter is not used."
+      description: "<xref:System.Web.Security.ActiveDirectoryMembershipUser.LastActivityDate*>Dla użytkownika członkostwa.</xref:System.Web.Security.ActiveDirectoryMembershipUser.LastActivityDate*> Ten parametr nie jest używany."
     - id: lastPasswordChangedDate
       type: System.DateTime
-      description: "The <xref:System.Web.Security.MembershipUser.LastPasswordChangedDate*> for the membership user."
+      description: "<xref:System.Web.Security.MembershipUser.LastPasswordChangedDate*>Dla użytkownika członkostwa.</xref:System.Web.Security.MembershipUser.LastPasswordChangedDate*>"
     - id: lastLockoutDate
       type: System.DateTime
-      description: "The <xref:System.Web.Security.MembershipUser.LastLockoutDate*> for the membership user."
+      description: "<xref:System.Web.Security.MembershipUser.LastLockoutDate*>Dla użytkownika członkostwa.</xref:System.Web.Security.MembershipUser.LastLockoutDate*>"
   overload: System.Web.Security.ActiveDirectoryMembershipUser.#ctor*
   exceptions:
   - type: System.ArgumentException
@@ -125,13 +125,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets or sets application-specific information for the membership user."
-  remarks: "The Comment property can be used to store custom information for a membership user that is specific to an application. The amount of information that can be stored in the `Comment` property for an <xref:System.Web.Security.ActiveDirectoryMembershipUser> is defined by the <xref:System.Web.Security.ActiveDirectoryMembershipProvider>.       The Comment property is mapped to the `Comment` default Active Directory attribute. This property cannot be remapped to another attribute."
+  summary: "Pobiera lub ustawia informacje specyficzne dla aplikacji dla użytkownika członkostwa."
+  remarks: "Właściwość komentarza może służyć do przechowywania informacji niestandardowych dla użytkownika członkostwa, która jest specyficzna dla aplikacji. Ilość informacji, które mogą być przechowywane w `Comment` właściwość <xref:System.Web.Security.ActiveDirectoryMembershipUser>jest zdefiniowana przez <xref:System.Web.Security.ActiveDirectoryMembershipProvider>.</xref:System.Web.Security.ActiveDirectoryMembershipProvider> </xref:System.Web.Security.ActiveDirectoryMembershipUser>       Właściwość komentarz jest zamapowana na `Comment` domyślny atrybut usługi Active Directory. Tej właściwości nie można ponownie zamapować do innego atrybutu."
   syntax:
     content: public override string Comment { get; set; }
     return:
       type: System.String
-      description: "Application-specific information for the Active Directory member stored in the <xref uid=&quot;langword_csharp_Comment&quot; name=&quot;Comment&quot; href=&quot;&quot;></xref> directory attribute."
+      description: "Informacje specyficzne dla aplikacji dla elementu członkowskiego usługi Active Directory, przechowywane w <xref uid=&quot;langword_csharp_Comment&quot; name=&quot;Comment&quot; href=&quot;&quot;> </xref> atrybut katalogu."
   overload: System.Web.Security.ActiveDirectoryMembershipUser.Comment*
   exceptions: []
   platform:
@@ -148,13 +148,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets or sets the e-mail address of the membership user."
-  remarks: "The Email property is mapped to the `Mail` directory attribute. This property can be remapped in the Web.config file by setting the `attributeMapUserName` attribute in the [providers Element for profile (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/9e998377-b07f-44c1-ad9b-20a60e83c18f) element for profiles."
+  summary: "Pobiera lub ustawia adres e-mail użytkownika członkostwa."
+  remarks: "Właściwość poczty E-mail jest zamapowana na `Mail` atrybut katalogu. Ta właściwość może można ponownie zamapować w pliku Web.config przez ustawienie `attributeMapUserName` atrybutu w [dostawców Element profile (schemat ustawień programu ASP.NET)](http://msdn.microsoft.com/en-us/9e998377-b07f-44c1-ad9b-20a60e83c18f) element profilów."
   syntax:
     content: public override string Email { get; set; }
     return:
       type: System.String
-      description: "The e-mail address of the membership user."
+      description: "Adres e-mail użytkownika członkostwa."
   overload: System.Web.Security.ActiveDirectoryMembershipUser.Email*
   exceptions: []
   platform:
@@ -171,13 +171,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets or sets a value that indicates whether the membership user can be authenticated."
-  remarks: "The <xref:System.Web.Security.ActiveDirectoryMembershipUser> value for a membership user is checked during the call to <xref:System.Web.Security.ActiveDirectoryMembershipProvider.ValidateUser%2A> by the <xref:System.Web.Security.ActiveDirectoryMembershipProvider>. If the IsApproved property returns `false`, the <xref:System.Web.Security.ActiveDirectoryMembershipProvider.ValidateUser%2A> method returns `false` even if the supplied user name and password are correct.       The IsApproved property is mapped to one of the following Active Directory attributes.      |||   |-|-|   |Active Directory|`User-Account-Control`|   |Active Directory Application Mode|`msDS-UserAccountDisabled`|       This property cannot be remapped to another attribute."
+  summary: "Pobiera lub ustawia wartość wskazującą, czy można uwierzytelnić użytkownika członkostwa."
+  remarks: "<xref:System.Web.Security.ActiveDirectoryMembershipUser>Wartość dla użytkownika członkostwa jest sprawdzana podczas wywołania <xref:System.Web.Security.ActiveDirectoryMembershipProvider.ValidateUser%2A>przez <xref:System.Web.Security.ActiveDirectoryMembershipProvider>.</xref:System.Web.Security.ActiveDirectoryMembershipProvider> </xref:System.Web.Security.ActiveDirectoryMembershipProvider.ValidateUser%2A> </xref:System.Web.Security.ActiveDirectoryMembershipUser> Jeśli właściwość IsApproved zwraca `false`, <xref:System.Web.Security.ActiveDirectoryMembershipProvider.ValidateUser%2A>Metoda zwraca `false` nawet, jeśli nazwa użytkownika i hasło są poprawne.</xref:System.Web.Security.ActiveDirectoryMembershipProvider.ValidateUser%2A>       Właściwość IsApproved jest mapowany na jedną z następujących atrybutów usługi Active Directory.      |||   |-|-|   | Usługi Active Directory | `User-Account-Control`|   | Tryb aplikacji usługi Active Directory | `msDS-UserAccountDisabled`|       Tej właściwości nie można ponownie zamapować do innego atrybutu."
   syntax:
     content: public override bool IsApproved { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the user can be authenticated; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli użytkownik może zostać uwierzytelniony; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Security.ActiveDirectoryMembershipUser.IsApproved*
   exceptions: []
   platform:
@@ -194,20 +194,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Throws a <xref:System.NotSupportedException> exception in all cases"
-  remarks: "The LastActivityDate property is not supported by the <xref:System.Web.Security.ActiveDirectoryMembershipUser> class. Attempting to get or set the value will always throw a <xref:System.NotSupportedException>."
+  summary: "<xref:System.NotSupportedException>Wyjątek we wszystkich przypadkach</xref:System.NotSupportedException>"
+  remarks: "Właściwość LastActivityDate nie jest obsługiwana przez <xref:System.Web.Security.ActiveDirectoryMembershipUser>klasę.</xref:System.Web.Security.ActiveDirectoryMembershipUser> Próba pobrania lub ustawienia wartości będzie zawsze zgłaszał <xref:System.NotSupportedException>.</xref:System.NotSupportedException>"
   example:
   - "The following code example demonstrates how to determine whether the underlying type of a membership user is <xref:System.Web.Security.ActiveDirectoryMembershipUser>, and to avoid throwing a <xref:System.NotSupportedException> for accessing the LastActivityDate property. For the full code required to run the example, see the Example section of the <xref:System.Web.Security.ActiveDirectoryMembershipUser> class overview topic.  \n  \n [!code-cs[System.Web.Security.ActiveDirectoryMembershipUser#2](~/add/codesnippet/csharp/p-system.web.security.ac_1_1.aspx)]\n [!code-vb[System.Web.Security.ActiveDirectoryMembershipUser#2](~/add/codesnippet/visualbasic/p-system.web.security.ac_1_1.aspx)]"
   syntax:
     content: public override DateTime LastActivityDate { get; set; }
     return:
       type: System.DateTime
-      description: "Always throws a <xref:System.NotSupportedException> exception."
+      description: "Zawsze zwraca <xref:System.NotSupportedException>wyjątek.</xref:System.NotSupportedException>"
   overload: System.Web.Security.ActiveDirectoryMembershipUser.LastActivityDate*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "any attempt to get or set the LastActivityDate property."
+    description: "próby pobierania lub ustawiania właściwości LastActivityDate."
   platform:
   - net462
 - uid: System.Web.Security.ActiveDirectoryMembershipUser.LastLoginDate
@@ -222,20 +222,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Throws a <xref:System.NotSupportedException> exception in all cases."
-  remarks: "The LastLoginDate property is not supported by the <xref:System.Web.Security.ActiveDirectoryMembershipUser> class. Attempting to get or set the value will always throw a <xref:System.NotSupportedException>."
+  summary: "Zgłasza wyjątek <xref:System.NotSupportedException>wyjątku we wszystkich przypadkach.</xref:System.NotSupportedException>"
+  remarks: "Właściwość LastLoginDate nie jest obsługiwana przez <xref:System.Web.Security.ActiveDirectoryMembershipUser>klasę.</xref:System.Web.Security.ActiveDirectoryMembershipUser> Próba pobrania lub ustawienia wartości będzie zawsze zgłaszał <xref:System.NotSupportedException>.</xref:System.NotSupportedException>"
   example:
   - "The following code example demonstrates how to determine whether the underlying type of a membership user is <xref:System.Web.Security.ActiveDirectoryMembershipUser>, and to avoid throwing a <xref:System.NotSupportedException> for accessing the LastLoginDate property. For the full code required to run the example, see the Example section of the <xref:System.Web.Security.ActiveDirectoryMembershipUser> class overview topic.  \n  \n [!code-cs[System.Web.Security.ActiveDirectoryMembershipUser#2](~/add/codesnippet/csharp/p-system.web.security.ac_0_1.aspx)]\n [!code-vb[System.Web.Security.ActiveDirectoryMembershipUser#2](~/add/codesnippet/visualbasic/p-system.web.security.ac_0_1.aspx)]"
   syntax:
     content: public override DateTime LastLoginDate { get; set; }
     return:
       type: System.DateTime
-      description: "Always throws a <xref:System.NotSupportedException> exception."
+      description: "Zawsze zwraca <xref:System.NotSupportedException>wyjątek.</xref:System.NotSupportedException>"
   overload: System.Web.Security.ActiveDirectoryMembershipUser.LastLoginDate*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "any attempt to get or set the LastLoginDate property."
+    description: "próby pobierania lub ustawiania właściwości LastLoginDate."
   platform:
   - net462
 - uid: System.Web.Security.ActiveDirectoryMembershipUser.ProviderUserKey
@@ -250,15 +250,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Gets the user identifier from the Active Directory data store for the membership user."
-  remarks: "The ProviderUserKey property exposes the identifier from the membership data source generically typed as an `object`. The ProviderUserKey class can be cast as a <xref:System.Security.Principal.SecurityIdentifier> object."
+  summary: "Pobiera identyfikator użytkownika z magazynu danych usługi Active Directory dla użytkownika członkostwa."
+  remarks: "Właściwość ProviderUserKey przedstawia identyfikator z członkostwa, źródła danych objęte typu `object`. Klasa ProviderUserKey mogą być rzutowane jako <xref:System.Security.Principal.SecurityIdentifier>obiektu.</xref:System.Security.Principal.SecurityIdentifier>"
   example:
   - "The following code example displays the ProviderUserKey property in Security Descriptor Definition Language (SDDL) format by converting it to a <xref:System.Security.Principal.SecurityIdentifier> object. For the full code required to run the example, see the Example section of the <xref:System.Web.Security.ActiveDirectoryMembershipUser> class overview topic.  \n  \n [!code-cs[System.Web.Security.ActiveDirectoryMembershipUser#3](~/add/codesnippet/csharp/p-system.web.security.ac_2_1.aspx)]\n [!code-vb[System.Web.Security.ActiveDirectoryMembershipUser#3](~/add/codesnippet/visualbasic/p-system.web.security.ac_2_1.aspx)]"
   syntax:
     content: public override object ProviderUserKey { get; }
     return:
       type: System.Object
-      description: "The user identifier from the Active Directory data store for the membership user."
+      description: "Identyfikator użytkownika z usługi Active Directory dane przechowywane dla użytkownika członkostwa."
   overload: System.Web.Security.ActiveDirectoryMembershipUser.ProviderUserKey*
   exceptions: []
   platform:
