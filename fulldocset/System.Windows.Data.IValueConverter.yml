@@ -11,8 +11,8 @@ items:
   nameWithType: IValueConverter
   fullName: System.Windows.Data.IValueConverter
   type: Interface
-  summary: "Provides a way to apply custom logic to a binding."
-  remarks: "If you want to associate a value converter with a binding, create a class that implements the IValueConverter interface and then implement the <xref:System.Windows.Data.IValueConverter.Convert%2A> and <xref:System.Windows.Data.IValueConverter.ConvertBack%2A> methods. Converters can change data from one type to another, translate data based on cultural information, or modify other aspects of the presentation. For examples of some typical converter scenarios, see &quot;Data Conversion&quot; in [Data Binding Overview](~/add/includes/ajax-current-ext-md.md).       Value converters are culture-aware. Both the <xref:System.Windows.Data.IValueConverter.Convert%2A> and <xref:System.Windows.Data.IValueConverter.ConvertBack%2A> methods have a `culture` parameter that indicates the cultural information. If cultural information is irrelevant to the conversion, then you can ignore that parameter in your custom converter.       The <xref:System.Windows.Data.IValueConverter.Convert%2A> and <xref:System.Windows.Data.IValueConverter.ConvertBack%2A> methods also have a parameter called `parameter` so that you can use the same instance of the converter with different parameters. For example, you can write a formatting converter that produces different formats of data based on the input parameter that you use. You can use the <xref:System.Windows.Data.Binding.ConverterParameter%2A> of the <xref:System.Windows.Data.Binding> class to pass a parameter as an argument into the <xref:System.Windows.Data.IValueConverter.Convert%2A> and <xref:System.Windows.Data.IValueConverter.ConvertBack%2A> methods."
+  summary: "Umożliwia stosowanie niestandardowej logiki do powiązania."
+  remarks: "Jeśli chcesz skojarzyć z powiązaniem konwerter wartości, Utwórz klasę, która implementuje interfejsu IValueConverter, a następnie wdrożyć <xref:System.Windows.Data.IValueConverter.Convert%2A>i <xref:System.Windows.Data.IValueConverter.ConvertBack%2A>metody.</xref:System.Windows.Data.IValueConverter.ConvertBack%2A> </xref:System.Windows.Data.IValueConverter.Convert%2A> Konwertery można zmiana typu danych, tłumaczenie danych na podstawie informacji kultury lub zmodyfikuj inne aspekty prezentacji. Przykłady niektórych konwertera typowych scenariuszy, zobacz &quot;Konwersja danych&quot; w [omówienie powiązania danych](~/add/includes/ajax-current-ext-md.md).       Konwertery wartości rozpoznają kultury. Zarówno <xref:System.Windows.Data.IValueConverter.Convert%2A>i <xref:System.Windows.Data.IValueConverter.ConvertBack%2A>metody mają `culture` parametr, który wskazuje kultury informacje.</xref:System.Windows.Data.IValueConverter.ConvertBack%2A> </xref:System.Windows.Data.IValueConverter.Convert%2A> Jeśli nie ma znaczenia konwersji kultury informacje, można zignorować parametru w Twojej konwertera niestandardowych.       <xref:System.Windows.Data.IValueConverter.Convert%2A>i <xref:System.Windows.Data.IValueConverter.ConvertBack%2A>metody ma także parametr o nazwie `parameter` tak, aby można było używać tego samego wystąpienia konwertera o innych parametrach.</xref:System.Windows.Data.IValueConverter.ConvertBack%2A> </xref:System.Windows.Data.IValueConverter.Convert%2A> Na przykład można napisać formatowania konwerter, który tworzy różne formaty danych na podstawie parametru wejściowego, którego używasz. Można użyć <xref:System.Windows.Data.Binding.ConverterParameter%2A>z <xref:System.Windows.Data.Binding>klasę, aby przekazać parametr jako argument do <xref:System.Windows.Data.IValueConverter.Convert%2A>i <xref:System.Windows.Data.IValueConverter.ConvertBack%2A>metody.</xref:System.Windows.Data.IValueConverter.ConvertBack%2A> </xref:System.Windows.Data.IValueConverter.Convert%2A> </xref:System.Windows.Data.Binding> </xref:System.Windows.Data.Binding.ConverterParameter%2A>"
   syntax:
     content: public interface IValueConverter
   implements: []
@@ -30,26 +30,26 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Data
-  summary: "Converts a value."
-  remarks: "The data binding engine calls this method when it propagates a value from the binding source to the binding target.       The data binding engine does not catch exceptions that are thrown by a user-supplied converter. Any exception that is thrown by the Convert method, or any uncaught exceptions that are thrown by methods that the Convert method calls, are treated as run-time errors. Handle anticipated problems by returning <xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName>.       A return value of <xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName> indicates that the converter produced no value and that the binding uses the <xref:System.Windows.Data.BindingBase.FallbackValue%2A>, if available, or the default value instead.       A return value of <xref:System.Windows.Data.Binding.DoNothing?displayProperty=fullName> indicates that the binding does not transfer the value or use the <xref:System.Windows.Data.BindingBase.FallbackValue%2A> or default value."
+  summary: "Konwertuje wartość."
+  remarks: "Aparat wiązania danych wywołuje tę metodę, gdy rozprzestrzenia się wartość źródła powiązanie cel wiązania.       Aparat wiązania danych nie przechwytuje wyjątków, które są generowane przez konwerter dostarczone przez użytkownika. Wyjątku zgłoszonego przez metodę Convert lub nieprzechwyconych wyjątków, zwracane przez metody, które wywołuje metodę Convert, są traktowane jako błędy środowiska wykonawczego. Obsługa problemów przewidywanego zwracając <xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName>.</xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName>       Zwracana wartość <xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName>wskazuje, że konwerter produkowane żadna wartość i że używane powiązanie <xref:System.Windows.Data.BindingBase.FallbackValue%2A>, jeśli jest dostępny, lub wartość domyślna.</xref:System.Windows.Data.BindingBase.FallbackValue%2A> </xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName>       Zwracana wartość <xref:System.Windows.Data.Binding.DoNothing?displayProperty=fullName>wskazuje, że powiązanie nie transfer wartości lub użyć <xref:System.Windows.Data.BindingBase.FallbackValue%2A>lub wartość domyślną.</xref:System.Windows.Data.BindingBase.FallbackValue%2A> </xref:System.Windows.Data.Binding.DoNothing?displayProperty=fullName>"
   syntax:
     content: public object Convert (object value, Type targetType, object parameter, System.Globalization.CultureInfo culture);
     parameters:
     - id: value
       type: System.Object
-      description: "The value produced by the binding source."
+      description: "Wartość utworzonego przez źródło powiązania."
     - id: targetType
       type: System.Type
-      description: "The type of the binding target property."
+      description: "Typ powiązania właściwości target."
     - id: parameter
       type: System.Object
-      description: "The converter parameter to use."
+      description: "Parametr konwertera do użycia."
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "The culture to use in the converter."
+      description: "Kultura używana w konwerterze."
     return:
       type: System.Object
-      description: "A converted value. If the method returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the valid null value is used."
+      description: "Wartość przekonwertowana. Jeśli metoda zwraca <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, używana jest nieprawidłowa wartość null."
   overload: System.Windows.Data.IValueConverter.Convert*
   exceptions: []
   platform:
@@ -66,26 +66,26 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Data
-  summary: "Converts a value."
-  remarks: "The data binding engine calls this method when it propagates a value from the binding target to the binding source.       The implementation of this method must be the inverse of the <xref:System.Windows.Data.IValueConverter.Convert%2A> method.       The data binding engine does not catch exceptions that are thrown by a user-supplied converter. Any exception that is thrown by the ConvertBack method, or any uncaught exceptions that are thrown by methods that the ConvertBack method calls, are treated as run-time errors. Handle anticipated problems by returning <xref:System.Windows.DependencyProperty>.<xref:System.Windows.DependencyProperty.UnsetValue>.       A return value of <xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName> indicates that the converter produced no value and that the binding uses the <xref:System.Windows.Data.BindingBase.FallbackValue%2A>, if available, or the default value instead.       A return value of <xref:System.Windows.Data.Binding.DoNothing?displayProperty=fullName> indicates that the binding does not transfer the value or use the <xref:System.Windows.Data.BindingBase.FallbackValue%2A> or default value."
+  summary: "Konwertuje wartość."
+  remarks: "Aparat wiązania danych wywołuje tę metodę, gdy go propaguje wartość cel wiązania ze źródłem powiązania.       Implementacja tej metody może być odwrotnością <xref:System.Windows.Data.IValueConverter.Convert%2A>metody.</xref:System.Windows.Data.IValueConverter.Convert%2A>       Aparat wiązania danych nie przechwytuje wyjątków, które są generowane przez konwerter dostarczone przez użytkownika. Wyjątku zgłoszonego przez metodę ConvertBack lub nieprzechwyconych wyjątków, które są generowane przez metody, które wywołuje metodę ConvertBack, są traktowane jako błędy środowiska wykonawczego. Obsługi przewidywanego problemów przez zwrócenie <xref:System.Windows.DependencyProperty>.<xref:System.Windows.DependencyProperty.UnsetValue>.</xref:System.Windows.DependencyProperty.UnsetValue> </xref:System.Windows.DependencyProperty>       Zwracana wartość <xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName>wskazuje, że konwerter produkowane żadna wartość i że używane powiązanie <xref:System.Windows.Data.BindingBase.FallbackValue%2A>, jeśli jest dostępny, lub wartość domyślna.</xref:System.Windows.Data.BindingBase.FallbackValue%2A> </xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName>       Zwracana wartość <xref:System.Windows.Data.Binding.DoNothing?displayProperty=fullName>wskazuje, że powiązanie nie transfer wartości lub użyć <xref:System.Windows.Data.BindingBase.FallbackValue%2A>lub wartość domyślną.</xref:System.Windows.Data.BindingBase.FallbackValue%2A> </xref:System.Windows.Data.Binding.DoNothing?displayProperty=fullName>"
   syntax:
     content: public object ConvertBack (object value, Type targetType, object parameter, System.Globalization.CultureInfo culture);
     parameters:
     - id: value
       type: System.Object
-      description: "The value that is produced by the binding target."
+      description: "Wartość, która jest generowany przez cel wiązania."
     - id: targetType
       type: System.Type
-      description: "The type to convert to."
+      description: "Typ docelowy konwersji."
     - id: parameter
       type: System.Object
-      description: "The converter parameter to use."
+      description: "Parametr konwertera do użycia."
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "The culture to use in the converter."
+      description: "Kultura używana w konwerterze."
     return:
       type: System.Object
-      description: "A converted value. If the method returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the valid null value is used."
+      description: "Wartość przekonwertowana. Jeśli metoda zwraca <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, używana jest nieprawidłowa wartość null."
   overload: System.Windows.Data.IValueConverter.ConvertBack*
   exceptions: []
   platform:
