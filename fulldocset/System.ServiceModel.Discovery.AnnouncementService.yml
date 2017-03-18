@@ -17,8 +17,8 @@ items:
   nameWithType: AnnouncementService
   fullName: System.ServiceModel.Discovery.AnnouncementService
   type: Class
-  summary: "A self-hosted implementation of the announcement service."
-  remarks: "This class listens for incoming messages on a standard announcement endpoint (<xref:System.ServiceModel.Discovery.AnnouncementEndpoint>) and provides event notification when Hello or Bye announcement messages arrive. You can provide a custom announcement service implementation by deriving from this class."
+  summary: "Hostowanie Samoobsługowe implementacji usługi anonsu."
+  remarks: "Ta klasa nasłuchuje przychodzących wiadomości standardowe powiadomienia w punkcie końcowym (<xref:System.ServiceModel.Discovery.AnnouncementEndpoint>) i zapewnia powiadomienie o zdarzeniu, gdy nadchodzą komunikaty anonsów Hello lub Bye.</xref:System.ServiceModel.Discovery.AnnouncementEndpoint> Aby przekazać implementacji usługi niestandardowe anonsu, wynikające z tej klasy."
   syntax:
     content: >-
       [System.ServiceModel.ServiceBehavior(ConcurrencyMode=System.ServiceModel.ConcurrencyMode.Multiple, InstanceContextMode=System.ServiceModel.InstanceContextMode.Single)]
@@ -42,7 +42,7 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Discovery.AnnouncementService&quot;></xref> class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.ServiceModel.Discovery.AnnouncementService&quot;> </xref> klasy."
   syntax:
     content: public AnnouncementService ();
     parameters: []
@@ -62,13 +62,13 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Discovery.AnnouncementService&quot;></xref> class with the specified length of the duplicate message history."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.ServiceModel.Discovery.AnnouncementService&quot;> </xref> klasy o określonej długości historii zduplikowanych komunikatów."
   syntax:
     content: public AnnouncementService (int duplicateMessageHistoryLength);
     parameters:
     - id: duplicateMessageHistoryLength
       type: System.Int32
-      description: "The maximum number of message hashes used by the transport for identifying duplicate messages. The default value is 0."
+      description: "Maksymalna liczba wartości skrótu wiadomości w celu zidentyfikowania zduplikowanych komunikatów używany przez transport. Wartość domyślna to 0."
   overload: System.ServiceModel.Discovery.AnnouncementService.#ctor*
   exceptions: []
   platform:
@@ -85,12 +85,12 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Occurs when an offline announcement (Bye) message is received,"
+  summary: "Występuje po otrzymaniu komunikatu powiadomienia w trybie offline (Bye)"
   syntax:
     content: public event EventHandler<System.ServiceModel.Discovery.AnnouncementEventArgs> OfflineAnnouncementReceived;
     return:
       type: System.EventHandler{System.ServiceModel.Discovery.AnnouncementEventArgs}
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -106,26 +106,26 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Starts the processing of incoming offline announcement (Bye) messages."
-  remarks: "Classes that inherit from <xref:System.ServiceModel.Discovery.AnnouncementService> to implement a custom announcement listener service must override this method and begin to process incoming Bye messages."
+  summary: "Rozpoczyna przetwarzanie przychodzących wiadomości anonsów w trybie offline (Bye)."
+  remarks: "Klasy, które dziedziczą z <xref:System.ServiceModel.Discovery.AnnouncementService>do zaimplementowania niestandardowego anonsu odbiornika usługi należy przesłonić tę metodę i rozpocząć do przetwarzania komunikatów przychodzących Bye.</xref:System.ServiceModel.Discovery.AnnouncementService>"
   syntax:
     content: protected virtual IAsyncResult OnBeginOfflineAnnouncement (System.ServiceModel.Discovery.DiscoveryMessageSequence messageSequence, System.ServiceModel.Discovery.EndpointDiscoveryMetadata endpointDiscoveryMetadata, AsyncCallback callback, object state);
     parameters:
     - id: messageSequence
       type: System.ServiceModel.Discovery.DiscoveryMessageSequence
-      description: "The position of this message in the sequence for the current notification."
+      description: "Pozycja tego komunikatu w sekwencji dla bieżącego powiadomienia."
     - id: endpointDiscoveryMetadata
       type: System.ServiceModel.Discovery.EndpointDiscoveryMetadata
-      description: "An object that provides endpoint metadata, for example scopes, listen URI, contract names, and endpoint address."
+      description: "Obiekt, który udostępnia metadane punktu końcowego dla zakresów przykład nasłuchiwania URI, nazwy kontraktu i adres punktu końcowego."
     - id: callback
       type: System.AsyncCallback
-      description: "The method to call when the asynchronous operation is complete."
+      description: "Metoda do wywołania po ukończeniu operacji asynchronicznej."
     - id: state
       type: System.Object
-      description: "Infrastructure-defined state data."
+      description: "Dane o stanie zdefiniowane infrastruktury."
     return:
       type: System.IAsyncResult
-      description: "The status of the pending asynchronous request."
+      description: "Stan oczekującego żądania asynchronicznego."
   overload: System.ServiceModel.Discovery.AnnouncementService.OnBeginOfflineAnnouncement*
   exceptions: []
   platform:
@@ -142,26 +142,26 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Starts the processing of incoming online announcement (Hello) messages."
-  remarks: "Classes that inherit from <xref:System.ServiceModel.Discovery.AnnouncementService> to implement a custom announcement listener service must override this method and begin to process incoming Hello messages."
+  summary: "Rozpoczyna przetwarzanie przychodzących wiadomości online anonsu (Hello)."
+  remarks: "Klasy, które dziedziczą z <xref:System.ServiceModel.Discovery.AnnouncementService>do zaimplementowania niestandardowego anonsu usługi odbiornika musi przesłonić tę metodę i rozpocząć do przetwarzania przychodzących wiadomości powitania.</xref:System.ServiceModel.Discovery.AnnouncementService>"
   syntax:
     content: protected virtual IAsyncResult OnBeginOnlineAnnouncement (System.ServiceModel.Discovery.DiscoveryMessageSequence messageSequence, System.ServiceModel.Discovery.EndpointDiscoveryMetadata endpointDiscoveryMetadata, AsyncCallback callback, object state);
     parameters:
     - id: messageSequence
       type: System.ServiceModel.Discovery.DiscoveryMessageSequence
-      description: "The position of this message in the sequence for the current notification."
+      description: "Pozycja tego komunikatu w sekwencji dla bieżącego powiadomienia."
     - id: endpointDiscoveryMetadata
       type: System.ServiceModel.Discovery.EndpointDiscoveryMetadata
-      description: "An object that provides endpoint metadata, for example scopes, listen URI, contract names, and endpoint address."
+      description: "Obiekt, który udostępnia metadane punktu końcowego dla zakresów przykład nasłuchiwania URI, nazwy kontraktu i adres punktu końcowego."
     - id: callback
       type: System.AsyncCallback
-      description: "The method to call when the asynchronous operation is complete."
+      description: "Metoda do wywołania po ukończeniu operacji asynchronicznej."
     - id: state
       type: System.Object
-      description: "Infrastructure-defined state data."
+      description: "Dane o stanie zdefiniowane infrastruktury."
     return:
       type: System.IAsyncResult
-      description: "The status of the pending asynchronous request."
+      description: "Stan oczekującego żądania asynchronicznego."
   overload: System.ServiceModel.Discovery.AnnouncementService.OnBeginOnlineAnnouncement*
   exceptions: []
   platform:
@@ -178,13 +178,13 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Users that inherit from <xref href=&quot;System.ServiceModel.Discovery.AnnouncementService&quot;></xref> to implement a custom announcement listener service must override this method and begin to process incoming offline announcement (Bye) messages here."
+  summary: "Użytkownicy, które dziedziczą z <xref href=&quot;System.ServiceModel.Discovery.AnnouncementService&quot;> </xref> do zaimplementowania niestandardowego anonsu odbiornika usługi należy przesłonić tę metodę i rozpocząć do przetwarzania przychodzących anonsów w trybie offline (Bye) komunikatów w tym miejscu."
   syntax:
     content: protected virtual void OnEndOfflineAnnouncement (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "An asynchronous result returned by the corresponding <xref:System.ServiceModel.Discovery.DiscoveryProxyBase.OnBeginOnlineAnnouncement*>."
+      description: "Wynik asynchroniczny zwrócony przez odpowiednie <xref:System.ServiceModel.Discovery.DiscoveryProxyBase.OnBeginOnlineAnnouncement*>.</xref:System.ServiceModel.Discovery.DiscoveryProxyBase.OnBeginOnlineAnnouncement*>"
   overload: System.ServiceModel.Discovery.AnnouncementService.OnEndOfflineAnnouncement*
   exceptions: []
   platform:
@@ -201,13 +201,13 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Users that inherit from <xref href=&quot;System.ServiceModel.Discovery.AnnouncementService&quot;></xref> to implement a custom announcement listener service must override this method and begin to process incoming offline announcement (Bye) messages here."
+  summary: "Użytkownicy, które dziedziczą z <xref href=&quot;System.ServiceModel.Discovery.AnnouncementService&quot;> </xref> do zaimplementowania niestandardowego anonsu odbiornika usługi należy przesłonić tę metodę i rozpocząć do przetwarzania przychodzących anonsów w trybie offline (Bye) komunikatów w tym miejscu."
   syntax:
     content: protected virtual void OnEndOnlineAnnouncement (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "An asynchronous result returned by the corresponding <xref:System.ServiceModel.Discovery.DiscoveryProxyBase.OnBeginOnlineAnnouncement*>."
+      description: "Wynik asynchroniczny zwrócony przez odpowiednie <xref:System.ServiceModel.Discovery.DiscoveryProxyBase.OnBeginOnlineAnnouncement*>.</xref:System.ServiceModel.Discovery.DiscoveryProxyBase.OnBeginOnlineAnnouncement*>"
   overload: System.ServiceModel.Discovery.AnnouncementService.OnEndOnlineAnnouncement*
   exceptions: []
   platform:
@@ -224,12 +224,12 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Occurs when an online announcement (Hello) is received."
+  summary: "Występuje po otrzymaniu powiadomienia online (Hello)."
   syntax:
     content: public event EventHandler<System.ServiceModel.Discovery.AnnouncementEventArgs> OnlineAnnouncementReceived;
     return:
       type: System.EventHandler{System.ServiceModel.Discovery.AnnouncementEventArgs}
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462

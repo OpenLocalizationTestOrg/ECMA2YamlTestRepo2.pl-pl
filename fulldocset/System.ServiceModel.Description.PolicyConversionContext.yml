@@ -16,8 +16,8 @@ items:
   nameWithType: PolicyConversionContext
   fullName: System.ServiceModel.Description.PolicyConversionContext
   type: Class
-  summary: "Defines a class used to retrieve binding assertions in metadata and to attach implementing binding elements at the appropriate scope."
-  remarks: "An implementation of the PolicyConversionContext is passed to <xref:System.ServiceModel.Description.IPolicyExportExtension> and <xref:System.ServiceModel.Description.IPolicyImportExtension> objects to export and import, respectively, custom policy assertions to and from metadata. On export, a collection of policy assertions are retrieved in order to add custom assertions. On import, the assertions are retrieved in order to import specific ones and configure binding elements appropriately.      -   The <xref:System.ServiceModel.Description.PolicyConversionContext.GetBindingAssertions%2A> method returns all policy assertions that are for the binding.      -   The <xref:System.ServiceModel.Description.PolicyConversionContext.GetFaultBindingAssertions%2A> method returns all policy assertions for a specific fault message.      -   The <xref:System.ServiceModel.Description.PolicyConversionContext.GetMessageBindingAssertions%2A> method returns all policy assertions for a specific message.      -   The <xref:System.ServiceModel.Description.PolicyConversionContext.GetOperationBindingAssertions%2A> method returns all policy assertions for a specific operation.      -   The <xref:System.ServiceModel.Description.PolicyConversionContext.BindingElements%2A> property gets the binding elements for the binding being described or configured.      -   The <xref:System.ServiceModel.Description.PolicyConversionContext.Contract%2A> property gets the contract description for which the binding is being described or configured."
+  summary: "Definiuje klasę używane do pobierania powiązania potwierdzenia w metadanych i dołączyć implementującej elementy wiązania na odpowiedni zakres."
+  remarks: "Implementacja interfejsu PolicyConversionContext jest przekazywana do <xref:System.ServiceModel.Description.IPolicyExportExtension>i <xref:System.ServiceModel.Description.IPolicyImportExtension>obiektów, aby wyeksportować i zaimportować odpowiednio niestandardowych asercji zasad do i z metadanych.</xref:System.ServiceModel.Description.IPolicyImportExtension> </xref:System.ServiceModel.Description.IPolicyExportExtension> Podczas eksportowania kolekcji potwierdzeń zasad są pobierane, aby dodać niestandardowe potwierdzenia. Importu potwierdzenia są pobierane, aby importować precyzyjnych i odpowiednio skonfigurować elementy wiązania.      - <xref:System.ServiceModel.Description.PolicyConversionContext.GetBindingAssertions%2A>Metoda zwraca wszystkie potwierdzeń zasad, które są dla powiązania.</xref:System.ServiceModel.Description.PolicyConversionContext.GetBindingAssertions%2A>      - <xref:System.ServiceModel.Description.PolicyConversionContext.GetFaultBindingAssertions%2A>Metoda zwraca wszystkie potwierdzenia zasad dla określonych błędzie.</xref:System.ServiceModel.Description.PolicyConversionContext.GetFaultBindingAssertions%2A>      - <xref:System.ServiceModel.Description.PolicyConversionContext.GetMessageBindingAssertions%2A>Metoda zwraca wszystkie potwierdzeń zasad dla określonego komunikatu.</xref:System.ServiceModel.Description.PolicyConversionContext.GetMessageBindingAssertions%2A>      - <xref:System.ServiceModel.Description.PolicyConversionContext.GetOperationBindingAssertions%2A>Metoda zwraca wszystkie potwierdzenia zasad dla określonej operacji.</xref:System.ServiceModel.Description.PolicyConversionContext.GetOperationBindingAssertions%2A>      - <xref:System.ServiceModel.Description.PolicyConversionContext.BindingElements%2A>Właściwości pobiera elementy powiązania jest powiązanie opisano lub skonfigurowana.</xref:System.ServiceModel.Description.PolicyConversionContext.BindingElements%2A>      - <xref:System.ServiceModel.Description.PolicyConversionContext.Contract%2A>Właściwości pobiera opis kontraktu, dla którego ma zostać powiązania opisano lub skonfigurowana.</xref:System.ServiceModel.Description.PolicyConversionContext.Contract%2A>"
   example:
   - "The following code example shows an implementation of the <xref:System.ServiceModel.Description.IPolicyImportExtension.ImportPolicy%2A> method that writes all policy assertions to the console. The code comments describe how to locate a specific custom policy assertion, create and insert an implementing binding element, and remove the assertion from the collection.  \n  \n [!code-cs[S_UEPolicyConversionContext#0](~/add/codesnippet/csharp/t-system.servicemodel.de_13_1.cs)]  \n  \n The following code example shows how to register <xref:System.ServiceModel.Description.IPolicyImportExtension> implementations using the `<policyImporters>` configuration section.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]  \n  \n The following code example demonstrates how a custom binding element can implement <xref:System.ServiceModel.Description.IPolicyExportExtension> to attach a custom policy assertion to the binding assertions.  \n  \n [!code-cs[S_UEPolicyConversionContext#1](~/add/codesnippet/csharp/t-system.servicemodel.de_13_3.cs)]"
   syntax:
@@ -40,13 +40,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Description.PolicyConversionContext&quot;></xref> class using the specified endpoint."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.ServiceModel.Description.PolicyConversionContext&quot;> </xref> przy użyciu określonego punktu końcowego."
   syntax:
     content: protected PolicyConversionContext (System.ServiceModel.Description.ServiceEndpoint endpoint);
     parameters:
     - id: endpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The <xref:System.ServiceModel.Description.ServiceEndpoint> for the policy context."
+      description: "<xref:System.ServiceModel.Description.ServiceEndpoint>Zasad kontekstu.</xref:System.ServiceModel.Description.ServiceEndpoint>"
   overload: System.ServiceModel.Description.PolicyConversionContext.#ctor*
   exceptions: []
   platform:
@@ -63,12 +63,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Gets a collection of binding elements to which custom binding elements that implement policy assertions are added."
+  summary: "Pobiera kolekcję elementów, do których są dodawane elementy niestandardowego powiązania, które implementują potwierdzeń zasad wiązania."
   syntax:
     content: public abstract System.ServiceModel.Channels.BindingElementCollection BindingElements { get; }
     return:
       type: System.ServiceModel.Channels.BindingElementCollection
-      description: "A <xref:System.ServiceModel.Channels.BindingElementCollection> that contains the binding elements for an endpoint."
+      description: "A <xref:System.ServiceModel.Channels.BindingElementCollection>zawierającą elementy wiązania dla punktu końcowego.</xref:System.ServiceModel.Channels.BindingElementCollection>"
   overload: System.ServiceModel.Description.PolicyConversionContext.BindingElements*
   exceptions: []
   platform:
@@ -85,12 +85,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Gets the contract for the endpoint."
+  summary: "Pobiera kontraktu punktu końcowego."
   syntax:
     content: public System.ServiceModel.Description.ContractDescription Contract { get; }
     return:
       type: System.ServiceModel.Description.ContractDescription
-      description: "The contract for the endpoint."
+      description: "Kontrakt punktu końcowego."
   overload: System.ServiceModel.Description.PolicyConversionContext.Contract*
   exceptions: []
   platform:
@@ -107,8 +107,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Gets a collection of policy assertions from metadata."
-  remarks: "The collection returned from GetBindingAssertions is not a copy. You can add and remove assertions as necessary."
+  summary: "Pobiera kolekcję potwierdzeń zasad z metadanych."
+  remarks: "Kolekcja zwrócony z GetBindingAssertions nie jest kopii. Można dodawać i usuwać potwierdzenia w razie potrzeby."
   example:
   - "The following code example shows an implementation of the <xref:System.ServiceModel.Description.IPolicyImportExtension.ImportPolicy%2A> method that writes all policy assertions to the console. The code comments describe how to locate a specific custom policy assertion, create and insert an implementing binding element, and remove the assertion from the collection.  \n  \n [!code-cs[S_UEPolicyConversionContext#0](~/add/codesnippet/csharp/m-system.servicemodel.de_5_1.cs)]  \n  \n The following code example shows how to register <xref:System.ServiceModel.Description.IPolicyImportExtension> implementations using the `<policyImporters>` configuration section.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]  \n  \n The following code example demonstrates how a custom binding element can implement <xref:System.ServiceModel.Description.IPolicyExportExtension> to attach a custom policy assertion to the binding assertions.  \n  \n [!code-cs[S_UEPolicyConversionContext#1](~/add/codesnippet/csharp/m-system.servicemodel.de_5_3.cs)]"
   syntax:
@@ -116,7 +116,7 @@ items:
     parameters: []
     return:
       type: System.ServiceModel.Description.PolicyAssertionCollection
-      description: "An &lt;xref:System.Collections.Generic.ICollection%601&gt; of type <xref href=&quot;System.Xml.XmlElement&quot;></xref> that contains binding policy assertions."
+      description: "&lt;Xref:System.Collections.Generic.ICollection%601&gt; typu <xref href=&quot;System.Xml.XmlElement&quot;> </xref> zawierający potwierdzeń zasad powiązania."
   overload: System.ServiceModel.Description.PolicyConversionContext.GetBindingAssertions*
   exceptions: []
   platform:
@@ -133,17 +133,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Returns a collection of policy assertions for the specified SOAP fault."
-  remarks: "The collection returned from GetFaultBindingAssertions is not a copy. You can add and remove assertions as necessary."
+  summary: "Zwraca kolekcję potwierdzeń zasad dla określonego błędu protokołu SOAP."
+  remarks: "Kolekcja zwrócony z GetFaultBindingAssertions nie jest kopii. Można dodawać i usuwać potwierdzenia w razie potrzeby."
   syntax:
     content: public abstract System.ServiceModel.Description.PolicyAssertionCollection GetFaultBindingAssertions (System.ServiceModel.Description.FaultDescription fault);
     parameters:
     - id: fault
       type: System.ServiceModel.Description.FaultDescription
-      description: "The <xref:System.ServiceModel.Description.FaultDescription> object for which policy assertions are to be added or for which bindings are to be configured."
+      description: "<xref:System.ServiceModel.Description.FaultDescription>Obiektu potwierdzeń zasad, które mają być dodawane lub powiązania, które mogą być konfigurowane.</xref:System.ServiceModel.Description.FaultDescription>"
     return:
       type: System.ServiceModel.Description.PolicyAssertionCollection
-      description: "A collection of policy assertions for the specified SOAP fault."
+      description: "Kolekcja potwierdzeń zasad dla określonego błędu protokołu SOAP."
   overload: System.ServiceModel.Description.PolicyConversionContext.GetFaultBindingAssertions*
   exceptions: []
   platform:
@@ -160,17 +160,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Gets a collection of policy assertions for a message."
-  remarks: "The collection returned from GetMessageBindingAssertions is not a copy. You can add and remove assertions as needed."
+  summary: "Pobiera kolekcję potwierdzeń zasad dla wiadomości."
+  remarks: "Kolekcja zwrócony z GetMessageBindingAssertions nie jest kopii. Możesz dodawać i usuwać potwierdzeń, zgodnie z potrzebami."
   syntax:
     content: public abstract System.ServiceModel.Description.PolicyAssertionCollection GetMessageBindingAssertions (System.ServiceModel.Description.MessageDescription message);
     parameters:
     - id: message
       type: System.ServiceModel.Description.MessageDescription
-      description: "The <xref:System.ServiceModel.Description.MessageDescription> for which there are binding assertions."
+      description: "<xref:System.ServiceModel.Description.MessageDescription>Którym to powiązanie potwierdzeń.</xref:System.ServiceModel.Description.MessageDescription>"
     return:
       type: System.ServiceModel.Description.PolicyAssertionCollection
-      description: "A collection of policy assertions for the specified message."
+      description: "Kolekcja potwierdzeń zasad dla określonego komunikatu."
   overload: System.ServiceModel.Description.PolicyConversionContext.GetMessageBindingAssertions*
   exceptions: []
   platform:
@@ -187,17 +187,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Returns a collection of policy assertions for the specified operation."
-  remarks: "The collection returned from GetOperationBindingAssertions is not a copy. You can add and remove assertions as necessary."
+  summary: "Zwraca kolekcję potwierdzeń zasad dla określonej operacji."
+  remarks: "Kolekcja zwrócony z GetOperationBindingAssertions nie jest kopii. Można dodawać i usuwać potwierdzenia w razie potrzeby."
   syntax:
     content: public abstract System.ServiceModel.Description.PolicyAssertionCollection GetOperationBindingAssertions (System.ServiceModel.Description.OperationDescription operation);
     parameters:
     - id: operation
       type: System.ServiceModel.Description.OperationDescription
-      description: "The <xref:System.ServiceModel.Description.OperationDescription> object for which policy assertions are to be added or for which bindings are to be configured."
+      description: "<xref:System.ServiceModel.Description.OperationDescription>Obiektu potwierdzeń zasad, które mają być dodawane lub powiązania, które mogą być konfigurowane.</xref:System.ServiceModel.Description.OperationDescription>"
     return:
       type: System.ServiceModel.Description.PolicyAssertionCollection
-      description: "The policy assertions for the operation."
+      description: "Potwierdzeń zasad dla tej operacji."
   overload: System.ServiceModel.Description.PolicyConversionContext.GetOperationBindingAssertions*
   exceptions: []
   platform:
