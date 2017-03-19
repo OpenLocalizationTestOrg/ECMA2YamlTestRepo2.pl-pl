@@ -12,8 +12,8 @@ items:
   nameWithType: Cer
   fullName: System.Runtime.ConstrainedExecution.Cer
   type: Enum
-  summary: "Specifies a method&quot;s behavior when called within a constrained execution region."
-  remarks: "The Cer enumeration specifies the behavior of a method, type, or assembly within a constrained execution region (CER). Use one of the three available values to indicate that the entity will succeed, has no knowledge of a CER, or might (deterministically) be able to report success or failure.       A CER provides guarantees that the region of code will execute uninterrupted even if an asynchronous exception such as an aborted thread out-of-memory exception, or stack overflow is raised."
+  summary: "Określa zachowanie metody wywołanego w regionie ograniczonego wykonania."
+  remarks: "Wyliczenie Cer określa zachowanie metody, typu lub zestawu w regionie ograniczonego wykonania (CER). Użyj jednej z trzech wartości dostępne, aby wskazać, że jednostka kończy się pomyślnie, nie zna CER lub (sposób niejednoznaczny) będzie mógł zgłosić powodzenie lub niepowodzenie.       CER zapewnia gwarancje, które wykona region kodu nieprzerwaną nawet wtedy, gdy asynchroniczne np. wyjątek braku pamięci przerwanego wątku lub przepełnienie stosu jest wyjątek."
   example:
   - "The following code example demonstrates the use of the Cer enumeration when specifying a constrained execution region for a method. This code example is part of a larger example provided for the <xref:System.Runtime.ConstrainedExecution.ReliabilityContractAttribute.%23ctor%2A> constructor.  \n  \n [!code-vb[System.Runtime.ConstrainedExecution#3](~/add/codesnippet/visualbasic/t-system.runtime.constra_2_1.vb)]\n [!code-cs[System.Runtime.ConstrainedExecution#3](~/add/codesnippet/csharp/t-system.runtime.constra_2_1.cs)]"
   syntax:
@@ -34,12 +34,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.ConstrainedExecution
-  summary: "In the face of exceptional conditions, the method might fail. In this case, the method will report back to the calling method whether it succeeded or failed. The method must have a CER around the method body to ensure that it can report the return value."
+  summary: "W wypadku wyjątkowe warunki metoda może zakończyć się niepowodzeniem. W takim przypadku metoda zgłosi powrót do wywoływania metody czy powodzeniem lub niepowodzeniem. Metoda musi mieć CER wokół treści metody, aby upewnić się, czy może raportować wartość zwracaną."
   syntax:
     content: MayFail
     return:
       type: System.Runtime.ConstrainedExecution.Cer
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -55,13 +55,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.ConstrainedExecution
-  summary: 'The method, type, or assembly has no concept of a CER. It does not take advantage of CER guarantees. This implies the following:'
-  remarks: "-   In the face of exceptional conditions the method might fail.      -   The method might or might not report that it failed (it is non-deterministic).      -   The method is not written with CERs in mind (which is the most likely scenario).       If a method, type, or assembly is not explicitly marked to succeed, it is implicitly marked as `Cer.None`."
+  summary: 'Metoda, typu lub zestawu ma nie zawierają CER. Nie przyjmuje zaletą gwarancje CER. Oznacza to następujące czynności:'
+  remarks: "-W wypadku wyjątkowych warunków metody może zakończyć się niepowodzeniem.      — Metoda może być lub może nie raport, który nie powiodło się (jest deterministyczna).      — Metoda nie jest zapisywany z CERs myślą (jest to najbardziej prawdopodobny scenariusz).       Jeśli metoda, typu lub zestawu nie jest wyraźnie oznaczona powiodła się, niejawnie jest oznaczony jako `Cer.None`."
   syntax:
     content: None
     return:
       type: System.Runtime.ConstrainedExecution.Cer
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -77,12 +77,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.ConstrainedExecution
-  summary: "In the face of exceptional conditions, the method is guaranteed to succeed. You should always construct a CER around the method that is called, even when it is called from within a non-CER region. A method is successful if it accomplishes what is intended. For example, marking <xref:System.Collections.ArrayList.Count*> with `ReliabilityContractAttribute(Cer.Success)` implies that when it is run under a CER, it always returns a count of the number of elements in the <xref href=&quot;System.Collections.ArrayList&quot;></xref> and it can never leave the internal fields in an undetermined state."
+  summary: "W wypadku wyjątkowe warunki metoda jest gwarantowana powiodło się. Zawsze należy konstruować CER wokół metodę, która jest wywoływana, nawet gdy jest wywoływana z regionu z systemem innym niż CER. Metoda zakończy się pomyślnie, jeśli rozwiązanie przeznaczenie. Na przykład oznaczenia <xref:System.Collections.ArrayList.Count*>z `ReliabilityContractAttribute(Cer.Success)` oznacza, że po uruchomieniu w CER zawsze zwraca liczbę liczba elementów w <xref href=&quot;System.Collections.ArrayList&quot;> </xref> i nigdy nie może narazić pola wewnętrzne w stanie nieokreślony.</xref:System.Collections.ArrayList.Count*>"
   syntax:
     content: Success
     return:
       type: System.Runtime.ConstrainedExecution.Cer
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462

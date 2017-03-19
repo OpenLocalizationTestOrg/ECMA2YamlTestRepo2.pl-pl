@@ -16,8 +16,8 @@ items:
   nameWithType: IDataEnvironment
   fullName: System.ComponentModel.Design.Data.IDataEnvironment
   type: Interface
-  summary: "Defines an interface to data services that enables control designers to integrate data store or database-related functionality into their design environment."
-  remarks: "An object that implements the IDataEnvironment interface can access the data connections available to an application at design time. The IDataEnvironment interface provides methods to list available data connections, create new data connections, retrieve schema information from a connection, and save data-connection configuration information to the application&quot;s configuration file.       The IDataEnvironment interface enables you to interact with data connections in the design environment, but it is not intended as a data-management API."
+  summary: "Definiuje interfejs do usług danych, które umożliwia projektantom formantu do integracji magazynu danych lub funkcji związanych z bazy danych w środowisku projektowania."
+  remarks: "Obiekt, który implementuje interfejs IDataEnvironment mają dostęp do połączeń danych dostępnych do aplikacji w czasie projektowania. Interfejs IDataEnvironment zapewnia metody do listy połączeń danych dostępnych, tworzenie nowych połączeń danych, pobrać informacji schematu z połączenia i Zapisz informacje o konfiguracji połączenia danych do pliku konfiguracji aplikacji.       Interfejs IDataEnvironment pozwala na interakcję z połączeń danych w środowisku projektowania, ale nie jest on przeznaczony jako interfejs API zarządzania danymi."
   syntax:
     content: public interface IDataEnvironment
   implements: []
@@ -35,20 +35,20 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Data
-  summary: "Creates a new data connection or edits an existing connection using the design tool&quot;s new connection user interface."
-  remarks: "Use the BuildConnection method to activate the design environment&quot;s user interface for creating or editing data connections. If the `initialConnection` parameter is `null`, it indicates the user wants to create a new connection. If the `initialConnection` parameter is a <xref:System.ComponentModel.Design.Data.DesignerDataConnection> object, it indicates the user wants to edit an existing connection.       Your design environment is responsible for creating the data connection, adding the connection either to a global list of connections or to the Web application&quot;s configuration file, and adding the new connection to the <xref:System.ComponentModel.Design.Data.IDataEnvironment.Connections%2A> property.       The new connection should include the information that the application needs to create a data connection at run time. If you need to use the data connection in the design environment, use the <xref:System.ComponentModel.Design.Data.IDataEnvironment.GetDesignTimeConnection%2A> method to return a <xref:System.Data.Common.DbConnection> object that will connect to the data store from the design environment.       If the user chooses to cancel the new connection creation process, the BuildConnection method should return `null`."
+  summary: "Tworzy nowe połączenie danych lub edytować istniejące połączenie za pomocą narzędzia do projektowania nowy interfejs użytkownika połączenia."
+  remarks: "Metoda BuildConnection do aktywacji interfejsu użytkownika w środowisku projektowania programu do tworzenia lub edytowania połączenia danych. Jeśli `initialConnection` parametr jest `null`, oznacza to użytkownik chce utworzyć nowe połączenie. Jeśli `initialConnection` parametr jest <xref:System.ComponentModel.Design.Data.DesignerDataConnection>obiektu, oznacza to użytkownik chce edytować istniejące połączenie.</xref:System.ComponentModel.Design.Data.DesignerDataConnection>       Środowisko projektowania jest odpowiedzialny za tworzenie połączenia danych, dodawanie połączenia do globalnej listy połączeń lub do pliku konfiguracji aplikacji sieci Web i dodawanie nowego połączenia z <xref:System.ComponentModel.Design.Data.IDataEnvironment.Connections%2A>Właściwości.</xref:System.ComponentModel.Design.Data.IDataEnvironment.Connections%2A>       Nowe połączenie powinna zawierać informacje, których aplikacja potrzebuje do utworzenia połączenia danych w czasie wykonywania. Jeśli trzeba korzystać z połączenia danych w środowisku projektowania, użyj <xref:System.ComponentModel.Design.Data.IDataEnvironment.GetDesignTimeConnection%2A>metodę, aby zwrócić <xref:System.Data.Common.DbConnection>obiektu, którym będą łączyć się z magazynem danych w środowisku projektowania.</xref:System.Data.Common.DbConnection> </xref:System.ComponentModel.Design.Data.IDataEnvironment.GetDesignTimeConnection%2A>       Jeśli użytkownik zdecydował się anulować proces tworzenia nowego połączenia, metoda BuildConnection powinna zwrócić `null`."
   syntax:
     content: public System.ComponentModel.Design.Data.DesignerDataConnection BuildConnection (System.Windows.Forms.IWin32Window owner, System.ComponentModel.Design.Data.DesignerDataConnection initialConnection);
     parameters:
     - id: owner
       type: System.Windows.Forms.IWin32Window
-      description: "The parent window for the connection dialog."
+      description: "Okno nadrzędne dla okna dialogowego połączenia."
     - id: initialConnection
       type: System.ComponentModel.Design.Data.DesignerDataConnection
-      description: "The connection, if any, to edit. To create a new connection, `initialConnection` should be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Połączenie, jeśli istnieją, aby edytować. Aby utworzyć nowe połączenie, `initialConnection` powinien być <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.ComponentModel.Design.Data.DesignerDataConnection
-      description: "A new or edited <xref href=&quot;System.ComponentModel.Design.Data.DesignerDataConnection&quot;></xref> object, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the user canceled."
+      description: "A nowe lub zmodyfikowane <xref href=&quot;System.ComponentModel.Design.Data.DesignerDataConnection&quot;> </xref> obiekt, lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli została anulowana przez użytkownika."
   overload: System.ComponentModel.Design.Data.IDataEnvironment.BuildConnection*
   exceptions: []
   platform:
@@ -65,26 +65,26 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Data
-  summary: "Launches a dialog to build a SQL query string."
-  remarks: "The BuildQuery method launches the design environment&quot;s UI for editing or creating SQL query strings. If the `initialQueryText` parameter is <xref:System.String>, it indicates the user wants to create a new query. If the `initialQueryText` parameter contains a string, it indicates the user wants to edit the existing query.       The `mode` parameter indicates the type of query the user wants to build; either select, update, insert, or delete. Your user interface can use the `mode` parameter to configure itself for the type of query desired, limit the user to using SQL statements valid only for the type of query desired, and/or validate the query against the desired type."
+  summary: "Uruchamia okno dialogowe Tworzenie ciąg zapytania SQL."
+  remarks: "Metoda BuildQuery uruchamia środowisko projektowania Interfejsu edytowania lub tworzenia ciągów zapytania SQL. Jeśli `initialQueryText` parametr jest <xref:System.String>, oznacza to użytkownik chce utworzyć nowe zapytanie.</xref:System.String> Jeśli `initialQueryText` parametru zawiera ciąg, oznacza to użytkownik chce edytować istniejącą kwerendę.       `mode` Parametr wskazuje typ zapytania, które użytkownik chce kompilacji, albo wybierz, aktualizowania, wstawiania lub usuwania. Można użyć interfejsu użytkownika `mode` parametr skonfigurowany dla typu żądanego zapytania, Ogranicz użytkownikowi za pomocą instrukcji SQL jest prawidłowy tylko dla typu żądanego zapytania i/lub zweryfikować zapytania dotyczącego odpowiedniego typu."
   syntax:
     content: public string BuildQuery (System.Windows.Forms.IWin32Window owner, System.ComponentModel.Design.Data.DesignerDataConnection connection, System.ComponentModel.Design.Data.QueryBuilderMode mode, string initialQueryText);
     parameters:
     - id: owner
       type: System.Windows.Forms.IWin32Window
-      description: "The parent window for the dialog."
+      description: "Okno nadrzędne dla okna dialogowego."
     - id: connection
       type: System.ComponentModel.Design.Data.DesignerDataConnection
-      description: "The data connection to use for the query."
+      description: "Połączenie danych do użycia dla zapytania."
     - id: mode
       type: System.ComponentModel.Design.Data.QueryBuilderMode
-      description: "One of the <xref href=&quot;System.ComponentModel.Design.Data.QueryBuilderMode&quot;></xref> values."
+      description: "Jeden z <xref href=&quot;System.ComponentModel.Design.Data.QueryBuilderMode&quot;> </xref> wartości."
     - id: initialQueryText
       type: System.String
-      description: "The initial value of the query or <xref:System.String> to create a new query."
+      description: "Wartość początkowa zapytania lub <xref:System.String>Aby utworzyć nową kwerendę.</xref:System.String>"
     return:
       type: System.String
-      description: "A string containing the SQL query, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the user canceled."
+      description: "Ciąg zawierający zapytanie SQL lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli została anulowana przez użytkownika."
   overload: System.ComponentModel.Design.Data.IDataEnvironment.BuildQuery*
   exceptions: []
   platform:
@@ -101,23 +101,23 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Data
-  summary: "Writes a connection string to the application&quot;s configuration file."
-  remarks: "The ConfigureConnection method writes a connection to the application&quot;s configuration file. The connection string and provider name are written to the [connectionStrings Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/b6ffbb2e-a4d1-410e-8f7e-9755e92c65de) configuration element named according to the `name` parameter. The <xref:System.ComponentModel.Design.Data.DesignerDataConnection.Name%2A> property of the `connection` parameter is ignored.       Implementations of the ConfigureConnection method should throw the following exceptions.      |Exception|Reason|   |---------------|------------|   |<xref:System.ArgumentException>|A duplicate name exists in the application&quot;s configuration file.|   |<xref:System.IO.FileNotFoundException>, <xref:System.UnauthorizedAccessException>, or other appropriate file IO exception.|The application&quot;s configuration file cannot be updated. Your ConfigureConnection method implementation should throw an appropriate exception.|   |<xref:System.ComponentModel.Design.CheckoutException>|The application&quot;s configuration file cannot be checked out from the source control system.|       Consider using the configuration-management APIs in the <xref:System.Configuration> namespace to read and write the application&quot;s configuration file. The <xref:System.Configuration.ConnectionStringsSection> class will read and write the [connectionStrings Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/b6ffbb2e-a4d1-410e-8f7e-9755e92c65de) configuration element."
+  summary: "Zapisuje ciąg połączenia w pliku konfiguracji aplikacji."
+  remarks: "Metoda ConfigureConnection zapisuje połączenia w pliku konfiguracji aplikacji. Nazwa połączenia w ciągu i dostawcy są zapisywane w [connectionStrings — Element (schemat ustawień programu ASP.NET)](http://msdn.microsoft.com/en-us/b6ffbb2e-a4d1-410e-8f7e-9755e92c65de) elementu konfiguracji o nazwie zgodnie z `name` parametru. <xref:System.ComponentModel.Design.Data.DesignerDataConnection.Name%2A>Właściwość `connection` parametru jest ignorowana.</xref:System.ComponentModel.Design.Data.DesignerDataConnection.Name%2A>       Implementacje metody ConfigureConnection powinien zgłosić następujące wyjątki.      | Wyjątek | Przyczyna |   |---------------|------------|   | <xref:System.ArgumentException>| Istnieje zduplikowana nazwa w pliku konfiguracyjnym aplikacji. |   | <xref:System.IO.FileNotFoundException>, <xref:System.UnauthorizedAccessException>, lub inne odpowiednie pliki wyjątek We/Wy. | Nie można zaktualizować pliku konfiguracji aplikacji.</xref:System.UnauthorizedAccessException> </xref:System.IO.FileNotFoundException> </xref:System.ArgumentException> Implementacji metody ConfigureConnection powinien zgłosić wyjątek odpowiednich. |   | <xref:System.ComponentModel.Design.CheckoutException>| Nie można wyewidencjonować pliku konfiguracji aplikacji z systemu kontroli źródła. |       Należy wziąć pod uwagę przy użyciu interfejsów API zarządzania konfiguracją w <xref:System.Configuration>przestrzeni nazw do odczytu i zapisu w pliku konfiguracji aplikacji.</xref:System.Configuration> </xref:System.ComponentModel.Design.CheckoutException> <xref:System.Configuration.ConnectionStringsSection>Klasa będzie odczytywać i zapisywać [connectionStrings — Element (schemat ustawień programu ASP.NET)](http://msdn.microsoft.com/en-us/b6ffbb2e-a4d1-410e-8f7e-9755e92c65de) element konfiguracji.</xref:System.Configuration.ConnectionStringsSection>"
   syntax:
     content: public System.ComponentModel.Design.Data.DesignerDataConnection ConfigureConnection (System.Windows.Forms.IWin32Window owner, System.ComponentModel.Design.Data.DesignerDataConnection connection, string name);
     parameters:
     - id: owner
       type: System.Windows.Forms.IWin32Window
-      description: "The parent window for the dialog, if any."
+      description: "Okno nadrzędne dla okna dialogowego, jeśli istnieje."
     - id: connection
       type: System.ComponentModel.Design.Data.DesignerDataConnection
-      description: "A <xref href=&quot;System.ComponentModel.Design.Data.DesignerDataConnection&quot;></xref> object containing the connection data to save."
+      description: "A <xref href=&quot;System.ComponentModel.Design.Data.DesignerDataConnection&quot;> </xref> obiektu zawierającego dane połączenia, aby zapisać."
     - id: name
       type: System.String
-      description: "The name of the new connection configuration entry."
+      description: "Nazwa nowego wpisu konfiguracji połączenia."
     return:
       type: System.ComponentModel.Design.Data.DesignerDataConnection
-      description: "A <xref href=&quot;System.ComponentModel.Design.Data.DesignerDataConnection&quot;></xref> object containing the saved connection data with the <xref:System.ComponentModel.Design.Data.DesignerDataConnection.Name*> property set to <code>name</code>, and the <xref:System.ComponentModel.Design.Data.DesignerDataConnection.IsConfigured*> property set to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "A <xref href=&quot;System.ComponentModel.Design.Data.DesignerDataConnection&quot;> </xref> obiektu zawierającego dane zapisane połączenie z <> </> *> ustawioną właściwość <code> name </code>i <> </> *> ustawioną właściwość <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.Data.IDataEnvironment.ConfigureConnection*
   exceptions: []
   platform:
@@ -134,13 +134,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Data
-  summary: "Gets a collection of data connections defined in the current design session."
-  remarks: "The Connections property returns the set of connections available at design time. Your implementation of the Connections property can return either the list of connections defined in the current Web application, or a list of connections defined at a global level, such as a list of data connections maintained by the design environment.       Each connection in the collection should have a unique connection string. If your collection includes both connections from the application&quot;s configuration file and global connections, your implementation must handle the case where connections from the global list and the configuration file have the same connection string. In this case, it is recommended that you eliminate duplicates and use the configuration-file connection only."
+  summary: "Pobiera kolekcję połączenia danych zdefiniowana w bieżącej sesji projektu."
+  remarks: "Właściwość połączenia zwraca zbiór połączeń dostępnych w czasie projektowania. Implementacji właściwości połączenia można zwrócić listy połączeń zdefiniowana w bieżącej aplikacji sieci Web lub listę połączeń zdefiniowane na poziomie globalnym, takie jak listy połączeń danych obsługiwane przez środowisko projektowania.       Każde połączenie w kolekcji powinny mieć unikatowe parametry. Jeśli kolekcja zawiera zarówno połączenia z pliku konfiguracji aplikacji, jak i globalnego połączenia, implementacji musi obsługiwać przypadek, w którym połączenia z pliku konfiguracji i globalnej listy mają te same parametry połączenia. W takim przypadku zalecane jest, eliminowania duplikatów i korzystać z połączenia pliku konfiguracji."
   syntax:
     content: public System.Collections.ICollection Connections { get; }
     return:
       type: System.Collections.ICollection
-      description: "A collection of <xref href=&quot;System.ComponentModel.Design.Data.DesignerDataConnection&quot;></xref> objects representing the data connections available in the current design session."
+      description: "Kolekcja <xref href=&quot;System.ComponentModel.Design.Data.DesignerDataConnection&quot;> </xref> obiekty reprezentujące połączeń danych dostępnych w bieżącej sesji projektu."
   overload: System.ComponentModel.Design.Data.IDataEnvironment.Connections*
   exceptions: []
   platform:
@@ -157,16 +157,16 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Data
-  summary: "Returns a code expression that contains the source code required to retrieve a connection string from the application&quot;s configuration file."
+  summary: "Zwraca wyrażenie kodu, który zawiera kod źródłowy wymagany do pobrania parametrów połączenia z pliku konfiguracji aplikacji."
   syntax:
     content: public System.CodeDom.CodeExpression GetCodeExpression (System.ComponentModel.Design.Data.DesignerDataConnection connection);
     parameters:
     - id: connection
       type: System.ComponentModel.Design.Data.DesignerDataConnection
-      description: "The connection to retrieve from the application&quot;s configuration file."
+      description: "Połączenie można pobrać z pliku konfiguracji aplikacji."
     return:
       type: System.CodeDom.CodeExpression
-      description: "A <xref href=&quot;System.CodeDom.CodeExpression&quot;></xref> object containing the source code required to retrieve a connection string from the application&quot;s configuration file."
+      description: "A <xref href=&quot;System.CodeDom.CodeExpression&quot;> </xref> obiekt zawierający kod źródłowy wymagany do pobrania parametrów połączenia z pliku konfiguracji aplikacji."
   overload: System.ComponentModel.Design.Data.IDataEnvironment.GetCodeExpression*
   exceptions: []
   platform:
@@ -183,17 +183,17 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Data
-  summary: "Gets the schema for the specified data connection."
-  remarks: "The GetConnectionSchema method returns the database schema for the specified data connection. If the schema is unavailable, or if the provider for the connection is unavailable, the GetConnectionSchema should return `null`."
+  summary: "Pobiera schemat dla połączenia określone dane."
+  remarks: "Metoda GetConnectionSchema zwraca schemat bazy danych dla połączenia określone dane. Jeśli schemat jest niedostępny lub jeśli dostawca dla połączenia jest niedostępna, powinien zwrócić GetConnectionSchema `null`."
   syntax:
     content: public System.ComponentModel.Design.Data.IDesignerDataSchema GetConnectionSchema (System.ComponentModel.Design.Data.DesignerDataConnection connection);
     parameters:
     - id: connection
       type: System.ComponentModel.Design.Data.DesignerDataConnection
-      description: "The data connection for which to return schema information."
+      description: "Połączenie danych, dla którego ma zostać zwrócona informacji o schemacie."
     return:
       type: System.ComponentModel.Design.Data.IDesignerDataSchema
-      description: "An <xref href=&quot;System.ComponentModel.Design.Data.IDesignerDataSchema&quot;></xref> object containing the schema information for the specified data connection, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no schema information is available."
+      description: "<xref href=&quot;System.ComponentModel.Design.Data.IDesignerDataSchema&quot;> </xref> Obiekt zawierający informacje o schemacie dla połączenia określone dane lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli schemat informacje są niedostępne."
   overload: System.ComponentModel.Design.Data.IDataEnvironment.GetConnectionSchema*
   exceptions: []
   platform:
@@ -210,17 +210,17 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Data
-  summary: "Gets a database connection that can be used at design time."
-  remarks: "The GetDesignTimeConnection method returns a valid, open connection to the data store that can be used by the control designer.       Control designers should use the GetDesignTimeConnection to obtain a data connection and should not attempt to open a connection using the <xref:System.ComponentModel.Design.Data.DesignerDataConnection.ConnectionString%2A> property."
+  summary: "Pobiera połączenie z bazą danych, które mogą być używane w czasie projektowania."
+  remarks: "Metoda GetDesignTimeConnection zwraca prawidłowe, Otwórz połączenie z magazynem danych, które mogą być używane przez projektanta formantów.       Projektanci formantu powinna być używana do uzyskania połączenia danych GetDesignTimeConnection i nie powinny podejmować próby otwarcia połączenia za pomocą <xref:System.ComponentModel.Design.Data.DesignerDataConnection.ConnectionString%2A>Właściwości.</xref:System.ComponentModel.Design.Data.DesignerDataConnection.ConnectionString%2A>"
   syntax:
     content: public System.Data.Common.DbConnection GetDesignTimeConnection (System.ComponentModel.Design.Data.DesignerDataConnection connection);
     parameters:
     - id: connection
       type: System.ComponentModel.Design.Data.DesignerDataConnection
-      description: "The desired data connection."
+      description: "Połączenie żądanych danych."
     return:
       type: System.Data.Common.DbConnection
-      description: "A <xref href=&quot;System.Data.Common.DbConnection&quot;></xref> object that can be used at design time."
+      description: "A <xref href=&quot;System.Data.Common.DbConnection&quot;> </xref> obiekt, który może być używany w czasie projektowania."
   overload: System.ComponentModel.Design.Data.IDataEnvironment.GetDesignTimeConnection*
   exceptions: []
   platform:

@@ -19,8 +19,8 @@ items:
   nameWithType: ConfigurationSection
   fullName: System.Configuration.ConfigurationSection
   type: Class
-  summary: "Represents a section within a configuration file."
-  remarks: "You use the ConfigurationSection class to implement a custom section type. Extend the ConfigurationSection class to provide custom handling and programmatic access to custom configuration sections. For information about how use custom configuration sections, see [How to: Create Custom Configuration Sections Using ConfigurationSection](~/add/includes/ajax-current-ext-md.md).       A section registers its handling type with an entry in the `configSections` element. For an example, see the configuration file excerpt shown in the Example section.      > [!NOTE] >  In previous versions of the .NET Framework, configuration section handlers were used to make changes to configuration settings programmatically. Now, all the default configuration sections are represented by classes that extend the ConfigurationSection class."
+  summary: "Reprezentuje sekcję w pliku konfiguracji."
+  remarks: "Klasa elementu ConfigurationSection umożliwia implementuje typu niestandardowego sekcji. Rozszerzenie klasy elementu ConfigurationSection, aby zapewnić niestandardową obsługę i dostęp programistyczny do sekcji konfiguracji niestandardowej. Informacje na temat konfiguracji niestandardowej sekcje zawierają informacje, zobacz [porady: Tworzenie niestandardowej konfiguracji sekcje przy użyciu elementu ConfigurationSection](~/add/includes/ajax-current-ext-md.md).       Wpis w sekcji rejestruje jej typ obsługi `configSections` elementu. Na przykład zobacz fragment pliku konfiguracji pokazano w przykładzie.      > [!NOTE] > W poprzednich wersjach programu .NET Framework, obsługi sekcji konfiguracji użyto w celu zmiany ustawień konfiguracji programowo. Teraz wszystkich sekcji konfiguracyjnych domyślne są reprezentowane przez klasy, które rozszerza klasy elementu ConfigurationSection."
   example:
   - "The following example shows how to implement a custom section programmatically.  \n  \n For a complete example that shows how to implement and use a custom section implemented using the attributed model, see <xref:System.Configuration.ConfigurationElement>.  \n  \n [!code-cs[System.Configuration.ConfigurationSection#1](~/add/codesnippet/csharp/t-system.configuration.c_20_1.cs)]\n [!code-vb[System.Configuration.ConfigurationSection#1](~/add/codesnippet/visualbasic/t-system.configuration.c_20_1.vb)]  \n  \n The following example is an excerpt of the configuration file as it applies to the previous example.  \n  \n `<?xml version=\"1.0\" encoding=\"utf-8\"?>`  \n  \n `<configuration>`  \n  \n `<configSections>`  \n  \n `<section name=\"CustomSection\" type=\"Samples.AspNet. CustomSection, CustomConfigurationSection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null\" allowDefinition=\"Everywhere\" allowExeDefinition=\"MachineToApplication\" restartOnExternalChanges=\"true\" />`  \n  \n `</configSections>`  \n  \n `<CustomSection fileName=\"default.txt\" maxUsers=\"1000\" maxIdleTime=\"00:15:00\" />`  \n  \n `</configuration>`"
   syntax:
@@ -77,8 +77,8 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.Configuration.ConfigurationSection&quot;></xref> class."
-  remarks: "To use the ConfigurationSection constructor, you need to define a custom section type first. For an example see the <xref:System.Configuration.ConfigurationSection> class overview."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Configuration.ConfigurationSection&quot;> </xref> klasy."
+  remarks: "Używanie konstruktora elementu ConfigurationSection, należy najpierw zdefiniować typ sekcji niestandardowych. Na przykład zobacz <xref:System.Configuration.ConfigurationSection>Przegląd klasy.</xref:System.Configuration.ConfigurationSection>"
   example:
   - "The following example shows how to use the ConfigurationSection constructor. This example assumes that you have created a custom section class named `CustomSection`. For an example of such a class, see the <xref:System.Configuration.ConfigurationSection> class overview.  \n  \n [!code-cs[System.Configuration.ConfigurationSection#2](~/add/codesnippet/csharp/m-system.configuration.c_41_1.cs)]\n [!code-vb[System.Configuration.ConfigurationSection#2](~/add/codesnippet/visualbasic/m-system.configuration.c_41_1.vb)]"
   syntax:
@@ -100,19 +100,19 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Reads XML from the configuration file."
-  remarks: "Deserialization refers to the reading of XML data from a configuration file, its transformation into real-time data, and its storage in an object."
+  summary: "Odczytuje XML z pliku konfiguracji."
+  remarks: "Deserializacja odnosi się do odczytywania danych XML z pliku konfiguracji, przekształcenia do danych w czasie rzeczywistym i jej magazynu w obiekcie."
   syntax:
     content: protected virtual void DeserializeSection (System.Xml.XmlReader reader);
     parameters:
     - id: reader
       type: System.Xml.XmlReader
-      description: "The <xref:System.Xml.XmlReader> object, which reads from the configuration file."
+      description: "<xref:System.Xml.XmlReader>Obiektu, który odczytuje z pliku konfiguracji.</xref:System.Xml.XmlReader>"
   overload: System.Configuration.ConfigurationSection.DeserializeSection*
   exceptions:
   - type: System.Configuration.ConfigurationErrorsException
     commentId: T:System.Configuration.ConfigurationErrorsException
-    description: "<code>reader</code> found no elements in the configuration file."
+    description: "<code>reader</code>znaleziono żadnych elementów w pliku konfiguracji."
   platform:
   - net462
 - uid: System.Configuration.ConfigurationSection.GetRuntimeObject
@@ -127,8 +127,8 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Returns a custom object when overridden in a derived class."
-  remarks: "When the <xref:System.Configuration.Configuration.GetSection%2A> method is called at run time, the configuration system first creates an appropriate instance of the <xref:System.Configuration.ConfigurationSection> class, and then returns the object it obtains from the GetRuntimeObject method.       By default, GetRuntimeObject simply returns the object that represents the <xref:System.Configuration.ConfigurationSection> from which it is called."
+  summary: "Zwraca obiekt niestandardowego w przypadku przesłonięcia w klasie pochodnej."
+  remarks: "Gdy <xref:System.Configuration.Configuration.GetSection%2A>Metoda jest wywoływana w czasie wykonywania, system konfiguracji najpierw tworzy odpowiednie wystąpienie <xref:System.Configuration.ConfigurationSection>klasy, a następnie zwraca obiekt uzyska z metody GetRuntimeObject.</xref:System.Configuration.ConfigurationSection> </xref:System.Configuration.Configuration.GetSection%2A>       Domyślnie GetRuntimeObject po prostu zwraca obiekt, który reprezentuje <xref:System.Configuration.ConfigurationSection>z którym jest wywoływana.</xref:System.Configuration.ConfigurationSection>"
   example:
   - "The following example shows how to use the GetRuntimeObject method.  \n  \n [!code-cs[System.Configuration.ConfigurationSection#4](~/add/codesnippet/csharp/m-system.configuration.c_42_1.cs)]\n [!code-vb[System.Configuration.ConfigurationSection#4](~/add/codesnippet/visualbasic/m-system.configuration.c_42_1.vb)]"
   syntax:
@@ -136,7 +136,7 @@ items:
     parameters: []
     return:
       type: System.Object
-      description: "The object representing the section."
+      description: "Obiekt reprezentujący sekcji."
   overload: System.Configuration.ConfigurationSection.GetRuntimeObject*
   exceptions: []
   platform:
@@ -153,13 +153,13 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Indicates whether this configuration element has been modified since it was last saved or loaded when implemented in a derived class."
+  summary: "Wskazuje, czy ten element konfiguracji został zmodyfikowany od czasu ostatniego został on zapisany lub załadować po zaimplementowaniu w klasie pochodnej."
   syntax:
     content: protected override bool IsModified ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the element has been modified; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli element został zmodyfikowany; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Configuration.ConfigurationSection.IsModified*
   exceptions: []
   platform:
@@ -176,7 +176,7 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Resets the value of the <xref:System.Configuration.ConfigurationElement.IsModified*> method to <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> when implemented in a derived class."
+  summary: "Wartość <xref:System.Configuration.ConfigurationElement.IsModified*>metodę <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> po zaimplementowaniu w klasie pochodnej</xref:System.Configuration.ConfigurationElement.IsModified*>"
   syntax:
     content: protected override void ResetModified ();
     parameters: []
@@ -196,7 +196,7 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Gets a <xref href=&quot;System.Configuration.SectionInformation&quot;></xref> object that contains the non-customizable information and functionality of the <xref href=&quot;System.Configuration.ConfigurationSection&quot;></xref> object."
+  summary: "Pobiera <xref href=&quot;System.Configuration.SectionInformation&quot;> </xref> obiekt, który zawiera informacje niepodlegający dostosowywaniu i funkcjonalność <xref href=&quot;System.Configuration.ConfigurationSection&quot;> </xref> obiektu."
   remarks: ''
   example:
   - "The following example shows how to use the SectionInformation property.  \n  \n [!code-cs[System.Configuration.ConfigurationSection#3](~/add/codesnippet/csharp/p-system.configuration.c_13_1.cs)]\n [!code-vb[System.Configuration.ConfigurationSection#3](~/add/codesnippet/visualbasic/p-system.configuration.c_13_1.vb)]"
@@ -204,7 +204,7 @@ items:
     content: public System.Configuration.SectionInformation SectionInformation { get; }
     return:
       type: System.Configuration.SectionInformation
-      description: "A <xref href=&quot;System.Configuration.SectionInformation&quot;></xref> that contains the non-customizable information and functionality of the <xref href=&quot;System.Configuration.ConfigurationSection&quot;></xref>."
+      description: "A <xref href=&quot;System.Configuration.SectionInformation&quot;> </xref> zawierający niepodlegający dostosowywaniu informacji i funkcji <xref href=&quot;System.Configuration.ConfigurationSection&quot;> </xref>."
   overload: System.Configuration.ConfigurationSection.SectionInformation*
   exceptions: []
   platform:
@@ -221,23 +221,23 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Creates an XML string containing an unmerged view of the <xref href=&quot;System.Configuration.ConfigurationSection&quot;></xref> object as a single section to write to a file."
-  remarks: "Serialization refers to the transformation of real-time data, contained in an object, to XML format and its storage to a configuration file."
+  summary: "Tworzy ciąg XML zawierający widok niescalone <xref href=&quot;System.Configuration.ConfigurationSection&quot;> </xref> obiektu jako pojedynczy sekcji można zapisać do pliku."
+  remarks: "Serializacja odwołuje się do przekształcania danych w czasie rzeczywistym, zawartych w obiekcie, do formatu XML i jej magazynu do pliku konfiguracji."
   syntax:
     content: protected virtual string SerializeSection (System.Configuration.ConfigurationElement parentElement, string name, System.Configuration.ConfigurationSaveMode saveMode);
     parameters:
     - id: parentElement
       type: System.Configuration.ConfigurationElement
-      description: "The <xref href=&quot;System.Configuration.ConfigurationElement&quot;></xref> instance to use as the parent when performing the un-merge."
+      description: "<xref href=&quot;System.Configuration.ConfigurationElement&quot;> </xref> Wystąpienia używane jako element nadrzędny, podczas wykonywania un scalania."
     - id: name
       type: System.String
-      description: "The name of the section to create."
+      description: "Nazwa sekcji do utworzenia."
     - id: saveMode
       type: System.Configuration.ConfigurationSaveMode
-      description: "The <xref href=&quot;System.Configuration.ConfigurationSaveMode&quot;></xref> instance to use when writing to a string."
+      description: "<xref href=&quot;System.Configuration.ConfigurationSaveMode&quot;> </xref> Wystąpienie do użycia podczas zapisywania na ciąg."
     return:
       type: System.String
-      description: "An XML string containing an unmerged view of the <xref href=&quot;System.Configuration.ConfigurationSection&quot;></xref> object."
+      description: "Ciąg XML zawierający widok niescalone <xref href=&quot;System.Configuration.ConfigurationSection&quot;> </xref> obiektu."
   overload: System.Configuration.ConfigurationSection.SerializeSection*
   exceptions: []
   platform:
@@ -254,23 +254,23 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Indicates whether the specified element should be serialized when the configuration object hierarchy is serialized for the specified target version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]."
-  remarks: "Each configuration section that is created for the [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)] and later versions must explicitly override this method and return `true`, but only if the specified element is valid for the specified version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]. Existing configuration sections that were created for earlier versions of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] do not have to be changed.       The base type contains a default implementation of this method that always returns `true`. If you implement a configuration section and you do not override this method, by default all configuration elements that are contained in the configuration section will be serialized for all framework versions."
+  summary: "Wskazuje, czy określony element powinny być serializowane, gdy hierarchia obiektów konfiguracji jest serializowany dla wersji docelowej określonej [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]."
+  remarks: "W każdej sekcji konfiguracji, który jest tworzony dla [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)] i nowszych wersjach musi jawnie przesłonić tę metodę i zwraca `true`, ale tylko wtedy, gdy określony element jest nieprawidłowa dla określonej wersji [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]. Istniejące sekcji konfiguracyjnych, które zostały utworzone we wcześniejszych wersjach [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] ma zostać zmienione.       Typ podstawowy zawiera Domyślna implementacja tej metody, która zawsze zwraca `true`. Jeśli wdrożenie sekcji konfiguracji i nie można przesłonić tę metodę, domyślnie wszystkie elementy konfiguracji, które znajdują się w sekcji konfiguracji będą wykonywane szeregowo dla wszystkich wersji framework."
   syntax:
     content: protected virtual bool ShouldSerializeElementInTargetVersion (System.Configuration.ConfigurationElement element, string elementName, System.Runtime.Versioning.FrameworkName targetFramework);
     parameters:
     - id: element
       type: System.Configuration.ConfigurationElement
-      description: "The <xref href=&quot;System.Configuration.ConfigurationElement&quot;></xref> object that is a candidate for serialization."
+      description: "<xref href=&quot;System.Configuration.ConfigurationElement&quot;> </xref> Obiekt, który jest kandydatem do serializacji."
     - id: elementName
       type: System.String
-      description: "The name of the <xref href=&quot;System.Configuration.ConfigurationElement&quot;></xref> object as it occurs in XML."
+      description: "Nazwa <xref href=&quot;System.Configuration.ConfigurationElement&quot;> </xref> obiekt występujące w kodzie XML."
     - id: targetFramework
       type: System.Runtime.Versioning.FrameworkName
-      description: "The target version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]."
+      description: "Wersja docelowa [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <code>element</code> should be serialized; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli <code> element </code> powinny być serializowane; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Configuration.ConfigurationSection.ShouldSerializeElementInTargetVersion*
   exceptions: []
   platform:
@@ -287,26 +287,26 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Indicates whether the specified property should be serialized when the configuration object hierarchy is serialized for the specified target version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]."
-  remarks: "Each configuration section that is created for the [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)] and later versions must explicitly override this method and return `true`, but only if the specified property is valid for the specified version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]. Existing configuration sections that were created for earlier versions of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] do not have to be changed.       The base type contains a default implementation of this method that always returns `true`. If you implement a configuration section and you do not override this method, by default all configuration properties that are contained in the configuration section will be serialized for all framework versions."
+  summary: "Wskazuje, czy określona właściwość powinny być serializowane, gdy hierarchia obiektów konfiguracji jest serializowany dla wersji docelowej określonej [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]."
+  remarks: "W każdej sekcji konfiguracji, który jest tworzony dla [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)] i nowszych wersjach musi jawnie przesłonić tę metodę i zwraca `true`, ale tylko wtedy, gdy określona właściwość jest nieprawidłowa dla określonej wersji [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]. Istniejące sekcji konfiguracyjnych, które zostały utworzone we wcześniejszych wersjach [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] ma zostać zmienione.       Typ podstawowy zawiera Domyślna implementacja tej metody, która zawsze zwraca `true`. Jeśli wdrożenie sekcji konfiguracji i nie można przesłonić tę metodę, domyślnie wszystkie właściwości konfiguracyjne, które znajdują się w sekcji konfiguracji będą wykonywane szeregowo dla wszystkich wersji framework."
   syntax:
     content: protected virtual bool ShouldSerializePropertyInTargetVersion (System.Configuration.ConfigurationProperty property, string propertyName, System.Runtime.Versioning.FrameworkName targetFramework, System.Configuration.ConfigurationElement parentConfigurationElement);
     parameters:
     - id: property
       type: System.Configuration.ConfigurationProperty
-      description: "The <xref href=&quot;System.Configuration.ConfigurationProperty&quot;></xref> object that is a candidate for serialization."
+      description: "<xref href=&quot;System.Configuration.ConfigurationProperty&quot;> </xref> Obiekt, który jest kandydatem do serializacji."
     - id: propertyName
       type: System.String
-      description: "The name of the <xref href=&quot;System.Configuration.ConfigurationProperty&quot;></xref> object as it occurs in XML."
+      description: "Nazwa <xref href=&quot;System.Configuration.ConfigurationProperty&quot;> </xref> obiekt występujące w kodzie XML."
     - id: targetFramework
       type: System.Runtime.Versioning.FrameworkName
-      description: "The target version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]."
+      description: "Wersja docelowa [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]."
     - id: parentConfigurationElement
       type: System.Configuration.ConfigurationElement
-      description: "The parent element of the property."
+      description: "Właściwości elementu nadrzędnego."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <code>property</code> should be serialized; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli <code> property </code> powinny być serializowane; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Configuration.ConfigurationSection.ShouldSerializePropertyInTargetVersion*
   exceptions: []
   platform:
@@ -323,17 +323,17 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Indicates whether the current <xref href=&quot;System.Configuration.ConfigurationSection&quot;></xref> instance should be serialized when the configuration object hierarchy is serialized for the specified target version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]."
-  remarks: "Each configuration section that is created for the [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)] and later versions must explicitly override this method and return `true`, but only if the configuration section is valid for the specified version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]. Existing configuration sections that were created for earlier versions of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] do not have to be changed.       The base type contains a default implementation of this method that always returns `true`. If you implement a configuration section and you do not override this method, by default the configuration section will be serialized for all framework versions."
+  summary: "Wskazuje, czy bieżący <xref href=&quot;System.Configuration.ConfigurationSection&quot;> </xref> powinny być serializowane wystąpienia, gdy hierarchia obiektów konfiguracji jest serializowany dla wersji docelowej określonej [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]."
+  remarks: "W każdej sekcji konfiguracji, który jest tworzony dla [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)] i nowszych wersjach musi jawnie przesłonić tę metodę i zwraca `true`, ale tylko wtedy, gdy sekcja konfiguracji jest nieprawidłowa dla określonej wersji [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]. Istniejące sekcji konfiguracyjnych, które zostały utworzone we wcześniejszych wersjach [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] ma zostać zmienione.       Typ podstawowy zawiera Domyślna implementacja tej metody, która zawsze zwraca `true`. Jeśli wdrożenie sekcji konfiguracji i nie można przesłonić tę metodę, domyślnie sekcji konfiguracji będą wykonywane szeregowo dla wszystkich wersji framework."
   syntax:
     content: protected virtual bool ShouldSerializeSectionInTargetVersion (System.Runtime.Versioning.FrameworkName targetFramework);
     parameters:
     - id: targetFramework
       type: System.Runtime.Versioning.FrameworkName
-      description: "The target version of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]."
+      description: "Wersja docelowa [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current section should be serialized; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli w bieżącej sekcji powinny być serializowane; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Configuration.ConfigurationSection.ShouldSerializeSectionInTargetVersion*
   exceptions: []
   platform:
