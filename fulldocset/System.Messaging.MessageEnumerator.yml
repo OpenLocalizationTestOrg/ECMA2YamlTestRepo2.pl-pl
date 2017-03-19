@@ -24,8 +24,8 @@ items:
   nameWithType: MessageEnumerator
   fullName: System.Messaging.MessageEnumerator
   type: Class
-  summary: "Provides a forward-only cursor to enumerate through messages in a message queue."
-  remarks: "Use MessageEnumerator for dynamic interaction with messages in a queue. Methods available through the <xref:System.Messaging.MessageQueue> class can return either a MessageEnumerator pointing to a dynamic list of messages in the queue, or an array that contains a copy at a given instant - a snapshot - of the queue at the time the specified method was called.       Unlike a static snapshot, an enumerator allows you to modify the collection. Using a MessageEnumerator, you can remove messages from the queue, and the change is immediately reflected in the queue.       An enumerator does not remove the messages from the queue when it queries the queue. It returns information about the message at the current cursor position, but it leaves the message in the queue.       A MessageEnumerator is a cursor, initialized to the head of a dynamic list. The list order is the same as the order of the messages in the queue, according to message priority. You can move the cursor to the first message in the queue by calling <xref:System.Messaging.MessageEnumerator.MoveNext%2A>. After the enumerator has been initialized, you can use <xref:System.Messaging.MessageEnumerator.MoveNext%2A> to step forward through the remaining messages. You can specify whether to wait for a message to become available by passing a timeout into the <xref:System.Messaging.MessageEnumerator.MoveNext%2A> method.       Because the enumerator is dynamic, a message that is appended beyond the cursor&quot;s current position (for example, due to low priority), can be accessed by the enumerator. A message that is inserted before the cursor&quot;s current position cannot be accessed. It is not possible to step backward with a MessageEnumerator. A cursor allows forward-only movement. The <xref:System.Messaging.MessageEnumerator.Reset%2A> method enables you to place the cursor back at the beginning of the queue.       Instances of MessageEnumerator for a given queue work independently. You can create two MessageEnumerator instances that apply to the same queue. The changes that one MessageEnumerator makes to the messages in the queue will be reflected immediately in a second enumerator if the second enumerator is positioned before the first. However, if two enumerators have the same position and one of them removes the message at that position, an exception is thrown if the other enumerator attempts to get the value of the <xref:System.Messaging.MessageEnumerator.Current%2A> property on the now-deleted message.      > [!NOTE] >  If you create an instance of <xref:System.Messaging.MessageQueue> with <xref:System.Messaging.MessageQueue.DenySharedReceive%2A?displayProperty=fullName> set to `true`, no other application can modify the messages in your enumerator while you have the connection to the queue."
+  summary: "Zawiera tylko do przodu kursora do sortowania wiadomości z kolejki wiadomości."
+  remarks: "MessageEnumerator na użytek dynamicznej interakcji z wiadomości w kolejce. Dostępne za pośrednictwem metody <xref:System.Messaging.MessageQueue>klasy może zwrócić albo MessageEnumerator wskazuje dynamiczną listę wiadomości w kolejce lub tablicę, która zawiera kopię w danej chwili - migawki - kolejki w czasie określonym metoda została wywołana.</xref:System.Messaging.MessageQueue>       W odróżnieniu od statycznej migawki moduł wyliczający umożliwia modyfikowanie kolekcji. Przy użyciu MessageEnumerator, można usunąć wiadomości z kolejki i natychmiast znajduje odzwierciedlenie w kolejce.       Moduł wyliczający nie powoduje usunięcia wiadomości z kolejki, gdy wysyła zapytanie kolejki. Zwraca informacje o komunikacie w bieżącym położeniu kursora, ale pozostawia wiadomości w kolejce.       MessageEnumerator jest kursora, zainicjować nagłówek listy dynamicznych. Na liście jest taka sama jak kolejność wiadomości w kolejce, zgodnie z priorytet wiadomości. Kursor można przenieść do pierwszej wiadomości w kolejce, wywołując <xref:System.Messaging.MessageEnumerator.MoveNext%2A>.</xref:System.Messaging.MessageEnumerator.MoveNext%2A> Po zainicjowaniu modułu wyliczającego można użyć <xref:System.Messaging.MessageEnumerator.MoveNext%2A>do krok do przodu w pozostałych wiadomości.</xref:System.Messaging.MessageEnumerator.MoveNext%2A> Można określić, czy oczekiwania na udostępnienie przez przekazanie przekroczenie limitu czasu w wiadomości <xref:System.Messaging.MessageEnumerator.MoveNext%2A>metody.</xref:System.Messaging.MessageEnumerator.MoveNext%2A>       Ponieważ moduł wyliczający jest dynamiczny, komunikat, który jest dołączany poza bieżącej pozycji kursora (na przykład ze względu na niski priorytet), są dostępne przez moduł wyliczający. Komunikat, który zostanie wstawiony przed nie można uzyskać dostępu do bieżącego położenia kursora. Nie jest możliwe krok wstecz z MessageEnumerator. Kursor umożliwia przenoszenie tylko do przodu. <xref:System.Messaging.MessageEnumerator.Reset%2A>Metoda umożliwia umieść kursor wstecz na początek kolejki.</xref:System.Messaging.MessageEnumerator.Reset%2A>       Wystąpienia MessageEnumerator do danej kolejki działać niezależnie. Możesz utworzyć dwa wystąpienia MessageEnumerator, które mają zastosowanie do tej samej kolejki. Jeśli drugi moduł wyliczający jest umieszczony przed pierwszą zmiany, które MessageEnumerator co sprawia, że do wiadomości w kolejce zostaną natychmiast odzwierciedlone w drugim modułu wyliczającego. Jednak jeśli dwa moduły wyliczające mieć to samo położenie i jeden z nich usuwa komunikat na tej pozycji, jest zwracany wyjątek, jeśli inne modułu wyliczającego próbuje pobrać wartość <xref:System.Messaging.MessageEnumerator.Current%2A>Właściwości wiadomości usunięty teraz.</xref:System.Messaging.MessageEnumerator.Current%2A>      > [!NOTE] > W przypadku utworzenia wystąpienia <xref:System.Messaging.MessageQueue>z <xref:System.Messaging.MessageQueue.DenySharedReceive%2A?displayProperty=fullName>ustawioną `true`, żadna inna aplikacja nie mogą modyfikować wiadomości w sieci modułu wyliczającego, gdy masz połączenie z kolejki.</xref:System.Messaging.MessageQueue.DenySharedReceive%2A?displayProperty=fullName> </xref:System.Messaging.MessageQueue>"
   example:
   - "The following example gets a dynamic list of messages in a queue and counts all messages with the <xref:System.Messaging.Message.Priority%2A> property set to <xref:System.Messaging.MessagePriority?displayProperty=fullName>.  \n  \n [!code-cs[MessageQueue.GetMessageEnumerator#1](~/add/codesnippet/csharp/t-system.messaging.messa_2_1.cs)]\n [!code-cpp[MessageQueue.GetMessageEnumerator#1](~/add/codesnippet/cpp/t-system.messaging.messa_2_1.cpp)]\n [!code-vb[MessageQueue.GetMessageEnumerator#1](~/add/codesnippet/visualbasic/t-system.messaging.messa_2_1.vb)]"
   syntax:
@@ -55,8 +55,8 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Frees the resources associated with the enumerator."
-  remarks: "The operating system retains an open handle to the queue during the lifetime of the cursor. When you have finished working with the enumerator, call Close to release the resources associated with the handle."
+  summary: "Zwalnia zasoby skojarzone z modułu wyliczającego."
+  remarks: "System operacyjny zachowuje otwarte dojście do kolejki przez cały okres istnienia kursora. Po zakończeniu pracy z modułu wyliczającego wywołania Zamknij, aby zwolnić zasoby skojarzone z dojścia."
   syntax:
     content: public void Close ();
     parameters: []
@@ -76,21 +76,21 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Gets the current <xref href=&quot;System.Messaging.Message&quot;></xref> that this enumerator points to."
-  remarks: "When the enumerator is created, it points to the head of the queue, at a location before the first message. In this case, Current is not valid and will throw an exception if it is accessed. You must call <xref:System.Messaging.MessageEnumerator.MoveNext%2A> to position the cursor at the first message in the queue."
+  summary: "Pobiera bieżący <xref href=&quot;System.Messaging.Message&quot;> </xref> wskazuje dla tego modułu wyliczającego."
+  remarks: "Po utworzeniu modułu wyliczającego wskazuje head kolejki, w miejscu przed pierwszą wiadomością. W takim przypadku bieżące jest nieprawidłowy i zgłosi wyjątek, jeśli jest on dostępny. Należy wywołać <xref:System.Messaging.MessageEnumerator.MoveNext%2A>Aby umieść kursor wglądu do pierwszej wiadomości w kolejce.</xref:System.Messaging.MessageEnumerator.MoveNext%2A>"
   syntax:
     content: public System.Messaging.Message Current { get; }
     return:
       type: System.Messaging.Message
-      description: "The current message."
+      description: "Bieżący komunikat."
   overload: System.Messaging.MessageEnumerator.Current*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "You called Current before the first call to <xref:System.Messaging.MessageEnumerator.MoveNext*>. The cursor is located before the first element of the message enumeration.       -or-       You called Current after a call to <xref:System.Messaging.MessageEnumerator.MoveNext*> had returned <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> (indicating the cursor is located after the last element of the message enumeration.)"
+    description: "Bieżąca jest wywoływana przed pierwszym wywołaniu <> </> *>. Kursor znajduje się przed pierwszym elementem wyliczenia wiadomości.       - lub - bieżącego jest wywoływana po wywołaniu <> </> *> zwrócił <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> (wskazująca, gdy kursor znajduje się za ostatnim elementem wyliczenia komunikat.)"
   - type: System.Messaging.MessageQueueException
     commentId: T:System.Messaging.MessageQueueException
-    description: "The message the enumerator is currently pointing to no longer exists. It might have been deleted."
+    description: "Komunikat, który moduł wyliczający aktualnie wskazuje już istnieje. Być może został usunięty."
   platform:
   - net462
 - uid: System.Messaging.MessageEnumerator.CursorHandle
@@ -105,18 +105,18 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Gets the native Message Queuing cursor handle used to browse messages in the queue."
-  remarks: "This property contains the native handle to the enumeration. When you have finished working with the enumerator, call <xref:System.Messaging.MessageEnumerator.Close%2A> to release this resource."
+  summary: "Pobiera usługę kolejkowania komunikatów kursora uchwyt macierzysty używany do przeglądania wiadomości w kolejce."
+  remarks: "Ta właściwość zawiera uchwyt macierzysty do wyliczenia. Po zakończeniu pracy z modułu wyliczającego wywołać <xref:System.Messaging.MessageEnumerator.Close%2A>zwolnienia tego zasobu.</xref:System.Messaging.MessageEnumerator.Close%2A>"
   syntax:
     content: public IntPtr CursorHandle { get; }
     return:
       type: System.IntPtr
-      description: "The native cursor handle."
+      description: "Uchwyt macierzysty kursora."
   overload: System.Messaging.MessageEnumerator.CursorHandle*
   exceptions:
   - type: System.Messaging.MessageQueueException
     commentId: T:System.Messaging.MessageQueueException
-    description: "The handle does not exist."
+    description: "Dojście nie istnieje."
   platform:
   - net462
 - uid: System.Messaging.MessageEnumerator.Dispose
@@ -131,8 +131,8 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Releases all resources used by the <xref href=&quot;System.Messaging.MessageEnumerator&quot;></xref>."
-  remarks: "Calling Dispose allows the resources used by the <xref:System.Messaging.MessageEnumerator> to be reallocated for other purposes. For more information about Dispose, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Zwalnia wszelkie zasoby używane przez <xref href=&quot;System.Messaging.MessageEnumerator&quot;> </xref>."
+  remarks: "Wywołanie metody Dispose umożliwia zasoby używane przez <xref:System.Messaging.MessageEnumerator>odbiorczego do innych celów.</xref:System.Messaging.MessageEnumerator> Aby uzyskać więcej informacji na temat usuwania, zobacz [czyszczenie zasobów niezarządzanych](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -152,14 +152,14 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.Messaging.MessageEnumerator&quot;></xref> and optionally releases the managed resources."
-  remarks: "This method is called by the public <xref:System.Messaging.MessageEnumerator.Dispose%2A> method and the <xref:System.Object.Finalize%2A> method. `Dispose()` invokes the protected `Dispose(Boolean)` method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes `Dispose` with `disposing` set to `false`.       When the `disposing` parameter is `true`, this method releases all resources held by any managed objects that this <xref:System.Messaging.MessageEnumerator> references. This method invokes the `Dispose()` method of each referenced object."
+  summary: "Zwalnia zasoby niezarządzane używane przez <xref href=&quot;System.Messaging.MessageEnumerator&quot;> </xref> i opcjonalnie zwalnia zasoby zarządzane."
+  remarks: "Ta metoda jest wywoływana przez metodę publiczną <xref:System.Messaging.MessageEnumerator.Dispose%2A>— Metoda i <xref:System.Object.Finalize%2A>metody.</xref:System.Object.Finalize%2A> </xref:System.Messaging.MessageEnumerator.Dispose%2A> `Dispose()`wywołuje chronioną metodę `Dispose(Boolean)` metody z `disposing` ustawiona `true`. <xref:System.Object.Finalize%2A>wywołuje `Dispose` z `disposing` ustawioną `false`.</xref:System.Object.Finalize%2A>       Gdy `disposing` parametr jest `true`, ta metoda zwalnia wszystkie zasoby zajmowane przez wszelkie obiekty zarządzane przez to <xref:System.Messaging.MessageEnumerator>odwołań.</xref:System.Messaging.MessageEnumerator> Ta metoda wywołuje `Dispose()` metody każdego odwołuje się do obiektu."
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Aby zwolnić zasoby zarządzane i niezarządzane; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> aby zwolnić tylko zasoby niezarządzane."
   overload: System.Messaging.MessageEnumerator.Dispose*
   exceptions: []
   platform:
@@ -176,19 +176,19 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Advances the enumerator to the next message in the queue, if one is currently available."
-  remarks: "This overload returns immediately if there is no message in the queue. There is another overload that waits a specified <xref:System.TimeSpan> for a message to arrive.       If a message is not currently available because the queue is empty or because you have moved beyond the last element in the collection, MoveNext returns `false` to the calling method.       Upon creation, an enumerator is conceptually positioned before the first message of the queue, and the first call to MoveNext brings the first message of the queue into view."
+  summary: "Przechodzi do następnej wiadomości w kolejce modułu wyliczającego, jeśli jest obecnie dostępny."
+  remarks: "To przeciążenie zwraca natychmiast, jeśli nie ma w kolejce. Brak innego przeciążenia, które oczekuje określonej <xref:System.TimeSpan>na odbierane wiadomości.</xref:System.TimeSpan>       Jeśli wiadomość nie jest dostępna, ponieważ kolejka jest pusta lub został przeniesiony poza ostatniego elementu w kolekcji, zwraca MoveNext `false` do wywoływania metody.       Po utworzeniu moduł wyliczający jest koncepcyjnie umieszczony przed pierwszą wiadomość z kolejki, a w pierwszym wywołaniu MoveNext pierwszą wiadomość z kolejki do widoku."
   syntax:
     content: public bool MoveNext ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the enumerator was succesfully advanced to the next message; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the enumerator has reached the end of the queue."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli moduł wyliczający został pomyślnie zaawansowane do następnej wiadomości; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Jeśli moduł wyliczający osiągnął koniec kolejki."
   overload: System.Messaging.MessageEnumerator.MoveNext*
   exceptions:
   - type: System.Messaging.MessageQueueException
     commentId: T:System.Messaging.MessageQueueException
-    description: "An exception specific to Message Queuing was thrown."
+    description: "Zgłoszono wyjątek specyficzne dla usługi kolejkowania komunikatów."
   platform:
   - net462
 - uid: System.Messaging.MessageEnumerator.MoveNext(System.TimeSpan)
@@ -203,25 +203,25 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Advances the enumerator to the next message in the queue. If the enumerator is positioned at the end of the queue, <xref:System.Messaging.MessageEnumerator.MoveNext*> waits until a message is available or the given timeout expires."
-  remarks: "This overload waits if there is no message in the queue or if the cursor has reached the end of the queue. If a message is not currently available because the queue is empty or because you have moved beyond the last element in the collection, <xref:System.Messaging.MessageEnumerator.MoveNext%2A> waits the specified timeout.       If the cursor is already at the end of the queue, <xref:System.Messaging.MessageEnumerator.MoveNext%2A> only returns `true` if the new message arrives within the specified time interval, has lower priority than all messages currently in the queue and is placed at the end of the queue. An overload with no parameter returns immediately if no further messages are in the queue.       Upon creation, an enumerator is conceptually positioned before the first message of the enumeration, and the first call to <xref:System.Messaging.MessageEnumerator.MoveNext%2A> brings the first message of the enumeration into view."
+  summary: "Moduł wyliczający należy przechodzi do następnej wiadomości w kolejce. Jeśli moduł wyliczający jest umieszczony na końcu kolejki <xref:System.Messaging.MessageEnumerator.MoveNext*>czeka, aż wiadomości jest dostępna lub danego limitu czasu wygaśnięcia.</xref:System.Messaging.MessageEnumerator.MoveNext*>"
+  remarks: "To przeciążenie czeka, jeśli nie ma w kolejce lub kursor osiągnął koniec kolejki. Jeśli wiadomość nie jest obecnie dostępna, ponieważ kolejka jest pusta lub został przeniesiony poza ostatniego elementu w kolekcji, <xref:System.Messaging.MessageEnumerator.MoveNext%2A>określony limit czasu oczekiwania.</xref:System.Messaging.MessageEnumerator.MoveNext%2A>       Jeśli kursor znajduje się już na końcu kolejki <xref:System.Messaging.MessageEnumerator.MoveNext%2A>zwraca tylko `true` Jeśli nowy komunikat w określonym czasie, aktualnie ma niższy priorytet niż wszystkie wiadomości w kolejce i znajduje się na końcu kolejki.</xref:System.Messaging.MessageEnumerator.MoveNext%2A> Przeciążenia z parametrem nie zwraca natychmiast, jeżeli w kolejce znajdują się dalsze komunikaty.       Po utworzeniu, moduł wyliczający jest koncepcyjnie umieszczony przed pierwszą wiadomością wyliczenia i w pierwszym wywołaniu <xref:System.Messaging.MessageEnumerator.MoveNext%2A>Przełącza pierwszą wiadomością wyliczenie do widoku.</xref:System.Messaging.MessageEnumerator.MoveNext%2A>"
   syntax:
     content: public bool MoveNext (TimeSpan timeout);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> to wait for a message to be available if the enumerator is positioned at the end of the queue."
+      description: "<xref:System.TimeSpan>Oczekiwania na jest dostępny, gdy moduł wyliczający jest umieszczony na końcu kolejki wiadomości.</xref:System.TimeSpan>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the enumerator successfully advanced to the next message; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the enumerator has reached the end of the queue and a message does not become available within the time specified by the <code>timeout</code> parameter."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli moduł wyliczający pomyślnie poprawionym do następnej wiadomości; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Jeśli moduł wyliczający osiągnął koniec kolejki wiadomości nie są dostępne w czasie określonym przez <code> timeout </code> parametru."
   overload: System.Messaging.MessageEnumerator.MoveNext*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value specified for the timeout parameter is invalid. It might represent a negative number."
+    description: "Wartość określona dla parametru limitu czasu jest nieprawidłowa. Ten element reprezentuje może być liczbą ujemną."
   - type: System.Messaging.MessageQueueException
     commentId: T:System.Messaging.MessageQueueException
-    description: "An exception specific to Message Queuing was thrown.       -or-       The timeout has expired."
+    description: "Zgłoszono wyjątek specyficzne dla usługi kolejkowania komunikatów.       - lub - upłynął limit czasu."
   platform:
   - net462
 - uid: System.Messaging.MessageEnumerator.RemoveCurrent
@@ -236,14 +236,14 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Removes the current message from a transactional or non-transactional queue and returns the message to the calling application. There is no timeout specified for a message to arrive in the queue."
-  remarks: "RemoveCurrent removes and returns the message at the cursor&quot;s current location.       If you are using queue journaling, removing the message causes a copy to be kept in the journal queue, just as the <xref:System.Messaging.MessageQueue> class&quot;s <xref:System.Messaging.MessageQueue.Receive%2A> method does.       When you remove the current message, the cursor is moved to the next message. You do not have to call <xref:System.Messaging.MessageEnumerator.MoveNext%2A> after calling RemoveCurrent.       If you call this overload on a transactional queue, Message Queuing creates a single internal transaction."
+  summary: "Usuwa bieżący komunikat z kolejki transakcyjnej lub nietransakcyjna i zwraca komunikat do aplikacji wywołującej. Nie ma limitu czasu określona dla wiadomości w kolejce."
+  remarks: "RemoveCurrent usuwa i zwraca komunikat w bieżącej lokalizacji kursora.       Jeśli używasz rejestrowanie kolejki usuwając wiadomość powoduje, że kopia mają być przechowywane w kolejce dziennika, podobnie jak <xref:System.Messaging.MessageQueue>klasy <xref:System.Messaging.MessageQueue.Receive%2A>Metoda wykonuje.</xref:System.Messaging.MessageQueue.Receive%2A> </xref:System.Messaging.MessageQueue>       Po usunięciu bieżącego komunikatu, kursor jest przenoszony do następnej wiadomości. Nie trzeba wywołać <xref:System.Messaging.MessageEnumerator.MoveNext%2A>po wywołaniu metody RemoveCurrent.</xref:System.Messaging.MessageEnumerator.MoveNext%2A>       Można wywołać tego przeciążenia na kolejką transakcyjną, usługi kolejkowania komunikatów tworzy pojedynczy wewnętrzną transakcję."
   syntax:
     content: public System.Messaging.Message RemoveCurrent ();
     parameters: []
     return:
       type: System.Messaging.Message
-      description: "A <xref href=&quot;System.Messaging.Message&quot;></xref> that references the first message available in the queue."
+      description: "A <xref href=&quot;System.Messaging.Message&quot;> </xref> który odwołuje się do pierwszej wiadomości w kolejce dostępne."
   overload: System.Messaging.MessageEnumerator.RemoveCurrent*
   exceptions: []
   platform:
@@ -260,17 +260,17 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Removes the current message from a transactional queue and returns the message to the calling application. There is no timeout specified for a message to arrive in the queue."
-  remarks: "<xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> removes and returns the message at the cursor&quot;s current location, using the internal transaction context defined by the `transaction` parameter.       If you are using queue journaling, removing the message causes a copy to be kept in the journal queue, just as the <xref:System.Messaging.MessageQueue> class&quot;s <xref:System.Messaging.MessageQueue.Receive%2A> method does.       When working with transactional queues, a rollback of a transaction causes any messages removed by a call to <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> to be returned to the queue. The removal is not irreversible until the transaction is committed.       When you remove the current message, the cursor is moved to the next message. You do not have to call <xref:System.Messaging.MessageEnumerator.MoveNext%2A> after calling <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>."
+  summary: "Usuwa bieżący komunikat z kolejką transakcyjną i zwraca komunikat do aplikacji wywołującej. Nie ma limitu czasu określona dla wiadomości w kolejce."
+  remarks: "<xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>Usuwa i zwraca komunikat w bieżącej lokalizacji kursora, przy użyciu kontekstu wewnętrzną transakcję zdefiniowane przez `transaction` parametru.</xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>       Jeśli używasz rejestrowanie kolejki usuwając wiadomość powoduje, że kopia mają być przechowywane w kolejce dziennika, podobnie jak <xref:System.Messaging.MessageQueue>klasy <xref:System.Messaging.MessageQueue.Receive%2A>Metoda wykonuje.</xref:System.Messaging.MessageQueue.Receive%2A> </xref:System.Messaging.MessageQueue>       Podczas pracy z kolejek transakcyjnych, wycofywania transakcji powoduje, że wszystkie komunikaty usunięte przez wywołanie do <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>ma zostać zwrócona do kolejki.</xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> Usuwanie nie jest nieodwracalne, dopóki transakcja została przekazana.       Po usunięciu bieżącego komunikatu, kursor jest przenoszony do następnej wiadomości. Nie masz do wywołania <xref:System.Messaging.MessageEnumerator.MoveNext%2A>po wywołaniu metody <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>.</xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> </xref:System.Messaging.MessageEnumerator.MoveNext%2A>"
   syntax:
     content: public System.Messaging.Message RemoveCurrent (System.Messaging.MessageQueueTransaction transaction);
     parameters:
     - id: transaction
       type: System.Messaging.MessageQueueTransaction
-      description: "The <xref href=&quot;System.Messaging.MessageQueueTransaction&quot;></xref> object that specifies the transaction in which the message will be removed."
+      description: "<xref href=&quot;System.Messaging.MessageQueueTransaction&quot;> </xref> Obiekt, który określa transakcji, w którym zostaną usunięte wiadomości."
     return:
       type: System.Messaging.Message
-      description: "A <xref href=&quot;System.Messaging.Message&quot;></xref> that references the first message available in the queue."
+      description: "A <xref href=&quot;System.Messaging.Message&quot;> </xref> który odwołuje się do pierwszej wiadomości w kolejce dostępne."
   overload: System.Messaging.MessageEnumerator.RemoveCurrent*
   exceptions:
   - type: System.ArgumentNullException
@@ -290,22 +290,22 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Removes the current message from a queue and returns the message to the calling application. There is no timeout specified for a message to arrive in the queue."
-  remarks: "<xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> removes and returns the message at the cursor&quot;s current location, using a transaction context defined by the `transactionType` parameter.       Specify `Automatic` for the `transactionType` parameter if there is already an external transaction context attached to the thread that you want to use to receive the message. Specify `Single` if you want to receive the message as a single internal transaction. You can specify `None` if you want to receive a message from a transactional queue outside of a transaction context.       If you are using queue journaling, removing the message causes a copy to be kept in the journal queue, just as the <xref:System.Messaging.MessageQueue> class&quot;s <xref:System.Messaging.MessageQueue.Receive%2A> method does.       When working with transactional queues, a rollback of a transaction causes any messages removed by a call to <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> to be returned to the queue. The removal is not irreversible until the transaction is committed.       When you remove the current message, the cursor is moved to the next message. You do not have to call <xref:System.Messaging.MessageEnumerator.MoveNext%2A> after calling <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>."
+  summary: "Usuwa bieżący komunikat z kolejki i zwraca komunikat do aplikacji wywołującej. Nie ma limitu czasu określona dla wiadomości w kolejce."
+  remarks: "<xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>Usuwa i zwraca komunikat w bieżącej lokalizacji kursora, w kontekście transakcji zdefiniowanych przez `transactionType` parametru.</xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>       Określ `Automatic` dla `transactionType` parametru, jeśli istnieje już w kontekście transakcji zewnętrznej dołączony do wątku, który ma być używany do odbierania wiadomości. Określ `Single` Jeśli chcesz otrzymywać wiadomości jako jedna transakcja wewnętrzna. Można określić `None` Jeśli chcesz otrzymywać wiadomość z kolejki transakcyjnej poza kontekstem transakcji.       Jeśli używasz rejestrowanie kolejki usuwając wiadomość powoduje, że kopia mają być przechowywane w kolejce dziennika, podobnie jak <xref:System.Messaging.MessageQueue>klasy <xref:System.Messaging.MessageQueue.Receive%2A>Metoda wykonuje.</xref:System.Messaging.MessageQueue.Receive%2A> </xref:System.Messaging.MessageQueue>       Podczas pracy z kolejek transakcyjnych, wycofywania transakcji powoduje, że wszystkie komunikaty usunięte przez wywołanie do <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>ma zostać zwrócona do kolejki.</xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> Usuwanie nie jest nieodwracalne, dopóki transakcja została przekazana.       Po usunięciu bieżącego komunikatu, kursor jest przenoszony do następnej wiadomości. Nie masz do wywołania <xref:System.Messaging.MessageEnumerator.MoveNext%2A>po wywołaniu metody <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>.</xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> </xref:System.Messaging.MessageEnumerator.MoveNext%2A>"
   syntax:
     content: public System.Messaging.Message RemoveCurrent (System.Messaging.MessageQueueTransactionType transactionType);
     parameters:
     - id: transactionType
       type: System.Messaging.MessageQueueTransactionType
-      description: "One of the <xref href=&quot;System.Messaging.MessageQueueTransactionType&quot;></xref> values, describing the type of transaction context to associate with the message."
+      description: "Jeden z <xref href=&quot;System.Messaging.MessageQueueTransactionType&quot;> </xref> wartości opisujące typ kontekstu transakcji do skojarzenia z komunikatem."
     return:
       type: System.Messaging.Message
-      description: "A <xref href=&quot;System.Messaging.Message&quot;></xref> that references the first message available in the queue."
+      description: "A <xref href=&quot;System.Messaging.Message&quot;> </xref> który odwołuje się do pierwszej wiadomości w kolejce dostępne."
   overload: System.Messaging.MessageEnumerator.RemoveCurrent*
   exceptions:
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "The <code>transactionType</code> parameter is not one of the <xref href=&quot;System.Messaging.MessageQueueTransactionType&quot;></xref> members."
+    description: "<code> transactionType </code> Parametru nie jest jednym z <xref href=&quot;System.Messaging.MessageQueueTransactionType&quot;> </xref> elementów członkowskich."
   platform:
   - net462
 - uid: System.Messaging.MessageEnumerator.RemoveCurrent(System.TimeSpan)
@@ -320,25 +320,25 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Removes the current message from the queue and returns the message to the calling application. If there is a message to remove, the method returns it immediately. Otherwise, the method waits the specified timeout for a new message to arrive."
-  remarks: "<xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> removes and returns the message at the cursor&quot;s current location. If the cursor is at the end of the queue, this overload of the method waits until a message is available or the interval specified by the `timeout` parameter has expired.       If you are using queue journaling, removing the message causes a copy to be kept in the journal queue, just as the <xref:System.Messaging.MessageQueue> class&quot;s <xref:System.Messaging.MessageQueue.Receive%2A> method does.       When you remove the current message, the cursor is moved to the next message. You do not have to call <xref:System.Messaging.MessageEnumerator.MoveNext%2A> after calling <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>.       If you call this overload on a transactional queue, Message Queuing creates a single internal transaction."
+  summary: "Usuwa bieżący komunikat z kolejki i zwraca komunikat do aplikacji wywołującej. Jeśli istnieje komunikat do usunięcia, metoda zwraca go bezpośrednio. W przeciwnym razie metoda oczekuje określony limit czasu dla nowej wiadomości do odbierania."
+  remarks: "<xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>Usuwa i zwraca komunikat w bieżącej lokalizacji kursora.</xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> Jeśli kursor znajduje się na końcu kolejki, to przeciążenie metody czeka, aż wiadomości jest dostępna lub interwału określonego przez `timeout` parametru utracił ważność.       Jeśli używasz rejestrowanie kolejki usuwając wiadomość powoduje, że kopia mają być przechowywane w kolejce dziennika, podobnie jak <xref:System.Messaging.MessageQueue>klasy <xref:System.Messaging.MessageQueue.Receive%2A>Metoda wykonuje.</xref:System.Messaging.MessageQueue.Receive%2A> </xref:System.Messaging.MessageQueue>       Po usunięciu bieżącego komunikatu, kursor jest przenoszony do następnej wiadomości. Nie masz do wywołania <xref:System.Messaging.MessageEnumerator.MoveNext%2A>po wywołaniu metody <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>.</xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> </xref:System.Messaging.MessageEnumerator.MoveNext%2A>       Można wywołać tego przeciążenia na kolejką transakcyjną, usługi kolejkowania komunikatów tworzy pojedynczy wewnętrzną transakcję."
   syntax:
     content: public System.Messaging.Message RemoveCurrent (TimeSpan timeout);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The interval of time to wait for a message to arrive in the queue."
+      description: "Interwał czasu oczekiwania na wiadomość w kolejce."
     return:
       type: System.Messaging.Message
-      description: "A <xref href=&quot;System.Messaging.Message&quot;></xref> that references the first message available in the queue."
+      description: "A <xref href=&quot;System.Messaging.Message&quot;> </xref> który odwołuje się do pierwszej wiadomości w kolejce dostępne."
   overload: System.Messaging.MessageEnumerator.RemoveCurrent*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value specified for the <code>timeout</code> parameter is invalid."
+    description: "Wartość określona dla <code> timeout </code> parametr jest nieprawidłowy."
   - type: System.Messaging.MessageQueueException
     commentId: T:System.Messaging.MessageQueueException
-    description: "The timeout has expired."
+    description: "Upłynął limit czasu."
   platform:
   - net462
 - uid: System.Messaging.MessageEnumerator.RemoveCurrent(System.TimeSpan,System.Messaging.MessageQueueTransaction)
@@ -353,31 +353,31 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Removes the current message from a transactional queue and returns the message to the calling application. If there is a message to remove, the method returns it immediately. Otherwise, the method waits the specified timeout for a new message to arrive."
-  remarks: "<xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> removes and returns the message at the cursor&quot;s current location. If the cursor is at the end of the queue, this overload of the method waits until a message is available or the interval specified by the `timeout` parameter has expired.       When working with transactional queues, a rollback of a transaction causes any messages removed by a call to <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> to be returned to the queue. The removal is not irreversible until the transaction is committed.       If you are using queue journaling, removing the message causes a copy to be kept in the journal queue, just as the <xref:System.Messaging.MessageQueue> class&quot;s <xref:System.Messaging.MessageQueue.Receive%2A> method does.       When you remove the current message, the cursor is moved to the next message. You do not have to call <xref:System.Messaging.MessageEnumerator.MoveNext%2A> after calling <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>."
+  summary: "Usuwa bieżący komunikat z kolejką transakcyjną i zwraca komunikat do aplikacji wywołującej. Jeśli istnieje komunikat do usunięcia, metoda zwraca go bezpośrednio. W przeciwnym razie metoda oczekuje określony limit czasu dla nowej wiadomości do odbierania."
+  remarks: "<xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>Usuwa i zwraca komunikat w bieżącej lokalizacji kursora.</xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> Jeśli kursor znajduje się na końcu kolejki, to przeciążenie metody czeka, aż wiadomości jest dostępna lub interwału określonego przez `timeout` parametru utracił ważność.       Podczas pracy z kolejek transakcyjnych, wycofywania transakcji powoduje, że wszystkie komunikaty usunięte przez wywołanie do <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>ma zostać zwrócona do kolejki.</xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> Usuwanie nie jest nieodwracalne, dopóki transakcja została przekazana.       Jeśli używasz rejestrowanie kolejki usuwając wiadomość powoduje, że kopia mają być przechowywane w kolejce dziennika, podobnie jak <xref:System.Messaging.MessageQueue>klasy <xref:System.Messaging.MessageQueue.Receive%2A>Metoda wykonuje.</xref:System.Messaging.MessageQueue.Receive%2A> </xref:System.Messaging.MessageQueue>       Po usunięciu bieżącego komunikatu, kursor jest przenoszony do następnej wiadomości. Nie masz do wywołania <xref:System.Messaging.MessageEnumerator.MoveNext%2A>po wywołaniu metody <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>.</xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> </xref:System.Messaging.MessageEnumerator.MoveNext%2A>"
   syntax:
     content: public System.Messaging.Message RemoveCurrent (TimeSpan timeout, System.Messaging.MessageQueueTransaction transaction);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The interval of time to wait for the message to be removed."
+      description: "Interwał czasu oczekiwania na wiadomość do usunięcia."
     - id: transaction
       type: System.Messaging.MessageQueueTransaction
-      description: "The <xref href=&quot;System.Messaging.MessageQueueTransaction&quot;></xref> object that specifies the transaction context for the message."
+      description: "<xref href=&quot;System.Messaging.MessageQueueTransaction&quot;> </xref> Obiekt, który określa kontekst transakcji dla wiadomości."
     return:
       type: System.Messaging.Message
-      description: "A <xref href=&quot;System.Messaging.Message&quot;></xref> that references the first message available in the queue."
+      description: "A <xref href=&quot;System.Messaging.Message&quot;> </xref> który odwołuje się do pierwszej wiadomości w kolejce dostępne."
   overload: System.Messaging.MessageEnumerator.RemoveCurrent*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value specified for the <code>timeout</code> parameter is invalid."
+    description: "Wartość określona dla <code> timeout </code> parametr jest nieprawidłowy."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: "The <code>transaction</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Messaging.MessageQueueException
     commentId: T:System.Messaging.MessageQueueException
-    description: "The timeout has expired."
+    description: "Upłynął limit czasu."
   platform:
   - net462
 - uid: System.Messaging.MessageEnumerator.RemoveCurrent(System.TimeSpan,System.Messaging.MessageQueueTransactionType)
@@ -392,31 +392,31 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Removes the current message from a queue and returns the message to the calling application. If there is a message to remove, the method returns it immediately. Otherwise, the method waits the specified timeout for a new message to arrive."
-  remarks: "<xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> removes and returns the message at the cursor&quot;s current location, using a transaction context defined by the `transactionType` parameter. If the cursor is at the end of the queue, this overload of the method waits until a message is available or the interval specified by the `timeout` parameter has expired.       Specify `Automatic` for the `transactionType` parameter if there is already an external transaction context attached to the thread that you want to use to receive the message. Specify `Single` if you want to receive the message as a single internal transaction. You can specify `None` if you want to receive a message from a transactional queue outside of a transaction context.       If you are using queue journaling, removing the message causes a copy to be kept in the journal queue, just as the <xref:System.Messaging.MessageQueue> class&quot;s <xref:System.Messaging.MessageQueue.Receive%2A> method does.       When working with transactional queues, a rollback of a transaction causes any messages removed by a call to <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> to be returned to the queue. The removal is not irreversible until the transaction is committed.       When you remove the current message, the cursor is moved to the next message. You do not have to call <xref:System.Messaging.MessageEnumerator.MoveNext%2A> after calling <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>."
+  summary: "Usuwa bieżący komunikat z kolejki i zwraca komunikat do aplikacji wywołującej. Jeśli istnieje komunikat do usunięcia, metoda zwraca go bezpośrednio. W przeciwnym razie metoda oczekuje określony limit czasu dla nowej wiadomości do odbierania."
+  remarks: "<xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>Usuwa i zwraca komunikat w bieżącej lokalizacji kursora, w kontekście transakcji zdefiniowanych przez `transactionType` parametru.</xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> Jeśli kursor znajduje się na końcu kolejki, to przeciążenie metody czeka, aż wiadomości jest dostępna lub interwału określonego przez `timeout` parametru utracił ważność.       Określ `Automatic` dla `transactionType` parametru, jeśli istnieje już w kontekście transakcji zewnętrznej dołączony do wątku, który ma być używany do odbierania wiadomości. Określ `Single` Jeśli chcesz otrzymywać wiadomości jako jedna transakcja wewnętrzna. Można określić `None` Jeśli chcesz otrzymywać wiadomość z kolejki transakcyjnej poza kontekstem transakcji.       Jeśli używasz rejestrowanie kolejki usuwając wiadomość powoduje, że kopia mają być przechowywane w kolejce dziennika, podobnie jak <xref:System.Messaging.MessageQueue>klasy <xref:System.Messaging.MessageQueue.Receive%2A>Metoda wykonuje.</xref:System.Messaging.MessageQueue.Receive%2A> </xref:System.Messaging.MessageQueue>       Podczas pracy z kolejek transakcyjnych, wycofywania transakcji powoduje, że wszystkie komunikaty usunięte przez wywołanie do <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>ma zostać zwrócona do kolejki.</xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> Usuwanie nie jest nieodwracalne, dopóki transakcja została przekazana.       Po usunięciu bieżącego komunikatu, kursor jest przenoszony do następnej wiadomości. Nie masz do wywołania <xref:System.Messaging.MessageEnumerator.MoveNext%2A>po wywołaniu metody <xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A>.</xref:System.Messaging.MessageEnumerator.RemoveCurrent%2A> </xref:System.Messaging.MessageEnumerator.MoveNext%2A>"
   syntax:
     content: public System.Messaging.Message RemoveCurrent (TimeSpan timeout, System.Messaging.MessageQueueTransactionType transactionType);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The interval of time to wait for the message to be removed."
+      description: "Interwał czasu oczekiwania na wiadomość do usunięcia."
     - id: transactionType
       type: System.Messaging.MessageQueueTransactionType
-      description: "One of the <xref href=&quot;System.Messaging.MessageQueueTransactionType&quot;></xref> values, describing the type of transaction context to associate with the message."
+      description: "Jeden z <xref href=&quot;System.Messaging.MessageQueueTransactionType&quot;> </xref> wartości opisujące typ kontekstu transakcji do skojarzenia z komunikatem."
     return:
       type: System.Messaging.Message
-      description: "A <xref href=&quot;System.Messaging.Message&quot;></xref> that references the first message available in the queue."
+      description: "A <xref href=&quot;System.Messaging.Message&quot;> </xref> który odwołuje się do pierwszej wiadomości w kolejce dostępne."
   overload: System.Messaging.MessageEnumerator.RemoveCurrent*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value specified for the <code>timeout</code> parameter is invalid."
+    description: "Wartość określona dla <code> timeout </code> parametr jest nieprawidłowy."
   - type: System.Messaging.MessageQueueException
     commentId: T:System.Messaging.MessageQueueException
-    description: "The timeout has expired."
+    description: "Upłynął limit czasu."
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "The <code>transactionType</code> parameter is not one of the <xref href=&quot;System.Messaging.MessageQueueTransactionType&quot;></xref> members."
+    description: "<code> transactionType </code> Parametru nie jest jednym z <xref href=&quot;System.Messaging.MessageQueueTransactionType&quot;> </xref> elementów członkowskich."
   platform:
   - net462
 - uid: System.Messaging.MessageEnumerator.Reset
@@ -431,8 +431,8 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Resets the current enumerator so it points to the head of the queue."
-  remarks: "An enumerator can only move in a forward direction. Use this method to start over at the beginning of the queue.       After calling Reset, the cursor points to the first message. You do not need to call <xref:System.Messaging.MessageEnumerator.MoveNext%2A> after calling Reset to move the cursor forward to the first message in the queue."
+  summary: "Resetuje bieżącego modułu wyliczającego, więc wskazuje head kolejki."
+  remarks: "Moduł wyliczający można przenieść tylko w kierunku do przodu. Użyj tej metody, aby rozpocząć od początku na początek kolejki.       Po wywołaniu metody resetowania, kursor wskazuje pierwszego komunikatu. Nie należy wywołać <xref:System.Messaging.MessageEnumerator.MoveNext%2A>po wywołaniu metody resetowania, aby przesunąć kursor przekazywania do pierwszej wiadomości w kolejce.</xref:System.Messaging.MessageEnumerator.MoveNext%2A>"
   syntax:
     content: public void Reset ();
     parameters: []
@@ -453,12 +453,12 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Returns a <xref href=&quot;System.Messaging.Message&quot;></xref> that references the message at the current cursor position."
+  summary: "Zwraca <xref href=&quot;System.Messaging.Message&quot;> </xref> , która odwołuje się komunikat w bieżącym położeniu kursora."
   syntax:
     content: object System.Collections.IEnumerator.Current { get; }
     return:
       type: System.Object
-      description: "A <xref href=&quot;System.Messaging.Message&quot;></xref> that references the message at the current cursor position."
+      description: "A <xref href=&quot;System.Messaging.Message&quot;> </xref> , która odwołuje się komunikat w bieżącym położeniu kursora."
   overload: System.Messaging.MessageEnumerator.System#Collections#IEnumerator#Current*
   exceptions: []
   platform:
