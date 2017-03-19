@@ -15,8 +15,8 @@ items:
   nameWithType: IDesignerEventService
   fullName: System.ComponentModel.Design.IDesignerEventService
   type: Interface
-  summary: "Provides event notifications when root designers are added and removed, when a selected component changes, and when the current root designer changes."
-  remarks: "IDesignerEventService provides notification when a new root designer is created, changed, or disposed. A root designer provides design time support for the base component of a document in designer view. The <xref:System.ComponentModel.Design.IDesignerEventService.SelectionChanged> event provides notification when the current component selection has changed."
+  summary: "Udostępnia powiadomienia o zdarzeniach w projektantów głównego są dodawane i usuwane, gdy zostanie zmieniona wybranego składnika oraz w przypadku bieżącego katalogu głównego zmiany projektanta."
+  remarks: "IDesignerEventService zapewnia powiadomienie, podczas tworzenia, zmieniony lub usunięty nowe projektanta głównego. Projektant główny zapewnia obsługę w czasie projektowania podstawowy składnik dokumentu w widoku projektanta. <xref:System.ComponentModel.Design.IDesignerEventService.SelectionChanged>Zdarzeń zapewnia powiadomienie, gdy zostanie zmienione aktualne zaznaczenie składnika.</xref:System.ComponentModel.Design.IDesignerEventService.SelectionChanged>"
   example:
   - "This example demonstrates a designer that uses the IDesignerEventService to display event notifications on a control. To use this example, compile the code to a class library. Add a reference to the library to a new Windows Forms project, and add the control within the library to the **Toolbox**.  Add an instance of the `DesignerMonitor` control to a form in design mode. Right-click the control and click the `Start monitoring` command to display notifications of events raised by the IDesignerEventService.  \n  \n [!code-cpp[IDesignerEventServiceExample#1](~/add/codesnippet/cpp/t-system.componentmodel._105_1.cpp)]\n [!code-vb[IDesignerEventServiceExample#1](~/add/codesnippet/visualbasic/t-system.componentmodel._105_1.vb)]"
   syntax:
@@ -36,12 +36,12 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Gets the root designer for the currently active document."
+  summary: "Pobiera projektanta głównego dla aktywnego dokumentu."
   syntax:
     content: public System.ComponentModel.Design.IDesignerHost ActiveDesigner { get; }
     return:
       type: System.ComponentModel.Design.IDesignerHost
-      description: "The currently active document, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there is no active document."
+      description: "Aktualnie aktywnego dokumentu lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli brak aktywnego dokumentu."
   overload: System.ComponentModel.Design.IDesignerEventService.ActiveDesigner*
   exceptions: []
   platform:
@@ -58,13 +58,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Occurs when the current root designer changes."
-  remarks: "This event can result from the user opening or setting focus to a new document, or by closing a document."
+  summary: "Występuje po zmianie bieżącego projektanta głównego."
+  remarks: "To zdarzenie może wynikać z użytkownika otwarcie lub Ustawianie fokusu na nowy dokument lub przez zamknięcie dokumentu."
   syntax:
     content: public event System.ComponentModel.Design.ActiveDesignerEventHandler ActiveDesignerChanged;
     return:
       type: System.ComponentModel.Design.ActiveDesignerEventHandler
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -80,13 +80,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Occurs when a root designer is created."
-  remarks: "This event is raised when a new document has been loaded and is ready for user input."
+  summary: "Występuje, gdy jest tworzony projektanta głównego."
+  remarks: "To zdarzenie jest wywoływane, gdy nowy dokument został załadowany i jest gotowe do wprowadzenia danych przez użytkownika."
   syntax:
     content: public event System.ComponentModel.Design.DesignerEventHandler DesignerCreated;
     return:
       type: System.ComponentModel.Design.DesignerEventHandler
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -102,13 +102,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Occurs when a root designer for a document is disposed."
-  remarks: "This event is raised when a document is about to be disposed, but before the document actually starts to dispose itself."
+  summary: "Występuje po usunięciu projektanta głównego dokumentu."
+  remarks: "To zdarzenie jest wywoływane, gdy dokument ma zostać usunięty, ale przed dokumentu faktycznie uruchamia samego usuwania."
   syntax:
     content: public event System.ComponentModel.Design.DesignerEventHandler DesignerDisposed;
     return:
       type: System.ComponentModel.Design.DesignerEventHandler
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -124,12 +124,12 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Gets a collection of root designers for design documents that are currently active in the development environment."
+  summary: "Pobiera kolekcję projektantów głównego dla dokumentów projektowych, które są aktualnie aktywne w środowisku programistycznym."
   syntax:
     content: public System.ComponentModel.Design.DesignerCollection Designers { get; }
     return:
       type: System.ComponentModel.Design.DesignerCollection
-      description: "A <xref href=&quot;System.ComponentModel.Design.DesignerCollection&quot;></xref> containing the root designers that have been created and not yet disposed."
+      description: "A <xref href=&quot;System.ComponentModel.Design.DesignerCollection&quot;> </xref> zawierający projektantów głównego, które zostały utworzone i jeszcze nie został usunięty."
   overload: System.ComponentModel.Design.IDesignerEventService.Designers*
   exceptions: []
   platform:
@@ -146,13 +146,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Occurs when the current design-view selection changes."
-  remarks: "This selection changed event can result from the user changing the selection in the currently active document, or from the user switching to a new document."
+  summary: "Występuje, gdy bieżące zaznaczenie w widoku Projekt."
+  remarks: "To zdarzenie zmieniono zaznaczenie może wynikać z zmiany zaznaczenia w aktywnym dokumencie użytkownika lub użytkownika, przełączenie na nowy dokument."
   syntax:
     content: public event EventHandler SelectionChanged;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462

@@ -13,8 +13,8 @@ items:
   nameWithType: IDesigner
   fullName: System.ComponentModel.Design.IDesigner
   type: Interface
-  summary: "Provides the basic framework for building a custom designer."
-  remarks: "The IDesigner interface provides an interface through which you can implement basic services for a designer. A designer can modify the behavior of a component at design time, and may provide its own services and behavior. A designer is only active at design-time, and must be associated with a type of component using a <xref:System.ComponentModel.DesignerAttribute> in order to be loaded when a component of the associated type is created at design time.       The IDesigner interface provides methods and properties that you can implement in order to provide custom behavior at design time.       Implement the <xref:System.ComponentModel.Design.IDesigner.Initialize%2A> method of a designer to perform actions when a component is created. This can be useful if a component should have a special configuration at design-time, or if its configuration should change depending on conditions that the designer can determine.       A designer can provide menu commands on the shortcut menu that is displayed when a user right-clicks a component or control in the design-time environment. You can implement the <xref:System.ComponentModel.Design.IDesigner.Verbs%2A> property to define a get accessor that returns a <xref:System.ComponentModel.Design.DesignerVerbCollection> containing the <xref:System.ComponentModel.Design.DesignerVerb> objects for generating menu commands.       A designer for a component that appears in the component tray can perform a default action when the component is double-clicked. Implement the <xref:System.ComponentModel.Design.IDesigner.DoDefaultAction%2A> method to specify the behavior to perform when the component is double-clicked.       A designer can also use the available design-time services to perform a variety of tasks, including surveying the current design-time environment for components and their properties, reading and setting the values of properties of components, managing the toolbox, managing selected components, or displaying a user interface that can be used to configure values or to apply further processing.       To implement a designer for a control that can be sited on a form, you can inherit from the <xref:System.Windows.Forms.Design.ControlDesigner> class. Controls whose associated designer does not derive from <xref:System.Windows.Forms.Design.ControlDesigner> are displayed in the component tray. The <xref:System.ComponentModel.Design.ComponentDesigner> and <xref:System.Windows.Forms.Design.ControlDesigner> classes implement the IDesigner interface and provide additional design-time support that may be of use to authors of designers. For more information, see the reference documentation for these classes.       For an overview of creating design components, please see [Extending Design-Time Support](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Udostępnia podstawową strukturę do tworzenia niestandardowych projektanta."
+  remarks: "Interfejs IDesigner udostępnia interfejs, za pośrednictwem której można zaimplementować podstawowe usługi dla projektanta. Projektant zachowanie składnika można zmienić w czasie projektowania i może podać własne usługi i zachowania. Projektant jest aktywne w czasie projektowania i musi być skojarzony z typem przy użyciu składnika <xref:System.ComponentModel.DesignerAttribute>Aby być ładowane, gdy składnik skojarzony typ jest tworzony w czasie projektowania.</xref:System.ComponentModel.DesignerAttribute>       Interfejs IDesigner udostępnia metody i właściwości, które można zaimplementować w celu zapewnienia zachowania niestandardowego w czasie projektowania.       Implementowanie <xref:System.ComponentModel.Design.IDesigner.Initialize%2A>metody Projektant umożliwiający wykonywanie akcji po utworzeniu składnika.</xref:System.ComponentModel.Design.IDesigner.Initialize%2A> Może to być przydatne, czy składnik powinien mieć specjalnej konfiguracji w czasie projektowania lub jeśli jego konfiguracji należy zmienić w zależności od warunków określających projektanta.       Menu skrótów, które jest wyświetlane, gdy użytkownik kliknie prawym przyciskiem myszy składnika lub kontrolki w środowisku projektowania projektanta może zapewnić poleceń menu. Można zaimplementować <xref:System.ComponentModel.Design.IDesigner.Verbs%2A>Właściwości zdefiniuj metody dostępu get, która zwraca <xref:System.ComponentModel.Design.DesignerVerbCollection>zawierający <xref:System.ComponentModel.Design.DesignerVerb>obiektów podczas generowania poleceń menu.</xref:System.ComponentModel.Design.DesignerVerb> </xref:System.ComponentModel.Design.DesignerVerbCollection> </xref:System.ComponentModel.Design.IDesigner.Verbs%2A>       Projektant składnika, który jest wyświetlany w pasku składnika można wykonać akcji domyślnej, gdy składnik zostanie dwukrotnie kliknięty. Implementowanie <xref:System.ComponentModel.Design.IDesigner.DoDefaultAction%2A>metodę, aby określić zachowanie do wykonania, gdy składnik zostanie dwukrotnie kliknięty.</xref:System.ComponentModel.Design.IDesigner.DoDefaultAction%2A>       Projektant umożliwia również dostępne usługi czasu projektowania wykonywania różnych zadań, takich jak badania bieżącego środowiska czasu projektowania dla składników oraz ich właściwości, odczytywanie i ustawiania wartości właściwości składników, zarządzanie przybornika, zarządzanie wybranych składników lub wyświetlanie interfejsu użytkownika, którego można skonfigurować wartości lub zastosować dalsze przetwarzanie.       Aby zaimplementować projektanta dla formantu, który może być umieszczony na formularzu, może dziedziczyć <xref:System.Windows.Forms.Design.ControlDesigner>klasy.</xref:System.Windows.Forms.Design.ControlDesigner> Formanty, których skojarzone projektanta nie pochodzi od <xref:System.Windows.Forms.Design.ControlDesigner>są wyświetlane na pasku składnika.</xref:System.Windows.Forms.Design.ControlDesigner> <xref:System.ComponentModel.Design.ComponentDesigner>i <xref:System.Windows.Forms.Design.ControlDesigner>klasy implementować interfejs IDesigner i podać dodatkowe obsługi w czasie projektowania, które mogą być przydatne autorom projektantów.</xref:System.Windows.Forms.Design.ControlDesigner> </xref:System.ComponentModel.Design.ComponentDesigner> Aby uzyskać więcej informacji zobacz dokumentację odwołania dla tych klas.       Omówienie tworzenia składników projektowania, zobacz [rozszerzenie obsługi w czasie projektowania](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "This example demonstrates an IDesigner implementation that stores a local reference to its component, performs a default action when the component is double-clicked, and provides a designer verb menu command.  \n  \n [!code-cs[IDesignerExample#1](~/add/codesnippet/csharp/t-system.componentmodel._156_1.cs)]\n [!code-vb[IDesignerExample#1](~/add/codesnippet/visualbasic/t-system.componentmodel._156_1.vb)]\n [!code-cpp[IDesignerExample#1](~/add/codesnippet/cpp/t-system.componentmodel._156_1.cpp)]"
   syntax:
@@ -38,12 +38,12 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Gets the base component that this designer is designing."
+  summary: "Pobiera podstawowy składnik, który jest projektowania tego projektanta."
   syntax:
     content: public System.ComponentModel.IComponent Component { get; }
     return:
       type: System.ComponentModel.IComponent
-      description: "An <xref href=&quot;System.ComponentModel.IComponent&quot;></xref> indicating the base component that this designer is designing."
+      description: "<xref href=&quot;System.ComponentModel.IComponent&quot;> </xref> Wskazujący podstawowy składnik, który jest projektowania tego projektanta."
   overload: System.ComponentModel.Design.IDesigner.Component*
   exceptions: []
   platform:
@@ -60,8 +60,8 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Performs the default action for this designer."
-  remarks: "This method is called when a user double-clicks the representation of a component in the component tray."
+  summary: "Wykonuje akcję domyślnego dla tego projektanta."
+  remarks: "Ta metoda jest wywoływana, gdy użytkownik kliknie dwukrotnie reprezentację składnika na liście składników na pasku zadań."
   syntax:
     content: public void DoDefaultAction ();
     parameters: []
@@ -81,13 +81,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Initializes the designer with the specified component."
+  summary: "Inicjuje Projektant z określonego składnika."
   syntax:
     content: public void Initialize (System.ComponentModel.IComponent component);
     parameters:
     - id: component
       type: System.ComponentModel.IComponent
-      description: "The component to associate with this designer."
+      description: "Składnik do skojarzenia z tym projektancie."
   overload: System.ComponentModel.Design.IDesigner.Initialize*
   exceptions: []
   platform:
@@ -104,13 +104,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Gets a collection of the design-time verbs supported by the designer."
-  remarks: "Returns the design time verbs supported by the component associated with the designer. The verbs returned by this method are typically displayed by the design-time environment in a right-click menu. When a user selects one of the verbs, the event handler of the corresponding <xref:System.ComponentModel.Design.DesignerVerb> is invoked.      > [!NOTE] >  A design-time environment typically provides a **Properties...** entry on a component&quot;s right-click menu. To avoid duplicate titles for menu entries, no verb with a title of &quot;Properties...&quot; should be included in a <xref:System.ComponentModel.Design.DesignerVerbCollection>."
+  summary: "Pobiera kolekcję zleceń czasu projektowania obsługiwany przez projektanta."
+  remarks: "Zwraca czas zleceń obsługiwaną przez składnik skojarzony z projektanta projektu. Zleceń zwracane przez tę metodę zwykle są wyświetlane przez środowisko czasu projektowania w menu kontekstowym. Gdy użytkownik wybierze jeden z zleceń, program obsługi zdarzeń odpowiadającego <xref:System.ComponentModel.Design.DesignerVerb>jest wywoływany.</xref:System.ComponentModel.Design.DesignerVerb>      > [!NOTE] > Środowiska czasu projektowania zwykle zapewnia **właściwości... ** wpisu menu kliknij prawym przyciskiem myszy składnika. Aby uniknąć zduplikowanych tytułów elementów menu, nie zlecenie z tytułem &quot;Właściwości...&quot; powinny być uwzględnione w <xref:System.ComponentModel.Design.DesignerVerbCollection>.</xref:System.ComponentModel.Design.DesignerVerbCollection>"
   syntax:
     content: public System.ComponentModel.Design.DesignerVerbCollection Verbs { get; }
     return:
       type: System.ComponentModel.Design.DesignerVerbCollection
-      description: "A <xref href=&quot;System.ComponentModel.Design.DesignerVerbCollection&quot;></xref> that contains the verbs supported by the designer, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the component has no verbs."
+      description: "A <xref href=&quot;System.ComponentModel.Design.DesignerVerbCollection&quot;> </xref> zawierający są obsługiwane przez projektanta, lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli składnik nie ma żadnych zleceń."
   overload: System.ComponentModel.Design.IDesigner.Verbs*
   exceptions: []
   platform:
