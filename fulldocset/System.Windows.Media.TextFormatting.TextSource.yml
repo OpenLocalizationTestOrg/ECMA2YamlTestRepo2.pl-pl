@@ -14,8 +14,8 @@ items:
   nameWithType: TextSource
   fullName: System.Windows.Media.TextFormatting.TextSource
   type: Class
-  summary: "Provides an abstract class for specifying character data and formatting properties to be used by the <xref href=&quot;System.Windows.Media.TextFormatting.TextFormatter&quot;></xref> object."
-  remarks: "All access to the text in the TextSource object is through the <xref:System.Windows.Media.TextFormatting.TextSource.GetTextRun%2A>, which is designed to allow the text layout client to virtualize text in any way it chooses.       <xref:System.Windows.Media.TextFormatting.TextFormatter> is the [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] text engine that provides services for formatting text and breaking text lines. <xref:System.Windows.Media.TextFormatting.TextFormatter> can handle different text character formats and paragraph styles, and includes support for international text layout. Unlike a traditional text [!INCLUDE[TLA#tla_api](~/add/includes/tlasharptla-api-md.md)], the <xref:System.Windows.Media.TextFormatting.TextFormatter> interacts with a text layout client through a set of callback methods. It requires the client to provide these methods in an implementation of the TextSource class. The following list describes the three members you must override:      -   <xref:System.Windows.Media.TextFormatting.TextSource.GetTextRun%2A>: Retrieves a <xref:System.Windows.Media.TextFormatting.TextRun> starting at a specified TextSource position.      -   <xref:System.Windows.Media.TextFormatting.TextSource.GetPrecedingText%2A>: Retrieves the text span immediately before the specified TextSource position.      -   <xref:System.Windows.Media.TextFormatting.TextSource.GetTextEffectCharacterIndexFromTextSourceCharacterIndex%2A>: Retrieves a value that maps a TextSource character index to a <xref:System.Windows.Media.TextEffect> character index.      > [!NOTE] >  For a complete code sample that shows how to implement a derived TextSource class, see [Advanced Text Formatting Sample](http://go.microsoft.com/fwlink/?LinkID=159965) ."
+  summary: "Udostępnia klasę abstrakcyjną do określania danych znakowych i formatowania właściwości, które mają być używane przez <xref href=&quot;System.Windows.Media.TextFormatting.TextFormatter&quot;> </xref> obiektu."
+  remarks: "Dostęp do tekstu w obiekcie TextSource odbywa się za pośrednictwem <xref:System.Windows.Media.TextFormatting.TextSource.GetTextRun%2A>, który umożliwia klienta układu tekstu do wirtualizacji tekstu w żaden sposób wybiera.</xref:System.Windows.Media.TextFormatting.TextSource.GetTextRun%2A>       <xref:System.Windows.Media.TextFormatting.TextFormatter>jest [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] aparat tekst, który udostępnia usługi dla formatowania tekstu i dzielenie wierszy tekstu.</xref:System.Windows.Media.TextFormatting.TextFormatter> <xref:System.Windows.Media.TextFormatting.TextFormatter>może obsłużyć w różnych formatach znaków i akapitu style i obsługuje układ międzynarodowe tekstu.</xref:System.Windows.Media.TextFormatting.TextFormatter> W przeciwieństwie do tradycyjnych tekst [!INCLUDE[TLA#tla_api](~/add/includes/tlasharptla-api-md.md)], <xref:System.Windows.Media.TextFormatting.TextFormatter>wchodzi w interakcję z klientem układu tekstu za pomocą zestawu metod wywołania zwrotnego.</xref:System.Windows.Media.TextFormatting.TextFormatter> Wymaga to od klienta zapewnienia tych metod w implementacji klasy TextSource. Poniższa lista zawiera opis trzech elementów członkowskich, należy zastąpić:- <xref:System.Windows.Media.TextFormatting.TextSource.GetTextRun%2A>: pobiera <xref:System.Windows.Media.TextFormatting.TextRun>zaczynając od określonej pozycji TextSource.</xref:System.Windows.Media.TextFormatting.TextRun> </xref:System.Windows.Media.TextFormatting.TextSource.GetTextRun%2A>      - <xref:System.Windows.Media.TextFormatting.TextSource.GetPrecedingText%2A>: Pobiera zakres tekstu bezpośrednio przed określonej pozycji TextSource.</xref:System.Windows.Media.TextFormatting.TextSource.GetPrecedingText%2A>      - <xref:System.Windows.Media.TextFormatting.TextSource.GetTextEffectCharacterIndexFromTextSourceCharacterIndex%2A>: Pobiera wartość, która mapuje indeks znaków TextSource, aby <xref:System.Windows.Media.TextEffect>indeks znaków.</xref:System.Windows.Media.TextEffect> </xref:System.Windows.Media.TextFormatting.TextSource.GetTextEffectCharacterIndexFromTextSourceCharacterIndex%2A>      > [!NOTE] > Kompletny kod przykładowy pokazujący sposób implementowania pochodnego klasy TextSource, [zaawansowane próbki formatowania tekstu](http://go.microsoft.com/fwlink/?LinkID=159965) ."
   syntax:
     content: public abstract class TextSource
   inheritance:
@@ -36,7 +36,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.TextFormatting
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Media.TextFormatting.TextSource&quot;></xref> class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Windows.Media.TextFormatting.TextSource&quot;> </xref> klasy."
   syntax:
     content: protected TextSource ();
     parameters: []
@@ -56,17 +56,17 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.TextFormatting
-  summary: "Retrieves the text span immediately before the specified <xref href=&quot;System.Windows.Media.TextFormatting.TextSource&quot;></xref> position."
-  remarks: "The GetPrecedingText method returns an empty <xref:System.Windows.Media.TextFormatting.CultureSpecificCharacterBufferRange> if the text span immediately before `textSourceCharacterIndexLimit` does not contain any text, such as inline object or a hidden run.       This method returns a zero-length text span if there are no values preceding `textSourceCharacterIndexLimit`."
+  summary: "Pobiera zakres tekstu bezpośrednio przed określonego <xref href=&quot;System.Windows.Media.TextFormatting.TextSource&quot;> </xref> pozycji."
+  remarks: "Metoda GetPrecedingText zwraca pustą <xref:System.Windows.Media.TextFormatting.CultureSpecificCharacterBufferRange>gdy bezpośrednio przed tekstem `textSourceCharacterIndexLimit` nie zawiera żadnych tekstu, na przykład obiekt wbudowany lub ukryte Uruchom.</xref:System.Windows.Media.TextFormatting.CultureSpecificCharacterBufferRange>       Ta metoda zwraca zakres tekstu o zerowej długości, jeśli nie znajdują się wartości poprzedzających `textSourceCharacterIndexLimit`."
   syntax:
     content: public abstract System.Windows.Media.TextFormatting.TextSpan<System.Windows.Media.TextFormatting.CultureSpecificCharacterBufferRange> GetPrecedingText (int textSourceCharacterIndexLimit);
     parameters:
     - id: textSourceCharacterIndexLimit
       type: System.Int32
-      description: "An <xref:System.Int32> value that specifies the character index position where text retrieval stops."
+      description: "<xref:System.Int32>Wartość, która określa indeks znaków, gdzie zatrzymuje pobieranie tekstu.</xref:System.Int32>"
     return:
       type: System.Windows.Media.TextFormatting.TextSpan{System.Windows.Media.TextFormatting.CultureSpecificCharacterBufferRange}
-      description: "A <xref href=&quot;System.Windows.Media.TextFormatting.CultureSpecificCharacterBufferRange&quot;></xref> value that represents the text span immediately before <code>textSourceCharacterIndexLimit</code>."
+      description: "A <xref href=&quot;System.Windows.Media.TextFormatting.CultureSpecificCharacterBufferRange&quot;> </xref> wartość, która reprezentuje zakres tekstu bezpośrednio przed <code> textSourceCharacterIndexLimit </code>."
   overload: System.Windows.Media.TextFormatting.TextSource.GetPrecedingText*
   exceptions: []
   platform:
@@ -83,16 +83,16 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.TextFormatting
-  summary: "Retrieves a value that maps a <xref href=&quot;System.Windows.Media.TextFormatting.TextSource&quot;></xref> character index to a <xref href=&quot;System.Windows.Media.TextEffect&quot;></xref> character index."
+  summary: "Pobiera wartość, która mapuje <xref href=&quot;System.Windows.Media.TextFormatting.TextSource&quot;> </xref> indeks znaków do <xref href=&quot;System.Windows.Media.TextEffect&quot;> </xref> indeks znaków."
   syntax:
     content: public abstract int GetTextEffectCharacterIndexFromTextSourceCharacterIndex (int textSourceCharacterIndex);
     parameters:
     - id: textSourceCharacterIndex
       type: System.Int32
-      description: "An <xref:System.Int32> value that specifies the <xref href=&quot;System.Windows.Media.TextFormatting.TextSource&quot;></xref> character index to map."
+      description: "<xref:System.Int32>Wartość, która określa <xref href=&quot;System.Windows.Media.TextFormatting.TextSource&quot;> </xref> indeks znaków do mapowania.</xref:System.Int32>"
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> value that represents the <xref href=&quot;System.Windows.Media.TextEffect&quot;></xref> character index."
+      description: "<xref:System.Int32>Wartość, która reprezentuje <xref href=&quot;System.Windows.Media.TextEffect&quot;> </xref> indeks znaków.</xref:System.Int32>"
   overload: System.Windows.Media.TextFormatting.TextSource.GetTextEffectCharacterIndexFromTextSourceCharacterIndex*
   exceptions: []
   platform:
@@ -109,8 +109,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.TextFormatting
-  summary: "Retrieves a <xref href=&quot;System.Windows.Media.TextFormatting.TextRun&quot;></xref> starting at a specified <xref href=&quot;System.Windows.Media.TextFormatting.TextSource&quot;></xref> position."
-  remarks: "A text run is a sequence of characters sharing a single property set. Any change to the format, such as font family, font style, foreground color, text decoration, or any other formatting effect, breaks the text run. The <xref:System.Windows.Media.TextFormatting.TextRun> class is the root of a type hierarchy representing several types of text content processed by <xref:System.Windows.Media.TextFormatting.TextFormatter>. Each class that is derived from <xref:System.Windows.Media.TextFormatting.TextRun> represents a distinct type of text content.      |Class|Description|   |-----------|-----------------|   |<xref:System.Windows.Media.TextFormatting.TextRun>|Root of the hierarchy. Defines a group of characters that share the same set of character properties.|   |<xref:System.Windows.Media.TextFormatting.TextCharacters>|Defines a collection of character glyphs from a distinct physical typeface.|   |<xref:System.Windows.Media.TextFormatting.TextEmbeddedObject>|Defines a type of text content in which measuring, hit testing, and drawing of the entire content is done as a distinct entity. An example of this type of content is a button in the middle of the line of text.|   |<xref:System.Windows.Media.TextFormatting.TextEndOfLine>|Defines a line-break character code.|   |<xref:System.Windows.Media.TextFormatting.TextEndOfParagraph>|Defines a paragraph-break character code. Derives from <xref:System.Windows.Media.TextFormatting.TextEndOfLine>.|   |<xref:System.Windows.Media.TextFormatting.TextEndOfSegment>|Defines a segment break marker.|   |<xref:System.Windows.Media.TextFormatting.TextHidden>|Defines a range of non-visible characters.|   |<xref:System.Windows.Media.TextFormatting.TextModifier>|Defines the beginning of a modification scope.|"
+  summary: "Pobiera <xref href=&quot;System.Windows.Media.TextFormatting.TextRun&quot;> </xref> zaczynając od określonej <xref href=&quot;System.Windows.Media.TextFormatting.TextSource&quot;> </xref> pozycji."
+  remarks: "Tekst, uruchom jest sekwencji znaków udostępnianie zestaw jednej właściwości. Wszelkie zmiany do formatu, takie jak rodziny czcionek, styl czcionki, kolor pierwszego planu, dekoracji tekstu lub dowolnego innego formatowania efektu, podziały Uruchom tekst. <xref:System.Windows.Media.TextFormatting.TextRun>Klasa jest elementem głównym hierarchii typów, reprezentująca różne typy zawartości tekstu przetworzone przez <xref:System.Windows.Media.TextFormatting.TextFormatter>.</xref:System.Windows.Media.TextFormatting.TextFormatter> </xref:System.Windows.Media.TextFormatting.TextRun> Każda klasa, która jest pochodną <xref:System.Windows.Media.TextFormatting.TextRun>reprezentuje różne typ zawartości tekstowej.</xref:System.Windows.Media.TextFormatting.TextRun>      | Klasa | Opis elementu |   |-----------|-----------------|   | <xref:System.Windows.Media.TextFormatting.TextRun>| Głównym hierarchii.</xref:System.Windows.Media.TextFormatting.TextRun> Definiuje grupę znaków, które mają ten sam zestaw właściwości znaku. |   | <xref:System.Windows.Media.TextFormatting.TextCharacters>| Definiuje kolekcję symboli znaków z różnych kroju fizycznej. |   | <xref:System.Windows.Media.TextFormatting.TextEmbeddedObject>| Określa typ zawartości, w których pomiaru trafień testowania i rysowanie całej zawartości odbywa się jako odrębne jednostki tekstu.</xref:System.Windows.Media.TextFormatting.TextEmbeddedObject> </xref:System.Windows.Media.TextFormatting.TextCharacters> Przykładem tego typu zawartości jest przycisk pośrodku wiersza tekstu. |   | <xref:System.Windows.Media.TextFormatting.TextEndOfLine>| Definiuje kod znaku podziału wiersza. |   | <xref:System.Windows.Media.TextFormatting.TextEndOfParagraph>| Definiuje kod znak akapitu break.</xref:System.Windows.Media.TextFormatting.TextEndOfParagraph> </xref:System.Windows.Media.TextFormatting.TextEndOfLine> Pochodną <xref:System.Windows.Media.TextFormatting.TextEndOfLine>. |   | <xref:System.Windows.Media.TextFormatting.TextEndOfSegment>| Definiuje znacznika podziału segmentu. |   | <xref:System.Windows.Media.TextFormatting.TextHidden>| Definiuje zakres znaków niewidoczne. |   | <xref:System.Windows.Media.TextFormatting.TextModifier>| Określa początek zakresu modyfikacji. |</xref:System.Windows.Media.TextFormatting.TextModifier> </xref:System.Windows.Media.TextFormatting.TextHidden> </xref:System.Windows.Media.TextFormatting.TextEndOfSegment> </xref:System.Windows.Media.TextFormatting.TextEndOfLine>"
   example:
   - "In the following example, an override for the GetTextRun method is implemented.  \n  \n [!code-cs[TextFormattingSnippets#TextFormattingSnippet4](~/add/codesnippet/csharp/TextFormattingSnippets/CustomTextClasses.cs#textformattingsnippet4)]\n [!code-vb[TextFormattingSnippets#TextFormattingSnippet4](~/add/codesnippet/visualbasic/textformattingsnippets/customtextclasses.vb#textformattingsnippet4)]"
   syntax:
@@ -118,10 +118,10 @@ items:
     parameters:
     - id: textSourceCharacterIndex
       type: System.Int32
-      description: "Specifies the character index position in the <xref href=&quot;System.Windows.Media.TextFormatting.TextSource&quot;></xref> where the <xref href=&quot;System.Windows.Media.TextFormatting.TextRun&quot;></xref> is retrieved."
+      description: "Określa położenie znaku indeksu w <xref href=&quot;System.Windows.Media.TextFormatting.TextSource&quot;> </xref> gdzie <xref href=&quot;System.Windows.Media.TextFormatting.TextRun&quot;> </xref> są pobierane."
     return:
       type: System.Windows.Media.TextFormatting.TextRun
-      description: "A value that represents a <xref href=&quot;System.Windows.Media.TextFormatting.TextRun&quot;></xref>, or an object derived from <xref href=&quot;System.Windows.Media.TextFormatting.TextRun&quot;></xref>."
+      description: "Wartość, która reprezentuje <xref href=&quot;System.Windows.Media.TextFormatting.TextRun&quot;> </xref>, lub typ pochodzący od obiektu <xref href=&quot;System.Windows.Media.TextFormatting.TextRun&quot;> </xref>."
   overload: System.Windows.Media.TextFormatting.TextSource.GetTextRun*
   exceptions: []
   platform:
@@ -138,13 +138,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.TextFormatting
-  summary: "Get or sets the PixelsPerDip at which the text should be rendered."
-  remarks: "Any class that extends <xref:System.Windows.Media.TextFormatting.TextSource> should update         PixelsPerDip whenever the DPI changes for a Per Monitor DPI Aware application."
+  summary: "Pobiera lub ustawia PixelsPerDip tekst powinien być renderowany."
+  remarks: "Każda klasa, która rozszerza <xref:System.Windows.Media.TextFormatting.TextSource>należy zaktualizować PixelsPerDip przy każdej zmianie wartości DPI dla aplikacji na Monitor DPI pamiętać.</xref:System.Windows.Media.TextFormatting.TextSource>"
   syntax:
     content: public double PixelsPerDip { get; set; }
     return:
       type: System.Double
-      description: "The current PixelsPerDip value."
+      description: "Bieżąca wartość PixelsPerDip."
   overload: System.Windows.Media.TextFormatting.TextSource.PixelsPerDip*
   exceptions: []
   platform:

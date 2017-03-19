@@ -24,8 +24,8 @@ items:
   nameWithType: InstanceView
   fullName: System.Runtime.DurableInstancing.InstanceView
   type: Class
-  summary: "Represents a view of an instance. For example, the <xref:System.Runtime.DurableInstancing.InstanceStore.Execute*> method implementations return an InstanceView object that provides a view into the instance data in the persistence store."
-  remarks: "Each InstanceView object is associated with an InstanceHandle. For an InstanceView returned from InstanceStore.Execute, the associated handle is the one passed to Execute. For an InstanceView returned from InstancePersistenceContext.InstanceView, the associated handle is the one passed to TryCommand.       An InstanceHandle may have zero or more InstanceView objects associated with it at any given time. InstanceView objects returned from InstanceStore.Execute are immutable and represent a snapshot of the known instance state after the successful execution of that command. InstanceView objects returned from InstancePersistenceContext are mutable and represent the current known instance state as it is being updated during the execution of the command.  (If the command ultimately fails, this intermediate state is discarded)."
+  summary: "Reprezentuje widok wystąpienia. Na przykład <xref:System.Runtime.DurableInstancing.InstanceStore.Execute*>implementacje metod zwracają obiekt InstanceView, który zapewnia wgląd w dane wystąpienia w magazynie informacji o trwałości.</xref:System.Runtime.DurableInstancing.InstanceStore.Execute*>"
+  remarks: "Każdy obiekt InstanceView jest skojarzony z obiektem InstanceHandle. Dla InstanceView zwrócony z wywoływania metody InstanceStore.Execute skojarzone dojścia jest przekazywane do wykonania. Dla InstanceView zwrócony z InstancePersistenceContext.InstanceView dojście skojarzony jest ten, który został przekazany do metody TryCommand.       Obiektu InstanceHandle może być zero lub więcej obiektów InstanceView skojarzonych z nim w danym momencie. InstanceView obiekty zwrócone przez wywoływania metody InstanceStore.Execute są niezmienne i reprezentują migawkę stan wystąpienia znane po pomyślnym wykonaniu tego polecenia. InstanceView obiekty zwrócone przez obiekt InstancePersistenceContext są modyfikowalne i reprezentują bieżący stan wystąpienia znane, ponieważ jest on aktualizowany podczas wykonywania polecenia.  (Jeśli polecenie ostatecznie zakończy się niepowodzeniem, Stan pośredni zostaną odrzucone)."
   syntax:
     content: public sealed class InstanceView
   inheritance:
@@ -46,12 +46,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets instance data as a dictionary of names and values."
+  summary: "Pobiera dane wystąpienia jako słownik nazw i wartości."
   syntax:
     content: public System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue> InstanceData { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue}
-      description: "The instance data."
+      description: "Dane wystąpienia."
   overload: System.Runtime.DurableInstancing.InstanceView.InstanceData*
   exceptions: []
   platform:
@@ -68,12 +68,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the consistency status of the InstanceData property."
+  summary: "Pobiera stan spójności właściwości InstanceData."
   syntax:
     content: public System.Runtime.DurableInstancing.InstanceValueConsistency InstanceDataConsistency { get; }
     return:
       type: System.Runtime.DurableInstancing.InstanceValueConsistency
-      description: "The consistency (None, In Doubt, and Partial) of the instance data. InstanceValueConsistency.None indicates that the InstanceData property holds a fully populated and locked set of instance data."
+      description: "Spójność (Brak, wątpliwe i częściowy) dane wystąpienia. InstanceValueConsistency.None wskazuje, że właściwość InstanceData przechowuje całkowicie wypełnione i zablokowane zestaw danych wystąpienia."
   overload: System.Runtime.DurableInstancing.InstanceView.InstanceDataConsistency*
   exceptions: []
   platform:
@@ -90,12 +90,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the identifier (ID) of the instance as a GUID."
+  summary: "Pobiera identyfikator (ID) wystąpienia jako identyfikatora GUID."
   syntax:
     content: public Guid InstanceId { get; }
     return:
       type: System.Guid
-      description: "The ID of the instance or Guid.Empty if the associated instance handle is not bound to an instance."
+      description: "Identyfikator wystąpienia lub Guid.Empty, gdy uchwyt skojarzonego wystąpienia nie jest powiązany z wystąpieniem."
   overload: System.Runtime.DurableInstancing.InstanceView.InstanceId*
   exceptions: []
   platform:
@@ -112,12 +112,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the instance keys as a dictionary of instance key identifiers and associated <xref href=&quot;System.Runtime.DurableInstancing.InstanceKeyView&quot;></xref> objects."
+  summary: "Pobiera klucze wystąpienia jako słownik identyfikatorów klucza wystąpienia i skojarzonego <xref href=&quot;System.Runtime.DurableInstancing.InstanceKeyView&quot;> </xref> obiektów."
   syntax:
     content: public System.Collections.Generic.IDictionary<Guid,System.Runtime.DurableInstancing.InstanceKeyView> InstanceKeys { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.Guid,System.Runtime.DurableInstancing.InstanceKeyView}
-      description: "A dictionary of instance key identifiers and their associated instance key view objects."
+      description: "Słownik identyfikatorów klucza wystąpienia i ich obiekty widoku klucza skojarzonego wystąpienia."
   overload: System.Runtime.DurableInstancing.InstanceView.InstanceKeys*
   exceptions: []
   platform:
@@ -134,12 +134,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the consistency status of the InstanceKeys property."
+  summary: "Pobiera stan spójności właściwości InstanceKeys."
   syntax:
     content: public System.Runtime.DurableInstancing.InstanceValueConsistency InstanceKeysConsistency { get; }
     return:
       type: System.Runtime.DurableInstancing.InstanceValueConsistency
-      description: "The consistency value of instance keys. InstanceValueConsistency.None indicates that the InstanceKeys property holds a fully populated and locked set of instance keys (though not necessarily each key’s metadata)."
+      description: "Wartość spójności klucze wystąpienia. InstanceValueConsistency.None wskazuje, że właściwość InstanceKeys przechowuje całkowicie wypełnione i zablokowane zestawu kluczy wystąpienia (chociaż niekoniecznie każdego klucza metadanych)."
   overload: System.Runtime.DurableInstancing.InstanceView.InstanceKeysConsistency*
   exceptions: []
   platform:
@@ -156,12 +156,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the metadata of an instance as a dictionary of names and <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;></xref> objects."
+  summary: "Pobiera metadane wystąpienia jako słownik nazw i <xref href=&quot;System.Runtime.DurableInstancing.InstanceValue&quot;> </xref> obiektów."
   syntax:
     content: public System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue> InstanceMetadata { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue}
-      description: "The metadata of the instance."
+      description: "Metadane tego wystąpienia."
   overload: System.Runtime.DurableInstancing.InstanceView.InstanceMetadata*
   exceptions: []
   platform:
@@ -178,12 +178,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the consistency status of the InstanceMetadata property."
+  summary: "Pobiera stan spójności właściwości InstanceMetadata."
   syntax:
     content: public System.Runtime.DurableInstancing.InstanceValueConsistency InstanceMetadataConsistency { get; }
     return:
       type: System.Runtime.DurableInstancing.InstanceValueConsistency
-      description: "The consistency of the instance metadata. InstanceValueConsistency.None indicates that the InstanceMetadata property holds a fully populated and locked set of instance metadata."
+      description: "Spójności metadanych wystąpienia. InstanceValueConsistency.None wskazuje, że właściwość InstanceMetadata przechowuje zestawem całkowicie wypełnione i zablokowane wystąpienie metadanych."
   overload: System.Runtime.DurableInstancing.InstanceView.InstanceMetadataConsistency*
   exceptions: []
   platform:
@@ -200,12 +200,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the owner of the instance."
+  summary: "Pobiera właściciela wystąpienia."
   syntax:
     content: public System.Runtime.DurableInstancing.InstanceOwner InstanceOwner { get; }
     return:
       type: System.Runtime.DurableInstancing.InstanceOwner
-      description: "The owner of the instance. Returns null if the associated instance handle is not bound to an instance owner."
+      description: "Właściciel tego wystąpienia. Zwraca wartość null, jeśli dojście wystąpienia skojarzone nie jest powiązany z właścicielem wystąpienia."
   overload: System.Runtime.DurableInstancing.InstanceView.InstanceOwner*
   exceptions: []
   platform:
@@ -222,12 +222,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the metadata for an instance owner as a dictionary of names and values."
+  summary: "Pobiera metadane dla właściciela wystąpienia jako słownik nazw i wartości."
   syntax:
     content: public System.Collections.Generic.IDictionary<System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue> InstanceOwnerMetadata { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.Xml.Linq.XName,System.Runtime.DurableInstancing.InstanceValue}
-      description: "A dictionary containing instance-owner metadata."
+      description: "Słownik zawierający metadane właściciela wystąpienia."
   overload: System.Runtime.DurableInstancing.InstanceView.InstanceOwnerMetadata*
   exceptions: []
   platform:
@@ -244,12 +244,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the consistency status of the InstanceOwnerMetadata property."
+  summary: "Pobiera stan spójności właściwości InstanceOwnerMetadata."
   syntax:
     content: public System.Runtime.DurableInstancing.InstanceValueConsistency InstanceOwnerMetadataConsistency { get; }
     return:
       type: System.Runtime.DurableInstancing.InstanceValueConsistency
-      description: "The consistency of the instance owner metadata.  Returns null if the associated instance handle is not bound to an instance owner."
+      description: "Spójności metadanych właściciela wystąpienia.  Zwraca wartość null, jeśli dojście wystąpienia skojarzone nie jest powiązany z właścicielem wystąpienia."
   overload: System.Runtime.DurableInstancing.InstanceView.InstanceOwnerMetadataConsistency*
   exceptions: []
   platform:
@@ -266,12 +266,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets the state of the instance (Unknown, Uninitialized, Initialized, or Completed)."
+  summary: "Pobiera stan wystąpienia (Nieznany Uninitialized, Initialized albo ukończone)."
   syntax:
     content: public System.Runtime.DurableInstancing.InstanceState InstanceState { get; }
     return:
       type: System.Runtime.DurableInstancing.InstanceState
-      description: "The state of the instance."
+      description: "Stan wystąpienia."
   overload: System.Runtime.DurableInstancing.InstanceView.InstanceState*
   exceptions: []
   platform:
@@ -288,12 +288,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Gets a collection of <xref href=&quot;System.Runtime.DurableInstancing.InstanceStoreQueryResult&quot;></xref> objects. The collection is automatically reset to empty each time a command is executed against the associated instance handle."
+  summary: "Pobiera kolekcję <xref href=&quot;System.Runtime.DurableInstancing.InstanceStoreQueryResult&quot;> </xref> obiektów. Kolekcji zostaje automatycznie ustawiony na pusty każdym razem, gdy polecenie jest wykonywane względem dojście wystąpienia skojarzone."
   syntax:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<System.Runtime.DurableInstancing.InstanceStoreQueryResult> InstanceStoreQueryResults { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Runtime.DurableInstancing.InstanceStoreQueryResult}
-      description: "A collection of <xref href=&quot;System.Runtime.DurableInstancing.InstanceStoreQueryResult&quot;></xref> objects."
+      description: "Kolekcja <xref href=&quot;System.Runtime.DurableInstancing.InstanceStoreQueryResult&quot;> </xref> obiektów."
   overload: System.Runtime.DurableInstancing.InstanceView.InstanceStoreQueryResults*
   exceptions: []
   platform:
@@ -310,12 +310,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Returns a value that indicates whether the associated instance handle is bound to an instance."
+  summary: "Zwraca wartość wskazującą, czy dojście wystąpienia skojarzone jest powiązany z wystąpieniem."
   syntax:
     content: public bool IsBoundToInstance { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the associated instance handle is bound to an instance; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli obsługa skojarzonego wystąpienia jest powiązany z wystąpieniem; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.DurableInstancing.InstanceView.IsBoundToInstance*
   exceptions: []
   platform:
@@ -332,12 +332,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Returns a value that indicates whether the associated instance handle is bound to an instance owner."
+  summary: "Zwraca wartość wskazującą, czy dojście wystąpienia skojarzone jest powiązany z właścicielem wystąpienia."
   syntax:
     content: public bool IsBoundToInstanceOwner { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the associated instance handle is bound to an instance owner; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli obsługa skojarzonego wystąpienia jest powiązany z właścicielem wystąpienia; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.DurableInstancing.InstanceView.IsBoundToInstanceOwner*
   exceptions: []
   platform:
@@ -354,12 +354,12 @@ items:
   assemblies:
   - System.Runtime.DurableInstancing
   namespace: System.Runtime.DurableInstancing
-  summary: "Returns a value that indicates whether the associated instance handle is bound to an instance lock."
+  summary: "Zwraca wartość wskazującą, czy dojście wystąpienia skojarzone jest powiązany z blokady wystąpienia."
   syntax:
     content: public bool IsBoundToLock { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the associated instance handle is bound to an instance lock; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli obsługa skojarzonego wystąpienia jest powiązana z blokadę wystąpienia; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.DurableInstancing.InstanceView.IsBoundToLock*
   exceptions: []
   platform:
