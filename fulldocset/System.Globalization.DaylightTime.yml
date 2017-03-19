@@ -13,8 +13,8 @@ items:
   nameWithType: DaylightTime
   fullName: System.Globalization.DaylightTime
   type: Class
-  summary: "Defines the period of daylight saving time."
-  remarks: "Daylight saving time is a period during the year when the clock is advanced, usually by an hour, to take advantage of extended daylight hours. At the end of the period, the clock is set back to the standard time.      > [!WARNING] >  The DaylightTime object returned by the <xref:System.TimeZone.GetDaylightChanges%2A?displayProperty=fullName> method recognizes only the time zone adjustment rule that is currently in effect, and ignores any previous adjustment rules for which the system has information. Instead, it applies the current adjustment rule backward in time to periods when it may not have been in effect. To retrieve information about all the known adjustment rules for a particular time zone, use the <xref:System.TimeZoneInfo.GetAdjustmentRules%2A?displayProperty=fullName> method."
+  summary: "Określa okres czasu letniego."
+  remarks: "Zmiany czasu jest okres w roku, po zaawansowane zegara, zazwyczaj przez godzinę, przeprowadzać godziny rozszerzonej czasu letniego. Z końcem okresu zegar jest ustawiana dla czasu standardowego.      > [!WARNING] > DaylightTime obiektu zwróconego przez <xref:System.TimeZone.GetDaylightChanges%2A?displayProperty=fullName>metody rozpoznaje tylko strefę czasową korekty zasady, która jest obecnie efekt i ignoruje wszelkie wcześniejsze reguły korekty dla których system ma informacje.</xref:System.TimeZone.GetDaylightChanges%2A?displayProperty=fullName> Zamiast tego dotyczy bieżącej regule dopasowania do tyłu w czasie okresy po jego mogły nie zostać obowiązywać. Aby uzyskać informacje o wszystkich reguł korygowania znane dla określonej strefy czasowej, użyj <xref:System.TimeZoneInfo.GetAdjustmentRules%2A?displayProperty=fullName>metody.</xref:System.TimeZoneInfo.GetAdjustmentRules%2A?displayProperty=fullName>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -38,20 +38,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Initializes a new instance of the <xref href=&quot;System.Globalization.DaylightTime&quot;></xref> class with the specified start, end, and time difference information."
-  remarks: "The `start` parameter becomes the value of the <xref:System.Globalization.DaylightTime.Start%2A> property of the new object. The `end` parameter becomes the value of the <xref:System.Globalization.DaylightTime.End%2A> property of the new object. The `delta` parameter becomes the value of the <xref:System.Globalization.DaylightTime.Delta%2A> property of the new object."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Globalization.DaylightTime&quot;> </xref> z datą początkową, zakończenia i informacje różnica czasu."
+  remarks: "`start` Parametru staje się wartością <xref:System.Globalization.DaylightTime.Start%2A>Właściwość nowego obiektu.</xref:System.Globalization.DaylightTime.Start%2A> `end` Parametru staje się wartością <xref:System.Globalization.DaylightTime.End%2A>Właściwość nowego obiektu.</xref:System.Globalization.DaylightTime.End%2A> `delta` Parametru staje się wartością <xref:System.Globalization.DaylightTime.Delta%2A>Właściwość nowego obiektu.</xref:System.Globalization.DaylightTime.Delta%2A>"
   syntax:
     content: public DaylightTime (DateTime start, DateTime end, TimeSpan delta);
     parameters:
     - id: start
       type: System.DateTime
-      description: "The object that represents the date and time when daylight saving time begins. The value must be in local time."
+      description: "Obiekt reprezentujący datę i godzinę rozpoczęcia czasu letniego. Wartość musi być według czasu lokalnego."
     - id: end
       type: System.DateTime
-      description: "The object that represents the date and time when daylight saving time ends. The value must be in local time."
+      description: "Obiekt reprezentujący datę i godzinę zakończenia czasu letniego. Wartość musi być według czasu lokalnego."
     - id: delta
       type: System.TimeSpan
-      description: "The object that represents the difference between standard time and daylight saving time, in ticks."
+      description: "Obiekt, który reprezentuje różnica między (czas standardowy) i czasu, w znaczniki osi."
   overload: System.Globalization.DaylightTime.#ctor*
   exceptions: []
   platform:
@@ -68,13 +68,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Gets the time interval that represents the difference between standard time and daylight saving time."
-  remarks: "This property corresponds to the <xref:System.TimeZoneInfo.AdjustmentRule.DaylightDelta%2A?displayProperty=fullName> property. Generally, the <xref:System.TimeZoneInfo> class is a more accurate source of information on time zone adjustments than the <xref:System.TimeZone> and <xref:System.Globalization.DaylightTime> classes.       If the property value is positive, at the start of daylight saving time, the clock time is advanced by the length of time specified by this property. At the end of daylight saving time, the clock time is set back by the length of time specified by this property. If the property value is negative, the clock time is set back at the start of daylight saving time and advanced at the end."
+  summary: "Pobiera przedział czasu, reprezentujący różnica między (czas standardowy) i czasu letniego."
+  remarks: "Ta właściwość odpowiada <xref:System.TimeZoneInfo.AdjustmentRule.DaylightDelta%2A?displayProperty=fullName>Właściwości.</xref:System.TimeZoneInfo.AdjustmentRule.DaylightDelta%2A?displayProperty=fullName> Ogólnie rzecz biorąc <xref:System.TimeZoneInfo>klasy jest źródłem dokładniejszych informacji na temat dopasowania strefy czasowej niż <xref:System.TimeZone>i <xref:System.Globalization.DaylightTime>klasy.</xref:System.Globalization.DaylightTime> </xref:System.TimeZone> </xref:System.TimeZoneInfo>       Jeśli wartość właściwości jest dodatnia, w momencie rozpoczęcia obowiązywania czasu letniego, czas zegara jest zaawansowane przez czas określony przez tę właściwość. Z końcem okresu obowiązywania czasu letniego czasu zegara ustawiono wstecz przez czas określony przez tę właściwość. Jeśli wartość właściwości jest ujemna, czas zegara jest ustawiana w momencie rozpoczęcia obowiązywania czasu letniego i Zaawansowane na końcu."
   syntax:
     content: public TimeSpan Delta { get; }
     return:
       type: System.TimeSpan
-      description: "The time interval that represents the difference between standard time and daylight saving time."
+      description: "Przedział czasu, to jest różnicą między (czas standardowy) i czasu letniego."
   overload: System.Globalization.DaylightTime.Delta*
   exceptions: []
   platform:
@@ -91,13 +91,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Gets the object that represents the date and time when the daylight saving period ends."
-  remarks: "This property corresponds to the <xref:System.TimeZoneInfo.AdjustmentRule.DateEnd%2A?displayProperty=fullName> property. Generally, the <xref:System.TimeZoneInfo> class is a more accurate source of information on time zone adjustments than the <xref:System.TimeZone> and <xref:System.Globalization.DaylightTime> classes.       When the daylight saving period ends, the clock time is set back to standard time."
+  summary: "Pobiera obiekt, który reprezentuje datę i godzinę Uwzględniaj terminu."
+  remarks: "Ta właściwość odpowiada <xref:System.TimeZoneInfo.AdjustmentRule.DateEnd%2A?displayProperty=fullName>Właściwości.</xref:System.TimeZoneInfo.AdjustmentRule.DateEnd%2A?displayProperty=fullName> Ogólnie rzecz biorąc <xref:System.TimeZoneInfo>klasy jest źródłem dokładniejszych informacji na temat dopasowania strefy czasowej niż <xref:System.TimeZone>i <xref:System.Globalization.DaylightTime>klasy.</xref:System.Globalization.DaylightTime> </xref:System.TimeZone> </xref:System.TimeZoneInfo>       Po zakończeniu okresu Uwzględniaj czasu zegara jest ustawiana dla (czas standardowy)."
   syntax:
     content: public DateTime End { get; }
     return:
       type: System.DateTime
-      description: "The object that represents the date and time when the daylight saving period ends. The value is in local time."
+      description: "Obiekt, który reprezentuje datę i godzinę Uwzględniaj terminu. Wartość jest według czasu lokalnego."
   overload: System.Globalization.DaylightTime.End*
   exceptions: []
   platform:
@@ -114,13 +114,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Gets the object that represents the date and time when the daylight saving period begins."
-  remarks: "This property corresponds to the <xref:System.TimeZoneInfo.AdjustmentRule.DateStart%2A?displayProperty=fullName> property. Generally, the <xref:System.TimeZoneInfo> class is a more accurate source of information on time zone adjustments than the <xref:System.TimeZone> and <xref:System.Globalization.DaylightTime> classes.       When the daylight saving period begins, the clock time is advanced by the number of ticks defined by the <xref:System.Globalization.DaylightTime.Delta%2A> property to take advantage of the extended daylight hours."
+  summary: "Pobiera obiekt reprezentujący datę i godzinę rozpoczęcia Uwzględnij okres czasu."
+  remarks: "Ta właściwość odpowiada <xref:System.TimeZoneInfo.AdjustmentRule.DateStart%2A?displayProperty=fullName>Właściwości.</xref:System.TimeZoneInfo.AdjustmentRule.DateStart%2A?displayProperty=fullName> Ogólnie rzecz biorąc <xref:System.TimeZoneInfo>klasy jest źródłem dokładniejszych informacji na temat dopasowania strefy czasowej niż <xref:System.TimeZone>i <xref:System.Globalization.DaylightTime>klasy.</xref:System.Globalization.DaylightTime> </xref:System.TimeZone> </xref:System.TimeZoneInfo>       Po rozpoczęciu Uwzględniaj okres czasu zegara jest zaawansowane przez ich liczba zdefiniowanych przez <xref:System.Globalization.DaylightTime.Delta%2A>Właściwości przeprowadzać godziny rozszerzonej czasu letniego.</xref:System.Globalization.DaylightTime.Delta%2A>"
   syntax:
     content: public DateTime Start { get; }
     return:
       type: System.DateTime
-      description: "The object that represents the date and time when the daylight saving period begins. The value is in local time."
+      description: "Obiekt reprezentujący datę i godzinę rozpoczęcia Uwzględnij okres czasu. Wartość jest według czasu lokalnego."
   overload: System.Globalization.DaylightTime.Start*
   exceptions: []
   platform:
