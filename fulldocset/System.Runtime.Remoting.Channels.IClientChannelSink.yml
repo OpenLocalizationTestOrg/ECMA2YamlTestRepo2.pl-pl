@@ -14,8 +14,8 @@ items:
   nameWithType: IClientChannelSink
   fullName: System.Runtime.Remoting.Channels.IClientChannelSink
   type: Interface
-  summary: "Provides required functions and properties for client channel sinks."
-  remarks: "Channel sinks provide a plug-in point that allows access to the underlying messages flowing through the channel as well as the stream used by the transport mechanism to send messages to a remote object. Channel sinks are linked together in a chain of channel sink providers and all channel messages flow through this chain of sinks before they are serialized and transported."
+  summary: "Udostępnia właściwości i funkcje wymagane dla wychwytywanie kanału klienta."
+  remarks: "Wychwytywanie kanału Podaj wtyczki punkt, który zezwala na dostęp do podstawowych komunikaty przepływających przez kanał, a także strumień używany przez mechanizm transportu do wysyłania komunikatów do obiektu zdalnego. Wychwytywanie kanału łączenia w łańcuch dostawcy zbiornika kanału i wszystkich kanału przepływ komunikatów przez ten łańcuch wychwytywanie przed ich serializowane i transportowane."
   example:
   - "The following code example illustrates an implementation of the IClientChannelSink interface.  \n  \n [!code-cs[Remoting_Sinks#20](~/add/codesnippet/csharp/t-system.runtime.remotin_52_1.cs)]\n [!code-cpp[Remoting_Sinks#20](~/add/codesnippet/cpp/t-system.runtime.remotin_52_1.cpp)]  \n  \n See the <xref:System.Runtime.Remoting.Channels.IClientChannelSinkProvider> interface documentation for an example of the corresponding client sink provider implementation."
   syntax:
@@ -39,7 +39,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Requests asynchronous processing of a method call on the current sink."
+  summary: "Żądania asynchronicznego przetwarzania metody wywołać dla bieżącego obiektu sink."
   remarks: ''
   example:
   - >-
@@ -51,21 +51,21 @@ items:
     parameters:
     - id: sinkStack
       type: System.Runtime.Remoting.Channels.IClientChannelSinkStack
-      description: "A stack of channel sinks that called this sink."
+      description: "Wychwytywanie stosu kanału, który wywołuje ten obiekt sink."
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The message to process."
+      description: "Komunikat do przetworzenia."
     - id: headers
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "The headers to add to the outgoing message heading to the server."
+      description: "Nagłówki do dodania do nagłówka wiadomości wychodzących na serwerze."
     - id: stream
       type: System.IO.Stream
-      description: "The stream headed to the transport sink."
+      description: "Strumień do ujścia transportu z nagłówkiem."
   overload: System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessRequest*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Bezpośredniego obiektu wywołującego nie ma uprawnienia infrastruktury."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessResponse(System.Runtime.Remoting.Channels.IClientResponseChannelSinkStack,System.Object,System.Runtime.Remoting.Channels.ITransportHeaders,System.IO.Stream)
@@ -80,7 +80,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Requests asynchronous processing of a response to a method call on the current sink."
+  summary: "Żądania asynchroniczne przetwarzanie odpowiedzi do metody wywołać dla bieżącego obiektu sink."
   remarks: ''
   example:
   - >-
@@ -92,21 +92,21 @@ items:
     parameters:
     - id: sinkStack
       type: System.Runtime.Remoting.Channels.IClientResponseChannelSinkStack
-      description: "A stack of sinks that called this sink."
+      description: "Stos wychwytywanie, które wywołuje ten obiekt sink."
     - id: state
       type: System.Object
-      description: "Information generated on the request side that is associated with this sink."
+      description: "Informacje generowane po stronie żądania, który jest skojarzony z tym zbiornika."
     - id: headers
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "The headers retrieved from the server response stream."
+      description: "Nagłówki są pobierane z serwera strumienia odpowiedzi."
     - id: stream
       type: System.IO.Stream
-      description: "The stream coming back from the transport sink."
+      description: "Strumień pochodzące zbiornika transportu."
   overload: System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessResponse*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Bezpośredniego obiektu wywołującego nie ma uprawnienia infrastruktury."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.IClientChannelSink.GetRequestStream(System.Runtime.Remoting.Messaging.IMessage,System.Runtime.Remoting.Channels.ITransportHeaders)
@@ -121,8 +121,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Returns the <xref:System.IO.Stream> onto which the provided message is to be serialized."
-  remarks: "The GetRequestStream method is called by the formatter sink before it serializes the message."
+  summary: "Zwraca <xref:System.IO.Stream>na który jest podany komunikat do serializacji.</xref:System.IO.Stream>"
+  remarks: "Metoda GetRequestStream jest wywoływana przez zbiornika programu formatującego, przed jego serializuje wiadomości."
   example:
   - "The following code example illustrates an implementation of this method.  \n  \n [!code-cs[Remoting_Sinks#23](~/add/codesnippet/csharp/1916f42a-20b1-48ec-91cb-_1.cs)]\n [!code-cpp[Remoting_Sinks#23](~/add/codesnippet/cpp/1916f42a-20b1-48ec-91cb-_1.cpp)]"
   syntax:
@@ -130,18 +130,18 @@ items:
     parameters:
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The <xref href=&quot;System.Runtime.Remoting.Messaging.IMethodCallMessage&quot;></xref> containing details about the method call."
+      description: "<xref href=&quot;System.Runtime.Remoting.Messaging.IMethodCallMessage&quot;> </xref> Zawierający szczegółowe informacje o wywołaniu metody."
     - id: headers
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "The headers to add to the outgoing message heading to the server."
+      description: "Nagłówki do dodania do nagłówka wiadomości wychodzących na serwerze."
     return:
       type: System.IO.Stream
-      description: "The <xref:System.IO.Stream> onto which the provided message is to be serialized."
+      description: "<xref:System.IO.Stream>Na który jest podany komunikat do serializacji.</xref:System.IO.Stream>"
   overload: System.Runtime.Remoting.Channels.IClientChannelSink.GetRequestStream*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Bezpośredniego obiektu wywołującego nie ma uprawnienia infrastruktury."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.IClientChannelSink.NextChannelSink
@@ -156,20 +156,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Gets the next client channel sink in the client sink chain."
-  remarks: "Channel sinks are linked together in a chain of sink providers and all channel messages flow through this chain before they are serialized and transported."
+  summary: "Pobiera następny klient zbiornika kanału w łańcuchu zbiornika klienta."
+  remarks: "Wychwytywanie kanału łączenia w łańcuch dostawcy zbiorników i wszystkie kanału przepływ komunikatów przez ten łańcuch przed ich serializowane i transportowane."
   example:
   - "The following code example illustrates an implementation of this property.  \n  \n [!code-cs[Remoting_Sinks#22](~/add/codesnippet/csharp/p-system.runtime.remotin_101_1.cs)]\n [!code-cpp[Remoting_Sinks#22](~/add/codesnippet/cpp/p-system.runtime.remotin_101_1.cpp)]"
   syntax:
     content: public System.Runtime.Remoting.Channels.IClientChannelSink NextChannelSink { get; }
     return:
       type: System.Runtime.Remoting.Channels.IClientChannelSink
-      description: "The next client channel sink in the client sink chain."
+      description: "Sink następnego kanału klienta w łańcuchu zbiornika klienta."
   overload: System.Runtime.Remoting.Channels.IClientChannelSink.NextChannelSink*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Bezpośredniego obiektu wywołującego nie ma uprawnienia infrastruktury."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage(System.Runtime.Remoting.Messaging.IMessage,System.Runtime.Remoting.Channels.ITransportHeaders,System.IO.Stream,System.Runtime.Remoting.Channels.ITransportHeaders@,System.IO.Stream@)
@@ -184,7 +184,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Requests message processing from the current sink."
+  summary: "Komunikat żądania przetwarzania z bieżącego obiektu sink."
   remarks: ''
   example:
   - "The following code example illustrates an implementation of this method.  \n  \n [!code-cs[Remoting_Sinks#24](~/add/codesnippet/csharp/fa2e7088-0e28-4fef-8867-_1.cs)]\n [!code-cpp[Remoting_Sinks#24](~/add/codesnippet/cpp/fa2e7088-0e28-4fef-8867-_1.cpp)]"
@@ -193,24 +193,24 @@ items:
     parameters:
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The message to process."
+      description: "Komunikat do przetworzenia."
     - id: requestHeaders
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "The headers to add to the outgoing message heading to the server."
+      description: "Nagłówki do dodania do nagłówka wiadomości wychodzących na serwerze."
     - id: requestStream
       type: System.IO.Stream
-      description: "The stream headed to the transport sink."
+      description: "Strumień do ujścia transportu z nagłówkiem."
     - id: responseHeaders
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "When this method returns, contains a <xref href=&quot;System.Runtime.Remoting.Channels.ITransportHeaders&quot;></xref> interface that holds the headers that the server returned. This parameter is passed uninitialized."
+      description: "Po powrocie z tej metody zawiera <xref href=&quot;System.Runtime.Remoting.Channels.ITransportHeaders&quot;> </xref> interfejs, który zawiera nagłówki, które serwer zwrócił. Ten parametr jest przekazywany jako niezainicjowany."
     - id: responseStream
       type: System.IO.Stream
-      description: "When this method returns, contains a <xref:System.IO.Stream> coming back from the transport sink. This parameter is passed uninitialized."
+      description: "Po powrocie z tej metody zawiera <xref:System.IO.Stream>pochodzące zbiornika transportu.</xref:System.IO.Stream> Ten parametr jest przekazywany jako niezainicjowany."
   overload: System.Runtime.Remoting.Channels.IClientChannelSink.ProcessMessage*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Bezpośredniego obiektu wywołującego nie ma uprawnienia infrastruktury."
   platform:
   - net462
 references:
