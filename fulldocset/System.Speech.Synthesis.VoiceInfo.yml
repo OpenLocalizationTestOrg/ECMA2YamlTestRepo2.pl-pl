@@ -19,8 +19,8 @@ items:
   nameWithType: VoiceInfo
   fullName: System.Speech.Synthesis.VoiceInfo
   type: Class
-  summary: "Represents an installed speech synthesis engine."
-  remarks: "A voice is an installed speech synthesis engine, which is also referred to as a text-to-speech engine or a TTS engine. The <xref:System.Speech.Synthesis.SpeechSynthesizer> object uses a voice to generate speech from text. The properties of the VoiceInfo object identify a voice and describe its characteristics. The most defining characteristic of a voice is its <xref:System.Speech.Synthesis.VoiceInfo.Culture%2A>, which defines the single language that a voice can speak.       The <xref:System.Speech.Synthesis.SpeechSynthesizer.Voice%2A> property returns a VoiceInfo object that contains information about the current voice in use by the <xref:System.Speech.Synthesis.SpeechSynthesizer>. You can also use a VoiceInfo object to get information about any of the voices that are installed on the system, as returned by the <xref:System.Speech.Synthesis.SpeechSynthesizer.GetInstalledVoices> method. See <xref:System.Speech.Synthesis.InstalledVoice> for more information."
+  summary: "Reprezentuje aparat syntezy zainstalowanych mowy."
+  remarks: "Głos jest aparat syntezy zainstalowanych mowy, który jest również nazywany tekst na mowę aparat lub aparatu TTS. <xref:System.Speech.Synthesis.SpeechSynthesizer>Obiektu używa głosu, aby wygenerować mowy z pliku tekstowego.</xref:System.Speech.Synthesis.SpeechSynthesizer> Właściwości obiektu VoiceInfo identyfikujące głosu i opisujące jego właściwości. Najbardziej Definiowanie cech głosu jest jego <xref:System.Speech.Synthesis.VoiceInfo.Culture%2A>, który definiuje jednego języka, który można mowy głosu.</xref:System.Speech.Synthesis.VoiceInfo.Culture%2A>       <xref:System.Speech.Synthesis.SpeechSynthesizer.Voice%2A>Właściwość zwraca obiekt VoiceInfo, który zawiera informacje o bieżącym głos używany przez <xref:System.Speech.Synthesis.SpeechSynthesizer>.</xref:System.Speech.Synthesis.SpeechSynthesizer> </xref:System.Speech.Synthesis.SpeechSynthesizer.Voice%2A> Umożliwia także obiekt VoiceInfo Aby uzyskać informacje o zainstalowanych w systemie, głosy zwrócony przez <xref:System.Speech.Synthesis.SpeechSynthesizer.GetInstalledVoices>metody.</xref:System.Speech.Synthesis.SpeechSynthesizer.GetInstalledVoices> Zobacz <xref:System.Speech.Synthesis.InstalledVoice>Aby uzyskać więcej informacji.</xref:System.Speech.Synthesis.InstalledVoice>"
   example:
   - "The following example is part of a console application that initializes a <xref:System.Speech.Synthesis.SpeechSynthesizer> object and outputs to the console a list of the installed voices (engines for speech synthesis) and demonstrates the information that is available for each voice.  \n  \n```c#  \nusing System;  \nusing System.Speech.Synthesis;  \nusing System.Speech.AudioFormat;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      using (SpeechSynthesizer synth = new SpeechSynthesizer())  \n      {  \n  \n        // Output information about all of the installed voices.   \n        Console.WriteLine(\"Installed voices -\");  \n        foreach (InstalledVoice voice in synth.GetInstalledVoices())  \n        {  \n          VoiceInfo info = voice.VoiceInfo;  \n          string AudioFormats = \"\";  \n          foreach (SpeechAudioFormatInfo fmt in info.SupportedAudioFormats)  \n          {  \n            AudioFormats += String.Format(\"{0}\\n\",  \n            fmt.EncodingFormat.ToString());  \n          }  \n  \n          Console.WriteLine(\" Name:          \" + info.Name);  \n          Console.WriteLine(\" Culture:       \" + info.Culture);  \n          Console.WriteLine(\" Age:           \" + info.Age);  \n          Console.WriteLine(\" Gender:        \" + info.Gender);  \n          Console.WriteLine(\" Description:   \" + info.Description);  \n          Console.WriteLine(\" ID:            \" + info.Id);  \n          Console.WriteLine(\" Enabled:       \" + voice.Enabled);  \n          if (info.SupportedAudioFormats.Count != 0)  \n          {  \n            Console.WriteLine( \" Audio formats: \" + AudioFormats);  \n          }  \n          else  \n          {  \n            Console.WriteLine(\" No supported audio formats found\");  \n          }  \n  \n          string AdditionalInfo = \"\";  \n          foreach (string key in info.AdditionalInfo.Keys)  \n          {  \n            AdditionalInfo += String.Format(\"  {0}: {1}\\n\", key, info.AdditionalInfo[key]);  \n          }  \n  \n          Console.WriteLine(\" Additional Info - \" + AdditionalInfo);  \n          Console.WriteLine();  \n        }  \n      }  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n  \n```"
   syntax:
@@ -46,12 +46,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets additional information about the voice."
+  summary: "Pobiera dodatkowe informacje na temat głosu."
   syntax:
     content: public System.Collections.Generic.IDictionary<string,string> AdditionalInfo { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Returns a collection of name/value pairs that describe and identify the voice."
+      description: "Zwraca kolekcję par nazw i wartości, które opisują i zidentyfikować głosu."
   overload: System.Speech.Synthesis.VoiceInfo.AdditionalInfo*
   exceptions: []
   platform:
@@ -68,13 +68,13 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets the age of the voice."
-  remarks: "The Age property gets a member of the <xref:System.Speech.Synthesis.VoiceAge> enumeration that indicates the age of the voice."
+  summary: "Pobiera wieku głosu."
+  remarks: "Właściwość wieku pobiera członkiem <xref:System.Speech.Synthesis.VoiceAge>wyliczenia wskazująca wieku głosu.</xref:System.Speech.Synthesis.VoiceAge>"
   syntax:
     content: public System.Speech.Synthesis.VoiceAge Age { get; }
     return:
       type: System.Speech.Synthesis.VoiceAge
-      description: "Returns the age of the voice."
+      description: "Zwraca wieku głosu."
   overload: System.Speech.Synthesis.VoiceInfo.Age*
   exceptions: []
   platform:
@@ -91,13 +91,13 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets the culture of the voice."
-  remarks: "The <xref:System.Globalization.CultureInfo> class specifies a unique name for each culture. The name is a combination of an ISO 639 two-letter lowercase culture code associated with a language and an ISO 3166 two-letter uppercase subculture code associated with a country or region. Examples of culture names include &quot;es-US&quot; for Spanish as spoken in the US, or &quot;fr-CA&quot; for French as spoken in Canada. You can specify a neutral culture by using only the two-digit lowercase language code. For example, &quot;fr&quot; specifies the neutral culture for French, and &quot;de&quot; specifies the neutral culture for German."
+  summary: "Pobiera kultury głosu."
+  remarks: "<xref:System.Globalization.CultureInfo>Klasy Określa unikatową nazwę dla każdej kultur.</xref:System.Globalization.CultureInfo> Nazwa jest kombinacją kod kultury małe dwuliterowych ISO 639 skojarzone z językiem i normy ISO 3166 dwuliterowych przeszczepiania wielkie litery kod kraju lub regionu. Nazwy kultury przykładami &quot;es pl&quot; dla języka hiszpańskiego jak używany w Stanach Zjednoczonych lub &quot;fr-CA&quot; francuski, ponieważ używany w Kanady. Można określić kultury neutralnej przy użyciu tylko kod języka małe dwucyfrowym. Na przykład &quot;fr&quot; Określa kulturę neutralną francuski, a &quot;de&quot; Określa kulturę neutralną na język niemiecki."
   syntax:
     content: public System.Globalization.CultureInfo Culture { get; }
     return:
       type: System.Globalization.CultureInfo
-      description: "Returns a <xref:System.Globalization.CultureInfo> object that provides information about a specific culture, such as the names of the culture, the writing system, the calendar used, and how to format dates and sort strings."
+      description: "Zwraca <xref:System.Globalization.CultureInfo>obiektu, który zawiera informacje o określoną kulturę, takich jak nazwy kultury, system pisma i używany kalendarz oraz sposób formatowania dat i sortowanie ciągów.</xref:System.Globalization.CultureInfo>"
   overload: System.Speech.Synthesis.VoiceInfo.Culture*
   exceptions: []
   platform:
@@ -114,12 +114,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets the description of the voice."
+  summary: "Pobiera opis głosu."
   syntax:
     content: public string Description { get; }
     return:
       type: System.String
-      description: "Returns the description of the voice."
+      description: "Zwraca opis głosu."
   overload: System.Speech.Synthesis.VoiceInfo.Description*
   exceptions: []
   platform:
@@ -136,17 +136,17 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Compares the fields of the voice with the specified <xref href=&quot;System.Speech.Synthesis.VoiceInfo&quot;></xref> object to determine whether they contain the same values."
-  remarks: "The Equals method takes a <xref:System.Object> type as its parameter. If that object is not of the <xref:System.Speech.Synthesis.VoiceInfo> type, the method returns `False`."
+  summary: "Porównanie pola głosu z określonym <xref href=&quot;System.Speech.Synthesis.VoiceInfo&quot;> </xref> obiektem, aby określić, czy zawierają one takie same wartości."
+  remarks: "Metoda Equals przyjmuje <xref:System.Object>typu jako jego parametr.</xref:System.Object> Jeśli ten obiekt nie jest <xref:System.Speech.Synthesis.VoiceInfo>Typ, metoda zwraca `False`.</xref:System.Speech.Synthesis.VoiceInfo>"
   syntax:
     content: public override bool Equals (object obj);
     parameters:
     - id: obj
       type: System.Object
-      description: "The specified <xref href=&quot;System.Speech.Synthesis.VoiceInfo&quot;></xref> object."
+      description: "Określony <xref href=&quot;System.Speech.Synthesis.VoiceInfo&quot;> </xref> obiektu."
     return:
       type: System.Boolean
-      description: "Returns <xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref> if the fields of the two <xref href=&quot;System.Speech.Synthesis.VoiceInfo&quot;></xref> objects are equal; otherwise returns <xref uid=&quot;langword_csharp_False&quot; name=&quot;False&quot; href=&quot;&quot;></xref>."
+      description: "Zwraca <xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;> </xref> Jeśli pola dwa <xref href=&quot;System.Speech.Synthesis.VoiceInfo&quot;> </xref> obiekty są równe; w przeciwnym razie zwraca <xref uid=&quot;langword_csharp_False&quot; name=&quot;False&quot; href=&quot;&quot;> </xref>."
   overload: System.Speech.Synthesis.VoiceInfo.Equals*
   exceptions: []
   platform:
@@ -163,13 +163,13 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets the gender of the voice."
-  remarks: "The Gender property gets a member of the <xref:System.Speech.Synthesis.VoiceGender> enumeration that indicates the gender of the voice."
+  summary: "Pobiera płci głosu."
+  remarks: "Właściwość płci pobiera członkiem <xref:System.Speech.Synthesis.VoiceGender>wyliczenia wskazująca płci głosu.</xref:System.Speech.Synthesis.VoiceGender>"
   syntax:
     content: public System.Speech.Synthesis.VoiceGender Gender { get; }
     return:
       type: System.Speech.Synthesis.VoiceGender
-      description: "Returns the gender of the voice."
+      description: "Zwraca płci głosu."
   overload: System.Speech.Synthesis.VoiceInfo.Gender*
   exceptions: []
   platform:
@@ -186,13 +186,13 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Provides a hash code for a `VoiceInfo` object."
+  summary: "Udostępnia wartość skrótu dla `VoiceInfo` obiektu."
   syntax:
     content: public override int GetHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "A hash code for the current <xref href=&quot;System.Speech.Synthesis.VoiceInfo&quot;></xref> object."
+      description: "Wartość skrótu dla bieżącego <xref href=&quot;System.Speech.Synthesis.VoiceInfo&quot;> </xref> obiektu."
   overload: System.Speech.Synthesis.VoiceInfo.GetHashCode*
   exceptions: []
   platform:
@@ -209,12 +209,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets the ID of the voice."
+  summary: "Pobiera identyfikator głosu."
   syntax:
     content: public string Id { get; }
     return:
       type: System.String
-      description: "Returns the identifier for the voice."
+      description: "Zwraca identyfikator dla głosu."
   overload: System.Speech.Synthesis.VoiceInfo.Id*
   exceptions: []
   platform:
@@ -231,12 +231,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets the name of the voice."
+  summary: "Pobiera nazwę głosu."
   syntax:
     content: public string Name { get; }
     return:
       type: System.String
-      description: "Returns the name of the voice."
+      description: "Zwraca nazwę głosu."
   overload: System.Speech.Synthesis.VoiceInfo.Name*
   exceptions: []
   platform:
@@ -253,12 +253,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets the collection of audio formats that the voice supports."
+  summary: "Pobiera kolekcję formatów audio, które obsługuje głosu."
   syntax:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<System.Speech.AudioFormat.SpeechAudioFormatInfo> SupportedAudioFormats { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Speech.AudioFormat.SpeechAudioFormatInfo}
-      description: "Returns a collection of the audio formats that the voice supports."
+      description: "Zwraca kolekcję formatów audio, które obsługuje głosu."
   overload: System.Speech.Synthesis.VoiceInfo.SupportedAudioFormats*
   exceptions: []
   platform:
