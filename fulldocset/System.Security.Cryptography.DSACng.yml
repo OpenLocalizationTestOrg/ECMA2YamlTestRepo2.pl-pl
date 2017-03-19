@@ -23,7 +23,7 @@ items:
   nameWithType: DSACng
   fullName: System.Security.Cryptography.DSACng
   type: Class
-  summary: "Provides a Cryptography Next Generation (CNG) implementation of the Digital Signature Algorithm (DSA)."
+  summary: "Udostępnia implementację kryptografii nowej generacji (CNG) z algorytmem podpisów cyfrowych (DSA)."
   syntax:
     content: 'public sealed class DSACng : System.Security.Cryptography.DSA'
   inheritance:
@@ -61,7 +61,7 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Cryptography.DSACng&quot;></xref> class with a random 2,048-bit key pair."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Security.Cryptography.DSACng&quot;> </xref> klasy przy użyciu losowego pary klucza 2048 bitowych."
   syntax:
     content: public DSACng ();
     parameters: []
@@ -81,19 +81,19 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Cryptography.DSACng&quot;></xref> class with a randomly generated key of the specified size."
-  remarks: "Valid key sizes range from 512 to 3,072 bits, in increments of 64. We recommend that a minimum size of 2,048 bits be used for all keys."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Security.Cryptography.DSACng&quot;> </xref> klasy wygenerowanym losowo kluczem o określonym rozmiarze."
+  remarks: "Prawidłowe rozmiary klucza w zakresie od 512 do 3,072 bitów, w przyrostach 64. Firma Microsoft zaleca stosowanie dla wszystkich kluczy długości co najmniej 2048 bitów."
   syntax:
     content: public DSACng (int keySize);
     parameters:
     - id: keySize
       type: System.Int32
-      description: "The size of the key to generate in bits."
+      description: "Rozmiar klucza do wygenerowania w bitach."
   overload: System.Security.Cryptography.DSACng.#ctor*
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "<code>keySize</code> is not valid."
+    description: "<code>keySize</code>nie jest prawidłowy."
   platform:
   - net462
 - uid: System.Security.Cryptography.DSACng.#ctor(System.Security.Cryptography.CngKey)
@@ -108,22 +108,22 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Cryptography.DSACng&quot;></xref> class with the specified key."
-  remarks: "The <xref:System.Security.Cryptography.CngKey.AlgorithmGroup%2A?displayProperty=fullName> of `key` must be <xref:System.Security.Cryptography.CngAlgorithmGroup.Dsa%2A?displayProperty=fullName>.       This constructor creates a copy of the key. Even if `key` is disposed, the copy of this key object in DSA remains alive."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Security.Cryptography.DSACng&quot;> </xref> klasy z określonym kluczem."
+  remarks: "<xref:System.Security.Cryptography.CngKey.AlgorithmGroup%2A?displayProperty=fullName>z `key` musi być <xref:System.Security.Cryptography.CngAlgorithmGroup.Dsa%2A?displayProperty=fullName>.</xref:System.Security.Cryptography.CngAlgorithmGroup.Dsa%2A?displayProperty=fullName> </xref:System.Security.Cryptography.CngKey.AlgorithmGroup%2A?displayProperty=fullName>       Ten konstruktor tworzy kopię klucza. Nawet jeśli `key` jest usunięty, kopię tego obiektu klucza w DSA pozostaje aktywne."
   syntax:
     content: public DSACng (System.Security.Cryptography.CngKey key);
     parameters:
     - id: key
       type: System.Security.Cryptography.CngKey
-      description: "The key to use for DSA operations."
+      description: "Klucz do użycia dla operacji DSA."
   overload: System.Security.Cryptography.DSACng.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>key</code> is not a valid DSA key."
+    description: "<code>key</code>nie jest prawidłowym kluczem DSA."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>key</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>key</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Security.Cryptography.DSACng.CreateSignature(System.Byte[])
@@ -138,24 +138,24 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Creates the digital signature for the specified data."
+  summary: "Tworzy podpisu cyfrowego dla określonych danych."
   syntax:
     content: public override byte[] CreateSignature (byte[] rgbHash);
     parameters:
     - id: rgbHash
       type: System.Byte[]
-      description: "The data to be signed."
+      description: "Dane były podpisane."
     return:
       type: System.Byte[]
-      description: "The digital signature for the specified data."
+      description: "Podpis cyfrowy dla określonych danych."
   overload: System.Security.Cryptography.DSACng.CreateSignature*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>rgbHash</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>rgbHash</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "<code>rgbHash</code> is shorter in length than the Q value of the DSA key ."
+    description: "<code>rgbHash</code>jest krótszy niż wartość Q klucza algorytmu DSA."
   platform:
   - net462
 - uid: System.Security.Cryptography.DSACng.Dispose(System.Boolean)
@@ -175,7 +175,7 @@ items:
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "To be added."
+      description: "Do dodania."
   overload: System.Security.Cryptography.DSACng.Dispose*
   exceptions: []
   platform:
@@ -192,21 +192,21 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Exports the DSA algorithm parameters."
+  summary: "Eksportuje parametry algorytmu DSA."
   syntax:
     content: public override System.Security.Cryptography.DSAParameters ExportParameters (bool includePrivateParameters);
     parameters:
     - id: includePrivateParameters
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to include private parameters; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Aby uwzględnić parametry prywatny; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Security.Cryptography.DSAParameters
-      description: "The DSA algorithm parameters."
+      description: "Parametry algorytmu DSA."
   overload: System.Security.Cryptography.DSACng.ExportParameters*
   exceptions:
   - type: System.Security.Cryptography.CryptographicException
     commentId: T:System.Security.Cryptography.CryptographicException
-    description: "DSA key is not a valid public or private key."
+    description: "Klucz DSA nie jest prawidłowym kluczem publicznym lub prywatnym."
   platform:
   - net462
 - uid: System.Security.Cryptography.DSACng.HashData(System.IO.Stream,System.Security.Cryptography.HashAlgorithmName)
@@ -226,13 +226,13 @@ items:
     parameters:
     - id: data
       type: System.IO.Stream
-      description: "To be added."
+      description: "Do dodania."
     - id: hashAlgorithm
       type: System.Security.Cryptography.HashAlgorithmName
-      description: "To be added."
+      description: "Do dodania."
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "Do dodania."
   overload: System.Security.Cryptography.DSACng.HashData*
   exceptions: []
   platform:
@@ -254,19 +254,19 @@ items:
     parameters:
     - id: data
       type: System.Byte[]
-      description: "To be added."
+      description: "Do dodania."
     - id: offset
       type: System.Int32
-      description: "To be added."
+      description: "Do dodania."
     - id: count
       type: System.Int32
-      description: "To be added."
+      description: "Do dodania."
     - id: hashAlgorithm
       type: System.Security.Cryptography.HashAlgorithmName
-      description: "To be added."
+      description: "Do dodania."
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "Do dodania."
   overload: System.Security.Cryptography.DSACng.HashData*
   exceptions: []
   platform:
@@ -283,18 +283,18 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Replaces the existing key that the current instance is working with by creating a new <xref href=&quot;System.Security.Cryptography.CngKey&quot;></xref> for the parameters structure."
+  summary: "Powoduje zastąpienie istniejącego klucza, czy bieżące wystąpienie działa z przez utworzenie nowej <xref href=&quot;System.Security.Cryptography.CngKey&quot;> </xref> dla struktury parametrów."
   syntax:
     content: public override void ImportParameters (System.Security.Cryptography.DSAParameters parameters);
     parameters:
     - id: parameters
       type: System.Security.Cryptography.DSAParameters
-      description: "The DSA parameters."
+      description: "Parametry algorytmu DSA."
   overload: System.Security.Cryptography.DSACng.ImportParameters*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The specified DSA parameters are not valid."
+    description: "Określone parametry algorytmu DSA nie są prawidłowe."
   platform:
   - net462
 - uid: System.Security.Cryptography.DSACng.Key
@@ -309,13 +309,13 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets the key that will be used by the <xref href=&quot;System.Security.Cryptography.DSACng&quot;></xref> object for any cryptographic operation that it performs."
-  remarks: "The  <xref:System.Security.Cryptography.CngKey> object is disposed if the key is reset, for instance by changing the <xref:System.Security.Cryptography.CngKey.KeySize%2A?displayProperty=fullName> property, by using the <xref:System.Security.Cryptography.DSACng.ImportParameters%2A?displayProperty=fullName> method to create a new key, or by disposing the parent <xref:System.Security.Cryptography.DSACng> object. Therefore, you should ensure that the key object is no longer used in these cases.       This <xref:System.Security.Cryptography.CngKey> object is not the same as the <xref:System.Security.Cryptography.CngKey> object passed to the <xref:System.Security.Cryptography.DSACng.%23ctor%2A> constructor, if that constructor was used. However, it will point to the same CNG key."
+  summary: "Pobiera klucz, który będzie używany przez <xref href=&quot;System.Security.Cryptography.DSACng&quot;> </xref> obiektu dla operacji kryptograficznej, która wykonuje."
+  remarks: "<xref:System.Security.Cryptography.CngKey>Obiekt jest usunięty, jeśli klucz zostanie zresetowana, na przykład, zmieniając <xref:System.Security.Cryptography.CngKey.KeySize%2A?displayProperty=fullName>Właściwości, za pomocą <xref:System.Security.Cryptography.DSACng.ImportParameters%2A?displayProperty=fullName>metodę w celu utworzenia nowego klucza, lub usuwania nadrzędnego <xref:System.Security.Cryptography.DSACng>obiektu.</xref:System.Security.Cryptography.DSACng> </xref:System.Security.Cryptography.DSACng.ImportParameters%2A?displayProperty=fullName> </xref:System.Security.Cryptography.CngKey.KeySize%2A?displayProperty=fullName> </xref:System.Security.Cryptography.CngKey> Należy więc upewnij się, że klucza obiektu nie jest już używany w tych przypadkach.       To <xref:System.Security.Cryptography.CngKey>obiekt nie jest taka sama jak <xref:System.Security.Cryptography.CngKey>obiekt przekazywany do <xref:System.Security.Cryptography.DSACng.%23ctor%2A>konstruktora, jeśli użyto tego konstruktora.</xref:System.Security.Cryptography.DSACng.%23ctor%2A> </xref:System.Security.Cryptography.CngKey> </xref:System.Security.Cryptography.CngKey> Jednak będzie wskazywać na ten sam klucz CNG."
   syntax:
     content: public System.Security.Cryptography.CngKey Key { get; }
     return:
       type: System.Security.Cryptography.CngKey
-      description: "The key used by the <xref href=&quot;System.Security.Cryptography.DSACng&quot;></xref> object to perform cryptographic operations."
+      description: "Klucz używany przez <xref href=&quot;System.Security.Cryptography.DSACng&quot;> </xref> obiekt do wykonywania operacji kryptograficznych."
   overload: System.Security.Cryptography.DSACng.Key*
   exceptions: []
   platform:
@@ -332,7 +332,7 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets the name of the key exchange algorithm."
+  summary: "Pobiera nazwę Algorytm wymiany kluczy."
   syntax:
     content: public override string KeyExchangeAlgorithm { get; }
     return:
@@ -354,12 +354,12 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets the key sizes, in bits, that are supported by the DSA algorithm."
+  summary: "Pobiera klucze kryptograficzne w bitach, które są obsługiwane przez algorytmu DSA."
   syntax:
     content: public override System.Security.Cryptography.KeySizes[] LegalKeySizes { get; }
     return:
       type: System.Security.Cryptography.KeySizes[]
-      description: "An array that contains the key sizes supported by the algorithm."
+      description: "Tablica, która zawiera klucze kryptograficzne obsługiwaną przez algorytm."
   overload: System.Security.Cryptography.DSACng.LegalKeySizes*
   exceptions: []
   platform:
@@ -376,12 +376,12 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Gets the name of the signature algorithm."
+  summary: "Pobiera nazwę algorytmu podpisu."
   syntax:
     content: public override string SignatureAlgorithm { get; }
     return:
       type: System.String
-      description: "The string &quot;DSA&quot;."
+      description: "Ciąg &quot;DSA&quot;."
   overload: System.Security.Cryptography.DSACng.SignatureAlgorithm*
   exceptions: []
   platform:
@@ -398,19 +398,19 @@ items:
   assemblies:
   - System.Core
   namespace: System.Security.Cryptography
-  summary: "Verifies if the specified digital signature matches the specified data."
+  summary: "Sprawdza, czy określony podpis cyfrowy zgodne określone dane."
   syntax:
     content: public override bool VerifySignature (byte[] rgbHash, byte[] rgbSignature);
     parameters:
     - id: rgbHash
       type: System.Byte[]
-      description: "The signed data."
+      description: "Podpisane dane."
     - id: rgbSignature
       type: System.Byte[]
-      description: "The digital signature to be verified."
+      description: "Podpis cyfrowy do weryfikacji."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>rgbSignature</code> matches the signature computed using the specified data; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli <code> rgbSignature </code> zgodny z podpisem obliczonym przy użyciu określonych danych; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Cryptography.DSACng.VerifySignature*
   exceptions:
   - type: System.ArgumentNullException
@@ -418,7 +418,7 @@ items:
     description: "The <code>rgbHash</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <code>rgbSignature</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "<code>rgbHash</code> is shorter in length than the Q value of the DSA key ."
+    description: "<code>rgbHash</code>jest krótszy niż wartość Q klucza algorytmu DSA."
   platform:
   - net462
 references:

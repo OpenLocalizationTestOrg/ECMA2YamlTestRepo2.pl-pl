@@ -21,8 +21,8 @@ items:
   nameWithType: IReplyChannel
   fullName: System.ServiceModel.Channels.IReplyChannel
   type: Interface
-  summary: "Defines the interface that a channel must implement to be on the receiving side of a request-reply communication between messaging endpoints."
-  remarks: "The IReplyChannel interface includes synchronous and asynchronous variants of a <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A> method return an <xref:System.ServiceModel.Channels.RequestContext> that can be used to construct replies to received requests.       The contract includes synchronous and asynchronous variants of receive, try-to-receive and wait-for-a-message functionality.       An IReplyChannel is not necessarily bound to a single sender. Other channels and channel interfaces provide correlation between the sender and the reply channel, but the base contract makes no such restriction.       The pull model is used with an IReplyChannel to receive messages. This model consists of calling <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A> (or one of its variants) and then waiting for a message to arrive."
+  summary: "Definiuje interfejs, który kanał musi implementować się po stronie odbiorczej powiadomienia &quot;żądanie-odpowiedź&quot; między punktami końcowymi obsługi wiadomości."
+  remarks: "Interfejs IReplyChannel zawiera synchroniczne i asynchroniczne wariantów <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A>metody zwracany <xref:System.ServiceModel.Channels.RequestContext>można skonstruować odpowiedzi na żądania odebranego.</xref:System.ServiceModel.Channels.RequestContext> </xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A>       Umowa zawiera synchroniczne i asynchroniczne wariantów Receive, spróbuj odbierania i oczekiwania na wiadomość funkcje.       Element IReplyChannel nie jest zawsze powiązany z jednego nadawcy. Inne kanały i interfejsy kanału zapewniają korelacji między nadawcą i kanał odpowiedzi, ale podstawowego kontraktu sprawia, że ma takie ograniczenia.       Model polegający na ściąganiu jest używany z IReplyChannel do odbierania wiadomości. Ten model składa się z telefoniczną <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A>(lub jeden z jej wariantów), a następnie oczekiwanie na odebranie wiadomości.</xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A>"
   syntax:
     content: 'public interface IReplyChannel : System.ServiceModel.Channels.IChannel'
   implements:
@@ -41,8 +41,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Begins an asynchronous operation to receive an available request with a default timeout."
-  remarks: "The BeginReceiveRequest method implements the standard pattern for invoking <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest> asynchronously. The default timeout is 1 minute. If a receive timeout is set on the binding used to configure the connection, then that value is used. Use <xref:System.ServiceModel.Channels.IReplyChannel.BeginReceiveRequest%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29> if you want to specify an explicit timeout with the call that overrides these other values.       If the request message received is larger that the maximum message size allowed by the binding being used, a <xref:System.ServiceModel.QuotaExceededException> is thrown. The maximum message size is set by the <xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A> property. The default value is 65536 bytes."
+  summary: "Rozpoczyna operację asynchroniczną do obierania żądań dostępne z domyślny limit czasu."
+  remarks: "Metoda BeginReceiveRequest implementuje wzorzec standardowy do wywoływania <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest>asynchronicznie.</xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest> Domyślny limit czasu wynosi 1 min. Jeśli limit czasu odbioru jest ustawiona na powiązanie użyty do skonfigurowania połączenia, ta wartość jest używana. Użyj <xref:System.ServiceModel.Channels.IReplyChannel.BeginReceiveRequest%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29>Jeśli chcesz określić jawne limit czasu wywołania, który zastępuje te wartości innych.</xref:System.ServiceModel.Channels.IReplyChannel.BeginReceiveRequest%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29>       Jeśli odebrany komunikat żądania jest większy, że maksymalna komunikatu rozmiar dozwolony przez powiązanie jest używany, <xref:System.ServiceModel.QuotaExceededException>jest generowany.</xref:System.ServiceModel.QuotaExceededException> Maksymalny rozmiar wiadomości jest ustawiana przez <xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A>Właściwości.</xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A> Wartość domyślna to 65 536 bajtów."
   example:
   - "The following code illustrates how to implement this method:  \n  \n [!code-cs[S_UE_MessageInterceptor#1](~/add/codesnippet/csharp/b714b94c-13fc-4c03-a779-_1.cs)]"
   syntax:
@@ -50,13 +50,13 @@ items:
     parameters:
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives the notification of the asynchronous receive that a request operation completes."
+      description: "<xref:System.AsyncCallback>Delegata, który otrzymuje powiadomienie o asynchroniczną odbierania, że operacja żądania zostało ukończone.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous receive of a request operation."
+      description: "Obiekt określony przez aplikację, zawierający informacje o stanie skojarzone z asynchronicznego odbioru operacji żądania."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous reception of the request."
+      description: "<xref:System.IAsyncResult>, Która odwołuje się asynchronicznego odbioru żądania.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Channels.IReplyChannel.BeginReceiveRequest*
   exceptions: []
   platform:
@@ -73,8 +73,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Begins an asynchronous operation to receive an available request with a specified timeout."
-  remarks: "The BeginReceiveRequest method implements the standard pattern for invoking <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%28System.TimeSpan%29>asynchronously. The timeout set on this method overrides a receive timeout set on the binding that is used to configure the connection.       If the request message received is larger that the maximum message size allowed by the binding being used, a <xref:System.ServiceModel.QuotaExceededException> is thrown. The maximum message size is set by the <xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A> property. The default value is 65536 bytes."
+  summary: "Rozpoczyna operację asynchroniczną do obierania żądań dostępne z określonego limitu czasu."
+  remarks: "Metoda BeginReceiveRequest implementuje wzorzec standardowy do wywoływania <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%28System.TimeSpan%29>asynchronicznie.</xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%28System.TimeSpan%29> Limit czasu ustawiony dla tej metody przesłania limit czasu odbioru ustawiony dla powiązania używanego w taki sposób, aby skonfigurować połączenie.       Jeśli odebrany komunikat żądania jest większy, że maksymalna komunikatu rozmiar dozwolony przez powiązanie jest używany, <xref:System.ServiceModel.QuotaExceededException>jest generowany.</xref:System.ServiceModel.QuotaExceededException> Maksymalny rozmiar wiadomości jest ustawiana przez <xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A>Właściwości.</xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A> Wartość domyślna to 65 536 bajtów."
   example:
   - "The following code illustrates how to implement this method:  \n  \n [!code-cs[S_UE_MessageInterceptor#2](~/add/codesnippet/csharp/6f48cd8d-c63c-4708-86c4-_1.cs)]"
   syntax:
@@ -82,16 +82,16 @@ items:
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies the interval of time to wait for the reception of an available request."
+      description: "<xref:System.TimeSpan>, Który określa przedział czasu oczekiwania na odebranie dostępne żądania.</xref:System.TimeSpan>"
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives the notification of the asynchronous receive that a request operation completes."
+      description: "<xref:System.AsyncCallback>Delegata, który otrzymuje powiadomienie o asynchroniczną odbierania, że operacja żądania zostało ukończone.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous receive of a request operation."
+      description: "Obiekt określony przez aplikację, zawierający informacje o stanie skojarzone z asynchronicznego odbioru operacji żądania."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous reception of the request."
+      description: "<xref:System.IAsyncResult>, Która odwołuje się asynchronicznego odbioru żądania.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Channels.IReplyChannel.BeginReceiveRequest*
   exceptions: []
   platform:
@@ -108,8 +108,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Begins an asynchronous operation to receive a request message that has a specified time out and state object associated with it."
-  remarks: "Use the asynchronous BeginTryReceiveRequest method when you need the application processing to continue without waiting. Use one of the synchronous <xref:System.ServiceModel.Channels.IReplyChannel.TryReceiveRequest%28System.TimeSpan%2CSystem.ServiceModel.Channels.RequestContext%40%29> methods when it is acceptable for the current thread to be blocked while it replies to the request message or until the timeout interval is exceeded.       This method receives notification, through a callback, of the identity of the event handler for the operation. The operation is not complete until either a message becomes available in the channel or the time out occurs."
+  summary: "Rozpoczyna operację asynchroniczną komunikat żądania, który ma określony limit czasu i skojarzonych z nim obiekt stanu."
+  remarks: "Użyj metody asynchronicznej BeginTryReceiveRequest potrzeby przetwarzania aplikacji, aby kontynuować bez oczekiwania. Użyj jednej z synchronicznego <xref:System.ServiceModel.Channels.IReplyChannel.TryReceiveRequest%28System.TimeSpan%2CSystem.ServiceModel.Channels.RequestContext%40%29>metod, gdy nie jest możliwa do bieżącego wątku zablokowanie, gdy w odpowiedzi na komunikat żądania lub dopóki nie zostanie przekroczony limit czasu.</xref:System.ServiceModel.Channels.IReplyChannel.TryReceiveRequest%28System.TimeSpan%2CSystem.ServiceModel.Channels.RequestContext%40%29>       Ta metoda otrzymuje powiadomienie, poprzez wywołanie zwrotne, tożsamości programu obsługi zdarzeń dla tej operacji. Operacja nie jest pełną, dopóki komunikat o stanie się dostępny w kanale albo występuje limit czasu."
   example:
   - "The following code illustrates how to implement this method:  \n  \n [!code-cs[S_UE_MessageInterceptor#5](~/add/codesnippet/csharp/cdb71277-0f0f-4e22-85af-_1.cs)]"
   syntax:
@@ -117,16 +117,16 @@ items:
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies how long the receive request operation has to complete before timing out and returning <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref:System.TimeSpan>Określający, jak długo ma zostać ukończona przed limit czasu i zwracanie operacji żądania odbierania <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.TimeSpan>"
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives the notification of the asynchronous receive that a request operation completes."
+      description: "<xref:System.AsyncCallback>Delegata, który otrzymuje powiadomienie o asynchroniczną odbierania, że operacja żądania zostało ukończone.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous receive of a request operation."
+      description: "Obiekt określony przez aplikację, zawierający informacje o stanie skojarzone z asynchronicznego odbioru operacji żądania."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous receive request operation."
+      description: "<xref:System.IAsyncResult>, Która odwołuje się operacja żądania asynchronicznego odbioru.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Channels.IReplyChannel.BeginTryReceiveRequest*
   exceptions: []
   platform:
@@ -143,8 +143,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Begins an asynchronous request operation that has a specified time out and state object associated with it."
-  remarks: "Use the synchronous <xref:System.ServiceModel.Channels.IReplyChannel.WaitForRequest%28System.TimeSpan%29> method when it is acceptable for the current thread to be blocked while it waits for a request message to arrive in the queue. The thread is blocked up to the specified `timeout`.       This method receives notification, through a callback, of the identity of the event handler for the operation. The operation is not complete until either a request message becomes available in the channel or the time out occurs."
+  summary: "Rozpoczyna operację żądania asynchronicznego, która ma określony limit czasu i skojarzonych z nim obiekt stanu."
+  remarks: "Użyj synchroniczne <xref:System.ServiceModel.Channels.IReplyChannel.WaitForRequest%28System.TimeSpan%29>metody, gdy nie jest możliwa do bieżącego wątku być blokowane podczas oczekiwania na komunikat żądania w kolejce.</xref:System.ServiceModel.Channels.IReplyChannel.WaitForRequest%28System.TimeSpan%29> Wątek jest zablokowana w górę do określonego `timeout`.       Ta metoda otrzymuje powiadomienie, poprzez wywołanie zwrotne, tożsamości programu obsługi zdarzeń dla tej operacji. Operacja nie jest pełną, aż do komunikatu żądania staje się dostępna w kanale lub występuje limit czasu."
   example:
   - "The following code illustrates how to implement this method:  \n  \n [!code-cs[S_UE_MessageInterceptor#10](~/add/codesnippet/csharp/80573a5a-f5c0-4be0-a875-_1.cs)]"
   syntax:
@@ -152,16 +152,16 @@ items:
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies the interval of time to wait for the reception of an available request."
+      description: "<xref:System.TimeSpan>, Który określa przedział czasu oczekiwania na odebranie dostępne żądania.</xref:System.TimeSpan>"
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives the notification of the asynchronous receive that a request operation completes."
+      description: "<xref:System.AsyncCallback>Delegata, który otrzymuje powiadomienie o asynchroniczną odbierania, że operacja żądania zostało ukończone.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous receive of a request operation."
+      description: "Obiekt określony przez aplikację, zawierający informacje o stanie skojarzone z asynchronicznego odbioru operacji żądania."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous operation to wait for a request message to arrive."
+      description: "<xref:System.IAsyncResult>, Która odwołuje się operacja asynchroniczna oczekiwania na odebranie komunikat żądania.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Channels.IReplyChannel.BeginWaitForRequest*
   exceptions: []
   platform:
@@ -178,8 +178,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Completes an asynchronous operation to receive an available request."
-  remarks: "If the request message received is larger that the maximum message size allowed by the binding being used, a <xref:System.ServiceModel.QuotaExceededException> is thrown. The maximum message size is set by the <xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A> property. The default value is 65536 bytes."
+  summary: "Kończy operację asynchroniczną do obierania żądań od dostępne."
+  remarks: "Jeśli odebrany komunikat żądania jest większy, że maksymalna komunikatu rozmiar dozwolony przez powiązanie jest używany, <xref:System.ServiceModel.QuotaExceededException>jest generowany.</xref:System.ServiceModel.QuotaExceededException> Maksymalny rozmiar wiadomości jest ustawiana przez <xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A>Właściwości.</xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A> Wartość domyślna to 65 536 bajtów."
   example:
   - "The following code illustrates how to implement this method:  \n  \n [!code-cs[S_UE_MessageInterceptor#3](~/add/codesnippet/csharp/c3561a14-d2f1-46f1-99c2-_1.cs)]"
   syntax:
@@ -187,10 +187,10 @@ items:
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> returned by a call to the <xref:System.ServiceModel.Channels.IInputChannel.BeginReceive*> method."
+      description: "<xref:System.IAsyncResult>Zwrócony przez wywołanie do <xref:System.ServiceModel.Channels.IInputChannel.BeginReceive*>metody.</xref:System.ServiceModel.Channels.IInputChannel.BeginReceive*> </xref:System.IAsyncResult>"
     return:
       type: System.ServiceModel.Channels.RequestContext
-      description: "The <xref:System.ServiceModel.Channels.RequestContext> used to construct a reply to the request."
+      description: "<xref:System.ServiceModel.Channels.RequestContext>Użyty do utworzenia odpowiedzi na żądanie.</xref:System.ServiceModel.Channels.RequestContext>"
   overload: System.ServiceModel.Channels.IReplyChannel.EndReceiveRequest*
   exceptions: []
   platform:
@@ -207,7 +207,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Completes the specified asynchronous operation to receive a request message."
+  summary: "Kończy operację asynchroniczną określony komunikat żądania."
   remarks: ''
   example:
   - "The following code illustrates how to implement this method:  \n  \n [!code-cs[S_UE_MessageInterceptor#6](~/add/codesnippet/csharp/2c432ec9-bfc6-46e4-8a1c-_1.cs)]"
@@ -216,13 +216,13 @@ items:
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> returned by a call to the &lt;xref:System.ServiceModel.Channels.IReplyChannel.BeginTryReceiveRequest%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29&gt; method."
+      description: "<xref:System.IAsyncResult>Zwrócony przez wywołanie do &lt;xref:System.ServiceModel.Channels.IReplyChannel.BeginTryReceiveRequest%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29&gt; metody.</xref:System.IAsyncResult>"
     - id: context
       type: System.ServiceModel.Channels.RequestContext
-      description: "The <xref:System.ServiceModel.Channels.RequestContext> received."
+      description: "<xref:System.ServiceModel.Channels.RequestContext>Odebrano.</xref:System.ServiceModel.Channels.RequestContext>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a request message is received before the specified interval of time elapses; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli komunikat żądania zostanie odebrana przed określonym interwale upłynie czas; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Channels.IReplyChannel.EndTryReceiveRequest*
   exceptions: []
   platform:
@@ -239,7 +239,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Completes the specified asynchronous wait-for-a-request message operation."
+  summary: "Kończy operację określonego komunikatu oczekiwania dla żądania asynchronicznego."
   remarks: ''
   example:
   - "The following code illustrates how to implement this method:  \n  \n [!code-cs[S_UE_MessageInterceptor#11](~/add/codesnippet/csharp/fc7d466d-2acc-417f-aa1b-_1.cs)]"
@@ -248,10 +248,10 @@ items:
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that identifies the &lt;xref:System.ServiceModel.Channels.IReplyChannel.BeginWaitForRequest%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29&gt; operation to finish, and from which to retrieve an end result."
+      description: "<xref:System.IAsyncResult>, Które identyfikują &lt;xref:System.ServiceModel.Channels.IReplyChannel.BeginWaitForRequest%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29&gt; operację, aby zakończyć i z którego można pobrać wyniku.</xref:System.IAsyncResult>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a request is received before the specified interval of time elapses; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli żądanie zostanie odebrane przed określonym interwale upłynie czas; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Channels.IReplyChannel.EndWaitForRequest*
   exceptions: []
   platform:
@@ -268,7 +268,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets the address on which this reply channel receives messages."
+  summary: "Pobiera adres, na którym ten kanał odpowiedzi odbiera wiadomości."
   remarks: ''
   example:
   - "The following code illustrates how to implement this property:  \n  \n [!code-cs[S_UE_MessageInterceptor#0](~/add/codesnippet/csharp/p-system.servicemodel.ch_2_1.cs)]"
@@ -276,7 +276,7 @@ items:
     content: public System.ServiceModel.EndpointAddress LocalAddress { get; }
     return:
       type: System.ServiceModel.EndpointAddress
-      description: "The <xref:System.ServiceModel.EndpointAddress> on which this reply channel receives messages."
+      description: "<xref:System.ServiceModel.EndpointAddress>Na którym ten kanał odpowiedzi odbiera komunikaty.</xref:System.ServiceModel.EndpointAddress>"
   overload: System.ServiceModel.Channels.IReplyChannel.LocalAddress*
   exceptions: []
   platform:
@@ -293,8 +293,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Returns the context of the request received, if one is available. If a context is not available, waits until there is one available."
-  remarks: "<xref:System.ServiceModel.Channels.RequestContext> encapsulates the request message and a mechanism for replying to that message.       ReceiveRequest can be called multiple times or concurrently. Only one ReceiveRequest call completes per request received.       If the request message received is larger that the maximum message size allowed by the binding being used, a <xref:System.ServiceModel.QuotaExceededException> is thrown. The maximum message size is set by the <xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A> property. The default value is 65536 bytes."
+  summary: "Zwraca kontekst żądania otrzymane, jeśli jest dostępny. Kontekst nie jest dostępna, czeka, dopóki nie jest dostępna."
+  remarks: "<xref:System.ServiceModel.Channels.RequestContext>hermetyzuje komunikat żądania i mechanizm odpowiedzi na tę wiadomość.</xref:System.ServiceModel.Channels.RequestContext>       ReceiveRequest może zostać wywołana wiele razy lub jednocześnie. Tylko jedno wywołanie ReceiveRequest kończy się na Odebrano żądanie.       Jeśli odebrany komunikat żądania jest większy, że maksymalna komunikatu rozmiar dozwolony przez powiązanie jest używany, <xref:System.ServiceModel.QuotaExceededException>jest generowany.</xref:System.ServiceModel.QuotaExceededException> Maksymalny rozmiar wiadomości jest ustawiana przez <xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A>Właściwości.</xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A> Wartość domyślna to 65 536 bajtów."
   example:
   - "The following code illustrates how to implement this method:  \n  \n [!code-cs[S_UE_MessageInterceptor#7](~/add/codesnippet/csharp/m-system.servicemodel.ch_9_1.cs)]"
   syntax:
@@ -302,7 +302,7 @@ items:
     parameters: []
     return:
       type: System.ServiceModel.Channels.RequestContext
-      description: "The <xref:System.ServiceModel.Channels.RequestContext> used to construct replies."
+      description: "<xref:System.ServiceModel.Channels.RequestContext>Użyty do utworzenia odpowiedzi.</xref:System.ServiceModel.Channels.RequestContext>"
   overload: System.ServiceModel.Channels.IReplyChannel.ReceiveRequest*
   exceptions: []
   platform:
@@ -319,8 +319,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Returns the context of the request received, if one is available. If a context is not available, waits until there is one available."
-  remarks: "<xref:System.ServiceModel.Channels.RequestContext> encapsulates the request message and a mechanism for replying to that message.       <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A> can be called multiple times or concurrently. Only one <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A> call completes per request received.       If the request message received is larger that the maximum message size allowed by the binding being used, a <xref:System.ServiceModel.QuotaExceededException> is thrown. The maximum message size is set by the <xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A> property. The default value is 65536 bytes."
+  summary: "Zwraca kontekst żądania otrzymane, jeśli jest dostępny. Kontekst nie jest dostępna, czeka, dopóki nie jest dostępna."
+  remarks: "<xref:System.ServiceModel.Channels.RequestContext>hermetyzuje komunikat żądania i mechanizm odpowiedzi na tę wiadomość.</xref:System.ServiceModel.Channels.RequestContext>       <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A>może zostać wywołana wiele razy lub jednocześnie.</xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A> Tylko jeden <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A>na Odebrano żądanie ukończenia wywołania.</xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A>       Jeśli odebrany komunikat żądania jest większy, że maksymalna komunikatu rozmiar dozwolony przez powiązanie jest używany, <xref:System.ServiceModel.QuotaExceededException>jest generowany.</xref:System.ServiceModel.QuotaExceededException> Maksymalny rozmiar wiadomości jest ustawiana przez <xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A>Właściwości.</xref:System.ServiceModel.Channels.TransportBindingElement.MaxReceivedMessageSize%2A> Wartość domyślna to 65 536 bajtów."
   example:
   - "The following code illustrates how to implement this method:  \n  \n [!code-cs[S_UE_MessageInterceptor#8](~/add/codesnippet/csharp/m-system.servicemodel.ch_3_1.cs)]"
   syntax:
@@ -328,10 +328,10 @@ items:
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies how long the receive of a request operation has to complete before timing out and returning <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref:System.TimeSpan>Określający, jak długo ma przed limit czasu i zwracanie wykonaj odbieranie operacji żądania <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.TimeSpan>"
     return:
       type: System.ServiceModel.Channels.RequestContext
-      description: "The <xref:System.ServiceModel.Channels.RequestContext> used to construct replies."
+      description: "<xref:System.ServiceModel.Channels.RequestContext>Użyty do utworzenia odpowiedzi.</xref:System.ServiceModel.Channels.RequestContext>"
   overload: System.ServiceModel.Channels.IReplyChannel.ReceiveRequest*
   exceptions: []
   platform:
@@ -348,8 +348,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Returns a value that indicates whether a request is received before a specified interval of time elapses."
-  remarks: "Use TryReceiveRequest when it is acceptable for the current thread to be blocked while it waits for a request message to arrive in the queue. The thread is blocked up to the specified `timeout`. If you need the application processing to continue without waiting, use the asynchronous <xref:System.ServiceModel.Channels.IReplyChannel.BeginTryReceiveRequest%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29> method."
+  summary: "Zwraca wartość wskazującą, czy przed o określony interwał czasu upłynie zostanie odebrane żądanie."
+  remarks: "Użyj TryReceiveRequest, gdy nie jest możliwa do bieżącego wątku być blokowane podczas oczekiwania na komunikat żądania w kolejce. Wątek jest zablokowana w górę do określonego `timeout`. Jeśli potrzebujesz przetwarzania aplikacji, aby kontynuować bez oczekiwania na użycie asynchronicznego <xref:System.ServiceModel.Channels.IReplyChannel.BeginTryReceiveRequest%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29>metody.</xref:System.ServiceModel.Channels.IReplyChannel.BeginTryReceiveRequest%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29>"
   example:
   - "The following code illustrates how to implement this method:  \n  \n [!code-cs[S_UE_MessageInterceptor#4](~/add/codesnippet/csharp/78581c5e-1028-4e54-ba3b-_1.cs)]"
   syntax:
@@ -357,13 +357,13 @@ items:
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies how long the receive of a request operation has to complete before timing out and returning <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref:System.TimeSpan>Określający, jak długo ma przed limit czasu i zwracanie wykonaj odbieranie operacji żądania <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.TimeSpan>"
     - id: context
       type: System.ServiceModel.Channels.RequestContext
-      description: "The <xref:System.ServiceModel.Channels.RequestContext> received."
+      description: "<xref:System.ServiceModel.Channels.RequestContext>Odebrano.</xref:System.ServiceModel.Channels.RequestContext>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a request message is received before the specified interval of time elapses; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli komunikat żądania zostanie odebrana przed określonym interwale upłynie czas; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Channels.IReplyChannel.TryReceiveRequest*
   exceptions: []
   platform:
@@ -380,8 +380,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Returns a value that indicates whether a request message is received before a specified interval of time elapses."
-  remarks: "Calling WaitForRequest does not result in a request message being received or processed in any way.       The <xref:System.ServiceModel.Channels.IReplyChannel.BeginWaitForRequest%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29> method exists primarily for transacted scenarios where the user wants to receive the message using a transaction. When using just <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A> normally for this, the user must create the transaction, and then call <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A> and hope the message arrives before the transaction times out, which may not be possible.       Instead, the user can call WaitForRequest and specify the time out (even infinite), then when a message arrives they can open the transaction, call <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A> and be confident that they can get the message back before the transaction expires.       Use WaitForRequest when it is acceptable for the current thread to be blocked while it waits for a message to arrive in the queue. The thread is blocked up to the specified `timeout`. If you need the application processing to continue without waiting, use the asynchronous <xref:System.ServiceModel.Channels.IReplyChannel.BeginWaitForRequest%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29> method."
+  summary: "Zwraca wartość wskazującą, czy przed o określony interwał czasu upłynie odebraniu komunikatu żądania."
+  remarks: "Wywoływanie WaitForRequest nie powoduje komunikat żądania otrzymane lub przetwarzane w dowolny sposób.       <xref:System.ServiceModel.Channels.IReplyChannel.BeginWaitForRequest%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29>Istnieje metoda przede wszystkim dotyczące transakcyjne scenariusze, w których użytkownik chce odbierać wiadomości przy użyciu transakcji.</xref:System.ServiceModel.Channels.IReplyChannel.BeginWaitForRequest%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29> Używając po prostu <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A>zwykle w tym celu użytkownik musi utworzyć transakcji, a następnie wywołać <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A>i nadzieję, że komunikat dociera przed transakcji limitu czasu, który może nie być możliwe.</xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A> </xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A>       Zamiast tego użytkownik może wywołać WaitForRequest i określić limit czasu (nawet nieskończone), a następnie po nadejściu wiadomości mogą otwierać transakcji, wywołaj <xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A>i mieć pewność, że komunikat może uzyskać przed wygaśnięciem transakcji.</xref:System.ServiceModel.Channels.IReplyChannel.ReceiveRequest%2A>       Użyj WaitForRequest, gdy nie jest możliwa do bieżącego wątku być blokowane podczas oczekiwania na odebranie w kolejce wiadomości. Wątek jest zablokowana w górę do określonego `timeout`. Jeśli potrzebujesz przetwarzania aplikacji, aby kontynuować bez oczekiwania na użycie asynchronicznego <xref:System.ServiceModel.Channels.IReplyChannel.BeginWaitForRequest%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29>metody.</xref:System.ServiceModel.Channels.IReplyChannel.BeginWaitForRequest%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29>"
   example:
   - "The following code illustrates how to implement this method:  \n  \n [!code-cs[S_UE_MessageInterceptor#9](~/add/codesnippet/csharp/m-system.servicemodel.ch_6_1.cs)]"
   syntax:
@@ -389,10 +389,10 @@ items:
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies how long a request operation has to complete before timing out and returning <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref:System.TimeSpan>Określa, jak długo żądanie operacji musi zostać ukończona przed limit czasu i zwracanie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.TimeSpan>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a request is received before the specified interval of time elapses; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli żądanie zostanie odebrane przed określonym interwale upłynie czas; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Channels.IReplyChannel.WaitForRequest*
   exceptions: []
   platform:

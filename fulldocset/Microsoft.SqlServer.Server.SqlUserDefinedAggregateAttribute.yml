@@ -18,8 +18,8 @@ items:
   nameWithType: SqlUserDefinedAggregateAttribute
   fullName: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute
   type: Class
-  summary: "Indicates that the type should be registered as a user-defined aggregate. The properties on the attribute reflect the physical attributes used when the type is registered with SQL Server. This class cannot be inherited."
-  remarks: "SQL Server creates a user-defined aggregate that is bound to the class definition that has the SqlUserDefinedAggregateAttribute custom attribute. Every user-defined aggregate must be annotated with this attribute.       See &quot;CLR User-Defined Aggregates&quot; in SQL Server 2005 Books Online for more information on user-defined aggregates and examples."
+  summary: "Wskazuje, że typ powinien zostać zarejestrowany jako agregacji zdefiniowanej przez użytkownika. Właściwości w ustawieniach atrybutu odzwierciedlają fizyczne atrybuty używany, gdy typ jest zarejestrowany na serwerze SQL. Ta klasa nie może być dziedziczona."
+  remarks: "Program SQL Server tworzy agregacji zdefiniowanej przez użytkownika, który jest powiązany z definicji klasy, która ma atrybut niestandardowy SqlUserDefinedAggregateAttribute. Każdy agregacji zdefiniowanej przez użytkownika musi być adnotowany przy tego atrybutu.       Aby uzyskać więcej informacji na temat agregacje zdefiniowane przez użytkownika i przykłady, zobacz &quot;CLR agregacje zdefiniowane przez użytkownika&quot; w dokumentacji SQL Server 2005 — książki Online."
   example:
   - "The following example shows the SqlUserDefinedAggregateAttribute attribute for a user-defined aggregate.  The aggregate uses custom serialization, has a maximum size of 8000 bytes when serialized, and is invariant to nulls, duplicates, and order.  \n  \n [!code-vb[DataWorks SqlUserDefinedAggregateAttribute Sample#1](~/add/codesnippet/visualbasic/t-microsoft.sqlserver.se_5_1.vb)]\n [!code-cs[DataWorks SqlUserDefinedAggregateAttribute Sample#1](~/add/codesnippet/csharp/t-microsoft.sqlserver.se_5_1.cs)]"
   syntax:
@@ -45,13 +45,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "A required attribute on a user-defined aggregate, used to indicate that the given type is a user-defined aggregate and the storage format of the user-defined aggregate."
+  summary: "Wymagany atrybut na agregacji zdefiniowanej przez użytkownika, służy do wskazania, czy dany typ agregacji zdefiniowanej przez użytkownika i format przechowywania agregacji zdefiniowanej przez użytkownika."
   syntax:
     content: public SqlUserDefinedAggregateAttribute (Microsoft.SqlServer.Server.Format format);
     parameters:
     - id: format
       type: Microsoft.SqlServer.Server.Format
-      description: "One of the <xref href=&quot;Microsoft.SqlServer.Server.Format&quot;></xref> values representing the serialization format of the aggregate."
+      description: "Jeden z <xref href=&quot;Microsoft.SqlServer.Server.Format&quot;> </xref> wartości reprezentujących format serializacji wartości zagregowanej."
   overload: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.#ctor*
   exceptions: []
   platform:
@@ -68,7 +68,7 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "The serialization format as a <xref href=&quot;Microsoft.SqlServer.Server.Format&quot;></xref>."
+  summary: "Format serializacji jako <xref href=&quot;Microsoft.SqlServer.Server.Format&quot;> </xref>."
   remarks: ''
   example:
   - >-
@@ -78,7 +78,7 @@ items:
     content: public Microsoft.SqlServer.Server.Format Format { get; }
     return:
       type: Microsoft.SqlServer.Server.Format
-      description: "A <xref href=&quot;Microsoft.SqlServer.Server.Format&quot;></xref> representing the serialization format."
+      description: "A <xref href=&quot;Microsoft.SqlServer.Server.Format&quot;> </xref> reprezentujący format serializacji."
   overload: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.Format*
   exceptions: []
   platform:
@@ -95,13 +95,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Indicates whether the aggregate is invariant to duplicates."
-  remarks: "Used by the query processor, this property is `true` if the aggregate is invariant to duplicates. That is, the aggregate of S, {X} is the same as aggregate of S when X is already in S. For example, aggregate functions such as MIN and MAX satisfy this property, while SUM does not.       Incorrectly setting this property can result in incorrect query results. This property is not an optimizer hint; it affects both the plan selected and the results returned by the query."
+  summary: "Wskazuje, czy agregacji jest obojętny na duplikaty."
+  remarks: "Używany przez procesor zapytań, ta właściwość jest `true` Jeśli agregacji jest obojętny na duplikaty. Oznacza to, że wartości zagregowanej S, {X} jest taka sama jak wartość zagregowaną S, gdy X już S. Na przykład funkcje agregujące, takie jak MIN i MAX spełniają tę właściwość, a SUM nie.       Nieprawidłowe ustawienie dla tej właściwości może powodować niepoprawne wyniki. Ta właściwość nie jest wskazówką Optymalizator; wpływa na zarówno plan wybrany i wyników zwróconych przez kwerendę."
   syntax:
     content: public bool IsInvariantToDuplicates { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the aggregate is invariant to duplicates; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli agregacji jest obojętny na duplikaty; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.IsInvariantToDuplicates*
   exceptions: []
   platform:
@@ -118,13 +118,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Indicates whether the aggregate is invariant to nulls."
-  remarks: "Used by the query processor, this property is `true` if the aggregate is invariant to nulls. That is, the aggregate of S, {NULL} is the same as aggregate of S. For example, aggregate functions such as MIN and MAX satisfy this property, while COUNT(*) does not.       Incorrectly setting this property can result in incorrect query results. This property is not an optimizer hint; it affects the plan selected and the results returned by the query."
+  summary: "Wskazuje, czy agregacji jest obojętny na wartości null."
+  remarks: "Używany przez procesor zapytań, ta właściwość jest `true` Jeśli agregacji jest obojętny na wartości null. Agregacja s {NULL} jest taka sama jak wartość zagregowaną s. Na przykład funkcje agregujące, takie jak MIN i MAX spełnia tę właściwość, a nie COUNT(*).       Nieprawidłowe ustawienie dla tej właściwości może powodować niepoprawne wyniki. Ta właściwość nie jest wskazówką Optymalizator; wpływa on plan wybrany i wyników zwróconych przez kwerendę."
   syntax:
     content: public bool IsInvariantToNulls { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the aggregate is invariant to nulls; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli agregacji jest obojętny na wartości null; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.IsInvariantToNulls*
   exceptions: []
   platform:
@@ -141,13 +141,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Indicates whether the aggregate is invariant to order."
-  remarks: "Reserved for future use. This property is not currently used by the query processor: order is currently not guaranteed.       Incorrectly setting this property can result in incorrect query results. This property is not an optimizer hint; it affects the plan selected and the results returned by the query.       The default value for this property is `false`."
+  summary: "Wskazuje, czy agregacji jest obojętny na kolejności."
+  remarks: "Zarezerwowane do użytku w przyszłości. Ta właściwość nie jest obecnie używane przez procesor zapytań: obecnie nie gwarantuje kolejność.       Nieprawidłowe ustawienie dla tej właściwości może powodować niepoprawne wyniki. Ta właściwość nie jest wskazówką Optymalizator; wpływa on plan wybrany i wyników zwróconych przez kwerendę.       Wartość domyślna dla tej właściwości to `false`."
   syntax:
     content: public bool IsInvariantToOrder { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the aggregate is invariant to order; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli agregacji jest obojętny na kolejności. w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.IsInvariantToOrder*
   exceptions: []
   platform:
@@ -164,13 +164,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "Indicates whether the aggregate returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no values have been accumulated."
-  remarks: "Used by the query processor, this property is `true` if the aggregate returns `null` if no values have been accumulated.       Incorrectly setting this property can result in incorrect query results. This property is not an optimizer hint; it affects the plan selected and the results returned by the query."
+  summary: "Wskazuje, czy wartości zagregowanej zwraca <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli zgromadzeniu żadnych wartości."
+  remarks: "Używany przez procesor zapytań, ta właściwość jest `true` Jeśli zwróci agregacji `null` Jeśli zgromadzeniu żadnych wartości.       Nieprawidłowe ustawienie dla tej właściwości może powodować niepoprawne wyniki. Ta właściwość nie jest wskazówką Optymalizator; wpływa on plan wybrany i wyników zwróconych przez kwerendę."
   syntax:
     content: public bool IsNullIfEmpty { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the aggregate returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no values have been accumulated; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli wartości zagregowanej zwraca <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli wartości nie zostały skumulowany; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.IsNullIfEmpty*
   exceptions: []
   platform:
@@ -187,13 +187,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "The maximum size, in bytes, of the aggregate instance."
-  remarks: "This property does not have to be specified for Native format serialization.       You must specify the MaxByteSize property with the UserDefined serialization <xref:Microsoft.SqlServer.Server.Format>.       The maximum allowed value for this property is specified by the <xref:Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.MaxByteSizeValue> field.       The maximum size allowed is 2 gigabytes (GB). You can specify a number from 1 to 8000 bytes, or -1 to represent a value larger than 8000 bytes, up to 2 gigabytes.       For an aggregate with user-defined serialization specified, MaxByteSize refers to the total size of the serialized data. Consider an aggregate serializing a string of 10 characters (<xref:System.Char>). When the string is serialized using a <xref:System.IO.BinaryWriter>, the total size of the serialized string is 22 bytes: 2 bytes per Unicode UTF-16 character, multiplied by the maximum number of characters, plus 2 control bytes of overhead incurred from serializing a binary stream. So, when determining the value of MaxByteSize, the total size of the serialized data must be considered: the size of the data serialized in binary form plus the overhead incurred by serialization."
+  summary: "Maksymalny rozmiar w bajtach wystąpienia agregacji."
+  remarks: "Ta właściwość nie ma być określony dla serializacji formatu macierzystego.       Należy określić właściwość MaxByteSize serializacji UserDefined <xref:Microsoft.SqlServer.Server.Format>.</xref:Microsoft.SqlServer.Server.Format>       Maksymalna dozwolona wartość dla tej właściwości jest określony przez <xref:Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.MaxByteSizeValue>pola.</xref:Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.MaxByteSizeValue>       Maksymalny dozwolony rozmiar to 2 gigabajty (GB). Można określić liczbę z zakresu od 1 do 8000 bajtów lub wartość -1, aby reprezentować wartość większą niż 8000 bajtów, maksymalnie 2 gigabajty.       Dla agregacji serializacji zdefiniowanej przez użytkownika określona dla właściwości MaxByteSize odwołuje się do całkowity rozmiar danych serializacji. Należy wziąć pod uwagę agregacji serializacji ciągu 10 znaków (<xref:System.Char>).</xref:System.Char> Jeśli ten ciąg jest zserializowanym przy użyciu <xref:System.IO.BinaryWriter>, całkowity rozmiar serializowanego ciągu jest 22 bajtów: 2 bajtów na znak Unicode UTF-16, pomnożona przez maksymalną liczbę znaków, plus 2 kontrolka bajtów koszty ponoszonych z serializacji strumienia binarnego.</xref:System.IO.BinaryWriter> Tak, określając wartość właściwości MaxByteSize, całkowity rozmiar danych serializacji, należy rozważyć użycie: rozmiar danych zserializowanym w formacie binarnym plus koszty poniesionych przez serializacji."
   syntax:
     content: public int MaxByteSize { get; set; }
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> value representing the maximum size of the aggregate instance."
+      description: "<xref:System.Int32>Wartość reprezentującą maksymalny rozmiar wystąpienia agregacji.</xref:System.Int32>"
   overload: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.MaxByteSize*
   exceptions: []
   platform:
@@ -210,13 +210,13 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "The maximum size, in bytes, required to store the state of this aggregate instance during computation."
-  remarks: "An <xref:System.Int32> value representing the maximum size of the aggregate instance."
+  summary: "Maksymalny rozmiar w bajtach wymagana do przechowywania stanu tego wystąpienia agregacji podczas obliczania."
+  remarks: "<xref:System.Int32>Wartość reprezentującą maksymalny rozmiar wystąpienia agregacji.</xref:System.Int32>"
   syntax:
     content: public const int MaxByteSizeValue = 8000;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -232,12 +232,12 @@ items:
   assemblies:
   - System.Data
   namespace: Microsoft.SqlServer.Server
-  summary: "The name of the aggregate."
+  summary: "Nazwa wartości zagregowanej."
   syntax:
     content: public string Name { get; set; }
     return:
       type: System.String
-      description: "A <xref:System.String> value representing the name of the aggregate."
+      description: "A <xref:System.String>wartość reprezentującą nazwę wartości zagregowanej.</xref:System.String>"
   overload: Microsoft.SqlServer.Server.SqlUserDefinedAggregateAttribute.Name*
   exceptions: []
   platform:

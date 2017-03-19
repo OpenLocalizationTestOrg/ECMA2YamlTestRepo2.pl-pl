@@ -46,8 +46,8 @@ items:
   nameWithType: WindowsIdentity
   fullName: System.Security.Principal.WindowsIdentity
   type: Class
-  summary: "Represents a Windows user."
-  remarks: "Call the <xref:System.Security.Principal.WindowsIdentity.GetCurrent%2A> method to create a WindowsIdentity object that represents the current user.      > [!IMPORTANT] >  This type implements the <xref:System.IDisposable> interface. When you have finished using the type, you should dispose of it either directly or indirectly. To dispose of the type directly, call its <xref:System.IDisposable.Dispose%2A> method in a `try`/`catch` block. To dispose of it indirectly, use a language construct such as `using` (in C#) or `Using` (in Visual Basic). For more information, see the “Using an Object that Implements IDisposable” section in the <xref:System.IDisposable> interface topic."
+  summary: "Reprezentuje użytkownika systemu Windows."
+  remarks: "Wywołanie <xref:System.Security.Principal.WindowsIdentity.GetCurrent%2A>metodę w celu utworzenia obiektu WindowsIdentity, która reprezentuje bieżący użytkownik.</xref:System.Security.Principal.WindowsIdentity.GetCurrent%2A>      > [!IMPORTANT] > Ten typ implementuje <xref:System.IDisposable>interfejsu.</xref:System.IDisposable> Po zakończeniu przy użyciu typu bezpośrednio lub pośrednio należy usunąć z niego. Do usuwania tego typu, należy wywołać jej <xref:System.IDisposable.Dispose%2A>metody w `try` / `catch` bloku.</xref:System.IDisposable.Dispose%2A> Do usunięcia ich pośrednio, użyj konstrukcji języka takiego jak `using` (w języku C#) lub `Using` (w języku Visual Basic). Aby uzyskać więcej informacji, zobacz sekcję &quot;Przy użyciu obiektu który implementuje interfejs IDisposable&quot; w <xref:System.IDisposable>tematu interfejsu.</xref:System.IDisposable>"
   example:
   - "The following example shows the use of members of WindowsIdentity class.  For an example showing how to obtain a Windows account token through a call to the unmanaged Win32 `LogonUser` function, and use that token to impersonate another user, see the <xref:System.Security.Principal.WindowsImpersonationContext> class.  \n  \n [!code-cs[System.Security.Principal.WindowsIdentity_AllMembers#1](~/add/codesnippet/csharp/t-system.security.princi_5_1.cs)]\n [!code-cpp[System.Security.Principal.WindowsIdentity_AllMembers#1](~/add/codesnippet/cpp/t-system.security.princi_5_1.cpp)]\n [!code-vb[System.Security.Principal.WindowsIdentity_AllMembers#1](~/add/codesnippet/visualbasic/t-system.security.princi_5_1.vb)]"
   syntax:
@@ -99,22 +99,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> class for the user represented by the specified Windows account token."
-  remarks: "The following table shows initial property values for an instance of <xref:System.Security.Principal.WindowsIdentity>.      |Property|Initial value|   |--------------|-------------------|   |<xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A>|`Negotiate`|   |<xref:System.Security.Principal.WindowsAccountType>|`Normal`|   |<xref:System.Security.Principal.WindowsIdentity.IsAuthenticated%2A>|`false`|      > [!NOTE] >  You can retrieve the token represented by `userToken` by calling unmanaged code such as the Win32 API `LogonUser` function. Always release `userToken` by calling the Win32 API `CloseHandle` function. For more information on calling unmanaged code, see [Consuming Unmanaged DLL Functions](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> klasy dla użytkownika reprezentowanego przez określony token konta systemu Windows."
+  remarks: "W poniższej tabeli przedstawiono początkowe wartości właściwości dla wystąpienia <xref:System.Security.Principal.WindowsIdentity>.</xref:System.Security.Principal.WindowsIdentity>      | Właściwość | Nieprawidłowa wartość |   |--------------|-------------------|   | <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A>| `Negotiate`|   | <xref:System.Security.Principal.WindowsAccountType>| `Normal`|   | <xref:System.Security.Principal.WindowsIdentity.IsAuthenticated%2A>| `false`|      > [!NOTE] > Można pobrać tokenu reprezentowany przez `userToken` przez wywołanie kodu niezarządzanego, np. interfejsu API Win32 `LogonUser` funkcji.</xref:System.Security.Principal.WindowsIdentity.IsAuthenticated%2A> </xref:System.Security.Principal.WindowsAccountType> </xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> Zawsze wersji `userToken` przez wywołanie interfejsu API Win32 `CloseHandle` funkcji. Aby uzyskać więcej informacji o wywoływanie kodu niezarządzanego, zobacz [wykorzystywanie niezarządzanych funkcji DLL](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public WindowsIdentity (IntPtr userToken);
     parameters:
     - id: userToken
       type: System.IntPtr
-      description: "The account token for the user on whose behalf the code is running."
+      description: "Token konta użytkownika w imieniu którego wykonywany jest kod."
   overload: System.Security.Principal.WindowsIdentity.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>userToken</code> is 0.       -or-       <code>userToken</code> is duplicated and invalid for impersonation."
+    description: "<code>userToken</code>to 0.       - lub - <code>userToken</code> jest zduplikowany i nieprawidłowe dla personifikacji."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the correct permissions.       -or-       A Win32 error occurred."
+    description: "Obiekt wywołujący nie ma odpowiednich uprawnień.       - lub - wystąpił błąd A Win32."
   platform:
   - net462
 - uid: System.Security.Principal.WindowsIdentity.#ctor(System.Security.Principal.WindowsIdentity)
@@ -129,13 +129,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> class by using the specified <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> object."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> przy użyciu określonego <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> obiektu."
   syntax:
     content: protected WindowsIdentity (System.Security.Principal.WindowsIdentity identity);
     parameters:
     - id: identity
       type: System.Security.Principal.WindowsIdentity
-      description: "The object from which to construct the new instance of <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref>."
+      description: "Obiekt, z którego można utworzyć nowe wystąpienie klasy <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref>."
   overload: System.Security.Principal.WindowsIdentity.#ctor*
   exceptions: []
   platform:
@@ -152,25 +152,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> class for the user represented by the specified User Principal Name (UPN)."
-  remarks: "A UPN has the format *username*@*domainname*.com, in other words, an email address. The UPN identified in `sUserPrincipalName` is used to retrieve a token for that user through the Win32 API `LsaLogonUser` function. In turn that token is used to identify the user. An exception might be returned due to the inability to log on using the supplied UPN.      > [!NOTE] >  This constructor is intended for use only on computers joined to Windows Server 2003 or later domains. An exception is thrown for earlier domain types. This restriction is due to the fact that this constructor uses the [KERB_S4U_LOGON structure](http://go.microsoft.com/fwlink/?LinkId=143533), which was first introduced in Windows Server 2003."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> klasy dla użytkownika reprezentowanego przez określony główną nazwę użytkownika (UPN)."
+  remarks: "Nazwy UPN ma format *username*@*domainname*.com, innymi słowy, adres e-mail. Nazwa UPN zidentyfikowany w `sUserPrincipalName` służy do pobierania tokenu dla tego użytkownika za pośrednictwem interfejsu API Win32 `LsaLogonUser` funkcji. Z kolei tokenu jest używany do identyfikacji użytkownika. Ze względu na brak możliwości zalogować się przy użyciu podanej nazwy UPN może być zwrócony wyjątek.      > [!NOTE] > Ten konstruktor jest przeznaczony do użycia tylko na komputerach przyłączonych do systemu Windows Server 2003 lub nowszym domeny. Dla starszych typów domeny jest zgłaszany wyjątek. Jest to ograniczenie wynika z faktu, że ten konstruktor korzysta [struktury KERB_S4U_LOGON](http://go.microsoft.com/fwlink/?LinkId=143533), który został po raz pierwszy wprowadzone w systemie Windows Server 2003."
   syntax:
     content: public WindowsIdentity (string sUserPrincipalName);
     parameters:
     - id: sUserPrincipalName
       type: System.String
-      description: "The UPN for the user on whose behalf the code is running."
+      description: "Nazwa UPN użytkownika w imieniu którego wykonywany jest kod."
   overload: System.Security.Principal.WindowsIdentity.#ctor*
   exceptions:
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Windows returned the Windows NT status code STATUS_ACCESS_DENIED."
+    description: "System Windows zwrócił kod stanu systemu Windows NT STATUS_ACCESS_DENIED."
   - type: System.OutOfMemoryException
     commentId: T:System.OutOfMemoryException
-    description: "There is insufficient memory available."
+    description: "Dostępnych jest za mało pamięci."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the correct permissions.       -or-       The computer is not attached to a Windows 2003 or later domain.       -or-       The computer is not running Windows 2003 or later.       -or-       The user is not a member of the domain the computer is attached to."
+    description: "Obiekt wywołujący nie ma odpowiednich uprawnień.       - lub - komputer nie jest dołączony do systemu Windows 2003 lub nowszym domeny.       - lub - komputer nie działa system Windows 2003 lub nowszym.       - lub - użytkownik nie jest członkiem domeny, do której komputer jest dołączony."
   platform:
   - net462
 - uid: System.Security.Principal.WindowsIdentity.#ctor(System.IntPtr,System.String)
@@ -185,8 +185,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> class for the user represented by the specified Windows account token and the specified authentication type."
-  remarks: "The following table shows initial property values for an instance of <xref:System.Security.Principal.WindowsIdentity>.      |Property|Initial value|   |--------------|-------------------|   |<xref:System.Security.Principal.WindowsAccountType>|`Normal`|   |<xref:System.Security.Principal.WindowsIdentity.IsAuthenticated%2A>|`false`|       The value of the `type` parameter is used to set the <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> parameter. If `type` is `null`, the security system sets <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> to `Negotiate` on Windows Vista and later versions of the Windows operating system, and to `Kerberos` on earlier versions of the Windows operating system. The security system does not use this value; it is for informational use only.      > [!NOTE] >  You can retrieve the token represented by `userToken` by calling unmanaged code such as the Win32 API `LogonUser` function. Always release `userToken` by calling the Win32 API `CloseHandle` function. For more information on calling unmanaged code, see [Consuming Unmanaged DLL Functions](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> klasy dla użytkownika reprezentowanego przez określony token konta systemu Windows i określonego typu uwierzytelniania."
+  remarks: "W poniższej tabeli przedstawiono początkowe wartości właściwości dla wystąpienia <xref:System.Security.Principal.WindowsIdentity>.</xref:System.Security.Principal.WindowsIdentity>      | Właściwość | Nieprawidłowa wartość |   |--------------|-------------------|   | <xref:System.Security.Principal.WindowsAccountType>| `Normal`|   | <xref:System.Security.Principal.WindowsIdentity.IsAuthenticated%2A>| `false`|       Wartość `type` parametru jest używana do ustawiania <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A>parametru.</xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> </xref:System.Security.Principal.WindowsIdentity.IsAuthenticated%2A> </xref:System.Security.Principal.WindowsAccountType> Jeśli `type` jest `null`, zestawy systemu zabezpieczeń <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A>do `Negotiate` w systemach Windows Vista i nowszych wersjach systemu operacyjnego Windows i do `Kerberos` we wcześniejszych wersjach systemu operacyjnego Windows.</xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> Ta wartość; nie są używane w systemie zabezpieczeń jest tylko w celach informacyjnych.      > [!NOTE] > Można pobrać tokenu reprezentowany przez `userToken` przez wywołanie kodu niezarządzanego, np. interfejsu API Win32 `LogonUser` funkcji. Zawsze wersji `userToken` przez wywołanie interfejsu API Win32 `CloseHandle` funkcji. Aby uzyskać więcej informacji o wywoływanie kodu niezarządzanego, zobacz [wykorzystywanie niezarządzanych funkcji DLL](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code shows the use of the <xref:System.Security.Principal.WindowsIdentity.%23ctor%2A> constructor to create a new instance of the  <xref:System.Security.Principal.WindowsIdentity> class for the user represented by the specified Windows account token and the specified authentication type. This code example is part of a larger example provided for the <xref:System.Security.Principal.WindowsIdentity> class.  \n  \n [!code-cs[System.Security.Principal.WindowsIdentity_AllMembers#4](~/add/codesnippet/csharp/dc54fc11-729f-4337-b932-_1.cs)]\n [!code-cpp[System.Security.Principal.WindowsIdentity_AllMembers#4](~/add/codesnippet/cpp/dc54fc11-729f-4337-b932-_1.cpp)]\n [!code-vb[System.Security.Principal.WindowsIdentity_AllMembers#4](~/add/codesnippet/visualbasic/dc54fc11-729f-4337-b932-_1.vb)]"
   syntax:
@@ -194,18 +194,18 @@ items:
     parameters:
     - id: userToken
       type: System.IntPtr
-      description: "The account token for the user on whose behalf the code is running."
+      description: "Token konta użytkownika w imieniu którego wykonywany jest kod."
     - id: type
       type: System.String
-      description: "(Informational use only.) The type of authentication used to identify the user. For more information, see Remarks."
+      description: "(Tylko informacyjne Użyj.) Typ uwierzytelniania używany do identyfikacji użytkownika. Aby uzyskać więcej informacji zobacz uwagi."
   overload: System.Security.Principal.WindowsIdentity.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>userToken</code> is 0.       -or-       <code>userToken</code> is duplicated and invalid for impersonation."
+    description: "<code>userToken</code>to 0.       - lub - <code>userToken</code> jest zduplikowany i nieprawidłowe dla personifikacji."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the correct permissions.       -or-       A Win32 error occurred."
+    description: "Obiekt wywołujący nie ma odpowiednich uprawnień.       - lub - wystąpił błąd A Win32."
   platform:
   - net462
 - uid: System.Security.Principal.WindowsIdentity.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
@@ -220,7 +220,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> class for the user represented by information in a <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref> stream."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> klasy dla użytkownika reprezentowanego przez informacji w <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;> </xref> strumienia."
   remarks: >-
     > [!IMPORTANT]
 
@@ -230,18 +230,18 @@ items:
     parameters:
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "The object containing the account information for the user."
+      description: "Obiekt zawierający informacje o koncie dla użytkownika."
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: "An object that indicates the stream characteristics."
+      description: "Obiekt, który wskazuje właściwości strumienia."
   overload: System.Security.Principal.WindowsIdentity.#ctor*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "A <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> cannot be serialized across processes."
+    description: "A <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> nie może być serializowany między procesami."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the correct permissions.       -or-       A Win32 error occurred."
+    description: "Obiekt wywołujący nie ma odpowiednich uprawnień.       - lub - wystąpił błąd A Win32."
   platform:
   - net462
 - uid: System.Security.Principal.WindowsIdentity.#ctor(System.String,System.String)
@@ -256,28 +256,28 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> class for the user represented by the specified User Principal Name (UPN) and the specified authentication type."
-  remarks: "The value of the `type` parameter is used to set the <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> parameter. If `type` is `null`, the security system sets <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> to `Negotiate` on Windows Vista and later versions of the Windows operating system, and to `Kerberos` on earlier versions of the Windows operating system. The security system does not use this value; it is for informational use only.       The UPN identified in `sUserPrincipalName` is used to retrieve a token for that user through the Win32 API `LsaLogonUser` function. In turn that token is used to identify the user. An exception might be returned due to the inability to log on using the supplied UPN.      > [!NOTE] >  This constructor is intended for use only on computers joined to Windows Server 2003 or later domains. An exception is thrown for earlier domain types. This restriction is due to the fact that this constructor uses the [KERB_S4U_LOGON structure](http://go.microsoft.com/fwlink/?LinkId=143533), which was first introduced in Windows Server 2003."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> klasy dla użytkownika reprezentowanego przez określony główną nazwę użytkownika (UPN) i określonego typu uwierzytelniania."
+  remarks: "Wartość `type` parametru jest używana do ustawiania <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A>parametru.</xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> Jeśli `type` jest `null`, zestawy systemu zabezpieczeń <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A>do `Negotiate` w systemach Windows Vista i nowszych wersjach systemu operacyjnego Windows i do `Kerberos` we wcześniejszych wersjach systemu operacyjnego Windows.</xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> Ta wartość; nie są używane w systemie zabezpieczeń jest tylko w celach informacyjnych.       Nazwa UPN zidentyfikowany w `sUserPrincipalName` służy do pobierania tokenu dla tego użytkownika za pośrednictwem interfejsu API Win32 `LsaLogonUser` funkcji. Z kolei tokenu jest używany do identyfikacji użytkownika. Ze względu na brak możliwości zalogować się przy użyciu podanej nazwy UPN może być zwrócony wyjątek.      > [!NOTE] > Ten konstruktor jest przeznaczony do użycia tylko na komputerach przyłączonych do systemu Windows Server 2003 lub nowszym domeny. Dla starszych typów domeny jest zgłaszany wyjątek. Jest to ograniczenie wynika z faktu, że ten konstruktor korzysta [struktury KERB_S4U_LOGON](http://go.microsoft.com/fwlink/?LinkId=143533), który został po raz pierwszy wprowadzone w systemie Windows Server 2003."
   syntax:
     content: public WindowsIdentity (string sUserPrincipalName, string type);
     parameters:
     - id: sUserPrincipalName
       type: System.String
-      description: "The UPN for the user on whose behalf the code is running."
+      description: "Nazwa UPN użytkownika w imieniu którego wykonywany jest kod."
     - id: type
       type: System.String
-      description: "(Informational use only.) The type of authentication used to identify the user. For more information, see Remarks."
+      description: "(Tylko informacyjne Użyj.) Typ uwierzytelniania używany do identyfikacji użytkownika. Aby uzyskać więcej informacji zobacz uwagi."
   overload: System.Security.Principal.WindowsIdentity.#ctor*
   exceptions:
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Windows returned the Windows NT status code STATUS_ACCESS_DENIED."
+    description: "System Windows zwrócił kod stanu systemu Windows NT STATUS_ACCESS_DENIED."
   - type: System.OutOfMemoryException
     commentId: T:System.OutOfMemoryException
-    description: "There is insufficient memory available."
+    description: "Dostępnych jest za mało pamięci."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the correct permissions.       -or-       The computer is not attached to a Windows 2003 or later domain.       -or-       The computer is not running Windows 2003 or later.       -or-       The user is not a member of the domain the computer is attached to."
+    description: "Obiekt wywołujący nie ma odpowiednich uprawnień.       - lub - komputer nie jest dołączony do systemu Windows 2003 lub nowszym domeny.       - lub - komputer nie działa system Windows 2003 lub nowszym.       - lub - użytkownik nie jest członkiem domeny, do której komputer jest dołączony."
   platform:
   - net462
 - uid: System.Security.Principal.WindowsIdentity.#ctor(System.IntPtr,System.String,System.Security.Principal.WindowsAccountType)
@@ -292,8 +292,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> class for the user represented by the specified Windows account token, the specified authentication type, and the specified Windows account type."
-  remarks: "The following table shows initial property values for an instance of <xref:System.Security.Principal.WindowsIdentity>.      |Property|Initial Value|   |--------------|-------------------|   |<xref:System.Security.Principal.WindowsIdentity.IsAuthenticated%2A>|`false`|       The value of the `type` parameter is used to set the <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> parameter. If `type` is `null`, the security system sets <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> to `Negotiate` on Windows Vista and later versions of the Windows operating system, and to `Kerberos` on earlier versions of the Windows operating system. The security system does not use this value; it is for informational use only.      > [!NOTE] >  You can retrieve the token represented by `userToken` by calling unmanaged code such as the Win32 API `LogonUser` function. Always release `userToken` by calling the Win32 API `CloseHandle` function. For more information on calling unmanaged code, see [Consuming Unmanaged DLL Functions](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> klasy dla użytkownika reprezentowanego przez określony token konta systemu Windows, określony typ uwierzytelniania i określonego typu konta systemu Windows."
+  remarks: "W poniższej tabeli przedstawiono początkowe wartości właściwości dla wystąpienia <xref:System.Security.Principal.WindowsIdentity>.</xref:System.Security.Principal.WindowsIdentity>      | Właściwość | Nieprawidłowa wartość |   |--------------|-------------------|   | <xref:System.Security.Principal.WindowsIdentity.IsAuthenticated%2A>| `false`|       Wartość `type` parametru jest używana do ustawiania <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A>parametru.</xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> </xref:System.Security.Principal.WindowsIdentity.IsAuthenticated%2A> Jeśli `type` jest `null`, zestawy systemu zabezpieczeń <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A>do `Negotiate` w systemach Windows Vista i nowszych wersjach systemu operacyjnego Windows i do `Kerberos` we wcześniejszych wersjach systemu operacyjnego Windows.</xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> Ta wartość; nie są używane w systemie zabezpieczeń jest tylko w celach informacyjnych.      > [!NOTE] > Można pobrać tokenu reprezentowany przez `userToken` przez wywołanie kodu niezarządzanego, np. interfejsu API Win32 `LogonUser` funkcji. Zawsze wersji `userToken` przez wywołanie interfejsu API Win32 `CloseHandle` funkcji. Aby uzyskać więcej informacji o wywoływanie kodu niezarządzanego, zobacz [wykorzystywanie niezarządzanych funkcji DLL](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code shows the use of the WindowsIdentity constructor to create a new instance of the <xref:System.Security.Principal.WindowsIdentity> class for the user represented by the specified Windows account token, the specified authentication type, and the specified Windows account type. This code example is part of a larger example provided for the <xref:System.Security.Principal.WindowsIdentity> class.  \n  \n [!code-cs[System.Security.Principal.WindowsIdentity_AllMembers#7](~/add/codesnippet/csharp/6cec7b3f-80c5-417d-99d8-_1.cs)]\n [!code-cpp[System.Security.Principal.WindowsIdentity_AllMembers#7](~/add/codesnippet/cpp/6cec7b3f-80c5-417d-99d8-_1.cpp)]\n [!code-vb[System.Security.Principal.WindowsIdentity_AllMembers#7](~/add/codesnippet/visualbasic/6cec7b3f-80c5-417d-99d8-_1.vb)]"
   syntax:
@@ -301,21 +301,21 @@ items:
     parameters:
     - id: userToken
       type: System.IntPtr
-      description: "The account token for the user on whose behalf the code is running."
+      description: "Token konta użytkownika w imieniu którego wykonywany jest kod."
     - id: type
       type: System.String
-      description: "(Informational use only.) The type of authentication used to identify the user. For more information, see Remarks."
+      description: "(Tylko informacyjne Użyj.) Typ uwierzytelniania używany do identyfikacji użytkownika. Aby uzyskać więcej informacji zobacz uwagi."
     - id: acctType
       type: System.Security.Principal.WindowsAccountType
-      description: "One of the enumeration values."
+      description: "Jedna z wartości wyliczenia."
   overload: System.Security.Principal.WindowsIdentity.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>userToken</code> is 0.       -or-       <code>userToken</code> is duplicated and invalid for impersonation."
+    description: "<code>userToken</code>to 0.       - lub - <code>userToken</code> jest zduplikowany i nieprawidłowe dla personifikacji."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the correct permissions.       -or-       A Win32 error occurred."
+    description: "Obiekt wywołujący nie ma odpowiednich uprawnień.       - lub - wystąpił błąd A Win32."
   platform:
   - net462
 - uid: System.Security.Principal.WindowsIdentity.#ctor(System.IntPtr,System.String,System.Security.Principal.WindowsAccountType,System.Boolean)
@@ -330,8 +330,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> class for the user represented by the specified Windows account token, the specified authentication type, the specified Windows account type, and the specified authentication status."
-  remarks: "The value of the `type` parameter is used to set the <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> parameter. If `type` is `null`, the security system sets <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> to `Negotiate` on Windows Vista and later versions of the Windows operating system, and to `Kerberos` on earlier versions of the Windows operating system. The security system does not use this value; it is for informational use only.       You can retrieve the token represented by `userToken` by calling unmanaged code such as the Win32 API `LogonUser` function. Always release `userToken` by calling the Win32 API `CloseHandle` function. For more information on calling unmanaged code, see [Consuming Unmanaged DLL Functions](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> klasy reprezentowany przez określony token konta systemu Windows, określony typ uwierzytelniania określonego typu konta systemu Windows i stanu uwierzytelnienia określonego użytkownika."
+  remarks: "Wartość `type` parametru jest używana do ustawiania <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A>parametru.</xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> Jeśli `type` jest `null`, zestawy systemu zabezpieczeń <xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A>do `Negotiate` w systemach Windows Vista i nowszych wersjach systemu operacyjnego Windows i do `Kerberos` we wcześniejszych wersjach systemu operacyjnego Windows.</xref:System.Security.Principal.WindowsIdentity.AuthenticationType%2A> Ta wartość; nie są używane w systemie zabezpieczeń jest tylko w celach informacyjnych.       Można pobrać tokenu reprezentowany przez `userToken` przez wywołanie kodu niezarządzanego, np. interfejsu API Win32 `LogonUser` funkcji. Zawsze wersji `userToken` przez wywołanie interfejsu API Win32 `CloseHandle` funkcji. Aby uzyskać więcej informacji o wywoływanie kodu niezarządzanego, zobacz [wykorzystywanie niezarządzanych funkcji DLL](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code shows the use of the WindowsIdentity constructor to create a new instance of the <xref:System.Security.Principal.WindowsIdentity> class for the user represented by the specified Windows account token, the specified authentication type, the specified Windows account type, and the specified authentication status. This code example is part of a larger example provided for the <xref:System.Security.Principal.WindowsIdentity> class.  \n  \n [!code-cs[System.Security.Principal.WindowsIdentity_AllMembers#17](~/add/codesnippet/csharp/851e6c2b-b248-45b7-9cd4-_1.cs)]\n [!code-cpp[System.Security.Principal.WindowsIdentity_AllMembers#17](~/add/codesnippet/cpp/851e6c2b-b248-45b7-9cd4-_1.cpp)]\n [!code-vb[System.Security.Principal.WindowsIdentity_AllMembers#17](~/add/codesnippet/visualbasic/851e6c2b-b248-45b7-9cd4-_1.vb)]"
   syntax:
@@ -339,24 +339,24 @@ items:
     parameters:
     - id: userToken
       type: System.IntPtr
-      description: "The account token for the user on whose behalf the code is running."
+      description: "Token konta użytkownika w imieniu którego wykonywany jest kod."
     - id: type
       type: System.String
-      description: "(Informational use only.) The type of authentication used to identify the user. For more information, see Remarks."
+      description: "(Tylko informacyjne Użyj.) Typ uwierzytelniania używany do identyfikacji użytkownika. Aby uzyskać więcej informacji zobacz uwagi."
     - id: acctType
       type: System.Security.Principal.WindowsAccountType
-      description: "One of the enumeration values."
+      description: "Jedna z wartości wyliczenia."
     - id: isAuthenticated
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to indicate that the user is authenticated; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Aby wskazać, czy użytkownik jest uwierzytelniony; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Principal.WindowsIdentity.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>userToken</code> is 0.       -or-       <code>userToken</code> is duplicated and invalid for impersonation."
+    description: "<code>userToken</code>to 0.       - lub - <code>userToken</code> jest zduplikowany i nieprawidłowe dla personifikacji."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the correct permissions.       -or-       A Win32 error occurred."
+    description: "Obiekt wywołujący nie ma odpowiednich uprawnień.       - lub - wystąpił błąd A Win32."
   platform:
   - net462
 - uid: System.Security.Principal.WindowsIdentity.AccessToken
@@ -371,12 +371,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Gets this <xref href=&quot;Microsoft.Win32.SafeHandles.SafeAccessTokenHandle&quot;></xref> for this <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> instance."
+  summary: "Pobiera to <xref href=&quot;Microsoft.Win32.SafeHandles.SafeAccessTokenHandle&quot;> </xref> tego <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> wystąpienia."
   syntax:
     content: public Microsoft.Win32.SafeHandles.SafeAccessTokenHandle AccessToken { get; }
     return:
       type: Microsoft.Win32.SafeHandles.SafeAccessTokenHandle
-      description: "Returns a <xref href=&quot;Microsoft.Win32.SafeHandles.SafeAccessTokenHandle&quot;></xref>."
+      description: "Zwraca <xref href=&quot;Microsoft.Win32.SafeHandles.SafeAccessTokenHandle&quot;> </xref>."
   overload: System.Security.Principal.WindowsIdentity.AccessToken*
   exceptions: []
   platform:
@@ -393,24 +393,24 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Gets the type of authentication used to identify the user."
-  remarks: "This property is informational; it is not used by the security system. On Windows Vista and later versions of the Windows operating system, the default value for this property is `Negotiate`, which chooses the best security support provider (SSP) based on customer-configured security policy. The default property value for earlier versions of the Windows operating system is `Kerberos`."
+  summary: "Pobiera typ uwierzytelniania używany do identyfikacji użytkownika."
+  remarks: "Ta właściwość ma charakter informacyjny; nie jest on używany przez system zabezpieczeń. W systemie Windows Vista i nowszymi wersjami systemu operacyjnego Windows, wartością domyślną dla tej właściwości jest `Negotiate`, który wybiera najlepsze dostawcy obsługi zabezpieczeń (SSP) na podstawie zasad zabezpieczeń skonfigurowane przez klienta. Wartość domyślna właściwości dla wcześniejszych wersji systemu operacyjnego Windows to `Kerberos`."
   syntax:
     content: public override sealed string AuthenticationType { get; }
     return:
       type: System.String
-      description: "The type of authentication used to identify the user."
+      description: "Typ uwierzytelniania używany do identyfikacji użytkownika."
   overload: System.Security.Principal.WindowsIdentity.AuthenticationType*
   exceptions:
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Windows returned the Windows NT status code STATUS_ACCESS_DENIED."
+    description: "System Windows zwrócił kod stanu systemu Windows NT STATUS_ACCESS_DENIED."
   - type: System.OutOfMemoryException
     commentId: T:System.OutOfMemoryException
-    description: "There is insufficient memory available."
+    description: "Dostępnych jest za mało pamięci."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the correct permissions.       -or-       The computer is not attached to a Windows 2003 or later domain.       -or-       The computer is not running Windows 2003 or later.       -or-       The user is not a member of the domain the computer is attached to."
+    description: "Obiekt wywołujący nie ma odpowiednich uprawnień.       - lub - komputer nie jest dołączony do systemu Windows 2003 lub nowszym domeny.       - lub - komputer nie działa system Windows 2003 lub nowszym.       - lub - użytkownik nie jest członkiem domeny, do której komputer jest dołączony."
   platform:
   - net462
 - uid: System.Security.Principal.WindowsIdentity.Claims
@@ -425,12 +425,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Gets all claims for the user represented by this Windows identity."
+  summary: "Pobiera wszystkie oświadczenia dla użytkownika reprezentowanego przez ten tożsamości systemu Windows."
   syntax:
     content: public override System.Collections.Generic.IEnumerable<System.Security.Claims.Claim> Claims { get; }
     return:
       type: System.Collections.Generic.IEnumerable{System.Security.Claims.Claim}
-      description: "A collection of claims for this <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> object."
+      description: "Zbiór oświadczeń dla tego <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> obiektu."
   overload: System.Security.Principal.WindowsIdentity.Claims*
   exceptions: []
   platform:
@@ -447,13 +447,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Creates a new  object that is a copy of the current instance."
+  summary: "Tworzy nowy obiekt, który jest kopią bieżącego wystąpienia."
   syntax:
     content: public override System.Security.Claims.ClaimsIdentity Clone ();
     parameters: []
     return:
       type: System.Security.Claims.ClaimsIdentity
-      description: "A copy of the current instance."
+      description: "Kopię bieżącego wystąpienia."
   overload: System.Security.Principal.WindowsIdentity.Clone*
   exceptions: []
   platform:
@@ -470,12 +470,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Identifies the name of the default <xref href=&quot;System.Security.Claims.ClaimsIdentity&quot;></xref> issuer."
+  summary: "Określa nazwę domyślnej <xref href=&quot;System.Security.Claims.ClaimsIdentity&quot;> </xref> wystawcy."
   syntax:
     content: public const string DefaultIssuer;
     return:
       type: System.String
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -491,12 +491,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Gets claims that have the <xref href=&quot;System.Security.Claims.ClaimTypes.WindowsDeviceClaim&quot;></xref> property key."
+  summary: "Pobiera oświadczenia, które mają <xref href=&quot;System.Security.Claims.ClaimTypes.WindowsDeviceClaim&quot;> </xref> właściwości klucza."
   syntax:
     content: public virtual System.Collections.Generic.IEnumerable<System.Security.Claims.Claim> DeviceClaims { get; }
     return:
       type: System.Collections.Generic.IEnumerable{System.Security.Claims.Claim}
-      description: "A collection of claims that have the <xref href=&quot;System.Security.Claims.ClaimTypes.WindowsDeviceClaim&quot;></xref> property key."
+      description: "Kolekcja oświadczenia, które mają <xref href=&quot;System.Security.Claims.ClaimTypes.WindowsDeviceClaim&quot;> </xref> właściwości klucza."
   overload: System.Security.Principal.WindowsIdentity.DeviceClaims*
   exceptions: []
   platform:
@@ -513,8 +513,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Releases all resources used by the <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref>."
-  remarks: "Call Dispose when you are finished using the <xref:System.Security.Principal.WindowsIdentity>. The Dispose method leaves the <xref:System.Security.Principal.WindowsIdentity> in an unusable state. After calling Dispose, you must release all references to the <xref:System.Security.Principal.WindowsIdentity> so the garbage collector can reclaim the memory that the <xref:System.Security.Principal.WindowsIdentity> was occupying. For more information, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md) and [Implementing a Dispose Method](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  Always call Dispose before you release your last reference to the <xref:System.Security.Principal.WindowsIdentity>. Otherwise, the resources it is using will not be freed until the garbage collector calls the <xref:System.Security.Principal.WindowsIdentity> object&quot;s `Finalize` method."
+  summary: "Zwalnia wszelkie zasoby używane przez <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref>."
+  remarks: "Wywołaj metodę Dispose po zakończeniu przy użyciu <xref:System.Security.Principal.WindowsIdentity>.</xref:System.Security.Principal.WindowsIdentity> Metoda Dispose pozostawia <xref:System.Security.Principal.WindowsIdentity>w stanie uniemożliwiającym jego używanie.</xref:System.Security.Principal.WindowsIdentity> Po wywołaniu metody Dispose, konieczne jest zwolnienie wszystkich odwołań do <xref:System.Security.Principal.WindowsIdentity>, moduł zbierający elementy bezużyteczne mógł odzyskać pamięć który <xref:System.Security.Principal.WindowsIdentity>klasy.</xref:System.Security.Principal.WindowsIdentity> </xref:System.Security.Principal.WindowsIdentity> Aby uzyskać więcej informacji, zobacz [czyszczenie zasobów niezarządzanych](~/add/includes/ajax-current-ext-md.md) i [implementacja metody Dispose](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] > Wywołania zawsze dysponować przed zwolnieniem ostatniego odwołania do <xref:System.Security.Principal.WindowsIdentity>.</xref:System.Security.Principal.WindowsIdentity> W przeciwnym razie używa zasobów nie zostanie zwolniona do wywołania modułu zbierającego elementy bezużyteczne <xref:System.Security.Principal.WindowsIdentity>obiektu `Finalize` metody.</xref:System.Security.Principal.WindowsIdentity>"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -534,14 +534,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> and optionally releases the managed resources."
-  remarks: "This method is called by the public `Dispose()`method and the <xref:System.Object.Finalize%2A> method. `Dispose()` invokes the protected `Dispose(Boolean)` method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes `Dispose` with `disposing` set to `false`.       When the `disposing` parameter is `true`, this method releases all resources held by any managed objects that this <xref:System.Security.Principal.WindowsIdentity> references. This method invokes the `Dispose()` method of each referenced object."
+  summary: "Zwalnia zasoby niezarządzane używane przez <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> i opcjonalnie zwalnia zasoby zarządzane."
+  remarks: "Ta metoda jest wywoływana przez metodę publiczną `Dispose()`— metoda i <xref:System.Object.Finalize%2A>metody.</xref:System.Object.Finalize%2A> `Dispose()`wywołuje chronioną metodę `Dispose(Boolean)` metody z `disposing` ustawiona `true`. <xref:System.Object.Finalize%2A>wywołuje `Dispose` z `disposing` ustawioną `false`.</xref:System.Object.Finalize%2A>       Gdy `disposing` parametr jest `true`, ta metoda zwalnia wszystkie zasoby zajmowane przez wszelkie obiekty zarządzane przez to <xref:System.Security.Principal.WindowsIdentity>odwołań.</xref:System.Security.Principal.WindowsIdentity> Ta metoda wywołuje `Dispose()` metody każdego odwołuje się do obiektu."
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Aby zwolnić zasoby zarządzane i niezarządzane; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> aby zwolnić tylko zasoby niezarządzane."
   overload: System.Security.Principal.WindowsIdentity.Dispose*
   exceptions: []
   platform:
@@ -558,8 +558,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Returns a <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> object that you can use as a sentinel value in your code to represent an anonymous user. The property value does not represent the built-in anonymous identity used by the Windows operating system."
-  remarks: "This property returns an empty <xref:System.Security.Principal.WindowsIdentity> object that enables you to treat operations as anonymous. The property value does not correspond to a Windows anonymous user and cannot be used for impersonation. Also, note that the identity returned by this property is not static; each call to GetAnonymous returns a different anonymous identity.       You can use the <xref:System.Security.Principal.WindowsIdentity.IsAnonymous%2A> property to detect the return value from GetAnonymous. However, <xref:System.Security.Principal.WindowsIdentity.IsAnonymous%2A> detects both the Windows anonymous identity and the anonymous identity returned by this method. To use the latter identity, cache the GetAnonymous return value instead of relying on the <xref:System.Security.Principal.WindowsIdentity.IsAnonymous%2A> property."
+  summary: "Zwraca <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> obiektów, której można jako wartość wskaźnikowych w kodzie do reprezentowania użytkownik anonimowy. Wartość właściwości nie reprezentuje wbudowane tożsamości anonimowej używany przez system operacyjny Windows."
+  remarks: "Ta właściwość zwraca pustą <xref:System.Security.Principal.WindowsIdentity>obiekt, który umożliwia Traktuj operacji jako użytkownik anonimowy.</xref:System.Security.Principal.WindowsIdentity> Wartość właściwości jest niezgodne z systemu Windows użytkownika anonimowego i nie może służyć do personifikacji. Zauważ również, czy tożsamości zwracane przez tę właściwość nie jest statyczny; Każde wywołanie GetAnonymous zwraca inną tożsamość anonimowa.       Można użyć <xref:System.Security.Principal.WindowsIdentity.IsAnonymous%2A>właściwość, aby wykryć wartość zwrotną z elementu GetAnonymous.</xref:System.Security.Principal.WindowsIdentity.IsAnonymous%2A> Jednak <xref:System.Security.Principal.WindowsIdentity.IsAnonymous%2A>wykrywa zarówno tożsamość anonimowa systemu Windows i tożsamości anonimowej zwracane przez tę metodę.</xref:System.Security.Principal.WindowsIdentity.IsAnonymous%2A> Do korzystania z ostatnim tożsamości, pamięci podręcznej GetAnonymous wartość zwracana zamiast polegania na <xref:System.Security.Principal.WindowsIdentity.IsAnonymous%2A>Właściwości.</xref:System.Security.Principal.WindowsIdentity.IsAnonymous%2A>"
   example:
   - "The following code shows the use of the GetAnonymous method to return a <xref:System.Security.Principal.WindowsIdentity> object that represents an anonymous Windows user. This code example is part of a larger example provided for the <xref:System.Security.Principal.WindowsIdentity> class.  \n  \n [!code-cs[System.Security.Principal.WindowsIdentity_AllMembers#15](~/add/codesnippet/csharp/m-system.security.princi_5_1.cs)]\n [!code-cpp[System.Security.Principal.WindowsIdentity_AllMembers#15](~/add/codesnippet/cpp/m-system.security.princi_5_1.cpp)]\n [!code-vb[System.Security.Principal.WindowsIdentity_AllMembers#15](~/add/codesnippet/visualbasic/m-system.security.princi_5_1.vb)]"
   syntax:
@@ -567,7 +567,7 @@ items:
     parameters: []
     return:
       type: System.Security.Principal.WindowsIdentity
-      description: "An object that represents an anonymous user."
+      description: "Obiekt reprezentujący anonimowego użytkownika."
   overload: System.Security.Principal.WindowsIdentity.GetAnonymous*
   exceptions: []
   platform:
@@ -584,7 +584,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Returns a <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> object that represents the current Windows user."
+  summary: "Zwraca <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> obiekt, który reprezentuje bieżącego użytkownika systemu Windows."
   remarks: ''
   example:
   - "The following code shows the use of the GetCurrent method to return a <xref:System.Security.Principal.WindowsIdentity> object that represents the current Windows user. This code example is part of a larger example provided for the <xref:System.Security.Principal.WindowsIdentity> class.  \n  \n [!code-cs[System.Security.Principal.WindowsIdentity_AllMembers#13](~/add/codesnippet/csharp/m-system.security.princi_7_1.cs)]\n [!code-cpp[System.Security.Principal.WindowsIdentity_AllMembers#13](~/add/codesnippet/cpp/m-system.security.princi_7_1.cpp)]\n [!code-vb[System.Security.Principal.WindowsIdentity_AllMembers#13](~/add/codesnippet/visualbasic/m-system.security.princi_7_1.vb)]"
@@ -593,12 +593,12 @@ items:
     parameters: []
     return:
       type: System.Security.Principal.WindowsIdentity
-      description: "An object that represents the current user."
+      description: "Obiekt reprezentujący bieżącego użytkownika."
   overload: System.Security.Principal.WindowsIdentity.GetCurrent*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the correct permissions."
+    description: "Obiekt wywołujący nie ma odpowiednich uprawnień."
   platform:
   - net462
 - uid: System.Security.Principal.WindowsIdentity.GetCurrent(System.Boolean)
@@ -613,17 +613,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Returns a <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> object that represents the Windows identity for either the thread or the process, depending on the value of the <code>ifImpersonating</code> parameter."
-  remarks: "If `ifImpersonating` is `true` and the thread is not impersonating, the returned <xref:System.Security.Principal.WindowsIdentity> object has no value.  If `ifImpersonating` is `false` and the thread is impersonating, the <xref:System.Security.Principal.WindowsIdentity> for the thread is returned.  If `ifImpersonating` is `false` and the thread is not impersonating, the <xref:System.Security.Principal.WindowsIdentity> for the process is returned."
+  summary: "Zwraca <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> obiekt, który reprezentuje tożsamości systemu Windows dla wątku lub procesu, w zależności od wartości <code> ifImpersonating </code> parametru."
+  remarks: "Jeśli `ifImpersonating` jest `true` i wątku nie przeprowadza personifikacji, zwracana <xref:System.Security.Principal.WindowsIdentity>obiekt nie ma wartości.</xref:System.Security.Principal.WindowsIdentity>  Jeśli `ifImpersonating` jest `false` i Wątek personifikuje, <xref:System.Security.Principal.WindowsIdentity>dla wątku jest zwracana.</xref:System.Security.Principal.WindowsIdentity>  Jeśli `ifImpersonating` jest `false` i wątku nie przeprowadza personifikacji, <xref:System.Security.Principal.WindowsIdentity>dla procesu jest zwracana.</xref:System.Security.Principal.WindowsIdentity>"
   syntax:
     content: public static System.Security.Principal.WindowsIdentity GetCurrent (bool ifImpersonating);
     parameters:
     - id: ifImpersonating
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to return the <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> only if the thread is currently impersonating; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to return the <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> of the thread if it is impersonating or the <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> of the process if the thread is not currently impersonating."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Aby przywrócić <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> tylko wtedy, gdy wątek jest obecnie personifikacji; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> do zwrócenia <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> wątku, jeśli jest on personifikacji lub <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> procesu, jeśli wątek obecnie nie personifikuje."
     return:
       type: System.Security.Principal.WindowsIdentity
-      description: "An object that represents a Windows user."
+      description: "Obiekt reprezentujący użytkownika systemu Windows."
   overload: System.Security.Principal.WindowsIdentity.GetCurrent*
   exceptions: []
   platform:
@@ -640,17 +640,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Returns a <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> object that represents the current Windows user, using the specified desired token access level."
-  remarks: "The `desiredAccess` parameter specifies an access mask that identifies the requested types of access to the access token. These requested access types are compared with the token&quot;s discretionary access control list (DACL) to determine which types of access are granted or denied."
+  summary: "Zwraca <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> obiekt, który reprezentuje bieżącego użytkownika systemu Windows, korzystając z określonego żądany poziom tokenu dostępu."
+  remarks: "`desiredAccess` Parametr określa maski dostępu, która identyfikuje żądanych typów dostęp do tokenu dostępu. Te typy żądany dostęp, są porównywane z tokenu poufnej listy kontroli dostępu (DACL), aby określić, jakie typy dostępu udzielono lub odmówiono."
   syntax:
     content: public static System.Security.Principal.WindowsIdentity GetCurrent (System.Security.Principal.TokenAccessLevels desiredAccess);
     parameters:
     - id: desiredAccess
       type: System.Security.Principal.TokenAccessLevels
-      description: "A bitwise combination of the enumeration values."
+      description: "Bitowe połączenie wartości wyliczenia."
     return:
       type: System.Security.Principal.WindowsIdentity
-      description: "An object that represents the current user."
+      description: "Obiekt reprezentujący bieżącego użytkownika."
   overload: System.Security.Principal.WindowsIdentity.GetCurrent*
   exceptions: []
   platform:
@@ -667,7 +667,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Gets the groups the current Windows user belongs to."
+  summary: "Pobiera bieżący systemu Windows, użytkownik należy do grupy."
   remarks: ''
   example:
   - "The following code example shows the use of the Groups property to display the identity references for the groups the current user belongs to.  This code example is part of a larger example provided for the <xref:System.Security.Principal.WindowsIdentity> class.  \n  \n [!code-cs[System.Security.Principal.WindowsIdentity_AllMembers#20](~/add/codesnippet/csharp/p-system.security.princi_8_1.cs)]\n [!code-vb[System.Security.Principal.WindowsIdentity_AllMembers#20](~/add/codesnippet/visualbasic/p-system.security.princi_8_1.vb)]"
@@ -675,7 +675,7 @@ items:
     content: public System.Security.Principal.IdentityReferenceCollection Groups { get; }
     return:
       type: System.Security.Principal.IdentityReferenceCollection
-      description: "An object representing the groups the current Windows user belongs to."
+      description: "Obiekt reprezentujący bieżącego użytkownika systemu Windows należy do grupy."
   overload: System.Security.Principal.WindowsIdentity.Groups*
   exceptions: []
   platform:
@@ -692,8 +692,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Impersonates the user represented by the <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;></xref> object."
-  remarks: "On Windows NT platforms, the current user must have sufficient rights to allow impersonation."
+  summary: "Personifikuje użytkownika reprezentowanego przez <xref href=&quot;System.Security.Principal.WindowsIdentity&quot;> </xref> obiektu."
+  remarks: "Na platformach systemu Windows NT bieżący użytkownik musi mieć wystarczające uprawnienia, aby umożliwić personifikacji."
   example:
   - "The following example demonstrates how to obtain a Windows account token by calling the unmanaged Win32 `LogonUser` function, and how to use that token to impersonate another user and then revert to the original identity.  \n  \n [!code-cpp[WindowsIdentity Impersonation#1](~/add/codesnippet/cpp/m-system.security.princi_2_1.cpp)]\n [!code-cs[WindowsIdentity Impersonation#1](~/add/codesnippet/csharp/m-system.security.princi_2_1.cs)]\n [!code-vb[WindowsIdentity Impersonation#1](~/add/codesnippet/visualbasic/m-system.security.princi_2_1.vb)]"
   syntax:
@@ -701,15 +701,15 @@ items:
     parameters: []
     return:
       type: System.Security.Principal.WindowsImpersonationContext
-      description: "An object that represents the Windows user prior to impersonation; this can be used to revert to the original user&quot;s context."
+      description: "Obiekt reprezentujący użytkownika systemu Windows przed personifikacji; to umożliwia przywrócenie oryginalnego użytkownika kontekstu."
   overload: System.Security.Principal.WindowsIdentity.Impersonate*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An anonymous identity attempted to perform an impersonation."
+    description: "Tożsamość anonimowa próbowano przeprowadzić personifikacji."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "A Win32 error occurred."
+    description: "Wystąpił błąd systemu Win32."
   platform:
   - net462
 - uid: System.Security.Principal.WindowsIdentity.Impersonate(System.IntPtr)
@@ -724,8 +724,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Impersonates the user represented by the specified user token."
-  remarks: "On Windows NT platforms, the current user must have sufficient rights to allow impersonation.      > [!NOTE] >  Calling the Impersonate method with a `userToken` value of <xref:System.IntPtr> is equivalent to calling the Win32 `RevertToSelf` function. If another user is currently being impersonated, control reverts to the original user.       For more information about calls to unmanaged code, see [Consuming Unmanaged DLL Functions](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Personifikuje użytkownika reprezentowanego przez określony token użytkownika."
+  remarks: "Na platformach systemu Windows NT bieżący użytkownik musi mieć wystarczające uprawnienia, aby umożliwić personifikacji.      > [!NOTE] > Wywołanie metody personifikacji z `userToken` wartość <xref:System.IntPtr>jest odpowiednikiem wywołania Win32 `RevertToSelf` funkcji.</xref:System.IntPtr> Jeśli inny użytkownik jest obecnie Personifikowany, kontroli umożliwia przywrócenie oryginalnego użytkownika.       Aby uzyskać więcej informacji na temat wywołań do kodu niezarządzanego, zobacz [wykorzystywanie niezarządzanych funkcji DLL](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example demonstrates how to obtain a Windows account token by calling the unmanaged Win32 `LogonUser` function, and how to use that token to impersonate another user and then revert to the original identity.  \n  \n [!code-vb[WindowsIdentity Impersonation2#1](~/add/codesnippet/visualbasic/m-system.security.princi_3_1.vb)]\n [!code-cs[WindowsIdentity Impersonation2#1](~/add/codesnippet/csharp/m-system.security.princi_3_1.cs)]"
   syntax:
@@ -733,21 +733,21 @@ items:
     parameters:
     - id: userToken
       type: System.IntPtr
-      description: "The handle of a Windows account token. This token is usually retrieved through a call to unmanaged code, such as a call to the Win32 API <xref uid=&quot;langword_csharp_LogonUser&quot; name=&quot;LogonUser&quot; href=&quot;&quot;></xref> function."
+      description: "Dojście token konta systemu Windows. Token ten jest zazwyczaj pobierana za pomocą wywołania do kodu niezarządzanego, takie jak wywołania funkcji API Win32 <xref uid=&quot;langword_csharp_LogonUser&quot; name=&quot;LogonUser&quot; href=&quot;&quot;> </xref> funkcji."
     return:
       type: System.Security.Principal.WindowsImpersonationContext
-      description: "An object that represents the Windows user prior to impersonation; this object can be used to revert to the original user&quot;s context."
+      description: "Obiekt reprezentujący użytkownika systemu Windows przed personifikacji; Ten obiekt umożliwia przywrócenie oryginalnego użytkownika kontekstu."
   overload: System.Security.Principal.WindowsIdentity.Impersonate*
   exceptions:
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Windows returned the Windows NT status code STATUS_ACCESS_DENIED."
+    description: "System Windows zwrócił kod stanu systemu Windows NT STATUS_ACCESS_DENIED."
   - type: System.OutOfMemoryException
     commentId: T:System.OutOfMemoryException
-    description: "There is insufficient memory available."
+    description: "Dostępnych jest za mało pamięci."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the correct permissions."
+    description: "Obiekt wywołujący nie ma odpowiednich uprawnień."
   platform:
   - net462
 - uid: System.Security.Principal.WindowsIdentity.ImpersonationLevel
@@ -762,15 +762,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Gets the impersonation level for the user."
-  remarks: "Describes the impersonation level to be used to connect to WMI."
+  summary: "Pobiera poziom personifikacji dla użytkownika."
+  remarks: "Opis poziomu personifikacji ma być używany do łączenia się z usługą WMI."
   example:
   - "The following code example shows the use of the ImpersonationLevel property to display the impersonation level for the current user. This code example is part of a larger example provided for the <xref:System.Security.Principal.WindowsIdentity> class.  \n  \n [!code-cs[System.Security.Principal.WindowsIdentity_AllMembers#21](~/add/codesnippet/csharp/p-system.security.princi_3_1.cs)]\n [!code-vb[System.Security.Principal.WindowsIdentity_AllMembers#21](~/add/codesnippet/visualbasic/p-system.security.princi_3_1.vb)]"
   syntax:
     content: public System.Security.Principal.TokenImpersonationLevel ImpersonationLevel { get; }
     return:
       type: System.Security.Principal.TokenImpersonationLevel
-      description: "One of the enumeration values that specifies the impersonation level."
+      description: "Jedna z wartości wyliczenia, które określa poziom personifikacji."
   overload: System.Security.Principal.WindowsIdentity.ImpersonationLevel*
   exceptions: []
   platform:
@@ -787,15 +787,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Gets a value that indicates whether the user account is identified as an anonymous account by the system."
-  remarks: "The IsAnonymous property detects both the Windows anonymous identity and the anonymous identity that is returned by the <xref:System.Security.Principal.WindowsIdentity.GetAnonymous%2A> method.       Anonymous accounts are typically only encountered only from within ASP.NET-based applications when anonymous access is allowed by Internet Information Services (IIS)."
+  summary: "Pobiera wartość wskazującą, czy konto użytkownika jest identyfikowane jako konto anonimowego przez system."
+  remarks: "Wykrywa właściwości IsAnonymous zarówno tożsamość anonimowa systemu Windows, jak i Tożsamość anonimowa, który jest zwracany przez <xref:System.Security.Principal.WindowsIdentity.GetAnonymous%2A>metody.</xref:System.Security.Principal.WindowsIdentity.GetAnonymous%2A>       Kont anonimowych są zwykle tylko podczas tylko z wewnątrz aplikacji ASP.NET dostęp anonimowy jest dozwolony przez Internet Information Services (IIS)."
   example:
   - "The following code shows the use of the IsAnonymous property to detect whether the user account is identified as an anonymous account by the system. This code example is part of a larger example provided for the <xref:System.Security.Principal.WindowsIdentity> class.  \n  \n [!code-cs[System.Security.Principal.WindowsIdentity_AllMembers#9](~/add/codesnippet/csharp/p-system.security.princi_4_1.cs)]\n [!code-cpp[System.Security.Principal.WindowsIdentity_AllMembers#9](~/add/codesnippet/cpp/p-system.security.princi_4_1.cpp)]\n [!code-vb[System.Security.Principal.WindowsIdentity_AllMembers#9](~/add/codesnippet/visualbasic/p-system.security.princi_4_1.vb)]"
   syntax:
     content: public virtual bool IsAnonymous { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the user account is an anonymous account; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli konto użytkownika jest kontem anonimowy; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Principal.WindowsIdentity.IsAnonymous*
   exceptions: []
   platform:
@@ -812,12 +812,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Gets a value indicating whether the user has been authenticated by Windows."
+  summary: "Pobiera wartość wskazującą, czy użytkownik został uwierzytelniony przez system Windows."
   syntax:
     content: public override bool IsAuthenticated { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the user was authenticated; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli użytkownik został uwierzytelniony; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Principal.WindowsIdentity.IsAuthenticated*
   exceptions: []
   platform:
@@ -834,7 +834,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Gets a value indicating whether the user account is identified as a <xref href=&quot;System.Security.Principal.WindowsAccountType&quot;></xref> account by the system."
+  summary: "Pobiera wartość wskazującą, czy konto użytkownika jest identyfikowane jako <xref href=&quot;System.Security.Principal.WindowsAccountType&quot;> </xref> konta przez system."
   remarks: ''
   example:
   - "The following code shows the use of the IsGuest property to return a value indicating whether the user account is identified as a <xref:System.Security.Principal.WindowsAccountType> account by the system. This code example is part of a larger example provided for the <xref:System.Security.Principal.WindowsIdentity> class.  \n  \n [!code-cs[System.Security.Principal.WindowsIdentity_AllMembers#12](~/add/codesnippet/csharp/p-system.security.princi_11_1.cs)]\n [!code-cpp[System.Security.Principal.WindowsIdentity_AllMembers#12](~/add/codesnippet/cpp/p-system.security.princi_11_1.cpp)]\n [!code-vb[System.Security.Principal.WindowsIdentity_AllMembers#12](~/add/codesnippet/visualbasic/p-system.security.princi_11_1.vb)]"
@@ -842,7 +842,7 @@ items:
     content: public virtual bool IsGuest { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the user account is a <xref href=&quot;System.Security.Principal.WindowsAccountType&quot;></xref> account; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli konto użytkownika jest <xref href=&quot;System.Security.Principal.WindowsAccountType&quot;> </xref> konta; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Principal.WindowsIdentity.IsGuest*
   exceptions: []
   platform:
@@ -859,7 +859,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Gets a value indicating whether the user account is identified as a <xref href=&quot;System.Security.Principal.WindowsAccountType&quot;></xref> account by the system."
+  summary: "Pobiera wartość wskazującą, czy konto użytkownika jest identyfikowane jako <xref href=&quot;System.Security.Principal.WindowsAccountType&quot;> </xref> konta przez system."
   remarks: ''
   example:
   - "The following code shows the use of the IsSystem property to return a value indicating whether the user account is identified as a <xref:System.Security.Principal.WindowsAccountType> account by the system. This code example is part of a larger example provided for the <xref:System.Security.Principal.WindowsIdentity> class.  \n  \n [!code-cs[System.Security.Principal.WindowsIdentity_AllMembers#11](~/add/codesnippet/csharp/p-system.security.princi_9_1.cs)]\n [!code-cpp[System.Security.Principal.WindowsIdentity_AllMembers#11](~/add/codesnippet/cpp/p-system.security.princi_9_1.cpp)]\n [!code-vb[System.Security.Principal.WindowsIdentity_AllMembers#11](~/add/codesnippet/visualbasic/p-system.security.princi_9_1.vb)]"
@@ -867,7 +867,7 @@ items:
     content: public virtual bool IsSystem { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the user account is a <xref href=&quot;System.Security.Principal.WindowsAccountType&quot;></xref> account; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli konto użytkownika jest <xref href=&quot;System.Security.Principal.WindowsAccountType&quot;> </xref> konta; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Principal.WindowsIdentity.IsSystem*
   exceptions: []
   platform:
@@ -884,15 +884,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Gets the user&quot;s Windows logon name."
-  remarks: "The logon name is in the form DOMAIN\\USERNAME."
+  summary: "Pobiera nazwę logowania użytkownika systemu Windows."
+  remarks: "Nazwa logowania jest formy domena azwa_użytkownika."
   example:
   - "The following code shows the use of the Name property to get the user's Windows logon name. This code example is part of a larger example provided for the <xref:System.Security.Principal.WindowsIdentity> class.  \n  \n [!code-cs[System.Security.Principal.WindowsIdentity_AllMembers#8](~/add/codesnippet/csharp/p-system.security.princi_2_1.cs)]\n [!code-cpp[System.Security.Principal.WindowsIdentity_AllMembers#8](~/add/codesnippet/cpp/p-system.security.princi_2_1.cpp)]\n [!code-vb[System.Security.Principal.WindowsIdentity_AllMembers#8](~/add/codesnippet/visualbasic/p-system.security.princi_2_1.vb)]"
   syntax:
     content: public override string Name { get; }
     return:
       type: System.String
-      description: "The Windows logon name of the user on whose behalf the code is being run."
+      description: "Nazwa logowania systemu Windows użytkownika w imieniu którego kod jest uruchamiana."
   overload: System.Security.Principal.WindowsIdentity.Name*
   exceptions: []
   platform:
@@ -909,15 +909,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Gets the security identifier (SID) for the token owner."
-  remarks: "The SID uniquely identifies a user or group on all Windows NT implementations.  The returned SID identifies the default owner SID that will be applied to newly created objects."
+  summary: "Pobiera identyfikator zabezpieczeń (SID) dla właściciela tokenu."
+  remarks: "Identyfikator SID stanowi unikatową identyfikację użytkownika lub grupy na wszystkich wdrożeń systemu Windows NT.  Zwrócony identyfikator SID identyfikuje właściciela domyślny identyfikator SID, które będą stosowane do nowo utworzonego obiektu."
   example:
   - "The following code example shows the use of the Owner property to display the security identifier for the token owner.  This code example is part of a larger example provided for the <xref:System.Security.Principal.WindowsIdentity> class  \n  \n [!code-cs[System.Security.Principal.WindowsIdentity_AllMembers#19](~/add/codesnippet/csharp/p-system.security.princi_5_1.cs)]\n [!code-vb[System.Security.Principal.WindowsIdentity_AllMembers#19](~/add/codesnippet/visualbasic/p-system.security.princi_5_1.vb)]"
   syntax:
     content: public System.Security.Principal.SecurityIdentifier Owner { get; }
     return:
       type: System.Security.Principal.SecurityIdentifier
-      description: "An object for the token owner."
+      description: "Obiekt token właściciela."
   overload: System.Security.Principal.WindowsIdentity.Owner*
   exceptions: []
   platform:
@@ -934,7 +934,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Runs the specified action as the impersonated Windows identity. Instead of using an impersonated method call and running your function in <xref href=&quot;System.Security.Principal.WindowsImpersonationContext&quot;></xref>, you can use RunImpersonated and provide your function directly as a parameter."
+  summary: "Uruchamia określoną akcję jako personifikowanej tożsamości systemu Windows. Zamiast przy użyciu wywołania metody personifikowanej i uruchamiania funkcji w <xref href=&quot;System.Security.Principal.WindowsImpersonationContext&quot;> </xref>, można użyć RunImpersonated i podaj funkcji bezpośrednio jako parametr."
   remarks: ''
   example:
   - "The following example demonstrates the use of the <xref:System.Security.Principal.WindowsIdentity> class to impersonate a user.  \n  \n> [!WARNING]\n>  This sample asks the user to enter a password on the console screen. The password will be visible on the screen, because the console window does not support masked input natively.  \n  \n```c#  \n// The following example demonstrates the use of the WindowsIdentity class to impersonate a user.   \n// IMPORTANT NOTE:   \n// This sample asks the user to enter a password on the console screen.   \n// The password will be visible on the screen, because the console window   \n// does not support masked input natively.  \n  \nusing System;  \nusing System.Runtime.InteropServices;  \nusing System.Security;  \nusing System.Security.Principal;  \nusing Microsoft.Win32.SafeHandles;  \n  \npublic class ImpersonationDemo  \n{  \n    [DllImport(\"advapi32.dll\", SetLastError = true, CharSet = CharSet.Unicode)]  \n    public static extern bool LogonUser(String lpszUsername, String lpszDomain, String lpszPassword,  \n        int dwLogonType, int dwLogonProvider, out SafeAccessTokenHandle phToken);  \n  \n    public static void Main()  \n    {  \n        // Get the user token for the specified user, domain, and password using the   \n        // unmanaged LogonUser method.   \n        // The local machine name can be used for the domain name to impersonate a user on this machine.  \n        Console.Write(\"Enter the name of the domain on which to log on: \");  \n        string domainName = Console.ReadLine();  \n  \n        Console.Write(\"Enter the login of a user on {0} that you wish to impersonate: \", domainName);  \n        string userName = Console.ReadLine();  \n  \n        Console.Write(\"Enter the password for {0}: \", userName);  \n  \n        const int LOGON32_PROVIDER_DEFAULT = 0;  \n        //This parameter causes LogonUser to create a primary token.   \n        const int LOGON32_LOGON_INTERACTIVE = 2;  \n  \n        // Call LogonUser to obtain a handle to an access token.   \n        SafeAccessTokenHandle safeAccessTokenHandle;  \n        bool returnValue = LogonUser(userName, domainName, Console.ReadLine(),  \n            LOGON32_LOGON_INTERACTIVE, LOGON32_PROVIDER_DEFAULT,  \n            out safeAccessTokenHandle);  \n  \n        if (false == returnValue)  \n        {  \n            int ret = Marshal.GetLastWin32Error();  \n            Console.WriteLine(\"LogonUser failed with error code : {0}\", ret);  \n            throw new System.ComponentModel.Win32Exception(ret);  \n        }  \n  \n        Console.WriteLine(\"Did LogonUser Succeed? \" + (returnValue ? \"Yes\" : \"No\"));  \n        // Check the identity.  \n        Console.WriteLine(\"Before impersonation: \" + WindowsIdentity.GetCurrent().Name);  \n  \n        // Note: if you want to run as unimpersonated, pass  \n        //       'SafeAccessTokenHandle.InvalidHandle' instead of variable 'safeAccessTokenHandle'  \n        WindowsIdentity.RunImpersonated(  \n            safeAccessTokenHandle,  \n            // User action  \n            () =>  \n            {  \n                // Check the identity.  \n                Console.WriteLine(\"During impersonation: \" + WindowsIdentity.GetCurrent().Name);  \n            }  \n            );  \n  \n        // Check the identity again.  \n        Console.WriteLine(\"After impersonation: \" + WindowsIdentity.GetCurrent().Name);  \n    }  \n}  \n  \n```"
@@ -943,10 +943,10 @@ items:
     parameters:
     - id: safeAccessTokenHandle
       type: Microsoft.Win32.SafeHandles.SafeAccessTokenHandle
-      description: "The SafeAccessTokenHandle of the impersonated Windows identity."
+      description: "SafeAccessTokenHandle personifikowanej tożsamości systemu Windows."
     - id: action
       type: System.Action
-      description: "The System.Action to run."
+      description: "Elementu System.Action do uruchomienia."
   overload: System.Security.Principal.WindowsIdentity.RunImpersonated*
   exceptions: []
   platform:
@@ -968,13 +968,13 @@ items:
     parameters:
     - id: safeAccessTokenHandle
       type: Microsoft.Win32.SafeHandles.SafeAccessTokenHandle
-      description: "To be added."
+      description: "Do dodania."
     - id: func
       type: System.Func{T}
-      description: "To be added."
+      description: "Do dodania."
     return:
       type: T
-      description: "To be added."
+      description: "Do dodania."
   overload: System.Security.Principal.WindowsIdentity.RunImpersonated<T>*
   exceptions: []
   platform:
@@ -992,13 +992,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Implements the <xref href=&quot;System.Runtime.Serialization.ISerializable&quot;></xref> interface and is called back by the deserialization event when deserialization is complete."
+  summary: "Implementuje <xref href=&quot;System.Runtime.Serialization.ISerializable&quot;> </xref> interfejsu i zostanie wywołane przez zdarzenie deserializacji po zakończeniu wykonywania deserializacji."
   syntax:
     content: void IDeserializationCallback.OnDeserialization (object sender);
     parameters:
     - id: sender
       type: System.Object
-      description: "The source of the deserialization event."
+      description: "Źródło zdarzenia deserializacji."
   overload: System.Security.Principal.WindowsIdentity.System#Runtime#Serialization#IDeserializationCallback#OnDeserialization*
   exceptions: []
   platform:
@@ -1016,17 +1016,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Sets the <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref> object with the logical context information needed to recreate an instance of this execution context."
-  remarks: "This method sets a <xref:System.Runtime.Serialization.SerializationInfo> with the logical call context information. During deserialization, the execution context object is reconstituted from the <xref:System.Runtime.Serialization.SerializationInfo> transmitted over the stream.       For more information, see <xref:System.Runtime.Serialization.SerializationInfo>."
+  summary: "Ustawia <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;> </xref> obiekt z kontekstu logicznej potrzebnych do ponownie tworzy wystąpienie tego kontekstu wykonywania."
+  remarks: "Ta metoda ustawia <xref:System.Runtime.Serialization.SerializationInfo>o logicznym wywołań informacje o kontekście.</xref:System.Runtime.Serialization.SerializationInfo> Podczas deserializacji, obiekt kontekstu wykonywania jest odtworzonych z <xref:System.Runtime.Serialization.SerializationInfo>przesyłane przez strumień.</xref:System.Runtime.Serialization.SerializationInfo>       Aby uzyskać więcej informacji zobacz <xref:System.Runtime.Serialization.SerializationInfo>.</xref:System.Runtime.Serialization.SerializationInfo>"
   syntax:
     content: void ISerializable.GetObjectData (System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context);
     parameters:
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "An object containing the information required to serialize the <xref href=&quot;System.Collections.Hashtable&quot;></xref>."
+      description: "Obiekt zawierający informacje wymagane do serializacji <xref href=&quot;System.Collections.Hashtable&quot;> </xref>."
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: "An object containing the source and destination of the serialized stream associated with the <xref href=&quot;System.Collections.Hashtable&quot;></xref>."
+      description: "Obiekt zawierający źródłowy i docelowy serializowanego strumienia skojarzonego z <xref href=&quot;System.Collections.Hashtable&quot;> </xref>."
   overload: System.Security.Principal.WindowsIdentity.System#Runtime#Serialization#ISerializable#GetObjectData*
   exceptions: []
   platform:
@@ -1043,15 +1043,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Gets the Windows account token for the user."
-  remarks: "Do not explicitly release the account token that is returned by the Token property. The token is released by the <xref:System.Security.Principal.WindowsIdentity.Dispose%2A> method, which you can call in code. <xref:System.Security.Principal.WindowsIdentity.Dispose%2A> is also automatically called by the garbage collector.      > [!NOTE] >  The account token that is returned by the Token property is a duplicate of the Windows token that is used to create the <xref:System.Security.Principal.WindowsIdentity> object and is automatically released by the .NET Framework. This is different from the account token (the `userToken` parameter for the constructor), which is used to create the <xref:System.Security.Principal.WindowsIdentity> object. `userToken` is a Windows account token that is created by a call to `LogonUser` and must be closed to avoid a memory leak."
+  summary: "Pobiera token konta systemu Windows dla użytkownika."
+  remarks: "Czy nie jawnie wersji tokenu konta, który jest zwracany przez właściwość tokenu. Token został wydany przez <xref:System.Security.Principal.WindowsIdentity.Dispose%2A>metody, które można wywołać w kodzie.</xref:System.Security.Principal.WindowsIdentity.Dispose%2A> <xref:System.Security.Principal.WindowsIdentity.Dispose%2A>automatycznie jest wywoływana przez moduł garbage collector.</xref:System.Security.Principal.WindowsIdentity.Dispose%2A>      > [!NOTE] > Token konta, który jest zwracany przez właściwość Token jest duplikatem token systemu Windows, który jest używany do tworzenia <xref:System.Security.Principal.WindowsIdentity>obiektu i zwolnieniu automatycznie przez program .NET Framework.</xref:System.Security.Principal.WindowsIdentity> To jest inny niż token konta ( `userToken` parametr dla konstruktora), który jest używany do tworzenia <xref:System.Security.Principal.WindowsIdentity>obiektu.</xref:System.Security.Principal.WindowsIdentity> `userToken`jest token konta systemu Windows, który jest tworzony przez wywołanie do `LogonUser` i muszą zostać zamknięte w celu uniknięcia wycieku pamięci."
   example:
   - "The following code shows the use of the <xref:System.Security.Principal.WindowsIdentity.IsSystem%2A> property to get the Windows account token for the user. This code example is part of a larger example provided for the <xref:System.Security.Principal.WindowsIdentity> class.  \n  \n [!code-cs[System.Security.Principal.WindowsIdentity_AllMembers#14](~/add/codesnippet/csharp/p-system.security.princi_0_1.cs)]\n [!code-cpp[System.Security.Principal.WindowsIdentity_AllMembers#14](~/add/codesnippet/cpp/p-system.security.princi_0_1.cpp)]\n [!code-vb[System.Security.Principal.WindowsIdentity_AllMembers#14](~/add/codesnippet/visualbasic/p-system.security.princi_0_1.vb)]"
   syntax:
     content: public virtual IntPtr Token { get; }
     return:
       type: System.IntPtr
-      description: "The handle of the access token associated with the current execution thread."
+      description: "Dojście tokenu dostępu skojarzone z bieżącym wątku wykonawczego."
   overload: System.Security.Principal.WindowsIdentity.Token*
   exceptions: []
   platform:
@@ -1068,13 +1068,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Gets the security identifier (SID) for the user."
-  remarks: "The SID uniquely identifies a user or group on all Windows NT implementations.      > [!NOTE] >  The <xref:System.Security.Principal.WindowsIdentity> object returned by the <xref:System.Security.Principal.WindowsIdentity.GetAnonymous%2A> method is not the same as the Windows anonymous user. This property gets `null` for an anonymous user represented by the <xref:System.Security.Principal.WindowsIdentity> object returned by the <xref:System.Security.Principal.WindowsIdentity.GetAnonymous%2A> method; it does not get the SID representing an anonymous Windows user."
+  summary: "Pobiera identyfikator zabezpieczeń (SID) dla użytkownika."
+  remarks: "Identyfikator SID stanowi unikatową identyfikację użytkownika lub grupy na wszystkich wdrożeń systemu Windows NT.      > [!NOTE] > <xref:System.Security.Principal.WindowsIdentity>Obiektu zwróconego przez <xref:System.Security.Principal.WindowsIdentity.GetAnonymous%2A>Metoda nie jest taka sama jak Windows użytkownik anonimowy.</xref:System.Security.Principal.WindowsIdentity.GetAnonymous%2A> </xref:System.Security.Principal.WindowsIdentity> Pobiera właściwość ta `null` dla anonimowego użytkownika reprezentowanego przez <xref:System.Security.Principal.WindowsIdentity>obiektu zwróconego przez <xref:System.Security.Principal.WindowsIdentity.GetAnonymous%2A>metody; nie uzyskuje identyfikator SID reprezentujący anonimowego użytkownika systemu Windows.</xref:System.Security.Principal.WindowsIdentity.GetAnonymous%2A> </xref:System.Security.Principal.WindowsIdentity>"
   syntax:
     content: public System.Security.Principal.SecurityIdentifier User { get; }
     return:
       type: System.Security.Principal.SecurityIdentifier
-      description: "An object for the user."
+      description: "Obiekt użytkownika."
   overload: System.Security.Principal.WindowsIdentity.User*
   exceptions: []
   platform:
@@ -1091,12 +1091,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Principal
-  summary: "Gets claims that have the <xref href=&quot;System.Security.Claims.ClaimTypes.WindowsUserClaim&quot;></xref> property key."
+  summary: "Pobiera oświadczenia, które mają <xref href=&quot;System.Security.Claims.ClaimTypes.WindowsUserClaim&quot;> </xref> właściwości klucza."
   syntax:
     content: public virtual System.Collections.Generic.IEnumerable<System.Security.Claims.Claim> UserClaims { get; }
     return:
       type: System.Collections.Generic.IEnumerable{System.Security.Claims.Claim}
-      description: "A collection of claims that have the <xref href=&quot;System.Security.Claims.ClaimTypes.WindowsUserClaim&quot;></xref> property key."
+      description: "Kolekcja oświadczenia, które mają <xref href=&quot;System.Security.Claims.ClaimTypes.WindowsUserClaim&quot;> </xref> właściwości klucza."
   overload: System.Security.Principal.WindowsIdentity.UserClaims*
   exceptions: []
   platform:

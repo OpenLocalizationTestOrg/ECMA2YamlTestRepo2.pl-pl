@@ -25,8 +25,8 @@ items:
   nameWithType: NetCodeGroup
   fullName: System.Security.Policy.NetCodeGroup
   type: Class
-  summary: "Grants Web permission to the site from which the assembly was downloaded. This class cannot be inherited."
-  remarks: "Code groups are the building blocks of code access security policy. Each policy level consists of a root code group that can have one or more child code groups. Each child code group can have its own child code groups; this behavior extends to any number of levels, forming a tree. Each code group has a membership condition that determines if a given assembly belongs to the group, based on the evidence for that assembly. Only code groups whose membership conditions match a given assembly, along with their child code groups, apply code access security policy.       NetCodeGroup has the same merge semantics as that of <xref:System.Security.Policy.UnionCodeGroup>; it forms the union of the <xref:System.Security.Policy.PolicyStatement> objects of all matching child code groups and the <xref:System.Security.Policy.PolicyStatement> it generates from the input <xref:System.Security.Policy.Url> evidence. However, NetCodeGroup returns a permission containing a dynamically calculated <xref:System.Net.WebPermission> that grants connect access to the site from which the code is run; <xref:System.Security.Policy.UnionCodeGroup> simply returns a static permission set.       When a NetCodeGroup is created, it contains the default connection access rules shown in the following table.      |URI Scheme|Rule|   |----------------|----------|   |file|No connection access to the origin server is permitted.|   |http|HTTP and HTTPS access is permitted using the origin port.|   |https|HTTPS access is permitted using the origin port.|       You can control the scheme and port that code is permitted to use when connecting back to its site of origin by passing a <xref:System.Security.Policy.CodeConnectAccess> object with the appropriate <xref:System.Security.Policy.CodeConnectAccess.Scheme%2A> and <xref:System.Security.Policy.CodeConnectAccess.Port%2A> property values to the <xref:System.Security.Policy.NetCodeGroup.AddConnectAccess%2A> method. You can create a connection access rule that applies when the origin scheme is not present in the evidence or is not recognized by specifying <xref:System.Security.Policy.NetCodeGroup.AbsentOriginScheme> (&quot;&quot;) as the scheme. You can also create a connection access rule that applies when there is no connection access rule with a matching scheme by specifying <xref:System.Security.Policy.NetCodeGroup.AnyOtherOriginScheme> (&quot;*&quot;) as the scheme.      > [!NOTE] >  If code does not submit the URI scheme as evidence, access is permitted using any scheme back to the origin site."
+  summary: "Przyznaje uprawnienia do lokacji, z którego został pobrany zestawu w sieci Web. Ta klasa nie może być dziedziczona."
+  remarks: "Grupy kodów są blokami konstrukcyjnymi zasad zabezpieczeń dostępu kodu. Każdy poziom zasad składa się z głównej grupy kodów, który może mieć co najmniej jedną grupę kod podrzędny. Każda grupa kodów podrzędnych może mieć własną podrzędnych grup kodu; Rozszerza to zachowanie na dowolną liczbę poziomów tworzące drzewa. Każda grupa kodów zawiera warunek członkostwa, który określa, czy danego zestawu nie należy do grupy, na podstawie dowodów dla tego zestawu. Tylko grupy kodu, których warunki członkostwa odpowiadają danego zestawu, wraz z ich grup kod podrzędny zastosować zasady zabezpieczeń dostępu kodu.       NetCodeGroup ma tej samej semantyki scalania, co <xref:System.Security.Policy.UnionCodeGroup>; wchodzi w skład złożenie <xref:System.Security.Policy.PolicyStatement>obiektów podrzędnych wszystkie pasujące grup kodów i <xref:System.Security.Policy.PolicyStatement>generuje wejściowego <xref:System.Security.Policy.Url>dowód.</xref:System.Security.Policy.Url> </xref:System.Security.Policy.PolicyStatement> </xref:System.Security.Policy.PolicyStatement> </xref:System.Security.Policy.UnionCodeGroup> Jednak NetCodeGroup zwraca uprawnienie zawierający <xref:System.Net.WebPermission>dynamicznie obliczeniowej, że przyznaje połączenia dostępu do lokacji, z którego jest on uruchamiany; <xref:System.Security.Policy.UnionCodeGroup>po prostu zwraca zestaw uprawnień statycznych.</xref:System.Security.Policy.UnionCodeGroup> </xref:System.Net.WebPermission>       Po utworzeniu NetCodeGroup zawiera domyślne reguły dostępu połączenia pokazano w poniższej tabeli.      | Schemat identyfikatora URI | Reguła |   |----------------|----------|   | pliku | Nie dostępu do połączenia z serwerem źródłowym jest dozwolone. |   | http | Dostęp HTTP i HTTPS jest dozwolone przy użyciu portu pochodzenia. |   | https | Dostęp HTTPS jest dozwolone przy użyciu portu pochodzenia. |       Można kontrolować schemat i port, którego kod dozwolone jest używanie podczas łączenia z powrotem do witryny pochodzenia przez przekazanie <xref:System.Security.Policy.CodeConnectAccess>obiektu z odpowiednią <xref:System.Security.Policy.CodeConnectAccess.Scheme%2A>i <xref:System.Security.Policy.CodeConnectAccess.Port%2A>wartości właściwości do <xref:System.Security.Policy.NetCodeGroup.AddConnectAccess%2A>metody.</xref:System.Security.Policy.NetCodeGroup.AddConnectAccess%2A> </xref:System.Security.Policy.CodeConnectAccess.Port%2A> </xref:System.Security.Policy.CodeConnectAccess.Scheme%2A> </xref:System.Security.Policy.CodeConnectAccess> Można utworzyć reguły dostępu połączenia, która ma zastosowanie, gdy schemat źródła nie jest obecny w dowody lub nie jest rozpoznawany przez określenie <xref:System.Security.Policy.NetCodeGroup.AbsentOriginScheme>(&quot;&quot;) jako schemat.</xref:System.Security.Policy.NetCodeGroup.AbsentOriginScheme> Można również utworzyć połączenie regułę dostępu, która ma zastosowanie, gdy istnieje żadna reguła dostępu połączenia ze schematem zgodne, określając <xref:System.Security.Policy.NetCodeGroup.AnyOtherOriginScheme>(&quot;*&quot;) jako schemat.</xref:System.Security.Policy.NetCodeGroup.AnyOtherOriginScheme>      > [!NOTE] > Jeśli kod nie przedstawi schemat identyfikatora URI jako dowód, jest dozwolony dostęp do witryny pochodzenia przy użyciu dowolnego schematu."
   example:
   - "The following code example demonstrates creating a NetCodeGroup and adding <xref:System.Security.Policy.CodeConnectAccess> objects for code downloaded using the HTTP scheme.  \n  \n [!code-cs[NclCodeGroup#3](~/add/codesnippet/csharp/t-system.security.policy_8_1.cs)]\n [!code-cpp[NclCodeGroup#3](~/add/codesnippet/cpp/t-system.security.policy_8_1.cpp)]"
   syntax:
@@ -65,8 +65,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Policy.NetCodeGroup&quot;></xref> class."
-  remarks: "When a <xref:System.Security.Policy.NetCodeGroup> is created, it contains the default connection access rules shown in the following table.      |Scheme|Rule|   |------------|----------|   |file|No connection access to the origin server is permitted.|   |http|HTTP and HTTPS access is permitted using the origin port.|   |https|HTTPS access is permitted using the origin port.|"
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Security.Policy.NetCodeGroup&quot;> </xref> klasy."
+  remarks: "Gdy <xref:System.Security.Policy.NetCodeGroup>jest tworzony, zawiera domyślne reguły dostępu połączenia pokazano w poniższej tabeli.</xref:System.Security.Policy.NetCodeGroup>      | Schemat | Reguła |   |------------|----------|   | pliku | Nie dostępu do połączenia z serwerem źródłowym jest dozwolone. |   | http | Dostęp HTTP i HTTPS jest dozwolone przy użyciu portu pochodzenia. |   | https | Dostęp HTTPS jest dozwolone przy użyciu portu pochodzenia. |"
   example:
   - "The following code example demonstrates creating a <xref:System.Security.Policy.NetCodeGroup> and adding <xref:System.Security.Policy.CodeConnectAccess> objects for code downloaded using the HTTP scheme.  \n  \n [!code-cs[NclCodeGroup#3](~/add/codesnippet/csharp/e7170b34-662f-4231-84e8-_1.cs)]\n [!code-cpp[NclCodeGroup#3](~/add/codesnippet/cpp/e7170b34-662f-4231-84e8-_1.cpp)]"
   syntax:
@@ -74,7 +74,7 @@ items:
     parameters:
     - id: membershipCondition
       type: System.Security.Policy.IMembershipCondition
-      description: "A membership condition that tests evidence to determine whether this code group applies code access security policy."
+      description: "Warunek członkostwa, który testuje dowody, aby określić, czy ta grupa kod ma zastosowanie zasad zabezpieczenia dostępu kodu."
   overload: System.Security.Policy.NetCodeGroup.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -82,7 +82,7 @@ items:
     description: "The <code>membershipCondition</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The type of the <code>membershipCondition</code> parameter is not valid."
+    description: "Typ <code> membershipCondition </code> parametr jest nieprawidłowy."
   platform:
   - net462
 - uid: System.Security.Policy.NetCodeGroup.AbsentOriginScheme
@@ -97,13 +97,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Contains a value used to specify connection access for code with an unknown or unrecognized origin scheme."
-  remarks: "When calling the <xref:System.Security.Policy.NetCodeGroup.AddConnectAccess%2A> method, you specify a scheme and an associated <xref:System.Security.Policy.CodeConnectAccess> object. Any <xref:System.Security.Policy.CodeConnectAccess> objects that you add to the <xref:System.Security.Policy.NetCodeGroup> using AbsentOriginScheme as the origin scheme are applied when the code&quot;s origin scheme is not present in its evidence, or is not a scheme recognized by the <xref:System.Security.Policy.NetCodeGroup> object.       To specify the <xref:System.Security.Policy.CodeConnectAccess> objects to use when the code&quot;s origin scheme does not match any of the schemes contained in the set of origin schemes added to the current <xref:System.Security.Policy.NetCodeGroup> object, use the <xref:System.Security.Policy.NetCodeGroup.AnyOtherOriginScheme> value.       The value of the AbsentOriginScheme field is an empty string (&quot;&quot;)."
+  summary: "Zawiera wartość używana do określania połączenia dostępu do kodu za pomocą schematu źródła nieznany lub nie została rozpoznana."
+  remarks: "Podczas wywoływania metody <xref:System.Security.Policy.NetCodeGroup.AddConnectAccess%2A>metody, określ schemat i skojarzone <xref:System.Security.Policy.CodeConnectAccess>obiektu.</xref:System.Security.Policy.CodeConnectAccess> </xref:System.Security.Policy.NetCodeGroup.AddConnectAccess%2A> Wszelkie <xref:System.Security.Policy.CodeConnectAccess>obiektów, które dodajesz do <xref:System.Security.Policy.NetCodeGroup>przy użyciu AbsentOriginScheme schemat źródła są stosowane, gdy schemat pochodzenia kodu nie znajduje się w jego dowód lub schemat nie został rozpoznany przez <xref:System.Security.Policy.NetCodeGroup>obiektu.</xref:System.Security.Policy.NetCodeGroup> </xref:System.Security.Policy.NetCodeGroup> </xref:System.Security.Policy.CodeConnectAccess>       Aby określić <xref:System.Security.Policy.CodeConnectAccess>obiektów do użycia podczas nie pasuje do żadnego schematy zawartych w zestawie schematów pochodzenia dodany do bieżącego schematu źródła kodu <xref:System.Security.Policy.NetCodeGroup>obiektów, użyj <xref:System.Security.Policy.NetCodeGroup.AnyOtherOriginScheme>wartość.</xref:System.Security.Policy.NetCodeGroup.AnyOtherOriginScheme> </xref:System.Security.Policy.NetCodeGroup> </xref:System.Security.Policy.CodeConnectAccess>       Wartość pola AbsentOriginScheme to ciąg pusty (&quot;&quot;)."
   syntax:
     content: public static readonly string AbsentOriginScheme;
     return:
       type: System.String
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -119,8 +119,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Adds the specified connection access to the current code group."
-  remarks: "You can add multiple <xref:System.Security.Policy.CodeConnectAccess> objects for the same `origin scheme`. If an `origin scheme` already has one or more associated <xref:System.Security.Policy.CodeConnectAccess> objects, specifying `null` for `connectAccess` has no effect. If the origin scheme does not have associated <xref:System.Security.Policy.CodeConnectAccess> objects, specifying `null` for `connectAccess` prevents code with an origin scheme that matches `originScheme` from accessing its origin server."
+  summary: "Dodaje określonego połączenia dostępu do bieżącej grupy kodu."
+  remarks: "Można dodawać wiele <xref:System.Security.Policy.CodeConnectAccess>obiektów dla tego samego `origin scheme`.</xref:System.Security.Policy.CodeConnectAccess> Jeśli `origin scheme` już ma jeden lub kilka skojarzonych <xref:System.Security.Policy.CodeConnectAccess>obiektów, określając `null` dla `connectAccess` nie ma wpływu.</xref:System.Security.Policy.CodeConnectAccess> Jeśli schemat pochodzenia nie skojarzono <xref:System.Security.Policy.CodeConnectAccess>obiektów, określając `null` dla `connectAccess` uniemożliwia kodu za pomocą schematu źródła odpowiadający `originScheme` dostęp do swojego serwera pochodzenia.</xref:System.Security.Policy.CodeConnectAccess>"
   example:
   - "The following code example demonstrates creating and adding <xref:System.Security.Policy.CodeConnectAccess> objects to a <xref:System.Security.Policy.NetCodeGroup>.  \n  \n [!code-cs[NclCodeGroup#3](~/add/codesnippet/csharp/c09efa70-70d7-4f2a-aa3b-_1.cs)]\n [!code-cpp[NclCodeGroup#3](~/add/codesnippet/cpp/c09efa70-70d7-4f2a-aa3b-_1.cpp)]"
   syntax:
@@ -128,18 +128,18 @@ items:
     parameters:
     - id: originScheme
       type: System.String
-      description: "A <xref:System.String> containing the scheme to match against the code&quot;s scheme."
+      description: "A <xref:System.String>zawierający schemat do dopasowywania schemat kodu.</xref:System.String>"
     - id: connectAccess
       type: System.Security.Policy.CodeConnectAccess
-      description: "A <xref href=&quot;System.Security.Policy.CodeConnectAccess&quot;></xref> that specifies the scheme and port code can use to connect back to its origin server."
+      description: "A <xref href=&quot;System.Security.Policy.CodeConnectAccess&quot;> </xref> , który określa kod schemat i port służy do nawiązywania ponownego połączenia jej z serwera źródłowego."
   overload: System.Security.Policy.NetCodeGroup.AddConnectAccess*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>originScheme</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>originScheme</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>originScheme</code> contains characters that are not permitted in schemes.       -or-       <code>originScheme</code> = <xref href=&quot;System.Security.Policy.NetCodeGroup.AbsentOriginScheme&quot;></xref> and <code>connectAccess</code> specifies <xref href=&quot;System.Security.Policy.CodeConnectAccess.OriginScheme&quot;></xref> as its scheme."
+    description: "<code>originScheme</code>zawiera znaki, które nie są dozwolone w systemach.       -or-       <code>originScheme</code> = <xref href=&quot;System.Security.Policy.NetCodeGroup.AbsentOriginScheme&quot;></xref> and <code>connectAccess</code> specifies <xref href=&quot;System.Security.Policy.CodeConnectAccess.OriginScheme&quot;></xref> as its scheme."
   platform:
   - net462
 - uid: System.Security.Policy.NetCodeGroup.AnyOtherOriginScheme
@@ -154,13 +154,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Contains a value used to specify any other unspecified origin scheme."
-  remarks: "When calling the <xref:System.Security.Policy.NetCodeGroup.AddConnectAccess%2A> method, you specify a scheme and an associated <xref:System.Security.Policy.CodeConnectAccess> object. You can use the value of the AnyOtherOriginScheme field to specify the <xref:System.Security.Policy.CodeConnectAccess> objects that should be used for any scheme that is not explicitly contained in the set of origin schemes added to the current <xref:System.Security.Policy.NetCodeGroup> object.       The <xref:System.Security.Policy.CodeConnectAccess> objects specified with the AnyOtherOriginScheme field are only used if the code&quot;s origin scheme does not match any of the schemes contained in the set of origin schemes added to the current <xref:System.Security.Policy.NetCodeGroup> object.       To specify the <xref:System.Security.Policy.CodeConnectAccess> objects to apply when the code&quot;s origin scheme is not available in its evidence or is not recognized, use the <xref:System.Security.Policy.NetCodeGroup.AbsentOriginScheme> value.       The value of the AnyOtherOriginScheme field is &quot;*&quot;."
+  summary: "Zawiera wartość można określić inny schemat nieokreślony pochodzenia."
+  remarks: "Podczas wywoływania metody <xref:System.Security.Policy.NetCodeGroup.AddConnectAccess%2A>metody, określ schemat i skojarzone <xref:System.Security.Policy.CodeConnectAccess>obiektu.</xref:System.Security.Policy.CodeConnectAccess> </xref:System.Security.Policy.NetCodeGroup.AddConnectAccess%2A> Można określić wartość pola AnyOtherOriginScheme <xref:System.Security.Policy.CodeConnectAccess>obiektów, które mają być używane dla dowolnego schematu, który nie jest jawnie zawarty w zestawie schematów pochodzenia dodany do bieżącego <xref:System.Security.Policy.NetCodeGroup>obiektu.</xref:System.Security.Policy.NetCodeGroup> </xref:System.Security.Policy.CodeConnectAccess>       <xref:System.Security.Policy.CodeConnectAccess>Obiekty określone za pomocą pola AnyOtherOriginScheme są używane tylko, jeśli nie pasuje do żadnego schematy zawartych w zestawie schematów pochodzenia dodany do bieżącego schematu źródła kodu <xref:System.Security.Policy.NetCodeGroup>obiektu.</xref:System.Security.Policy.NetCodeGroup> </xref:System.Security.Policy.CodeConnectAccess>       Aby określić <xref:System.Security.Policy.CodeConnectAccess>obiekty do zastosowania, gdy schemat pochodzenia kodu nie jest dostępna w jego dowód lub nie został rozpoznany, używają <xref:System.Security.Policy.NetCodeGroup.AbsentOriginScheme>wartość.</xref:System.Security.Policy.NetCodeGroup.AbsentOriginScheme> </xref:System.Security.Policy.CodeConnectAccess>       Wartość pola AnyOtherOriginScheme to &quot;*&quot;."
   syntax:
     content: public static readonly string AnyOtherOriginScheme;
     return:
       type: System.String
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -176,7 +176,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets a string representation of the attributes of the policy statement for the code group."
+  summary: "Pobiera atrybuty deklaracji zasad grupy kodu reprezentację ciągu."
   syntax:
     content: public override string AttributeString { get; }
     return:
@@ -198,14 +198,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Makes a deep copy of the current code group."
-  remarks: "This method makes a deep copy of the code group, meaning that copies of all objects the code group contains are also made."
+  summary: "Tworzy kopię głębokie bieżącą grupę kodu."
+  remarks: "Ta metoda tworzy kopię głębokie grupy kodu, co oznacza kopie wszystkich obiektów, które zawiera grupy kodu są również."
   syntax:
     content: public override System.Security.Policy.CodeGroup Copy ();
     parameters: []
     return:
       type: System.Security.Policy.CodeGroup
-      description: "An equivalent copy of the current code group, including its membership conditions and child code groups."
+      description: "Odpowiednik kopia bieżącej grupy kodu, w tym warunki członkostwa i grup kodów podrzędnych."
   overload: System.Security.Policy.NetCodeGroup.Copy*
   exceptions: []
   platform:
@@ -227,10 +227,10 @@ items:
     parameters:
     - id: element
       type: System.Security.SecurityElement
-      description: "To be added."
+      description: "Do dodania."
     - id: level
       type: System.Security.Policy.PolicyLevel
-      description: "To be added."
+      description: "Do dodania."
   overload: System.Security.Policy.NetCodeGroup.CreateXml*
   exceptions: []
   platform:
@@ -247,17 +247,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Determines whether the specified code group is equivalent to the current code group."
-  remarks: "The following data are used to determine the equality of two <xref:System.Security.Policy.NetCodeGroup> objects:      -   The <xref:System.Security.Policy.CodeGroup.Name%2A> and <xref:System.Security.Policy.CodeGroup.Description%2A> properties.      -   The <xref:System.Security.Policy.CodeGroup.MembershipCondition%2A> property.      -   The set of origin schemes and the associated <xref:System.Security.Policy.CodeConnectAccess> objects."
+  summary: "Określa, czy określony kod grupy jest odpowiednikiem bieżącą grupę kodu."
+  remarks: "Następujące dane są używane do określania równości dwóch <xref:System.Security.Policy.NetCodeGroup>obiektów: - <xref:System.Security.Policy.CodeGroup.Name%2A>i <xref:System.Security.Policy.CodeGroup.Description%2A>Właściwości.</xref:System.Security.Policy.CodeGroup.Description%2A> </xref:System.Security.Policy.CodeGroup.Name%2A> </xref:System.Security.Policy.NetCodeGroup>      - <xref:System.Security.Policy.CodeGroup.MembershipCondition%2A>Właściwości.</xref:System.Security.Policy.CodeGroup.MembershipCondition%2A>      -Zestaw schematów pochodzenia oraz skojarzonych z nimi <xref:System.Security.Policy.CodeConnectAccess>obiektów.</xref:System.Security.Policy.CodeConnectAccess>"
   syntax:
     content: public override bool Equals (object o);
     parameters:
     - id: o
       type: System.Object
-      description: "The <xref href=&quot;System.Security.Policy.NetCodeGroup&quot;></xref> object to compare with the current code group."
+      description: "<xref href=&quot;System.Security.Policy.NetCodeGroup&quot;> </xref> Obiekt do porównania z bieżącą grupę kodu."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified code group is equivalent to the current code group; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli grupa określony kod jest odpowiednikiem bieżącej grupy kodu; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Policy.NetCodeGroup.Equals*
   exceptions: []
   platform:
@@ -274,8 +274,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets the connection access information for the current code group."
-  remarks: "In each dictionary entry, the <xref:System.Collections.DictionaryEntry.Key%2A> property value is the origin scheme, and the <xref:System.Collections.DictionaryEntry.Value%2A> property value is the array of associated <xref:System.Security.Policy.CodeConnectAccess> objects. If there are no associated <xref:System.Security.Policy.CodeConnectAccess> objects, <xref:System.Collections.DictionaryEntry.Value%2A?displayProperty=fullName> returns an empty array."
+  summary: "Pobiera informacje o połączeniu dostępu dla bieżącej grupy kodu."
+  remarks: "W przypadku każdego wpisu słownika <xref:System.Collections.DictionaryEntry.Key%2A>wartość właściwości jest schemat źródła i <xref:System.Collections.DictionaryEntry.Value%2A>wartość właściwości jest tablica skojarzone <xref:System.Security.Policy.CodeConnectAccess>obiektów.</xref:System.Security.Policy.CodeConnectAccess> </xref:System.Collections.DictionaryEntry.Value%2A> </xref:System.Collections.DictionaryEntry.Key%2A> Jeśli istnieją nie skojarzone <xref:System.Security.Policy.CodeConnectAccess>obiektów, <xref:System.Collections.DictionaryEntry.Value%2A?displayProperty=fullName>zwraca pustą tablicę.</xref:System.Collections.DictionaryEntry.Value%2A?displayProperty=fullName> </xref:System.Security.Policy.CodeConnectAccess>"
   example:
   - "The following code example demonstrates displaying the connection access rules for a <xref:System.Security.Policy.NetCodeGroup> object.  \n  \n [!code-cs[NclCodeGroup#8](~/add/codesnippet/csharp/m-system.security.policy_21_1.cs)]\n [!code-cpp[NclCodeGroup#8](~/add/codesnippet/cpp/m-system.security.policy_21_1.cpp)]"
   syntax:
@@ -283,7 +283,7 @@ items:
     parameters: []
     return:
       type: System.Collections.DictionaryEntry[]
-      description: "A <xref:System.Collections.DictionaryEntry> array containing connection access information."
+      description: "A <xref:System.Collections.DictionaryEntry>Tablica zawierająca informacje o połączeniu dostępu.</xref:System.Collections.DictionaryEntry>"
   overload: System.Security.Policy.NetCodeGroup.GetConnectAccessRules*
   exceptions: []
   platform:
@@ -300,13 +300,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets the hash code of the current code group."
+  summary: "Pobiera wartość skrótu bieżącego grupy kodów."
   syntax:
     content: public override int GetHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "The hash code of the current code group."
+      description: "Wartość skrótu bieżącego grupy kodów."
   overload: System.Security.Policy.NetCodeGroup.GetHashCode*
   exceptions: []
   platform:
@@ -323,12 +323,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets the logic to use for merging groups."
+  summary: "Pobiera logikę do użycia na potrzeby scalania grup."
   syntax:
     content: public override string MergeLogic { get; }
     return:
       type: System.String
-      description: "The string &quot;Union&quot;."
+      description: "Ciąg &quot;Union&quot;."
   overload: System.Security.Policy.NetCodeGroup.MergeLogic*
   exceptions: []
   platform:
@@ -350,10 +350,10 @@ items:
     parameters:
     - id: e
       type: System.Security.SecurityElement
-      description: "To be added."
+      description: "Do dodania."
     - id: level
       type: System.Security.Policy.PolicyLevel
-      description: "To be added."
+      description: "Do dodania."
   overload: System.Security.Policy.NetCodeGroup.ParseXml*
   exceptions: []
   platform:
@@ -370,12 +370,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets the name of the <xref href=&quot;System.Security.NamedPermissionSet&quot;></xref> for the code group."
+  summary: "Pobiera nazwę <xref href=&quot;System.Security.NamedPermissionSet&quot;> </xref> dla grupy kodu."
   syntax:
     content: public override string PermissionSetName { get; }
     return:
       type: System.String
-      description: "Always the string &quot;Same site Web.&quot;"
+      description: "Zawsze ciąg &quot;Tej samej witryny sieci Web&quot;."
   overload: System.Security.Policy.NetCodeGroup.PermissionSetName*
   exceptions: []
   platform:
@@ -392,8 +392,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Removes all connection access information for the current code group."
-  remarks: "Use this method to remove the system-supplied default connection access rules.       The default rules are shown in the following table.      |Scheme|Rule|   |------------|----------|   |file|No connection access to the origin server is permitted.|   |http|HTTP and HTTPS access is permitted using the origin port.|   |https|HTTPS access is permitted using the origin port.|"
+  summary: "Usuwa wszystkie informacje o połączeniu dostępu dla bieżącej grupy kodu."
+  remarks: "Użyj tej metody, aby usunąć dostarczane przez system domyślnych reguł dostępu do połączenia.       W poniższej tabeli przedstawiono reguły domyślne.      | Schemat | Reguła |   |------------|----------|   | pliku | Nie dostępu do połączenia z serwerem źródłowym jest dozwolone. |   | http | Dostęp HTTP i HTTPS jest dozwolone przy użyciu portu pochodzenia. |   | https | Dostęp HTTPS jest dozwolone przy użyciu portu pochodzenia. |"
   example:
   - "The following code example demonstrates calling this method to remove the default code access connection rules.  \n  \n [!code-cs[NclCodeGroup#3](~/add/codesnippet/csharp/m-system.security.policy_32_1.cs)]\n [!code-cpp[NclCodeGroup#3](~/add/codesnippet/cpp/m-system.security.policy_32_1.cpp)]"
   syntax:
@@ -415,17 +415,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Resolves policy for the code group and its descendants for a set of evidence."
-  remarks: "Given evidence for an assembly to be loaded, this method evaluates the code group by first checking the membership condition against the specified evidence. If there is a match, this method returns a policy statement for the code group, including evaluation of child code groups.       The operation of this method is as follows:       If the membership condition does not match the specified evidence, return `null`; otherwise, set the permission set to be returned (P) equal to the code group&quot;s policy statement and continue. For each child code group, resolve the code group with the same evidence; if the result is not `null`, return that policy statement. If no child code group matched, return P (the parent&quot;s policy statement)."
+  summary: "Usuwa zasady dla grupy kodu i jego elementy podrzędne dla zestawem świadectwo."
+  remarks: "Podana dowody dla zestawu do załadowania, ta metoda ocenia grupa kodów sprawdzając pierwszy warunek członkostwa przed dowód określony. Jeśli istnieje dopasowanie, ta metoda zwraca instrukcję zasady dla grupy kodu, w tym ocenę grup kodów podrzędnych.       Operacja ta metoda jest następująca: Jeśli warunek członkostwa jest niezgodny z określonym dowód, zwróć `null`; w przeciwnym razie zestaw uprawnień wartość zwracaną (P) równa deklaracji zasad grupy kodu i kontynuować. Dla każdej grupy kod podrzędny rozwiązać Grupa kodów z tej samej dowód; Jeśli wynik nie jest `null`, return — instrukcja tej zasady. Jeśli żadna grupa kod podrzędny dopasowane, zwróć P (element nadrzędny deklaracji zasad)."
   syntax:
     content: public override System.Security.Policy.PolicyStatement Resolve (System.Security.Policy.Evidence evidence);
     parameters:
     - id: evidence
       type: System.Security.Policy.Evidence
-      description: "The <xref href=&quot;System.Security.Policy.Evidence&quot;></xref> for the assembly."
+      description: "<xref href=&quot;System.Security.Policy.Evidence&quot;> </xref> Dla zestawu."
     return:
       type: System.Security.Policy.PolicyStatement
-      description: "A <xref href=&quot;System.Security.Policy.PolicyStatement&quot;></xref> that consists of the permissions granted by the code group with optional attributes, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the code group does not apply (the membership condition does not match the specified evidence)."
+      description: "A <xref href=&quot;System.Security.Policy.PolicyStatement&quot;> </xref> składający się z uprawnienia przyznane przez Grupa kodów z opcjonalne atrybuty lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli grupa kodów nie dotyczy (warunek członkostwa jest niezgodny dowód określony)."
   overload: System.Security.Policy.NetCodeGroup.Resolve*
   exceptions:
   - type: System.ArgumentNullException
@@ -433,7 +433,7 @@ items:
     description: "The <code>evidence</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Policy.PolicyException
     commentId: T:System.Security.Policy.PolicyException
-    description: "More than one code group (including the parent code group and any child code groups) is marked <xref href=&quot;System.Security.Policy.PolicyStatementAttribute&quot;></xref>."
+    description: "Więcej niż jednej grupy kodu (w tym kod grupy nadrzędnej oraz wszystkich podrzędnych grup kodu) jest oznaczony jako <xref href=&quot;System.Security.Policy.PolicyStatementAttribute&quot;> </xref>."
   platform:
   - net462
 - uid: System.Security.Policy.NetCodeGroup.ResolveMatchingCodeGroups(System.Security.Policy.Evidence)
@@ -448,17 +448,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Resolves matching code groups."
-  remarks: "Given evidence for an assembly to be loaded, this method evaluates the code group by first checking the membership condition against the specified evidence. If there is a match, this method returns a root code group. The code group that is returned may contain child code groups, which, in turn, may also have child code groups, so the return value reflects the complete set of code groups that were matched by the evidence provided."
+  summary: "Dopasowanie grup kodu jest rozpoznawana."
+  remarks: "Podana dowody dla zestawu do załadowania, ta metoda ocenia grupa kodów sprawdzając pierwszy warunek członkostwa przed dowód określony. Jeśli istnieje dopasowanie, ta metoda zwraca głównej grupy kodów. Grupa kodów, która jest zwracana może zawierać podrzędnych grup kodów, które z kolei może być również podrzędnych grup kodów, dlatego zwracana wartość odzwierciedla pełny zestaw grup kodów, zgodnych przez podany."
   syntax:
     content: public override System.Security.Policy.CodeGroup ResolveMatchingCodeGroups (System.Security.Policy.Evidence evidence);
     parameters:
     - id: evidence
       type: System.Security.Policy.Evidence
-      description: "The evidence for the assembly."
+      description: "Dowody dla zestawu."
     return:
       type: System.Security.Policy.CodeGroup
-      description: "The complete set of code groups that were matched by the evidence."
+      description: "Pełny zestaw grup kodów, zgodnych dowody."
   overload: System.Security.Policy.NetCodeGroup.ResolveMatchingCodeGroups*
   exceptions:
   - type: System.ArgumentNullException
