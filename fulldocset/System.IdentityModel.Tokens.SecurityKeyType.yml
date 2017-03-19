@@ -12,8 +12,8 @@ items:
   nameWithType: SecurityKeyType
   fullName: System.IdentityModel.Tokens.SecurityKeyType
   type: Enum
-  summary: "Specifies the type of key that is associated with a security token."
-  remarks: "Use the SecurityKeyType enumeration to set the <xref:System.IdentityModel.Selectors.SecurityTokenRequirement.KeyType%2A> property.       The BearerKey field is used with the <xref:System.ServiceModel.Configuration.IssuedTokenParametersElement.KeyType%2A> property.      ### BearerKey Requires Wsu:Id or Transport Security with Message Credentials    In federation scenarios, an issued token is generally configured as an endorsing supporting token for message security between a client and the relying parties. However, when a Security Token Service (STS) issues a token with no key (BearerKey), [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] configures it as a <xref:System.ServiceModel.Security.SecurityTokenAttachmentMode> supporting token ([!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] cannot endorse without a key). This requires the issued token to be referenced in the signature. [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] currently uses the following: http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd:Id as a reference mechanism (Wsu:Id).       If an issued token does not have such an attribute, on a client, a <xref:System.ServiceModel.Security.MessageSecurityException> is thrown with the text &quot;Element to sign must have id&quot;. This happens when a SAML 1.1 token is used as an issued token (the Wsu:Id is not defined in the SAML 1.1 specification).       To work around this situation, either use transport security with message credentials (for example, <xref:System.ServiceModel.Configuration.AuthenticationMode>) or an STS must add the http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd:Id (Wsu:Id) to the issued token.       Note that if the Wsu:Id is added to a SAML 1.1 token, the resulting XML does not comply to the SAML 1.1 specification. The alternative is to add a Wsu:Id to the `EncryptedData` which is a result of encrypting the issued token. This procedure complies with the SAML 1.1 specification, because the `EncryptedData` element supports the Wsu:Id attribute.       So to be compliant with the specification, the bearer token must be encrypted by the STS."
+  summary: "Określa typ klucza, który jest skojarzony z tokenu zabezpieczającego."
+  remarks: "Umożliwia ustawienie wyliczenie SecurityKeyType <xref:System.IdentityModel.Selectors.SecurityTokenRequirement.KeyType%2A>Właściwości.</xref:System.IdentityModel.Selectors.SecurityTokenRequirement.KeyType%2A>       Pole BearerKey jest używane <xref:System.ServiceModel.Configuration.IssuedTokenParametersElement.KeyType%2A>Właściwości.</xref:System.ServiceModel.Configuration.IssuedTokenParametersElement.KeyType%2A>      ### BearerKey wymaga Wsu:Id albo zabezpieczeń transportu z poświadczeniami komunikatu w scenariuszach Federacji, wystawionego tokenu jest zazwyczaj skonfigurowany jako tokenu pomocniczego do zabezpieczenia komunikatów między klientem a uzależnione. Jednak gdy Token usługi zabezpieczenia (STS) wystawia token bez klucza (BearerKey), [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] skonfiguruje je jako <xref:System.ServiceModel.Security.SecurityTokenAttachmentMode>tokenu pomocniczego ([!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] nie można zatwierdzić bez klucza).</xref:System.ServiceModel.Security.SecurityTokenAttachmentMode> Wymaga to wystawionego tokenu odwoływać się do podpisu. [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)]obecnie korzysta z następujących: http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd:Id jako mechanizm odwołania (Wsu:Id).       Jeśli na komputerze klienckim, wystawionego tokenu nie ma takiego atrybutu <xref:System.ServiceModel.Security.MessageSecurityException>jest zgłaszany z tekstem &quot;Podpisywany Element musi mieć identyfikator&quot;.</xref:System.ServiceModel.Security.MessageSecurityException> Dzieje się tak, gdy token SAML 1.1 jest używana jako wystawionego tokenu (Wsu:Id nie jest zdefiniowany w specyfikacji języka SAML 1.1).       Aby obejść ten problem, albo użyć zabezpieczeń transportu z poświadczeniami komunikatu (na przykład <xref:System.ServiceModel.Configuration.AuthenticationMode>) lub usługi tokenu Zabezpieczającego należy dodać http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd:Id (Wsu:Id), aby wystawiony token.</xref:System.ServiceModel.Configuration.AuthenticationMode>       Należy pamiętać, że jeśli Wsu:Id zostanie dodany do tokenu SAML 1.1, wynikowy kod XML nie jest zgodne ze specyfikacją SAML 1.1. Alternatywą jest dodać Wsu:Id do `EncryptedData` co jest wynikiem wystawionego tokenu szyfrowania. Tej procedury jest zgodny ze specyfikacją SAML 1.1 ponieważ `EncryptedData` elementu obsługuje atrybut Wsu:Id.       Tak aby był zgodny ze specyfikacją, tokenu elementu nośnego muszą być szyfrowane przez usługę STS."
   syntax:
     content: public enum SecurityKeyType
   inheritance:
@@ -32,12 +32,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Specifies that the key is an asymmetric key."
+  summary: "Określa, czy dany klucz jest klucza asymetrycznego."
   syntax:
     content: AsymmetricKey
     return:
       type: System.IdentityModel.Tokens.SecurityKeyType
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -53,12 +53,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Specifies that the security token does not contain a proof-of-possession key."
+  summary: "Określa, czy token zabezpieczający nie zawiera klucza &quot;dowodu posiadania&quot;."
   syntax:
     content: BearerKey
     return:
       type: System.IdentityModel.Tokens.SecurityKeyType
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -74,12 +74,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Specifies that the key is a symmetric key."
+  summary: "Określa, czy dany klucz jest klucza symetrycznego."
   syntax:
     content: SymmetricKey
     return:
       type: System.IdentityModel.Tokens.SecurityKeyType
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462

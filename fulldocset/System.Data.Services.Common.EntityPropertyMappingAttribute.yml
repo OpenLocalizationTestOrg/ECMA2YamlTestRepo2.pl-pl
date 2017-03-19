@@ -18,8 +18,8 @@ items:
   nameWithType: EntityPropertyMappingAttribute
   fullName: System.Data.Services.Common.EntityPropertyMappingAttribute
   type: Class
-  summary: "Attribute that specifies a custom mapping between properties of an entity type and elements of an entry in a feed returned by [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)]."
-  remarks: "The EntityPropertyMappingAttribute is used to define custom feed mapping in the data model of a reflection provider. This attribute is also applied to generated client data service classes when the metadata used to generate the classes indicates that custom feed mappings are defined in the data model. This information is necessary to make sure that the client can create and consume messages that support custom feeds. For more information, see [Feed Customization](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Atrybut, który określa niestandardowe mapowanie między właściwości typu jednostki i elementy wpis w źródło danych zwróconych przez [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)]."
+  remarks: "Atrybutu EntityPropertyMappingAttribute jest używany do definiowania niestandardowych mapowania źródła w modelu danych dostawcy odbicia. Ten atrybut jest stosowany również do klasy usługi danych wygenerowanego klienta, gdy metadane używane do generowania klasy wskazuje, że niestandardowe mapowanie źródła są zdefiniowane w modelu danych. Te informacje są niezbędne upewnić się, klient może utworzyć i korzystać z wiadomości, które obsługuje źródeł niestandardowych. Aby uzyskać więcej informacji, zobacz [źródła danych dostosowywania](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "In the following example, both properties of the `Order` type are mapped to existing feed elements. The `Product` property of the `Item` type is mapped to a custom feed attribute in a separate namespace.  \n  \n [!code-cs[Astoria Custom Feeds#CustomIQueryableFeeds](~/add/codesnippet/csharp/astoria custom feeds/orderitems.svc.cs#customiqueryablefeeds)]\n [!code-vb[Astoria Custom Feeds#CustomIQueryableFeeds](~/add/codesnippet/visualbasic/astoria custom feeds vb/orderitems.svc.vb#customiqueryablefeeds)]  \n  \n The previous example returns the following result for the URI `http://myservice/OrderItems.svc/Orders(0)?$expand=Items`.  \n  \n [!code-xml[Astoria Custom Feeds#IQueryableFeedResultInline](~/add/codesnippet/xml/t-system.data.services.c_1_2.xml)]"
   syntax:
@@ -45,22 +45,22 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Common
-  summary: "Creates a new instance of the <xref href=&quot;System.Data.Services.Common.EntityPropertyMappingAttribute&quot;></xref>."
+  summary: "Tworzy nowe wystąpienie klasy <xref href=&quot;System.Data.Services.Common.EntityPropertyMappingAttribute&quot;> </xref>."
   syntax:
     content: public EntityPropertyMappingAttribute (string sourcePath, System.Data.Services.Common.SyndicationItemProperty targetSyndicationItem, System.Data.Services.Common.SyndicationTextContentKind targetTextContentKind, bool keepInContent);
     parameters:
     - id: sourcePath
       type: System.String
-      description: "The name of the property, as string, of the entity type that is mapped to the specified property of the feed item."
+      description: "Nazwa właściwości, jako ciąg typu jednostki, który jest zamapowany na określonej właściwości element źródła."
     - id: targetSyndicationItem
       type: System.Data.Services.Common.SyndicationItemProperty
-      description: "A <xref href=&quot;System.Data.Services.Common.SyndicationItemProperty&quot;></xref> value that represents the element in the feed to which to map the property. This value must be set to `None` if the <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath*> is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "A <xref href=&quot;System.Data.Services.Common.SyndicationItemProperty&quot;> </xref> wartość, która reprezentuje element w źródle danych, dla którego zmapować właściwość. Ta wartość musi mieć ustawioną `None` Jeśli <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath*>nie jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath*>"
     - id: targetTextContentKind
       type: System.Data.Services.Common.SyndicationTextContentKind
-      description: "A <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetTextContentKind*> value that identifies the format of the content to display in the feed."
+      description: "A <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetTextContentKind*>wartość, która identyfikuje format zawartości do wyświetlenia w źródle danych.</xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetTextContentKind*>"
     - id: keepInContent
       type: System.Boolean
-      description: "Boolean value that is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> when the property being mapped should appear both in its mapped-to location and in the content section of the feed."
+      description: "Wartość logiczna, która jest <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> gdy właściwość mapowane powinna zostać wyświetlona zarówno w lokalizacji zamapowane do, jak i w sekcji zawartości kanału informacyjnego."
   overload: System.Data.Services.Common.EntityPropertyMappingAttribute.#ctor*
   exceptions: []
   platform:
@@ -77,26 +77,26 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Common
-  summary: "Creates an instance of the <xref href=&quot;System.Data.Services.Common.EntityPropertyMappingAttribute&quot;></xref> to map a property to a custom feed element."
-  remarks: "If neither `targetNamespacePrefix` nor `targetNamespaceUri` are specified, the `targetName` will be put in the default namespace. If `targetNamespacePrefix` is not specified, a prefix is autogenerated. If `targetNamespacePrefix` is specified, but `targetNamespaceUri` is not specified, an exception is thrown at construction time."
+  summary: "Tworzy wystąpienie <xref href=&quot;System.Data.Services.Common.EntityPropertyMappingAttribute&quot;> </xref> do mapowania właściwości niestandardowych elementu kanału informacyjnego."
+  remarks: "Jeśli żadna `targetNamespacePrefix` ani `targetNamespaceUri` są określone, `targetName` będą umieszczane w domyślnej przestrzeni nazw. Jeśli `targetNamespacePrefix` nie zostanie określony, prefiks zostanie wygenerowana automatycznie. Jeśli `targetNamespacePrefix` jest określony, ale `targetNamespaceUri` nie zostanie określony, podczas konstruowania jest zgłaszany wyjątek."
   syntax:
     content: public EntityPropertyMappingAttribute (string sourcePath, string targetPath, string targetNamespacePrefix, string targetNamespaceUri, bool keepInContent);
     parameters:
     - id: sourcePath
       type: System.String
-      description: "The name of the property of the entity type, as string, that is mapped to the specified property in the feed."
+      description: "Nazwa właściwości typu jednostki jako ciąg, który jest zamapowany na określonej właściwości w źródle danych."
     - id: targetPath
       type: System.String
-      description: "The name of the target, as string, in the resulting feed to which the property is mapped."
+      description: "Nazwa elementu docelowego, jako ciąg w wynikowym źródła danych jest zamapowany właściwości."
     - id: targetNamespacePrefix
       type: System.String
-      description: "This parameter, together with `targetNamespaceUri`, specifies the namespace in which the `targetPath` element exists."
+      description: "Ten parametr, wraz z `targetNamespaceUri`, określa przestrzeń nazw, w którym `targetPath` istnieje element."
     - id: targetNamespaceUri
       type: System.String
-      description: "Specifies the namespace URI of the element, as string, specified by the `targetName` property."
+      description: "Określa identyfikator URI elementu, przestrzeń nazw jako ciąg, określony przez `targetName` właściwości."
     - id: keepInContent
       type: System.Boolean
-      description: "Boolean value that is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> when the property being mapped should appear both in its mapped-to location and in the content section of the feed."
+      description: "Wartość logiczna, która jest <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> gdy właściwość mapowane powinna zostać wyświetlona zarówno w lokalizacji zamapowane do, jak i w sekcji zawartości kanału informacyjnego."
   overload: System.Data.Services.Common.EntityPropertyMappingAttribute.#ctor*
   exceptions: []
   platform:
@@ -113,13 +113,13 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Common
-  summary: "Gets a Boolean value that indicates whether a property value should be repeated both in the content section of the feed and in the mapped location."
-  remarks: "Whenthe value of KeepInContentis `true`, the feed is backward compatible with [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)] client applications that use protocol version 1.0. When the value of KeepInContent``is `false`, the protocol version used by the data service must be 2.0 or later versions. For more information, see [Data Service Versioning](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Pobiera wartość logiczną wskazującą, czy wartość właściwości należy powtórzyć zarówno w sekcji zawartości źródła danych, jak i w mapowanej lokalizacji."
+  remarks: "Wartość Whenthe KeepInContentis `true`, źródła danych są zgodne z [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)] aplikacje klienckie, które używają protokołu w wersji 1.0. Jeśli wartość KeepInContent &quot;jest `false`, wersja protokołu używanego przez usługę danych musi być w wersji 2.0 lub nowsze. Aby uzyskać więcej informacji, zobacz [przechowywanie wersji usługi danych](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public bool KeepInContent { get; }
     return:
       type: System.Boolean
-      description: "A <xref:System.Boolean> value that is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> when the property is mapped into both locations in the feed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "A <xref:System.Boolean>wartość, czyli <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> , gdy właściwość jest mapowane w obu lokalizacjach w źródle danych, a w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.Boolean>"
   overload: System.Data.Services.Common.EntityPropertyMappingAttribute.KeepInContent*
   exceptions: []
   platform:
@@ -136,13 +136,13 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Common
-  summary: "Gets the name of the property of the syndication item that will be mapped to the specified element of the feed."
-  remarks: "The SourcePath property cannot directly reference a complex type. For complex types, you must use a path expression where property names are separated by a backslash (`/`) character. For example, the following values are permitted for an entity type `Person` with an integer property `Age` and a complex property `Address`:      -   `Age`      -   `Address/Street`       The SourcePath property cannot be set to a value that contains a space or any other character that is not valid in a property name."
+  summary: "Pobiera nazwę właściwości elementu zespolonego, które zostaną odwzorowane na elemencie określonego źródła danych."
+  remarks: "Właściwość Ścieżka_źródłowa bezpośrednio nie może odwoływać się typu złożonego. Dla typów złożonych, należy użyć wyrażenie ścieżki gdzie nazw właściwości oddzielonych ukośnik odwrotny (`/`) znaków. Na przykład następujące wartości są dozwolone dla typu jednostki `Person` z właściwością liczby całkowitej `Age` i złożoną właściwością `Address`:- `Age`       -    `Address/Street` Ścieżka_źródłowa właściwości nie można ustawić wartość, która zawiera spację lub dowolny znak, który jest nieprawidłowy w nazwie właściwości."
   syntax:
     content: public string SourcePath { get; }
     return:
       type: System.String
-      description: "String value that contains property name."
+      description: "Wartość ciągu, który zawiera nazwę właściwości."
   overload: System.Data.Services.Common.EntityPropertyMappingAttribute.SourcePath*
   exceptions: []
   platform:
@@ -159,13 +159,13 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Common
-  summary: "Gets a string value that, together with <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespaceUri*>, specifies the namespace in which the <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath*> element exists."
-  remarks: "If neither TargetNamespacePrefix nor <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespaceUri%2A> are specified, the <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath%2A> will be put in the default namespace. If TargetNamespacePrefix is not specified, a prefix is autogenerated. If TargetNamespacePrefix is specified, but <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespaceUri%2A> is not specified, an exception is thrown at construction time."
+  summary: "Pobiera wartość ciągu, który, wraz z <> </> *>, określa przestrzeń nazw, w którym <> </> *> istnieje element."
+  remarks: "Jeśli żadna TargetNamespacePrefix ani <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespaceUri%2A>są określone, <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath%2A>będą umieszczane w domyślnej przestrzeni nazw.</xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath%2A> </xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespaceUri%2A> Jeśli nie określono TargetNamespacePrefix, prefiks zostanie wygenerowana automatycznie. Jeśli określono TargetNamespacePrefix, ale <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespaceUri%2A>nie zostanie określony, jest zwracany wyjątek podczas konstruowania.</xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespaceUri%2A>"
   syntax:
     content: public string TargetNamespacePrefix { get; }
     return:
       type: System.String
-      description: "String value that contains the target namespace prefix."
+      description: "Wartość ciągu, która zawiera prefiks przestrzeni nazw docelowych."
   overload: System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespacePrefix*
   exceptions: []
   platform:
@@ -182,13 +182,13 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Common
-  summary: "Gets a string value that specifies the namespace URI of the element specified by the <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath*> property."
-  remarks: "If mapping to non-syndication element/attribute, this property is the namespace for the target element/attribute.       If neither <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespacePrefix%2A> nor TargetNamespaceUri are specified, the <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath%2A> will be put in the default namespace. If <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespacePrefix%2A> is not specified, a prefix is autogenerated. If <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespacePrefix%2A> is specified, but TargetNamespaceUri is not specified, an exception is thrown at construction time."
+  summary: "Pobiera wartość ciągu, która określa element określony przez identyfikator URI przestrzeni nazw <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath*>Właściwości.</xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath*>"
+  remarks: "Jeśli mapowanie do atrybutu elementu zespolonego z systemem innym niż, ta właściwość jest przestrzeń nazw dla atrybutu/elementu docelowego.       Jeśli żadna <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespacePrefix%2A>ani TargetNamespaceUri są określone, <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath%2A>będą umieszczane w domyślnej przestrzeni nazw.</xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath%2A> </xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespacePrefix%2A> Jeśli <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespacePrefix%2A>nie zostanie określony, prefiks zostanie wygenerowana automatycznie.</xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespacePrefix%2A> Jeśli <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespacePrefix%2A>jest określony, ale TargetNamespaceUri nie zostanie określony, jest zwracany wyjątek podczas konstruowania.</xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespacePrefix%2A>"
   syntax:
     content: public string TargetNamespaceUri { get; }
     return:
       type: System.String
-      description: "String that contains the namespace URI."
+      description: "Ciąg zawierający identyfikator URI przestrzeni nazw."
   overload: System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespaceUri*
   exceptions: []
   platform:
@@ -205,13 +205,13 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Common
-  summary: "Gets the name of the custom target in the feed to which the property is mapped."
-  remarks: "When the TargetPath property is set, the <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespaceUri%2A> and <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespacePrefix%2A> properties must also be set.       The value of TargetPath must be `null` (`Nothing` in Visual Basic) when the value of the <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetSyndicationItem%2A> property is anything other than <xref:System.Data.Services.Common.SyndicationItemProperty>.       TargetPath must be a path expression in which nested elements are separated by a backslash (`/`) and attributes are specified by an ampersand (`@`). In the following example, the string `UnitsInStock/@ReorderLevel` maps a property value to an attribute named `ReorderLevel` on a child element named `UnitsInStock` of the root entry element.       [!code-xml[Astoria Custom Feeds#EdmFeedMappedToAttributeSpecific](~/add/codesnippet/xml/p-system.data.services.c_1.csdl)]       The TargetPath property cannot contain whitespace.       The TargetPath property is not expressed as a true XPath expression, but the specified element and attribute names must represent well-formed XML elements and attributes. An invalid value will cause an exception to occur when the data service is initialized."
+  summary: "Pobiera nazwę niestandardowego obiektu docelowego w źródle danych jest zamapowany właściwości."
+  remarks: "Gdy ustawiona jest właściwość TargetPath, <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespaceUri%2A>i <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespacePrefix%2A>, należy również ustawić właściwości.</xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespacePrefix%2A> </xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetNamespaceUri%2A>       Wartość TargetPath musi być `null` (`Nothing` w języku Visual Basic) gdy wartość <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetSyndicationItem%2A>Właściwości jest inna niż <xref:System.Data.Services.Common.SyndicationItemProperty>.</xref:System.Data.Services.Common.SyndicationItemProperty> </xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetSyndicationItem%2A>       TargetPath musi być wyrażeniem ścieżki, w którym zagnieżdżone elementy są oddzielone ukośnik odwrotny (`/`) i atrybuty są określone przez handlowego &quot;i&quot; (`@`). W poniższym przykładzie ciąg `UnitsInStock/@ReorderLevel` mapuje wartości właściwości do atrybutu o nazwie `ReorderLevel` na element podrzędny o nazwie `UnitsInStock` głównego elementu wpis.       [!code-xml[#EdmFeedMappedToAttributeSpecific źródeł niestandardowych Astoria](~/add/codesnippet/xml/p-system.data.services.c_1.csdl) ] TargetPath właściwość nie może zawierać spacji.       Właściwość Ścieżka docelowa nie jest wyrażona jako wartość true, wyrażenie XPath, ale określonego elementu i nazwach atrybutów musi reprezentować poprawnie sformułowanym elementów XML oraz atrybuty. Nieprawidłowa wartość spowoduje, że wyjątek występuje podczas inicjowania usługi danych."
   syntax:
     content: public string TargetPath { get; }
     return:
       type: System.String
-      description: "String value with target XML element or attribute."
+      description: "Wartość z target — element XML lub atrybut ciągu."
   overload: System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath*
   exceptions: []
   platform:
@@ -228,13 +228,13 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Common
-  summary: "Gets a property on the <xref:System.ServiceModel.Syndication.SyndicationItem> class."
-  remarks: "If mapping to syndication element, this property is the name of the syndication item.       This value must be set to `None` if the <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath%2A> is not null."
+  summary: "Pobiera właściwości dla <xref:System.ServiceModel.Syndication.SyndicationItem>klasy.</xref:System.ServiceModel.Syndication.SyndicationItem>"
+  remarks: "Jeśli mapowanie na element zespolony, ta właściwość jest nazwa elementu zespolonego.       Ta wartość musi mieć ustawioną `None` Jeśli <xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath%2A>nie jest zerowa.</xref:System.Data.Services.Common.EntityPropertyMappingAttribute.TargetPath%2A>"
   syntax:
     content: public System.Data.Services.Common.SyndicationItemProperty TargetSyndicationItem { get; }
     return:
       type: System.Data.Services.Common.SyndicationItemProperty
-      description: "A <xref:System.ServiceModel.Syndication.SyndicationItem> object."
+      description: "A <xref:System.ServiceModel.Syndication.SyndicationItem>obiektu.</xref:System.ServiceModel.Syndication.SyndicationItem>"
   overload: System.Data.Services.Common.EntityPropertyMappingAttribute.TargetSyndicationItem*
   exceptions: []
   platform:
@@ -251,13 +251,13 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Common
-  summary: "Gets the type of content of the property mapped by <xref href=&quot;System.Data.Services.Common.EntityPropertyMappingAttribute&quot;></xref>."
-  remarks: "If mapping to syndication content, this property is the content type of syndication item.       When you specify a value of <xref:System.Data.Services.Common.SyndicationTextContentKind> for the TargetTextContentKind attribute, you must ensure that the property value contains properly formatted XML. The data service returns the value without performing any transformations. You must also ensure that any XML element prefixes in the returned XML have a namespace URI and prefix defined in the mapped feed."
+  summary: "Pobiera typ zawartości właściwości zamapowany przez <xref href=&quot;System.Data.Services.Common.EntityPropertyMappingAttribute&quot;> </xref>."
+  remarks: "Jeśli mapowanie do zawartości zespolonego, ta właściwość jest typ zawartości elementu zespolonego.       Po określeniu wartości <xref:System.Data.Services.Common.SyndicationTextContentKind>dla atrybutu TargetTextContentKind musi zapewnić, że wartość właściwości zawiera nieprawidłowo sformatowany XML.</xref:System.Data.Services.Common.SyndicationTextContentKind> Usługi danych zwraca wartość bez żadnych przekształcenia. Upewnij się że wszystkie prefiksy — element XML w zwróconego kodu XML ma identyfikator URI przestrzeni nazw i prefiks zdefiniowany w mapowanej źródle danych."
   syntax:
     content: public System.Data.Services.Common.SyndicationTextContentKind TargetTextContentKind { get; }
     return:
       type: System.Data.Services.Common.SyndicationTextContentKind
-      description: "A string that identifies the type of content in the feed element."
+      description: "Ciąg określający typ zawartości w elemencie kanału informacyjnego."
   overload: System.Data.Services.Common.EntityPropertyMappingAttribute.TargetTextContentKind*
   exceptions: []
   platform:
