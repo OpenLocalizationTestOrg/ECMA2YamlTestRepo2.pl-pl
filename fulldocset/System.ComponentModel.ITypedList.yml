@@ -11,8 +11,8 @@ items:
   nameWithType: ITypedList
   fullName: System.ComponentModel.ITypedList
   type: Interface
-  summary: "Provides functionality to discover the schema for a bindable list, where the properties available for binding differ from the public properties of the object to bind to."
-  remarks: "Use this interface if, for instance, you are using a <xref:System.Data.DataView> object that represents a `customer` table, you want to bind to the properties on the `customer` object that the <xref:System.Data.DataView> represents, not the properties of the <xref:System.Data.DataView>.       This interface is not required for design-time support of a bindable list.       Binding to data can occur either at run time or in a designer, but there are rules for both. At run time, you can bind to data in any of the following:      -   <xref:System.Array>      -   Implementer of <xref:System.Collections.IList>, provided the implementer has a strongly typed <xref:System.Collections.IList.Item%2A> property (that is, the <xref:System.Type> is anything but <xref:System.Object>). You can accomplish this by making the default implementation of <xref:System.Collections.IList.Item%2A> private. If you want to create an <xref:System.Collections.IList> that follows the rules of a strongly typed collection, you should derive from <xref:System.Collections.CollectionBase>.      -   Implementer of ITypedList.       In a designer, you can initialize binding to <xref:System.ComponentModel.Component> objects by following the same rules.       For more information on binding to a data source, see the <xref:System.Windows.Forms.Binding?displayProperty=fullName> class."
+  summary: "Udostępnia funkcje odnajdywania schematu można powiązać listę, której właściwości dostępne dla powiązania różnią się od publicznej właściwości do powiązania obiektu."
+  remarks: "Użyj tego interfejsu, jeśli na przykład używasz <xref:System.Data.DataView>obiekt, który reprezentuje `customer` tabeli, chcesz powiązać właściwości `customer` obiekt, który <xref:System.Data.DataView>reprezentuje nie właściwości <xref:System.Data.DataView>.</xref:System.Data.DataView> </xref:System.Data.DataView> </xref:System.Data.DataView>       Ten interfejs nie jest wymagana do obsługi czasu projektowania można powiązać listy.       Powiązanie danych może wystąpić w czasie wykonywania, lub za pomocą projektanta, ale istnieją reguły dla obu. W czasie wykonywania można powiązać z danymi w następujących:- <xref:System.Array>-implementujący z <xref:System.Collections.IList>, o ile ma silnie typizowaną implementujący <xref:System.Collections.IList.Item%2A>Właściwości (oznacza to, <xref:System.Type>ma jakąkolwiek inną <xref:System.Object>).</xref:System.Object> </xref:System.Type> </xref:System.Collections.IList.Item%2A> </xref:System.Collections.IList> </xref:System.Array> Można to zrobić przez domyślną implementację elementu <xref:System.Collections.IList.Item%2A>prywatne.</xref:System.Collections.IList.Item%2A> Jeśli chcesz utworzyć <xref:System.Collections.IList>następujący reguły silnie typizowaną kolekcją, powinien pochodzić od <xref:System.Collections.CollectionBase>.</xref:System.Collections.CollectionBase> </xref:System.Collections.IList>      -Implementujący ITypedList.       W projektancie, można zainicjować powiązania <xref:System.ComponentModel.Component>obiektów, wykonując te same zasady stosowania.</xref:System.ComponentModel.Component>       Aby uzyskać więcej informacji dotyczących powiązania ze źródłem danych zobacz <xref:System.Windows.Forms.Binding?displayProperty=fullName>klasy.</xref:System.Windows.Forms.Binding?displayProperty=fullName>"
   example:
   - "The following code example demonstrates how to implement the ITypedList interface. A generic type named `SortableBindingList` derives from the <xref:System.ComponentModel.BindingList%601> class and implements the ITypedList interface. For a full code listing, see [How to: Implement the ITypedList Interface](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[System.ComponentModel.ITypedList#1](~/add/codesnippet/csharp/t-system.componentmodel._167_1.cs)]\n [!code-vb[System.ComponentModel.ITypedList#1](~/add/codesnippet/visualbasic/t-system.componentmodel._167_1.vb)]"
   syntax:
@@ -32,8 +32,8 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Returns the <xref href=&quot;System.ComponentModel.PropertyDescriptorCollection&quot;></xref> that represents the properties on each item used to bind data."
-  remarks: "If the `listAccessors` parameter is not `null`, it typically contains a property descriptor that identifies a list of containers to retrieve for the object that implements <xref:System.ComponentModel.ITypedList>. For example, a <xref:System.Data.DataSet> containing two tables, `myCustomers` and `myOrders`, with a relationship between them called `myCustOrders`. If you create a <xref:System.Data.DataView> object to view `myCustomers`, then calling the GetItemProperties method with `null` returns the property descriptors for the columns in `myCustomers`. As a result, one of the returned property descriptors is a property descriptor for `myCustOrders`, just as calling the GetItemProperties method with a list accessor array containing the property descriptors for `myCustOrders` will return the property descriptors for `myOrders`."
+  summary: "Zwraca <xref href=&quot;System.ComponentModel.PropertyDescriptorCollection&quot;> </xref> reprezentujący właściwości na każdy element używanych do wiązania danych."
+  remarks: "Jeśli `listAccessors` parametr nie jest `null`, zwykle zawiera deskryptora właściwości, która identyfikuje listy kontenerów do pobrania dla obiekt, który implementuje <xref:System.ComponentModel.ITypedList>.</xref:System.ComponentModel.ITypedList> Na przykład <xref:System.Data.DataSet>zawierających dwie tabele `myCustomers` i `myOrders`, przy użyciu relacji między nimi o nazwie `myCustOrders`.</xref:System.Data.DataSet> W przypadku utworzenia <xref:System.Data.DataView>obiekt, aby wyświetlić `myCustomers`, wywołując metodę GetItemProperties z `null` zwraca deskryptorów właściwości dla kolumn w `myCustomers`.</xref:System.Data.DataView> W związku z tym jednym deskryptorów właściwości zwracane jest deskryptor właściwości `myCustOrders`, po prostu jako wywołanie metody GetItemProperties tablicą akcesor listę zawierającą deskryptorów właściwości dla `myCustOrders` zwróci deskryptorów właściwości dla `myOrders`."
   example:
   - "The following code example demonstrates how to implement the GetItemProperties method. For a full code listing, see [How to: Implement the ITypedList Interface](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[System.ComponentModel.ITypedList#3](~/add/codesnippet/csharp/3b46cd55-3314-419e-a8e7-_1.cs)]\n [!code-vb[System.ComponentModel.ITypedList#3](~/add/codesnippet/visualbasic/3b46cd55-3314-419e-a8e7-_1.vb)]"
   syntax:
@@ -41,10 +41,10 @@ items:
     parameters:
     - id: listAccessors
       type: System.ComponentModel.PropertyDescriptor[]
-      description: "An array of <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> objects to find in the collection as bindable. This can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Tablica <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref> obiektów można znaleźć w kolekcji jako możliwej do wiązania. Może to być <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.ComponentModel.PropertyDescriptorCollection
-      description: "The <xref href=&quot;System.ComponentModel.PropertyDescriptorCollection&quot;></xref> that represents the properties on each item used to bind data."
+      description: "<xref href=&quot;System.ComponentModel.PropertyDescriptorCollection&quot;> </xref> Reprezentujący właściwości na każdy element używanych do wiązania danych."
   overload: System.ComponentModel.ITypedList.GetItemProperties*
   exceptions: []
   platform:
@@ -61,8 +61,8 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel
-  summary: "Returns the name of the list."
-  remarks: "This method is used only in the design-time framework and by the obsolete <xref:System.Windows.Forms.DataGrid> control."
+  summary: "Zwraca nazwę listy."
+  remarks: "Ta metoda jest używana tylko w ramach projektowania i przestarzałe <xref:System.Windows.Forms.DataGrid>kontroli.</xref:System.Windows.Forms.DataGrid>"
   example:
   - "The following code example demonstrates how to implement the GetListName method. For a full code listing, see [How to: Implement the ITypedList Interface](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[System.ComponentModel.ITypedList#4](~/add/codesnippet/csharp/a1408425-c386-40d6-a339-_1.cs)]\n [!code-vb[System.ComponentModel.ITypedList#4](~/add/codesnippet/visualbasic/a1408425-c386-40d6-a339-_1.vb)]"
   syntax:
@@ -70,10 +70,10 @@ items:
     parameters:
     - id: listAccessors
       type: System.ComponentModel.PropertyDescriptor[]
-      description: "An array of <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> objects, for which the list name is returned. This can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Tablica <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref> obiektów, dla których zwracana jest nazwa listy. Może to być <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.String
-      description: "The name of the list."
+      description: "Nazwa listy."
   overload: System.ComponentModel.ITypedList.GetListName*
   exceptions: []
   platform:
