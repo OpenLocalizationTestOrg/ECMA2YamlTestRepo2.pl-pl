@@ -17,8 +17,8 @@ items:
   nameWithType: SqlBulkCopyOptions
   fullName: System.Data.SqlClient.SqlBulkCopyOptions
   type: Enum
-  summary: "Bitwise flag that specifies one or more options to use with an instance of <xref href=&quot;System.Data.SqlClient.SqlBulkCopy&quot;></xref>."
-  remarks: "You can use the SqlBulkCopyOptions enumeration when you construct a <xref:System.Data.SqlClient.SqlBulkCopy> instance to change how the <xref:System.Data.SqlClient.SqlBulkCopy.WriteToServer%2A> methods for that instance behave."
+  summary: "Flaga logiczną, która określa jedną lub więcej opcji do korzystania z wystąpienia <xref href=&quot;System.Data.SqlClient.SqlBulkCopy&quot;> </xref>."
+  remarks: "Umożliwia wyliczenie SqlBulkCopyOptions utworzenia <xref:System.Data.SqlClient.SqlBulkCopy>wystąpienia, aby zmienić sposób <xref:System.Data.SqlClient.SqlBulkCopy.WriteToServer%2A>zachowanie metody dla tego wystąpienia.</xref:System.Data.SqlClient.SqlBulkCopy.WriteToServer%2A> </xref:System.Data.SqlClient.SqlBulkCopy>"
   example:
   - "The following console application demonstrates how to perform a bulk load that copies the value in the identity column of the source table to the corresponding column in the destination table, instead of generating a new value for each row's identity column.  \n  \n To see how the option changes the way the bulk load works, run the sample with the **dbo.BulkCopyDemoMatchingColumns** table empty. All rows load from the source. Next, run the sample again without emptying the table. An exception is thrown, and the code writes a message to the console window notifying you that rows were not added because of primary key violations.  \n  \n> [!IMPORTANT]\n>  This sample will not run unless you have created the work tables as described in [Bulk Copy Example Setup](~/add/includes/ajax-current-ext-md.md). This code is provided to demonstrate the syntax for using **SqlBulkCopy** only. If the source and destination tables are in the same SQL Server instance, it is easier and faster to use a Transact-SQL `INSERT … SELECT` statement to copy the data.  \n  \n [!code-cs[DataWorks SqlBulkCopy.KeepIdentity#1](~/add/codesnippet/csharp/t-system.data.sqlclient._5_1.cs)]\n [!code-vb[DataWorks SqlBulkCopy.KeepIdentity#1](~/add/codesnippet/visualbasic/t-system.data.sqlclient._5_1.vb)]"
   syntax:
@@ -42,12 +42,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "When specified,**AllowEncryptedValueModifications** enables bulk copying of encrypted data between tables or databases, without decrypting the data. Typically, an application would select data from encrypted columns from one table without decrypting the data (the app would connect to the database with the column encryption setting keyword set to disabled) and then would use this option to bulk insert the data, which is still encrypted. For more information, see [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).       Use caution when specifying **AllowEncryptedValueModifications** as this may lead to corrupting the database because the driver does not check if the data is indeed encrypted, or if it is correctly encrypted using the same encryption type, algorithm and key as the target column."
+  summary: "W przypadku**AllowEncryptedValueModifications** umożliwia zbiorczego Kopiowanie zaszyfrowanych danych między tabelami lub baz danych, bez odszyfrowywania danych. Zazwyczaj aplikacji może wybrać dane z zaszyfrowanych kolumn z jednej tabeli bez odszyfrowywania danych (aplikacja będzie połączenia z bazą danych z kluczowego ustawienie szyfrowania kolumny ustawienie zostanie wyłączone), a następnie użyje tej opcji do zbiorczego wstawiania danych, który pozostaje zaszyfrowany. Aby uzyskać więcej informacji, zobacz [zawsze zaszyfrowane](https://msdn.microsoft.com/library/mt163865.aspx).       Należy zachować ostrożność podczas określania **AllowEncryptedValueModifications** ponieważ może to prowadzić do uszkodzenia bazy danych, ponieważ sterownik nie sprawdza, czy dane są szyfrowane w rzeczywistości, czy jest prawidłowo zaszyfrowana przy użyciu tego samego typu szyfrowania, algorytm i klucz co kolumna docelowa."
   syntax:
     content: AllowEncryptedValueModifications
     return:
       type: System.Data.SqlClient.SqlBulkCopyOptions
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -63,12 +63,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Check constraints while data is being inserted. By default, constraints are not checked."
+  summary: "Ograniczenia CHECK, gdy dane są wstawiane. Domyślnie ograniczenia nie są sprawdzane."
   syntax:
     content: CheckConstraints
     return:
       type: System.Data.SqlClient.SqlBulkCopyOptions
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -84,12 +84,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Use the default values for all options."
+  summary: "Użyj wartości domyślnych dla wszystkich opcji."
   syntax:
     content: Default
     return:
       type: System.Data.SqlClient.SqlBulkCopyOptions
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -105,12 +105,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "When specified, cause the server to fire the insert triggers for the rows being inserted into the database."
+  summary: "W przypadku wywołać wyzwalacze wstawiania wierszy wstawiane do bazy danych."
   syntax:
     content: FireTriggers
     return:
       type: System.Data.SqlClient.SqlBulkCopyOptions
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -126,12 +126,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Preserve source identity values. When not specified, identity values are assigned by the destination."
+  summary: "Zachowaj wartości tożsamości źródła. Jeśli nie określono wartości tożsamości są przypisywane przez miejsce docelowe."
   syntax:
     content: KeepIdentity
     return:
       type: System.Data.SqlClient.SqlBulkCopyOptions
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -147,12 +147,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Preserve null values in the destination table regardless of the settings for default values. When not specified, null values are replaced by default values where applicable."
+  summary: "Zachowaj wartości null w tabeli docelowej niezależnie od ustawień dla wartości domyślnych. Jeśli nie określono wartości null zastępuje wartości domyślne stosownych."
   syntax:
     content: KeepNulls
     return:
       type: System.Data.SqlClient.SqlBulkCopyOptions
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -168,12 +168,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Obtain a bulk update lock for the duration of the bulk copy operation. When not specified, row locks are used."
+  summary: "Uzyskać blokady aktualizacji zbiorczej na czas trwania operacji kopiowania zbiorczego. Jeśli nie zostanie określony, blokady wierszy są używane."
   syntax:
     content: TableLock
     return:
       type: System.Data.SqlClient.SqlBulkCopyOptions
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -189,12 +189,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "When specified, each batch of the bulk-copy operation will occur within a transaction. If you indicate this option and also provide a <xref href=&quot;System.Data.SqlClient.SqlTransaction&quot;></xref> object to the constructor, an <xref:System.ArgumentException> occurs."
+  summary: "W przypadku każdej z partii operacji kopiowania zbiorczego nastąpi w ramach transakcji. Jeśli wskazywać tę opcję i również udostępniać <xref href=&quot;System.Data.SqlClient.SqlTransaction&quot;> </xref> obiekt do konstruktora, <xref:System.ArgumentException>występuje.</xref:System.ArgumentException>"
   syntax:
     content: UseInternalTransaction
     return:
       type: System.Data.SqlClient.SqlBulkCopyOptions
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462

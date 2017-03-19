@@ -22,8 +22,8 @@ items:
   nameWithType: FederationConfiguration
   fullName: System.IdentityModel.Services.Configuration.FederationConfiguration
   type: Class
-  summary: "Exposes properties that contain federation settings that control the behavior of the WS-Federation Authentication Module (<xref href=&quot;System.IdentityModel.Services.WSFederationAuthenticationModule&quot;></xref>) and the Session Authentication Module (<xref href=&quot;System.IdentityModel.Services.SessionAuthenticationModule&quot;></xref>) in web applications."
-  remarks: "By default web applications have a single FederationConfiguration object that is accessed through the <xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfiguration?displayProperty=fullName> property. The first time the property is accessed a new FederationConfiguration instance is initialized from settings in the configuration file and the <xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfigurationCreated?displayProperty=fullName> event is raised. You can use the properties and methods exposed by the FederationConfiguration class to modify or replace the object initialized from configuration in an event handler. This object is available through the <xref:System.IdentityModel.Services.Configuration.FederationConfigurationCreatedEventArgs.FederationConfiguration%2A?displayProperty=fullName> property inside the event handler."
+  summary: "Udostępnia właściwości, które zawierają ustawienia Federacji, które kontrolują zachowanie modułu uwierzytelniania protokołu WS-Federation (<xref href=&quot;System.IdentityModel.Services.WSFederationAuthenticationModule&quot;></xref>) i moduł uwierzytelniania sesji (<xref href=&quot;System.IdentityModel.Services.SessionAuthenticationModule&quot;></xref>) w aplikacji sieci web."
+  remarks: "Domyślnie aplikacje sieci web zawierać pojedynczy obiekt FederationConfiguration, który jest dostępny za pośrednictwem <xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfiguration?displayProperty=fullName>Właściwości.</xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfiguration?displayProperty=fullName> Przy pierwszym uzyskaniu dostępu do właściwości nowej FederationConfiguration wystąpienie jest inicjowane z ustawień w pliku konfiguracji i <xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfigurationCreated?displayProperty=fullName>zdarzenie jest wywoływane.</xref:System.IdentityModel.Services.FederatedAuthentication.FederationConfigurationCreated?displayProperty=fullName> Aby zmodyfikować lub zastąpić obiekt zainicjowany z konfiguracji programu obsługi zdarzeń, można użyć właściwości i metody ujawnione przez klasę FederationConfiguration. Ten obiekt jest dostępna za pośrednictwem <xref:System.IdentityModel.Services.Configuration.FederationConfigurationCreatedEventArgs.FederationConfiguration%2A?displayProperty=fullName>Właściwości wewnątrz obsługi zdarzeń.</xref:System.IdentityModel.Services.Configuration.FederationConfigurationCreatedEventArgs.FederationConfiguration%2A?displayProperty=fullName>"
   syntax:
     content: public class FederationConfiguration
   inheritance:
@@ -44,8 +44,8 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Services.Configuration.FederationConfiguration&quot;></xref> class by loading settings from the <xref uid=&quot;langword_csharp_system.identityModel.services&quot; name=&quot;system.identityModel.services&quot; href=&quot;&quot;></xref> section of the configuration file."
-  remarks: "The properties in the new instance are initialized by loading settings from the `<system.identityModel.services>` configuration section. This constructor calls the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.%23ctor%28System.Boolean%29?displayProperty=fullName> constructor with the `loadConfig` parameter `true`.      > [!WARNING] >  Before the new <xref:System.IdentityModel.Services.Configuration.FederationConfiguration> instance is used by any of the configured HTTP modules, call the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize%2A> method to ensure that the instance is properly initialized."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.IdentityModel.Services.Configuration.FederationConfiguration&quot;> </xref> klasy przez ładowanie ustawień z <xref uid=&quot;langword_csharp_system.identityModel.services&quot; name=&quot;system.identityModel.services&quot; href=&quot;&quot;> </xref> sekcji pliku konfiguracji."
+  remarks: "Właściwości w tym nowym wystąpieniu są inicjowane przez ładowanie ustawień z `<system.identityModel.services>` sekcji konfiguracji. Ten konstruktor wywołuje <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.%23ctor%28System.Boolean%29?displayProperty=fullName>konstruktora z `loadConfig` parametru `true`.</xref:System.IdentityModel.Services.Configuration.FederationConfiguration.%23ctor%28System.Boolean%29?displayProperty=fullName>      > [!WARNING] > Przed nowe <xref:System.IdentityModel.Services.Configuration.FederationConfiguration>wystąpienia jest używany przez żadnych skonfigurowanych modułów HTTP, wywołaj <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize%2A>metody, aby upewnić się, czy wystąpienie została prawidłowo zainicjalizowana.</xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize%2A> </xref:System.IdentityModel.Services.Configuration.FederationConfiguration>"
   syntax:
     content: public FederationConfiguration ();
     parameters: []
@@ -65,19 +65,19 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Services.Configuration.FederationConfiguration&quot;></xref> class by optionally loading settings from the <xref uid=&quot;langword_csharp_system.identityModel.services&quot; name=&quot;system.identityModel.services&quot; href=&quot;&quot;></xref> section of the configuration file."
-  remarks: "> [!WARNING] >  Before the new <xref:System.IdentityModel.Services.Configuration.FederationConfiguration> instance is used by any of the configured HTTP modules, call the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize%2A> method to ensure that the instance is properly initialized.       The `system.identityModel` section must be specified in a `<section>` element under the `<configSections>` element in the configuration file or an exception is thrown.      ```   <configSections>     <section name=&quot;system.identityModel&quot; type=&quot;System.IdentityModel.Configuration.SystemIdentityModelSection, System.IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089&quot; />   </configSections>   ```       If `loadConfig` is `true` and only a single `<federationConfiguration>` element is specified, settings are loaded using that element. If multiple `<federationConfiguration>` elements are specified, the method attempts to load settings from the element that is unnamed of that has the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.DefaultFederationConfigurationName>. If such an element does not exist, the method returns without loading settings. This results in an exception when the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize%2A> method is called.      > [!WARNING] >  Microsoft recommends that if you specify multiple `<federationConfiguration>` elements in the `system.identityModel.services` configuration section that at least one of them is unnamed or has its name set to an empty string."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.IdentityModel.Services.Configuration.FederationConfiguration&quot;> </xref> przy opcjonalnie ładowanie ustawień z <xref uid=&quot;langword_csharp_system.identityModel.services&quot; name=&quot;system.identityModel.services&quot; href=&quot;&quot;> </xref> sekcji pliku konfiguracji."
+  remarks: "> [!WARNING]> Przed nowe <xref:System.IdentityModel.Services.Configuration.FederationConfiguration>wystąpienia jest używany przez żadnych skonfigurowanych modułów HTTP, wywołaj <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize%2A>metody, aby upewnić się, czy wystąpienie została prawidłowo zainicjalizowana.</xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize%2A> </xref:System.IdentityModel.Services.Configuration.FederationConfiguration>       `system.identityModel` Sekcji musi zostać określona w `<section>` elementu w obszarze `<configSections>` elementu w pliku konfiguracji lub wyjątek zostanie zgłoszony.      ```   <configSections>     <section name=&quot;system.identityModel&quot; type=&quot;System.IdentityModel.Configuration.SystemIdentityModelSection, System.IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089&quot; />   </configSections>   ```Jeśli `loadConfig` jest `true` i tylko jeden `<federationConfiguration>` określony element, ustawienia są ładowane przy użyciu tego elementu. Jeśli wiele `<federationConfiguration>` określone elementy, metoda próbuje załadować ustawienia z element, który jest bez nazwy tego ma <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.DefaultFederationConfigurationName>.</xref:System.IdentityModel.Services.Configuration.FederationConfiguration.DefaultFederationConfigurationName> Jeśli taki element nie istnieje, metoda zwraca bez ładowania ustawień. Powoduje to wystąpił wyjątek podczas <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize%2A>Metoda jest wywoływana.</xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize%2A>      > [!WARNING] > Firma Microsoft zaleca określenia wielu `<federationConfiguration>` elementów w `system.identityModel.services` konfiguracji sekcji, że co najmniej jedna z nich jest bez nazwy lub występuje ustawiony na pusty ciąg."
   syntax:
     content: public FederationConfiguration (bool loadConfig);
     parameters:
     - id: loadConfig
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to initialize with settings loaded from the configuration file; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to initialize to default values."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Aby zainicjować z ustawieniami załadowanego z pliku konfiguracji; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> zainicjować do wartości domyślnych."
   overload: System.IdentityModel.Services.Configuration.FederationConfiguration.#ctor*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref uid=&quot;langword_csharp_system.identityModel&quot; name=&quot;system.identityModel&quot; href=&quot;&quot;></xref> configuration section is not defined in the configuration file."
+    description: "<xref uid=&quot;langword_csharp_system.identityModel&quot; name=&quot;system.identityModel&quot; href=&quot;&quot;> </xref> Sekcji konfiguracji nie jest zdefiniowany w pliku konfiguracji."
   platform:
   - net462
 - uid: System.IdentityModel.Services.Configuration.FederationConfiguration.#ctor(System.String)
@@ -92,19 +92,19 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Services.Configuration.FederationConfiguration&quot;></xref> class from the [\\&lt;federationConfiguration\\&gt;](../Topic/%3CfederationConfiguration%3E.md) element with the specified name."
-  remarks: "> [!WARNING] >  Before the new <xref:System.IdentityModel.Services.Configuration.FederationConfiguration> instance is used by any of the configured HTTP modules, call the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize%2A> method to ensure that the instance is properly initialized.       If this constructor is called then a `<system.identityModel.services>` configuration section with a `<federationConfiguration>` element that has the specified name must exist in the configuration file.       Both the `system.identityModel` section and the `system.identityModel.services` must be specified in a `<section>` elements under the `<configSections>` element in the configuration file or an exception is thrown.      ```   <configSections>     <section name=&quot;system.identityModel&quot; type=&quot;System.IdentityModel.Configuration.SystemIdentityModelSection, System.IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089&quot; />     <section name=&quot;system.identityModel.services&quot; type=&quot;System.IdentityModel.Services.Configuration.SystemIdentityModelServicesSection, System.IdentityModel.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089&quot; />   </configSections>   ```"
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.IdentityModel.Services.Configuration.FederationConfiguration&quot;> </xref> klasę z [ \\&lt; federationConfiguration\\&gt;](../Topic/%3CfederationConfiguration%3E.md) elementu o podanej nazwie."
+  remarks: "> [!WARNING]> Przed nowe <xref:System.IdentityModel.Services.Configuration.FederationConfiguration>wystąpienia jest używany przez żadnych skonfigurowanych modułów HTTP, wywołaj <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize%2A>metody, aby upewnić się, czy wystąpienie została prawidłowo zainicjalizowana.</xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize%2A> </xref:System.IdentityModel.Services.Configuration.FederationConfiguration>       Jeśli ten konstruktor jest wywoływany, a następnie `<system.identityModel.services>` sekcji konfiguracji z `<federationConfiguration>` element, który ma określoną nazwę, musi istnieć w pliku konfiguracji.       Zarówno `system.identityModel` sekcji i `system.identityModel.services` musi zostać określona w `<section>` elementy w obszarze `<configSections>` elementu w pliku konfiguracji lub wyjątek zostanie zgłoszony.      ```   <configSections>     <section name=&quot;system.identityModel&quot; type=&quot;System.IdentityModel.Configuration.SystemIdentityModelSection, System.IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089&quot; />     <section name=&quot;system.identityModel.services&quot; type=&quot;System.IdentityModel.Services.Configuration.SystemIdentityModelServicesSection, System.IdentityModel.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089&quot; />   </configSections>   ```"
   syntax:
     content: public FederationConfiguration (string federationConfigurationName);
     parameters:
     - id: federationConfigurationName
       type: System.String
-      description: "The name of the <xref uid=&quot;langword_csharp_&lt;federationConfiguration&gt;&quot; name=&quot;&lt;federationConfiguration&gt;&quot; href=&quot;&quot;></xref> element from which to load the configuration."
+      description: "Nazwa <xref uid=&quot;langword_csharp_&lt;federationConfiguration&gt;&quot; name=&quot;&lt;federationConfiguration&gt;&quot; href=&quot;&quot;> </xref> element, z którego można załadować konfiguracji."
   overload: System.IdentityModel.Services.Configuration.FederationConfiguration.#ctor*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "There is no <xref uid=&quot;langword_csharp_system.identityModel.services&quot; name=&quot;system.identityModel.services&quot; href=&quot;&quot;></xref> section defined in the configuration file.       -or-       There is no <xref uid=&quot;langword_csharp_system.identityModel&quot; name=&quot;system.identityModel&quot; href=&quot;&quot;></xref> section defined in the configuration file.       -or-       There is no <xref uid=&quot;langword_csharp_&lt;federationConfiguration&gt;&quot; name=&quot;&lt;federationConfiguration&gt;&quot; href=&quot;&quot;></xref> element with the specified name in the <xref uid=&quot;langword_csharp_system.identityModel.services&quot; name=&quot;system.identityModel.services&quot; href=&quot;&quot;></xref> section."
+    description: "Brak nie <xref uid=&quot;langword_csharp_system.identityModel.services&quot; name=&quot;system.identityModel.services&quot; href=&quot;&quot;> </xref> sekcji zdefiniowane w pliku konfiguracji.       - lub - brak nie <xref uid=&quot;langword_csharp_system.identityModel&quot; name=&quot;system.identityModel&quot; href=&quot;&quot;> </xref> sekcji zdefiniowane w pliku konfiguracji.       - lub - brak nie <xref uid=&quot;langword_csharp_&lt;federationConfiguration&gt;&quot; name=&quot;&lt;federationConfiguration&gt;&quot; href=&quot;&quot;> </xref> elementu o podanej nazwie w <xref uid=&quot;langword_csharp_system.identityModel.services&quot; name=&quot;system.identityModel.services&quot; href=&quot;&quot;> </xref> sekcji."
   platform:
   - net462
 - uid: System.IdentityModel.Services.Configuration.FederationConfiguration.CookieHandler
@@ -119,18 +119,18 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
-  summary: "Gets or sets the cookie handler to be used by the Session Authentication Module (<xref href=&quot;System.IdentityModel.Services.SessionAuthenticationModule&quot;></xref>)."
+  summary: "Pobiera lub ustawia program obsługi pliku cookie używanego przez moduł uwierzytelniania sesji (<xref href=&quot;System.IdentityModel.Services.SessionAuthenticationModule&quot;></xref>)."
   remarks: "Specifies the cookie handler that is used to read and write session cookies by the SAM.  \n  \n When initialized from a configuration file, this property is set by the [\\&lt;cookieHandler\\&gt;](../Topic/%3CcookieHandler%3E.md) element."
   syntax:
     content: public System.IdentityModel.Services.CookieHandler CookieHandler { get; set; }
     return:
       type: System.IdentityModel.Services.CookieHandler
-      description: "The cookie handler to be used by the Session Authentication Module (SAM)."
+      description: "Program obsługi pliku cookie używanego przez moduł uwierzytelniania sesji (SAM)."
   overload: System.IdentityModel.Services.Configuration.FederationConfiguration.CookieHandler*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "An attempt to set the property to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> occurs."
+    description: "Próba ustawioną właściwość <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> występuje."
   platform:
   - net462
 - uid: System.IdentityModel.Services.Configuration.FederationConfiguration.CustomElement
@@ -145,12 +145,12 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
-  summary: "Gets or sets the custom XML element, if any, present in this configuration."
+  summary: "Pobiera lub ustawia niestandardowego elementu XML, jeśli istnieje, znajdujących się w tej konfiguracji."
   syntax:
     content: public System.Xml.XmlElement CustomElement { get; set; }
     return:
       type: System.Xml.XmlElement
-      description: "The custom XML element."
+      description: "Niestandardowy element XML."
   overload: System.IdentityModel.Services.Configuration.FederationConfiguration.CustomElement*
   exceptions: []
   platform:
@@ -167,12 +167,12 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
-  summary: "Defines the name of the default [\\&lt;federationConfiguration\\&gt;](../Topic/%3CfederationConfiguration%3E.md) element from which settings should be loaded. This is an empty string as the default element is unnamed."
+  summary: "Określa nazwę domyślnej [ \\&lt; federationConfiguration\\&gt;](../Topic/%3CfederationConfiguration%3E.md) element, z którego można załadować ustawień. Jest to pusty ciąg jako domyślny element jest bez nazwy."
   syntax:
     content: public static readonly string DefaultFederationConfigurationName;
     return:
       type: System.String
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -188,18 +188,18 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
-  summary: "Gets or sets the <xref href=&quot;System.IdentityModel.Configuration.IdentityConfiguration&quot;></xref> object associated with this instance."
-  remarks: "When initialized from a configuration file, this property is set by the [\\&lt;identityConfiguration\\&gt;](../Topic/%3CidentityConfiguration%3E.md) element."
+  summary: "Pobiera lub ustawia <xref href=&quot;System.IdentityModel.Configuration.IdentityConfiguration&quot;> </xref> obiekt skojarzony z tym wystąpieniem."
+  remarks: "Po zainicjowaniu z pliku konfiguracji, ta właściwość jest ustawiana przez [ \\&lt; identityConfiguration\\&gt;](../Topic/%3CidentityConfiguration%3E.md) elementu."
   syntax:
     content: public System.IdentityModel.Configuration.IdentityConfiguration IdentityConfiguration { get; set; }
     return:
       type: System.IdentityModel.Configuration.IdentityConfiguration
-      description: "The identity configuration object associated with this instance."
+      description: "Obiekt konfiguracji tożsamości skojarzony z tym wystąpieniem."
   overload: System.IdentityModel.Services.Configuration.FederationConfiguration.IdentityConfiguration*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "An attempt to set the property to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> occurs."
+    description: "Próba ustawioną właściwość <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> występuje."
   platform:
   - net462
 - uid: System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize
@@ -214,8 +214,8 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
-  summary: "Initializes the current instance."
-  remarks: "This method ensures that the current instance is properly initialized before it is used by the HTTP Modules to process incoming requests. It should only be called once. Check the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.IsInitialized%2A> property before calling the method. This method sets the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.IsInitialized%2A> property is set `true`.       The default implementation creates a default cookie handler if there is not one already configured through the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.CookieHandler%2A> property and calls the <xref:System.IdentityModel.Configuration.IdentityConfiguration.Initialize%2A?displayProperty=fullName> method on the identity configuration object that is configured through the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.IdentityConfiguration%2A> property. You can override this method to modify this behavior or to provide additional initialization in derived classes.       This method should be invoked before the class is used by the HTTP Modules to process incoming requests."
+  summary: "Inicjuje bieżące wystąpienie."
+  remarks: "Ta metoda gwarantuje, że bieżące wystąpienie został poprawnie zainicjowany przed jego użyciem przez moduły HTTP, aby przetworzyć żądań przychodzących. Powinien zostać wywołany tylko raz. Sprawdź <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.IsInitialized%2A>Właściwość przed wywołaniem metody.</xref:System.IdentityModel.Services.Configuration.FederationConfiguration.IsInitialized%2A> Ta metoda ustawia <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.IsInitialized%2A>ustawiono właściwość `true`.</xref:System.IdentityModel.Services.Configuration.FederationConfiguration.IsInitialized%2A>       Domyślna implementacja tworzy domyślny program obsługi plików cookie, jeśli nie jest już skonfigurowana za pośrednictwem jedna <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.CookieHandler%2A>Właściwości i wywołania <xref:System.IdentityModel.Configuration.IdentityConfiguration.Initialize%2A?displayProperty=fullName>metody na obiekt konfiguracji tożsamości, która jest skonfigurowana za pośrednictwem <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.IdentityConfiguration%2A>Właściwości.</xref:System.IdentityModel.Services.Configuration.FederationConfiguration.IdentityConfiguration%2A> </xref:System.IdentityModel.Configuration.IdentityConfiguration.Initialize%2A?displayProperty=fullName> </xref:System.IdentityModel.Services.Configuration.FederationConfiguration.CookieHandler%2A> Mogą przesłaniać tę metodę, aby zmienić to zachowanie lub w celu zapewnienia dodatkowych inicjowania w klasach pochodnych.       Ta metoda powinna być wywoływana przed klasy jest używany przez moduły HTTP do przetwarzania żądań przychodzących."
   syntax:
     content: public virtual void Initialize ();
     parameters: []
@@ -223,7 +223,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The current instance has already been initialized (The <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.IsInitialized*> property is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>.)"
+    description: "Bieżące wystąpienie został już zainicjowany ( <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.IsInitialized*>właściwość jest <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>.)</xref:System.IdentityModel.Services.Configuration.FederationConfiguration.IsInitialized*>"
   platform:
   - net462
 - uid: System.IdentityModel.Services.Configuration.FederationConfiguration.IsInitialized
@@ -238,13 +238,13 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
-  summary: "Gets or sets a value that indicates whether the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize*> method has been called."
-  remarks: "Use this property to check whether the <xref:System.IdentityModel.Services.Configuration.FederationConfiguration> object has already been initialized. The <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize%2A> method should be called once and only once.       The `set` operation is `protected`."
+  summary: "Pobiera lub ustawia wartość wskazującą, czy <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize*>została wywołana metoda.</xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize*>"
+  remarks: "Użyj tej właściwości, aby sprawdzić czy <xref:System.IdentityModel.Services.Configuration.FederationConfiguration>obiekt został już zainicjowany.</xref:System.IdentityModel.Services.Configuration.FederationConfiguration> <xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize%2A>Metoda powinna być wywoływana raz i tylko jeden raz.</xref:System.IdentityModel.Services.Configuration.FederationConfiguration.Initialize%2A>       `set` Operacji `protected`."
   syntax:
     content: public virtual bool IsInitialized { get; protected set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the configuration object has been configured; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli skonfigurowano obiekt konfiguracji; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.Services.Configuration.FederationConfiguration.IsInitialized*
   exceptions: []
   platform:
@@ -261,14 +261,14 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
-  summary: "Loads the properties for the current instance from the configuration file. This method is called by constructors that initialize the newly created <xref href=&quot;System.IdentityModel.Services.Configuration.FederationConfiguration&quot;></xref> from configuration settings."
-  remarks: "The LoadConfiguration method is called by the constructors to set the properties of the newly created <xref:System.IdentityModel.Services.Configuration.FederationConfiguration> object from the specified `<federationConfiguration>` element.       If `element` is `null`, the instance is loaded with default values.       If the there is no configuration file, or, if the named section does not exist, then no exception is thrown, instead the instance is loaded with default values."
+  summary: "Ładuje właściwości dla bieżącego wystąpienia z pliku konfiguracji. Ta metoda jest wywoływana przez konstruktorów zainicjować nowo utworzony <xref href=&quot;System.IdentityModel.Services.Configuration.FederationConfiguration&quot;> </xref> z ustawień konfiguracji."
+  remarks: "Metoda LoadConfiguration jest wywoływana przez konstruktorów można ustawić właściwości nowo utworzony <xref:System.IdentityModel.Services.Configuration.FederationConfiguration>obiektu z określonego `<federationConfiguration>` elementu.</xref:System.IdentityModel.Services.Configuration.FederationConfiguration>       Jeśli `element` jest `null`, wystąpienie jest ładowany z wartościami domyślnymi.       Jeśli istnieje plik konfiguracji nie lub, jeśli nazwana sekcja nie istnieje, żaden wyjątek jest zgłaszany, zamiast tego wystąpienia jest ładowany z wartościami domyślnymi."
   syntax:
     content: protected void LoadConfiguration (System.IdentityModel.Services.Configuration.FederationConfigurationElement element);
     parameters:
     - id: element
       type: System.IdentityModel.Services.Configuration.FederationConfigurationElement
-      description: "The <xref uid=&quot;langword_csharp_&lt;federationConfiguration&gt;&quot; name=&quot;&lt;federationConfiguration&gt;&quot; href=&quot;&quot;></xref> element to load settings from. Can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> to load default values."
+      description: "<xref uid=&quot;langword_csharp_&lt;federationConfiguration&gt;&quot; name=&quot;&lt;federationConfiguration&gt;&quot; href=&quot;&quot;> </xref> Elementu można załadować ustawień. Może być <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> można załadować wartości domyślne."
   overload: System.IdentityModel.Services.Configuration.FederationConfiguration.LoadConfiguration*
   exceptions: []
   platform:
@@ -285,13 +285,13 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
-  summary: "Gets the name associated with this instance."
-  remarks: "Corresponds to the `name` attribute of a [\\&lt;federationConfiguration\\&gt;](../Topic/%3CfederationConfiguration%3E.md) element."
+  summary: "Pobiera nazwę skojarzony z tym wystąpieniem."
+  remarks: "Odpowiada `name` atrybutu [ \\&lt; federationConfiguration\\&gt;](../Topic/%3CfederationConfiguration%3E.md) elementu."
   syntax:
     content: public string Name { get; }
     return:
       type: System.String
-      description: "The name associated with this federation configuration instance."
+      description: "Nazwa skojarzonego z tym wystąpieniem konfiguracji federacji."
   overload: System.IdentityModel.Services.Configuration.FederationConfiguration.Name*
   exceptions: []
   platform:
@@ -308,13 +308,13 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
-  summary: "Gets or sets the X.509 certificate used to sign WS-Federation protocol messages."
-  remarks: "When initialized from a configuration file, this property is set by the [\\&lt;serviceCertificate\\&gt;](../Topic/%3CserviceCertificate%3E.md) element."
+  summary: "Pobiera lub ustawia certyfikat X.509 używany do podpisywania wiadomości protokołu WS-Federation."
+  remarks: "Po zainicjowaniu z pliku konfiguracji, ta właściwość jest ustawiana przez [ \\&lt; serviceCertificate\\&gt;](../Topic/%3CserviceCertificate%3E.md) elementu."
   syntax:
     content: public System.Security.Cryptography.X509Certificates.X509Certificate2 ServiceCertificate { get; set; }
     return:
       type: System.Security.Cryptography.X509Certificates.X509Certificate2
-      description: "The X.509 certificate used to sign WS-Federation protocol messages."
+      description: "Certyfikat X.509 używany do podpisywania wiadomości protokołu WS-Federation."
   overload: System.IdentityModel.Services.Configuration.FederationConfiguration.ServiceCertificate*
   exceptions: []
   platform:
@@ -331,18 +331,18 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services.Configuration
-  summary: "Gets or sets the configuration settings for the WS-Federation Authentication Module (<xref href=&quot;System.IdentityModel.Services.WSFederationAuthenticationModule&quot;></xref>)."
-  remarks: "When initialized from a configuration file, this property is set by the [\\&lt;wsFederation\\&gt;](../Topic/%3CwsFederation%3E.md) element."
+  summary: "Pobiera lub ustawia ustawienia konfiguracji modułu uwierzytelniania protokołu WS-Federation (<xref href=&quot;System.IdentityModel.Services.WSFederationAuthenticationModule&quot;></xref>)."
+  remarks: "Po zainicjowaniu z pliku konfiguracji, ta właściwość jest ustawiana przez [ \\&lt; wsFederation\\&gt;](../Topic/%3CwsFederation%3E.md) elementu."
   syntax:
     content: public System.IdentityModel.Services.Configuration.WsFederationConfiguration WsFederationConfiguration { get; set; }
     return:
       type: System.IdentityModel.Services.Configuration.WsFederationConfiguration
-      description: "The configuration settings for the WS-Federation Authentication Module."
+      description: "Ustawienia konfiguracji usługi WS-Federation moduł uwierzytelniania."
   overload: System.IdentityModel.Services.Configuration.FederationConfiguration.WsFederationConfiguration*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "An attempt to set the property to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> occurs."
+    description: "Próba ustawioną właściwość <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> występuje."
   platform:
   - net462
 references:
