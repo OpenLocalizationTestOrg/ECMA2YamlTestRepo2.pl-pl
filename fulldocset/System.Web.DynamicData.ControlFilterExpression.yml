@@ -17,8 +17,8 @@ items:
   nameWithType: ControlFilterExpression
   fullName: System.Web.DynamicData.ControlFilterExpression
   type: Class
-  summary: "Modifies a database query by using the data key of the item that is selected in a data-bound control."
-  remarks: "The ControlFilterExpression class that is designed to be used when a page contains two data-bound controls such as a <xref:System.Web.UI.WebControls.GridView> control and a <xref:System.Web.UI.WebControls.ListView> control. One control is the source, where a data key (row) is selected. The other control is the target where the data is displayed based on the selected data key. The target data is obtained by a data source control that executes the query that is defined in the <xref:System.Web.UI.WebControls.QueryExtender> class and that is built by using the selected data key.       To use the ControlFilterExpression class in a page, you follow these steps:      -   Add the <xref:System.Web.UI.WebControls.QueryExtender> control to the page.      -   Set the `TargetControlID` property of the <xref:System.Web.UI.WebControls.QueryExtender> control to the ID of the target data source control.      -   Add a ControlFilterExpression instance to the <xref:System.Web.UI.WebControls.QueryExtender> control.      -   Set the `ControlID` property of the ControlFilterExpression element to the source data-bound control."
+  summary: "Modyfikuje zapytania do bazy danych przy użyciu klucza danych elementu zaznaczonego w formancie powiązane z danymi."
+  remarks: "Klasa ControlFilterExpression, która jest przeznaczona do użycia, gdy strona zawiera dwa formanty powiązane z danymi <xref:System.Web.UI.WebControls.GridView>kontroli i <xref:System.Web.UI.WebControls.ListView>kontroli.</xref:System.Web.UI.WebControls.ListView> </xref:System.Web.UI.WebControls.GridView> Jeden formant jest źródłem, wybranym klucz danych (wiersz). Inny formant jest element docelowy, na którym dane są wyświetlane, w oparciu o wybrany klucz danych. Dane docelowej są uzyskiwane przez formant źródła danych, która wykonuje zapytania, który jest zdefiniowany w <xref:System.Web.UI.WebControls.QueryExtender>klasy i czy jest tworzona przy użyciu klucza wybranych danych.</xref:System.Web.UI.WebControls.QueryExtender>       Aby używać klasy ControlFilterExpression na stronie, wykonaj następujące kroki:-Dodaj <xref:System.Web.UI.WebControls.QueryExtender>formantu do strony.</xref:System.Web.UI.WebControls.QueryExtender>      -Ustawienia `TargetControlID` właściwość <xref:System.Web.UI.WebControls.QueryExtender>kontroli identyfikator formantu źródła danych docelowych.</xref:System.Web.UI.WebControls.QueryExtender>      -Dodaj wystąpienia ControlFilterExpression <xref:System.Web.UI.WebControls.QueryExtender>kontroli.</xref:System.Web.UI.WebControls.QueryExtender>      -Ustawienia `ControlID` właściwość elementu ControlFilterExpression do kontroli źródła z danymi."
   example:
   - "The following example shows how to use the ControlFilterExpression class to reference a source data-bound control, where the data key is selected. The <xref:System.Web.UI.WebControls.QueryExtender> control points to a target data source control that obtains data that is filtered by using the selected data key. In the example, the source data-bound control references a parent table and the target data-bound control references a child table.  \n  \n```  \n<asp:QueryExtender ID=\"QueryExtenderID\"   \n    TargetControlID=\"TargetDataSourceID\" runat=\"server\">  \n    <asp:ControlFilterExpression ControlID=\"SourceGridViewID\" />  \n</asp:QueryExtender>  \n```"
   syntax:
@@ -52,7 +52,7 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.DynamicData.ControlFilterExpression&quot;></xref> class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Web.DynamicData.ControlFilterExpression&quot;> </xref> klasy."
   syntax:
     content: public ControlFilterExpression ();
     parameters: []
@@ -72,15 +72,15 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets the name of the column that the query is based on."
-  remarks: "If this property is empty, the <xref:System.Web.DynamicData.ControlFilterExpression> control treats the selected data key as the primary key of the current table. This is useful in a list-details scenario where source and target data-bound controls operate on data from the same table.       If you assign a value to the property, the <xref:System.Web.DynamicData.ControlFilterExpression> control treats the data key as a foreign key. The value assigned to this property becomes the name of the column that is displayed in the target data-bound control. This is useful in a parent-child scenario where the target data-bound control operates on data from the child table and the source data-bound control operates on data from the parent table."
+  summary: "Pobiera lub ustawia nazwę kolumny, na podstawie zapytania."
+  remarks: "Jeśli ta właściwość jest pusta, <xref:System.Web.DynamicData.ControlFilterExpression>kontroli traktuje wybrany klucz danych jako klucz podstawowy w bieżącej tabeli.</xref:System.Web.DynamicData.ControlFilterExpression> Jest to przydatne w przypadku szczegółów listy gdzie działania źródłowego i docelowego formantów powiązanych z danymi na danych z tej samej tabeli.       Jeśli wartość przypisana do właściwości, <xref:System.Web.DynamicData.ControlFilterExpression>kontroli traktuje klucz danych jako klucz obcy.</xref:System.Web.DynamicData.ControlFilterExpression> Wartość przypisana do tej właściwości staje się nazwa kolumny, która jest wyświetlana w formancie docelowym powiązane z danymi. Jest to przydatne w przypadku scenariusza nadrzędny podrzędny, gdzie formantu powiązanego z danymi docelowego operuje na danych z tabeli podrzędnej i powiązane z danymi kontroli źródła działa na danych z tabeli nadrzędnej."
   example:
   - "The following example shows how to use the <xref:System.Web.DynamicData.ControlFilterExpression> class to set the column that the filter applies to.  \n  \n```  \n<asp:QueryExtender ID=\"QueryExtenderID\"   \n    TargetControlID=\"TargetDataSourceID\" runat=\"server\">  \n    <asp:ControlFilterExpression ControlID=\"GridViewID\" Column=\"Category\"/>  \n</asp:QueryExtender>  \n```"
   syntax:
     content: public string Column { get; set; }
     return:
       type: System.String
-      description: "The name of the column that the query is based on."
+      description: "Nazwa kolumny, na podstawie zapytania."
   overload: System.Web.DynamicData.ControlFilterExpression.Column*
   exceptions: []
   platform:
@@ -97,15 +97,15 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets the ID of the source data-bound control."
-  remarks: "The ControlID property identifies the source data-bound control from which the data key is selected. The selected data key is then used by the <xref:System.Web.DynamicData.ControlFilterExpression> control to build the query."
+  summary: "Pobiera lub ustawia identyfikator źródła formantu powiązanego z danymi."
+  remarks: "Właściwości ControlID identyfikuje formant powiązane z danymi źródło, z którego jest wybrany klucz danych. Wybrany klucz danych jest następnie używany przez <xref:System.Web.DynamicData.ControlFilterExpression>kontroli w celu skonstruowania zapytania.</xref:System.Web.DynamicData.ControlFilterExpression>"
   example:
   - "The following example shows how to use the <xref:System.Web.DynamicData.ControlFilterExpression> class to set the ID of the source data-bound control.  \n  \n```  \n<asp:QueryExtender ID=\"QueryExtenderID\"   \n    TargetControlID=\"TargetDataSourceID\" runat=\"server\">  \n    <asp:ControlFilterExpression ControlID=\"GridViewID\" Column=\"Category\"/>  \n</asp:QueryExtender>  \n```"
   syntax:
     content: public string ControlID { get; set; }
     return:
       type: System.String
-      description: "The ID of the source data-bound control."
+      description: "Identyfikator formantu źródła powiązane z danymi."
   overload: System.Web.DynamicData.ControlFilterExpression.ControlID*
   exceptions: []
   platform:
@@ -122,17 +122,17 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the data source query to modify."
-  remarks: "The GetQueryable method modifies the query based on the selected data key of the source data-bound control."
+  summary: "Pobiera kwerendy źródła danych, aby zmodyfikować."
+  remarks: "Metoda GetQueryable modyfikuje zapytania oparte na kluczu wybranych danych z kontroli źródła z danymi."
   syntax:
     content: public override System.Linq.IQueryable GetQueryable (System.Linq.IQueryable source);
     parameters:
     - id: source
       type: System.Linq.IQueryable
-      description: "The data source query to modify."
+      description: "Źródła danych zapytania można zmodyfikować."
     return:
       type: System.Linq.IQueryable
-      description: "The object that represents the data source query that is modified by this <xref href=&quot;System.Web.DynamicData.ControlFilterExpression&quot;></xref> instance."
+      description: "Obiekt, który reprezentuje zapytania źródła danych, które jest modyfikowany przez to <xref href=&quot;System.Web.DynamicData.ControlFilterExpression&quot;> </xref> wystąpienia."
   overload: System.Web.DynamicData.ControlFilterExpression.GetQueryable*
   exceptions: []
   platform:
@@ -149,13 +149,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Restores the previously saved view state."
+  summary: "Przywraca stan widoku wcześniej zapisany."
   syntax:
     content: protected override void LoadViewState (object savedState);
     parameters:
     - id: savedState
       type: System.Object
-      description: "The state to restore."
+      description: "Aby przywrócić stan."
   overload: System.Web.DynamicData.ControlFilterExpression.LoadViewState*
   exceptions: []
   platform:
@@ -172,13 +172,13 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Saves the changes to view state since the time the page was posted to the server."
+  summary: "Zapisuje zmiany, aby wyświetlić stan od czasu strony zostało przesłane do serwera."
   syntax:
     content: protected override object SaveViewState ();
     parameters: []
     return:
       type: System.Object
-      description: "The object that contains the changes to view state. If there is no view state associated with the object, this method returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Obiekt, który zawiera zmiany, aby wyświetlić stan. Jeśli stan jest niedostępny widok skojarzony z obiektem, ta metoda zwraca <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.DynamicData.ControlFilterExpression.SaveViewState*
   exceptions: []
   platform:
@@ -195,19 +195,19 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Initializes the filter expression with data source information."
+  summary: "Inicjuje wyrażenia filtru informacje o źródle danych."
   syntax:
     content: public override void SetContext (System.Web.UI.Control owner, System.Web.HttpContext context, System.Web.UI.WebControls.IQueryableDataSource dataSource);
     parameters:
     - id: owner
       type: System.Web.UI.Control
-      description: "The control in which the <xref href=&quot;System.Web.DynamicData.ControlFilterExpression&quot;></xref> instance is contained, such as the <xref href=&quot;System.Web.UI.WebControls.QueryExtender&quot;></xref> control."
+      description: "Kontrolki, w którym <xref href=&quot;System.Web.DynamicData.ControlFilterExpression&quot;> </xref> wystąpienie znajduje się, takich jak <xref href=&quot;System.Web.UI.WebControls.QueryExtender&quot;> </xref> formantu."
     - id: context
       type: System.Web.HttpContext
-      description: "The application&quot;s current <xref href=&quot;System.Web.HttpContext&quot;></xref> object."
+      description: "Aplikacja do bieżącego <xref href=&quot;System.Web.HttpContext&quot;> </xref> obiektu."
     - id: dataSource
       type: System.Web.UI.WebControls.IQueryableDataSource
-      description: "The target data source for the <xref href=&quot;System.Web.DynamicData.ControlFilterExpression&quot;></xref> instance. If the <xref href=&quot;System.Web.DynamicData.DynamicFilterExpression&quot;></xref> instance is contained in the <xref href=&quot;System.Web.UI.WebControls.QueryExtender&quot;></xref> control, this parameter is the data source that the <xref href=&quot;System.Web.UI.WebControls.QueryExtender&quot;></xref> control refers to"
+      description: "Źródło danych docelowych dla <xref href=&quot;System.Web.DynamicData.ControlFilterExpression&quot;> </xref> wystąpienia. Jeśli <xref href=&quot;System.Web.DynamicData.DynamicFilterExpression&quot;> </xref> wystąpienie znajduje się w <xref href=&quot;System.Web.UI.WebControls.QueryExtender&quot;> </xref> źródła danych jest ten parametr sterowanie <xref href=&quot;System.Web.UI.WebControls.QueryExtender&quot;> </xref> kontroli odwołuje się do"
   overload: System.Web.DynamicData.ControlFilterExpression.SetContext*
   exceptions: []
   platform:
@@ -224,7 +224,7 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Causes the <xref href=&quot;System.Web.DynamicData.ControlFilterExpression&quot;></xref> object to track changes to its view state so they can be stored in the control&quot;s view state object and to be persisted across requests for the same page."
+  summary: "Powoduje, że <xref href=&quot;System.Web.DynamicData.ControlFilterExpression&quot;> </xref> obiekt śledzenie zmian stanu widoku, mogą być przechowywane w obiekcie stan widoku formantu i utrwalenia żądań dla tej samej stronie."
   syntax:
     content: protected override void TrackViewState ();
     parameters: []

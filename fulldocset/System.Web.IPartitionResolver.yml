@@ -11,8 +11,8 @@ items:
   nameWithType: IPartitionResolver
   fullName: System.Web.IPartitionResolver
   type: Interface
-  summary: "Defines methods that must be implemented for custom session-state partition resolution."
-  remarks: "Implement the IPartitionResolver interface and the <xref:System.Web.IPartitionResolver.Initialize%2A> and <xref:System.Web.IPartitionResolver.ResolvePartition%2A> methods, if you are providing custom partition resolution for session-state data across multiple backend nodes when in SQL or state-server mode.       The session-state management information can be configured in the [sessionState Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/bda6fb8c-0076-43e3-9ce2-8cf1f8bdaa7d) of the configuration file with the `partitionResolverType` attribute. If a value is specified for the `partitionResolverType` attribute, the `sqlConnectionString` and `stateConnectionString` attributes are ignored.       The partition resolution configuration can also be set programmatically using the <xref:System.Web.Configuration.SessionStateSection.PartitionResolverType%2A> property. If the <xref:System.Web.Configuration.SessionStateSection.PartitionResolverType%2A> property is specified, the <xref:System.Web.Configuration.SessionStateSection.SqlConnectionString%2A> and <xref:System.Web.Configuration.SessionStateSection.StateConnectionString%2A> properties are ignored."
+  summary: "Definiuje metody, które muszą zostać zaimplementowane do rozpoznawania niestandardowych partycji stanu sesji."
+  remarks: "Zaimplementuj interfejs IPartitionResolver i <xref:System.Web.IPartitionResolver.Initialize%2A>i <xref:System.Web.IPartitionResolver.ResolvePartition%2A>metody, jeśli udostępniasz rozpoznawania niestandardowych partycji dla danych stanu sesji w wielu węzłach wewnętrznej bazy danych w przypadku bazy danych SQL lub tryb serwera stanu.</xref:System.Web.IPartitionResolver.ResolvePartition%2A> </xref:System.Web.IPartitionResolver.Initialize%2A>       Informacje o stanie sesji zarządzania można skonfigurować w [sessionState — Element (schemat ustawień programu ASP.NET)](http://msdn.microsoft.com/en-us/bda6fb8c-0076-43e3-9ce2-8cf1f8bdaa7d) pliku konfiguracji z `partitionResolverType` atrybutu. Jeśli wartość jest określona dla `partitionResolverType` atrybutu `sqlConnectionString` i `stateConnectionString` atrybuty są ignorowane.       Konfiguracja rozwiązania partycji można również ustawić programowo przy użyciu <xref:System.Web.Configuration.SessionStateSection.PartitionResolverType%2A>Właściwości.</xref:System.Web.Configuration.SessionStateSection.PartitionResolverType%2A> Jeśli <xref:System.Web.Configuration.SessionStateSection.PartitionResolverType%2A>określono właściwości <xref:System.Web.Configuration.SessionStateSection.SqlConnectionString%2A>i <xref:System.Web.Configuration.SessionStateSection.StateConnectionString%2A>Właściwości są ignorowane.</xref:System.Web.Configuration.SessionStateSection.StateConnectionString%2A> </xref:System.Web.Configuration.SessionStateSection.SqlConnectionString%2A> </xref:System.Web.Configuration.SessionStateSection.PartitionResolverType%2A>"
   syntax:
     content: public interface IPartitionResolver
   implements: []
@@ -30,8 +30,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Initializes the custom partition resolver."
-  remarks: "Use the Initialize method to provide any initialization code that is needed for your custom partition resolution. The <xref:System.Web.SessionState.SessionStateModule> creates the type implementing the <xref:System.Web.IPartitionResolver> interface, calls the Initialize method to initialize it (once per instance), and then indicates to the ASP.NET state service or SQL Server provider that partitioning is being used and passes a resolver instance to the provider."
+  summary: "Inicjuje partycji niestandardowego programu rozpoznawania nazw."
+  remarks: "Metoda inicjowania umożliwia uzyskanie dowolny kod inicjujący potrzebnego dla rozdzielczości niestandardowe partycji. <xref:System.Web.SessionState.SessionStateModule>Tworzy typ implementujący <xref:System.Web.IPartitionResolver>interfejsu, wywołuje metodę inicjowania zainicjować (jeden raz dla każdego wystąpienia), a następnie wskazuje, aby usługa stanu ASP.NET lub dostawcy programu SQL Server, że jest używana partycjonowania i przekazuje wystąpienie programu rozpoznawania nazw dla dostawcy.</xref:System.Web.IPartitionResolver> </xref:System.Web.SessionState.SessionStateModule>"
   syntax:
     content: public void Initialize ();
     parameters: []
@@ -51,17 +51,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Resolves the partition based on a key parameter."
-  remarks: "The `key` parameter of the ResolvePartition method is the <xref:System.Web.SessionState.HttpSessionState.SessionID%2A> property. The <xref:System.Web.SessionState.HttpSessionState.SessionID%2A> property uniquely identifies a browser with session data on the server."
+  summary: "Rozpoznaje partycji na podstawie parametru klucza."
+  remarks: "`key` Jest parametrem metody ResolvePartition <xref:System.Web.SessionState.HttpSessionState.SessionID%2A>Właściwości.</xref:System.Web.SessionState.HttpSessionState.SessionID%2A> <xref:System.Web.SessionState.HttpSessionState.SessionID%2A>Właściwość unikatowo identyfikuje przeglądarki z danych sesji na serwerze.</xref:System.Web.SessionState.HttpSessionState.SessionID%2A>"
   syntax:
     content: public string ResolvePartition (object key);
     parameters:
     - id: key
       type: System.Object
-      description: "An identifier used to determine which partition to use for the current session state."
+      description: "Identyfikator używany do określenia, które partycji do użycia na potrzeby stanu bieżącej sesji."
     return:
       type: System.String
-      description: "A string with connection information."
+      description: "Ciąg z informacjami o połączeniu."
   overload: System.Web.IPartitionResolver.ResolvePartition*
   exceptions: []
   platform:
