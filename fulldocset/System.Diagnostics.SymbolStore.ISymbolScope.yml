@@ -16,8 +16,8 @@ items:
   nameWithType: ISymbolScope
   fullName: System.Diagnostics.SymbolStore.ISymbolScope
   type: Interface
-  summary: "Represents a lexical scope within <xref href=&quot;System.Diagnostics.SymbolStore.ISymbolMethod&quot;></xref>, providing access to the start and end offsets of the scope, as well as its child and parent scopes."
-  remarks: "The ISymbolScope interface also provides access to all locals defined within the current scope.      > [!NOTE] >  This interface is the managed counterpart of the `ISymUnmanagedScope` interface, which is one of the unmanaged symbol store interfaces that provide an alternate way to read and write debug symbol information."
+  summary: "Reprezentuje leksykalne zakresu w <xref href=&quot;System.Diagnostics.SymbolStore.ISymbolMethod&quot;> </xref>, dostępowi do rozpoczęcia i zakończenia przesunięcia zakresu, a także jego nadrzędnym a podrzędnym zakresów."
+  remarks: "Interfejs ISymbolScope również zapewnia dostęp do wszystkich zmiennych lokalnych zdefiniowana w bieżącym zakresie.      > [!NOTE] > Ten interfejs jest odpowiednikiem zarządzanych `ISymUnmanagedScope` interfejsu, który jest jednym z interfejsy magazynu symboli niezarządzane, zapewniające alternatywny sposób do odczytywania i zapisywania informacji o symbolach debugowania."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -38,12 +38,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the end offset of the current lexical scope."
+  summary: "Pobiera przesunięcie zakończenia bieżącego zakresu leksykalne."
   syntax:
     content: public int EndOffset { get; }
     return:
       type: System.Int32
-      description: "The end offset of the current lexical scope."
+      description: "Przesunięcie zakończenia bieżącego zakresu leksykalne."
   overload: System.Diagnostics.SymbolStore.ISymbolScope.EndOffset*
   exceptions: []
   platform:
@@ -60,13 +60,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the child lexical scopes of the current lexical scope."
+  summary: "Pobiera obiekt podrzędny leksykalne zakresy leksykalne bieżącego zakresu."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolScope[] GetChildren ();
     parameters: []
     return:
       type: System.Diagnostics.SymbolStore.ISymbolScope[]
-      description: "The child lexical scopes that of the current lexical scope."
+      description: "Obiekt podrzędny leksykalne zakresów z bieżącego zakresu leksykalne."
   overload: System.Diagnostics.SymbolStore.ISymbolScope.GetChildren*
   exceptions: []
   platform:
@@ -83,14 +83,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the local variables within the current lexical scope."
-  remarks: "The local variables are returned in no particular order. If a local variable changes its address within the current scope, that variable is returned multiple times, each with a different offset range."
+  summary: "Pobiera zmienne lokalne w bieżącym zakresie leksykalne."
+  remarks: "Zmienne lokalne są zwracane w losowej kolejności. Jeśli zmiennej lokalnej powoduje zmianę jego adresu w bieżącym zakresie, tej zmiennej zostanie zwrócony wielokrotnie, każde z nich inny zakres przesunięcia."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolVariable[] GetLocals ();
     parameters: []
     return:
       type: System.Diagnostics.SymbolStore.ISymbolVariable[]
-      description: "The local variables within the current lexical scope."
+      description: "Zmienne lokalne w bieżącym zakresie leksykalne."
   overload: System.Diagnostics.SymbolStore.ISymbolScope.GetLocals*
   exceptions: []
   platform:
@@ -107,13 +107,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the namespaces that are used within the current scope."
+  summary: "Pobiera przestrzenie nazw, które są używane w bieżącym zakresie."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolNamespace[] GetNamespaces ();
     parameters: []
     return:
       type: System.Diagnostics.SymbolStore.ISymbolNamespace[]
-      description: "The namespaces that are used within the current scope."
+      description: "Przestrzenie nazw, które są używane w bieżącym zakresie."
   overload: System.Diagnostics.SymbolStore.ISymbolScope.GetNamespaces*
   exceptions: []
   platform:
@@ -130,12 +130,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the method that contains the current lexical scope."
+  summary: "Pobiera metodę, która zawiera leksykalne bieżącego zakresu."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolMethod Method { get; }
     return:
       type: System.Diagnostics.SymbolStore.ISymbolMethod
-      description: "The method that contains the current lexical scope."
+      description: "Metoda, która zawiera leksykalne bieżącego zakresu."
   overload: System.Diagnostics.SymbolStore.ISymbolScope.Method*
   exceptions: []
   platform:
@@ -152,12 +152,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the parent lexical scope of the current scope."
+  summary: "Pobiera element nadrzędny leksykalne zakres bieżącego zakresu."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolScope Parent { get; }
     return:
       type: System.Diagnostics.SymbolStore.ISymbolScope
-      description: "The parent lexical scope of the current scope."
+      description: "Zakres leksykalne nadrzędnego bieżącego zakresu."
   overload: System.Diagnostics.SymbolStore.ISymbolScope.Parent*
   exceptions: []
   platform:
@@ -174,12 +174,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the start offset of the current lexical scope."
+  summary: "Pobiera Przesunięcie początku bieżącego zakresu leksykalne."
   syntax:
     content: public int StartOffset { get; }
     return:
       type: System.Int32
-      description: "The start offset of the current lexical scope."
+      description: "Przesunięcie początku bieżącego zakresu leksykalne."
   overload: System.Diagnostics.SymbolStore.ISymbolScope.StartOffset*
   exceptions: []
   platform:

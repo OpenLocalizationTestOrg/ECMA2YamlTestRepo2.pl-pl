@@ -11,8 +11,8 @@ items:
   nameWithType: TraceFilter
   fullName: System.Diagnostics.TraceFilter
   type: Class
-  summary: "Provides the base class for trace filter implementations."
-  remarks: "Trace filters can be used by trace listeners to provide an extra layer of filtering beyond that provided by trace switches. The trace filter for a trace listener can be found in the listener&quot;s <xref:System.Diagnostics.TraceListener.Filter%2A> property. Trace switches determine if a trace is to be sent to the trace listeners. Trace filters allow the individual trace listeners to determine whether or not the trace is to be written to the associated output medium. For example, as determined by each trace filter, a trace may be written to the console by a <xref:System.Diagnostics.ConsoleTraceListener>, but not to the event log by a <xref:System.Diagnostics.EventLogTraceListener>.       Filters that inherit from the TraceFilter class can be used by trace listeners that inherit from the <xref:System.Diagnostics.TraceListener> class to perform filtering of events being traced. TraceFilter contains a single method, <xref:System.Diagnostics.TraceFilter.ShouldTrace%2A>, which takes event data and returns a flag indicating whether the event should be traced."
+  summary: "Udostępnia klasę podstawową dla implementacji filtru śledzenia."
+  remarks: "Filtry śledzenia mogą posłużyć obiektów nasłuchujących śledzenia aby zapewnić dodatkową warstwę filtrowania poza zapewnianej przez przełączniki śledzenia. Filtr śledzenia dla odbiornika śledzenia znajdują się w odbiornika <xref:System.Diagnostics.TraceListener.Filter%2A>Właściwości.</xref:System.Diagnostics.TraceListener.Filter%2A> Przełączniki śledzenia określają, czy śledzenie jest przesyłany do obiektów nasłuchujących śledzenia. Filtry śledzenia zezwalać odbiorniki śledzenia poszczególnych do ustalenia, czy śledzenie jest ma zostać zapisany na nośniku skojarzone dane wyjściowe. Na przykład, zgodnie z ustaleniami każdego filtru śledzenia, śledzenia może być wyświetlony w konsoli przez <xref:System.Diagnostics.ConsoleTraceListener>, ale nie do dziennika zdarzeń przez <xref:System.Diagnostics.EventLogTraceListener>.</xref:System.Diagnostics.EventLogTraceListener> </xref:System.Diagnostics.ConsoleTraceListener>       Filtry, które dziedziczą z klasy TraceFilter mogą być używane przez obiekty nasłuchujące śledzenia, które dziedziczą z <xref:System.Diagnostics.TraceListener>klasę, aby wykonać filtrowanie zdarzeń są śledzone.</xref:System.Diagnostics.TraceListener> TraceFilter zawiera jedną metodę <xref:System.Diagnostics.TraceFilter.ShouldTrace%2A>, która przyjmuje dane zdarzeń i zwraca flagę wskazującą, czy zdarzenia powinny być śledzone.</xref:System.Diagnostics.TraceFilter.ShouldTrace%2A>"
   syntax:
     content: public abstract class TraceFilter
   inheritance:
@@ -33,7 +33,7 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.TraceFilter&quot;></xref> class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Diagnostics.TraceFilter&quot;> </xref> klasy."
   syntax:
     content: protected TraceFilter ();
     parameters: []
@@ -53,7 +53,7 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "When overridden in a derived class, determines whether the trace listener should trace the event."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, określa, czy nasłuchującego śledzenia powinien śledzenia zdarzeń."
   remarks: ''
   example:
   - "The following code example shows how to override the ShouldTrace method to indicate tracing should occur when the trace event type of the event is equal to <xref:System.Diagnostics.TraceEventType?displayProperty=fullName>.  \n  \n [!code-cs[System.Diagnostics.TraceFilter#2](~/add/codesnippet/csharp/9ccfab59-d4f0-4d0a-b482-_1.cs)]\n [!code-vb[System.Diagnostics.TraceFilter#2](~/add/codesnippet/visualbasic/9ccfab59-d4f0-4d0a-b482-_1.vb)]\n [!code-cpp[System.Diagnostics.TraceFilter#2](~/add/codesnippet/cpp/9ccfab59-d4f0-4d0a-b482-_1.cpp)]"
@@ -62,31 +62,31 @@ items:
     parameters:
     - id: cache
       type: System.Diagnostics.TraceEventCache
-      description: "The <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> that contains information for the trace event."
+      description: "<xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> Zawierający informacje śledzenia zdarzenia."
     - id: source
       type: System.String
-      description: "The name of the source."
+      description: "Nazwa źródła."
     - id: eventType
       type: System.Diagnostics.TraceEventType
-      description: "One of the <xref href=&quot;System.Diagnostics.TraceEventType&quot;></xref> values specifying the type of event that has caused the trace."
+      description: "Jeden z <xref href=&quot;System.Diagnostics.TraceEventType&quot;> </xref> wartości określający typ zdarzenia, który spowodował śledzenia."
     - id: id
       type: System.Int32
-      description: "A trace identifier number."
+      description: "Liczba identyfikator śledzenia."
     - id: formatOrMessage
       type: System.String
-      description: "Either the format to use for writing an array of arguments specified by the `args` parameter, or a message to write."
+      description: "Format do użycia przy zapisie tablicę argumentów określona przez `args` parametr lub komunikat do zapisania."
     - id: args
       type: System.Object[]
-      description: "An array of argument objects."
+      description: "Tablica obiektów argumentu."
     - id: data1
       type: System.Object
-      description: "A trace data object."
+      description: "Obiekt danych śledzenia."
     - id: data
       type: System.Object[]
-      description: "An array of trace data objects."
+      description: "Tablica obiektów danych śledzenia."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to trace the specified event; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>do śledzenia w określonym zdarzeniu; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Diagnostics.TraceFilter.ShouldTrace*
   exceptions: []
   platform:

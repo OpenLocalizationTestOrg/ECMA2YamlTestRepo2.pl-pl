@@ -24,8 +24,8 @@ items:
   nameWithType: ProcessThread
   fullName: System.Diagnostics.ProcessThread
   type: Class
-  summary: "Represents an operating system process thread."
-  remarks: "Use ProcessThread to obtain information about a thread that is currently running on the system. Doing so allows you, for example, to monitor the thread&quot;s performance characteristics.      > [!IMPORTANT] >  This type implements the <xref:System.IDisposable> interface. When you have finished using the type, you should dispose of it either directly or indirectly. To dispose of the type directly, call its <xref:System.IDisposable.Dispose%2A> method in a `try`/`catch` block. To dispose of it indirectly, use a language construct such as `using` (in C#) or `Using` (in Visual Basic). For more information, see the “Using an Object that Implements IDisposable” section in the <xref:System.IDisposable> interface topic.       A thread is a path of execution through a program. It is the smallest unit of execution that Win32 schedules. It consists of a stack, the state of the CPU registers, and an entry in the execution list of the system scheduler.       A process consists of one or more threads and the code, data, and other resources of a program in memory. Typical program resources are open files, semaphores, and dynamically allocated memory. Each resource of a process is shared by all that process&quot;s threads.       A program executes when the system scheduler gives execution control to one of the program&quot;s threads. The scheduler determines which threads should run and when. A lower-priority thread might be forced to wait while higher-priority threads complete their tasks. On multiprocessor computers, the scheduler can move individual threads to different processors, thus balancing the CPU load.       Each process starts with a single thread, which is known as the primary thread. Any thread can create additional threads. All the threads within a process share the address space of that process.       The primary thread is not necessarily located at the first index in the collection.      > [!NOTE] >  Starting with the .NET Framework version 2.0, the ability to reference performance counter data on other computers has been eliminated for many of the .NET Framework methods and properties. This change was made to improve performance and to enable non-administrators to use the ProcessThread class. As a result, some applications that did not get exceptions in earlier versions of the .NET Framework may now get a <xref:System.NotSupportedException>. The methods and properties affected are too numerous to list here, but the exception information has been added to the affected member topics.       The threads of a process execute individually and are unaware of each other unless you make them visible to each other. Threads that share common resources, however, must coordinate their work by using semaphores or another method of interprocess communication.       To get a collection of all the ProcessThread objects associated with the current process, get the <xref:System.Diagnostics.Process.Threads%2A> property of the <xref:System.Diagnostics.Process> instance."
+  summary: "Reprezentuje wątku procesu systemu operacyjnego."
+  remarks: "ProcessThread umożliwia uzyskanie informacji o wątku, który jest obecnie uruchomiony w systemie. Umożliwi to można na przykład monitorować charakterystyki wydajności wątku.      > [!IMPORTANT] > Ten typ implementuje <xref:System.IDisposable>interfejsu.</xref:System.IDisposable> Po zakończeniu przy użyciu typu bezpośrednio lub pośrednio należy usunąć z niego. Do usuwania tego typu, należy wywołać jej <xref:System.IDisposable.Dispose%2A>metody w `try` / `catch` bloku.</xref:System.IDisposable.Dispose%2A> Do usunięcia ich pośrednio, użyj konstrukcji języka takiego jak `using` (w języku C#) lub `Using` (w języku Visual Basic). Aby uzyskać więcej informacji, zobacz sekcję &quot;Przy użyciu obiektu który implementuje interfejs IDisposable&quot; w <xref:System.IDisposable>tematu interfejsu.</xref:System.IDisposable>       Wątek jest ścieżką wykonywania za pośrednictwem programu. Jest to najmniejsza jednostka wykonanie, które planuje Win32. Składa się z stosu, stan rejestrów Procesora i wpis na liście wykonywania Harmonogram systemu.       Proces składa się z co najmniej jeden wątek i kod, danych i innych zasobów programu w pamięci. Zasoby typowego programu są otwarte pliki, semaforów i dynamicznej alokacji pamięci. Każdy zasób procesu jest współużytkowana przez wszystkie te wątków procesu.       Program wykonuje się, gdy Harmonogram systemu zapewnia kontrolę wykonywania na jeden z wątków programu. Określa harmonogram wątków, które powinno być ono uruchomione i kiedy. Wątek o niższym priorytecie może wymusić Zaczekaj, aż wątki wyższy priorytet zadania. Na komputerach wieloprocesorowych harmonogram można przenieść poszczególne wątki różnych procesorów, w związku z tym Równoważenie obciążenia Procesora.       Rozpoczyna każdy proces z jednym wątkiem, znany jako podstawowy wątku. Którymkolwiek wątku można utworzyć dodatkowe wątki. Wszystkie wątki w ramach procesu udostępniania przestrzeni adresowej procesu.       Podstawowy wątek nie jest zawsze znajduje się w pierwszym indeksem w kolekcji.      > [!NOTE] > W programie .NET Framework w wersji 2.0, możliwość odwołania licznika wydajności dla wielu właściwości i metod .NET Framework został wyeliminowany danych na innych komputerach. Ta zmiana została wprowadzona, aby zwiększyć wydajność i umożliwić niż administratorzy mogą używać klasy ProcessThread. W związku z tym niektóre aplikacje, które nie pobrały wyjątków we wcześniejszych wersjach programu .NET Framework może teraz zostać <xref:System.NotSupportedException>.</xref:System.NotSupportedException> Zbyt duża, aby wyświetlić w tym miejscu są metody i właściwości, których to dotyczy, ale informacje o wyjątku został dodany do tematów dotyczy elementu członkowskiego.       Wątki tego procesu wykonaj indywidualnie i są zna sobie wzajemnie, chyba że użytkownik stały się widoczne ze sobą. Za pomocą semaforów lub innej metody komunikacji międzyprocesowej wątków, które Udostępnianie wspólnych zasobów, jednak musi koordynować pracę.       Aby uzyskać kolekcję obiektów ProcessThread skojarzony z obecnym procesem, Pobierz <xref:System.Diagnostics.Process.Threads%2A>Właściwość <xref:System.Diagnostics.Process>wystąpienia.</xref:System.Diagnostics.Process> </xref:System.Diagnostics.Process.Threads%2A>"
   syntax:
     content: >-
       [System.ComponentModel.Designer("System.Diagnostics.Design.ProcessThreadDesigner, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
@@ -65,13 +65,13 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the base priority of the thread."
-  remarks: "The BasePriority is the starting priority for the process thread. You can view information about the base priority through the System Monitor&quot;s Priority Base counter.       The operating system computes a thread&quot;s base priority by combining the thread&quot;s priority level range with the process&quot;s priority class. You can set the process&quot;s <xref:System.Diagnostics.Process.PriorityClass%2A?displayProperty=fullName> property to one of the values in the <xref:System.Diagnostics.ProcessPriorityClass> enumeration, which are <xref:System.Diagnostics.ProcessPriorityClass>, <xref:System.Diagnostics.ProcessPriorityClass>, <xref:System.Diagnostics.ProcessPriorityClass>, <xref:System.Diagnostics.ProcessPriorityClass>, <xref:System.Diagnostics.ProcessPriorityClass>, or <xref:System.Diagnostics.ProcessPriorityClass>. You can set the thread&quot;s <xref:System.Diagnostics.ProcessThread.PriorityLevel%2A> property to a range of values that bounds the thread&quot;s base priority. Win32 uses four priority classes with seven base priority levels per class.       The thread&quot;s current priority might deviate from the base priority. For example, the operating system can change the <xref:System.Diagnostics.ProcessThread.CurrentPriority%2A> property based on the time elapsed or other boosts when a process must be put ahead of others for access to the processor. In addition, you can set the <xref:System.Diagnostics.Process.PriorityBoostEnabled%2A> property to cause the system to temporarily boost the priority of a thread whenever the process is taken out of the wait state. The priority is reset when the process returns to the wait state."
+  summary: "Pobiera priorytet podstawowy wątku."
+  remarks: "BasePriority jest początkowy priorytet wątku procesu. Można przeglądać informacje o priorytet podstawowy licznik priorytet podstawowy Monitor systemu.       System operacyjny oblicza priorytet podstawowy wątku, łącząc zakres poziom priorytetu wątku z klasy priorytetu procesu. Można ustawić procesu <xref:System.Diagnostics.Process.PriorityClass%2A?displayProperty=fullName>właściwości do jednej z wartości w <xref:System.Diagnostics.ProcessPriorityClass>wyliczenia, które są <xref:System.Diagnostics.ProcessPriorityClass>, <xref:System.Diagnostics.ProcessPriorityClass>, <xref:System.Diagnostics.ProcessPriorityClass>, <xref:System.Diagnostics.ProcessPriorityClass>, <xref:System.Diagnostics.ProcessPriorityClass>, lub <xref:System.Diagnostics.ProcessPriorityClass>.</xref:System.Diagnostics.ProcessPriorityClass> </xref:System.Diagnostics.ProcessPriorityClass> </xref:System.Diagnostics.ProcessPriorityClass> </xref:System.Diagnostics.ProcessPriorityClass> </xref:System.Diagnostics.ProcessPriorityClass> </xref:System.Diagnostics.ProcessPriorityClass> </xref:System.Diagnostics.ProcessPriorityClass> </xref:System.Diagnostics.Process.PriorityClass%2A?displayProperty=fullName> Można ustawić wątku <xref:System.Diagnostics.ProcessThread.PriorityLevel%2A>Właściwości zakresu wartości zakresem priorytet podstawowy wątku.</xref:System.Diagnostics.ProcessThread.PriorityLevel%2A> Win32 używa czterech klasy priorytetów z siedmiu poziomów podstawowy priorytet dla klasy.       Bieżący priorytet wątku mogą różni się od priorytet podstawowy. Na przykład można zmienić system operacyjny <xref:System.Diagnostics.ProcessThread.CurrentPriority%2A>Właściwości na podstawie czasu, jaki upłynął lub innych zwiększenie, gdy proces musi znajdować się przed innymi dostępu do procesora.</xref:System.Diagnostics.ProcessThread.CurrentPriority%2A> Ponadto można ustawić <xref:System.Diagnostics.Process.PriorityBoostEnabled%2A>właściwość, aby spowodować, że system tymczasowo zwiększania priorytetu wątku zawsze, gdy proces jest zajęty ze stanu oczekiwania.</xref:System.Diagnostics.Process.PriorityBoostEnabled%2A> Priorytet jest resetowany, gdy proces powróci do stanu oczekiwania."
   syntax:
     content: public int BasePriority { get; }
     return:
       type: System.Int32
-      description: "The base priority of the thread, which the operating system computes by combining the process priority class with the priority level of the associated thread."
+      description: "Priorytet podstawowy wątku, który oblicza systemu operacyjnego, łącząc klasy priorytetu procesu z poziom priorytetu wątku skojarzone."
   overload: System.Diagnostics.ProcessThread.BasePriority*
   exceptions: []
   platform:
@@ -88,13 +88,13 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the current priority of the thread."
-  remarks: "The thread&quot;s current priority might deviate from the base priority. For example, the operating system can change the CurrentPriority property based on the time elapsed, or other boosts, when a process must be put ahead of others for access to the processor. In addition, you can set the <xref:System.Diagnostics.Process.PriorityBoostEnabled%2A> property to cause the system to temporarily boost the priority of a thread whenever the process is taken out of the wait state. The priority is reset when the process returns to the wait state."
+  summary: "Pobiera bieżący priorytet wątku."
+  remarks: "Bieżący priorytet wątku mogą różni się od priorytet podstawowy. Na przykład systemu operacyjnego można zmienić CurrentPriority właściwości na podstawie czasu, jaki upłynął lub innych zwiększenie, kiedy proces musi znajdować się przed innymi dostępu do procesora. Ponadto można ustawić <xref:System.Diagnostics.Process.PriorityBoostEnabled%2A>właściwość, aby spowodować, że system tymczasowo zwiększania priorytetu wątku zawsze, gdy proces jest zajęty ze stanu oczekiwania.</xref:System.Diagnostics.Process.PriorityBoostEnabled%2A> Priorytet jest resetowany, gdy proces powróci do stanu oczekiwania."
   syntax:
     content: public int CurrentPriority { get; }
     return:
       type: System.Int32
-      description: "The current priority of the thread, which may deviate from the base priority based on how the operating system is scheduling the thread. The priority may be temporarily boosted for an active thread."
+      description: "Bieżący priorytet wątku, który może różnić się od priorytet podstawowy oparty na sposób planowania wątku jest system operacyjny. Priorytet może tymczasowo boosted dla aktywnego wątku."
   overload: System.Diagnostics.ProcessThread.CurrentPriority*
   exceptions: []
   platform:
@@ -111,13 +111,13 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the unique identifier of the thread."
-  remarks: "The operating system reuses thread identification numbers, which identify threads only during their lifetimes."
+  summary: "Pobiera unikatowy identyfikator wątku."
+  remarks: "System operacyjny ponownie używa numery identyfikacyjne wątku, który zidentyfikować wątków tylko podczas ich życia."
   syntax:
     content: public int Id { get; }
     return:
       type: System.Int32
-      description: "The unique identifier associated with a specific thread."
+      description: "Unikatowy identyfikator skojarzony z konkretnym wątkiem."
   overload: System.Diagnostics.ProcessThread.Id*
   exceptions: []
   platform:
@@ -134,26 +134,26 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Sets the preferred processor for this thread to run on."
-  remarks: "The IdealProcessor value is zero-based.  In other words, to set the thread affinity for the first processor, set the property to zero.       The system schedules threads on their preferred processors whenever possible.       A process thread can migrate from processor to processor, with each migration reloading the processor cache. Specifying a processor for a thread can improve performance under heavy system loads by reducing the number of times the processor cache is reloaded."
+  summary: "Ustawia preferowany procesora dla tego wątku do uruchamiania na."
+  remarks: "Wartość IdealProcessor jest liczony od zera.  Innymi słowy koligacji wątków dla pierwszego procesora, ustawia właściwość na wartość zero.       System planuje wątków na ich preferowanego procesorów, jeśli to możliwe.       Wątek procesu można migrować z procesora do procesora, za pomocą każdej migracji ponownego ładowania pamięci podręcznej procesora. Określanie procesora dla wątku umożliwiają poprawę wydajności pod obciążeniem duże systemu dzięki zmniejszeniu liczby powtórzeń załadowaniu pamięci podręcznej procesora."
   example:
   - "The following example demonstrates how to set the IdealProcessor property for an instance of Notepad to the first processor.  \n  \n [!code-vb[ProcessThreadIdealProcessor#1](~/add/codesnippet/visualbasic/p-system.diagnostics.pro_25_1.vb)]\n [!code-cs[ProcessThreadIdealProcessor#1](~/add/codesnippet/csharp/p-system.diagnostics.pro_25_1.cs)]"
   syntax:
     content: public int IdealProcessor { set; }
     return:
       type: System.Int32
-      description: "The preferred processor for the thread, used when the system schedules threads, to determine which processor to run the thread on."
+      description: "Preferowany procesora dla wątku używany, gdy system planuje wątków, aby określić, który procesor do uruchomienia na wątek."
   overload: System.Diagnostics.ProcessThread.IdealProcessor*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "The system could not set the thread to start on the specified processor."
+    description: "System nie może ustawić wątku do uruchomienia w określonym procesorem."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition."
+    description: "Platforma to Windows 98 lub Windows Millennium Edition."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The process is on a remote computer."
+    description: "Proces odbywa się na komputerze zdalnym."
   platform:
   - net462
 - uid: System.Diagnostics.ProcessThread.PriorityBoostEnabled
@@ -168,24 +168,24 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets a value indicating whether the operating system should temporarily boost the priority of the associated thread whenever the main window of the thread&quot;s process receives the focus."
-  remarks: "When PriorityBoostEnabled is `true`, the system temporarily boosts the thread&quot;s priority whenever its associated process is taken out of the wait state. This action prevents other processes from interrupting the processing of the current thread. The PriorityBoostEnabled setting affects all existing threads as well as any threads subsequently created by the process. To restore normal behavior, set the <xref:System.Diagnostics.Process.PriorityBoostEnabled%2A> property to `false`.       PriorityBoostEnabled has an effect only when the thread is running in a process that has a <xref:System.Diagnostics.Process.PriorityClass%2A> set to one of the dynamic priority enumeration values (<xref:System.Diagnostics.ProcessPriorityClass>, <xref:System.Diagnostics.ProcessPriorityClass>, or <xref:System.Diagnostics.ProcessPriorityClass>).      > [!NOTE] >  Boosting the priority too high can drain resources from essential operating system and network functions. This could cause problems with other operating system tasks."
+  summary: "Pobiera lub ustawia wartość wskazującą, czy system operacyjny tymczasowo powinien zwiększania priorytetu wątku skojarzone zawsze, gdy fokus głównego okna procesu wątku."
+  remarks: "Gdy jest PriorityBoostEnabled `true`, gdy jego skojarzony proces jest zajęty ze stanu oczekiwania system tymczasowo zwiększa priorytet wątku. Ta akcja uniemożliwia inne procesy przerywania przetwarzania bieżącego wątku. Ustawienie PriorityBoostEnabled ma wpływ na wszystkie wątki istniejących, a także wszystkie wątki następnie utworzone przez proces. Aby przywrócić normalne działanie, należy ustawić <xref:System.Diagnostics.Process.PriorityBoostEnabled%2A>właściwości `false`.</xref:System.Diagnostics.Process.PriorityBoostEnabled%2A>       PriorityBoostEnabled przynosi efekty tylko wtedy, gdy wątek jest uruchomiony w ramach procesu, który ma <xref:System.Diagnostics.Process.PriorityClass%2A>ustawić jedną z wartości wyliczenia priorytet dynamiczny (<xref:System.Diagnostics.ProcessPriorityClass>, <xref:System.Diagnostics.ProcessPriorityClass>, lub <xref:System.Diagnostics.ProcessPriorityClass>).</xref:System.Diagnostics.ProcessPriorityClass> </xref:System.Diagnostics.ProcessPriorityClass> </xref:System.Diagnostics.ProcessPriorityClass> </xref:System.Diagnostics.Process.PriorityClass%2A>      > [!NOTE] > Zwiększania zbyt wysoki priorytet może opróżnienia zasobów z podstawowych systemu operacyjnego i funkcji sieciowych. Może to spowodować problemy z innych zadań systemu operacyjnego."
   syntax:
     content: public bool PriorityBoostEnabled { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to boost the thread&quot;s priority when the user interacts with the process&quot;s interface; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>do zwiększania priorytetu wątku, gdy użytkownik wchodzi w interakcję z procesem przez interfejs; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Wartość domyślna to <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Diagnostics.ProcessThread.PriorityBoostEnabled*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "The priority boost information could not be retrieved.       -or-       The priority boost information could not be set."
+    description: "Nie można pobrać informacji o priorytecie zwiększanie wyniku.       - lub - nie można ustawić priorytet informacji zwiększanie wyniku."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition."
+    description: "Platforma to Windows 98 lub Windows Millennium Edition."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The process is on a remote computer."
+    description: "Proces odbywa się na komputerze zdalnym."
   platform:
   - net462
 - uid: System.Diagnostics.ProcessThread.PriorityLevel
@@ -200,24 +200,24 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets the priority level of the thread."
-  remarks: "The priority level is not a single value, but rather a range of values. The operating system computes the thread&quot;s base priority by using the process&quot;s <xref:System.Diagnostics.Process.PriorityClass%2A> to choose a value from the range specified in the PriorityLevel property."
+  summary: "Pobiera lub ustawia poziom priorytetu wątku."
+  remarks: "Poziom priorytetu nie jest pojedynczą wartość, ale raczej zakresu wartości. System operacyjny oblicza priorytet podstawowy wątku przy użyciu procesu <xref:System.Diagnostics.Process.PriorityClass%2A>wybrać wartość z zakresu określonego we właściwości PriorityLevel.</xref:System.Diagnostics.Process.PriorityClass%2A>"
   syntax:
     content: public System.Diagnostics.ThreadPriorityLevel PriorityLevel { get; set; }
     return:
       type: System.Diagnostics.ThreadPriorityLevel
-      description: "One of the <xref href=&quot;System.Diagnostics.ThreadPriorityLevel&quot;></xref> values, specifying a range that bounds the thread&quot;s priority."
+      description: "Jeden z <xref href=&quot;System.Diagnostics.ThreadPriorityLevel&quot;> </xref> wartości określenie zakresu, który zakresem priorytetu wątku."
   overload: System.Diagnostics.ProcessThread.PriorityLevel*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "The thread priority level information could not be retrieved.       -or-       The thread priority level could not be set."
+    description: "Nie można pobrać informacji o poziom priorytetu wątku.       - lub - nie można ustawić poziom priorytetu wątku."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition."
+    description: "Platforma to Windows 98 lub Windows Millennium Edition."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The process is on a remote computer."
+    description: "Proces odbywa się na komputerze zdalnym."
   platform:
   - net462
 - uid: System.Diagnostics.ProcessThread.PrivilegedProcessorTime
@@ -232,24 +232,24 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the amount of time that the thread has spent running code inside the operating system core."
-  remarks: "Windows uses several different protection mechanisms, and at the root of them all is the distinction between user mode and privileged mode. PrivilegedProcessorTime corresponds to the amount of time that the application has spent running in privileged mode, inside the operating system core. The <xref:System.Diagnostics.ProcessThread.UserProcessorTime%2A> property indicates the amount of time that the application has spent running code in user mode, outside the system core.       User mode restricts the application in two important ways. First, the application cannot directly access the peripherals, but instead must call the operating system core to get or set peripheral data. The operating system can thus ensure that one application does not destroy peripheral data that is needed by another. Second, the application cannot read or change data that the operating system itself maintains. This restriction prevents applications from either inadvertently or intentionally corrupting the core. If the application needs the operating system to perform an operation, it calls one of the system&quot;s routines. Many of these transition into privileged mode, perform the operation, and smoothly return to user mode."
+  summary: "Pobiera czas spędzony wątek kodu wewnątrz rdzenia systemu operacyjnego."
+  remarks: "System Windows używa kilku różne mechanizmy ochrony i w katalogu głównym wszystkich jest różnica między tryb użytkownika i w trybie uprzywilejowanym. PrivilegedProcessorTime odpowiada ilość czasu spędzony aplikacji działających w trybie uprzywilejowanym wewnątrz rdzenia systemu operacyjnego. <xref:System.Diagnostics.ProcessThread.UserProcessorTime%2A>Właściwość wskazuje czas spędzony aplikacji kodu w trybie użytkownika, poza rdzeniem systemu.</xref:System.Diagnostics.ProcessThread.UserProcessorTime%2A>       Tryb użytkownika ogranicza aplikację na dwa sposoby ważne. Najpierw aplikacji nie może bezpośrednio uzyskać dostępu do urządzenia peryferyjne, ale zamiast tego należy wywołać rdzeniem systemu operacyjnego można pobrać lub ustawić peryferyjne danych. System operacyjny w związku z tym zapewnia jedną aplikację zniszczy peryferyjne danych, który jest wymagany przez inny. Po drugie aplikacja nie może odczytać lub zmień dane, które przechowuje sam system operacyjny. To ograniczenie uniemożliwia aplikacji przypadkowo lub celowo uszkodzenia podstawowego. Jeśli aplikacja wymaga systemu operacyjnego, można wykonać operacji, wywołuje jedną z procedur systemu. Wiele z tych przejścia w trybie uprzywilejowanym wykonania tej operacji, a sprawnie wrócisz do trybu użytkownika."
   syntax:
     content: public TimeSpan PrivilegedProcessorTime { get; }
     return:
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> indicating the amount of time that the thread has spent running code inside the operating system core."
+      description: "A <xref:System.TimeSpan>wskazująca czas spędzony wątek kodu wewnątrz rdzenia systemu operacyjnego.</xref:System.TimeSpan>"
   overload: System.Diagnostics.ProcessThread.PrivilegedProcessorTime*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "The thread time could not be retrieved."
+    description: "Nie można pobrać czasu wątku."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition."
+    description: "Platforma to Windows 98 lub Windows Millennium Edition."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The process is on a remote computer."
+    description: "Proces odbywa się na komputerze zdalnym."
   platform:
   - net462
 - uid: System.Diagnostics.ProcessThread.ProcessorAffinity
@@ -264,26 +264,26 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Sets the processors on which the associated thread can run."
-  remarks: "The processor affinity of a thread is the set of processors it has a relationship to. In other words, those it can be scheduled to run on.       ProcessorAffinity represents each processor as a bit. Bit 0 represents processor one, bit 1 represents processor two, and so on. The following table shows a subset of the possible ProcessorAffinity for a four-processor system.      |Property value (in hexadecimal)|Valid processors|   |---------------------------------------|----------------------|   |0x0001|1|   |0x0002|2|   |0x0003|1 or 2|   |0x0004|3|   |0x0005|1 or 3|   |0x0007|1, 2, or 3|   |0x000F|1, 2, 3, or 4|       You can also specify the single, preferred processor for a thread by setting the <xref:System.Diagnostics.ProcessThread.IdealProcessor%2A> property. A process thread can migrate from processor to processor, with each migration reloading the processor cache. Specifying a processor for a thread can improve performance under heavy system loads by reducing the number of times the processor cache is reloaded."
+  summary: "Ustawia procesory, na których można uruchomić wątku skojarzone."
+  remarks: "Koligacja procesorów wątku jest zestaw procesorów, które ma ona relację. Innymi słowy te, które mogą być planowane na.       ProcessorAffinity reprezentuje jako nieco każdego procesora. Bit 0 oznacza procesora, co, bit 1 oznacza procesora dwa i tak dalej. W poniższej tabeli przedstawiono podzestaw możliwości ProcessorAffinity systemu czteroprocesorowym.      | Wartość właściwości (w formacie szesnastkowym) | Nieprawidłowa procesorów |   |---------------------------------------|----------------------|   | 0x0001 | 1 |   | 0x0002 | 2 |   | 0x0003 | 1 lub 2 |   | 0x0004 | 3 |   | 0x0005 | 1 lub 3 |   | 0x0007 | 1, 2 lub 3 |   | 0x000F | 1, 2, 3 lub 4 |       Można również określić pojedynczy, preferowane procesor do wątku przez ustawienie <xref:System.Diagnostics.ProcessThread.IdealProcessor%2A>Właściwości.</xref:System.Diagnostics.ProcessThread.IdealProcessor%2A> Wątek procesu można migrować z procesora do procesora, za pomocą każdej migracji ponownego ładowania pamięci podręcznej procesora. Określanie procesora dla wątku umożliwiają poprawę wydajności pod obciążeniem duże systemu dzięki zmniejszeniu liczby powtórzeń załadowaniu pamięci podręcznej procesora."
   example:
   - "The following example shows how to set the ProcessorAffinity property for an instance of Notepad to the first processor.  \n  \n [!code-vb[ProcessThreadIdealProcessor#1](~/add/codesnippet/visualbasic/p-system.diagnostics.pro_22_1.vb)]\n [!code-cs[ProcessThreadIdealProcessor#1](~/add/codesnippet/csharp/p-system.diagnostics.pro_22_1.cs)]"
   syntax:
     content: public IntPtr ProcessorAffinity { set; }
     return:
       type: System.IntPtr
-      description: "An <xref:System.IntPtr> that points to a set of bits, each of which represents a processor that the thread can run on."
+      description: "<xref:System.IntPtr>Zestawu usługi bits, z których każdy reprezentuje procesor, które można uruchomić wątku, na który wskazuje.</xref:System.IntPtr>"
   overload: System.Diagnostics.ProcessThread.ProcessorAffinity*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "The processor affinity could not be set."
+    description: "Nie można ustawić koligacji procesora."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition."
+    description: "Platforma to Windows 98 lub Windows Millennium Edition."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The process is on a remote computer."
+    description: "Proces odbywa się na komputerze zdalnym."
   platform:
   - net462
 - uid: System.Diagnostics.ProcessThread.ResetIdealProcessor
@@ -298,7 +298,7 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Resets the ideal processor for this thread to indicate that there is no single ideal processor. In other words, so that any processor is ideal."
+  summary: "Resetuje idealne procesora dla tego wątku do wskazywania nie pojedynczy procesor idealne. Innymi słowy, aby doskonale dowolnego procesora."
   syntax:
     content: public void ResetIdealProcessor ();
     parameters: []
@@ -306,13 +306,13 @@ items:
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "The ideal processor could not be reset."
+    description: "Nie można zresetować idealne procesora."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition."
+    description: "Platforma to Windows 98 lub Windows Millennium Edition."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The process is on a remote computer."
+    description: "Proces odbywa się na komputerze zdalnym."
   platform:
   - net462
 - uid: System.Diagnostics.ProcessThread.StartAddress
@@ -327,21 +327,21 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the memory address of the function that the operating system called that started this thread."
-  remarks: "Each process starts with a single thread, which is known as the primary thread. Any thread can create additional threads.       A process has a virtual address space, executable code, data, object handles, environment variables, a base priority, and minimum and maximum working set sizes. All the threads of a process share its virtual address space and system resources. In addition, each thread maintains exception handlers, a scheduling priority, and a set of structures in which the system saves the thread context while the thread is waiting to be scheduled. The thread context includes the thread&quot;s set of machine registers, the kernel stack, a thread environment block, and a user stack in the address space of the thread&quot;s process.       Every Windows thread actually begins execution in a system-supplied function, not the application-supplied function. The starting address for the primary thread is, therefore, the same (as it represents the address of the system-supplied function) for every Windows process in the system. However, the StartAddress property allows you to get the starting function address that is specific to your application."
+  summary: "Pobiera adres pamięci funkcji, która wywołuje systemu operacyjnego i rozpoczęcia tego wątku."
+  remarks: "Rozpoczyna każdy proces z jednym wątkiem, znany jako podstawowy wątku. Którymkolwiek wątku można utworzyć dodatkowe wątki.       Proces ma wirtualnej przestrzeni adresowej, kodu wykonywalnego, danych, uchwytami, zmienne środowiskowe, priorytet podstawowy i minimalna i maksymalny rozmiar zestawu roboczego. Wszystkie wątki tego procesu udostępniania zasobów systemu i miejsca jego wirtualnego adresu. Ponadto każdy wątek zapewnia obsługę wyjątków, priorytetu planowania i zestaw struktur, w których system zapisuje kontekst wątku, gdy wątek oczekuje do zaplanowania. Kontekst wątku zawiera zestaw wątku rejestrów maszyny, stosu jądra blok środowiska wątku i stosu użytkownika w przestrzeni adresowej procesu wątku.       Każdy wątek Windows faktycznie rozpoczyna wykonanie w funkcji dostarczanych przez system, nie funkcja dostarczone przez aplikację. Początkowy adres podstawowy wątku jest, w związku z tym takie same (ponieważ reprezentuje on adresu funkcji dostarczanych przez system) dla każdego procesu systemu Windows w systemie. Jednak Właściwość StartAddress pozwala uzyskać początkowy adres funkcja, która jest specyficzna dla aplikacji."
   syntax:
     content: public IntPtr StartAddress { get; }
     return:
       type: System.IntPtr
-      description: "The thread&quot;s starting address, which points to the application-defined function that the thread executes."
+      description: "Wątku początkowy adres, który wskazuje wykonujący wątku funkcji zdefiniowanych przez aplikację."
   overload: System.Diagnostics.ProcessThread.StartAddress*
   exceptions:
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition."
+    description: "Platforma to Windows 98 lub Windows Millennium Edition."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The process is on a remote computer."
+    description: "Proces odbywa się na komputerze zdalnym."
   platform:
   - net462
 - uid: System.Diagnostics.ProcessThread.StartTime
@@ -356,23 +356,23 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the time that the operating system started the thread."
+  summary: "Pobiera czas uruchomienia wątku systemu operacyjnego."
   syntax:
     content: public DateTime StartTime { get; }
     return:
       type: System.DateTime
-      description: "A <xref:System.DateTime> representing the time that was on the system when the operating system started the thread."
+      description: "A <xref:System.DateTime>reprezentującą godzinę, który był w systemie, gdy system operacyjny uruchomiony wątek.</xref:System.DateTime>"
   overload: System.Diagnostics.ProcessThread.StartTime*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "The thread time could not be retrieved."
+    description: "Nie można pobrać czasu wątku."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition."
+    description: "Platforma to Windows 98 lub Windows Millennium Edition."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The process is on a remote computer."
+    description: "Proces odbywa się na komputerze zdalnym."
   platform:
   - net462
 - uid: System.Diagnostics.ProcessThread.ThreadState
@@ -387,21 +387,21 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the current state of this thread."
-  remarks: "The <xref:System.Diagnostics.ProcessThread.WaitReason%2A> property value is valid only when the ThreadState value is <xref:System.Diagnostics.ThreadState>. Therefore, check the ThreadState value before you get the <xref:System.Diagnostics.ProcessThread.WaitReason%2A> property."
+  summary: "Pobiera bieżący stan tego wątku."
+  remarks: "<xref:System.Diagnostics.ProcessThread.WaitReason%2A>Wartość właściwości jest prawidłowa tylko wtedy, gdy wartość ThreadState <xref:System.Diagnostics.ThreadState>.</xref:System.Diagnostics.ThreadState> </xref:System.Diagnostics.ProcessThread.WaitReason%2A> W związku z tym Sprawdź wartość ThreadState, zanim będzie można pobrać <xref:System.Diagnostics.ProcessThread.WaitReason%2A>Właściwości.</xref:System.Diagnostics.ProcessThread.WaitReason%2A>"
   syntax:
     content: public System.Diagnostics.ThreadState ThreadState { get; }
     return:
       type: System.Diagnostics.ThreadState
-      description: "A <xref href=&quot;System.Diagnostics.ThreadState&quot;></xref> that indicates the thread&quot;s execution, for example, running, waiting, or terminated."
+      description: "A <xref href=&quot;System.Diagnostics.ThreadState&quot;> </xref> wskazujące wykonanie wątku, na przykład uruchomiony Oczekiwanie lub został zakończony."
   overload: System.Diagnostics.ProcessThread.ThreadState*
   exceptions:
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition."
+    description: "Platforma to Windows 98 lub Windows Millennium Edition."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The process is on a remote computer."
+    description: "Proces odbywa się na komputerze zdalnym."
   platform:
   - net462
 - uid: System.Diagnostics.ProcessThread.TotalProcessorTime
@@ -416,24 +416,24 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the total amount of time that this thread has spent using the processor."
-  remarks: "The TotalProcessorTime property indicates the total amount of time that the system has taken the thread out of the wait state and given it priority on any processor. On a multiple processor system, this value would include time spent on each processor, if the thread used more than one processor.       The TotalProcessorTime property is the sum of the <xref:System.Diagnostics.ProcessThread.UserProcessorTime%2A> and <xref:System.Diagnostics.ProcessThread.PrivilegedProcessorTime%2A> properties."
+  summary: "Pobiera całkowitą ilość czasu spędzony tego wątku przy użyciu procesora."
+  remarks: "Właściwość TotalProcessorTime wskazuje łączny czas trwania, że system ma podjąć ze stanu oczekiwania wątku i priorytet go na dowolnego procesora. W wielu systemach procesora ta wartość obejmuje czas spędzony na każdy procesor wątek użycie więcej niż jeden procesor.       Właściwość TotalProcessorTime jest sumą <xref:System.Diagnostics.ProcessThread.UserProcessorTime%2A>i <xref:System.Diagnostics.ProcessThread.PrivilegedProcessorTime%2A>Właściwości.</xref:System.Diagnostics.ProcessThread.PrivilegedProcessorTime%2A> </xref:System.Diagnostics.ProcessThread.UserProcessorTime%2A>"
   syntax:
     content: public TimeSpan TotalProcessorTime { get; }
     return:
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that indicates the amount of time that the thread has had control of the processor."
+      description: "A <xref:System.TimeSpan>wskazująca czas były wątek kontroli procesora.</xref:System.TimeSpan>"
   overload: System.Diagnostics.ProcessThread.TotalProcessorTime*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "The thread time could not be retrieved."
+    description: "Nie można pobrać czasu wątku."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition."
+    description: "Platforma to Windows 98 lub Windows Millennium Edition."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The process is on a remote computer."
+    description: "Proces odbywa się na komputerze zdalnym."
   platform:
   - net462
 - uid: System.Diagnostics.ProcessThread.UserProcessorTime
@@ -448,24 +448,24 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the amount of time that the associated thread has spent running code inside the application."
-  remarks: "Windows NT uses several different protection mechanisms, and at the root of them all is the distinction between user mode and privileged mode. UserProcessorTime corresponds to the amount of time that the application has spent running in user mode, outside the operating system core. The <xref:System.Diagnostics.ProcessThread.PrivilegedProcessorTime%2A> corresponds to the amount of time that the application has spent running code in privileged mode, inside the system core.       User mode restricts the application in two important ways. First, the application cannot directly access the peripherals, but instead must call the operating system core to get or set peripheral data. The operating system can thus ensure that one application does not destroy peripheral data that is needed by another. Second, the application cannot read or change data that the operating system itself maintains. This restriction prevents applications from either inadvertently or intentionally corrupting the core. If the application needs the operating system to perform an operation, it calls one of the system&quot;s routines. Many of these transition into privileged mode, perform the operation, and smoothly return to user mode."
+  summary: "Pobiera czas spędzony skojarzone wątku kodu wewnątrz aplikacji."
+  remarks: "Windows NT używa kilku różne mechanizmy ochrony i w katalogu głównym wszystkich jest różnica między tryb użytkownika i w trybie uprzywilejowanym. UserProcessorTime odpowiada ilość czasu spędzony aplikacji działających w trybie użytkownika, poza rdzeniem systemu operacyjnego. <xref:System.Diagnostics.ProcessThread.PrivilegedProcessorTime%2A>Odpowiada czas spędzony aplikacji uruchamianie kodu w trybie uprzywilejowanym wewnątrz rdzenia systemu.</xref:System.Diagnostics.ProcessThread.PrivilegedProcessorTime%2A>       Tryb użytkownika ogranicza aplikację na dwa sposoby ważne. Najpierw aplikacji nie może bezpośrednio uzyskać dostępu do urządzenia peryferyjne, ale zamiast tego należy wywołać rdzeniem systemu operacyjnego można pobrać lub ustawić peryferyjne danych. System operacyjny w związku z tym zapewnia jedną aplikację zniszczy peryferyjne danych, który jest wymagany przez inny. Po drugie aplikacja nie może odczytać lub zmień dane, które przechowuje sam system operacyjny. To ograniczenie uniemożliwia aplikacji przypadkowo lub celowo uszkodzenia podstawowego. Jeśli aplikacja wymaga systemu operacyjnego, można wykonać operacji, wywołuje jedną z procedur systemu. Wiele z tych przejścia w trybie uprzywilejowanym wykonania tej operacji, a sprawnie wrócisz do trybu użytkownika."
   syntax:
     content: public TimeSpan UserProcessorTime { get; }
     return:
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> indicating the amount of time that the thread has spent running code inside the application, as opposed to inside the operating system core."
+      description: "A <xref:System.TimeSpan>wskazująca czas spędzony wątek uruchamianie kodu w aplikacji, w przeciwieństwie do wewnątrz rdzenia systemu operacyjnego.</xref:System.TimeSpan>"
   overload: System.Diagnostics.ProcessThread.UserProcessorTime*
   exceptions:
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "The thread time could not be retrieved."
+    description: "Nie można pobrać czasu wątku."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition."
+    description: "Platforma to Windows 98 lub Windows Millennium Edition."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The process is on a remote computer."
+    description: "Proces odbywa się na komputerze zdalnym."
   platform:
   - net462
 - uid: System.Diagnostics.ProcessThread.WaitReason
@@ -480,24 +480,24 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the reason that the thread is waiting."
-  remarks: "The WaitReason property is valid only when the <xref:System.Diagnostics.ProcessThread.ThreadState%2A> is <xref:System.Diagnostics.ThreadState>. Therefore, check the <xref:System.Diagnostics.ProcessThread.ThreadState%2A> value before you get the WaitReason property."
+  summary: "Pobiera Przyczyna oczekiwania wątku."
+  remarks: "Właściwość WaitReason jest prawidłowy tylko wtedy, gdy <xref:System.Diagnostics.ProcessThread.ThreadState%2A>jest <xref:System.Diagnostics.ThreadState>.</xref:System.Diagnostics.ThreadState> </xref:System.Diagnostics.ProcessThread.ThreadState%2A> Sprawdź, w związku z tym <xref:System.Diagnostics.ProcessThread.ThreadState%2A>wartość, zanim będzie można pobrać właściwości WaitReason.</xref:System.Diagnostics.ProcessThread.ThreadState%2A>"
   syntax:
     content: public System.Diagnostics.ThreadWaitReason WaitReason { get; }
     return:
       type: System.Diagnostics.ThreadWaitReason
-      description: "A <xref href=&quot;System.Diagnostics.ThreadWaitReason&quot;></xref> representing the reason that the thread is in the wait state."
+      description: "A <xref href=&quot;System.Diagnostics.ThreadWaitReason&quot;> </xref> reprezentujący powód wątek znajduje się w stanie oczekiwania."
   overload: System.Diagnostics.ProcessThread.WaitReason*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The thread is not in the wait state."
+    description: "Wątek nie jest w stanie oczekiwania."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition."
+    description: "Platforma to Windows 98 lub Windows Millennium Edition."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The process is on a remote computer."
+    description: "Proces odbywa się na komputerze zdalnym."
   platform:
   - net462
 references:

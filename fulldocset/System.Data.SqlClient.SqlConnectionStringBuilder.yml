@@ -58,8 +58,8 @@ items:
   nameWithType: SqlConnectionStringBuilder
   fullName: System.Data.SqlClient.SqlConnectionStringBuilder
   type: Class
-  summary: "Provides a simple way to create and manage the contents of connection strings used by the <xref href=&quot;System.Data.SqlClient.SqlConnection&quot;></xref> class."
-  remarks: "The connection string builder lets developers programmatically create syntactically correct connection strings, and parse and rebuild existing connection strings, using properties and methods of the class. The connection string builder provides strongly typed properties corresponding to the known key/value pairs allowed by SQL Server. Developers needing to create connection strings as part of applications can use the SqlConnectionStringBuilder class to build and modify connection strings. The class also makes it easy to manage connection strings stored in an application configuration file.       The SqlConnectionStringBuilder performs checks for valid key/value pairs. Therefore, you cannot use this class to create invalid connection strings; trying to add invalid pairs will throw an exception. The class maintains a fixed collection of synonyms and can translate from a synonym to the corresponding well-known key name.       For example, when you use the **Item** property to retrieve a value, you can specify a string that contains any synonym for the key you need. For example, you can specify &quot;Network Address&quot;, &quot;addr&quot;, or any other acceptable synonym for this key within a connection string when you use any member that requires a string that contains the key name, such as the **Item** property or the <xref:System.Data.SqlClient.SqlConnectionStringBuilder.Remove%2A> method. See the <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A> property for a full list of acceptable synonyms.       The **Item** property handles tries to insert malicious entries. For example, the following code, using the default Item property (the indexer, in C#) correctly escapes the nested key/value pair:       [Visual Basic]      ```   Dim builder As New System.Data.SqlClient.SqlConnectionStringBuilder   builder(&quot;Data Source&quot;) = &quot;(local)&quot;   builder(&quot;Integrated Security&quot;) = True   builder(&quot;Initial Catalog&quot;) = &quot;AdventureWorks;NewValue=Bad&quot;   Console.WriteLine(builder.ConnectionString)   ```       [C#]      ```   System.Data.SqlClient.SqlConnectionStringBuilder builder =     new System.Data.SqlClient.SqlConnectionStringBuilder();   builder[&quot;Data Source&quot;] = &quot;(local)&quot;;   builder[&quot;integrated Security&quot;] = true;   builder[&quot;Initial Catalog&quot;] = &quot;AdventureWorks;NewValue=Bad&quot;;   Console.WriteLine(builder.ConnectionString);      ```       The result is the following connection string that handles the invalid value in a safe manner:      ```   Source=(local);Initial Catalog=&quot;AdventureWorks;NewValue=Bad&quot;;   Integrated Security=True   ```"
+  summary: "Zapewnia prosty sposób tworzenia i zarządzania zawartością parametrów połączeń używanych przez <xref href=&quot;System.Data.SqlClient.SqlConnection&quot;> </xref> klasy."
+  remarks: "Konstruktor ciągów połączenia umożliwiają deweloperom, programowe tworzenie ciągów połączenia poprawna składniowo i przeanalizować i skompiluj ponownie istniejących parametrów połączenia, przy użyciu właściwości i metody klasy. Konstruktor ciągów połączenia zapewnia jednoznacznie właściwości odpowiadającej pary znane klucz/wartość dozwolona przez program SQL Server. Deweloperzy wymagające utworzyć parametry połączenia w ramach aplikacji można użyć klasy SqlConnectionStringBuilder do kompilowania i modyfikowania parametry połączenia. Klasa ułatwia również zarządzać parametry połączenia, przechowywane w pliku konfiguracyjnym aplikacji.       SqlConnectionStringBuilder sprawdza pary klucz wartość nieprawidłowa. W związku z tym nie można użyć tej klasy, aby utworzyć parametry połączenia nieprawidłowy; Próba dodania pary nieprawidłowy spowoduje zgłoszenie wyjątku. Klasa obsługuje zbiór stałym synonimy i może dokonywać translacji z synonim do odpowiedniego dobrze znanej nazwy klucza.       Na przykład, jeśli używasz **elementu** właściwości można pobrać wartości, można określić ciąg, który zawiera wszystkie synonim klucza należy. Na przykład można określić &quot;Adres sieciowy&quot;, &quot;addr&quot; lub inne dopuszczalne synonim dla tego klucza w ciągu połączenia korzystając z dowolnego członka wymagającego ciąg znaków zawierający nazwę klucza, takich jak **elementu** właściwości lub <xref:System.Data.SqlClient.SqlConnectionStringBuilder.Remove%2A>metody.</xref:System.Data.SqlClient.SqlConnectionStringBuilder.Remove%2A> Zobacz <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A>Właściwości pełną listę dopuszczalne synonimy.</xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A>       **Elementu** właściwość obsługuje próbuje Wstaw złośliwego wpisów. Na przykład następujący kod, za pomocą właściwości elementu domyślne (indeksatora, w języku C#) poprawnie specjalne para zagnieżdżonych klucza i wartości: [Visual Basic] ```   Dim builder As New System.Data.SqlClient.SqlConnectionStringBuilder   builder(&quot;Data Source&quot;) = &quot;(local)&quot;   builder(&quot;Integrated Security&quot;) = True   builder(&quot;Initial Catalog&quot;) = &quot;AdventureWorks;NewValue=Bad&quot;   Console.WriteLine(builder.ConnectionString)   ``` [C#] ```   System.Data.SqlClient.SqlConnectionStringBuilder builder =     new System.Data.SqlClient.SqlConnectionStringBuilder();   builder[&quot;Data Source&quot;] = &quot;(local)&quot;;   builder[&quot;integrated Security&quot;] = true;   builder[&quot;Initial Catalog&quot;] = &quot;AdventureWorks;NewValue=Bad&quot;;   Console.WriteLine(builder.ConnectionString);      ``` wynik jest następujący ciąg połączenia, który obsługuje nieprawidłową wartość w bezpieczny sposób:```   Source=(local);Initial Catalog=&quot;AdventureWorks;NewValue=Bad&quot;;   Integrated Security=True   ```"
   example:
   - "The following console application builds connection strings for a [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] database. The code uses a SqlConnectionStringBuilder class to create the connection string, and then passes the <xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A> property of the SqlConnectionStringBuilder instance to the constructor of the connection class. The example also parses an existing connection string and demonstrates various ways of manipulating the connection string's contents.  \n  \n> [!NOTE]\n>  This example includes a password to demonstrate how SqlConnectionStringBuilder works with connection strings. In your applications, we recommend that you use Windows Authentication. If you must use a password, do not include a hard-coded password in your application.  \n  \n [!code-cs[DataWorks SqlConnectionStringBuilder#1](~/add/codesnippet/csharp/t-system.data.sqlclient._13_1.cs)]\n [!code-vb[DataWorks SqlConnectionStringBuilder#1](~/add/codesnippet/visualbasic/t-system.data.sqlclient._13_1.vb)]"
   syntax:
@@ -119,7 +119,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref> class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref> klasy."
   syntax:
     content: public SqlConnectionStringBuilder ();
     parameters: []
@@ -139,8 +139,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref> class. The provided connection string provides the data for the instance&quot;s internal connection information."
-  remarks: "The <xref:System.Data.SqlClient.SqlConnectionStringBuilder> class provides a fixed internal collection of key/value pairs. Even if you supply only a small subset of the possible connection string values in the constructor, the object always provides default values for each key/value pair. When the `ConnectionString` property of the object is retrieved, the string contains only key/value pairs in which the value is not the default value for the item."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref> klasy. Podane parametry połączenia zawiera dane wystąpienia informacji połączenia wewnętrznego."
+  remarks: "<xref:System.Data.SqlClient.SqlConnectionStringBuilder>Klasa zawiera stałe wewnętrznej kolekcji par klucz/wartość.</xref:System.Data.SqlClient.SqlConnectionStringBuilder> Nawet jeśli podasz tylko mały podzbiór wartości parametrów połączeń możliwe w Konstruktorze obiektu zawsze zapewnia wartości domyślne dla każdej pary klucz wartość. Gdy `ConnectionString` właściwości obiektu są pobierane, ciąg zawiera tylko pary klucz wartość, w których wartość nie jest wartością domyślną dla elementu."
   example:
   - "The following example supplies a simple SQL Server connection string in the <xref:System.Data.SqlClient.SqlConnectionStringBuilder> object's constructor, and then iterates through all the key/value pairs within the object. Note that the collection provides default values for each item. Also note that the <xref:System.Data.SqlClient.SqlConnectionStringBuilder> class converts synonyms for the well-known keys so that they are consistent with the well-known names.  \n  \n> [!NOTE]\n>  This example includes a password to demonstrate how <xref:System.Data.SqlClient.SqlConnectionStringBuilder> works with connection strings. In your applications, we recommend that you use Windows Authentication. If you must use a password, do not include a hard-coded password in your application.  \n  \n [!code-cs[DataWorks SqlConnectionStringBuilder.Password#1](~/add/codesnippet/csharp/m-system.data.sqlclient._44_1.cs)]\n [!code-vb[DataWorks SqlConnectionStringBuilder.Password#1](~/add/codesnippet/visualbasic/m-system.data.sqlclient._44_1.vb)]"
   syntax:
@@ -148,18 +148,18 @@ items:
     parameters:
     - id: connectionString
       type: System.String
-      description: "The basis for the object&quot;s internal connection information. Parsed into name/value pairs. Invalid key names raise <xref:System.Collections.Generic.KeyNotFoundException>."
+      description: "Podstawa informacji połączenia wewnętrznego obiektu. Przeanalizowany w pary nazwa/wartość. Podnoszenie nieprawidłowych nazw kluczy <xref:System.Collections.Generic.KeyNotFoundException>.</xref:System.Collections.Generic.KeyNotFoundException>"
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.#ctor*
   exceptions:
   - type: System.Collections.Generic.KeyNotFoundException
     commentId: T:System.Collections.Generic.KeyNotFoundException
-    description: "Invalid key name within the connection string."
+    description: "Nieprawidłowa nazwa klucza w parametrach połączenia."
   - type: System.FormatException
     commentId: T:System.FormatException
-    description: "Invalid value within the connection string (specifically, when a Boolean or numeric value was expected but not supplied)."
+    description: "Nieprawidłowa wartość ciągu połączenia (w szczególności, gdy wartość logiczna lub liczbowego był oczekiwany, ale nie podano)."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The supplied <code>connectionString</code> is not valid."
+    description: "Podana <code> connectionString </code> jest nieprawidłowy."
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlConnectionStringBuilder.ApplicationIntent
@@ -174,12 +174,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Declares the application workload type when connecting to a database in an SQL Server Availability Group. You can set the value of this property with <xref href=&quot;System.Data.SqlClient.ApplicationIntent&quot;></xref>. For more information about SqlClient support for Always On Availability Groups, see [SqlClient Support for High Availability, Disaster Recovery](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Deklaruje typ obciążenia aplikacji podczas nawiązywania połączenia z bazą danych w grupie dostępności programu SQL Server. Można ustawić wartość tej właściwości z <xref href=&quot;System.Data.SqlClient.ApplicationIntent&quot;> </xref>. Aby uzyskać więcej informacji o obsłudze SqlClient dla zawsze włączonych grup dostępności, zobacz [SqlClient obsługę wysokiej dostępności, odzyskiwania po awarii](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public System.Data.SqlClient.ApplicationIntent ApplicationIntent { get; set; }
     return:
       type: System.Data.SqlClient.ApplicationIntent
-      description: "Returns the current value of the property (a value of type <xref href=&quot;System.Data.SqlClient.ApplicationIntent&quot;></xref>)."
+      description: "Zwraca bieżącą wartość właściwości (wartości typu <xref href=&quot;System.Data.SqlClient.ApplicationIntent&quot;> </xref>)."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.ApplicationIntent*
   exceptions: []
   platform:
@@ -196,20 +196,20 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets the name of the application associated with the connection string."
-  remarks: "This property corresponds to the &quot;Application Name&quot; and &quot;app&quot; keys within the connection string."
+  summary: "Pobiera lub ustawia nazwę aplikacji skojarzonej z parametrami połączenia."
+  remarks: "Ta właściwość odpowiada kluczy &quot;Nazwa aplikacji&quot; i &quot;aplikacja&quot; w parametrach połączenia."
   example:
   - "The following example creates a new <xref:System.Data.SqlClient.SqlConnectionStringBuilder> and assigns a connection string in the object's constructor. The code displays the parsed and recreated version of the connection string, and then modifies the ApplicationName property of the object. Finally, the code displays the new connection string, including the new key/value pair.  \n  \n [!code-cs[DataWorks SqlConnectionStringBuilder.ApplicationName#1](~/add/codesnippet/csharp/p-system.data.sqlclient._44_1.cs)]\n [!code-vb[DataWorks SqlConnectionStringBuilder.ApplicationName#1](~/add/codesnippet/visualbasic/p-system.data.sqlclient._44_1.vb)]  \n  \n The sample displays the following text in the console window:  \n  \n```  \nOriginal: Data Source=(local);Initial Catalog=AdventureWorks;Integrated Security=True  \nApplicationName=\".Net SqlClient Data Provider\"  \nModified: Data Source=(local);Initial Catalog=AdventureWorks;Integrated Security=True;Application Name=\"My Application\"  \n```"
   syntax:
     content: public string ApplicationName { get; set; }
     return:
       type: System.String
-      description: "The name of the application, or &quot;.NET SqlClient Data Provider&quot; if no name has been supplied."
+      description: "Nazwa aplikacji lub &quot;.NET dostawcę danych SqlClient&quot; Jeśli nie został dostarczony bez nazwy."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.ApplicationName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "To set the value to null, use <xref href=&quot;System.DBNull.Value&quot;></xref>."
+    description: "Aby ustawić wartość null, użyj <xref href=&quot;System.DBNull.Value&quot;> </xref>."
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlConnectionStringBuilder.AsynchronousProcessing
@@ -224,15 +224,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a Boolean value that indicates whether asynchronous processing is allowed by the connection created by using this connection string."
-  remarks: "This property corresponds to the &quot;Asynchronous Processing&quot; and &quot;async&quot; keys within the connection string. In order to take advantage of the asynchronous processing provided by the <xref:System.Data.SqlClient.SqlCommand> object, this key/value pair must be included within the connection string of the associated <xref:System.Data.SqlClient.SqlConnection> object."
+  summary: "Pobiera lub ustawia wartość Boolean wskazującą, czy przetwarzanie asynchroniczne jest dozwolone przez połączenie utworzone za pomocą tych parametrów połączenia."
+  remarks: "Ta właściwość odpowiada kluczy &quot;Asynchronous Processing&quot; i &quot;async&quot; w parametrach połączenia. Aby korzystać z przetwarzania asynchronicznego podał <xref:System.Data.SqlClient.SqlCommand>obiektu, ta para klucza i wartości musi być zawarty w ciągu połączenia skojarzonego <xref:System.Data.SqlClient.SqlConnection>obiektu.</xref:System.Data.SqlClient.SqlConnection> </xref:System.Data.SqlClient.SqlCommand>"
   example:
   - "The following example retrieves a connection string and verifies that the connection string is configured to allow for asynchronous processing. (In this case, the string comes from a procedure within the application, but in a production application, the connection string might come from a configuration file, or some other source.) Then, the example performs an asynchronous operation, updating values within a sample database on a background thread.  \n  \n [!code-vb[DataWorks SqlConnectionStringBuilder.Async#1](~/add/codesnippet/visualbasic/p-system.data.sqlclient._47_1.vb)]\n [!code-cs[DataWorks SqlConnectionStringBuilder.Async#1](~/add/codesnippet/csharp/p-system.data.sqlclient._47_1.cs)]"
   syntax:
     content: public bool AsynchronousProcessing { get; set; }
     return:
       type: System.Boolean
-      description: "The value of the AsynchronousProcessing property, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if no value has been supplied."
+      description: "Wartość właściwości AsynchronousProcessing lub <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Jeśli podano żadnej wartości."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.AsynchronousProcessing*
   exceptions: []
   platform:
@@ -249,20 +249,20 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a string that contains the name of the primary data file. This includes the full path name of an attachable database."
-  remarks: "This property corresponds to the &quot;AttachDBFilename&quot;, &quot;extended properties&quot;, and &quot;initial file name&quot; keys within the connection string.       `AttachDBFilename` is only supported for primary data files with an .mdf extension.       An error will be generated if a log file exists in the same directory as the data file and the &quot;database&quot; keyword is used when attaching the primary data file. In this case, remove the log file. Once the database is attached, a new log file will be automatically generated based on the physical path."
+  summary: "Pobiera lub ustawia ciąg zawierający nazwę pliku podstawowego. W tym pełną nazwę ścieżki możliwe do dołączenia bazy danych."
+  remarks: "Ta właściwość odpowiada &quot;AttachDBFilename&quot;, &quot;rozszerzonych właściwości&quot; i &quot;początkowa nazwa pliku&quot; kluczy w parametrach połączenia.       `AttachDBFilename`jest obsługiwana tylko dla danych podstawowych pliki z rozszerzeniem .mdf.       Błąd zostanie wygenerowany, jeśli plik dziennika istnieje w tym samym katalogu co plik danych i słowo kluczowe &quot;baza danych&quot; jest używana podczas dołączania pliku podstawowego. W takim przypadku usuń plik dziennika. Po dołączeniu bazie danych nowy plik dziennika będą automatycznie generowane na podstawie ścieżki fizycznej."
   example:
   - "The following example creates a new <xref:System.Data.SqlClient.SqlConnectionStringBuilder> instance, and sets the `AttachDBFilename` property in order to specify the name of an attached data file.  \n  \n [!code-vb[DataWorks SqlConnectionStringBuilder.AttachDBFilename#1](~/add/codesnippet/visualbasic/p-system.data.sqlclient._58_1.vb)]\n [!code-cs[DataWorks SqlConnectionStringBuilder.AttachDBFilename#1](~/add/codesnippet/csharp/p-system.data.sqlclient._58_1.cs)]"
   syntax:
     content: public string AttachDBFilename { get; set; }
     return:
       type: System.String
-      description: "The value of the <xref uid=&quot;langword_csharp_AttachDBFilename&quot; name=&quot;AttachDBFilename&quot; href=&quot;&quot;></xref> property, or <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;></xref> if no value has been supplied."
+      description: "Wartość <xref uid=&quot;langword_csharp_AttachDBFilename&quot; name=&quot;AttachDBFilename&quot; href=&quot;&quot;> </xref> właściwości, lub <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;> </xref> Jeśli podano żadnej wartości."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.AttachDBFilename*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "To set the value to null, use <xref href=&quot;System.DBNull.Value&quot;></xref>."
+    description: "Aby ustawić wartość null, użyj <xref href=&quot;System.DBNull.Value&quot;> </xref>."
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlConnectionStringBuilder.Authentication
@@ -277,12 +277,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets the authentication of the connection string."
+  summary: "Pobiera uwierzytelniania parametrów połączenia."
   syntax:
     content: public System.Data.SqlClient.SqlAuthenticationMethod Authentication { get; set; }
     return:
       type: System.Data.SqlClient.SqlAuthenticationMethod
-      description: "The authentication of the connection string."
+      description: "Uwierzytelnianie w parametrach połączenia."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.Authentication*
   exceptions: []
   platform:
@@ -299,8 +299,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Clears the contents of the <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref> instance."
-  remarks: "The <xref:System.Data.Common.DbConnectionStringBuilder.Clear%2A> method removes all key/value pairs from the <xref:System.Data.SqlClient.SqlConnectionStringBuilder>, and resets all corresponding properties. This includes setting the <xref:System.Data.Common.DbConnectionStringBuilder.Count%2A> property to 0, and setting the <xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A> property to an empty string."
+  summary: "Czyści zawartość <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref> wystąpienia."
+  remarks: "<xref:System.Data.Common.DbConnectionStringBuilder.Clear%2A>Metoda usuwa wszystkie pary klucz wartość z <xref:System.Data.SqlClient.SqlConnectionStringBuilder>i resetuje wszystkie odpowiednie właściwości.</xref:System.Data.SqlClient.SqlConnectionStringBuilder> </xref:System.Data.Common.DbConnectionStringBuilder.Clear%2A> Obejmuje to ustawienia <xref:System.Data.Common.DbConnectionStringBuilder.Count%2A>Właściwości na wartość 0 i ustawienie <xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A>Właściwości na pusty ciąg.</xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A> </xref:System.Data.Common.DbConnectionStringBuilder.Count%2A>"
   example:
   - "The following example demonstrates calling the <xref:System.Data.Common.DbConnectionStringBuilder.Clear%2A> method. This example populates the <xref:System.Data.SqlClient.SqlConnectionStringBuilder> with some key/value pairs, and then calls the <xref:System.Data.Common.DbConnectionStringBuilder.Clear%2A> method and shows the results.  \n  \n [!code-cs[DataWorks SqlConnectionStringBuilder.Clear#1](~/add/codesnippet/csharp/m-system.data.sqlclient._15_1.cs)]\n [!code-vb[DataWorks SqlConnectionStringBuilder.Clear#1](~/add/codesnippet/visualbasic/m-system.data.sqlclient._15_1.vb)]"
   syntax:
@@ -322,12 +322,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets and sets the column encryption settings for the connection string builder."
+  summary: "Pobiera i ustawia kolumnę ustawienia szyfrowania dla konstruktora ciągu połączenia."
   syntax:
     content: public System.Data.SqlClient.SqlConnectionColumnEncryptionSetting ColumnEncryptionSetting { get; set; }
     return:
       type: System.Data.SqlClient.SqlConnectionColumnEncryptionSetting
-      description: "The column encryption settings for the connection string builder."
+      description: "Ustawienia szyfrowania kolumn dla konstruktora ciągu połączenia."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.ColumnEncryptionSetting*
   exceptions: []
   platform:
@@ -344,13 +344,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Obsolete. Gets or sets a Boolean value that indicates whether the connection is reset when drawn from the connection pool."
-  remarks: "This property corresponds to the &quot;Connection Reset&quot; key within the <xref:System.Data.SqlClient.SqlConnection> connection string, which has been removed from version 3.5 SP1 of the .NET Framework."
+  summary: "Przestarzałe. Pobiera lub ustawia wartość Boolean wskazującą, czy połączenie jest resetowany podczas rysowania z puli połączeń."
+  remarks: "Ta właściwość odpowiada kluczowi &quot;Zresetowania połączenia&quot; w ramach <xref:System.Data.SqlClient.SqlConnection>ciąg połączenia, który został usunięty z programu .NET Framework w wersji 3.5 z dodatkiem SP1.</xref:System.Data.SqlClient.SqlConnection>"
   syntax:
     content: public bool ConnectionReset { get; set; }
     return:
       type: System.Boolean
-      description: "The value of the ConnectionReset property, or true if no value has been supplied."
+      description: "Wartość właściwości ConnectionReset lub wartość true, jeśli podano żadnej wartości."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.ConnectionReset*
   exceptions: []
   platform:
@@ -367,12 +367,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "[Supported in the .NET Framework 4.5.1 and later versions]       The number of reconnections attempted after identifying that there was an idle connection failure. This must be an integer between 0 and 255. Default is 1. Set to 0 to disable reconnecting on idle connection failures. An <xref:System.ArgumentException> will be thrown if set to a value outside of the allowed range."
+  summary: "[Obsługiwane w programie .NET Framework 4.5.1 i nowszych wersjach]       Liczba ponowne łączenie podjęto po określeniu, czy wystąpił błąd bezczynnego połączenia. To musi być liczbą całkowitą od 0 do 255. Domyślna wartość wynosi 1. Ustawiona na 0, aby wyłączyć połączyć się ponownie przy błędach bezczynnego połączenia. <xref:System.ArgumentException>Zostanie element zgłaszany, gdy ustawiona wartość poza dozwolonym zakresem.</xref:System.ArgumentException>"
   syntax:
     content: public int ConnectRetryCount { get; set; }
     return:
       type: System.Int32
-      description: "The number of reconnections attempted after identifying that there was an idle connection failure."
+      description: "Liczba ponowne łączenie podjęto po określeniu, czy wystąpił błąd bezczynnego połączenia."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.ConnectRetryCount*
   exceptions: []
   platform:
@@ -389,12 +389,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "[Supported in the .NET Framework 4.5.1 and later versions]       Amount of time (in seconds) between each reconnection attempt after identifying that there was an idle connection failure. This must be an integer between 1 and 60. The default is 10 seconds. An <xref:System.ArgumentException> will be thrown if set to a value outside of the allowed range."
+  summary: "[Obsługiwane w programie .NET Framework 4.5.1 i nowszych wersjach]       Ilość czasu (w sekundach) między kolejnymi próbami ponownego połączenia po identyfikacji, który był błąd bezczynnego połączenia. To musi być liczbą całkowitą z przedziału od 1 do 60. Wartość domyślna to 10 sekund. <xref:System.ArgumentException>Zostanie element zgłaszany, gdy ustawiona wartość poza dozwolonym zakresem.</xref:System.ArgumentException>"
   syntax:
     content: public int ConnectRetryInterval { get; set; }
     return:
       type: System.Int32
-      description: "Amount of time (in seconds) between each reconnection attempt after identifying that there was an idle connection failure."
+      description: "Ilość czasu (w sekundach) między kolejnymi próbami ponownego połączenia po identyfikacji, który był błąd bezczynnego połączenia."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.ConnectRetryInterval*
   exceptions: []
   platform:
@@ -411,15 +411,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets the length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error."
-  remarks: "This property corresponds to the &quot;Connect Timeout&quot;, &quot;connection timeout&quot;, and &quot;timeout&quot; keys within the connection string.       When opening a connection to a Azure SQL Database, set the connection timeout to 30 seconds."
+  summary: "Pobiera lub ustawia czas (w sekundach) oczekiwania na połączenie z serwerem przed zakończeniem próby i wygenerowaniem błędu."
+  remarks: "Ta właściwość odpowiada &quot;Connect Timeout&quot;, &quot;limit czasu połączenia&quot; i &quot;timeout&quot; kluczy w parametrach połączenia.       Po otwarciu połączenia z bazą danych SQL Azure, należy ustawić limit czasu połączenia do 30 sekund."
   example:
   - "The following example first displays the contents of a connection string that does not specify the \"Connect Timeout\" value, sets the ConnectTimeout property, and then displays the new connection string.  \n  \n [!code-vb[DataWorks SqlConnectionStringBuilder.ConnectTimeout#1](~/add/codesnippet/visualbasic/p-system.data.sqlclient._3_1.vb)]\n [!code-cs[DataWorks SqlConnectionStringBuilder.ConnectTimeout#1](~/add/codesnippet/csharp/p-system.data.sqlclient._3_1.cs)]"
   syntax:
     content: public int ConnectTimeout { get; set; }
     return:
       type: System.Int32
-      description: "The value of the ConnectTimeout property, or 15 seconds if no value has been supplied."
+      description: "Wartość właściwości ConnectTimeout lub 15 sekund, jeśli podano żadnej wartości."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.ConnectTimeout*
   exceptions: []
   platform:
@@ -436,8 +436,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Determines whether the <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref> contains a specific key."
-  remarks: "Because the <xref:System.Data.SqlClient.SqlConnectionStringBuilder> contains a fixed-size collection of key/value pairs, the <xref:System.Data.Common.DbConnectionStringBuilder.ContainsKey%2A> method determines only if a particular key name is valid."
+  summary: "Określa, czy <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref> zawiera określony klucz."
+  remarks: "Ponieważ <xref:System.Data.SqlClient.SqlConnectionStringBuilder>zawiera kolekcję par klucz/wartość, stały rozmiar <xref:System.Data.Common.DbConnectionStringBuilder.ContainsKey%2A>Metoda tylko określa, czy nazwy określonego klucza jest prawidłowy.</xref:System.Data.Common.DbConnectionStringBuilder.ContainsKey%2A> </xref:System.Data.SqlClient.SqlConnectionStringBuilder>"
   example:
   - "The following example creates a <xref:System.Data.SqlClient.SqlConnectionStringBuilder> instance, sets some of its properties, and then tries to determine whether various keys exist within the object by calling the **ContainsKey** method.  \n  \n [!code-cs[DataWorks SqlConnectionStringBuilder.ContainsKey#1](~/add/codesnippet/csharp/m-system.data.sqlclient._9_1.cs)]\n [!code-vb[DataWorks SqlConnectionStringBuilder.ContainsKey#1](~/add/codesnippet/visualbasic/m-system.data.sqlclient._9_1.vb)]  \n  \n The example displays the following output in the console window:  \n  \n```  \nConnection string = Data Source=(local);Initial Catalog=AdventureWorks;Integrated Security=True  \nTrue  \nTrue  \nTrue  \nFalse  \n```"
   syntax:
@@ -445,15 +445,15 @@ items:
     parameters:
     - id: keyword
       type: System.String
-      description: "The key to locate in the <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref>."
+      description: "Klucz do zlokalizowania w <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "true if the <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref> contains an element that has the specified key; otherwise, false."
+      description: "wartość true, jeśli <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref> zawiera element z określonym kluczem; w przeciwnym razie wartość false."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.ContainsKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyword</code> is null (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)"
+    description: "<code>keyword</code>ma wartość null (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> w języku Visual Basic)"
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlConnectionStringBuilder.ContextConnection
@@ -468,13 +468,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a value that indicates whether a client/server or in-process connection to SQL Server should be made."
-  remarks: "This property corresponds to the &quot;Context Connection&quot; key within the connection string.      > [!NOTE] >  The <xref:System.Data.SqlClient.SqlConnection.DataSource%2A> property returns `null` if the connection string for the <xref:System.Data.SqlClient.SqlConnection> is &quot;context connection=true&quot;."
+  summary: "Pobiera lub ustawia wartość wskazującą, czy należy klient/serwer lub w trakcie połączenia z programem SQL Server."
+  remarks: "Ta właściwość odpowiada kluczowi &quot;Połączenia kontekstu&quot; w parametrach połączenia.      > [!NOTE] > <xref:System.Data.SqlClient.SqlConnection.DataSource%2A>Zwraca `null` Jeśli parametrów połączenia dla <xref:System.Data.SqlClient.SqlConnection>jest &quot;połączenia kontekstu = true&quot;.</xref:System.Data.SqlClient.SqlConnection> </xref:System.Data.SqlClient.SqlConnection.DataSource%2A>"
   syntax:
     content: public bool ContextConnection { get; set; }
     return:
       type: System.Boolean
-      description: "The value of the ContextConnection property, or <xref uid=&quot;langword_csharp_False&quot; name=&quot;False&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Wartość właściwości ContextConnection lub <xref uid=&quot;langword_csharp_False&quot; name=&quot;False&quot; href=&quot;&quot;> </xref> Jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.ContextConnection*
   exceptions: []
   platform:
@@ -491,18 +491,18 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets the SQL Server Language record name."
-  remarks: "This property corresponds to the &quot;Current Language&quot; and &quot;language&quot; keys within the connection string."
+  summary: "Pobiera lub ustawia nazwę rekordu języka programu SQL Server."
+  remarks: "Ta właściwość odpowiada kluczy &quot;Bieżący język&quot; i &quot;język&quot; w parametrach połączenia."
   syntax:
     content: public string CurrentLanguage { get; set; }
     return:
       type: System.String
-      description: "The value of the CurrentLanguage property, or <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;></xref> if no value has been supplied."
+      description: "Wartość właściwości CurrentLanguage lub <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;> </xref> Jeśli podano żadnej wartości."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.CurrentLanguage*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "To set the value to null, use <xref href=&quot;System.DBNull.Value&quot;></xref>."
+    description: "Aby ustawić wartość null, użyj <xref href=&quot;System.DBNull.Value&quot;> </xref>."
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlConnectionStringBuilder.DataSource
@@ -517,20 +517,20 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets the name or network address of the instance of SQL Server to connect to."
-  remarks: "This property corresponds to the &quot;Data Source&quot;, &quot;server&quot;, &quot;address&quot;, &quot;addr&quot;, and &quot;network address&quot; keys within the connection string. Regardless of which of these values has been supplied within the supplied connection string, the connection string created by the `SqlConnectionStringBuilder` will use the well-known &quot;Data Source&quot; key."
+  summary: "Pobiera lub ustawia nazwa lub adres sieciowy wystąpienia programu SQL Server, aby nawiązać połączenie."
+  remarks: "Ta właściwość odpowiada &quot;Źródła danych&quot;, &quot;server&quot;, &quot;address&quot;, &quot;addr&quot; i &quot;adres sieciowy&quot; kluczy w parametrach połączenia. Niezależnie od tego, która z tych wartości zostały podane w dostarczone parametry połączenia, ciąg połączenia utworzone przez `SqlConnectionStringBuilder` użyje dobrze znanym kluczem &quot;Źródła danych&quot;."
   example:
   - "The following example demonstrates that the <xref:System.Data.SqlClient.SqlConnectionStringBuilder> class converts synonyms for the \"Data Source\" connection string key into the well-known key:  \n  \n [!code-vb[DataWorks SqlConnectionStringBuilder.DataSource#1](~/add/codesnippet/visualbasic/p-system.data.sqlclient._51_1.vb)]\n [!code-cs[DataWorks SqlConnectionStringBuilder.DataSource#1](~/add/codesnippet/csharp/p-system.data.sqlclient._51_1.cs)]"
   syntax:
     content: public string DataSource { get; set; }
     return:
       type: System.String
-      description: "The value of the DataSource property, or <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Wartość właściwości DataSource lub <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;> </xref> Jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.DataSource*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "To set the value to null, use <xref href=&quot;System.DBNull.Value&quot;></xref>."
+    description: "Aby ustawić wartość null, użyj <xref href=&quot;System.DBNull.Value&quot;> </xref>."
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlConnectionStringBuilder.Encrypt
@@ -545,13 +545,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a Boolean value that indicates whether SQL Server uses SSL encryption for all data sent between the client and server if the server has a certificate installed."
-  remarks: "This property corresponds to the &quot;Encrypt&quot; key within the connection string."
+  summary: "Pobiera lub ustawia wartość Boolean wskazującą, czy program SQL Server używa szyfrowania SSL dla wszystkich danych przesyłanych między klientem a serwerem, jeśli serwer ma zainstalowany certyfikat."
+  remarks: "Ta właściwość odpowiada kluczowi &quot;Szyfruj&quot; w parametrach połączenia."
   syntax:
     content: public bool Encrypt { get; set; }
     return:
       type: System.Boolean
-      description: "The value of the Encrypt property, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Wartość właściwości szyfruj lub <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.Encrypt*
   exceptions: []
   platform:
@@ -568,13 +568,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a Boolean value that indicates whether the SQL Server connection pooler automatically enlists the connection in the creation thread&quot;s current transaction context."
-  remarks: "This property corresponds to the &quot;Enlist&quot; key within the connection string."
+  summary: "Pobiera lub ustawia wartość Boolean wskazującą, czy pulę połączeń programu SQL Server automatycznie rejestruje połączenia w bieżącym kontekście transakcji wątku tworzenia."
+  remarks: "Ta właściwość odpowiada kluczowi &quot;Enlist&quot; w parametrach połączenia."
   syntax:
     content: public bool Enlist { get; set; }
     return:
       type: System.Boolean
-      description: "The value of the Enlist property, or <xref uid=&quot;langword_csharp_true &quot; name=&quot;true &quot; href=&quot;&quot;></xref>if none has been supplied."
+      description: "Wartość właściwości Enlist lub <xref uid=&quot;langword_csharp_true &quot; name=&quot;true &quot; href=&quot;&quot;> </xref>Jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.Enlist*
   exceptions: []
   platform:
@@ -591,17 +591,17 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets the name or address of the partner server to connect to if the primary server is down."
+  summary: "Pobiera lub ustawia nazwę lub adres serwera partnerskiego do połączenia, jeśli serwer podstawowy nie działa."
   syntax:
     content: public string FailoverPartner { get; set; }
     return:
       type: System.String
-      description: "The value of the FailoverPartner property, or <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Wartość właściwości FailoverPartner lub <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;> </xref> Jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.FailoverPartner*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "To set the value to null, use <xref href=&quot;System.DBNull.Value&quot;></xref>."
+    description: "Aby ustawić wartość null, użyj <xref href=&quot;System.DBNull.Value&quot;> </xref>."
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlConnectionStringBuilder.GetProperties(System.Collections.Hashtable)
@@ -621,7 +621,7 @@ items:
     parameters:
     - id: propertyDescriptors
       type: System.Collections.Hashtable
-      description: "To be added."
+      description: "Do dodania."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.GetProperties*
   exceptions: []
   platform:
@@ -638,20 +638,20 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets the name of the database associated with the connection."
-  remarks: "This property corresponds to the &quot;Initial Catalog&quot; and &quot;database&quot; keys within the connection string."
+  summary: "Pobiera lub ustawia nazwę bazy danych, skojarzonych z tym połączeniem."
+  remarks: "Ta właściwość odpowiada kluczy &quot;Initial Catalog&quot; i &quot;baza danych&quot; w parametrach połączenia."
   example:
   - "The following example creates a simple connection string and then uses the <xref:System.Data.SqlClient.SqlConnectionStringBuilder> class to add the name of the database to the connection string. The code displays the contents of the InitialCatalog property, just to verify that the class was able to convert from the synonym (\"Database\") to the appropriate property value.  \n  \n [!code-cs[DataWorks SqlConnectionStringBuilder.InitialCatalog#1](~/add/codesnippet/csharp/p-system.data.sqlclient._46_1.cs)]\n [!code-vb[DataWorks SqlConnectionStringBuilder.InitialCatalog#1](~/add/codesnippet/visualbasic/p-system.data.sqlclient._46_1.vb)]"
   syntax:
     content: public string InitialCatalog { get; set; }
     return:
       type: System.String
-      description: "The value of the InitialCatalog property, or <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Wartość właściwości InitialCatalog lub <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;> </xref> Jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.InitialCatalog*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "To set the value to null, use <xref href=&quot;System.DBNull.Value&quot;></xref>."
+    description: "Aby ustawić wartość null, użyj <xref href=&quot;System.DBNull.Value&quot;> </xref>."
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlConnectionStringBuilder.IntegratedSecurity
@@ -666,15 +666,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a Boolean value that indicates whether User ID and Password are specified in the connection (when <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>) or whether the current Windows account credentials are used for authentication (when <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>)."
-  remarks: "This property corresponds to the &quot;Integrated Security&quot; and &quot;trusted_connection&quot; keys within the connection string."
+  summary: "Pobiera lub ustawia wartość Boolean wskazującą, czy identyfikator użytkownika i hasło są określone w połączeniu (gdy <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>) lub czy bieżące poświadczenia konta systemu Windows są używane do uwierzytelniania (Jeśli <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>)."
+  remarks: "Ta właściwość odpowiada kluczy &quot;Zintegrowane zabezpieczenia&quot; i &quot;trusted_connection&quot; w parametrach połączenia."
   example:
   - "The following example converts an existing connection string from using SQL Server Authentication to using integrated security. The example does its work by removing the user name and password from the connection string and then setting the IntegratedSecurity property of the <xref:System.Data.SqlClient.SqlConnectionStringBuilder> object.  \n  \n> [!NOTE]\n>  This example includes a password to demonstrate how <xref:System.Data.SqlClient.SqlConnectionStringBuilder> works with connection strings. In your applications, we recommend that you use Windows Authentication. If you must use a password, do not include a hard-coded password in your application.  \n  \n [!code-cs[DataWorks SqlConnectionStringBuilder.IntegratedSecurity#1](~/add/codesnippet/csharp/p-system.data.sqlclient._35_1.cs)]\n [!code-vb[DataWorks SqlConnectionStringBuilder.IntegratedSecurity#1](~/add/codesnippet/visualbasic/p-system.data.sqlclient._35_1.vb)]"
   syntax:
     content: public bool IntegratedSecurity { get; set; }
     return:
       type: System.Boolean
-      description: "The value of the IntegratedSecurity property, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Wartość właściwości wartości IntegratedSecurity lub <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.IntegratedSecurity*
   exceptions: []
   platform:
@@ -691,12 +691,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets a value that indicates whether the <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref> has a fixed size."
+  summary: "Pobiera wartość wskazującą, czy <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref> ma stały rozmiar."
   syntax:
     content: public override bool IsFixedSize { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> in every case, because the <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref> supplies a fixed-size collection of key/value pairs."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>w każdym przypadku ponieważ <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref> dostarcza kolekcję par klucz/wartość stałym rozmiarze."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.IsFixedSize*
   exceptions: []
   platform:
@@ -713,8 +713,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets the value associated with the specified key. In C#, this property is the indexer."
-  remarks: "Because the <xref:System.Data.SqlClient.SqlConnectionStringBuilder> contains a fixed-size dictionary, trying to add a key that does not exist within the dictionary throws a <xref:System.Collections.Generic.KeyNotFoundException>."
+  summary: "Pobiera lub ustawia wartość skojarzoną z określonym kluczem. W języku C# ta właściwość jest indeksatora."
+  remarks: "Ponieważ <xref:System.Data.SqlClient.SqlConnectionStringBuilder>zawiera słownik stałym rozmiarze dodać klucz, który nie istnieje w słowniku zgłasza <xref:System.Collections.Generic.KeyNotFoundException>.</xref:System.Collections.Generic.KeyNotFoundException> w trakcie</xref:System.Data.SqlClient.SqlConnectionStringBuilder>"
   example:
   - "The following code, in a console application, creates a new <xref:System.Data.SqlClient.SqlConnectionStringBuilder> and adds key/value pairs to its connection string, using the Item property.  \n  \n [!code-vb[DataWorks SqlConnectionStringBuilder.Item#1](~/add/codesnippet/visualbasic/p-system.data.sqlclient._4_1.vb)]\n [!code-cs[DataWorks SqlConnectionStringBuilder.Item#1](~/add/codesnippet/csharp/p-system.data.sqlclient._4_1.cs)]"
   syntax:
@@ -722,21 +722,21 @@ items:
     parameters:
     - id: keyword
       type: System.String
-      description: "The key of the item to get or set."
+      description: "Klucz elementu do pobrania lub ustawienia."
     return:
       type: System.Object
-      description: "The value associated with the specified key."
+      description: "Wartość skojarzona z określonym kluczem."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.Item*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyword</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>keyword</code>to odwołanie o wartości null (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> w języku Visual Basic)."
   - type: System.Collections.Generic.KeyNotFoundException
     commentId: T:System.Collections.Generic.KeyNotFoundException
-    description: "Tried to add a key that does not exist within the available keys."
+    description: "Próba dodania klucza, który nie istnieje w kluczach dostępne."
   - type: System.FormatException
     commentId: T:System.FormatException
-    description: "Invalid value within the connection string (specifically, a Boolean or numeric value was expected but not supplied)."
+    description: "Nieprawidłowa wartość ciągu połączenia (w szczególności wartość logiczna lub liczbowego był oczekiwany, ale nie podano)."
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlConnectionStringBuilder.Keys
@@ -751,15 +751,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets an <xref:System.Collections.ICollection> that contains the keys in the <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref>."
-  remarks: "The order of the values in the <xref:System.Collections.ICollection> is unspecified, but it is the same order as the associated values in the <xref:System.Collections.ICollection> returned by the <xref:System.Data.SqlClient.SqlConnectionStringBuilder.Values%2A> property."
+  summary: "Pobiera <xref:System.Collections.ICollection>zawierającą klucze ze słownika w <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref>.</xref:System.Collections.ICollection>"
+  remarks: "Kolejność wartości na liście <xref:System.Collections.ICollection>jest nieokreślony, ale takiej samej kolejności jak skojarzone wartości w <xref:System.Collections.ICollection>zwrócony przez <xref:System.Data.SqlClient.SqlConnectionStringBuilder.Values%2A>Właściwości.</xref:System.Data.SqlClient.SqlConnectionStringBuilder.Values%2A> </xref:System.Collections.ICollection> </xref:System.Collections.ICollection>"
   example:
   - "The following console application example creates a new <xref:System.Data.SqlClient.SqlConnectionStringBuilder>. The code loops through the <xref:System.Collections.ICollection> returned by the Keys property displaying the key/value pairs.  \n  \n [!code-vb[DataWorks SqlConnectionStringBuilder.Keys#1](~/add/codesnippet/visualbasic/p-system.data.sqlclient._0_1.vb)]\n [!code-cs[DataWorks SqlConnectionStringBuilder.Keys#1](~/add/codesnippet/csharp/p-system.data.sqlclient._0_1.cs)]"
   syntax:
     content: public override System.Collections.ICollection Keys { get; }
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> that contains the keys in the <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref>."
+      description: "<xref:System.Collections.ICollection>Zawierającą klucze ze słownika w <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref>.</xref:System.Collections.ICollection>"
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.Keys*
   exceptions: []
   platform:
@@ -776,13 +776,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets the minimum time, in seconds, for the connection to live in the connection pool before being destroyed."
-  remarks: "This property corresponds to the &quot;Load Balance Timeout&quot; and &quot;connection lifetime&quot; keys within the connection string."
+  summary: "Pobiera lub ustawia minimalny czas w sekundach dla połączenia na żywo w puli połączeń przed jego usunięciem."
+  remarks: "Ta właściwość odpowiada &quot;Timeout równoważenia obciążenia&quot; i &quot;okres istnienia połączenia&quot; kluczy w parametrach połączenia."
   syntax:
     content: public int LoadBalanceTimeout { get; set; }
     return:
       type: System.Int32
-      description: "The value of the LoadBalanceTimeout property, or 0 if none has been supplied."
+      description: "Wartość właściwości LoadBalanceTimeout lub 0, jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.LoadBalanceTimeout*
   exceptions: []
   platform:
@@ -799,13 +799,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets the maximum number of connections allowed in the connection pool for this specific connection string."
-  remarks: "This property corresponds to the &quot;Max Pool Size&quot; key within the connection string."
+  summary: "Pobiera lub ustawia maksymalną liczbę połączeń dozwolonych w puli połączeń dla tego określony ciąg połączenia."
+  remarks: "Ta właściwość odpowiada kluczowi &quot;Maksymalny rozmiar puli&quot; w parametrach połączenia."
   syntax:
     content: public int MaxPoolSize { get; set; }
     return:
       type: System.Int32
-      description: "The value of the MaxPoolSize property, or 100 if none has been supplied."
+      description: "Wartość właściwości MaxPoolSize lub 100, jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.MaxPoolSize*
   exceptions: []
   platform:
@@ -822,13 +822,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets the minimum number of connections allowed in the connection pool for this specific connection string."
-  remarks: "This property corresponds to the &quot;Min Pool Size&quot; key within the connection string."
+  summary: "Pobiera lub Ustawia minimalną liczbę połączeń dozwolonych w puli połączeń dla tego określony ciąg połączenia."
+  remarks: "Ta właściwość odpowiada kluczowi &quot;Minimalny rozmiar puli&quot; w parametrach połączenia."
   syntax:
     content: public int MinPoolSize { get; set; }
     return:
       type: System.Int32
-      description: "The value of the MinPoolSize property, or 0 if none has been supplied."
+      description: "Wartość właściwości Wartość MinPoolSize lub 0, jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.MinPoolSize*
   exceptions: []
   platform:
@@ -845,15 +845,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "When true, an application can maintain multiple active result sets (MARS). When false, an application must process or cancel all result sets from one batch before it can execute any other batch on that connection.       For more information, see [Multiple Active Result Sets (MARS)](http://msdn.microsoft.com//library/cfa084cz.aspx)."
-  remarks: "This property corresponds to the &quot;MultipleActiveResultSets&quot; key within the connection string."
+  summary: "W przypadku wartości true, aplikacja może przechowywać się, że zestawy wielu aktywnych wyników (MARS). W przypadku wartości FAŁSZ, aplikacja musi przetworzyć lub anulować wszystkich zestawów wyników z jednej partii, zanim ją wykonać inne partii dla tego połączenia.       Aby uzyskać więcej informacji, zobacz [wielu aktywnych zestawów wyników (MARS)](http://msdn.microsoft.com//library/cfa084cz.aspx)."
+  remarks: "Ta właściwość odpowiada kluczowi &quot;MultipleActiveResultSets&quot; w parametrach połączenia."
   example:
   - "The following example explicitly disables the Multiple Active Result Sets feature.  \n  \n [!code-cs[DataWorks SqlConnectionStringBuilder.MARS#1](~/add/codesnippet/csharp/p-system.data.sqlclient._53_1.cs)]\n [!code-vb[DataWorks SqlConnectionStringBuilder.MARS#1](~/add/codesnippet/visualbasic/p-system.data.sqlclient._53_1.vb)]"
   syntax:
     content: public bool MultipleActiveResultSets { get; set; }
     return:
       type: System.Boolean
-      description: "The value of the MultipleActiveResultSets property, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Wartość właściwości MultipleActiveResultSets lub <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.MultipleActiveResultSets*
   exceptions: []
   platform:
@@ -870,12 +870,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "If your application is connecting to an AlwaysOn availability group (AG) on different subnets, setting MultiSubnetFailover=true provides faster detection of and connection to the (currently) active server. For more information about SqlClient support for Always On Availability Groups, see [SqlClient Support for High Availability, Disaster Recovery](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Jeśli aplikacja nawiązuje połączenie z grupy dostępności funkcji AlwaysOn (grupy dostępności) w różnych podsieciach, ustawienie MultiSubnetFailover = true zapewnia szybsze wykrywanie i połączenia do aktualnie aktywnego serwera. Aby uzyskać więcej informacji o obsłudze SqlClient dla zawsze włączonych grup dostępności, zobacz [SqlClient obsługę wysokiej dostępności, odzyskiwania po awarii](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public bool MultiSubnetFailover { get; set; }
     return:
       type: System.Boolean
-      description: "Returns <xref:System.Boolean> indicating the current value of the property."
+      description: "Zwraca <xref:System.Boolean>wskazujący bieżącą wartość właściwości.</xref:System.Boolean>"
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.MultiSubnetFailover*
   exceptions: []
   platform:
@@ -892,18 +892,18 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a string that contains the name of the network library used to establish a connection to the SQL Server."
-  remarks: "This property corresponds to the &quot;Network Library&quot;, &quot;network&quot;, and &quot;net&quot; keys within the connection string.       Supported values for this property include dbnmpntw (Named Pipes), dbmsrpcn (Multiprotocol), dbmsadsn (AppleTalk), dbmsgnet (VIA), dbmslpcn (Shared Memory) and dbmsspxn (IPX/SPX), and dbmssocn (TCP/IP). The corresponding network DLL must be installed on the system to which you connect. If you do not specify a network and you use a local server (for example, &quot;.&quot; or &quot;(local)&quot;), Shared Memory is used."
+  summary: "Pobiera lub ustawia ciąg zawierający nazwę biblioteki sieci używane do nawiązania połączenia z programem SQL Server."
+  remarks: "Ta właściwość odpowiada &quot;Biblioteka sieciowa&quot;, &quot;sieć&quot; i &quot;net&quot; kluczy w parametrach połączenia.       Obsługiwane wartości dla tej właściwości to dbnmpntw (nazwane potoki), dbmsrpcn (informacje), dbmsadsn (AppleTalk), dbmsgnet (VIA), dbmslpcn (pamięci współużytkowanej) i dbmsspxn (IPX/SPX) i dbmssocn (TCP/IP). Odpowiednie sieci DLL musi być zainstalowany na komputerze, z którym się łączysz. Jeśli nie określisz sieci i używać lokalnego serwera (na przykład &quot;.&quot; lub &quot;(local)&quot;), służy pamięci współużytkowanej."
   syntax:
     content: public string NetworkLibrary { get; set; }
     return:
       type: System.String
-      description: "The value of the NetworkLibrary property, or <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Wartość właściwości NetworkLibrary lub <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;> </xref> Jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.NetworkLibrary*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "To set the value to null, use <xref href=&quot;System.DBNull.Value&quot;></xref>."
+    description: "Aby ustawić wartość null, użyj <xref href=&quot;System.DBNull.Value&quot;> </xref>."
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlConnectionStringBuilder.PacketSize
@@ -918,13 +918,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets the size in bytes of the network packets used to communicate with an instance of SQL Server."
-  remarks: "This property corresponds to the &quot;Packet Size&quot; key within the connection string."
+  summary: "Pobiera lub ustawia rozmiar w bajtach pakietów sieciowych używanych do komunikowania się z wystąpieniem programu SQL Server."
+  remarks: "Ta właściwość odpowiada kluczowi &quot;Packet Size&quot; w parametrach połączenia."
   syntax:
     content: public int PacketSize { get; set; }
     return:
       type: System.Int32
-      description: "The value of the PacketSize property, or 8000 if none has been supplied."
+      description: "Wartość właściwości PacketSize lub 8000, jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.PacketSize*
   exceptions: []
   platform:
@@ -941,20 +941,20 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets the password for the SQL Server account."
-  remarks: "This property corresponds to the &quot;Password&quot; and &quot;pwd&quot; keys within the connection string.       If Password has not been set and you retrieve the value, the return value is <xref:System.String>. To reset the password for the connection string, pass null to the Item property."
+  summary: "Pobiera lub ustawia hasło dla konta programu SQL Server."
+  remarks: "Ta właściwość odpowiada kluczy &quot;Password&quot; i &quot;pwd&quot; w parametrach połączenia.       Jeśli nie ustawiono hasła i pobierania wartości, wartość zwracana jest <xref:System.String>.</xref:System.String> Aby zresetować hasło dla parametrów połączenia, przekazać wartości zerowej do właściwości elementu."
   example:
   - "The following example shows how to set Password.  \n  \n [!code-vb[DataWorks SqlConnectionStringBuilder.Password.2#1](~/add/codesnippet/visualbasic/p-system.data.sqlclient._40_1.vb)]\n [!code-cs[DataWorks SqlConnectionStringBuilder.Password.2#1](~/add/codesnippet/csharp/p-system.data.sqlclient._40_1.cs)]"
   syntax:
     content: public string Password { get; set; }
     return:
       type: System.String
-      description: "The value of the Password property, or <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Wartość właściwości hasła lub <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;> </xref> Jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.Password*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The password was incorrectly set to null.  See code sample below."
+    description: "Hasło została niepoprawnie ustawiona na wartość null.  Zobacz poniższy przykład kodu."
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlConnectionStringBuilder.PersistSecurityInfo
@@ -969,13 +969,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a Boolean value that indicates if security-sensitive information, such as the password, is not returned as part of the connection if the connection is open or has ever been in an open state."
-  remarks: "This property corresponds to the &quot;Persist Security Info&quot; and &quot;persistsecurityinfo&quot; keys within the connection string."
+  summary: "Pobiera lub ustawia wartość Boolean wskazującą, czy informacje związane z zabezpieczeniami, takich jak hasła, nie są zwracane jako część połączenia, jeśli połączenie jest otwarte lub kiedykolwiek było w stanie otwartym."
+  remarks: "Ta właściwość odpowiada kluczy &quot;Persist Security Info&quot; i &quot;persistsecurityinfo&quot; w parametrach połączenia."
   syntax:
     content: public bool PersistSecurityInfo { get; set; }
     return:
       type: System.Boolean
-      description: "The value of the PersistSecurityInfo property, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Wartość właściwości PersistSecurityInfo lub <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.PersistSecurityInfo*
   exceptions: []
   platform:
@@ -992,13 +992,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "The blocking period behavior for a connection pool."
-  remarks: "When connection pooling is enabled and  a timeout error or other login error occurs, an exception will be thrown and subsequent connection attempts will fail for the next five seconds, the &quot;blocking period&quot;. If the application attempts to connect within the blocking period, the first exception will be thrown again. Subsequent failures after a blocking period ends will result in a new blocking period that is twice as long as the previous blocking period, up to a maximum of one minute.       Attempting to connect to Azure SQL databases can fail with transient errors which are typically recovered within a few seconds. However, with the connection pool blocking period behavior, you may not be able to reach your database for extensive periods even though the database is  available. This is especially problematic for apps that need to render fast. The **PoolBlockingPeriod** enables you to select the blocking period best suited for your app. See the [PoolBlockingPeriod Enumeration](~/add/includes/ajax-current-ext-md.md) for available settings."
+  summary: "Zachowanie okresu blokowania dla puli połączeń."
+  remarks: "Gdy buforowanie połączeń jest włączone i wystąpi błąd upływu limitu czasu lub inny błąd logowania, zostanie wygenerowany wyjątek i kolejne próby połączenia zakończy się niepowodzeniem dla następnego pięć sekund, &quot;okresu blokowania&quot;. Jeśli aplikacja próbuje nawiązać połączenia w okresie blokowania, pierwszy wyjątek zostanie ponownie wygenerowany. Kolejne błędy po zakończeniu okresu blokowania spowoduje nowe blokowania okres dwukrotnie tak długo, jak poprzedniego okresu blokowania maksymalnie jedną minutę.       Próba nawiązania połączenia z bazami danych Azure SQL może zakończyć się niepowodzeniem z błędami przejściowymi, które zwykle są odzyskiwane w ciągu kilku sekund. Jednak z puli połączeń zachowanie okresu blokowania, nie można nawiązać bazy danych na okresy szeroką gamę nawet, jeśli baza danych jest dostępne. Jest to szczególnie kłopotliwe w sytuacji dla aplikacji, które wymagają renderowanie. **PoolBlockingPeriod** umożliwia wybranie okresu blokowania najlepiej nadaje się do aplikacji. Zobacz [PoolBlockingPeriod wyliczenie](~/add/includes/ajax-current-ext-md.md) dla dostępne ustawienia."
   syntax:
     content: public System.Data.SqlClient.PoolBlockingPeriod PoolBlockingPeriod { get; set; }
     return:
       type: System.Data.SqlClient.PoolBlockingPeriod
-      description: "The available blocking period settings."
+      description: "Dostępne ustawienia okresu blokowania."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.PoolBlockingPeriod*
   exceptions: []
   platform:
@@ -1015,13 +1015,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a Boolean value that indicates whether the connection will be pooled or explicitly opened every time that the connection is requested."
-  remarks: "This property corresponds to the &quot;Pooling&quot; key within the connection string."
+  summary: "Pobiera lub ustawia wartość Boolean wskazującą, czy połączenia będą w puli lub jawnie otwarty zawsze żądanego połączenia."
+  remarks: "Ta właściwość odpowiada kluczowi &quot;Buforowanie&quot; w parametrach połączenia."
   syntax:
     content: public bool Pooling { get; set; }
     return:
       type: System.Boolean
-      description: "The value of the Pooling property, or <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Wartość właściwości buforowanie lub <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> Jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.Pooling*
   exceptions: []
   platform:
@@ -1038,8 +1038,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Removes the entry with the specified key from the <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref> instance."
-  remarks: "Because the **Remove** method returns a value that indicates its success, it is not required to look for a key before trying to remove the key/value pair from the <xref:System.Data.SqlClient.SqlConnectionStringBuilder> instance. Because the <xref:System.Data.SqlClient.SqlConnectionStringBuilder> maintains a fixed-size collection of key/value pairs, calling the Remove method simply resets the value of the key/value pair back to its default value.       Because the collection of keys supported by the <xref:System.Data.SqlClient.SqlConnectionStringBuilder> is fixed, every item within the collection has a known default value. The following table lists the keys, and the value for each when the <xref:System.Data.SqlClient.SqlConnectionStringBuilder> is first initialized, or after the Remove method has been called.      |Key|Default value|   |---------|-------------------|   |Application Name|&quot;.Net SqlClient Data Provider&quot;|   |Asynchronous Processing|False|   |AttachDBFilename|Empty string|   |Connection Timeout|15|   |Context Connection|False|   |Current Language|Empty string|   |Data Source|Empty string|   |Encrypt|False|   |Enlist|True|   |Failover Partner|Empty string|   |Initial Catalog|Empty string|   |Integrated Security|False|   |Load Balance Timeout|0|   |Max Pool Size|100|   |Min Pool Size|0|   |MultipleActiveResultSets|False|   |Network Library|Empty string|   |Packet Size|8000|   |Password|Empty string|   |Persist Security Info|False|   |Pooling|True|   |Replication|False|   |Transaction Binding|Implicit Unbind|   |User ID|Empty string|   |User Instance|False|   |Workstation ID|Empty string|"
+  summary: "Usuwa wpis z określonym kluczem z <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref> wystąpienia."
+  remarks: "Ponieważ **Usuń** metoda zwraca wartość wskazującą jego sukces, nie jest wymagane do wyszukiwania przed usunięciem pary klucza/wartości z klucza <xref:System.Data.SqlClient.SqlConnectionStringBuilder>wystąpienia.</xref:System.Data.SqlClient.SqlConnectionStringBuilder> Ponieważ <xref:System.Data.SqlClient.SqlConnectionStringBuilder>zapewnia zbiór stałym rozmiarze pary klucz wartość, wywołanie metody Usuń po prostu resetuje wartość pary klucza/wartości z powrotem na wartość domyślną.</xref:System.Data.SqlClient.SqlConnectionStringBuilder>       Ponieważ kolekcja kluczy obsługiwanych przez <xref:System.Data.SqlClient.SqlConnectionStringBuilder>jest ustalona, każdy element w kolekcji ma wartość domyślną znanych.</xref:System.Data.SqlClient.SqlConnectionStringBuilder> W poniższej tabeli wymieniono klucze i wartości dla każdego przypadku <xref:System.Data.SqlClient.SqlConnectionStringBuilder>najpierw został zainicjowany lub po wywołaniu metody Remove.</xref:System.Data.SqlClient.SqlConnectionStringBuilder>      | Klucz | Wartość domyślna |   |---------|-------------------|   | Nazwa aplikacji | &quot;. Dostawca danych SqlClient NET &quot;|   | Przetwarzanie asynchroniczne | FALSE |   | AttachDBFilename | Pusty ciąg |   | Limit czasu połączenia |&15; |   | Połączenie kontekstu | FALSE |   | Bieżący język | Pusty ciąg |   | Źródło danych | Pusty ciąg |   | Szyfrowanie | FALSE |   | Zarejestrować | Wartość true |   | Partner pracy awaryjnej | Pusty ciąg |   | Wykaz początkowy | Pusty ciąg |   | Zabezpieczenia zintegrowane | FALSE |   | Limit czasu Równoważenie obciążenia |&0; |   | Rozmiar maksymalny buforu |&100; |   | Minimalny rozmiar puli |&0; |   | MultipleActiveResultSets | FALSE |   | Biblioteka sieciowa | Pusty ciąg |   | Rozmiar pakietu |&8000; |   | Hasło | Pusty ciąg |   | Utrzymuj informacje o zabezpieczeniach | FALSE |   | Buforowanie | Wartość true |   | Replikacja | FALSE |   | Powiązanie transakcji | Niejawne usunięcia powiązania |   | Identyfikator użytkownika | Pusty ciąg |   | Wystąpienia użytkownika | FALSE |   | Identyfikator stacji roboczej | Pusty ciąg |"
   example:
   - "The following example converts an existing connection string from using Windows Authentication to using integrated security. The example works by removing the user name and password from the connection string, and then setting the <xref:System.Data.SqlClient.SqlConnectionStringBuilder.IntegratedSecurity%2A> property of the <xref:System.Data.SqlClient.SqlConnectionStringBuilder> object.  \n  \n> [!NOTE]\n>  This example includes a password to demonstrate how <xref:System.Data.SqlClient.SqlConnectionStringBuilder> works with connection strings. In your applications, we recommend that you use Windows Authentication. If you must use a password, do not include a hard-coded password in your application.  \n  \n [!code-cs[DataWorks SqlConnectionStringBuilder.Remove#1](~/add/codesnippet/csharp/m-system.data.sqlclient._7_1.cs)]\n [!code-vb[DataWorks SqlConnectionStringBuilder.Remove#1](~/add/codesnippet/visualbasic/m-system.data.sqlclient._7_1.vb)]  \n  \n The example displays the following text in the console window:  \n  \n```  \nOriginal: Data Source=(local);Initial Catalog=AdventureWorks;User ID=ab;Password= a1Pass@@11  \nModified: Data Source=(local);Initial Catalog=AdventureWorks;Integrated Security=True  \nDatabase = AdventureWorks  \n```"
   syntax:
@@ -1047,15 +1047,15 @@ items:
     parameters:
     - id: keyword
       type: System.String
-      description: "The key of the key/value pair to be removed from the connection string in this <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref>."
+      description: "Klucz parę klucza i wartości do usunięcia z parametrów połączenia w tym <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the key existed within the connection string and was removed; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the key did not exist."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli klucz istniał w parametrach połączenia i została usunięta; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Jeśli klucz nie istnieje."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.Remove*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyword</code> is null (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)"
+    description: "<code>keyword</code>ma wartość null (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> w języku Visual Basic)"
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlConnectionStringBuilder.Replication
@@ -1070,13 +1070,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a Boolean value that indicates whether replication is supported using the connection."
-  remarks: "This property corresponds to the &quot;Replication&quot; key within the connection string."
+  summary: "Pobiera lub ustawia wartość Boolean wskazującą, czy replikacja jest obsługiwana przy użyciu połączenia."
+  remarks: "Ta właściwość odpowiada kluczowi &quot;Replikacji&quot; w parametrach połączenia."
   syntax:
     content: public bool Replication { get; set; }
     return:
       type: System.Boolean
-      description: "The value of the Replication property, or false if none has been supplied."
+      description: "Wartość właściwości replikacji, lub FAŁSZ, jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.Replication*
   exceptions: []
   platform:
@@ -1093,17 +1093,17 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Indicates whether the specified key exists in this <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref> instance."
-  remarks: "This method behaves identically to the <xref:System.Data.Common.DbConnectionStringBuilder.ContainsKey%2A> method."
+  summary: "Wskazuje, czy określony klucz istnieje w tym <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref> wystąpienia."
+  remarks: "Ta metoda zachowuje się tak samo <xref:System.Data.Common.DbConnectionStringBuilder.ContainsKey%2A>metody.</xref:System.Data.Common.DbConnectionStringBuilder.ContainsKey%2A>"
   syntax:
     content: public override bool ShouldSerialize (string keyword);
     parameters:
     - id: keyword
       type: System.String
-      description: "The key to locate in the <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref>."
+      description: "Klucz do zlokalizowania w <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref> contains an entry with the specified key; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref> zawiera wpis z określonym kluczem, a w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.ShouldSerialize*
   exceptions: []
   platform:
@@ -1120,13 +1120,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a string value that indicates how the connection maintains its association with an enlisted <xref uid=&quot;langword_csharp_System.Transactions&quot; name=&quot;System.Transactions&quot; href=&quot;&quot;></xref> transaction."
-  remarks: "The Transaction Binding keywords in a <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A> control how a <xref:System.Data.SqlClient.SqlConnection> binds to an enlisted <xref:System.Transactions.Transaction>.       The following table shows the possible values for the TransactionBinding property:      |Value|Description|   |-----------|-----------------|   |Implicit Unbind|The default. Causes the connection to detach from the transaction when it ends. After detaching, additional requests on the connection are performed in autocommit mode. The <xref:System.Transactions.Transaction.Current%2A> property is not checked when executing requests while the transaction is active. After the transaction has ended, additional requests are performed in autocommit mode.|   |Explicit Unbind|Causes the connection to remain attached to the transaction until the connection is closed or until <xref:System.Data.SqlClient.SqlConnection.EnlistTransaction%2A> is called with a `null` (`Nothing` in Visual Basic) value. An <xref:System.InvalidOperationException> is thrown if <xref:System.Transactions.Transaction.Current%2A> is not the enlisted transaction or if the enlisted transaction is not active. This behavior enforces the strict scoping rules required for <xref:System.Transactions.TransactionScope> support.|"
+  summary: "Pobiera lub ustawia wartość ciągu, która wskazuje zachowywanie jego skojarzenia z zarejestrowane połączenie <xref uid=&quot;langword_csharp_System.Transactions&quot; name=&quot;System.Transactions&quot; href=&quot;&quot;> </xref> transakcji."
+  remarks: "Słowa kluczowe powiązania transakcji w <xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A>kontrolować sposób <xref:System.Data.SqlClient.SqlConnection>wiązania do zarejestrowane <xref:System.Transactions.Transaction>.</xref:System.Transactions.Transaction> </xref:System.Data.SqlClient.SqlConnection> </xref:System.Data.SqlClient.SqlConnection.ConnectionString%2A>       W poniższej tabeli przedstawiono możliwe wartości dla właściwości TransactionBinding: | Wartość | Opis elementu |   |-----------|-----------------|   | Niejawne usunięcia powiązania | Wartość domyślna. Powoduje, że połączenia można odłączyć od transakcji po jej zakończeniu. Po odłączania, dodatkowe żądania połączenia są wykonywane w trybie autozatwierdzania. <xref:System.Transactions.Transaction.Current%2A>Właściwość nie jest sprawdzana podczas wykonywania żądania podczas transakcji jest aktywny.</xref:System.Transactions.Transaction.Current%2A> Po zakończeniu transakcji, dodatkowe żądania są wykonywane w trybie autozatwierdzania. |   | Jawne usuwanie powiązania | Powoduje, że połączenie pozostaje dołączony do transakcji do momentu połączenie jest zamknięte lub dopóki <xref:System.Data.SqlClient.SqlConnection.EnlistTransaction%2A>jest wywoływana z `null` (`Nothing` w języku Visual Basic) wartość.</xref:System.Data.SqlClient.SqlConnection.EnlistTransaction%2A> <xref:System.InvalidOperationException>Jest generowany, jeśli <xref:System.Transactions.Transaction.Current%2A>nie jest zarejestrowane transakcji lub jeśli zarejestrowane transakcja jest nieaktywna.</xref:System.Transactions.Transaction.Current%2A> </xref:System.InvalidOperationException> To zachowanie wymusza ścisłe zasady ustalania zakresu wymagane w celu <xref:System.Transactions.TransactionScope>obsługuje. |</xref:System.Transactions.TransactionScope>"
   syntax:
     content: public string TransactionBinding { get; set; }
     return:
       type: System.String
-      description: "The value of the TransactionBinding property, or <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Wartość właściwości TransactionBinding lub <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;> </xref> Jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.TransactionBinding*
   exceptions: []
   platform:
@@ -1143,12 +1143,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a boolean value."
+  summary: "Pobiera lub ustawia wartość logiczną."
   syntax:
     content: public bool TransparentNetworkIPResolution { get; set; }
     return:
       type: System.Boolean
-      description: "A boolean value."
+      description: "Wartość logiczna."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.TransparentNetworkIPResolution*
   exceptions: []
   platform:
@@ -1165,8 +1165,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a value that indicates whether the channel will be encrypted while bypassing walking the certificate chain to validate trust."
-  remarks: "When `TrustServerCertificate` is set to `true`, the transport layer will use SSL to encrypt the channel and bypass walking the certificate chain to validate trust. If `TrustServerCertificate` is set to `true` and encryption is turned on, the encryption level specified on the server will be used even if `Encrypt` is set to `false`. The connection will fail otherwise.       For more information, see &quot;Encryption Hierarchy&quot; and &quot;Using Encryption Without Validation&quot; in SQL Server Books Online."
+  summary: "Pobiera lub ustawia wartość wskazującą, czy kanał będą szyfrowane podczas pomijanie przejście łańcuch certyfikatów do sprawdzania poprawności zaufania."
+  remarks: "Gdy `TrustServerCertificate` ma ustawioną wartość `true`, warstwy transportowej będą używać protokołu SSL do szyfrowania kanału i obejście przejście łańcuch certyfikatów do sprawdzania poprawności zaufania. Jeśli `TrustServerCertificate` ustawiono `true` i szyfrowanie jest włączone, poziom szyfrowania określonych na serwerze, który będzie używany nawet wtedy, gdy `Encrypt` ma ustawioną wartość `false`. Połączenia zakończy się niepowodzeniem, w przeciwnym razie wartość.       Aby uzyskać więcej informacji zobacz &quot;Hierarchii szyfrowania&quot; i &quot;Za pomocą szyfrowania bez sprawdzania poprawności&quot; w dokumentacji SQL Server — książki Online."
   syntax:
     content: public bool TrustServerCertificate { get; set; }
     return:
@@ -1188,8 +1188,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Retrieves a value corresponding to the supplied key from this <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref>."
-  remarks: "The TryGetValue method lets developers safely retrieve a value from a <xref:System.Data.SqlClient.SqlConnectionStringBuilder> without needing to verify that the supplied key name is a valid key name. Because **TryGetValue** does not raise an exception when you call it, passing in a nonexistent key, you do not have to look for a key before retrieving its value.  Calling **TryGetValue** with a nonexistent key will place the value null (`Nothing` in Visual Basic) in the `value` parameter."
+  summary: "Pobiera wartość odpowiadającą podany klucz z tego <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref>."
+  remarks: "Metoda TryGetValue umożliwia deweloperom bezpiecznie pobrać wartości z <xref:System.Data.SqlClient.SqlConnectionStringBuilder>bez konieczności Sprawdź, czy podana nazwa klucza jest prawidłową nazwą klucza.</xref:System.Data.SqlClient.SqlConnectionStringBuilder> Ponieważ **TryGetValue** nie zgłaszał wyjątek podczas wywoływania, przekazując nieistniejącą klucza, nie masz do wyszukiwania przed pobraniem jego wartości klucza.  Wywoływanie **TryGetValue** kluczem nieistniejącą umieści wartość null (`Nothing` w języku Visual Basic) w `value` parametru."
   example:
   - "The following example demonstrates the behavior of the **TryGetValue** method.  \n  \n [!code-vb[DataWorks SqlConnectionStringBuilder.TryGetValue#1](~/add/codesnippet/visualbasic/25aa2e92-0892-4821-a220-_1.vb)]\n [!code-cs[DataWorks SqlConnectionStringBuilder.TryGetValue#1](~/add/codesnippet/csharp/25aa2e92-0892-4821-a220-_1.cs)]  \n  \n The sample displays the following results:  \n  \n```  \nData Source=(local)  \nTrusted_Connection=True  \nUnable to retrieve value for 'InvalidKey'  \nUnable to retrieve value for null key.  \n```"
   syntax:
@@ -1197,18 +1197,18 @@ items:
     parameters:
     - id: keyword
       type: System.String
-      description: "The key of the item to retrieve."
+      description: "Klucz elementu do pobrania."
     - id: value
       type: System.Object
-      description: "The value corresponding to `keyword.`"
+      description: "Wartością odpowiadającą`keyword.`"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>keyword</code> was found within the connection string; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli <code> keyword </code> został znaleziony w ciągu połączenia; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.TryGetValue*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyword</code> contains a null value (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>keyword</code>zawiera wartość null (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> w języku Visual Basic)."
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlConnectionStringBuilder.TypeSystemVersion
@@ -1223,13 +1223,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a string value that indicates the type system the application expects."
-  remarks: "The `TypeSystemVersion` property can be used to specify a down-level version of [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] for applications written against that version. This avoids possible problems with incompatible types in a newer version of [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] that may cause the application to break."
+  summary: "Pobiera lub ustawia wartość ciągu, który wskazuje, że system typów aplikacji oczekuje."
+  remarks: "`TypeSystemVersion` Właściwości może służyć do określ wersję niskiego poziomu [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] dla aplikacji napisanych przy użyciu tej wersji. Dzięki temu można uniknąć możliwych problemów z niezgodnymi typami w nowszej wersji [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] mogą powodować awarię aplikacji."
   syntax:
     content: public string TypeSystemVersion { get; set; }
     return:
       type: System.String
-      description: "The following table shows the possible values for the TypeSystemVersion property:       <table><thead><tr><th> Value       </th><th> Description       </th></tr></thead><tbody><tr><td> [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] 2005       </td><td> Uses the [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] 2005 type system. No conversions are made for the current version of ADO.NET.       </td></tr><tr><td> SQL Server 2008       </td><td> Uses the SQL Server 2008 type system.       </td></tr><tr><td> Latest       </td><td> Use the latest version than this client-server pair can handle. This will automatically move forward as the client and server components are upgraded.       </td></tr></tbody></table>"
+      description: "W poniższej tabeli przedstawiono możliwe wartości dla właściwości TypeSystemVersion:       <table><thead><tr><th> Wartość       </th><th> Opis       </th></tr></thead><tbody><tr><td> [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] 2005       </td><td> Używa [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] system typów 2005. Konwersje nie są wykonywane dla bieżącej wersji programu ADO.NET.       </td></tr><tr><td> SQL Server 2008       </td><td> Używa programu SQL Server 2008 system typów.       </td></tr><tr><td> Najnowsze       </td><td> Użyj najnowszej wersji, nie może obsłużyć tej pary klient serwer. Spowoduje to automatycznie przeniesienie do przodu jako składniki klienta i serwera są uaktualniane.       </td></tr></tbody></table>"
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.TypeSystemVersion*
   exceptions: []
   platform:
@@ -1246,18 +1246,18 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets the user ID to be used when connecting to SQL Server."
-  remarks: "This property corresponds to the &quot;User ID&quot;, &quot;user&quot;, and &quot;uid&quot; keys within the connection string."
+  summary: "Pobiera lub ustawia identyfikator użytkownika, który będzie używany podczas nawiązywania połączenia z serwerem SQL."
+  remarks: "Ta właściwość odpowiada kluczy &quot;Identyfikatora użytkownika&quot;, &quot;użytkownika&quot; i &quot;uid&quot; w parametrach połączenia."
   syntax:
     content: public string UserID { get; set; }
     return:
       type: System.String
-      description: "The value of the UserID property, or <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Wartość właściwości identyfikatora użytkownika lub <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;> </xref> Jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.UserID*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "To set the value to null, use <xref href=&quot;System.DBNull.Value&quot;></xref>."
+    description: "Aby ustawić wartość null, użyj <xref href=&quot;System.DBNull.Value&quot;> </xref>."
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlConnectionStringBuilder.UserInstance
@@ -1272,18 +1272,18 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets a value that indicates whether to redirect the connection from the default SQL Server Express instance to a runtime-initiated instance running under the account of the caller."
-  remarks: "This property corresponds to the &quot;User Instance&quot; key within the connection string.      > [!NOTE] >  This feature is available only with the [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] Express Edition. For more information on user instances, see [SQL Server Express User Instances](~/add/includes/ajax-current-ext-md.md) and &quot;User Instances for Non-Administrators&quot; in [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] Books Online."
+  summary: "Pobiera lub ustawia wartość wskazującą, czy do przekierowywania połączenie z domyślnym wystąpieniu programu SQL Server Express do wystąpienia inicjowanych przez środowisko uruchomieniowe działającej na koncie obiektu wywołującego."
+  remarks: "Ta właściwość odpowiada kluczowi &quot;Wystąpienia użytkownika&quot; w parametrach połączenia.      > [!NOTE] > Ta funkcja jest dostępna tylko w przypadku [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] Express Edition. Aby uzyskać więcej informacji na wystąpieniach użytkowników, zobacz [wystąpienia programu SQL Server Express użytkownika](~/add/includes/ajax-current-ext-md.md) i &quot;użytkownika wystąpień dla użytkownicy niebędący administratorami&quot; w [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)] — książki Online."
   syntax:
     content: public bool UserInstance { get; set; }
     return:
       type: System.Boolean
-      description: "The value of the UserInstance property, or <xref uid=&quot;langword_csharp_False&quot; name=&quot;False&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Wartość właściwości UserInstance lub <xref uid=&quot;langword_csharp_False&quot; name=&quot;False&quot; href=&quot;&quot;> </xref> Jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.UserInstance*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "To set the value to null, use <xref href=&quot;System.DBNull.Value&quot;></xref>."
+    description: "Aby ustawić wartość null, użyj <xref href=&quot;System.DBNull.Value&quot;> </xref>."
   platform:
   - net462
 - uid: System.Data.SqlClient.SqlConnectionStringBuilder.Values
@@ -1298,15 +1298,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets an <xref:System.Collections.ICollection> that contains the values in the <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref>."
-  remarks: "The order of the values in the <xref:System.Collections.ICollection> is unspecified, but it is the same order as the associated keys in the <xref:System.Collections.ICollection> returned by the <xref:System.Data.SqlClient.SqlConnectionStringBuilder.Keys%2A> property. Because each instance of the <xref:System.Data.SqlClient.SqlConnectionStringBuilder> always contains the same fixed set of keys, the Values property always returns the values corresponding to the fixed set of keys, in the same order as the keys."
+  summary: "Pobiera <xref:System.Collections.ICollection>zawierający wartości w <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref>.</xref:System.Collections.ICollection>"
+  remarks: "Kolejność wartości na liście <xref:System.Collections.ICollection>jest nieokreślony, ale takiej samej kolejności jak skojarzonych kluczy w <xref:System.Collections.ICollection>zwrócony przez <xref:System.Data.SqlClient.SqlConnectionStringBuilder.Keys%2A>Właściwości.</xref:System.Data.SqlClient.SqlConnectionStringBuilder.Keys%2A> </xref:System.Collections.ICollection> </xref:System.Collections.ICollection> Ponieważ każde wystąpienie <xref:System.Data.SqlClient.SqlConnectionStringBuilder>zawsze zawiera ten sam zestaw stałym kluczy i wartości właściwości zawsze zwraca wartości odpowiadających stałym zestaw kluczy, w takiej samej kolejności jak klucze.</xref:System.Data.SqlClient.SqlConnectionStringBuilder>"
   example:
   - "The following example first creates a new <xref:System.Data.SqlClient.SqlConnectionStringBuilder>, and then iterates through all the values within the object.  \n  \n [!code-vb[DataWorks SqlConnectionStringBuilder.Values#1](~/add/codesnippet/visualbasic/p-system.data.sqlclient._29_1.vb)]\n [!code-cs[DataWorks SqlConnectionStringBuilder.Values#1](~/add/codesnippet/csharp/p-system.data.sqlclient._29_1.cs)]"
   syntax:
     content: public override System.Collections.ICollection Values { get; }
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> that contains the values in the <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;></xref>."
+      description: "<xref:System.Collections.ICollection>Zawierający wartości w <xref href=&quot;System.Data.SqlClient.SqlConnectionStringBuilder&quot;> </xref>.</xref:System.Collections.ICollection>"
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.Values*
   exceptions: []
   platform:
@@ -1323,18 +1323,18 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Gets or sets the name of the workstation connecting to SQL Server."
-  remarks: "This property corresponds to the &quot;Workstation ID&quot; and &quot;wsid&quot; keys within the connection string."
+  summary: "Pobiera lub ustawia nazwę stacji roboczej łączącej się z programem SQL Server."
+  remarks: "Ta właściwość odpowiada kluczy &quot;Workstation ID&quot; i &quot;wsid&quot; w parametrach połączenia."
   syntax:
     content: public string WorkstationID { get; set; }
     return:
       type: System.String
-      description: "The value of the WorkstationID property, or <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "Wartość właściwości WorkstationID lub <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;> </xref> Jeśli nie została podana."
   overload: System.Data.SqlClient.SqlConnectionStringBuilder.WorkstationID*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "To set the value to null, use <xref href=&quot;System.DBNull.Value&quot;></xref>."
+    description: "Aby ustawić wartość null, użyj <xref href=&quot;System.DBNull.Value&quot;> </xref>."
   platform:
   - net462
 references:

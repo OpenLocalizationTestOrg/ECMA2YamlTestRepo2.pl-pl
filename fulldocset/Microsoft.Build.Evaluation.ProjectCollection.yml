@@ -59,8 +59,8 @@ items:
   nameWithType: ProjectCollection
   fullName: Microsoft.Build.Evaluation.ProjectCollection
   type: Class
-  summary: "Encapsulates a set of related projects, their toolsets, a default set of global properties, and the loggers that should be used to build them. A global version of this class acts as the default project collection."
-  remarks: "Multiple project collections can exist within an app domain. However, these must not build concurrently."
+  summary: "Hermetyzuje zestawu powiązanych projektów, ich procesami domyślny zestaw właściwości globalne i rejestratorów, które powinny być używane do tworzenia ich. Globalne wersja tej klasy działa jako domyślnej kolekcji projektów."
+  remarks: "Wieloma kolekcjami projektów może istnieć w domenie aplikacji. Jednak te muszą nie utworzyć jednocześnie."
   syntax:
     content: 'public class ProjectCollection : IDisposable'
   inheritance:
@@ -82,7 +82,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Creates a project collection with no global properties or loggers. The project collection toolset is initialized from the configuration file and registry."
+  summary: "Tworzy kolekcję projektów bez właściwości globalne i rejestratorów. Zestaw narzędzi z kolekcji projektu jest inicjowana z pliku konfiguracji i rejestru."
   syntax:
     content: public ProjectCollection ();
     parameters: []
@@ -102,13 +102,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Creates a project collection with no global properties or loggers. The project collection toolset is initialized from toolsets in the given locations."
+  summary: "Tworzy kolekcję projektów bez właściwości globalne i rejestratorów. Zestaw narzędzi z kolekcji projektu jest inicjowana z procesami w danej lokalizacji."
   syntax:
     content: public ProjectCollection (Microsoft.Build.Evaluation.ToolsetDefinitionLocations toolsetLocations);
     parameters:
     - id: toolsetLocations
       type: Microsoft.Build.Evaluation.ToolsetDefinitionLocations
-      description: "The locations from which to load toolsets."
+      description: "Lokalizacje, z którego można załadować procesami."
   overload: Microsoft.Build.Evaluation.ProjectCollection.#ctor*
   exceptions: []
   platform:
@@ -125,14 +125,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Instantiates a project collection with specified global properties, no loggers, and that reads toolset information from the configuration file and registry."
-  remarks: "May throw InvalidToolsetDefinitionException."
+  summary: "Tworzy kolekcję projektów z określonej właściwości globalne, nie rejestratorów i tym informacji o zestawie narzędzi odczyty z pliku konfiguracji i rejestru."
+  remarks: "Może zgłaszać InvalidToolsetDefinitionException."
   syntax:
     content: public ProjectCollection (System.Collections.Generic.IDictionary<string,string> globalProperties);
     parameters:
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "The default global properties to use. May be null."
+      description: "Domyślne właściwości globalne do użycia. Może mieć wartości null."
   overload: Microsoft.Build.Evaluation.ProjectCollection.#ctor*
   exceptions: []
   platform:
@@ -149,20 +149,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Instantiates a project collection with specified global properties and loggers and using the specified toolset locations."
-  remarks: "May throw InvalidToolsetDefinitionException."
+  summary: "Tworzy kolekcję projektów z określonej właściwości globalne i rejestratorów oraz przy użyciu narzędzi określonej lokalizacji."
+  remarks: "Może zgłaszać InvalidToolsetDefinitionException."
   syntax:
     content: public ProjectCollection (System.Collections.Generic.IDictionary<string,string> globalProperties, System.Collections.Generic.IEnumerable<Microsoft.Build.Framework.ILogger> loggers, Microsoft.Build.Evaluation.ToolsetDefinitionLocations toolsetDefinitionLocations);
     parameters:
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "The default global properties to use. May be null."
+      description: "Domyślne właściwości globalne do użycia. Może mieć wartości null."
     - id: loggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Framework.ILogger}
-      description: "The loggers to register. May be null."
+      description: "Rejestratory do zarejestrowania. Może mieć wartości null."
     - id: toolsetDefinitionLocations
       type: Microsoft.Build.Evaluation.ToolsetDefinitionLocations
-      description: "The locations from which to load toolsets."
+      description: "Lokalizacje, z którego można załadować procesami."
   overload: Microsoft.Build.Evaluation.ProjectCollection.#ctor*
   exceptions: []
   platform:
@@ -179,29 +179,29 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Creates a project collection with specified global properties, loggers, node count, and onlyLogCriticalEvents value. The project collection toolset is initialized from toolsets in the given locations."
-  remarks: "Throws InvalidProjectFileException if any of the global properties are reserved."
+  summary: "Tworzy kolekcję projektów z określonej właściwości globalne, rejestratory liczba węzłów i onlyLogCriticalEvents wartość. Zestaw narzędzi z kolekcji projektu jest inicjowana z procesami w danej lokalizacji."
+  remarks: "Zgłasza invalidprojectfileexception — globalnych właściwości są zastrzeżone."
   syntax:
     content: public ProjectCollection (System.Collections.Generic.IDictionary<string,string> globalProperties, System.Collections.Generic.IEnumerable<Microsoft.Build.Framework.ILogger> loggers, System.Collections.Generic.IEnumerable<Microsoft.Build.Logging.ForwardingLoggerRecord> remoteLoggers, Microsoft.Build.Evaluation.ToolsetDefinitionLocations toolsetDefinitionLocations, int maxNodeCount, bool onlyLogCriticalEvents);
     parameters:
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "The default global properties to use. May be null."
+      description: "Domyślne właściwości globalne do użycia. Może mieć wartości null."
     - id: loggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Framework.ILogger}
-      description: "The loggers to register. May be null and specified to any build instead."
+      description: "Rejestratory do zarejestrowania. Może być null określony do dowolnego kompilacji zamiast tego."
     - id: remoteLoggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Logging.ForwardingLoggerRecord}
-      description: "Any remote loggers to register. May be null and specified to any build instead."
+      description: "Wszelkie zdalnego rejestratorów do zarejestrowania. Może być null określony do dowolnego kompilacji zamiast tego."
     - id: toolsetDefinitionLocations
       type: Microsoft.Build.Evaluation.ToolsetDefinitionLocations
-      description: "The locations from which to load toolsets."
+      description: "Lokalizacje, z którego można załadować procesami."
     - id: maxNodeCount
       type: System.Int32
-      description: "The maximum number of nodes to use for building."
+      description: "Maksymalna liczba węzłów do użycia na potrzeby tworzenia."
     - id: onlyLogCriticalEvents
       type: System.Boolean
-      description: "If set to true, only critical events will be logged."
+      description: "Jeśli ustawiono wartość true, tylko krytyczne zdarzenia będą rejestrowane."
   overload: Microsoft.Build.Evaluation.ProjectCollection.#ctor*
   exceptions: []
   platform:
@@ -218,13 +218,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Adds a new toolset to the project collection. Replaces any existing toolset with the same tools version."
+  summary: "Dodaje nowy zestaw narzędzi do kolekcji projektów. Zamienia wszystkie istniejące zestawu narzędzi tej samej wersji narzędzia."
   syntax:
     content: public void AddToolset (Microsoft.Build.Evaluation.Toolset toolset);
     parameters:
     - id: toolset
       type: Microsoft.Build.Evaluation.Toolset
-      description: "The toolset to be added."
+      description: "Zestaw narzędzi do dodania."
   overload: Microsoft.Build.Evaluation.ProjectCollection.AddToolset*
   exceptions: []
   platform:
@@ -241,16 +241,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Determines whether a toolset is defined for the given tools version."
+  summary: "Określa, czy dla danego narzędzia wersja jest zdefiniowane zestawu narzędzi."
   syntax:
     content: public bool ContainsToolset (string toolsVersion);
     parameters:
     - id: toolsVersion
       type: System.String
-      description: "The tools version to search for."
+      description: "Wersja narzędzia do wyszukiwania."
     return:
       type: System.Boolean
-      description: "Returns true if there is a toolset defined for the given tools version; false otherwise."
+      description: "Zwraca wartość PRAWDA, jeśli jest zdefiniowany dla danego narzędzia wersja; zestawu narzędzi wartość false w przeciwnym razie wartość."
   overload: Microsoft.Build.Evaluation.ProjectCollection.ContainsToolset*
   exceptions: []
   platform:
@@ -267,12 +267,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the number of projects currently loaded into this collection."
+  summary: "Pobiera liczbę projektów aktualnie załadowane do tej kolekcji."
   syntax:
     content: public int Count { get; }
     return:
       type: System.Int32
-      description: "Returns the number of projects currently loaded into this collection."
+      description: "Zwraca liczbę projektów aktualnie załadowane do tej kolekcji."
   overload: Microsoft.Build.Evaluation.ProjectCollection.Count*
   exceptions: []
   platform:
@@ -289,13 +289,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the default tools version of this project collection."
-  remarks: "This default value is obtained from the .exe.config file, from the system registry, or if neither is present, from the hard-coded tools version &quot;2.0&quot;.       The set method throws InvalidOperationException if a toolset with the provided tools version has not been defined."
+  summary: "Pobiera domyślną wersję narzędzi tej kolekcji projektów."
+  remarks: "Tej wartości domyślne są uzyskiwane z. exe.config pliku z rejestru systemowego lub jeśli nie będzie obecne, z wersji narzędzia ustalony &quot;2.0&quot;.       Nie zdefiniowano zgłasza metody set InvalidOperationException, jeśli zestaw narzędzi z wersją narzędzia podana."
   syntax:
     content: public string DefaultToolsVersion { get; set; }
     return:
       type: System.String
-      description: "Returns the default tools version of this project collection, which is always defined."
+      description: "Zwraca domyślną wersję narzędzi tej kolekcji projektów, zawsze jest definiowany."
   overload: Microsoft.Build.Evaluation.ProjectCollection.DefaultToolsVersion*
   exceptions: []
   platform:
@@ -312,12 +312,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets or sets a flag that determines whether <xref:Microsoft.Build.Evaluation.Project.MarkDirty*> is temporarily disabled on projects in this collection. This allows, for example, a global properties to be set without projects getting marked dirty for reevaluation as a consequence."
+  summary: "Pobiera lub ustawia flagę określającą, czy <xref:Microsoft.Build.Evaluation.Project.MarkDirty*>jest tymczasowo wyłączona w przypadku projektów w tej kolekcji.</xref:Microsoft.Build.Evaluation.Project.MarkDirty*> Dzięki temu, na przykład globalnych właściwości należy ustawić bez projektów pobierania oznaczonych jako zakłócone dla ponownej oceny w konsekwencji."
   syntax:
     content: public bool DisableMarkDirty { get; set; }
     return:
       type: System.Boolean
-      description: "Returns a flag that determines whether <xref uid=&quot;langword_csharp_MarkDirty&quot; name=&quot;MarkDirty&quot; href=&quot;&quot;></xref> is temporarily disabled."
+      description: "Zwraca flagę określającą, czy <xref uid=&quot;langword_csharp_MarkDirty&quot; name=&quot;MarkDirty&quot; href=&quot;&quot;> </xref> jest tymczasowo wyłączona."
   overload: Microsoft.Build.Evaluation.ProjectCollection.DisableMarkDirty*
   exceptions: []
   platform:
@@ -334,8 +334,8 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Releases both managed and unmanaged resources.  Called when a host no longer needs the project collection."
-  remarks: "In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject() before the ProjectCollection goes out of scope.”"
+  summary: "Zwalnia zasoby zarządzane i niezarządzane.  Wywoływane, gdy host nie będzie już potrzebował kolekcji projektów."
+  remarks: "W wersjach programu MSBuild, które zostały dostarczone z .net 4.5 i programu Visual Studio 12.0 należy wywołać UnloadProject() przed projectcollection — wykracza poza zakres tej asysty.&quot;"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -355,14 +355,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Releases both managed and unmanaged resources.  Called when a host no longer needs the project collection.. Shuts down any logging services that the project collection owns and releases the logger thread."
-  remarks: "Follows the garbage disposal guidelines of .NET."
+  summary: "Zwalnia zasoby zarządzane i niezarządzane.  Wywołuje się, gdy host nie będzie już potrzebował kolekcji projektów... Zamyka wszystkie usługi rejestrowania, czy kolekcja projektów jest właścicielem i zwalnia wątku rejestratora."
+  remarks: "Jest zgodna z wytycznymi usuwania pamięci platformy .NET."
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "If true, releases both managed and unmanaged resources; otherwise releases only unmanaged resources.."
+      description: "Jeśli PRAWDA, zwalnia zasoby zarządzane i niezarządzane; w przeciwnym razie zwalnia tylko zasoby niezarządzane."
   overload: Microsoft.Build.Evaluation.ProjectCollection.Dispose*
   exceptions: []
   platform:
@@ -379,17 +379,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Converts special characters in a string to MSBuild escape format."
-  remarks: "For example, &quot;%3b&quot; for &quot;;&quot;. Only characters that are especially significant to MSBuild parsing are converted. Callers can use this method to make a string safe to be parsed by other methods that would otherwise expand it. Callers can also use this method to make a string safe to be written to a project file."
+  summary: "Konwertuje znaki specjalne w ciągu formatu ucieczki w MSBuild."
+  remarks: "Na przykład &quot;%&3;b&quot;for&quot;;&quot;. Konwertowane są tylko znaki, które są szczególnie istotne dla MSBuild analizy. Obiekty wywołujące można użyć tej metody nawiązać bezpieczne można analizować za pomocą innych metod, które w przeciwnym razie mogłyby rozwiń ciąg. Obiekty wywołujące umożliwia tej metody upewnij ciąg bezpieczne są zapisywane w pliku projektu."
   syntax:
     content: public static string Escape (string unescapedString);
     parameters:
     - id: unescapedString
       type: System.String
-      description: "The string to be converted."
+      description: "Ciąg, który ma zostać przekonwertowany."
     return:
       type: System.String
-      description: "Returns the converted string."
+      description: "Zwraca ciąg przekonwertowany."
   overload: Microsoft.Build.Evaluation.ProjectCollection.Escape*
   exceptions: []
   platform:
@@ -406,16 +406,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Get any global property on the project collection that has the specified name."
+  summary: "Pobierz wszystkie właściwości globalnej w kolekcji projektów, która ma określoną nazwę."
   syntax:
     content: public Microsoft.Build.Execution.ProjectPropertyInstance GetGlobalProperty (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the property to be retrieved."
+      description: "Nazwa właściwości, które mają zostać pobrane."
     return:
       type: Microsoft.Build.Execution.ProjectPropertyInstance
-      description: "Returns any global property on the project collection that has the specified name; otherwise returns null."
+      description: "Zwraca wszystkie właściwości globalnej w kolekcji projektów, która ma określoną nazwę; w przeciwnym razie zwraca wartość null."
   overload: Microsoft.Build.Evaluation.ProjectCollection.GetGlobalProperty*
   exceptions: []
   platform:
@@ -432,17 +432,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets all projects whose project path matches the given path."
-  remarks: "There may be more than one project with the given path because projects are also distinguished by global properties and/or tools version."
+  summary: "Pobiera wszystkie projekty, w których ścieżka projektu odpowiada podanej ścieżce."
+  remarks: "Może istnieć więcej niż jeden projekt o podanej ścieżce, ponieważ projekty również można rozróżnić za globalnych właściwości i/lub wersji narzędzia."
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.Project> GetLoadedProjects (string fullPath);
     parameters:
     - id: fullPath
       type: System.String
-      description: "The path to a project file to be matched."
+      description: "Ścieżka do pliku projektu do dopasowania."
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Evaluation.Project}
-      description: "Returns all projects whose project path matches the given path."
+      description: "Zwraca wszystkie projekty, w których ścieżka projektu odpowiada podanej ścieżce."
   overload: Microsoft.Build.Evaluation.ProjectCollection.GetLoadedProjects*
   exceptions: []
   platform:
@@ -459,16 +459,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Get the toolset with the specified tools version."
+  summary: "Pobierz zestaw narzędzi z wersją narzędzia określony."
   syntax:
     content: public Microsoft.Build.Evaluation.Toolset GetToolset (string toolsVersion);
     parameters:
     - id: toolsVersion
       type: System.String
-      description: "The tools version to match."
+      description: "Wersja narzędzia do dopasowania."
     return:
       type: Microsoft.Build.Evaluation.Toolset
-      description: "Returns the toolset with the specified tools version. Returns null if no toolset matching this tools version exists."
+      description: "Zwraca zestaw narzędzi z wersją narzędzia określony. Zwraca wartość null, jeśli nie narzędzi dopasowywania to wersję narzędzi istnieje."
   overload: Microsoft.Build.Evaluation.ProjectCollection.GetToolset*
   exceptions: []
   platform:
@@ -485,13 +485,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the global project collection object."
-  remarks: "Thread safe."
+  summary: "Pobiera obiekt kolekcji projektu globalnego."
+  remarks: "Bezpieczne dla wątków."
   syntax:
     content: public static Microsoft.Build.Evaluation.ProjectCollection GlobalProjectCollection { get; }
     return:
       type: Microsoft.Build.Evaluation.ProjectCollection
-      description: "Returns the global project collection object. This is a singleton project collection with no global properties or loggers. Toolset information is obtained from the configuration file and registry."
+      description: "Zwraca obiekt kolekcji projektu globalnego. To jest kolekcją projektu pojedynczego wystąpienia bez właściwości globalne i rejestratorów. Informacji o zestawie narzędzi są uzyskiwane z pliku konfiguracji i rejestru."
   overload: Microsoft.Build.Evaluation.ProjectCollection.GlobalProjectCollection*
   exceptions: []
   platform:
@@ -508,13 +508,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the read-only default global properties for all projects in this collection."
-  remarks: "Use <xref:Microsoft.Build.Evaluation.ProjectCollection.SetGlobalProperty%2A> and <xref:Microsoft.Build.Evaluation.ProjectCollection.RemoveGlobalProperty%2A> to add, set, and remove global properties."
+  summary: "Pobiera domyślne tylko do odczytu właściwości globalne dla wszystkich projektów w tej kolekcji."
+  remarks: "Użyj <xref:Microsoft.Build.Evaluation.ProjectCollection.SetGlobalProperty%2A>i <xref:Microsoft.Build.Evaluation.ProjectCollection.RemoveGlobalProperty%2A>do dodawania, ustaw i Usuń globalnych właściwości.</xref:Microsoft.Build.Evaluation.ProjectCollection.RemoveGlobalProperty%2A> </xref:Microsoft.Build.Evaluation.ProjectCollection.SetGlobalProperty%2A>"
   syntax:
     content: public System.Collections.Generic.IDictionary<string,string> GlobalProperties { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Returns the read-only default global properties for all projects in this collection."
+      description: "Zwraca domyślne tylko do odczytu właściwości globalne dla wszystkich projektów w tej kolekcji."
   overload: Microsoft.Build.Evaluation.ProjectCollection.GlobalProperties*
   exceptions: []
   platform:
@@ -531,13 +531,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets or sets an object that provides host services to tasks during builds of projects contained in the project collection."
-  remarks: "By default, returns HostServices, which may be null."
+  summary: "Pobiera lub ustawia obiekt, który zawiera usługi hosta zadań podczas kompilacji projektów zawartych w kolekcji projektów."
+  remarks: "Domyślnie zwraca obiekcie HostServices, który może mieć wartości null."
   syntax:
     content: public Microsoft.Build.Execution.HostServices HostServices { get; set; }
     return:
       type: Microsoft.Build.Execution.HostServices
-      description: "Returns the host services object."
+      description: "Zwraca hosta obiektu usług."
   overload: Microsoft.Build.Evaluation.ProjectCollection.HostServices*
   exceptions: []
   platform:
@@ -554,13 +554,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets or sets a property that selects by default whether the targets and tasks of projects in the project collection can be built."
-  remarks: "Can be used for security purposes. By default, a new project has the same IsBuildEnabled setting as the parent project collection that contains it. When IsBuildEnabled is false, the Build method on this project fails."
+  summary: "Pobiera lub ustawia właściwość, która domyślnie wybiera czy mogą być wbudowane obiektów docelowych i zadań projektów w kolekcji projektów."
+  remarks: "Można ze względów bezpieczeństwa. Domyślnie nowy projekt ma to samo ustawienie IsBuildEnabled jako kolekcja projektu nadrzędnego, który go zawiera. IsBuildEnabled ma wartość false, metody kompilacji dla tego projektu nie powiedzie się."
   syntax:
     content: public bool IsBuildEnabled { get; set; }
     return:
       type: System.Boolean
-      description: "Gets or sets a property that selects by default whether the targets and tasks of projects in this project collection can be built."
+      description: "Pobiera lub ustawia właściwość, która domyślnie wybiera czy mogą być wbudowane obiektów docelowych i zadań projektów w tej kolekcji projektów."
   overload: Microsoft.Build.Evaluation.ProjectCollection.IsBuildEnabled*
   exceptions: []
   platform:
@@ -577,13 +577,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets all the projects currently loaded into this collection."
-  remarks: "Each project has a unique combination of path, global properties, and tools version."
+  summary: "Pobiera wszystkie projekty, które są aktualnie załadowane do tej kolekcji."
+  remarks: "Każdy projekt ma unikatowych kombinacji ścieżki, globalnych właściwości i wersję narzędzia."
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.Project> LoadedProjects { get; }
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Evaluation.Project}
-      description: "Returns all the projects currently loaded into this collection."
+      description: "Zwraca wszystkie projekty, które są aktualnie załadowane do tej kolekcji."
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadedProjects*
   exceptions: []
   platform:
@@ -600,17 +600,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Evaluates a project from the source code in the given project file. The source code is evaluated with the global properties and tools version of this project collection."
-  remarks: "In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope."
+  summary: "Oblicza projektu z kodu źródłowego w pliku projektu. Kod źródłowy jest obliczane z globalnej wersji narzędzi i właściwości tej kolekcji projektów."
+  remarks: "W wersjach programu MSBuild, które zostały dostarczone z .net 4.5 i programu Visual Studio 12.0 należy wywołać UnloadProject przed projectcollection — wykracza poza zakres."
   syntax:
     content: public Microsoft.Build.Evaluation.Project LoadProject (string fileName);
     parameters:
     - id: fileName
       type: System.String
-      description: "The project file to evaluate."
+      description: "Plik projektu do oceny."
     return:
       type: Microsoft.Build.Evaluation.Project
-      description: "If an existing project in the collection has already been evaluated from the given project file, the existing project is returned. Otherwise, a new project is created, evaluated, added to the project collection, and returned."
+      description: "Jeśli już został oceniony istniejącego projektu w kolekcji z pliku projektu, zwracany jest istniejący projekt. W przeciwnym razie nowy projekt jest utworzony, obliczone dodany do kolekcji projektów i zwracane."
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadProject*
   exceptions: []
   platform:
@@ -627,17 +627,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Evaluates a project from the source code read from the given XML reader. The source code is evaluated with the global properties and tools version of this project collection."
-  remarks: "The project is added to this project collection when either this project or the given project root is given the full path to a project file.       In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope."
+  summary: "Oblicza projektu z kodu źródłowego odczytu z danego modułu odczytującego XML. Kod źródłowy jest obliczane z globalnej wersji narzędzi i właściwości tej kolekcji projektów."
+  remarks: "Projekt jest dodany do tej kolekcji projektów, gdy tego projektu lub katalogu głównym danego projektu jest pełna ścieżka do pliku projektu.       W wersjach programu MSBuild, które zostały dostarczone z .net 4.5 i programu Visual Studio 12.0 należy wywołać UnloadProject przed projectcollection — wykracza poza zakres."
   syntax:
     content: public Microsoft.Build.Evaluation.Project LoadProject (System.Xml.XmlReader xmlReader);
     parameters:
     - id: xmlReader
       type: System.Xml.XmlReader
-      description: "Xml reader to read project source code from."
+      description: "Można odczytać kodu źródłowego projektu z modułu odczytującego XML."
     return:
       type: Microsoft.Build.Evaluation.Project
-      description: "Returns the new project."
+      description: "Zwraca nowy projekt."
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadProject*
   exceptions: []
   platform:
@@ -654,20 +654,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Evaluates a project from the source code read from the given project file. The source code is evaluated with the global properties of this project collection and the given tools version."
-  remarks: "In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope."
+  summary: "Oblicza projektu z kodu źródłowego odczytu z pliku projektu. Kod źródłowy jest oceniać za pomocą właściwości globalne tej kolekcji projektów i wersji danego narzędzia."
+  remarks: "W wersjach programu MSBuild, które zostały dostarczone z .net 4.5 i programu Visual Studio 12.0 należy wywołać UnloadProject przed projectcollection — wykracza poza zakres."
   syntax:
     content: public Microsoft.Build.Evaluation.Project LoadProject (string fileName, string toolsVersion);
     parameters:
     - id: fileName
       type: System.String
-      description: "The project file to evaluate."
+      description: "Plik projektu do oceny."
     - id: toolsVersion
       type: System.String
-      description: "The tools version to use. May be null."
+      description: "Wersja narzędzia do użycia. Może mieć wartości null."
     return:
       type: Microsoft.Build.Evaluation.Project
-      description: "If an existing project in the collection has already been evaluated from the given project file, and with the given tools version, then the existing project is returned. Otherwise, a new project is created, evaluated, added to the project collection, and returned."
+      description: "Jeśli już został oceniony istniejącego projektu w kolekcji z pliku projektu i wersją danego narzędzia, zwracany jest istniejący projekt. W przeciwnym razie nowy projekt jest utworzony, obliczone dodany do kolekcji projektów i zwracane."
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadProject*
   exceptions: []
   platform:
@@ -684,20 +684,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Evaluates a project from the source code read from the given XML reader. The source code is evaluated with the global properties of this project collection and the given tools version."
-  remarks: "The project is added to this project collection when either this project or the given project root is given the full path to a project file.       In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope."
+  summary: "Oblicza projektu z kodu źródłowego odczytu z danego modułu odczytującego XML. Kod źródłowy jest oceniać za pomocą właściwości globalne tej kolekcji projektów i wersji danego narzędzia."
+  remarks: "Projekt jest dodany do tej kolekcji projektów, gdy tego projektu lub katalogu głównym danego projektu jest pełna ścieżka do pliku projektu.       W wersjach programu MSBuild, które zostały dostarczone z .net 4.5 i programu Visual Studio 12.0 należy wywołać UnloadProject przed projectcollection — wykracza poza zakres."
   syntax:
     content: public Microsoft.Build.Evaluation.Project LoadProject (System.Xml.XmlReader xmlReader, string toolsVersion);
     parameters:
     - id: xmlReader
       type: System.Xml.XmlReader
-      description: "Xml reader to read project source code from."
+      description: "Można odczytać kodu źródłowego projektu z modułu odczytującego XML."
     - id: toolsVersion
       type: System.String
-      description: "The tools version to use. May be null."
+      description: "Wersja narzędzia do użycia. Może mieć wartości null."
     return:
       type: Microsoft.Build.Evaluation.Project
-      description: "Returns the new project."
+      description: "Zwraca nowy projekt."
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadProject*
   exceptions: []
   platform:
@@ -714,23 +714,23 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Evaluates a project from the source code read from the given project file. The source code is evaluated with the given global properties and tools version."
-  remarks: "In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope."
+  summary: "Oblicza projektu z kodu źródłowego odczytu z pliku projektu. Kod źródłowy jest obliczane przy użyciu danego globalnej wersji narzędzi i właściwości."
+  remarks: "W wersjach programu MSBuild, które zostały dostarczone z .net 4.5 i programu Visual Studio 12.0 należy wywołać UnloadProject przed projectcollection — wykracza poza zakres."
   syntax:
     content: public Microsoft.Build.Evaluation.Project LoadProject (string fileName, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion);
     parameters:
     - id: fileName
       type: System.String
-      description: "The project file to be evaluated."
+      description: "Plik projektu, który ma zostać obliczone."
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "The global properties to use. May be null, in which case the containing project collection&quot;s global properties will be used."
+      description: "Globalne właściwości do użycia. Może mieć wartości null, w takim przypadku można użyć właściwości globalne zawierającego kolekcji projektów."
     - id: toolsVersion
       type: System.String
-      description: "The tools version. May be null."
+      description: "Wersja narzędzia. Może mieć wartości null."
     return:
       type: Microsoft.Build.Evaluation.Project
-      description: "If an existing project in the collection has already been evaluated from the given project file, and with the given global properties and tools version, then the existing project is returned. Otherwise, a new project is created, evaluated, added to the project collection, and returned."
+      description: "Jeśli już został oceniony istniejącego projektu w kolekcji z pliku projektu i z danej właściwości globalne i wersji narzędzi, zwracany jest istniejący projekt. W przeciwnym razie nowy projekt jest utworzony, obliczone dodany do kolekcji projektów i zwracane."
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadProject*
   exceptions: []
   platform:
@@ -747,23 +747,23 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Evaluates a project from the source code read from the given XML reader. The source code is evaluated with the given global properties and tools version."
-  remarks: "The project is added to this project collection when either this project or the given project root is given the full path to a project file.       In the MSBuild versions that were delivered with .Net 4.5 and Visual Studio 12.0, you must call UnloadProject before the ProjectCollection goes out of scope."
+  summary: "Oblicza projektu z kodu źródłowego odczytu z danego modułu odczytującego XML. Kod źródłowy jest obliczane przy użyciu danego globalnej wersji narzędzi i właściwości."
+  remarks: "Projekt jest dodany do tej kolekcji projektów, gdy tego projektu lub katalogu głównym danego projektu jest pełna ścieżka do pliku projektu.       W wersjach programu MSBuild, które zostały dostarczone z .net 4.5 i programu Visual Studio 12.0 należy wywołać UnloadProject przed projectcollection — wykracza poza zakres."
   syntax:
     content: public Microsoft.Build.Evaluation.Project LoadProject (System.Xml.XmlReader xmlReader, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion);
     parameters:
     - id: xmlReader
       type: System.Xml.XmlReader
-      description: "Xml reader to read project from"
+      description: "Czytnik XML do odczytu projektu z"
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "The global properties to use. May be null in which case the containing project collection&quot;s global properties will be used."
+      description: "Globalne właściwości do użycia. Może mieć wartości null w takim przypadku globalnych właściwości zawierającego kolekcji projektów będą używane."
     - id: toolsVersion
       type: System.String
-      description: "The tools version. May be null."
+      description: "Wersja narzędzia. Może mieć wartości null."
     return:
       type: Microsoft.Build.Evaluation.Project
-      description: "Returns the new project."
+      description: "Zwraca nowy projekt."
   overload: Microsoft.Build.Evaluation.ProjectCollection.LoadProject*
   exceptions: []
   platform:
@@ -780,13 +780,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets all loggers that projects in this collection can use for their builds."
-  remarks: "Loggers are added with the <xref:Microsoft.Build.Evaluation.ProjectCollection.RegisterLogger%2A> method."
+  summary: "Pobiera wszystkie rejestratorów, używanych do ich kompilacji projektów w tej kolekcji."
+  remarks: "Rejestratory są dodawane z <xref:Microsoft.Build.Evaluation.ProjectCollection.RegisterLogger%2A>metody.</xref:Microsoft.Build.Evaluation.ProjectCollection.RegisterLogger%2A>"
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Framework.ILogger> Loggers { get; }
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Framework.ILogger}
-      description: "Returns all loggers that projects in this collection can use for their builds."
+      description: "Zwraca wszystkie rejestratorów, które projekty w tej kolekcji służy do ich kompilacji."
   overload: Microsoft.Build.Evaluation.ProjectCollection.Loggers*
   exceptions: []
   platform:
@@ -803,12 +803,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets or sets a switch that determines whether only critical events such as warnings and errors are logged."
+  summary: "Pobiera lub ustawia przełącznik, który określa, czy tylko krytyczne zdarzenia, takie jak ostrzeżenia i błędy są rejestrowane."
   syntax:
     content: public bool OnlyLogCriticalEvents { get; set; }
     return:
       type: System.Boolean
-      description: "If true, only critical events such as warnings and errors are logged; false otherwise."
+      description: "Jeśli PRAWDA, tylko zdarzenia krytyczne, takie jak ostrzeżenia i błędy są rejestrowane; wartość false w przeciwnym razie wartość."
   overload: Microsoft.Build.Evaluation.ProjectCollection.OnlyLogCriticalEvents*
   exceptions: []
   platform:
@@ -825,12 +825,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Event that is fired when a project is added to the ProjectRootElementCache of this project collection."
+  summary: "Zdarzenie wywoływane, gdy projekt zostanie dodany do ProjectRootElementCache tej kolekcji projektów."
   syntax:
     content: public event Microsoft.Build.Evaluation.ProjectCollection.ProjectAddedEventHandler ProjectAdded;
     return:
       type: Microsoft.Build.Evaluation.ProjectCollection.ProjectAddedEventHandler
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -846,13 +846,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Raised when a <xref href=&quot;Microsoft.Build.Evaluation.Project&quot;></xref> contained by this instance is directly changed."
-  remarks: "This event is NOT raised for direct project XML changes via the construction model."
+  summary: "Wywoływane, gdy <xref href=&quot;Microsoft.Build.Evaluation.Project&quot;> </xref> zawarty w tym wystąpieniu bezpośrednio zostanie zmieniona."
+  remarks: "To zdarzenie jest wywoływane nie zmiany XML projektu bezpośrednio za pomocą modelu konstrukcji."
   syntax:
     content: public event EventHandler<Microsoft.Build.Evaluation.ProjectChangedEventArgs> ProjectChanged;
     return:
       type: System.EventHandler{Microsoft.Build.Evaluation.ProjectChangedEventArgs}
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -868,13 +868,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Raised when state is changed on this instance."
-  remarks: "This event is NOT raised for changes in individual projects."
+  summary: "Wywoływane, gdy stan jest zmieniany w tym wystąpieniu."
+  remarks: "To zdarzenie jest wywoływane nie zmiany w poszczególnych projektów."
   syntax:
     content: public event EventHandler<Microsoft.Build.Evaluation.ProjectCollectionChangedEventArgs> ProjectCollectionChanged;
     return:
       type: System.EventHandler{Microsoft.Build.Evaluation.ProjectCollectionChangedEventArgs}
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -890,13 +890,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Raised when a <xref href=&quot;Microsoft.Build.Construction.ProjectRootElement&quot;></xref> contained by this instance is changed."
-  remarks: "This event is NOT raised for changes to global properties, or any other change that doesn&quot;t actually dirty the XML."
+  summary: "Wywoływane, gdy <xref href=&quot;Microsoft.Build.Construction.ProjectRootElement&quot;> </xref> zawarty w tym wystąpieniu zostanie zmieniona."
+  remarks: "To zdarzenie jest wywoływane nie zmiany właściwości globalne lub żadnych innych zmian, które faktycznie nie zmieniony plik XML."
   syntax:
     content: public event EventHandler<Microsoft.Build.Evaluation.ProjectXmlChangedEventArgs> ProjectXmlChanged;
     return:
       type: System.EventHandler{Microsoft.Build.Evaluation.ProjectXmlChangedEventArgs}
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -912,13 +912,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Adds the given remote loggers to the collection of remote loggers used for builds of projects in this collection."
+  summary: "Dodaje dany rejestratorów zdalnego w kolekcji rejestratorów zdalnego używany dla kompilacji projektów w tej kolekcji."
   syntax:
     content: public void RegisterForwardingLoggers (System.Collections.Generic.IEnumerable<Microsoft.Build.Logging.ForwardingLoggerRecord> remoteLoggers);
     parameters:
     - id: remoteLoggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Logging.ForwardingLoggerRecord}
-      description: "The remote loggers to add. May be null."
+      description: "Rejestratory zdalnego do dodania. Może mieć wartości null."
   overload: Microsoft.Build.Evaluation.ProjectCollection.RegisterForwardingLoggers*
   exceptions: []
   platform:
@@ -935,14 +935,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Adds the given logger to the collection of loggers used for builds of projects in this collection."
-  remarks: "If the logger object is already in the collection, does nothing."
+  summary: "Dodaje rejestratora danej kolekcji rejestratorów używany dla kompilacji projektów w tej kolekcji."
+  remarks: "Jeśli obiekt rejestratora jest już w kolekcji, nie działają."
   syntax:
     content: public void RegisterLogger (Microsoft.Build.Framework.ILogger logger);
     parameters:
     - id: logger
       type: Microsoft.Build.Framework.ILogger
-      description: "The logger to add."
+      description: "Aby dodać rejestratora."
   overload: Microsoft.Build.Evaluation.ProjectCollection.RegisterLogger*
   exceptions: []
   platform:
@@ -959,14 +959,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Adds the given loggers to the collection of loggers used for builds of projects in this collection."
-  remarks: "Skips any logger objects that are already in the collection."
+  summary: "Dodaje dany rejestratorów do kolekcji rejestratorów używany dla kompilacji projektów w tej kolekcji."
+  remarks: "Pomija wszelkie obiekty rejestratora, które znajdują się już w kolekcji."
   syntax:
     content: public void RegisterLoggers (System.Collections.Generic.IEnumerable<Microsoft.Build.Framework.ILogger> loggers);
     parameters:
     - id: loggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Framework.ILogger}
-      description: "The loggers to be added. May be null."
+      description: "Rejestratory do dodania. Może mieć wartości null."
   overload: Microsoft.Build.Evaluation.ProjectCollection.RegisterLoggers*
   exceptions: []
   platform:
@@ -983,7 +983,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes all toolsets from the project collection."
+  summary: "Usuwa wszystkie procesami z kolekcji projektów."
   syntax:
     content: public void RemoveAllToolsets ();
     parameters: []
@@ -1003,16 +1003,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes a global property from the set of default global properties."
+  summary: "Usuwa właściwość globalną z zestawu globalnych właściwości domyślnej."
   syntax:
     content: public bool RemoveGlobalProperty (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the default global property to remove."
+      description: "Nazwa właściwości domyślnej globalnej do usunięcia."
     return:
       type: System.Boolean
-      description: "Returns true if the global property is present before removal; false otherwise."
+      description: "Zwraca wartość PRAWDA, jeśli właściwość globalna znajduje się przed usuwania. wartość false w przeciwnym razie wartość."
   overload: Microsoft.Build.Evaluation.ProjectCollection.RemoveGlobalProperty*
   exceptions: []
   platform:
@@ -1029,16 +1029,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes a toolset from the project collection."
+  summary: "Usuwa zestaw narzędzi z kolekcji projektów."
   syntax:
     content: public bool RemoveToolset (string toolsVersion);
     parameters:
     - id: toolsVersion
       type: System.String
-      description: "The toolset to be removed."
+      description: "Zestaw narzędzi do usunięcia."
     return:
       type: System.Boolean
-      description: "Returns true if the toolset is present before removal; false otherwise."
+      description: "Zwraca wartość PRAWDA, jeśli zestaw narzędzi znajduje się przed usuwania. wartość false w przeciwnym razie wartość."
   overload: Microsoft.Build.Evaluation.ProjectCollection.RemoveToolset*
   exceptions: []
   platform:
@@ -1055,17 +1055,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Sets the value of a property in the default set of global properties."
-  remarks: "If no matching property is found, the property is created and initialized with the given value."
+  summary: "Ustawia właściwości w domyślnym wartość globalnych właściwości."
+  remarks: "Jeśli zostanie znaleziony nie zgodnej właściwości, właściwość jest tworzony i inicjowany z danej wartości."
   syntax:
     content: public void SetGlobalProperty (string name, string value);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the default global property to be added or set."
+      description: "Nazwa właściwości domyślnej globalnej do dodania lub ustaw."
     - id: value
       type: System.String
-      description: "The new value of the default global property."
+      description: "Nowa wartość właściwości domyślnej globalnej."
   overload: Microsoft.Build.Evaluation.ProjectCollection.SetGlobalProperty*
   exceptions: []
   platform:
@@ -1082,12 +1082,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets or sets a flag the determines whether ReevaluateIfNecessary is temporarily disabled on projects in this collection. This is useful when the host expects to make a number of reads and writes to projects, and wants to temporarily sacrifice correctness for performance."
+  summary: "Pobiera lub ustawia flagę Określa, czy ReevaluateIfNecessary jest tymczasowo wyłączona w przypadku projektów w tej kolekcji. To jest przydatne, gdy host oczekuje na wprowadzenie odczytuje i zapisuje projektów i chce tymczasowo pochodzących z poprawności wydajności."
   syntax:
     content: public bool SkipEvaluation { get; set; }
     return:
       type: System.Boolean
-      description: "Returns a flag the determines whether ReevaluateIfNecessary is temporarily disabled."
+      description: "Zwraca flagę Określa, czy ReevaluateIfNecessary jest tymczasowo wyłączona."
   overload: Microsoft.Build.Evaluation.ProjectCollection.SkipEvaluation*
   exceptions: []
   platform:
@@ -1104,12 +1104,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the locations used to find the toolsets."
+  summary: "Pobiera lokalizacje używana do znajdowania procesami."
   syntax:
     content: public Microsoft.Build.Evaluation.ToolsetDefinitionLocations ToolsetLocations { get; }
     return:
       type: Microsoft.Build.Evaluation.ToolsetDefinitionLocations
-      description: "Returns the locations used to find the toolsets."
+      description: "Zwraca lokalizacje używana do znajdowania procesami."
   overload: Microsoft.Build.Evaluation.ProjectCollection.ToolsetLocations*
   exceptions: []
   platform:
@@ -1126,12 +1126,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the toolsets available to this project collection."
+  summary: "Pobiera dostępne dla tej kolekcji projektów procesami."
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.Toolset> Toolsets { get; }
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Evaluation.Toolset}
-      description: "Returns the toolsets available to this project collection."
+      description: "Zwraca procesami dostępne do tej kolekcji projektów."
   overload: Microsoft.Build.Evaluation.ProjectCollection.Toolsets*
   exceptions: []
   platform:
@@ -1148,16 +1148,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Attempts to remove a project from the collection."
+  summary: "Próbuje usunąć projekt z kolekcji."
   syntax:
     content: public bool TryUnloadProject (Microsoft.Build.Construction.ProjectRootElement projectRootElement);
     parameters:
     - id: projectRootElement
       type: Microsoft.Build.Construction.ProjectRootElement
-      description: "The root element of the project to unload."
+      description: "Element główny projektu do zwolnienia."
     return:
       type: System.Boolean
-      description: "Returns true if the project was unloaded."
+      description: "Zwraca wartość PRAWDA, jeśli projekt został zwolniony."
   overload: Microsoft.Build.Evaluation.ProjectCollection.TryUnloadProject*
   exceptions: []
   platform:
@@ -1174,17 +1174,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Converts escaped characters in a string to MSBuild characters with special meaning."
-  remarks: "For example, &quot;%3b&quot; is converted to &quot;;&quot;."
+  summary: "Konwertuje wyjściowym znaków w ciągu znaków MSBuild o specjalnym znaczeniu."
+  remarks: "Na przykład &quot;%&3;b&quot; jest konwertowany na &quot;;&quot;."
   syntax:
     content: public static string Unescape (string escapedString);
     parameters:
     - id: escapedString
       type: System.String
-      description: "The string to be converted."
+      description: "Ciąg, który ma zostać przekonwertowany."
     return:
       type: System.String
-      description: "Returns the converted string."
+      description: "Zwraca ciąg przekonwertowany."
   overload: Microsoft.Build.Evaluation.ProjectCollection.Unescape*
   exceptions: []
   platform:
@@ -1201,8 +1201,8 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes all projects in this project collection."
-  remarks: "The host should call this method when it no longer needs the projects."
+  summary: "Usuwa wszystkie projekty w tej kolekcji projektów."
+  remarks: "Host powinny wywoływać tej metody, gdy nie będzie już potrzebował projektów."
   syntax:
     content: public void UnloadAllProjects ();
     parameters: []
@@ -1222,19 +1222,19 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes a project root element from the project root cache."
-  remarks: "This method is useful for the case where the host knows that all projects using this root element have been removed, and that any unsaved changes should be discarded."
+  summary: "Usuwa element główny projektu z pamięci podręcznej głównego projektu."
+  remarks: "Ta metoda jest przydatna w przypadku, gdy host zna usunięcie wszystkich projektów przy użyciu tego elementu głównego i że należy usunąć wszystkie niezapisane zmiany."
   syntax:
     content: public void UnloadProject (Microsoft.Build.Construction.ProjectRootElement projectRootElement);
     parameters:
     - id: projectRootElement
       type: Microsoft.Build.Construction.ProjectRootElement
-      description: "The project root element to unload."
+      description: "Można zwolnić elementu korzenia projektu."
   overload: Microsoft.Build.Evaluation.ProjectCollection.UnloadProject*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Thrown if the project root element to unload is still in use by a loaded project or its imports."
+    description: "Element zgłaszany, gdy można zwolnić elementu korzenia projektu jest nadal używany przez załadowanego projektu lub jego procesów importu."
   platform:
   - net462
 - uid: Microsoft.Build.Evaluation.ProjectCollection.UnloadProject(Microsoft.Build.Evaluation.Project)
@@ -1249,14 +1249,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes the given project from the project collection."
-  remarks: "The host should call this method when it no longer needs the project.       Throws InvalidOperationException if the given project is not present in the project collection."
+  summary: "Usuwa danego projektu z kolekcji projektów."
+  remarks: "Host powinny wywoływać tej metody, gdy nie będzie już potrzebował projektu.       Zgłasza wyjątek InvalidOperationException, jeśli dany projekt nie jest obecny w kolekcji projektów."
   syntax:
     content: public void UnloadProject (Microsoft.Build.Evaluation.Project project);
     parameters:
     - id: project
       type: Microsoft.Build.Evaluation.Project
-      description: "The project to remove."
+      description: "Projekt do usunięcia."
   overload: Microsoft.Build.Evaluation.ProjectCollection.UnloadProject*
   exceptions: []
   platform:
@@ -1273,7 +1273,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes all loggers from the collection of loggers used by project builds in this collection."
+  summary: "Usuwa wszystkie rejestratorów z kolekcji rejestratorów używanych przez projekt tworzy w tej kolekcji."
   syntax:
     content: public void UnregisterAllLoggers ();
     parameters: []
@@ -1293,13 +1293,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the file version of the assembly file that contains the MSBuild engine."
-  remarks: "This is the Windows file version (specifically the value of the ProductVersion resource), which is not necessarily the assembly version. To obtain the assembly version, use Constants.AssemblyVersion.       See also the <xref:Microsoft.Build.Evaluation.ProjectCollection.ToolsetsVersion%2A>."
+  summary: "Pobiera wersję pliku pliku zestawu, który zawiera aparat MSBuild."
+  remarks: "Jest to wersja pliku systemu Windows (w szczególności wartość zasobu ProductVersion), który nie musi być wersja zestawu. Aby uzyskać wersję zestawu, należy użyć Constants.AssemblyVersion.       Zobacz też <xref:Microsoft.Build.Evaluation.ProjectCollection.ToolsetsVersion%2A>.</xref:Microsoft.Build.Evaluation.ProjectCollection.ToolsetsVersion%2A>"
   syntax:
     content: public static Version Version { get; }
     return:
       type: System.Version
-      description: "Returns the file version of the assembly file that contains the MSBuild engine."
+      description: "Zwraca informacje o wersji pliku w pliku zestawu, który zawiera aparat MSBuild."
   overload: Microsoft.Build.Evaluation.ProjectCollection.Version*
   exceptions: []
   platform:

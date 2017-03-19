@@ -34,8 +34,8 @@ items:
   nameWithType: SqlFileStream
   fullName: System.Data.SqlTypes.SqlFileStream
   type: Class
-  summary: "Exposes SQL Server data that is stored with the FILESTREAM column attribute as a sequence of bytes."
-  remarks: "The SqlFileStream class is used to work with `varbinary(max)` data stored with the FILESTREAM attribute in a SQL Server 2008 database. You must install the .NET Framework 3.5 SP1 (or later) to use <xref:System.Data.SqlTypes.SqlFileStream> to work with FILESTREAM data.       Specifying the FILESTREAM attribute on a `varbinary(max)` column causes SQL Server to store the data in the local NTFS file system instead of in the database file. Transact-SQL statements provide data manipulation capabilities within the server, and Win32 file system interfaces provide streaming access to the data.      > [!NOTE] >  Individual files stored in a FILESTREAM column cannot be opened directly from the NTFS file system. Streaming FILESTREAM data works only in the context of a SQL Server transaction.       The SqlFileStream class is derived from the <xref:System.IO.Stream> class, which represents an abstraction of a sequence of bytes from some arbitrary data source such as a file or a block of memory. You can read from a FILESTREAM by transferring data from a stream into a data structure such as an array of bytes. You can write to a FILESTREAM by transferring the data from a data structure into a stream. You can also seek within the stream, which allows you to query and modify data at the current position within the stream.       For conceptual documentation and code examples, see [FILESTREAM Data](~/add/includes/ajax-current-ext-md.md).       For documentation about setting up and configuring FILESTREAM data on SQL Server,  see [Designing and Implementing FILESTREAM Storage](http://go.microsoft.com/fwlink/?LinkId=121499) in SQL Server 2008 Books Online."
+  summary: "Przedstawia przechowywanych mających atrybut FILESTREAM kolumny jako sekwencję bajtów danych programu SQL Server."
+  remarks: "Klasa SqlFileStream jest używana do pracy z `varbinary(max)` dane przechowywane przez atrybut FILESTREAM w bazie danych programu SQL Server 2008. .NET Framework 3.5 z dodatkiem SP1 należy zainstalować (lub nowsza) do użycia <xref:System.Data.SqlTypes.SqlFileStream>do pracy z danymi FILESTREAM.</xref:System.Data.SqlTypes.SqlFileStream>       Określanie FILESTREAM atrybutu `varbinary(max)` kolumny powoduje, że serwer SQL do przechowywania danych w lokalnego systemu plików NTFS zamiast w pliku bazy danych. Instrukcji języka Transact-SQL zapewniają możliwości manipulacji danych w ramach serwera, i interfejsy systemu Win32 pliku zapewnia przesyłania strumieniowego dostępu do danych.      > [!NOTE] > Poszczególnych plików przechowywanych w kolumnie FILESTREAM nie może zostać otwarty bezpośrednio z systemu plików NTFS. Przesyłanie strumieniowe danych FILESTREAM działa tylko w kontekście transakcji programu SQL Server.       Jest pochodną klasy SqlFileStream <xref:System.IO.Stream>klasy, która reprezentuje abstrakcję sekwencję bajtów z określonego źródła dowolne dane, takie jak plik lub bloku pamięci.</xref:System.IO.Stream> Można odczytywać strumień pliku przez przeniesienie danych ze strumienia do struktury danych, takich jak tablicę bajtów. Możesz zapisywać do FILESTREAM przez przeniesienie danych ze strukturą danych w strumieniu. Możesz również można wyszukiwać w strumieniu, co pozwala na zapytania i modyfikować danych w bieżącym położeniu w strumieniu.       Dokumentacja koncepcyjna i przykłady kodu, zobacz [danych FILESTREAM](~/add/includes/ajax-current-ext-md.md).       Dokumentacja i konfigurowania danych FILESTREAM w programie SQL Server, zobacz [projektowanie i implementowanie magazynowania FILESTREAM](http://go.microsoft.com/fwlink/?LinkId=121499) w dokumentacji SQL Server 2008 — książki Online."
   syntax:
     content: 'public sealed class SqlFileStream : System.IO.Stream'
   inheritance:
@@ -56,46 +56,46 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.SqlTypes.SqlFileStream&quot;></xref> class."
-  remarks: "If an exception is thrown, any open transactions should be rolled back. Otherwise, data loss can occur."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Data.SqlTypes.SqlFileStream&quot;> </xref> klasy."
+  remarks: "Jeśli wyjątek transakcji otwartych powinien cofnięta. W przeciwnym razie może wystąpić utrata danych."
   syntax:
     content: public SqlFileStream (string path, byte[] transactionContext, System.IO.FileAccess access);
     parameters:
     - id: path
       type: System.String
-      description: "The logical path to the file. The path can be retrieved by using the Transact-SQL Pathname function on the underlying FILESTREAM column in the table."
+      description: "Ścieżka logiczna do pliku. Ścieżka może zostać pobrany za pomocą funkcji Pathname języka Transact-SQL w kolumnie FILESTREAM podstawowych w tabeli."
     - id: transactionContext
       type: System.Byte[]
-      description: "The transaction context for the <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;></xref> object. Applications should return the byte array returned by calling the GET_FILESTREAM_TRANSACTION_CONTEXT method."
+      description: "Kontekst transakcji dla <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;> </xref> obiektu. Aplikacje powinny zwracać tablica bajtów zwrócona przez wywołanie metody funkcji GET_FILESTREAM_TRANSACTION_CONTEXT."
     - id: access
       type: System.IO.FileAccess
-      description: "The access mode to use when opening the file. Supported <xref href=&quot;System.IO.FileAccess&quot;></xref> enumeration values are <xref href=&quot;System.IO.FileAccess&quot;></xref>, <xref href=&quot;System.IO.FileAccess&quot;></xref>, and <xref href=&quot;System.IO.FileAccess&quot;></xref>.       When using <xref uid=&quot;langword_csharp_FileAccess.Read&quot; name=&quot;FileAccess.Read&quot; href=&quot;&quot;></xref>, the <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;></xref> object can be used to read all of the existing data.       When using <xref uid=&quot;langword_csharp_FileAccess.Write&quot; name=&quot;FileAccess.Write&quot; href=&quot;&quot;></xref>, <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;></xref> points to a zero byte file. Existing data will be overwritten when the object is closed and the transaction is committed.       When using <xref uid=&quot;langword_csharp_FileAccess.ReadWrite&quot; name=&quot;FileAccess.ReadWrite&quot; href=&quot;&quot;></xref>, the <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;></xref> points to a file which has all the existing data in it. The handle is positioned at the beginning of the file. You can use one of the <xref uid=&quot;langword_csharp_System.IO&quot; name=&quot;System.IO&quot; href=&quot;&quot;></xref><xref uid=&quot;langword_csharp_Seek&quot; name=&quot;Seek&quot; href=&quot;&quot;></xref> methods to move the handle position within the file to write or append new data."
+      description: "Tryb dostępu do używania podczas otwierania pliku. Supported <xref href=&quot;System.IO.FileAccess&quot;></xref> enumeration values are <xref href=&quot;System.IO.FileAccess&quot;></xref>, <xref href=&quot;System.IO.FileAccess&quot;></xref>, and <xref href=&quot;System.IO.FileAccess&quot;></xref>.       Korzystając z <xref uid=&quot;langword_csharp_FileAccess.Read&quot; name=&quot;FileAccess.Read&quot; href=&quot;&quot;> </xref>, <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;> </xref> obiekt może służyć do odczytu wszystkich istniejących danych.       Korzystając z <xref uid=&quot;langword_csharp_FileAccess.Write&quot; name=&quot;FileAccess.Write&quot; href=&quot;&quot;> </xref>, <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;> </xref> wskazuje plik zero bajtów. Istniejące dane zostaną zastąpione, gdy obiekt jest zamknięty, a transakcja została przekazana.       Korzystając z <xref uid=&quot;langword_csharp_FileAccess.ReadWrite&quot; name=&quot;FileAccess.ReadWrite&quot; href=&quot;&quot;> </xref>, <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;> </xref> wskazuje plik, którego wszystkie istniejące dane w nim. Dojście znajduje się na początku pliku. Można użyć jednej z <xref uid=&quot;langword_csharp_System.IO&quot; name=&quot;System.IO&quot; href=&quot;&quot;> </xref> <xref uid=&quot;langword_csharp_Seek&quot; name=&quot;Seek&quot; href=&quot;&quot;> </xref> metody przeniesienia pozycji dojście w pliku do zapisu lub dołączenie nowych danych."
   overload: System.Data.SqlTypes.SqlFileStream.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>path</code> is a null reference, or <code>transactionContext</code> is null."
+    description: "<code>path</code>to odwołanie o wartości null, lub <code>transactionContext</code> ma wartość null."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
     description: "<code>path</code> is an empty string (\"\"), contains only white space, or contains one or more invalid characters.  \n  \n <code>path</code> begins with \"\\\\\\\\.\\\\\", for example \"\\\\\\\\.\\PHYSICALDRIVE0 \".  \n  \n The handle returned by the call to NTCreateFile is not of type FILE_TYPE_DISK.  \n  \n <code>options</code> contains an unsupported value."
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file cannot be found."
+    description: "Nie można odnaleźć pliku."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred."
+    description: "Wystąpił błąd We/Wy."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission."
+    description: "Obiekt wywołujący nie ma wymaganych uprawnień."
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: "The specified <code>path</code> is invalid, such as being on an unmapped drive."
+    description: "Określony <code> path </code> jest nieprawidłowy, takie jak w mapowany dysk."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The access requested is not permitted by the operating system for the specified path. This occurs when Write or ReadWrite access is specified, and the file or directory is set for read-only access."
+    description: "Żądany dostęp nie jest dozwolona przez system operacyjny dla określonej ścieżki. Dzieje się tak, gdy dostęp do zapisu lub odczytu i zapisu jest określona, a plik lub katalog jest ustawiona na dostęp tylko do odczytu."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "NtCreateFile fails with error code set to ERROR_SHARING_VIOLATION."
+    description: "NtCreateFile kończy się niepowodzeniem z kodem błędu ustawioną ERROR_SHARING_VIOLATION."
   platform:
   - net462
 - uid: System.Data.SqlTypes.SqlFileStream.#ctor(System.String,System.Byte[],System.IO.FileAccess,System.IO.FileOptions,System.Int64)
@@ -110,52 +110,52 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.SqlTypes.SqlFileStream&quot;></xref> class."
-  remarks: "If an exception is thrown, any open transactions should be rolled back. Otherwise, data loss can occur."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Data.SqlTypes.SqlFileStream&quot;> </xref> klasy."
+  remarks: "Jeśli wyjątek transakcji otwartych powinien cofnięta. W przeciwnym razie może wystąpić utrata danych."
   syntax:
     content: public SqlFileStream (string path, byte[] transactionContext, System.IO.FileAccess access, System.IO.FileOptions options, long allocationSize);
     parameters:
     - id: path
       type: System.String
-      description: "The logical path to the file. The path can be retrieved by using the Transact-SQL Pathname function on the underlying FILESTREAM column in the table."
+      description: "Ścieżka logiczna do pliku. Ścieżka może zostać pobrany za pomocą funkcji Pathname języka Transact-SQL w kolumnie FILESTREAM podstawowych w tabeli."
     - id: transactionContext
       type: System.Byte[]
-      description: "The transaction context for the <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;></xref> object. When set to null, an implicit transaction will be used for the <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;></xref> object. Applications should return the byte array returned by calling the GET_FILESTREAM_TRANSACTION_CONTEXT method."
+      description: "Kontekst transakcji dla <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;> </xref> obiektu. Gdy ustawiona na wartość null, transakcji niejawnej będzie służyć do <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;> </xref> obiektu. Aplikacje powinny zwracać tablica bajtów zwrócona przez wywołanie metody funkcji GET_FILESTREAM_TRANSACTION_CONTEXT."
     - id: access
       type: System.IO.FileAccess
-      description: "The access mode to use when opening the file. Supported <xref href=&quot;System.IO.FileAccess&quot;></xref> enumeration values are <xref href=&quot;System.IO.FileAccess&quot;></xref>, <xref href=&quot;System.IO.FileAccess&quot;></xref>, and <xref href=&quot;System.IO.FileAccess&quot;></xref>.       When using <xref uid=&quot;langword_csharp_FileAccess.Read&quot; name=&quot;FileAccess.Read&quot; href=&quot;&quot;></xref>, the <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;></xref> object can be used to read all of the existing data.       When using <xref uid=&quot;langword_csharp_FileAccess.Write&quot; name=&quot;FileAccess.Write&quot; href=&quot;&quot;></xref>, <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;></xref> points to a zero byte file. Existing data will be overwritten when the object is closed and the transaction is committed.       When using <xref uid=&quot;langword_csharp_FileAccess.ReadWrite&quot; name=&quot;FileAccess.ReadWrite&quot; href=&quot;&quot;></xref>, the <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;></xref> points to a file which has all the existing data in it. The handle is positioned at the beginning of the file. You can use one of the <xref uid=&quot;langword_csharp_System.IO&quot; name=&quot;System.IO&quot; href=&quot;&quot;></xref><xref uid=&quot;langword_csharp_Seek&quot; name=&quot;Seek&quot; href=&quot;&quot;></xref> methods to move the handle position within the file to write or append new data."
+      description: "Tryb dostępu do używania podczas otwierania pliku. Supported <xref href=&quot;System.IO.FileAccess&quot;></xref> enumeration values are <xref href=&quot;System.IO.FileAccess&quot;></xref>, <xref href=&quot;System.IO.FileAccess&quot;></xref>, and <xref href=&quot;System.IO.FileAccess&quot;></xref>.       Korzystając z <xref uid=&quot;langword_csharp_FileAccess.Read&quot; name=&quot;FileAccess.Read&quot; href=&quot;&quot;> </xref>, <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;> </xref> obiekt może służyć do odczytu wszystkich istniejących danych.       Korzystając z <xref uid=&quot;langword_csharp_FileAccess.Write&quot; name=&quot;FileAccess.Write&quot; href=&quot;&quot;> </xref>, <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;> </xref> wskazuje plik zero bajtów. Istniejące dane zostaną zastąpione, gdy obiekt jest zamknięty, a transakcja została przekazana.       Korzystając z <xref uid=&quot;langword_csharp_FileAccess.ReadWrite&quot; name=&quot;FileAccess.ReadWrite&quot; href=&quot;&quot;> </xref>, <xref uid=&quot;langword_csharp_SqlFileStream&quot; name=&quot;SqlFileStream&quot; href=&quot;&quot;> </xref> wskazuje plik, którego wszystkie istniejące dane w nim. Dojście znajduje się na początku pliku. Można użyć jednej z <xref uid=&quot;langword_csharp_System.IO&quot; name=&quot;System.IO&quot; href=&quot;&quot;> </xref> <xref uid=&quot;langword_csharp_Seek&quot; name=&quot;Seek&quot; href=&quot;&quot;> </xref> metody przeniesienia pozycji dojście w pliku do zapisu lub dołączenie nowych danych."
     - id: options
       type: System.IO.FileOptions
-      description: "Specifies the option to use while opening the file. Supported <xref href=&quot;System.IO.FileOptions&quot;></xref> values are <xref href=&quot;System.IO.FileOptions&quot;></xref>, <xref href=&quot;System.IO.FileOptions&quot;></xref>, <xref href=&quot;System.IO.FileOptions&quot;></xref>, and <xref href=&quot;System.IO.FileOptions&quot;></xref>."
+      description: "Określa opcje do używania podczas otwierania pliku. Supported <xref href=&quot;System.IO.FileOptions&quot;></xref> values are <xref href=&quot;System.IO.FileOptions&quot;></xref>, <xref href=&quot;System.IO.FileOptions&quot;></xref>, <xref href=&quot;System.IO.FileOptions&quot;></xref>, and <xref href=&quot;System.IO.FileOptions&quot;></xref>."
     - id: allocationSize
       type: System.Int64
-      description: "The allocation size to use while creating a file. If set to 0, the default value is used."
+      description: "Rozmiar alokacji, które będą używane podczas tworzenia pliku. Jeśli używane jest ustawiona na 0, wartością domyślną."
   overload: System.Data.SqlTypes.SqlFileStream.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>path</code> is a null reference, or <code>transactionContext</code> is null."
+    description: "<code>path</code>to odwołanie o wartości null, lub <code>transactionContext</code> ma wartość null."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
     description: "<code>path</code> is an empty string (\"\"), contains only white space, or contains one or more invalid characters.  \n  \n <code>path</code> begins with \"\\\\\\\\.\\\\\", for example \"\\\\\\\\.\\PHYSICALDRIVE0 \".  \n  \n The handle returned by call to NTCreateFile is not of type FILE_TYPE_DISK.  \n  \n <code>options</code> contains an unsupported value."
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file cannot be found."
+    description: "Nie można odnaleźć pliku."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred."
+    description: "Wystąpił błąd We/Wy."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission."
+    description: "Obiekt wywołujący nie ma wymaganych uprawnień."
   - type: System.IO.DirectoryNotFoundException
     commentId: T:System.IO.DirectoryNotFoundException
-    description: "The specified <code>path</code> is invalid, such as being on an unmapped drive."
+    description: "Określony <code> path </code> jest nieprawidłowy, takie jak w mapowany dysk."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The access requested is not permitted by the operating system for the specified path. This occurs when Write or ReadWrite access is specified, and the file or directory is set for read-only access."
+    description: "Żądany dostęp nie jest dozwolona przez system operacyjny dla określonej ścieżki. Dzieje się tak, gdy dostęp do zapisu lub odczytu i zapisu jest określona, a plik lub katalog jest ustawiona na dostęp tylko do odczytu."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "NtCreateFile fails with error code set to ERROR_SHARING_VIOLATION."
+    description: "NtCreateFile kończy się niepowodzeniem z kodem błędu ustawioną ERROR_SHARING_VIOLATION."
   platform:
   - net462
 - uid: System.Data.SqlTypes.SqlFileStream.BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)
@@ -170,34 +170,34 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Begins an asynchronous read operation."
-  remarks: "Use the <xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A> property to determine whether the current instance supports reading."
+  summary: "Rozpoczyna operację asynchroniczną odczytu."
+  remarks: "Użyj <xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A>Właściwości w celu określenia, czy bieżące wystąpienie obsługuje odczytu.</xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A>"
   syntax:
     content: public override IAsyncResult BeginRead (byte[] buffer, int offset, int count, AsyncCallback callback, object state);
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "The buffer to read the data into."
+      description: "Bufor do wczytania danych."
     - id: offset
       type: System.Int32
-      description: "The byte offset in `buffer` at which to begin writing data read from the stream."
+      description: "Przesunięcie bajtów w `buffer` jaką rozpocząć pisanie dane odczytane ze strumienia."
     - id: count
       type: System.Int32
-      description: "The maximum number of bytes to read."
+      description: "Maksymalna liczba bajtów do odczytania."
     - id: callback
       type: System.AsyncCallback
-      description: "An optional asynchronous callback, to be called when the read is complete."
+      description: "Opcjonalne asynchroniczne wywołanie zwrotne, ma być wywoływana po zakończeniu odczytu."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous read request from other requests"
+      description: "Obiekt dostarczane przez użytkownika, która odróżnia to asynchroniczne żądanie odczytu z innych żądań"
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that represents the asynchronous read, which could still be pending."
+      description: "<xref:System.IAsyncResult>Reprezentujący asynchroniczny odczyt, mogą nadal oczekiwać.</xref:System.IAsyncResult>"
   overload: System.Data.SqlTypes.SqlFileStream.BeginRead*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "Reading data is not supported on the stream."
+    description: "Odczytywanie danych nie jest obsługiwany w strumieniu."
   platform:
   - net462
 - uid: System.Data.SqlTypes.SqlFileStream.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)
@@ -212,34 +212,34 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Begins an asynchronous write operation."
-  remarks: "Use the <xref:System.Data.SqlTypes.SqlFileStream.CanWrite%2A> property to determine whether the current instance supports writing."
+  summary: "Rozpoczyna operację asynchronicznego zapisu."
+  remarks: "Użyj <xref:System.Data.SqlTypes.SqlFileStream.CanWrite%2A>Właściwości w celu określenia, czy bieżące wystąpienie obsługuje zapisu.</xref:System.Data.SqlTypes.SqlFileStream.CanWrite%2A>"
   syntax:
     content: public override IAsyncResult BeginWrite (byte[] buffer, int offset, int count, AsyncCallback callback, object state);
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "The buffer to write data from."
+      description: "Bufor zapisywania danych z."
     - id: offset
       type: System.Int32
-      description: "The byte offset in `buffer` from which to begin writing."
+      description: "Przesunięcie bajtów w `buffer` z której ma rozpocząć się zapis."
     - id: count
       type: System.Int32
-      description: "The maximum number of bytes to write."
+      description: "Maksymalna liczba bajtów do zapisania."
     - id: callback
       type: System.AsyncCallback
-      description: "An optional asynchronous callback, to be called when the write is complete."
+      description: "Opcjonalne asynchroniczne wywołanie zwrotne, ma być wywoływana po zakończeniu zapisu."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous write request from other requests."
+      description: "Obiekt dostarczane przez użytkownika, która odróżnia to żądanie określonego zapis asynchroniczny od innych żądań."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that represents the asynchronous write, which could still be pending."
+      description: "<xref:System.IAsyncResult>Reprezentujący zapis asynchroniczny, który może być oczekujące.</xref:System.IAsyncResult>"
   overload: System.Data.SqlTypes.SqlFileStream.BeginWrite*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "Writing data is not supported on the stream."
+    description: "Zapisywanie danych nie jest obsługiwany w strumieniu."
   platform:
   - net462
 - uid: System.Data.SqlTypes.SqlFileStream.CanRead
@@ -254,12 +254,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Gets a value indicating whether the current stream supports reading."
+  summary: "Pobiera wartość wskazującą, czy bieżący strumień obsługuje odczytu."
   syntax:
     content: public override bool CanRead { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current stream supports reading; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli bieżący strumień obsługuje Odczyt; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.SqlTypes.SqlFileStream.CanRead*
   exceptions: []
   platform:
@@ -276,12 +276,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Gets a value indicating whether the current stream supports seeking."
+  summary: "Pobiera wartość wskazującą, czy bieżący strumień obsługuje operacji wyszukiwania."
   syntax:
     content: public override bool CanSeek { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current stream supports seeking; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli bieżący strumień obsługuje operacji wyszukiwania; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.SqlTypes.SqlFileStream.CanSeek*
   exceptions: []
   platform:
@@ -298,12 +298,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Gets a value indicating whether the current stream can time out."
+  summary: "Pobiera wartość wskazującą, czy bieżący strumień może upłynął limit czasu."
   syntax:
     content: public override bool CanTimeout { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current stream can time out; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli bieżący strumień może upłynął limit czasu; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.SqlTypes.SqlFileStream.CanTimeout*
   exceptions: []
   platform:
@@ -320,12 +320,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Gets a value indicating whether the current stream supports writing."
+  summary: "Pobiera wartość wskazującą, czy bieżący strumień obsługuje zapisu."
   syntax:
     content: public override bool CanWrite { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current stream supports writing; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli bieżący strumień obsługuje zapis; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.SqlTypes.SqlFileStream.CanWrite*
   exceptions: []
   platform:
@@ -347,7 +347,7 @@ items:
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "To be added."
+      description: "Do dodania."
   overload: System.Data.SqlTypes.SqlFileStream.Dispose*
   exceptions: []
   platform:
@@ -364,21 +364,21 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Waits for the pending asynchronous read to complete."
+  summary: "Czeka na oczekujące odczyt asynchroniczny zakończyć."
   syntax:
     content: public override int EndRead (IAsyncResult asyncResult);
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: "The reference to the pending asynchronous request to finish."
+      description: "Odwołanie do oczekującego żądania asynchroniczne, aby zakończyć."
     return:
       type: System.Int32
-      description: "The number of bytes read from the stream, between zero (0) and the number of bytes you requested. Streams return zero (0) only at the end of the stream, otherwise, they should block until at least one byte is available."
+      description: "Liczba odczytanych bajtów ze strumienia, między (0) i liczba bajtów, żądana. Strumienie zwrócił zero (0) tylko na końcu strumienia, w przeciwnym razie należy zablokować, dopóki nie będzie dostępne co najmniej jednego bajtu."
   overload: System.Data.SqlTypes.SqlFileStream.EndRead*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <xref:System.IAsyncResult> object did not come from the corresponding <xref uid=&quot;langword_csharp_BeginRead&quot; name=&quot;BeginRead&quot; href=&quot;&quot;></xref> method."
+    description: "<xref:System.IAsyncResult>Obiekt nie pochodzi z odpowiedniej <xref uid=&quot;langword_csharp_BeginRead&quot; name=&quot;BeginRead&quot; href=&quot;&quot;> </xref> metody.</xref:System.IAsyncResult>"
   platform:
   - net462
 - uid: System.Data.SqlTypes.SqlFileStream.EndWrite(System.IAsyncResult)
@@ -393,18 +393,18 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Ends an asynchronous write operation."
+  summary: "Kończy operację asynchronicznego zapisu."
   syntax:
     content: public override void EndWrite (IAsyncResult asyncResult);
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: "A reference to the outstanding asynchronous I/O request."
+      description: "Odwołanie do oczekujące żądania asynchroniczne We/Wy."
   overload: System.Data.SqlTypes.SqlFileStream.EndWrite*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <xref:System.IAsyncResult> object did not come from the corresponding <xref uid=&quot;langword_csharp_BeginWrite&quot; name=&quot;BeginWrite&quot; href=&quot;&quot;></xref> method."
+    description: "<xref:System.IAsyncResult>Obiekt nie pochodzi z odpowiedniej <xref uid=&quot;langword_csharp_BeginWrite&quot; name=&quot;BeginWrite&quot; href=&quot;&quot;> </xref> metody.</xref:System.IAsyncResult>"
   platform:
   - net462
 - uid: System.Data.SqlTypes.SqlFileStream.Finalize
@@ -419,7 +419,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Ensures that resources are freed and other cleanup operations are performed when the garbage collector reclaims the <xref href=&quot;System.Data.SqlTypes.SqlFileStream&quot;></xref>."
+  summary: "Gwarantuje, że zasoby są zwalniane i inne operacje oczyszczania są wykonywane, gdy moduł garbage collector zwraca <xref href=&quot;System.Data.SqlTypes.SqlFileStream&quot;> </xref>."
   syntax:
     content: ~SqlFileStream ();
     parameters: []
@@ -439,7 +439,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "clears all buffers for this stream and causes any buffered data to be written to the underlying device."
+  summary: "Czyści wszystkie bufory dla tego strumienia i powoduje, że wszystkie buforowane dane są zapisywane w podstawowej urządzenia."
   syntax:
     content: public override void Flush ();
     parameters: []
@@ -459,12 +459,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Gets a value indicating the length of the current stream in bytes."
+  summary: "Pobiera wartość wskazującą, długość w bajtach bieżący strumień."
   syntax:
     content: public override long Length { get; }
     return:
       type: System.Int64
-      description: "An <xref:System.Int64> indicating the length of the current stream in bytes."
+      description: "<xref:System.Int64>Wskazującym długość w bajtach bieżący strumień.</xref:System.Int64>"
   overload: System.Data.SqlTypes.SqlFileStream.Length*
   exceptions: []
   platform:
@@ -481,12 +481,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Gets the logical path of the <xref href=&quot;System.Data.SqlTypes.SqlFileStream&quot;></xref> passed to the constructor."
+  summary: "Pobiera ścieżkę logiczną <xref href=&quot;System.Data.SqlTypes.SqlFileStream&quot;> </xref> przekazany do konstruktora."
   syntax:
     content: public string Name { get; }
     return:
       type: System.String
-      description: "A string value indicating the name of the <xref href=&quot;System.Data.SqlTypes.SqlFileStream&quot;></xref>."
+      description: "Wartość ciągu wskazujące nazwę <xref href=&quot;System.Data.SqlTypes.SqlFileStream&quot;> </xref>."
   overload: System.Data.SqlTypes.SqlFileStream.Name*
   exceptions: []
   platform:
@@ -503,12 +503,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Gets or sets the position within the current stream."
+  summary: "Pobiera lub ustawia pozycję w ramach bieżącego strumienia."
   syntax:
     content: public override long Position { get; set; }
     return:
       type: System.Int64
-      description: "The current position within the <xref href=&quot;System.Data.SqlTypes.SqlFileStream&quot;></xref>."
+      description: "Bieżąca pozycja w <xref href=&quot;System.Data.SqlTypes.SqlFileStream&quot;> </xref>."
   overload: System.Data.SqlTypes.SqlFileStream.Position*
   exceptions: []
   platform:
@@ -525,28 +525,28 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Reads a sequence of bytes from the current stream and advances the position within the stream by the number of bytes read."
-  remarks: "Use the <xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A> property to determine whether the current instance supports writing."
+  summary: "Odczytuje sekwencję bajtów ze strumienia bieżącego i zmienia pozycję w strumieniu przez liczbę bajtów odczytanych."
+  remarks: "Użyj <xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A>Właściwości w celu określenia, czy bieżące wystąpienie obsługuje zapisu.</xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A>"
   syntax:
     content: public override int Read (byte[] buffer, int offset, int count);
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "An array of bytes. When this method returns, the buffer contains the specified byte array with the values between offset and (offset + count - 1) replaced by the bytes read from the current source."
+      description: "Tablica bajtów. Po powrocie z tej metody bufor zawiera określonej tablicy bajtów z wartości przesunięcia i (przesunięcie + liczba - 1) zastępuje Bajty odczytane z bieżącego źródła."
     - id: offset
       type: System.Int32
-      description: "The zero-based byte offset in buffer at which to begin storing the data read from the current stream."
+      description: "Odczytać zerze przesunięcie w buforze, od którego ma zostać rozpoczęta, przechowywanie danych z bieżącego strumienia."
     - id: count
       type: System.Int32
-      description: "The maximum number of bytes to be read from the current stream."
+      description: "Maksymalna liczba bajtów, które mają być odczytane z bieżącego strumienia."
     return:
       type: System.Int32
-      description: "The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero (0) if the end of the stream has been reached."
+      description: "Całkowita liczba bajtów odczytanych w buforze. Może to być mniejsza niż żądana liczba bajtów Jeśli wiele bajtów nie są obecnie dostępne, czy zero (0), jeśli został osiągnięty koniec strumienia."
   overload: System.Data.SqlTypes.SqlFileStream.Read*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The object does not support reading of data."
+    description: "Obiekt nie obsługuje odczytu danych."
   platform:
   - net462
 - uid: System.Data.SqlTypes.SqlFileStream.ReadByte
@@ -561,19 +561,19 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Reads a byte from the stream and advances the position within the stream by one byte, or returns -1 if at the end of the stream."
-  remarks: "Use the <xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A> property to determine whether the current instance supports reading."
+  summary: "Odczytuje bajtów ze strumienia i zmienia pozycję w strumieniu przez jednego bajtu lub zwraca wartość -1, jeśli na koniec strumienia."
+  remarks: "Użyj <xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A>Właściwości w celu określenia, czy bieżące wystąpienie obsługuje odczytu.</xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A>"
   syntax:
     content: public override int ReadByte ();
     parameters: []
     return:
       type: System.Int32
-      description: "The unsigned byte cast to an <xref:System.Int32>, or -1 if at the end of the stream."
+      description: "Rzutować bajtu bez znaku <xref:System.Int32>, lub wartość -1, jeśli na koniec strumienia.</xref:System.Int32>"
   overload: System.Data.SqlTypes.SqlFileStream.ReadByte*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The object does not support reading of data."
+    description: "Obiekt nie obsługuje odczytu danych."
   platform:
   - net462
 - uid: System.Data.SqlTypes.SqlFileStream.ReadTimeout
@@ -588,12 +588,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Gets or sets a value, in milliseconds, that determines how long the stream will attempt to read before timing out."
+  summary: "Pobiera lub ustawia wartość, w milisekundach, które określa, jak długo strumienia podejmie próbę odczytu przed przekroczeniem limitu czasu."
   syntax:
     content: public override int ReadTimeout { get; set; }
     return:
       type: System.Int32
-      description: "A value, in milliseconds, that determines how long the stream will attempt to read before timing out."
+      description: "Wartość, w milisekundach, który określa, jak długo strumienia podejmie próbę odczytu przed przekroczeniem limitu czasu."
   overload: System.Data.SqlTypes.SqlFileStream.ReadTimeout*
   exceptions: []
   platform:
@@ -610,19 +610,19 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Sets the position within the current stream."
+  summary: "Ustawia położenie w obrębie bieżącego strumienia."
   syntax:
     content: public override long Seek (long offset, System.IO.SeekOrigin origin);
     parameters:
     - id: offset
       type: System.Int64
-      description: "A byte offset relative to the `origin` parameter"
+      description: "Przesunięcie bajtów, względem `origin` parametru"
     - id: origin
       type: System.IO.SeekOrigin
-      description: "A value of type <xref:System.IO.SeekOrigin> indicating the reference point used to obtain the new position"
+      description: "Wartość typu <xref:System.IO.SeekOrigin>wskazujący punkt odniesienia używany do uzyskania nowego położenia</xref:System.IO.SeekOrigin>"
     return:
       type: System.Int64
-      description: "The new position within the current stream."
+      description: "Nowa pozycja w ramach bieżącego strumienia."
   overload: System.Data.SqlTypes.SqlFileStream.Seek*
   exceptions: []
   platform:
@@ -639,19 +639,19 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Sets the length of the current stream."
-  remarks: "Use the <xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A> property to determine whether the current instance supports reading."
+  summary: "Ustawia długość bieżącego strumienia."
+  remarks: "Użyj <xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A>Właściwości w celu określenia, czy bieżące wystąpienie obsługuje odczytu.</xref:System.Data.SqlTypes.SqlFileStream.CanRead%2A>"
   syntax:
     content: public override void SetLength (long value);
     parameters:
     - id: value
       type: System.Int64
-      description: "The desired length of the current stream in bytes."
+      description: "Wymagana długość w bajtach bieżący strumień."
   overload: System.Data.SqlTypes.SqlFileStream.SetLength*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The object does not support reading of data."
+    description: "Obiekt nie obsługuje odczytu danych."
   platform:
   - net462
 - uid: System.Data.SqlTypes.SqlFileStream.TransactionContext
@@ -666,12 +666,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Gets or sets the transaction context for this <xref href=&quot;System.Data.SqlTypes.SqlFileStream&quot;></xref> object."
+  summary: "Pobiera lub ustawia kontekst transakcji dla tego <xref href=&quot;System.Data.SqlTypes.SqlFileStream&quot;> </xref> obiektu."
   syntax:
     content: public byte[] TransactionContext { get; }
     return:
       type: System.Byte[]
-      description: "The <code>transactionContext</code> array that was passed to the constructor for this <xref href=&quot;System.Data.SqlTypes.SqlFileStream&quot;></xref> object."
+      description: "<code> transactionContext </code> Tablicy, który został przekazany do konstruktora dla tego <xref href=&quot;System.Data.SqlTypes.SqlFileStream&quot;> </xref> obiektu."
   overload: System.Data.SqlTypes.SqlFileStream.TransactionContext*
   exceptions: []
   platform:
@@ -688,25 +688,25 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Writes a sequence of bytes to the current stream and advances the current position within this stream by the number of bytes written."
-  remarks: "Use the <xref:System.Data.SqlTypes.SqlFileStream.CanWrite%2A> property to determine whether the current instance supports writing."
+  summary: "Zapisuje sekwencję bajtów do bieżącego strumienia i przechodzi przez liczba zapisanych bajtów bieżącą pozycję w tym strumieniu."
+  remarks: "Użyj <xref:System.Data.SqlTypes.SqlFileStream.CanWrite%2A>Właściwości w celu określenia, czy bieżące wystąpienie obsługuje zapisu.</xref:System.Data.SqlTypes.SqlFileStream.CanWrite%2A>"
   syntax:
     content: public override void Write (byte[] buffer, int offset, int count);
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "An array of bytes. This method copies `count` bytes from `buffer` to the current stream."
+      description: "Tablica bajtów. Ta metoda umożliwia skopiowanie `count` bajtów z `buffer` do bieżącego strumienia."
     - id: offset
       type: System.Int32
-      description: "The zero-based byte offset in `buffer` at which to begin copying bytes to the current stream."
+      description: "Zerze przesunięcie w `buffer` jaką należy zacząć kopiowanie bajtów do bieżącego strumienia."
     - id: count
       type: System.Int32
-      description: "The number of bytes to be written to the current stream."
+      description: "Liczba bajtów do zapisania bieżącego strumienia."
   overload: System.Data.SqlTypes.SqlFileStream.Write*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The object does not support writing of data."
+    description: "Obiekt nie obsługuje zapisywania danych."
   platform:
   - net462
 - uid: System.Data.SqlTypes.SqlFileStream.WriteByte(System.Byte)
@@ -721,19 +721,19 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Writes a byte to the current position in the stream and advances the position within the stream by one byte."
-  remarks: "Use the <xref:System.Data.SqlTypes.SqlFileStream.CanWrite%2A> property to determine whether the current instance supports writing."
+  summary: "Zapisuje bieżącą pozycję w strumieniu bajt i zmienia pozycję w strumieniu przez jednego bajtu."
+  remarks: "Użyj <xref:System.Data.SqlTypes.SqlFileStream.CanWrite%2A>Właściwości w celu określenia, czy bieżące wystąpienie obsługuje zapisu.</xref:System.Data.SqlTypes.SqlFileStream.CanWrite%2A>"
   syntax:
     content: public override void WriteByte (byte value);
     parameters:
     - id: value
       type: System.Byte
-      description: "The byte to write to the stream."
+      description: "Bajtów do zapisania w strumieniu."
   overload: System.Data.SqlTypes.SqlFileStream.WriteByte*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The object does not support writing of data."
+    description: "Obiekt nie obsługuje zapisywania danych."
   platform:
   - net462
 - uid: System.Data.SqlTypes.SqlFileStream.WriteTimeout
@@ -748,12 +748,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlTypes
-  summary: "Gets or sets a value, in milliseconds, that determines how long the stream will attempt to write before timing out."
+  summary: "Pobiera lub ustawia wartość, w milisekundach, które określa, jak długo strumienia podejmie próbę zapisu przed przekroczeniem limitu czasu."
   syntax:
     content: public override int WriteTimeout { get; set; }
     return:
       type: System.Int32
-      description: "A value, in milliseconds, that determines how long the stream will attempt to write before timing out."
+      description: "Wartość, w milisekundach, który określa, jak długo strumienia podejmie próbę zapisu przed przekroczeniem limitu czasu."
   overload: System.Data.SqlTypes.SqlFileStream.WriteTimeout*
   exceptions: []
   platform:

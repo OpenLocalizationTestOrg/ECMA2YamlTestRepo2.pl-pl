@@ -22,7 +22,7 @@ items:
   nameWithType: BuildManager
   fullName: Microsoft.Build.Execution.BuildManager
   type: Class
-  summary: "This class is the public entry point for executing builds."
+  summary: "Ta klasa jest punkt publiczny wejścia dla wykonywania kompilacji."
   syntax:
     content: 'public class BuildManager : IDisposable'
   inheritance:
@@ -44,7 +44,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets a new build manager without specifying a name."
+  summary: "Pobiera nowego Menedżera kompilacji bez określania nazwy."
   syntax:
     content: public BuildManager ();
     parameters: []
@@ -64,14 +64,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Creates a new unnamed build manager."
-  remarks: "Create a new BuildManager. Creating multiple multi-processor aware build managers is not supported due to conflicts in the NodeManager."
+  summary: "Tworzy nową kompilację nienazwane menedżera."
+  remarks: "Utwórz nowy obiekt BuildManager. Tworzenie wielu kompilacji pamiętać wielu procesorów menedżerów nie jest obsługiwane z powodu konfliktów w NodeManager."
   syntax:
     content: public BuildManager (string hostName);
     parameters:
     - id: hostName
       type: System.String
-      description: "The host for the build manager."
+      description: "Host dla Menedżera kompilacji."
   overload: Microsoft.Build.Execution.BuildManager.#ctor*
   exceptions: []
   platform:
@@ -88,18 +88,18 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Prepares the BuildManager to receive build requests."
+  summary: "Przygotowuje BuildManager do odbierania żądań kompilacji."
   syntax:
     content: public void BeginBuild (Microsoft.Build.Execution.BuildParameters parameters);
     parameters:
     - id: parameters
       type: Microsoft.Build.Execution.BuildParameters
-      description: "The build parameters. May be null."
+      description: "Parametry kompilacji. Może mieć wartości null."
   overload: Microsoft.Build.Execution.BuildManager.BeginBuild*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Thrown if a build is already in progress."
+    description: "Element zgłaszany, gdy kompilacja jest już w toku."
   platform:
   - net462
 - uid: Microsoft.Build.Execution.BuildManager.Build(Microsoft.Build.Execution.BuildParameters,Microsoft.Build.Execution.BuildRequestData)
@@ -114,25 +114,25 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Submits a lone build request and blocks until results are available."
-  remarks: "Convenience method."
+  summary: "Przesyła żądanie pojedynczy kompilacji i bloków, dopóki nie będą dostępne wyniki."
+  remarks: "Metoda wygody."
   syntax:
     content: public Microsoft.Build.Execution.BuildResult Build (Microsoft.Build.Execution.BuildParameters parameters, Microsoft.Build.Execution.BuildRequestData requestData);
     parameters:
     - id: parameters
       type: Microsoft.Build.Execution.BuildParameters
-      description: "Build parameters."
+      description: "Tworzenie parametrów."
     - id: requestData
       type: Microsoft.Build.Execution.BuildRequestData
-      description: "Build request data."
+      description: "Tworzenie żądania danych."
     return:
       type: Microsoft.Build.Execution.BuildResult
-      description: "Returns the build result."
+      description: "Zwraca wynik kompilacji."
   overload: Microsoft.Build.Execution.BuildManager.Build*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Thrown if a build is already in progress."
+    description: "Element zgłaszany, gdy kompilacja jest już w toku."
   platform:
   - net462
 - uid: Microsoft.Build.Execution.BuildManager.BuildRequest(Microsoft.Build.Execution.BuildRequestData)
@@ -147,22 +147,22 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Submits a build request and blocks until the results are available."
-  remarks: "Convenience method."
+  summary: "Przesyła żądania kompilacji i bloków, dopóki wyniki są dostępne."
+  remarks: "Metoda wygody."
   syntax:
     content: public Microsoft.Build.Execution.BuildResult BuildRequest (Microsoft.Build.Execution.BuildRequestData requestData);
     parameters:
     - id: requestData
       type: Microsoft.Build.Execution.BuildRequestData
-      description: "Build request."
+      description: "Żądanie kompilacji."
     return:
       type: Microsoft.Build.Execution.BuildResult
-      description: "Returns the build result."
+      description: "Zwraca wynik kompilacji."
   overload: Microsoft.Build.Execution.BuildManager.BuildRequest*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Thrown if StartBuild has not been called or if EndBuild has been called."
+    description: "Element zgłaszany, jeśli nie została wywołana StartBuild lub metoda EndBuild została wywołana."
   platform:
   - net462
 - uid: Microsoft.Build.Execution.BuildManager.CancelAllSubmissions
@@ -177,7 +177,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Cancels all outstanding submissions asynchronously."
+  summary: "Anuluje wszystkie oczekujące przesłanych asynchronicznie."
   syntax:
     content: public void CancelAllSubmissions ();
     parameters: []
@@ -197,12 +197,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets the singleton instance of the Build Manager."
+  summary: "Pobiera pojedyncze wystąpienie Menedżera kompilacji."
   syntax:
     content: public static Microsoft.Build.Execution.BuildManager DefaultBuildManager { get; }
     return:
       type: Microsoft.Build.Execution.BuildManager
-      description: "Returns the singleton instance of the Build Manager."
+      description: "Zwraca pojedyncze wystąpienie Menedżera kompilacji."
   overload: Microsoft.Build.Execution.BuildManager.DefaultBuildManager*
   exceptions: []
   platform:
@@ -219,7 +219,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Dispose of the build manager."
+  summary: "Usuwanie Menedżera kompilacji."
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -239,8 +239,8 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Signals that no more build requests are expected (or allowed) and that the BuildManager may clean up."
-  remarks: "This call blocks until all currently pending requests are complete."
+  summary: "Sygnalizuje, że żadne żądania kompilacji są oczekiwane (lub dozwolone) oraz czy składnik BuildManager może wyczyścić."
+  remarks: "To wywołanie bloków do wszystkich żądań aktualnie oczekujący są spełnione."
   syntax:
     content: public void EndBuild ();
     parameters: []
@@ -248,7 +248,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Thrown if there is no build in progress."
+    description: "Element zgłaszany, gdy istnieje nie kompilacji w toku."
   platform:
   - net462
 - uid: Microsoft.Build.Execution.BuildManager.Finalize
@@ -263,7 +263,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Finalize the building manager."
+  summary: "Zakończ tworzenie menedżera."
   syntax:
     content: ~BuildManager ();
     parameters: []
@@ -283,16 +283,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets a matching ProjectInstance from the BuildManager cache of previously built projects."
+  summary: "Pobiera ProjectInstance zgodnego z pamięci podręcznej BuildManager wcześniej skompilowanych projektach."
   syntax:
     content: public Microsoft.Build.Execution.ProjectInstance GetProjectInstanceForBuild (Microsoft.Build.Evaluation.Project project);
     parameters:
     - id: project
       type: Microsoft.Build.Evaluation.Project
-      description: "The project for which an instance should be retrieved."
+      description: "Projekt, dla którego można pobrać wystąpienia."
     return:
       type: Microsoft.Build.Execution.ProjectInstance
-      description: "Returns a matching ProjectInstance from the BuildManager cache of previously built projects. If none exist, a new project instance will be created from the specified project."
+      description: "Zwraca ProjectInstance zgodnego z pamięci podręcznej BuildManager wcześniej skompilowanych projektach. Jeśli żaden nie istnieją, nowe wystąpienie projektu zostanie utworzony z określonego projektu."
   overload: Microsoft.Build.Execution.BuildManager.GetProjectInstanceForBuild*
   exceptions: []
   platform:
@@ -309,21 +309,21 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Submits a build request to the current build but does not start it immediately. Allows the user to perform asynchronous execution or access the submission ID prior to executing the request."
+  summary: "Przesyła żądanie kompilacji bieżącą kompilację, ale nie uruchamia go bezpośrednio. Umożliwia użytkownikowi do wykonywania operacji asynchronicznych lub uzyskać dostęp do Identyfikatora przesyłanie przed wykonaniem żądania."
   syntax:
     content: public Microsoft.Build.Execution.BuildSubmission PendBuildRequest (Microsoft.Build.Execution.BuildRequestData requestData);
     parameters:
     - id: requestData
       type: Microsoft.Build.Execution.BuildRequestData
-      description: "Build request data."
+      description: "Tworzenie żądania danych."
     return:
       type: Microsoft.Build.Execution.BuildSubmission
-      description: "Returns the submission that will be built."
+      description: "Zwraca przesyłania, który zostanie skompilowany."
   overload: Microsoft.Build.Execution.BuildManager.PendBuildRequest*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Thrown if StartBuild has not been called or if EndBuild has been called."
+    description: "Element zgłaszany, jeśli nie została wywołana StartBuild lub metoda EndBuild została wywołana."
   platform:
   - net462
 - uid: Microsoft.Build.Execution.BuildManager.ResetCaches
@@ -338,7 +338,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Clears out all of the build manager cached information."
+  summary: "Czyści całe Menedżera kompilacji buforowanych informacji."
   syntax:
     content: public void ResetCaches ();
     parameters: []
