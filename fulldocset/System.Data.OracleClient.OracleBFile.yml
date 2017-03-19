@@ -32,8 +32,8 @@ items:
   nameWithType: OracleBFile
   fullName: System.Data.OracleClient.OracleBFile
   type: Class
-  summary: "Represents a managed OracleBFile object designed to work with the Oracle <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;></xref> data type. This class cannot be inherited."
-  remarks: "The Oracle `BFILE` data type is an Oracle `LOB` data type that contains a reference to binary data with a maximum size of 4 gigabytes. An Oracle `BFILE` differs from other Oracle `LOB` data types in that its data is stored in a physical file in the operating system instead of on the server. Note that the `BFILE` data type provides read-only access to data. Therefore, write-oriented methods inherited from the <xref:System.IO.Stream> class are not supported.       Other characteristics of a `BFILE` data type that distinguish it from a `LOB` data type are that it:      -   Contains unstructured data.      -   Supports server-side chunking.      -   Uses reference copy semantics. For example, if you perform a copy operation on a `BFILE`, only the `BFILE` locator (which is a reference to the file) is copied. The data in the file is not copied.       The `BFILE` data type should be used for referencing `LOB`s that are large in size, and therefore, not practical to store in the database. There is client, server, and communication overhead for using a `BFILE` data type compared to the `LOB` data type. It is more efficient to access a `BFILE` if you only need to obtain a small amount of data. It is more efficient to access database-resident `LOB`s if you need to obtain the entire object.       Each non-NULL OracleBFile object is associated with two entities that define the location of the underlying physical file:      -   An Oracle DIRECTORY object, which is a database alias for a directory in the file system, and      -   The file name of the underlying physical file, which is located in the directory associated with the DIRECTORY object.       After a `BFILE` is created, you can retrieve its locator in the form of an OracleBFile object using the <xref:System.Data.OracleClient.OracleCommand.ExecuteReader%2A> or <xref:System.Data.OracleClient.OracleCommand.ExecuteScalar%2A> methods.       To obtain an OracleBFile object, call the <xref:System.Data.OracleClient.OracleDataReader.GetOracleBFile%2A> method.       The physical file that an OracleBFile object is associated with does not need to exist until you attempt to access it. An application can bind an OracleBFile to a nonexistent file, create the physical file in the expected location, and then call <xref:System.Data.OracleClient.OracleBFile.Read%2A>.       Any attempt to access a closed OracleBFile using the <xref:System.Data.OracleClient.OracleBFile.Read%2A> or <xref:System.Data.OracleClient.OracleBFile.Seek%2A> methods reopens an OracleBFile stream automatically.       The following C# example demonstrates how you can create a `BFILE` in an Oracle table, and then retrieve it in the form of an OracleBFile object. The example demonstrates the use of the <xref:System.Data.OracleClient.OracleDataReader> object and the OracleBFile<xref:System.Data.OracleClient.OracleBFile.Seek%2A> and <xref:System.Data.OracleClient.OracleBFile.Read%2A> methods.       [!code-cs[DataWorks OracleClient.BFile#1](~/add/codesnippet/csharp/t-system.data.oracleclie_3_1.cs)]       For more information about creating and using an Oracle `BFILE`, see the appropriate topic in your Oracle documentation.      > [!NOTE] >  The `BeginWrite`, `EndWrite`, and `WriteByte` methods, which are inherited from the `System.IO.Stream` class, are not supported because the `BFILE` data type is read-only."
+  summary: "Reprezentuje obiekt zarządzany OracleBFile przeznaczona do pracy z bazą danych Oracle <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;> </xref> typu danych. Ta klasa nie może być dziedziczona."
+  remarks: "Oracle `BFILE` ma typ danych Oracle `LOB` typ danych, który zawiera odwołanie do danych binarnych o maksymalnym rozmiarze 4 gigabajty. Oracle `BFILE` różni się od innych Oracle `LOB` typy danych, ponieważ jego dane są przechowywane w pliku fizycznego w systemie operacyjnym, a nie na serwerze. Należy pamiętać, że `BFILE` — typ danych zapewnia dostęp do danych tylko do odczytu. W związku z tym zorientowane na zapis metody odziedziczone <xref:System.IO.Stream>klasy nie są obsługiwane.</xref:System.IO.Stream>       Inne właściwości `BFILE` typ danych, który odróżniający go od `LOB` — typ danych są jego:-zawiera dane bez struktury.      — Obsługuje podziału po stronie serwera.      -Używa odwoływać się do kopiowania semantyki. Na przykład, jeśli operacja kopiowania na `BFILE`, tylko `BFILE` jest kopiowany Lokalizator (która jest odwołanie do pliku). Dane w pliku nie zostaną skopiowane.       `BFILE` Typ danych powinien być używany dla przywołującego `LOB`ma duże i w związku z tym praktycznych nie mają być przechowywane w bazie danych. Brak obciążenie klienta, serwera i komunikacji przy użyciu `BFILE` — typ danych w porównaniu do `LOB` — typ danych. Bardziej wydajny dostęp do `BFILE` Jeśli należy uzyskać niewielką ilość danych. Jest bardziej wydajne do dostępu do bazy danych rezydentne `LOB`s, jeśli trzeba uzyskać całego obiektu.       Każdy obiekt z systemem innym niż - NULL OracleBFile jest skojarzona z dwoma obiektami, które określają lokalizację pliku fizycznego:-DIRECTORY Oracle obiektu, który jest alias bazy danych dla katalogu w systemie plików i — nazwa pliku źródłowego pliku fizycznego znajduje się w katalogu skojarzony z obiektem katalogu.       Po `BFILE` jest utworzony, można pobrać jego lokalizatora w postaci obiektu OracleBFile przy użyciu <xref:System.Data.OracleClient.OracleCommand.ExecuteReader%2A>lub <xref:System.Data.OracleClient.OracleCommand.ExecuteScalar%2A>metody.</xref:System.Data.OracleClient.OracleCommand.ExecuteScalar%2A> </xref:System.Data.OracleClient.OracleCommand.ExecuteReader%2A>       Aby uzyskać obiekt OracleBFile, należy wywołać <xref:System.Data.OracleClient.OracleDataReader.GetOracleBFile%2A>metody.</xref:System.Data.OracleClient.OracleDataReader.GetOracleBFile%2A>       Skojarzonego obiektu OracleBFile z pliku fizycznego nie musi istnieć do momentu próba do niego dostęp. Aplikację można powiązać OracleBFile nieistniejący plik, utworzenia pliku fizycznego w oczekiwanej lokalizacji, a następnie wywołać <xref:System.Data.OracleClient.OracleBFile.Read%2A>.</xref:System.Data.OracleClient.OracleBFile.Read%2A>       Próby dostępu zamkniętej przy użyciu OracleBFile <xref:System.Data.OracleClient.OracleBFile.Read%2A>lub <xref:System.Data.OracleClient.OracleBFile.Seek%2A>metody ponownie automatycznie otwiera strumienia OracleBFile.</xref:System.Data.OracleClient.OracleBFile.Seek%2A> </xref:System.Data.OracleClient.OracleBFile.Read%2A>       W poniższym przykładzie C# pokazano, jak utworzyć `BFILE` w oprogramowaniu Oracle tabeli, a następnie pobrać go w formie obiektu OracleBFile. W przykładzie pokazano użycie <xref:System.Data.OracleClient.OracleDataReader>obiekt i OracleBFile<xref:System.Data.OracleClient.OracleBFile.Seek%2A> i <xref:System.Data.OracleClient.OracleBFile.Read%2A>metody.</xref:System.Data.OracleClient.OracleBFile.Read%2A> </xref:System.Data.OracleClient.OracleBFile.Seek%2A> </xref:System.Data.OracleClient.OracleDataReader>       [!code-cs[DataWorks OracleClient.BFile#1](~/add/codesnippet/csharp/t-system.data.oracleclie_3_1.cs) ] Aby uzyskać więcej informacji na temat tworzenia i używania programu Oracle `BFILE`, zobacz odpowiedni temat w dokumentacji programu Oracle.      > [!NOTE] > `BeginWrite`, `EndWrite`, I `WriteByte` metody, które są dziedziczone z `System.IO.Stream` klasa, nie są obsługiwane, ponieważ `BFILE` — typ danych jest tylko do odczytu."
   syntax:
     content: 'public sealed class OracleBFile : System.IO.Stream, ICloneable, System.Data.SqlTypes.INullable'
   inheritance:
@@ -56,12 +56,12 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets a value indicating whether the <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;></xref> stream can be read."
+  summary: "Pobiera wartość wskazującą czy <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;> </xref> można odczytać strumienia."
   syntax:
     content: public override bool CanRead { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if a <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;></xref> is closed or disposed; otherwise <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>. Always <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> for <xref href=&quot;System.Data.OracleClient.OracleBFile.Null&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>Jeśli <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;> </xref> jest zamknięty lub usunięty; w przeciwnym <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>. Always <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> for <xref href=&quot;System.Data.OracleClient.OracleBFile.Null&quot;></xref>."
   overload: System.Data.OracleClient.OracleBFile.CanRead*
   exceptions: []
   platform:
@@ -78,12 +78,12 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets a value indicating whether forward-seek and backward-seek operations can be performed."
+  summary: "Pobiera wartość wskazującą czy wyszukiwania do przodu i do tyłu — wyszukiwanie działań mogą być wykonywane."
   syntax:
     content: public override bool CanSeek { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if a <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;></xref> is closed or disposed; otherwise <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>. Always <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> for <xref href=&quot;System.Data.OracleClient.OracleBFile.Null&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>Jeśli <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;> </xref> jest zamknięty lub usunięty; w przeciwnym <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>. Always <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> for <xref href=&quot;System.Data.OracleClient.OracleBFile.Null&quot;></xref>."
   overload: System.Data.OracleClient.OracleBFile.CanSeek*
   exceptions: []
   platform:
@@ -100,12 +100,12 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets a value indicating whether the object supports writing."
+  summary: "Pobiera wartość wskazującą, czy obiekt obsługuje zapisu."
   syntax:
     content: public override bool CanWrite { get; }
     return:
       type: System.Boolean
-      description: "Always returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> because the Oracle <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;></xref> data type is read-only."
+      description: "Zawsze zwraca <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> ponieważ programu Oracle <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;> </xref> — typ danych jest tylko do odczytu."
   overload: System.Data.OracleClient.OracleBFile.CanWrite*
   exceptions: []
   platform:
@@ -122,14 +122,14 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Creates a copy of this <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> object associated with the same physical file as the original."
-  remarks: "The properties of the new <xref:System.Data.OracleClient.OracleBFile> object initially have the same values as those of the original object. However, after the Clone is complete, each <xref:System.Data.OracleClient.OracleBFile> object is independent from the other. For example, changing the value of the <xref:System.Data.OracleClient.OracleBFile.Position%2A> property on the original <xref:System.Data.OracleClient.OracleBFile> does not change the value of <xref:System.Data.OracleClient.OracleBFile.Position%2A> on the copy."
+  summary: "Tworzy kopię tego <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> obiekt skojarzony z tego samego pliku fizycznego co oryginalny."
+  remarks: "Właściwości nowego <xref:System.Data.OracleClient.OracleBFile>obiekt początkowo ma takie same wartości jak oryginalny obiekt.</xref:System.Data.OracleClient.OracleBFile> Jednak po klonowania zostanie zakończone, każdy <xref:System.Data.OracleClient.OracleBFile>obiekt jest niezależna od innych.</xref:System.Data.OracleClient.OracleBFile> Na przykład zmiana wartości <xref:System.Data.OracleClient.OracleBFile.Position%2A>Właściwości w pierwotnej <xref:System.Data.OracleClient.OracleBFile>nie zmienia wartości <xref:System.Data.OracleClient.OracleBFile.Position%2A>na kopii.</xref:System.Data.OracleClient.OracleBFile.Position%2A> </xref:System.Data.OracleClient.OracleBFile> </xref:System.Data.OracleClient.OracleBFile.Position%2A>"
   syntax:
     content: public object Clone ();
     parameters: []
     return:
       type: System.Object
-      description: "A new <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> object associated with the same physical file as the original <xref uid=&quot;langword_csharp_OracleBFile&quot; name=&quot;OracleBFile&quot; href=&quot;&quot;></xref> object."
+      description: "Nowy <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> obiekt skojarzony z tego samego pliku fizycznego jak oryginał <xref uid=&quot;langword_csharp_OracleBFile&quot; name=&quot;OracleBFile&quot; href=&quot;&quot;> </xref> obiektu."
   overload: System.Data.OracleClient.OracleBFile.Clone*
   exceptions: []
   platform:
@@ -146,12 +146,12 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets the <xref href=&quot;System.Data.OracleClient.OracleConnection&quot;></xref> used by this instance of the <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref>."
+  summary: "Pobiera <xref href=&quot;System.Data.OracleClient.OracleConnection&quot;> </xref> używane przez to wystąpienie <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref>."
   syntax:
     content: public System.Data.OracleClient.OracleConnection Connection { get; }
     return:
       type: System.Data.OracleClient.OracleConnection
-      description: "The connection to a data source. The default is a null value."
+      description: "Połączenie ze źródłem danych. Wartość domyślna to wartość null."
   overload: System.Data.OracleClient.OracleBFile.Connection*
   exceptions: []
   platform:
@@ -168,28 +168,28 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Copies the entire contents of this <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> to the beginning of a destination <xref href=&quot;System.Data.OracleClient.OracleLob&quot;></xref>."
-  remarks: "The underlying data types of the source <xref:System.Data.OracleClient.OracleBFile> and the destination <xref:System.Data.OracleClient.OracleLob> must be compatible. For example, you cannot copy binary data to a destination <xref:System.Data.OracleClient.OracleLob> that has a character data type.       You must have write access to the destination <xref:System.Data.OracleClient.OracleLob> for the CopyTo operation to execute correctly."
+  summary: "Kopiuje całą zawartość <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> na początku miejsca docelowego <xref href=&quot;System.Data.OracleClient.OracleLob&quot;> </xref>."
+  remarks: "Podstawowe typy danych źródła <xref:System.Data.OracleClient.OracleBFile>i miejsce docelowe <xref:System.Data.OracleClient.OracleLob>muszą być zgodne.</xref:System.Data.OracleClient.OracleLob> </xref:System.Data.OracleClient.OracleBFile> Na przykład nie można skopiować dane binarne do miejsca docelowego <xref:System.Data.OracleClient.OracleLob>mający typ danych znakowych.</xref:System.Data.OracleClient.OracleLob>       Masz dostęp do zapisu do tego miejsca docelowego <xref:System.Data.OracleClient.OracleLob>na poprawnego wykonania operacji CopyTo.</xref:System.Data.OracleClient.OracleLob>"
   syntax:
     content: public long CopyTo (System.Data.OracleClient.OracleLob destination);
     parameters:
     - id: destination
       type: System.Data.OracleClient.OracleLob
-      description: "The destination <xref href=&quot;System.Data.OracleClient.OracleLob&quot;></xref>"
+      description: "Miejsce docelowe<xref href=&quot;System.Data.OracleClient.OracleLob&quot;></xref>"
     return:
       type: System.Int64
-      description: "The number of bytes copied."
+      description: "Liczba bajtów skopiowanych."
   overload: System.Data.OracleClient.OracleBFile.CopyTo*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The destination <xref uid=&quot;langword_csharp_OracleLob&quot; name=&quot;OracleLob&quot; href=&quot;&quot;></xref> is a null object reference."
+    description: "Miejsce docelowe <xref uid=&quot;langword_csharp_OracleLob&quot; name=&quot;OracleLob&quot; href=&quot;&quot;> </xref> jest odwołaniem do obiektu o wartości null."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The destination is a null <xref uid=&quot;langword_csharp_OracleLob&quot; name=&quot;OracleLob&quot; href=&quot;&quot;></xref>.       -or-       The connection with which this <xref uid=&quot;langword_csharp_OracleBFile&quot; name=&quot;OracleBFile&quot; href=&quot;&quot;></xref> is associated is closed."
+    description: "Obiekt docelowy ma wartość null <xref uid=&quot;langword_csharp_OracleLob&quot; name=&quot;OracleLob&quot; href=&quot;&quot;> </xref>.       - lub - połączenia, z której ta <xref uid=&quot;langword_csharp_OracleBFile&quot; name=&quot;OracleBFile&quot; href=&quot;&quot;> </xref> skojarzony jest zamknięty."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref uid=&quot;langword_csharp_OracleBFile&quot; name=&quot;OracleBFile&quot; href=&quot;&quot;></xref> object is closed or disposed."
+    description: "<xref uid=&quot;langword_csharp_OracleBFile&quot; name=&quot;OracleBFile&quot; href=&quot;&quot;> </xref> Obiekt jest zamknięty lub usunięty."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleBFile.CopyTo(System.Data.OracleClient.OracleLob,System.Int64)
@@ -204,31 +204,31 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Copies the entire contents of this <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> to a destination <xref href=&quot;System.Data.OracleClient.OracleLob&quot;></xref> at the specified offset."
-  remarks: "The underlying data types of the source <xref:System.Data.OracleClient.OracleBFile> and the destination <xref:System.Data.OracleClient.OracleLob> must be compatible. For example, you cannot copy binary data to a destination <xref:System.Data.OracleClient.OracleLob> that has a character data type.       You must have write access to the destination <xref:System.Data.OracleClient.OracleLob> for the <xref:System.Data.OracleClient.OracleBFile.CopyTo%2A> operation to execute correctly."
+  summary: "Kopiuje całą zawartość <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> do miejsca docelowego <xref href=&quot;System.Data.OracleClient.OracleLob&quot;> </xref> od wskazanego przesunięcia."
+  remarks: "Podstawowe typy danych źródła <xref:System.Data.OracleClient.OracleBFile>i miejsce docelowe <xref:System.Data.OracleClient.OracleLob>muszą być zgodne.</xref:System.Data.OracleClient.OracleLob> </xref:System.Data.OracleClient.OracleBFile> Na przykład nie można skopiować dane binarne do miejsca docelowego <xref:System.Data.OracleClient.OracleLob>mający typ danych znakowych.</xref:System.Data.OracleClient.OracleLob>       Masz dostęp do zapisu do tego miejsca docelowego <xref:System.Data.OracleClient.OracleLob>dla <xref:System.Data.OracleClient.OracleBFile.CopyTo%2A>poprawnie wykonanie operacji.</xref:System.Data.OracleClient.OracleBFile.CopyTo%2A> </xref:System.Data.OracleClient.OracleLob>"
   syntax:
     content: public long CopyTo (System.Data.OracleClient.OracleLob destination, long destinationOffset);
     parameters:
     - id: destination
       type: System.Data.OracleClient.OracleLob
-      description: "The destination <xref href=&quot;System.Data.OracleClient.OracleLob&quot;></xref>."
+      description: "Miejsce docelowe <xref href=&quot;System.Data.OracleClient.OracleLob&quot;> </xref>."
     - id: destinationOffset
       type: System.Int64
-      description: "The offset to which to copy."
+      description: "Przesunięcie, do którego zostaną skopiowane."
     return:
       type: System.Int64
-      description: "The number of bytes copied."
+      description: "Liczba bajtów skopiowanych."
   overload: System.Data.OracleClient.OracleBFile.CopyTo*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The destination <xref uid=&quot;langword_csharp_OracleLob&quot; name=&quot;OracleLob&quot; href=&quot;&quot;></xref> is a null object reference."
+    description: "Miejsce docelowe <xref uid=&quot;langword_csharp_OracleLob&quot; name=&quot;OracleLob&quot; href=&quot;&quot;> </xref> jest odwołaniem do obiektu o wartości null."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The destination is a null <xref uid=&quot;langword_csharp_OracleLob&quot; name=&quot;OracleLob&quot; href=&quot;&quot;></xref>.       -or-       The connection with which this <xref uid=&quot;langword_csharp_OracleBFile&quot; name=&quot;OracleBFile&quot; href=&quot;&quot;></xref> is associated is closed."
+    description: "Obiekt docelowy ma wartość null <xref uid=&quot;langword_csharp_OracleLob&quot; name=&quot;OracleLob&quot; href=&quot;&quot;> </xref>.       - lub - połączenia, z której ta <xref uid=&quot;langword_csharp_OracleBFile&quot; name=&quot;OracleBFile&quot; href=&quot;&quot;> </xref> skojarzony jest zamknięty."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref uid=&quot;langword_csharp_OracleBFile&quot; name=&quot;OracleBFile&quot; href=&quot;&quot;></xref> object is closed or disposed."
+    description: "<xref uid=&quot;langword_csharp_OracleBFile&quot; name=&quot;OracleBFile&quot; href=&quot;&quot;> </xref> Obiekt jest zamknięty lub usunięty."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleBFile.CopyTo(System.Int64,System.Data.OracleClient.OracleLob,System.Int64,System.Int64)
@@ -243,40 +243,40 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Copies from this <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> to a destination <xref href=&quot;System.Data.OracleClient.OracleLob&quot;></xref> with the specified amount of data, the source offset, and the destination offset."
-  remarks: "The underlying data types of the source <xref:System.Data.OracleClient.OracleBFile> and the destination <xref:System.Data.OracleClient.OracleLob> must be compatible. For example, you cannot copy binary data to a destination <xref:System.Data.OracleClient.OracleLob> that has a character data type.       You must have write access to the destination <xref:System.Data.OracleClient.OracleLob> for the <xref:System.Data.OracleClient.OracleBFile.CopyTo%2A> operation to execute correctly."
+  summary: "Kopie z tej <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> do miejsca docelowego <xref href=&quot;System.Data.OracleClient.OracleLob&quot;> </xref> z określoną ilością danych, przesunięcie źródła i Przesunięcie docelowe."
+  remarks: "Podstawowe typy danych źródła <xref:System.Data.OracleClient.OracleBFile>i miejsce docelowe <xref:System.Data.OracleClient.OracleLob>muszą być zgodne.</xref:System.Data.OracleClient.OracleLob> </xref:System.Data.OracleClient.OracleBFile> Na przykład nie można skopiować dane binarne do miejsca docelowego <xref:System.Data.OracleClient.OracleLob>mający typ danych znakowych.</xref:System.Data.OracleClient.OracleLob>       Masz dostęp do zapisu do tego miejsca docelowego <xref:System.Data.OracleClient.OracleLob>dla <xref:System.Data.OracleClient.OracleBFile.CopyTo%2A>poprawnie wykonanie operacji.</xref:System.Data.OracleClient.OracleBFile.CopyTo%2A> </xref:System.Data.OracleClient.OracleLob>"
   syntax:
     content: public long CopyTo (long sourceOffset, System.Data.OracleClient.OracleLob destination, long destinationOffset, long amount);
     parameters:
     - id: sourceOffset
       type: System.Int64
-      description: "The offset from which to copy."
+      description: "Przesunięcie do skopiowania."
     - id: destination
       type: System.Data.OracleClient.OracleLob
-      description: "The destination <xref href=&quot;System.Data.OracleClient.OracleLob&quot;></xref>."
+      description: "Miejsce docelowe <xref href=&quot;System.Data.OracleClient.OracleLob&quot;> </xref>."
     - id: destinationOffset
       type: System.Int64
-      description: "The offset to which to copy."
+      description: "Przesunięcie, do którego zostaną skopiowane."
     - id: amount
       type: System.Int64
-      description: "The quantity of data, in bytes, to copy."
+      description: "Ilość danych w bajtach, aby skopiować."
     return:
       type: System.Int64
-      description: "The number of bytes copied."
+      description: "Liczba bajtów skopiowanych."
   overload: System.Data.OracleClient.OracleBFile.CopyTo*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value of the amount parameter is less than zero or greater than 4 gigabytes."
+    description: "Wartość parametru kwota jest mniejsza niż zero lub większa niż 4 GB."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The destination <xref uid=&quot;langword_csharp_OracleLob&quot; name=&quot;OracleLob&quot; href=&quot;&quot;></xref> is a null object reference."
+    description: "Miejsce docelowe <xref uid=&quot;langword_csharp_OracleLob&quot; name=&quot;OracleLob&quot; href=&quot;&quot;> </xref> jest odwołaniem do obiektu o wartości null."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The destination is a null <xref uid=&quot;langword_csharp_OracleLob&quot; name=&quot;OracleLob&quot; href=&quot;&quot;></xref>.       -or-       The connection with which this <xref uid=&quot;langword_csharp_OracleBFile&quot; name=&quot;OracleBFile&quot; href=&quot;&quot;></xref> is associated is closed."
+    description: "Obiekt docelowy ma wartość null <xref uid=&quot;langword_csharp_OracleLob&quot; name=&quot;OracleLob&quot; href=&quot;&quot;> </xref>.       - lub - połączenia, z której ta <xref uid=&quot;langword_csharp_OracleBFile&quot; name=&quot;OracleBFile&quot; href=&quot;&quot;> </xref> skojarzony jest zamknięty."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref uid=&quot;langword_csharp_OracleBFile&quot; name=&quot;OracleBFile&quot; href=&quot;&quot;></xref> object is closed or disposed."
+    description: "<xref uid=&quot;langword_csharp_OracleBFile&quot; name=&quot;OracleBFile&quot; href=&quot;&quot;> </xref> Obiekt jest zamknięty lub usunięty."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleBFile.DirectoryName
@@ -291,18 +291,18 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets the name of the DIRECTORY object, with which an <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> object is associated."
-  remarks: "Each non-NULL <xref:System.Data.OracleClient.OracleBFile> object is associated with two entities that define the location of underlying physical file:      -   An Oracle DIRECTORY object, which is a database alias for a directory in the file system, and      -   The file name of the underlying physical file, which is located in the directory associated with the DIRECTORY object.       The DirectoryName property returns the name of the DIRECTORY object from the Oracle database.       For more information about creating and using an Oracle `BFILE`, see the appropriate topic in your Oracle documentation."
+  summary: "Pobiera nazwę obiektu katalogu, z którym <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> obiekt jest skojarzony."
+  remarks: "Każdy z systemem innym niż NULL <xref:System.Data.OracleClient.OracleBFile>obiekt jest skojarzony z dwoma obiektami definiujące lokalizacji podstawowego pliku fizycznego:-katalogu Oracle obiektu, który jest alias bazy danych dla katalogu w systemie plików i — nazwa pliku źródłowego pliku fizycznego znajduje się w katalogu skojarzony z obiektem katalogu.</xref:System.Data.OracleClient.OracleBFile>       Właściwość DirectoryName zwraca nazwę obiektu katalogu z bazy danych programu Oracle.       Aby uzyskać więcej informacji na temat tworzenia i używania programu Oracle `BFILE`, zobacz odpowiedni temat w dokumentacji programu Oracle."
   syntax:
     content: public string DirectoryName { get; }
     return:
       type: System.String
-      description: "The name of the DIRECTORY object."
+      description: "Nazwa obiektu katalogu."
   overload: System.Data.OracleClient.OracleBFile.DirectoryName*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "Attempted to call <xref uid=&quot;langword_csharp_DirectoryName&quot; name=&quot;DirectoryName&quot; href=&quot;&quot;></xref> on a closed or disposed <xref uid=&quot;langword_csharp_OracleBFile&quot; name=&quot;OracleBFile&quot; href=&quot;&quot;></xref> object."
+    description: "Nastąpiła próba wywołania <xref uid=&quot;langword_csharp_DirectoryName&quot; name=&quot;DirectoryName&quot; href=&quot;&quot;> </xref> na zamknięty lub usunięty <xref uid=&quot;langword_csharp_OracleBFile&quot; name=&quot;OracleBFile&quot; href=&quot;&quot;> </xref> obiektu."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleBFile.Dispose(System.Boolean)
@@ -322,7 +322,7 @@ items:
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "To be added."
+      description: "Do dodania."
   overload: System.Data.OracleClient.OracleBFile.Dispose*
   exceptions: []
   platform:
@@ -339,20 +339,20 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets a value indicating whether a physical file containing <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;></xref> data exists in the operating system."
+  summary: "Pobiera wartość wskazującą, czy fizycznego pliku zawierającego <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;> </xref> danych istnieje w systemie operacyjnym."
   syntax:
     content: public bool FileExists { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a physical file containing <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;></xref> data exists; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli fizycznego pliku zawierającego <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;> </xref> danych istnieje; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.OracleClient.OracleBFile.FileExists*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> object is closed or disposed."
+    description: "<xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> Obiekt jest zamknięty lub usunięty."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The connection with which a <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;></xref> is associated is closed."
+    description: "Połączenia, z którym <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;> </xref> skojarzony jest zamknięty."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleBFile.FileName
@@ -367,18 +367,18 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets the name of the <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;></xref> without the path."
-  remarks: "For <xref:System.Data.OracleClient.OracleBFile.Null>, an empty string is returned."
+  summary: "Pobiera nazwę <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;> </xref> bez ścieżki."
+  remarks: "Aby uzyskać <xref:System.Data.OracleClient.OracleBFile.Null>, zwracany jest pustym ciągiem.</xref:System.Data.OracleClient.OracleBFile.Null>"
   syntax:
     content: public string FileName { get; }
     return:
       type: System.String
-      description: "The name of the BFILE."
+      description: "Nazwa BPLIK."
   overload: System.Data.OracleClient.OracleBFile.FileName*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> object is closed or disposed."
+    description: "<xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> Obiekt jest zamknięty lub usunięty."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleBFile.Flush
@@ -393,7 +393,7 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Not currently supported."
+  summary: "Nie są obecnie obsługiwane."
   syntax:
     content: public override void Flush ();
     parameters: []
@@ -413,12 +413,12 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets a value that indicates whether the <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> is a <xref href=&quot;System.Data.OracleClient.OracleBFile.Null&quot;></xref> stream."
+  summary: "Pobiera wartość wskazującą, czy <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> jest <xref href=&quot;System.Data.OracleClient.OracleBFile.Null&quot;> </xref> strumienia."
   syntax:
     content: public bool IsNull { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> is a <xref href=&quot;System.Data.OracleClient.OracleBFile.Null&quot;></xref> stream; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>if the <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> is a <xref href=&quot;System.Data.OracleClient.OracleBFile.Null&quot;></xref> stream; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
   overload: System.Data.OracleClient.OracleBFile.IsNull*
   exceptions: []
   platform:
@@ -435,17 +435,17 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets a value that returns the length in bytes of the physical file with which the <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> object is associated."
+  summary: "Pobiera wartość, która zwraca długość w bajtach pliku fizycznego, z którym <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> obiekt jest skojarzony."
   syntax:
     content: public override long Length { get; }
     return:
       type: System.Int64
-      description: "A long value representing the length of the physical file in bytes."
+      description: "Wartość typu long reprezentujący długość fizycznego pliku w bajtach."
   overload: System.Data.OracleClient.OracleBFile.Length*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "Methods were called after the stream was closed or disposed."
+    description: "Metody wywołane po strumień został zamknięty lub usunięty."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleBFile.Null
@@ -460,13 +460,13 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Represents a null <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> object that is not bound to a physical file."
-  remarks: "Null can be useful when you want to perform a comparison operation on an <xref:System.Data.OracleClient.OracleBFile> to determine nullability.       Any attempt to perform a read operation on a Null object succeeds, but does not return any data. Any attempt to perform a write operation on a Null object generates an exception. Selecting a `BFILE` column that contains a null value returns Null."
+  summary: "Reprezentuje wartość null <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> obiekt, który nie jest powiązany z pliku fizycznego."
+  remarks: "Wartość null mogą być przydatne, jeśli chcesz wykonać operacji porównywania w <xref:System.Data.OracleClient.OracleBFile>ustalenie dopuszczania wartości null.</xref:System.Data.OracleClient.OracleBFile>       Próba wykonania operacji odczytu dla obiektu Null zakończy się pomyślnie, ale nie zwrócił żadnych danych. Próba wykonania operacji zapisu dla obiektu Null generuje wyjątek. Wybieranie `BFILE` kolumny, która zawiera wartość null, zwraca wartość Null."
   syntax:
     content: public static readonly System.Data.OracleClient.OracleBFile Null;
     return:
       type: System.Data.OracleClient.OracleBFile
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -482,21 +482,21 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets the current read position in the <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> stream."
-  remarks: "Seeking to any location beyond the length of the stream is not supported.       The `Position` property does not keep track of the number of bytes from the stream that have been consumed, skipped, or both."
+  summary: "Pobiera bieżący odczytu pozycja w <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> strumienia."
+  remarks: "Wyszukiwanie w dowolne miejsce powyżej długość strumienia nie jest obsługiwane.       `Position` Właściwości nie zachować śledzić liczbę bajtów ze strumienia, który zostały wykorzystane, zostało pominięte, lub obie."
   syntax:
     content: public override long Position { get; set; }
     return:
       type: System.Int64
-      description: "The current position within the <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> stream."
+      description: "Bieżąca pozycja w <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> strumienia."
   overload: System.Data.OracleClient.OracleBFile.Position*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "Attempted to set a position with a negative value or greater than the length of the stream."
+    description: "Podjęto próbę ustawienia pozycji z wartością ujemną lub większą niż długość strumienia."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "Methods were called after the stream was closed or disposed."
+    description: "Metody wywołane po strumień został zamknięty lub usunięty."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleBFile.Read(System.Byte[],System.Int32,System.Int32)
@@ -511,43 +511,43 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Reads a sequence of bytes from the current <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> stream and advances the position within the stream by the number of bytes read."
-  remarks: "The Read method read a maximum of `count` bytes from the current stream and store them in `buffer` beginning at `offset`. The current position within the stream is advanced by the number of bytes read; however, if an exception occurs, the current position within the stream remains unchanged. Read returns the number of bytes read. The return value is zero only if the position is currently at the end of the stream. Read will block until at least one byte of data can be read, in the event that no data is available. Read returns 0 only when the end of the file has been reached. Read is free to return fewer bytes than requested even if the end of the stream has not been reached.       Any attempt to access a closed <xref:System.Data.OracleClient.OracleBFile> using the Read or <xref:System.Data.OracleClient.OracleBFile.Seek%2A> methods reopens an <xref:System.Data.OracleClient.OracleBFile> stream automatically.       The following C# example assumes this schema in an Oracle table:      ```   (col1 number, col2 BFILE)   ```       The example demonstrates using the Read and <xref:System.Data.OracleClient.OracleBFile.Seek%2A> methods to access an <xref:System.Data.OracleClient.OracleBFile> object.      ```   byte[] buffer = new byte[100];   OracleDataReader dataReader = command.ExecuteReader();   using (dataReader) {       if (dataReader.Read()) {               OracleBFile BFile = dataReader.GetOracleBFile(1);           using (BFile) {               BFile.Seek(0, SeekOrigin.Begin);               BFile.Read(buffer, 0, 100);           }       }   }   ```"
+  summary: "Odczytuje sekwencję bajtów z bieżącego <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> strumienia i poprawę pozycji w strumieniu przez liczbę bajtów do odczytu."
+  remarks: "Metody Read odczytu maksymalnie `count` bajtów z bieżącego strumienia i przechowywać je w `buffer` począwszy od `offset`. Bieżącą pozycję w strumieniu jest zaawansowane przez liczbę bajtów odczytanych; Jednak jeśli wystąpi wyjątek, bieżącą pozycję w strumieniu nie jest zmieniany. Odczyt zwraca liczbę bajtów do odczytu. Zwracana wartość wynosi zero, tylko wtedy, gdy pozycja jest obecnie na koniec strumienia. Odczyt zablokuje dopóki co najmniej jednego bajtu danych mogą być odczytywane; w przypadku, gdy nie są dostępne żadne dane. Przeczytaj zwraca wartość 0, tylko wtedy, gdy zostanie osiągnięty koniec pliku. Odczyt jest bezpłatna do zwrócenia mniej bajtów niż żądana, nawet jeżeli nie osiągnięto koniec strumienia.       Próby uzyskania dostępu do zamkniętej <xref:System.Data.OracleClient.OracleBFile>przy użyciu odczytu lub <xref:System.Data.OracleClient.OracleBFile.Seek%2A>ponownie otwierane metody <xref:System.Data.OracleClient.OracleBFile>automatycznie strumienia.</xref:System.Data.OracleClient.OracleBFile> </xref:System.Data.OracleClient.OracleBFile.Seek%2A> </xref:System.Data.OracleClient.OracleBFile>       W poniższym przykładzie C# zakłada ten schemat tabeli Oracle: ```   (col1 number, col2 BFILE)   ``` w przykładzie pokazano, za pomocą do odczytu i <xref:System.Data.OracleClient.OracleBFile.Seek%2A>metod dostępu do <xref:System.Data.OracleClient.OracleBFile>obiektu.</xref:System.Data.OracleClient.OracleBFile> </xref:System.Data.OracleClient.OracleBFile.Seek%2A>      ```   byte[] buffer = new byte[100];   OracleDataReader dataReader = command.ExecuteReader();   using (dataReader) {       if (dataReader.Read()) {               OracleBFile BFile = dataReader.GetOracleBFile(1);           using (BFile) {               BFile.Seek(0, SeekOrigin.Begin);               BFile.Read(buffer, 0, 100);           }       }   }   ```"
   syntax:
     content: public override int Read (byte[] buffer, int offset, int count);
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "An array of bytes. When this method returns, the buffer contains the specified byte array with the values between `offset` and (`offset` + `count`) replaced by the bytes read from the current source."
+      description: "Tablica bajtów. Po powrocie z tej metody bufor zawiera określonej tablicy bajtów z wartością pomiędzy `offset` i (`offset` + `count`) zastępuje Bajty odczytane z bieżącego źródła."
     - id: offset
       type: System.Int32
-      description: "The zero-based byte offset in `buffer` at which to begin storing the data read from the current stream."
+      description: "Zerze przesunięcie w `buffer` rozpoczęcia przechowywania danych przeczytanie z bieżącego strumienia."
     - id: count
       type: System.Int32
-      description: "The maximum number of bytes to be read from the current stream."
+      description: "Maksymalna liczba bajtów, które mają być odczytane z bieżącego strumienia."
     return:
       type: System.Int32
-      description: "The total number of bytes read into the buffer. This may be less than the number of bytes requested if that many bytes are not currently available, or zero if the end of the file has been reached."
+      description: "Całkowita liczba bajtów odczytanych w buforze. To może być mniejsza niż żądana liczba bajtów Jeśli czy wiele bajtów nie są obecnie dostępne, lub zero, jeśli został osiągnięty koniec pliku."
   overload: System.Data.OracleClient.OracleBFile.Read*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The sum of <code>offset</code> and <code>count</code> is larger than the buffer length."
+    description: "Suma <code> offset </code> i <code> count </code> jest większa niż długość buforu."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>buffer</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>buffer</code>to odwołanie o wartości null (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> w języku Visual Basic)."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>offset</code> or <code>count</code> is negative."
+    description: "<code>offset</code>lub <code>count</code> jest ujemna."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The connection with which a <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;></xref> is associated is closed."
+    description: "Połączenia, z którym <xref uid=&quot;langword_csharp_BFILE&quot; name=&quot;BFILE&quot; href=&quot;&quot;> </xref> skojarzony jest zamknięty."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred."
+    description: "Wystąpił błąd We/Wy."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "Methods were called after the stream was closed or disposed."
+    description: "Metody wywołane po strumień został zamknięty lub usunięty."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleBFile.Seek(System.Int64,System.IO.SeekOrigin)
@@ -562,28 +562,28 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Sets the position on the current <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> stream."
-  remarks: "If `offset` is negative, the new position is required to precede the position specified by `origin` by the number of bytes specified by `offset`. If `offset` is zero, the new position is required to be the position specified by `origin`. If `offset` is positive, the new position is required to follow the position specified by `origin` by the number of bytes specified by `offset`.       Seeking to any location beyond the length of the stream is not supported.       Any attempt to access a closed <xref:System.Data.OracleClient.OracleBFile> using the <xref:System.Data.OracleClient.OracleBFile.Read%2A> or Seek methods reopens an <xref:System.Data.OracleClient.OracleBFile> stream automatically.       The following C# example assumes this schema in an Oracle table:      ```   (col1 number, col2 BFILE)   ```       The example demonstrates using the <xref:System.Data.OracleClient.OracleBFile.Read%2A> and Seek methods to access an <xref:System.Data.OracleClient.OracleBFile> object.      ```   byte[] buffer = new byte[100];   OracleDataReader dataReader = command.ExecuteReader();   using (dataReader) {       if (dataReader.Read()) {               OracleBFile BFile = dataReader.GetOracleBFile(1);           using (BFile) {               BFile.Seek(0, SeekOrigin.Begin);               BFile.Read(buffer, 0, 100);           }       }   }   ```"
+  summary: "Ustawia położenie na bieżącej <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> strumienia."
+  remarks: "Jeśli `offset` jest ujemna, nowe miejsce wymagane do poprzedzać pozycja określona przez `origin` przez liczbę bajtów określona przez `offset`. Jeśli `offset` wynosi zero, nowe położenie jest musi być pozycja określona przez `origin`. Jeśli `offset` jest dodatnia, nowe położenie jest wymagana do wykonania pozycja określona przez `origin` przez liczbę bajtów określona przez `offset`.       Wyszukiwanie w dowolne miejsce powyżej długość strumienia nie jest obsługiwane.       Próby uzyskania dostępu do zamkniętej <xref:System.Data.OracleClient.OracleBFile>przy użyciu <xref:System.Data.OracleClient.OracleBFile.Read%2A>lub wyszukiwanie ponownie otwierane metody <xref:System.Data.OracleClient.OracleBFile>automatycznie strumienia.</xref:System.Data.OracleClient.OracleBFile> </xref:System.Data.OracleClient.OracleBFile.Read%2A> </xref:System.Data.OracleClient.OracleBFile>       W poniższym przykładzie C# zakłada ten schemat tabeli Oracle: ```   (col1 number, col2 BFILE)   ``` w przykładzie pokazano, przy użyciu <xref:System.Data.OracleClient.OracleBFile.Read%2A>i wyszukiwania w metodach dostępu <xref:System.Data.OracleClient.OracleBFile>obiektu.</xref:System.Data.OracleClient.OracleBFile> </xref:System.Data.OracleClient.OracleBFile.Read%2A>      ```   byte[] buffer = new byte[100];   OracleDataReader dataReader = command.ExecuteReader();   using (dataReader) {       if (dataReader.Read()) {               OracleBFile BFile = dataReader.GetOracleBFile(1);           using (BFile) {               BFile.Seek(0, SeekOrigin.Begin);               BFile.Read(buffer, 0, 100);           }       }   }   ```"
   syntax:
     content: public override long Seek (long offset, System.IO.SeekOrigin origin);
     parameters:
     - id: offset
       type: System.Int64
-      description: "A byte offset relative to origin. If `offset` is negative, the new position will precede the position specified by `origin` by the number of bytes specified by `offset`. If `offset` is zero, the new position will be the position specified by `origin`. If `offset` is positive, the new position will follow the position specified by `origin` by the number of bytes specified by `offset`."
+      description: "Przesunięcie bajtów, względem źródła. Jeśli `offset` jest ujemna, Nowa pozycja jest poprzedzony pozycja określona przez `origin` przez liczbę bajtów określona przez `offset`. Jeśli `offset` wynosi zero, nowe miejsce będzie pozycja określona przez `origin`. Jeśli `offset` jest dodatnia, nowe położenie zastosują się pozycja określona przez `origin` przez liczbę bajtów określona przez `offset`."
     - id: origin
       type: System.IO.SeekOrigin
-      description: "A value of type <xref uid=&quot;langword_csharp_System.IO.SeekOrigin&quot; name=&quot;System.IO.SeekOrigin&quot; href=&quot;&quot;></xref> indicating the reference point used to obtain the new position."
+      description: "Wartości typu <xref uid=&quot;langword_csharp_System.IO.SeekOrigin&quot; name=&quot;System.IO.SeekOrigin&quot; href=&quot;&quot;> </xref> wskazujący punkt odniesienia używany do uzyskania nowego położenia."
     return:
       type: System.Int64
-      description: "The new position within the current stream."
+      description: "Nowa pozycja w ramach bieżącego strumienia."
   overload: System.Data.OracleClient.OracleBFile.Seek*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "Attempted to set a position with a negative value or greater than the length of the stream."
+    description: "Podjęto próbę ustawienia pozycji z wartością ujemną lub większą niż długość strumienia."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "Methods were called after the stream was closed or disposed."
+    description: "Metody wywołane po strumień został zamknięty lub usunięty."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleBFile.SetFileName(System.String,System.String)
@@ -598,22 +598,22 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Binds the <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> object to a different file in the operating system."
-  remarks: "The SetFileName operation must be within a transaction to succeed. Simply calling SetFileName on a `BFILE` associates the <xref:System.Data.OracleClient.OracleBFile> object with a different file, but does not update the Oracle table. To update the Oracle table after calling SetFileName, you must call the `Update` method of the <xref:System.Data.OracleClient.OracleDataAdapter> and then commit the transaction.       Once you retrieve the <xref:System.Data.OracleClient.OracleBFile.DirectoryName%2A> or <xref:System.Data.OracleClient.OracleBFile.FileName%2A> property, they are cached in the <xref:System.Data.OracleClient.OracleBFile> object and are unaffected by any cloned <xref:System.Data.OracleClient.OracleBFile> objects&quot; calls to SetFileName, or by any changes to the `BFILE` in the database. In other words, they might not represent the actual values of the `BFILE` object in the server.       Furthermore, retrieving either property (<xref:System.Data.OracleClient.OracleBFile.DirectoryName%2A> or <xref:System.Data.OracleClient.OracleBFile.FileName%2A>) causes both property values to be retrieved from the server and cached in the <xref:System.Data.OracleClient.OracleBFile> object.       The following C# example assumes this schema in an Oracle table:      ```   (col1 number, col2 BFILE)   ```       The example demonstrates using the SetFileName, <xref:System.Data.OracleClient.OracleBFile.Read%2A> and <xref:System.Data.OracleClient.OracleBFile.Seek%2A> methods to access an <xref:System.Data.OracleClient.OracleBFile> object.      ```   byte[] buffer = new byte[100];   OracleDataReader dataReader = command.ExecuteReader();   using (dataReader) {       if (dataReader.Read()) {           OracleBFile BFile = dataReader.GetOracleBFile(1);           using (BFile) {               BFile.Seek(0, SeekOrigin.Begin);               BFile.Read(buffer, 0, 100);               command.Transaction = connection.BeginTransaction();               BFile.SetFileName(&quot;TESTDIR&quot;, &quot;File1.jpg&quot;);               BFile.Read(buffer, 0, 100);           }       }   }   ```"
+  summary: "Wiąże <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> obiektu do innego pliku w systemie operacyjnym."
+  remarks: "Operacja SetFileName musi znajdować się w obrębie transakcji powiodło się. Po prostu wywoływanie SetFileName `BFILE` kojarzy <xref:System.Data.OracleClient.OracleBFile>obiektu przy użyciu innego pliku, ale nie została zaktualizowana w tabeli programu Oracle.</xref:System.Data.OracleClient.OracleBFile> Aby zaktualizować tabeli Oracle po wywołaniu metody SetFileName, należy wywołać `Update` metody <xref:System.Data.OracleClient.OracleDataAdapter>, a następnie zatwierdzić transakcji.</xref:System.Data.OracleClient.OracleDataAdapter>       Po pobraniu <xref:System.Data.OracleClient.OracleBFile.DirectoryName%2A>lub <xref:System.Data.OracleClient.OracleBFile.FileName%2A>Właściwości, są one buforowane w <xref:System.Data.OracleClient.OracleBFile>obiektu i nie podlegają żadnego sklonować <xref:System.Data.OracleClient.OracleBFile>obiektów wywołania do SetFileName lub zmiany `BFILE` w bazie danych.</xref:System.Data.OracleClient.OracleBFile> </xref:System.Data.OracleClient.OracleBFile> </xref:System.Data.OracleClient.OracleBFile.FileName%2A> </xref:System.Data.OracleClient.OracleBFile.DirectoryName%2A> Innymi słowy, może nie reprezentują rzeczywiste wartości `BFILE` obiektu na serwerze.       Ponadto podczas pobierania właściwości albo (<xref:System.Data.OracleClient.OracleBFile.DirectoryName%2A> lub <xref:System.Data.OracleClient.OracleBFile.FileName%2A>) powoduje, że obie wartości właściwości do pobrania z serwera i w pamięci podręcznej <xref:System.Data.OracleClient.OracleBFile>obiektu.</xref:System.Data.OracleClient.OracleBFile> </xref:System.Data.OracleClient.OracleBFile.FileName%2A> </xref:System.Data.OracleClient.OracleBFile.DirectoryName%2A>       W poniższym przykładzie C# zakłada ten schemat tabeli Oracle: ```   (col1 number, col2 BFILE)   ``` w przykładzie pokazano, za pomocą SetFileName, <xref:System.Data.OracleClient.OracleBFile.Read%2A>i <xref:System.Data.OracleClient.OracleBFile.Seek%2A>metod dostępu do <xref:System.Data.OracleClient.OracleBFile>obiektu.</xref:System.Data.OracleClient.OracleBFile> </xref:System.Data.OracleClient.OracleBFile.Seek%2A> </xref:System.Data.OracleClient.OracleBFile.Read%2A>      ```   byte[] buffer = new byte[100];   OracleDataReader dataReader = command.ExecuteReader();   using (dataReader) {       if (dataReader.Read()) {           OracleBFile BFile = dataReader.GetOracleBFile(1);           using (BFile) {               BFile.Seek(0, SeekOrigin.Begin);               BFile.Read(buffer, 0, 100);               command.Transaction = connection.BeginTransaction();               BFile.SetFileName(&quot;TESTDIR&quot;, &quot;File1.jpg&quot;);               BFile.Read(buffer, 0, 100);           }       }   }   ```"
   syntax:
     content: public void SetFileName (string directory, string file);
     parameters:
     - id: directory
       type: System.String
-      description: "The alias of the directory object that contains a physical file."
+      description: "Alias obiektu katalogu, który zawiera plik fizyczny."
     - id: file
       type: System.String
-      description: "The name of the file in the operating system."
+      description: "Nazwa pliku w systemie operacyjnym."
   overload: System.Data.OracleClient.OracleBFile.SetFileName*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The operation must be within a transaction."
+    description: "Operacja musi znajdować się w obrębie transakcji."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleBFile.SetLength(System.Int64)
@@ -628,18 +628,18 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Not currently supported."
+  summary: "Nie są obecnie obsługiwane."
   syntax:
     content: public override void SetLength (long value);
     parameters:
     - id: value
       type: System.Int64
-      description: "Not currently supported."
+      description: "Nie są obecnie obsługiwane."
   overload: System.Data.OracleClient.OracleBFile.SetLength*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The exception that is thrown when an invoked method is not supported, or when there is an attempt to read, seek, or write to a stream that does not support the invoked functionality."
+    description: "Wyjątek zgłaszany, gdy jest wywoływana metoda nie jest obsługiwany lub jest próba odczytu, wyszukiwanie lub zapisać do strumienia, który nie obsługuje wywołanej funkcji."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleBFile.Value
@@ -654,13 +654,13 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets an <xref:System.Array> of type <xref:System.Byte> that contains the <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> data."
-  remarks: "The Value property reads the entire `BFILE` at one time.      > [!NOTE] >  A benefit of using `BFILE`s is the ability to retrieve large amounts of data in chunks at the client. However, when you use Value, you obtain all the data for the BFILE column as one contiguous chunk, which can significantly increase application overhead."
+  summary: "Pobiera <xref:System.Array>typu <xref:System.Byte>zawierający <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> danych.</xref:System.Byte> </xref:System.Array>"
+  remarks: "Wartość właściwości odczytuje całą `BFILE` w tym samym czasie.      > [!NOTE] > Zaletą używania `BFILE`s jest możliwość pobierania dużych ilości danych w fragmentów po stronie klienta. Jednak gdy używasz wartość można uzyskać wszystkie dane dla kolumny BPLIK jako jednym fragmencie ciągłym, która może znacznie zwiększyć obciążenie aplikacji."
   syntax:
     content: public object Value { get; }
     return:
       type: System.Object
-      description: "An <xref:System.Array> of type <xref:System.Byte> that contains the <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;></xref> data."
+      description: "<xref:System.Array>Typu <xref:System.Byte>zawierający <xref href=&quot;System.Data.OracleClient.OracleBFile&quot;> </xref> danych.</xref:System.Byte> </xref:System.Array>"
   overload: System.Data.OracleClient.OracleBFile.Value*
   exceptions: []
   platform:
@@ -677,24 +677,24 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Not currently supported."
+  summary: "Nie są obecnie obsługiwane."
   syntax:
     content: public override void Write (byte[] buffer, int offset, int count);
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "Not currently supported."
+      description: "Nie są obecnie obsługiwane."
     - id: offset
       type: System.Int32
-      description: "Not currently supported."
+      description: "Nie są obecnie obsługiwane."
     - id: count
       type: System.Int32
-      description: "Not currently supported."
+      description: "Nie są obecnie obsługiwane."
   overload: System.Data.OracleClient.OracleBFile.Write*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The exception that is thrown when an invoked method is not supported, or when there is an attempt to read, seek, or write to a stream that does not support the invoked functionality."
+    description: "Wyjątek zgłaszany, gdy jest wywoływana metoda nie jest obsługiwany lub jest próba odczytu, wyszukiwanie lub zapisać do strumienia, który nie obsługuje wywołanej funkcji."
   platform:
   - net462
 references:
