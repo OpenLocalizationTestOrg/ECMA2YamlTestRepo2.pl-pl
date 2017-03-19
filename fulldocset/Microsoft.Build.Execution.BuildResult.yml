@@ -24,7 +24,7 @@ items:
   nameWithType: BuildResult
   fullName: Microsoft.Build.Execution.BuildResult
   type: Class
-  summary: "Represents the current result set for all of the targets that have produced results for a particular configuration."
+  summary: "Reprezentuje bieżącego zestawu wyników dla wszystkich elementów docelowych, które tworzą wyniki dla określonej konfiguracji."
   syntax:
     content: public class BuildResult
   inheritance:
@@ -45,7 +45,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Creates the build result set."
+  summary: "Tworzy zestaw wyników kompilacji."
   syntax:
     content: public BuildResult ();
     parameters: []
@@ -65,16 +65,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Adds the results for the specified target to this build result set."
+  summary: "Dodaje wyników dla określonego obiektu docelowego do tego zestawu wyników kompilacji."
   syntax:
     content: public void AddResultsForTarget (string target, Microsoft.Build.Execution.TargetResult result);
     parameters:
     - id: target
       type: System.String
-      description: "The target whose results are to be added."
+      description: "Obiekt docelowy, którego wyniki mają być dodawane."
     - id: result
       type: Microsoft.Build.Execution.TargetResult
-      description: "The results for the target."
+      description: "Wyniki dla elementu docelowego."
   overload: Microsoft.Build.Execution.BuildResult.AddResultsForTarget*
   exceptions: []
   platform:
@@ -91,12 +91,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets a flag indicating whether a circular dependency was detected."
+  summary: "Pobiera flagę wskazującą, czy wykryto zależność cykliczną."
   syntax:
     content: public bool CircularDependency { get; }
     return:
       type: System.Boolean
-      description: "Returns true if a circular dependency was detected; false otherwise."
+      description: "Zwraca wartość PRAWDA, jeśli wykryto zależność cykliczną; wartość false w przeciwnym razie wartość."
   overload: Microsoft.Build.Execution.BuildResult.CircularDependency*
   exceptions: []
   platform:
@@ -113,12 +113,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets the configuration ID for this build result set."
+  summary: "Pobiera identyfikator konfiguracji dla tego zestawu wyników kompilacji."
   syntax:
     content: public int ConfigurationId { get; }
     return:
       type: System.Int32
-      description: "Returns the configuration ID for this build result set."
+      description: "Zwraca identyfikator konfiguracji dla tego zestawu wyników kompilacji."
   overload: Microsoft.Build.Execution.BuildResult.ConfigurationId*
   exceptions: []
   platform:
@@ -135,12 +135,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets the exception generated for this build result set."
+  summary: "Pobiera wygenerowany dla tego zestawu wyników kompilacji wyjątek."
   syntax:
     content: public Exception Exception { get; }
     return:
       type: System.Exception
-      description: "Returns the exception generated for this build result set. Returns false if no exception occurred."
+      description: "Zwraca wygenerowany dla tego zestawu wyników kompilacji wyjątek. Zwraca wartość false, jeśli żaden wyjątek wystąpił."
   overload: Microsoft.Build.Execution.BuildResult.Exception*
   exceptions: []
   platform:
@@ -157,12 +157,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets the build request id for this build result set."
+  summary: "Pobiera identyfikator żądania kompilacji dla tego zestawu wyników kompilacji."
   syntax:
     content: public int GlobalRequestId { get; }
     return:
       type: System.Int32
-      description: "Returns the build request id for this build result set."
+      description: "Zwraca identyfikator żądania kompilacji dla tego zestawu wyników kompilacji."
   overload: Microsoft.Build.Execution.BuildResult.GlobalRequestId*
   exceptions: []
   platform:
@@ -179,16 +179,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Determines if there are any results for the given target."
+  summary: "Określa, czy istnieją jakiekolwiek wyniki dla danego obiektu docelowego."
   syntax:
     content: public bool HasResultsForTarget (string target);
     parameters:
     - id: target
       type: System.String
-      description: "The target whose results are retrieved."
+      description: "Obiekt docelowy, których wyniki są pobierane."
     return:
       type: System.Boolean
-      description: "Returns true if results exist; false otherwise."
+      description: "Zwraca wartość PRAWDA, jeśli istnieje wyniki; wartość false w przeciwnym razie wartość."
   overload: Microsoft.Build.Execution.BuildResult.HasResultsForTarget*
   exceptions: []
   platform:
@@ -205,17 +205,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets an indexer which can be used to get the build result for the given target."
-  remarks: "Throws a `KeyNotFoundException` if the given target doesn&quot;t exist in this build result."
+  summary: "Pobiera indeksatora, który można uzyskać wyników kompilacji dla danego obiektu docelowego."
+  remarks: "Zgłasza wyjątek `KeyNotFoundException` Jeśli dany obiekt docelowy nie istnieje w wyniku tej kompilacji."
   syntax:
     content: public Microsoft.Build.Execution.ITargetResult this[string target] { get; }
     parameters:
     - id: target
       type: System.String
-      description: "The indexed target."
+      description: "Element docelowy indeksowanego."
     return:
       type: Microsoft.Build.Execution.ITargetResult
-      description: "The build result for the indexed target."
+      description: "Wynik kompilacji dla indeksowanego elementu docelowego."
   overload: Microsoft.Build.Execution.BuildResult.Item*
   exceptions: []
   platform:
@@ -232,13 +232,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Merges the given results with this build result set."
+  summary: "Scala danego wyniki z tego zestawu wyników kompilacji."
   syntax:
     content: public void MergeResults (Microsoft.Build.Execution.BuildResult results);
     parameters:
     - id: results
       type: Microsoft.Build.Execution.BuildResult
-      description: "The results to merge."
+      description: "Wyniki do scalenia."
   overload: Microsoft.Build.Execution.BuildResult.MergeResults*
   exceptions: []
   platform:
@@ -255,12 +255,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets the build request ID of the originating node."
+  summary: "Pobiera identyfikator żądania kompilacji węzła źródłowego."
   syntax:
     content: public int NodeRequestId { get; }
     return:
       type: System.Int32
-      description: "Returns the build request ID of the originating node."
+      description: "Zwraca identyfikator węzła źródłowego żądania kompilacji."
   overload: Microsoft.Build.Execution.BuildResult.NodeRequestId*
   exceptions: []
   platform:
@@ -277,12 +277,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets the overall result for this build."
+  summary: "Pobiera wynik ogólny dla tej kompilacji."
   syntax:
     content: public Microsoft.Build.Execution.BuildResultCode OverallResult { get; }
     return:
       type: Microsoft.Build.Execution.BuildResultCode
-      description: "Returns the overall result for this build."
+      description: "Zwraca wynik ogólny dla tej kompilacji."
   overload: Microsoft.Build.Execution.BuildResult.OverallResult*
   exceptions: []
   platform:
@@ -299,12 +299,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets the global build request ID which issued the request leading to this build result set."
+  summary: "Pobiera identyfikator żądania kompilacji globalny, który wydał żądania, co może prowadzić do tego zestawu wyników kompilacji."
   syntax:
     content: public int ParentGlobalRequestId { get; }
     return:
       type: System.Int32
-      description: "Returns the global build request ID which issued the request leading to this build result set."
+      description: "Zwraca identyfikator żądania kompilacji globalny, który wydał żądania, co może prowadzić do tego zestawu wyników kompilacji."
   overload: Microsoft.Build.Execution.BuildResult.ParentGlobalRequestId*
   exceptions: []
   platform:
@@ -321,13 +321,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets or sets <xref href=&quot;Microsoft.Build.Execution.ProjectInstance&quot;></xref> state after the build."
-  remarks: "This may be a dummy object and should not be used except to retrieve <xref:Microsoft.Build.Execution.ProjectInstance.Properties%2A>, <xref:Microsoft.Build.Execution.ProjectInstance.GlobalProperties%2A> and <xref:Microsoft.Build.Execution.ProjectInstance.Items%2A>. Other operations are not supported."
+  summary: "Pobiera lub ustawia <xref href=&quot;Microsoft.Build.Execution.ProjectInstance&quot;> </xref> stanu po kompilacji."
+  remarks: "To może być obiektem fikcyjny i nie powinna być używana z wyjątkiem przypadków, aby pobrać <xref:Microsoft.Build.Execution.ProjectInstance.Properties%2A>i <xref:Microsoft.Build.Execution.ProjectInstance.GlobalProperties%2A> <xref:Microsoft.Build.Execution.ProjectInstance.Items%2A>.</xref:Microsoft.Build.Execution.ProjectInstance.Items%2A> </xref:Microsoft.Build.Execution.ProjectInstance.GlobalProperties%2A> </xref:Microsoft.Build.Execution.ProjectInstance.Properties%2A> Inne operacje nie są obsługiwane."
   syntax:
     content: public Microsoft.Build.Execution.ProjectInstance ProjectStateAfterBuild { get; set; }
     return:
       type: Microsoft.Build.Execution.ProjectInstance
-      description: "Returns the <xref uid=&quot;langword_csharp_ProjectInstance&quot; name=&quot;ProjectInstance&quot; href=&quot;&quot;></xref> object."
+      description: "Zwraca <xref uid=&quot;langword_csharp_ProjectInstance&quot; name=&quot;ProjectInstance&quot; href=&quot;&quot;> </xref> obiektu."
   overload: Microsoft.Build.Execution.BuildResult.ProjectStateAfterBuild*
   exceptions: []
   platform:
@@ -344,12 +344,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets an enumerator over all target results in this build result set."
+  summary: "Pobiera moduł wyliczający przez wszystkie wyniki docelowej, w tym zestawie wyników kompilacji."
   syntax:
     content: public System.Collections.Generic.IDictionary<string,Microsoft.Build.Execution.TargetResult> ResultsByTarget { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Execution.TargetResult}
-      description: "Returns an enumerator over all target results in this build result set."
+      description: "Zwraca moduł wyliczający przez wszystkie wyniki docelowej, w tym zestawie wyników kompilacji."
   overload: Microsoft.Build.Execution.BuildResult.ResultsByTarget*
   exceptions: []
   platform:
@@ -366,12 +366,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets the build submission which this build result set is associated with."
+  summary: "Pobiera przesyłania kompilacji, który ustawiony wynik kompilacji jest skojarzony."
   syntax:
     content: public int SubmissionId { get; }
     return:
       type: System.Int32
-      description: "Returns the build submission which this build result set is associated with."
+      description: "Zwraca przesyłania kompilacji, który ustawiony wynik kompilacji jest skojarzony."
   overload: Microsoft.Build.Execution.BuildResult.SubmissionId*
   exceptions: []
   platform:
