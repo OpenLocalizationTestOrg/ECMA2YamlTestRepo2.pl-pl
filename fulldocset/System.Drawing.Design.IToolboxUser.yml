@@ -11,8 +11,8 @@ items:
   nameWithType: IToolboxUser
   fullName: System.Drawing.Design.IToolboxUser
   type: Interface
-  summary: "Defines an interface for setting the currently selected toolbox item and indicating whether a designer supports a particular toolbox item."
-  remarks: "This interface provides toolbox support functions to designers. The <xref:System.Drawing.Design.IToolboxUser.GetToolSupported%2A> method indicates whether the specified <xref:System.Drawing.Design.ToolboxItem> can be used when the current designer is active. The <xref:System.Drawing.Design.IToolboxUser.ToolPicked%2A> method selects the specified <xref:System.Drawing.Design.ToolboxItem>."
+  summary: "Definiuje interfejs dla element przybornika aktualnie wybranego ustawienia i wskazującą, czy projektanta obsługuje element przybornika konkretnego."
+  remarks: "Ten interfejs zapewnia funkcje obsługi przybornika projektantów. <xref:System.Drawing.Design.IToolboxUser.GetToolSupported%2A>Metody wskazuje, czy określony <xref:System.Drawing.Design.ToolboxItem>można użyć w przypadku biezacym projektantem jest aktywna.</xref:System.Drawing.Design.ToolboxItem> </xref:System.Drawing.Design.IToolboxUser.GetToolSupported%2A> <xref:System.Drawing.Design.IToolboxUser.ToolPicked%2A>Określony <xref:System.Drawing.Design.ToolboxItem>.</xref:System.Drawing.Design.ToolboxItem> wybiera — metoda</xref:System.Drawing.Design.IToolboxUser.ToolPicked%2A>"
   example:
   - "The following code example demonstrates an implementation of the IToolboxUser interface that can restrict support for specific types of <xref:System.Drawing.Design.ToolboxItem> objects.  \n  \n [!code-vb[IToolboxUserExample#1](~/add/codesnippet/visualbasic/t-system.drawing.design._6_1.vb)]\n [!code-cs[IToolboxUserExample#1](~/add/codesnippet/csharp/t-system.drawing.design._6_1.cs)]\n [!code-cpp[IToolboxUserExample#1](~/add/codesnippet/cpp/t-system.drawing.design._6_1.cpp)]"
   syntax:
@@ -32,8 +32,8 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Design
-  summary: "Gets a value indicating whether the specified tool is supported by the current designer."
-  remarks: "If the specified tool is supported by the designer implementing the <xref:System.Drawing.Design.IToolboxUser> interface, then the tool will be enabled in the toolbox when this designer has focus. Otherwise, it will be disabled. Once a tool is marked as enabled or disabled, it may not be tested for support with the same designer again."
+  summary: "Pobiera wartość wskazującą, czy określonego narzędzia jest obsługiwana przez bieżący projektanta."
+  remarks: "Jeśli określonego narzędzia jest obsługiwany przez projektanta implementacja <xref:System.Drawing.Design.IToolboxUser>interfejsu, a następnie narzędzie będą włączone w przyborniku po aktywowaniu tego projektanta.</xref:System.Drawing.Design.IToolboxUser> W przeciwnym razie zostanie wyłączona. Gdy narzędzie jest oznaczony jako włączona lub wyłączona, nie można badać obsługi przy użyciu tego samego projektanta ponownie."
   example:
   - "The following code example demonstrates an implementation of the GetToolSupported method.  \n  \n [!code-vb[IToolboxUserExample#2](~/add/codesnippet/visualbasic/4da8de2f-7353-4e05-b88e-_1.vb)]\n [!code-cs[IToolboxUserExample#2](~/add/codesnippet/csharp/4da8de2f-7353-4e05-b88e-_1.cs)]\n [!code-cpp[IToolboxUserExample#2](~/add/codesnippet/cpp/4da8de2f-7353-4e05-b88e-_1.cpp)]"
   syntax:
@@ -41,10 +41,10 @@ items:
     parameters:
     - id: tool
       type: System.Drawing.Design.ToolboxItem
-      description: "The <xref href=&quot;System.Drawing.Design.ToolboxItem&quot;></xref> to be tested for toolbox support."
+      description: "<xref href=&quot;System.Drawing.Design.ToolboxItem&quot;> </xref> Pod kątem obsługi przybornika."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the tool is supported by the toolbox and can be enabled; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the document designer does not know how to use the tool."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli narzędzie jest obsługiwana przez przybornika i można ją włączyć; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Jeśli projektant dokumentu nie wiadomo, jak korzystać z narzędzia."
   overload: System.Drawing.Design.IToolboxUser.GetToolSupported*
   exceptions: []
   platform:
@@ -61,14 +61,14 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Design
-  summary: "Selects the specified tool."
-  remarks: "ToolPicked is called when the user double-clicks on a toolbox item. The document designer should create a component for the specified tool. The Visual Studio integrated development environment will only call ToolPicked on tools that are enabled in the toolbox."
+  summary: "Wybiera określonego narzędzia."
+  remarks: "ToolPicked jest wywoływane, gdy użytkownik kliknie element przybornika. Projektant dokumentu należy utworzyć składnik do określonego narzędzia. Visual Studio zintegrowane środowisko programistyczne wywoływać tylko ToolPicked narzędzia, które są włączone w przyborniku."
   syntax:
     content: public void ToolPicked (System.Drawing.Design.ToolboxItem tool);
     parameters:
     - id: tool
       type: System.Drawing.Design.ToolboxItem
-      description: "The <xref href=&quot;System.Drawing.Design.ToolboxItem&quot;></xref> to select."
+      description: "<xref href=&quot;System.Drawing.Design.ToolboxItem&quot;> </xref> Do wybrania."
   overload: System.Drawing.Design.IToolboxUser.ToolPicked*
   exceptions: []
   platform:
