@@ -19,8 +19,8 @@ items:
   nameWithType: IItemContainerGenerator
   fullName: System.Windows.Controls.Primitives.IItemContainerGenerator
   type: Interface
-  summary: "An interface that is implemented by classes which are responsible for generating [!INCLUDE[TLA#tla_ui](~/add/includes/tlasharptla-ui-md.md)] content on behalf of a host."
-  remarks: "<xref:System.Windows.Controls.ItemsControl> is the base class for containing and displaying one or more data items. <xref:System.Windows.Controls.ItemContainerGenerator> maintains an association between <xref:System.Windows.Controls.ItemsControl> and the list of items that are displayed by <xref:System.Windows.Controls.ItemsControl>. <xref:System.Windows.Controls.ItemContainerGenerator> is also responsible for generating the [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)] for those items on behalf of <xref:System.Windows.Controls.ItemsControl>. <xref:System.Windows.Controls.Panel>, <xref:System.Windows.Controls.VirtualizingPanel>, and <xref:System.Windows.Controls.VirtualizingStackPanel> also use <xref:System.Windows.Controls.ItemContainerGenerator> for the same reason.       <xref:System.Windows.Controls.ItemContainerGenerator> implements IItemContainerGenerator and is the interface through which each of the mentioned layout elements communicate with <xref:System.Windows.Controls.ItemContainerGenerator>."
+  summary: "Interfejs, który jest implementowany przez klasy, które są odpowiedzialni za Generowanie [!INCLUDE[TLA#tla_ui](~/add/includes/tlasharptla-ui-md.md)] zawartości w imieniu hosta."
+  remarks: "<xref:System.Windows.Controls.ItemsControl>jest klasą bazową dla zawierający i wyświetlanie co najmniej jednego elementu danych.</xref:System.Windows.Controls.ItemsControl> <xref:System.Windows.Controls.ItemContainerGenerator>przechowuje skojarzenia między <xref:System.Windows.Controls.ItemsControl>i listę elementów, które są wyświetlane przez <xref:System.Windows.Controls.ItemsControl>.</xref:System.Windows.Controls.ItemsControl> </xref:System.Windows.Controls.ItemsControl></xref:System.Windows.Controls.ItemContainerGenerator> <xref:System.Windows.Controls.ItemContainerGenerator>również jest odpowiedzialny za wygenerowanie [!INCLUDE[TLA2#tla_ui](~/add/includes/ajax-current-ext-md.md)] dla tych elementów w imieniu <xref:System.Windows.Controls.ItemsControl>.</xref:System.Windows.Controls.ItemsControl></xref:System.Windows.Controls.ItemContainerGenerator> <xref:System.Windows.Controls.Panel>, <xref:System.Windows.Controls.VirtualizingPanel>, i <xref:System.Windows.Controls.VirtualizingStackPanel>również użyć <xref:System.Windows.Controls.ItemContainerGenerator>z tego samego powodu.</xref:System.Windows.Controls.ItemContainerGenerator> </xref:System.Windows.Controls.VirtualizingStackPanel> </xref:System.Windows.Controls.VirtualizingPanel></xref:System.Windows.Controls.Panel>       <xref:System.Windows.Controls.ItemContainerGenerator>implementuje IItemContainerGenerator i jest interfejs, za pomocą którego elementy opisane powyżej układu komunikować się z <xref:System.Windows.Controls.ItemContainerGenerator>.</xref:System.Windows.Controls.ItemContainerGenerator></xref:System.Windows.Controls.ItemContainerGenerator>"
   syntax:
     content: public interface IItemContainerGenerator
   implements: []
@@ -38,14 +38,14 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls.Primitives
-  summary: "Returns the container element used to display the next item."
-  remarks: "GenerateNext must be called within the scope of the <xref:System.IDisposable> reference that is returned by a previous call to the <xref:System.Windows.Controls.Primitives.IItemContainerGenerator.StartAt%2A> method."
+  summary: "Zwraca element kontenera umożliwia wyświetlenie następnego elementu."
+  remarks: "Należy wywołać GenerateNext w zakresie <xref:System.IDisposable>odwołania, który jest zwracany przez poprzednie wywołanie <xref:System.Windows.Controls.Primitives.IItemContainerGenerator.StartAt%2A>metody.</xref:System.Windows.Controls.Primitives.IItemContainerGenerator.StartAt%2A> </xref:System.IDisposable>"
   syntax:
     content: public System.Windows.DependencyObject GenerateNext ();
     parameters: []
     return:
       type: System.Windows.DependencyObject
-      description: "A <xref href=&quot;System.Windows.DependencyObject&quot;></xref> that is the container element which is used to display the next item."
+      description: "A <xref href=&quot;System.Windows.DependencyObject&quot;> </xref> oznacza to element kontenera, który jest używany do wyświetlania elementu dalej."
   overload: System.Windows.Controls.Primitives.IItemContainerGenerator.GenerateNext*
   exceptions: []
   platform:
@@ -62,17 +62,17 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls.Primitives
-  summary: "Returns the container element used to display the next item, and whether the container element has been newly generated (realized)."
-  remarks: "When the next item to be displayed has not already been generated (realized), GenerateNext returns a new <xref:System.Windows.DependencyObject>, otherwise, the existing <xref:System.Windows.DependencyObject> is returned."
+  summary: "Zwraca element kontenera umożliwia wyświetlenie następnego elementu i określa, czy element kontenera nowo wygenerowaniu (zrealizowanych)."
+  remarks: "Podczas następnego elementu, który będzie wyświetlany nie zostały już wygenerowane (zrealizowanych), GenerateNext zwraca nową <xref:System.Windows.DependencyObject>, w przeciwnym razie istniejące <xref:System.Windows.DependencyObject>jest zwracana.</xref:System.Windows.DependencyObject> </xref:System.Windows.DependencyObject>"
   syntax:
     content: public System.Windows.DependencyObject GenerateNext (out bool isNewlyRealized);
     parameters:
     - id: isNewlyRealized
       type: System.Boolean
-      description: "Is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the returned <xref href=&quot;System.Windows.DependencyObject&quot;></xref> is newly generated (realized); otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Jest <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> Jeśli zwróconego <xref href=&quot;System.Windows.DependencyObject&quot;> </xref> nowo wygenerowaniu (zrealizowanych); w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Windows.DependencyObject
-      description: "A <xref href=&quot;System.Windows.DependencyObject&quot;></xref> that is the container element which is used to display the next item."
+      description: "A <xref href=&quot;System.Windows.DependencyObject&quot;> </xref> oznacza to element kontenera, który jest używany do wyświetlania elementu dalej."
   overload: System.Windows.Controls.Primitives.IItemContainerGenerator.GenerateNext*
   exceptions: []
   platform:
@@ -89,16 +89,16 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls.Primitives
-  summary: "Returns the <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;></xref> object that maps to the item at the specified index."
+  summary: "Zwraca <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;> </xref> obiektu, który jest mapowany na element pod określonym indeksem."
   syntax:
     content: public System.Windows.Controls.Primitives.GeneratorPosition GeneratorPositionFromIndex (int itemIndex);
     parameters:
     - id: itemIndex
       type: System.Int32
-      description: "The index of desired item."
+      description: "Indeks żądanego elementu."
     return:
       type: System.Windows.Controls.Primitives.GeneratorPosition
-      description: "An <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;></xref> object that maps to the item at the specified index."
+      description: "<xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;> </xref> Obiektu, który jest mapowany na element pod określonym indeksem."
   overload: System.Windows.Controls.Primitives.IItemContainerGenerator.GeneratorPositionFromIndex*
   exceptions: []
   platform:
@@ -115,16 +115,16 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls.Primitives
-  summary: "Returns the <xref href=&quot;System.Windows.Controls.ItemContainerGenerator&quot;></xref> appropriate for use by the specified panel."
+  summary: "Zwraca <xref href=&quot;System.Windows.Controls.ItemContainerGenerator&quot;> </xref> odpowiednie do użycia przez określony panel."
   syntax:
     content: public System.Windows.Controls.ItemContainerGenerator GetItemContainerGeneratorForPanel (System.Windows.Controls.Panel panel);
     parameters:
     - id: panel
       type: System.Windows.Controls.Panel
-      description: "The panel for which to return an appropriate <xref href=&quot;System.Windows.Controls.ItemContainerGenerator&quot;></xref>."
+      description: "Panel, dla których ma zostać zwrócony odpowiedni <xref href=&quot;System.Windows.Controls.ItemContainerGenerator&quot;> </xref>."
     return:
       type: System.Windows.Controls.ItemContainerGenerator
-      description: "An <xref href=&quot;System.Windows.Controls.ItemContainerGenerator&quot;></xref> appropriate for use by the specified panel."
+      description: "<xref href=&quot;System.Windows.Controls.ItemContainerGenerator&quot;> </xref> Odpowiednie do użycia przez określony panel."
   overload: System.Windows.Controls.Primitives.IItemContainerGenerator.GetItemContainerGeneratorForPanel*
   exceptions: []
   platform:
@@ -141,16 +141,16 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls.Primitives
-  summary: "Returns the index that maps to the specified <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;></xref>."
+  summary: "Zwraca indeks, który jest mapowany na określony <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;> </xref>."
   syntax:
     content: public int IndexFromGeneratorPosition (System.Windows.Controls.Primitives.GeneratorPosition position);
     parameters:
     - id: position
       type: System.Windows.Controls.Primitives.GeneratorPosition
-      description: "The index of desired item.       The <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;></xref> for the desired index."
+      description: "Indeks żądanego elementu.       <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;> </xref> Dla żądanego indeksu."
     return:
       type: System.Int32
-      description: "An <xref:System.Int32> that is the index which maps to the specified <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;></xref>."
+      description: "<xref:System.Int32>Oznacza to indeks, który mapuje do określonego <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;> </xref>.</xref:System.Int32>"
   overload: System.Windows.Controls.Primitives.IItemContainerGenerator.IndexFromGeneratorPosition*
   exceptions: []
   platform:
@@ -167,14 +167,14 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls.Primitives
-  summary: "Prepares the specified element as the container for the corresponding item."
-  remarks: "Preparing the specified element includes applying the container style, forwarding information from the host control, such as the <xref:System.Windows.DataTemplate> value of the <xref:System.Windows.Controls.ItemsControl.ItemTemplate%2A> property, and other small adjustments.       PrepareItemContainer must be called after the element has been added to the visual tree, so that resource references and inherited properties work correctly."
+  summary: "Przygotowuje określonego elementu jako kontener dla odpowiedniego elementu."
+  remarks: "Przygotowywanie określony element zawiera nadawania stylu kontenera, takich jak przekazywanie informacji z formantu hosta <xref:System.Windows.DataTemplate>wartość <xref:System.Windows.Controls.ItemsControl.ItemTemplate%2A>Właściwości i innych niewielkie poprawki.</xref:System.Windows.Controls.ItemsControl.ItemTemplate%2A> </xref:System.Windows.DataTemplate>       PrepareItemContainer musi zostać wywołana po dodaniu elementu do drzewa wizualnego, dzięki czemu odwołuje się do zasobów i poprawnie dziedziczone pracy właściwości."
   syntax:
     content: public void PrepareItemContainer (System.Windows.DependencyObject container);
     parameters:
     - id: container
       type: System.Windows.DependencyObject
-      description: "The container to prepare. Normally, `container` is the result of the previous call to <xref:System.Windows.Controls.Primitives.IItemContainerGenerator.GenerateNext*>."
+      description: "Kontener, aby przygotować. Zwykle `container` wynika z poprzedniego wywołania <xref:System.Windows.Controls.Primitives.IItemContainerGenerator.GenerateNext*>.</xref:System.Windows.Controls.Primitives.IItemContainerGenerator.GenerateNext*>"
   overload: System.Windows.Controls.Primitives.IItemContainerGenerator.PrepareItemContainer*
   exceptions: []
   platform:
@@ -191,16 +191,16 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls.Primitives
-  summary: "Removes one or more generated (realized) items."
+  summary: "Usuwa jeden lub więcej generowane elementy (zrealizowanych)."
   syntax:
     content: public void Remove (System.Windows.Controls.Primitives.GeneratorPosition position, int count);
     parameters:
     - id: position
       type: System.Windows.Controls.Primitives.GeneratorPosition
-      description: "The <xref:System.Int32> index of the element to remove. `position` must refer to a previously generated (realized) item, which means its offset must be zero."
+      description: "<xref:System.Int32>Indeks elementu do usunięcia.</xref:System.Int32> `position`musi odwoływać się do wcześniej wygenerowanych elementu (zrealizowanych), co oznacza, że jego przesunięcie musi być równy zero."
     - id: count
       type: System.Int32
-      description: "The <xref:System.Int32> number of elements to remove, starting at `position`."
+      description: "<xref:System.Int32>Liczba elementów do usunięcia, zaczynając od `position`.</xref:System.Int32>"
   overload: System.Windows.Controls.Primitives.IItemContainerGenerator.Remove*
   exceptions: []
   platform:
@@ -217,7 +217,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls.Primitives
-  summary: "Removes all generated (realized) items."
+  summary: "Usuwa wszystkie generowane elementy (zrealizowanych)."
   syntax:
     content: public void RemoveAll ();
     parameters: []
@@ -237,20 +237,20 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls.Primitives
-  summary: "Prepares the generator to generate items, starting at the specified <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;></xref>, and in the specified <xref href=&quot;System.Windows.Controls.Primitives.GeneratorDirection&quot;></xref>."
-  remarks: "StartAt must be called before <xref:System.Windows.Controls.Primitives.IItemContainerGenerator.GenerateNext%2A> is called.       StartAt sets <xref:System.Windows.Controls.ItemContainerGenerator.Status%2A> to <xref:System.Windows.Controls.Primitives.GeneratorStatus>; when the <xref:System.IDisposable> is disposed, the status changes to <xref:System.Windows.Controls.Primitives.GeneratorStatus> or <xref:System.Windows.Controls.Primitives.GeneratorStatus>, as appropriate."
+  summary: "Przygotowuje generatora, aby wygenerować elementy, rozpoczynając od określonego <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;> </xref>i w określonym <xref href=&quot;System.Windows.Controls.Primitives.GeneratorDirection&quot;> </xref>."
+  remarks: "StartAt musi zostać wywołana przed <xref:System.Windows.Controls.Primitives.IItemContainerGenerator.GenerateNext%2A>jest wywoływana.</xref:System.Windows.Controls.Primitives.IItemContainerGenerator.GenerateNext%2A>       Ustawia StartAt <xref:System.Windows.Controls.ItemContainerGenerator.Status%2A>do <xref:System.Windows.Controls.Primitives.GeneratorStatus>; Gdy <xref:System.IDisposable>jest usunięty, stan zmieni się na <xref:System.Windows.Controls.Primitives.GeneratorStatus>lub <xref:System.Windows.Controls.Primitives.GeneratorStatus>odpowiednio.</xref:System.Windows.Controls.Primitives.GeneratorStatus> </xref:System.Windows.Controls.Primitives.GeneratorStatus> </xref:System.IDisposable> </xref:System.Windows.Controls.Primitives.GeneratorStatus> </xref:System.Windows.Controls.ItemContainerGenerator.Status%2A>"
   syntax:
     content: public IDisposable StartAt (System.Windows.Controls.Primitives.GeneratorPosition position, System.Windows.Controls.Primitives.GeneratorDirection direction);
     parameters:
     - id: position
       type: System.Windows.Controls.Primitives.GeneratorPosition
-      description: "A <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;></xref>, that specifies the position of the item to start generating items at."
+      description: "A <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;> </xref>, który określa położenie elementu do rozpoczęcia generowania elementy na."
     - id: direction
       type: System.Windows.Controls.Primitives.GeneratorDirection
-      description: "A <xref href=&quot;System.Windows.Controls.Primitives.GeneratorDirection&quot;></xref> that specifies the direction which to generate items."
+      description: "A <xref href=&quot;System.Windows.Controls.Primitives.GeneratorDirection&quot;> </xref> , który określa kierunek którego mają być generowane elementy."
     return:
       type: System.IDisposable
-      description: "An <xref:System.IDisposable> object that tracks the lifetime of the generation process."
+      description: "<xref:System.IDisposable>Obiekt śledzący okres istnienia procesu tworzenia.</xref:System.IDisposable>"
   overload: System.Windows.Controls.Primitives.IItemContainerGenerator.StartAt*
   exceptions: []
   platform:
@@ -267,23 +267,23 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls.Primitives
-  summary: "Prepares the generator to generate items, starting at the specified <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;></xref>, and in the specified <xref href=&quot;System.Windows.Controls.Primitives.GeneratorDirection&quot;></xref>, and controlling whether or not to start at a generated (realized) item."
-  remarks: "See <xref:System.Windows.Controls.Primitives.IItemContainerGenerator.StartAt%2A>."
+  summary: "Przygotowuje generatora, aby wygenerować elementy, rozpoczynając od określonego <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;> </xref>i w określonym <xref href=&quot;System.Windows.Controls.Primitives.GeneratorDirection&quot;> </xref>oraz kontrolowanie, czy należy rozpocząć od wygenerowanego elementu (zrealizowanych)."
+  remarks: "Zobacz <xref:System.Windows.Controls.Primitives.IItemContainerGenerator.StartAt%2A>.</xref:System.Windows.Controls.Primitives.IItemContainerGenerator.StartAt%2A>"
   syntax:
     content: public IDisposable StartAt (System.Windows.Controls.Primitives.GeneratorPosition position, System.Windows.Controls.Primitives.GeneratorDirection direction, bool allowStartAtRealizedItem);
     parameters:
     - id: position
       type: System.Windows.Controls.Primitives.GeneratorPosition
-      description: "A <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;></xref>, that specifies the position of the item to start generating items at."
+      description: "A <xref href=&quot;System.Windows.Controls.Primitives.GeneratorPosition&quot;> </xref>, który określa położenie elementu do rozpoczęcia generowania elementy na."
     - id: direction
       type: System.Windows.Controls.Primitives.GeneratorDirection
-      description: "Specifies the position of the item to start generating items at."
+      description: "Określa położenie elementu do rozpoczęcia generowania elementy na."
     - id: allowStartAtRealizedItem
       type: System.Boolean
-      description: "A <xref:System.Boolean> that specifies whether to start at a generated (realized) item."
+      description: "A <xref:System.Boolean>Określa, czy można uruchomić w wygenerowanym elementu (zrealizowanych).</xref:System.Boolean>"
     return:
       type: System.IDisposable
-      description: "An <xref:System.IDisposable> object that tracks the lifetime of the generation process."
+      description: "<xref:System.IDisposable>Obiekt śledzący okres istnienia procesu tworzenia.</xref:System.IDisposable>"
   overload: System.Windows.Controls.Primitives.IItemContainerGenerator.StartAt*
   exceptions: []
   platform:

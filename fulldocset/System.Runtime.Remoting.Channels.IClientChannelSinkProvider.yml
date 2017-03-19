@@ -11,8 +11,8 @@ items:
   nameWithType: IClientChannelSinkProvider
   fullName: System.Runtime.Remoting.Channels.IClientChannelSinkProvider
   type: Interface
-  summary: "Creates client channel sinks for the client channel through which remoting messages flow."
-  remarks: "Channel sinks are connected to a client channel through implementations of the IClientChannelSinkProvider interface. All the remoting client channels provide constructors that take a IClientChannelSinkProvider as a parameter.       Channel sink providers are stored in a chain, and the user is responsible for chaining all channel sink providers together before passing the outer one to the channel constructor. IClientChannelSinkProvider provides a property called <xref:System.Runtime.Remoting.Channels.IServerChannelSinkProvider.Next%2A> for this purpose.       When multiple channel sink providers are specified in a configuration file, the remoting infrastructure will chain them together in the order they are found in the configuration file. The channel sink providers will be created when the channel is created during the <xref:System.Runtime.Remoting.RemotingConfiguration.Configure%2A?displayProperty=fullName> call."
+  summary: "Tworzy klienta wychwytywanie kanału dla kanału klienta za pośrednictwem których remoting przepływu wiadomości."
+  remarks: "Wychwytywanie kanału są połączone z kanałem klienta za pośrednictwem implementacje interfejsu IClientChannelSinkProvider. Wszystkie zdalnych kanałów klienta Podaj konstruktorów przyjmujących IClientChannelSinkProvider jako parametr.       Dostawcy zbiornika kanału są przechowywane w łańcuchu, a użytkownik odpowiada za tworzenie łańcuchów wszyscy dostawcy zbiornika kanału razem przed przekazaniem ich z zewnętrznym, do konstruktora kanału. IClientChannelSinkProvider zawiera właściwość o nazwie <xref:System.Runtime.Remoting.Channels.IServerChannelSinkProvider.Next%2A>w tym celu.</xref:System.Runtime.Remoting.Channels.IServerChannelSinkProvider.Next%2A>       Jeśli wielu dostawców zbiornik kanału są określone w pliku konfiguracji, w zdalnej infrastrukturze będzie łańcuch je w kolejności, które zostały znalezione w pliku konfiguracji. Dostawcy zbiornika kanału zostanie utworzony po utworzeniu kanału podczas <xref:System.Runtime.Remoting.RemotingConfiguration.Configure%2A?displayProperty=fullName>wywołań.</xref:System.Runtime.Remoting.RemotingConfiguration.Configure%2A?displayProperty=fullName>"
   example:
   - "The following code example illustrates an implementation of this interface.  \n  \n [!code-cs[Remoting_Sinks#30](~/add/codesnippet/csharp/t-system.runtime.remotin_15_1.cs)]\n [!code-cpp[Remoting_Sinks#30](~/add/codesnippet/cpp/t-system.runtime.remotin_15_1.cpp)]  \n  \n See the <xref:System.Runtime.Remoting.Channels.IClientChannelSink> interface documentation for an example of the corresponding client sink implementation."
   syntax:
@@ -35,8 +35,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Creates a sink chain."
-  remarks: "When the CreateSink method is called, it creates its own channel sink, forwards the CreateSink call to the next sink provider in the chain (if there is one), and ensures that the next sink and the current one are linked together."
+  summary: "Tworzy łańcuch ujścia."
+  remarks: "Gdy wywoływana jest metoda CreateSink, tworzy własne zbiornika kanału, przekazuje wywołania CreateSink do następnego dostawcy zbiornika w łańcuchu (jeśli istnieje) i zapewnia ze sobą połączone dalej zbiornika i bieżący."
   example:
   - "The following code example illustrates an implementation of this method.  \n  \n [!code-cs[Remoting_Sinks#33](~/add/codesnippet/csharp/09bab0ba-2acd-4d69-ae61-_1.cs)]\n [!code-cpp[Remoting_Sinks#33](~/add/codesnippet/cpp/09bab0ba-2acd-4d69-ae61-_1.cpp)]"
   syntax:
@@ -44,21 +44,21 @@ items:
     parameters:
     - id: channel
       type: System.Runtime.Remoting.Channels.IChannelSender
-      description: "Channel for which the current sink chain is being constructed."
+      description: "Dla którego jest budowany bieżącego łańcucha zbiornika kanału."
     - id: url
       type: System.String
-      description: "The URL of the object to connect to. This parameter can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the connection is based entirely on the information contained in the `remoteChannelData` parameter."
+      description: "Adres URL obiektu, aby nawiązać połączenie. Ten parametr może być <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli połączenie jest całkowicie na podstawie informacji zawartych w `remoteChannelData` parametru."
     - id: remoteChannelData
       type: System.Object
-      description: "A channel data object that describes a channel on the remote server."
+      description: "Obiekt danych kanału, który opisuje kanał na serwerze zdalnym."
     return:
       type: System.Runtime.Remoting.Channels.IClientChannelSink
-      description: "The first sink of the newly formed channel sink chain, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, which indicates that this provider will not or cannot provide a connection for this endpoint."
+      description: "Pierwszy zbiornik łańcucha zbiornik kanału sformułowany nowo lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, co oznacza, że tego dostawcy nie będą lub nie można udostępnić połączenia dla tego punktu końcowego."
   overload: System.Runtime.Remoting.Channels.IClientChannelSinkProvider.CreateSink*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Bezpośredniego obiektu wywołującego nie ma uprawnienia infrastruktury."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.IClientChannelSinkProvider.Next
@@ -73,7 +73,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Gets or sets the next sink provider in the channel sink provider chain."
+  summary: "Pobiera lub ustawia następny dostawcy zbiornika w łańcuchu dostawcy zbiornika kanału."
   remarks: ''
   example:
   - "The following code example illustrates an implementation of this property.  \n  \n [!code-cs[Remoting_Sinks#32](~/add/codesnippet/csharp/p-system.runtime.remotin_37_1.cs)]\n [!code-cpp[Remoting_Sinks#32](~/add/codesnippet/cpp/p-system.runtime.remotin_37_1.cpp)]"
@@ -81,12 +81,12 @@ items:
     content: public System.Runtime.Remoting.Channels.IClientChannelSinkProvider Next { get; set; }
     return:
       type: System.Runtime.Remoting.Channels.IClientChannelSinkProvider
-      description: "The next sink provider in the channel sink provider chain."
+      description: "Następnego dostawcy zbiornika w łańcuchu dostawcy zbiornika kanału."
   overload: System.Runtime.Remoting.Channels.IClientChannelSinkProvider.Next*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Bezpośredniego obiektu wywołującego nie ma uprawnienia infrastruktury."
   platform:
   - net462
 references:

@@ -10,8 +10,8 @@ items:
   nameWithType: ISponsor
   fullName: System.Runtime.Remoting.Lifetime.ISponsor
   type: Interface
-  summary: "Indicates that the implementer wants to be a lifetime lease sponsor."
-  remarks: "An object must implement the ISponsor interface if it needs to request a lease renewal for a particular object. An object that implements the ISponsor interface can become a sponsor by registering itself with the lease manager. The ISponsor interface is used by the lifetime service to call back to the sponsor."
+  summary: "Wskazuje implementujący chce się sponsor dzierżawy okres istnienia."
+  remarks: "Obiekt musi implementować interfejs ISponsor, jeśli zachodzi potrzeba żądania odnowienia dzierżawy dla danego obiektu. Obiekt, który implementuje interfejs ISponsor może stać się sponsor przez zarejestrowanie się przy użyciu Menedżera dzierżawy. Interfejs ISponsor jest używany przez usługę okres istnienia do wywołania zwrotnego sponsor."
   example:
   - >-
     [!code-cpp[ISponsor_Client#2](~/add/codesnippet/cpp/t-system.runtime.remotin_8_1.cpp)]
@@ -37,8 +37,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Lifetime
-  summary: "Requests a sponsoring client to renew the lease for the specified object."
-  remarks: "The Renewal method is called by the distributed garbage collector to renew the lease for the specified object."
+  summary: "Żądania odnowienia dzierżawy dla określonego obiektu uczestniczącego klienta."
+  remarks: "Metoda odnawiania jest wywoływana przez moduł garbage collector rozproszonej odnowienia dzierżawy dla określonego obiektu."
   example:
   - >-
     [!code-cpp[ISponsor_Client#2](~/add/codesnippet/cpp/c27171dc-7845-473e-9bb6-_1.cpp)]
@@ -49,15 +49,15 @@ items:
     parameters:
     - id: lease
       type: System.Runtime.Remoting.Lifetime.ILease
-      description: "The lifetime lease of the object that requires lease renewal."
+      description: "Dzierżawa okres istnienia obiektu, który wymaga odnowienia dzierżawy."
     return:
       type: System.TimeSpan
-      description: "The additional lease time for the specified object."
+      description: "Czas trwania dzierżawy dodatkowych dla określonego obiektu."
   overload: System.Runtime.Remoting.Lifetime.ISponsor.Renewal*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller makes the call through a reference to the interface and does not have infrastructure permission."
+    description: "Bezpośredniego obiektu wywołującego wykonuje wywołanie przez odwołanie do interfejsu i nie ma uprawnienia infrastruktury."
   platform:
   - net462
 references:

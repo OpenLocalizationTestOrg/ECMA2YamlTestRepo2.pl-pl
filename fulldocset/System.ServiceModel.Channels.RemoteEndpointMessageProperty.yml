@@ -13,8 +13,8 @@ items:
   nameWithType: RemoteEndpointMessageProperty
   fullName: System.ServiceModel.Channels.RemoteEndpointMessageProperty
   type: Class
-  summary: "Makes available the client IP address and port number associated with the remote endpoint from which a message was sent."
-  remarks: "The property is added to each incoming message to a [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] service through both the HTTP and TCP transports.       The property is not present on messages received through either a named pipes or MSMQ transport.       Availability of the property when using HTTP hosted in IIS depends on having a currently active request.  Therefore, this property is not available after the request has completed, such as when performing a one-way receive.       The IP address and port number are that of the node from which the message was received. If a message goes through a relay or proxy, the IP address and port number of the respective relay or proxy is the one attached to the message by this property.       Be aware that the IP address and port could be spoofed by an attacker and thus should not be relied upon for security sensitive authentication or authorization unless additional application specific logic is added."
+  summary: "Udostępnianych klienta adres IP i port numer skojarzone z zdalny punkt końcowy, z którego wiadomość została wysłana."
+  remarks: "Właściwość została dodana do każdej wiadomości przychodzących [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] za pośrednictwem transportu HTTP i TCP.       Właściwość nie jest dostępny w komunikatów odebranych za pośrednictwem albo nazwane potoki lub transportu MSMQ.       Właściwości, gdy przy użyciu protokołu HTTP hostowanych w usługach IIS zależy mających aktywne żądania.  W związku z tym ta właściwość nie jest dostępne po zakończeniu żądania, takie jak czas wykonywania jednokierunkowe receive.       Adres IP i port numer są węzła z którego wiadomość została odebrana. Jeśli wiadomość jest wysyłana za pośrednictwem przekaźnika lub serwer proxy, adres IP i port numer odpowiednich przekazywania lub serwera proxy jest dołączona do wiadomości przez tę właściwość.       Należy pamiętać, adres IP i port został sfałszowany przez osobę atakującą i w związku z tym nie powinno być stosowane na dla bezpieczeństwa poufnych uwierzytelniania i autoryzacji, chyba że logika charakterystyczna dodatkowych aplikacji zostanie dodany."
   syntax:
     content: public sealed class RemoteEndpointMessageProperty
   inheritance:
@@ -35,25 +35,25 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Channels.RemoteEndpointMessageProperty&quot;></xref> class for a specified IP address and port that identify the client from which the message was sent."
-  remarks: "Be aware that the IP address and port could be spoofed by an attacker and thus should not be relied upon for security sensitive authentication or authorization unless additional application specific logic is added."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.ServiceModel.Channels.RemoteEndpointMessageProperty&quot;> </xref> klasy dla określonego adresu IP i port, który identyfikacji klienta, z którego wiadomość została wysłana."
+  remarks: "Należy pamiętać, adres IP i port został sfałszowany przez osobę atakującą i w związku z tym nie powinno być stosowane na dla bezpieczeństwa poufnych uwierzytelniania i autoryzacji, chyba że logika charakterystyczna dodatkowych aplikacji zostanie dodany."
   syntax:
     content: public RemoteEndpointMessageProperty (string address, int port);
     parameters:
     - id: address
       type: System.String
-      description: "The IP address of the remote endpoint associated with the message."
+      description: "Adres IP zdalnego punktu końcowego skojarzone z wiadomością."
     - id: port
       type: System.Int32
-      description: "The port number of the remote endpoint associated with the message."
+      description: "Numer portu zdalnego punktu końcowego skojarzone z wiadomością."
   overload: System.ServiceModel.Channels.RemoteEndpointMessageProperty.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>address</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or empty."
+    description: "<code>address</code> jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> lub jest pusty."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The port number is less than zero or greater than 65535 (0xffff)."
+    description: "Numer portu jest mniejsza niż zero lub większy niż 65 535 (0xffff)."
   platform:
   - net462
 - uid: System.ServiceModel.Channels.RemoteEndpointMessageProperty.Address
@@ -68,12 +68,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets the IP address of the client from which the message was sent."
+  summary: "Pobiera adres IP klienta, z którego wiadomość została wysłana."
   syntax:
     content: public string Address { get; }
     return:
       type: System.String
-      description: "The IP address of the client from which the message was sent."
+      description: "Adres IP klienta, z którego wiadomość została wysłana."
   overload: System.ServiceModel.Channels.RemoteEndpointMessageProperty.Address*
   exceptions: []
   platform:
@@ -90,7 +90,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Returns the string &quot;System.ServiceModel.Channels.RemoteEndpointMessageProperty&quot;."
+  summary: "Zwraca ciąg &quot;System.ServiceModel.Channels.RemoteEndpointMessageProperty&quot;."
   syntax:
     content: public static string Name { get; }
     return:
@@ -112,12 +112,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets the port number of the client from which the message was sent."
+  summary: "Pobiera numer portu klienta, z którego wiadomość została wysłana."
   syntax:
     content: public int Port { get; }
     return:
       type: System.Int32
-      description: "The port number of the client from which the message was sent."
+      description: "Numer portu klienta, z którego wiadomość została wysłana."
   overload: System.ServiceModel.Channels.RemoteEndpointMessageProperty.Port*
   exceptions: []
   platform:

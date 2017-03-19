@@ -27,8 +27,8 @@ items:
   nameWithType: WebBaseEvent
   fullName: System.Web.Management.WebBaseEvent
   type: Class
-  summary: "Defines the base class for the ASP.NET health-monitoring events."
-  remarks: "ASP.NET health monitoring allows production and operations staff to manage deployed Web applications. The <xref:System.Web.Management> namespace contains the health-event types responsible for packaging application health-status data and the provider types responsible for processing this data. It also contains supporting types that help during the management of health events.       The WebBaseEvent class is the root of the inheritance tree for all the ASP.NET health-monitoring event types. It uses the <xref:System.Web.Management.WebApplicationInformation> class to obtain application information that is available to its derived class.      > [!NOTE] >  In most cases you will be able to use the ASP.NET health-monitoring types as implemented, and you will control the health-monitoring system by specifying values in the `<healthMonitoring>` configuration section. You can also derive from the health-monitoring types to create your own custom events and providers. For an example of deriving from the WebBaseEvent class, see the example provided in this topic."
+  summary: "Definiuje klasę podstawową dla zdarzenia monitorowanie kondycji programu ASP.NET."
+  remarks: "Monitorowanie kondycji ASP.NET umożliwia pracownikom produkcyjnego i operacji zarządzania wdrożonej aplikacji sieci Web. <xref:System.Web.Management>Przestrzeń nazw zawiera typy kondycji zdarzenie odpowiedzialnych za tworzenie pakietów danych stanu kondycji aplikacji i typów dostawcy odpowiedzialna za przetwarzanie tych danych.</xref:System.Web.Management> Zawiera ona także pomocnicze typy, które pomagają w trakcie zarządzania zdarzenia kondycji.       Klasa WebBaseEvent jest elementem głównym drzewa dziedziczenia dla wszystkich ASP.NET monitorowanie kondycji zdarzenie typów. Używa <xref:System.Web.Management.WebApplicationInformation>klasy, aby uzyskać informacje o aplikacji, które są dostępne do swojej klasy pochodnej.</xref:System.Web.Management.WebApplicationInformation>      > [!NOTE] > W większości przypadków będzie można korzystać z typów monitorowanie kondycji programu ASP.NET, zgodnie z implementacją i sterowania monitorowanie kondycji systemu, podając wartości w `<healthMonitoring>` sekcji konfiguracji. Można również pochodną typy monitorowanie kondycji, aby utworzyć własne niestandardowe zdarzenia i dostawców. Przykład tworzenia klasy pochodnej z klasy WebBaseEvent Zobacz przykład podane w tym temacie."
   example:
   - "The following example shows how to derive from the WebBaseEvent class to create a custom health-monitoring event.  \n  \n [!code-cs[System.Web.Management.WebBaseEvent#1](~/add/codesnippet/csharp/t-system.web.management._27_1.cs)]\n [!code-vb[System.Web.Management.WebBaseEvent#1](~/add/codesnippet/visualbasic/t-system.web.management._27_1.vb)]  \n  \n The following example is an excerpt of the configuration file that enables ASP.NET to use the custom event.  \n  \n```  \n<healthMonitoring enabled=\"true\" heartBeatInterval=\"0\">  \n  <eventMappings>  \n    <add  name=\"SampleWebBaseEvent\"   \n      type=\"SamplesAspNet.SampleWebBaseEvent,   \n      webbaseevent, Version=1.0.1573.24438, Culture=neutral,   \n      PublicKeyToken=2f5f337ae5c9bdaa,   \n      processorArchitecture=MSIL\" />  \n  </eventMappings>  \n  \n  <rules>  \n    <add   \n      name=\"CustomWebBaseEvent\"  \n      eventName=\"SampleWebBaseEvent\"   \n      provider=\"EventLogProvider\"   \n      profile=\"Critical\"/>      \n  </rules>  \n</healthMonitoring>  \n```"
   syntax:
@@ -51,8 +51,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Management.WebBaseEvent&quot;></xref> class using the supplied parameters."
-  remarks: "This constructor is used internally by the ASP.NET health-monitoring system. You will never use it to create an instance of the <xref:System.Web.Management.WebBaseEvent> class, but you can call this constructor when you implement your own event type that inherits from this class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Web.Management.WebBaseEvent&quot;> </xref> przy użyciu podanych parametrów."
+  remarks: "Ten konstruktor jest używana wewnętrznie przez system monitorowanie kondycji programu ASP.NET. Nigdy nie będzie go użyć do utworzenia wystąpienia <xref:System.Web.Management.WebBaseEvent>klasy, ale można wywołać konstruktora podczas implementowania własne typu zdarzenia, który dziedziczy z tej klasy.</xref:System.Web.Management.WebBaseEvent>"
   example:
   - "The following code example shows how to use this constructor.  \n  \n [!code-cs[System.Web.Management.WebBaseEvent#2](~/add/codesnippet/csharp/fc50a84c-c72b-48b6-a127-_1.cs)]\n [!code-vb[System.Web.Management.WebBaseEvent#2](~/add/codesnippet/visualbasic/fc50a84c-c72b-48b6-a127-_1.vb)]"
   syntax:
@@ -60,13 +60,13 @@ items:
     parameters:
     - id: message
       type: System.String
-      description: "The description of the event."
+      description: "Opis zdarzenia."
     - id: eventSource
       type: System.Object
-      description: "The object that raised the event."
+      description: "Obiekt, który wywołał zdarzenie."
     - id: eventCode
       type: System.Int32
-      description: "The code associated with the event. When you implement a custom event, the event code must be greater than <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;></xref>."
+      description: "Kod skojarzone ze zdarzeniem. Po zaimplementowaniu zdarzenia niestandardowego kodu zdarzenia musi być większa niż <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;> </xref>."
   overload: System.Web.Management.WebBaseEvent.#ctor*
   exceptions: []
   platform:
@@ -83,8 +83,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Management.WebBaseEvent&quot;></xref> class using the supplied parameters."
-  remarks: "This constructor is used internally by the ASP.NET health-monitoring system. You will never use it to create an instance of the <xref:System.Web.Management.WebBaseEvent> class, but you can call this constructor when you implement your own event type that inherits from this class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Web.Management.WebBaseEvent&quot;> </xref> przy użyciu podanych parametrów."
+  remarks: "Ten konstruktor jest używana wewnętrznie przez system monitorowanie kondycji programu ASP.NET. Nigdy nie będzie go użyć do utworzenia wystąpienia <xref:System.Web.Management.WebBaseEvent>klasy, ale można wywołać konstruktora podczas implementowania własne typu zdarzenia, który dziedziczy z tej klasy.</xref:System.Web.Management.WebBaseEvent>"
   example:
   - "The following code example shows how to use this constructor.  \n  \n [!code-cs[System.Web.Management.WebBaseEvent#3](~/add/codesnippet/csharp/fc8e8b3f-50ad-4886-9ab1-_1.cs)]\n [!code-vb[System.Web.Management.WebBaseEvent#3](~/add/codesnippet/visualbasic/fc8e8b3f-50ad-4886-9ab1-_1.vb)]"
   syntax:
@@ -92,16 +92,16 @@ items:
     parameters:
     - id: message
       type: System.String
-      description: "The description of the raised event."
+      description: "Opis zdarzenia, które zgłoszono."
     - id: eventSource
       type: System.Object
-      description: "The object that raised the event."
+      description: "Obiekt, który wywołał zdarzenie."
     - id: eventCode
       type: System.Int32
-      description: "The code associated with the event. When you implement a custom event, the event code must be greater than <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;></xref>."
+      description: "Kod skojarzone ze zdarzeniem. Po zaimplementowaniu zdarzenia niestandardowego kodu zdarzenia musi być większa niż <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;> </xref>."
     - id: eventDetailCode
       type: System.Int32
-      description: "The <xref href=&quot;System.Web.Management.WebEventCodes&quot;></xref> value that specifies the detailed identifier for the event."
+      description: "<xref href=&quot;System.Web.Management.WebEventCodes&quot;> </xref> Wartość, która określa szczegółowe identyfikator zdarzenia."
   overload: System.Web.Management.WebBaseEvent.#ctor*
   exceptions: []
   platform:
@@ -118,7 +118,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets a <xref href=&quot;System.Web.Management.WebApplicationInformation&quot;></xref> object that contains information about the current application being monitored."
+  summary: "Pobiera <xref href=&quot;System.Web.Management.WebApplicationInformation&quot;> </xref> obiekt, który zawiera informacje o bieżącym monitorowanej aplikacji."
   remarks: ''
   example:
   - "The following code example shows how to get the application information.  \n  \n [!code-cs[System.Web.Management.WebBaseEvent#13](~/add/codesnippet/csharp/p-system.web.management._13_1.cs)]\n [!code-vb[System.Web.Management.WebBaseEvent#13](~/add/codesnippet/visualbasic/p-system.web.management._13_1.vb)]"
@@ -126,7 +126,7 @@ items:
     content: public static System.Web.Management.WebApplicationInformation ApplicationInformation { get; }
     return:
       type: System.Web.Management.WebApplicationInformation
-      description: "A <xref href=&quot;System.Web.Management.WebApplicationInformation&quot;></xref> object that contains information about the application being monitored."
+      description: "A <xref href=&quot;System.Web.Management.WebApplicationInformation&quot;> </xref> obiektu, który zawiera informacje dotyczące monitorowanej aplikacji."
   overload: System.Web.Management.WebBaseEvent.ApplicationInformation*
   exceptions: []
   platform:
@@ -143,15 +143,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the code value associated with the event."
-  remarks: "More information about the event is contained in the related <xref:System.Web.Management.WebBaseEvent.Message%2A> value.      > [!NOTE] >  If you inherit from the <xref:System.Web.Management.WebBaseEvent> class, the event code you specify for your custom event must be greater than <xref:System.Web.Management.WebEventCodes.WebExtendedBase>."
+  summary: "Pobiera wartość kodu skojarzone ze zdarzeniem."
+  remarks: "Więcej informacji na temat zdarzenia znajduje się w odnośnych <xref:System.Web.Management.WebBaseEvent.Message%2A>wartość.</xref:System.Web.Management.WebBaseEvent.Message%2A>      > [!NOTE] > Dziedziczeniu z <xref:System.Web.Management.WebBaseEvent>klasy, musi być większa niż <xref:System.Web.Management.WebEventCodes.WebExtendedBase>.</xref:System.Web.Management.WebEventCodes.WebExtendedBase> kodu zdarzenia, wybrane Twoje niestandardowe zdarzenia</xref:System.Web.Management.WebBaseEvent>"
   example:
   - "The following code example shows how to obtain the event code.  \n  \n [!code-cs[System.Web.Management.WebBaseEvent#6](~/add/codesnippet/csharp/p-system.web.management._53_1.cs)]\n [!code-vb[System.Web.Management.WebBaseEvent#6](~/add/codesnippet/visualbasic/p-system.web.management._53_1.vb)]"
   syntax:
     content: public int EventCode { get; }
     return:
       type: System.Int32
-      description: "One of the <xref href=&quot;System.Web.Management.WebEventCodes&quot;></xref> values."
+      description: "Jeden z <xref href=&quot;System.Web.Management.WebEventCodes&quot;> </xref> wartości."
   overload: System.Web.Management.WebBaseEvent.EventCode*
   exceptions: []
   platform:
@@ -168,7 +168,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the event detail code."
+  summary: "Pobiera kod szczegółów zdarzenia."
   remarks: ''
   example:
   - "The following code example shows how to obtain the event detail code.  \n  \n [!code-cs[System.Web.Management.WebBaseEvent#7](~/add/codesnippet/csharp/p-system.web.management._30_1.cs)]\n [!code-vb[System.Web.Management.WebBaseEvent#7](~/add/codesnippet/visualbasic/p-system.web.management._30_1.vb)]"
@@ -176,7 +176,7 @@ items:
     content: public int EventDetailCode { get; }
     return:
       type: System.Int32
-      description: "The <xref href=&quot;System.Web.Management.WebEventCodes&quot;></xref> value that specifies the detailed identifier for the event."
+      description: "<xref href=&quot;System.Web.Management.WebEventCodes&quot;> </xref> Wartość, która określa szczegółowe identyfikator zdarzenia."
   overload: System.Web.Management.WebBaseEvent.EventDetailCode*
   exceptions: []
   platform:
@@ -193,12 +193,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the identifier associated with the event."
+  summary: "Pobiera identyfikator skojarzone ze zdarzeniem."
   syntax:
     content: public Guid EventID { get; }
     return:
       type: System.Guid
-      description: "The identifier associated with the event."
+      description: "Identyfikator skojarzony ze zdarzeniem."
   overload: System.Web.Management.WebBaseEvent.EventID*
   exceptions: []
   platform:
@@ -215,13 +215,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets a counter that represents the number of times the event has occurred."
-  remarks: "This property is read-only and is incremented as a result of calls to an internal method."
+  summary: "Pobiera licznik, który reprezentuje liczba wystąpienia zdarzenia."
+  remarks: "Ta właściwość jest tylko do odczytu i jest zwiększany w wyniku wywołania metody wewnętrznej."
   syntax:
     content: public long EventOccurrence { get; }
     return:
       type: System.Int64
-      description: "A counter that represents the number of times the event has occurred."
+      description: "Licznik, który reprezentuje liczba wystąpienia zdarzenia."
   overload: System.Web.Management.WebBaseEvent.EventOccurrence*
   exceptions: []
   platform:
@@ -238,15 +238,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the number of times the event has been raised by the application."
-  remarks: "This is a counter that indicates how many instances of the event have been raised by the application."
+  summary: "Pobiera liczbę wystąpień zdarzenia został zgłoszony przez aplikację."
+  remarks: "Jest to licznik, który wskazuje liczbę wystąpień zdarzenia, które mają został zgłoszony przez aplikację."
   example:
   - "The following code example shows how to obtain the EventSequence value.  \n  \n [!code-cs[System.Web.Management.WebBaseEvent#8](~/add/codesnippet/csharp/p-system.web.management._33_1.cs)]\n [!code-vb[System.Web.Management.WebBaseEvent#8](~/add/codesnippet/visualbasic/p-system.web.management._33_1.vb)]"
   syntax:
     content: public long EventSequence { get; }
     return:
       type: System.Int64
-      description: "The number of times the event has been raised."
+      description: "Ile razy zdarzenie został zgłoszony."
   overload: System.Web.Management.WebBaseEvent.EventSequence*
   exceptions: []
   platform:
@@ -263,7 +263,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the object that raises the event."
+  summary: "Pobiera obiekt, który wywołuje zdarzenie."
   remarks: ''
   example:
   - "The following code example shows how to obtain the EventSource value.  \n  \n [!code-cs[System.Web.Management.WebBaseEvent#9](~/add/codesnippet/csharp/p-system.web.management._23_1.cs)]\n [!code-vb[System.Web.Management.WebBaseEvent#9](~/add/codesnippet/visualbasic/p-system.web.management._23_1.vb)]"
@@ -271,7 +271,7 @@ items:
     content: public object EventSource { get; }
     return:
       type: System.Object
-      description: "The object that raised the event."
+      description: "Obiekt, który wywołał zdarzenie."
   overload: System.Web.Management.WebBaseEvent.EventSource*
   exceptions: []
   platform:
@@ -288,7 +288,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the time when the event was raised."
+  summary: "Pobiera godzinę po zdarzeniu został zgłoszony."
   remarks: ''
   example:
   - "The following code example shows how to obtain the EventTime value.  \n  \n System.Web.Management.WebBaseEvent#10"
@@ -296,7 +296,7 @@ items:
     content: public DateTime EventTime { get; }
     return:
       type: System.DateTime
-      description: "The time that the event was raised."
+      description: "Godzina zgłoszenia zdarzenia."
   overload: System.Web.Management.WebBaseEvent.EventTime*
   exceptions: []
   platform:
@@ -313,7 +313,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the time when the event was raised."
+  summary: "Pobiera godzinę po zdarzeniu został zgłoszony."
   remarks: ''
   example:
   - "The following code example shows how to get the EventTimeUtc value.  \n  \n [!code-cs[System.Web.Management.WebBaseEvent#11](~/add/codesnippet/csharp/p-system.web.management._16_1.cs)]\n [!code-vb[System.Web.Management.WebBaseEvent#11](~/add/codesnippet/visualbasic/p-system.web.management._16_1.vb)]"
@@ -321,7 +321,7 @@ items:
     content: public DateTime EventTimeUtc { get; }
     return:
       type: System.DateTime
-      description: "The time of the event in Coordinated Universal Time (UTC) format."
+      description: "Godzina zdarzenia w formacie uniwersalnego czasu koordynowanego (UTC)."
   overload: System.Web.Management.WebBaseEvent.EventTimeUtc*
   exceptions: []
   platform:
@@ -338,8 +338,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Provides standard formatting of the event information."
-  remarks: "The FormatCustomEventDetails method provides a uniform format for event information, which is useful if the event data must be logged and later presented to the user. It is called internally when the provider invokes one of the <xref:System.Web.Management.WebBaseEvent.ToString%2A> methods.      > [!NOTE] >  When you format your custom event information for display, override the FormatCustomEventDetails method rather than the <xref:System.Web.Management.WebBaseEvent.ToString%2A> method. This will avoid overwriting or tampering with sensitive system information."
+  summary: "Zawiera standardowe formatowanie informacji o zdarzeniu."
+  remarks: "Metoda FormatCustomEventDetails zapewnia jednolite format informacji o zdarzeniach, co jest przydatne, jeśli dane zdarzenia musi być rejestrowane i później widoczne dla użytkownika. Jest ona wywoływana wewnętrznie, gdy dostawca wywołuje jeden z <xref:System.Web.Management.WebBaseEvent.ToString%2A>metody.</xref:System.Web.Management.WebBaseEvent.ToString%2A>      > [!NOTE] > Podczas formatowania danych niestandardowych zdarzeń do wyświetlenia, Zastąp metodę FormatCustomEventDetails zamiast <xref:System.Web.Management.WebBaseEvent.ToString%2A>metody.</xref:System.Web.Management.WebBaseEvent.ToString%2A> Pozwoli to uniknąć zastąpienia lub naruszeniu systemu poufnych informacji."
   example:
   - "The following code example shows how to customize the FormatCustomEventDetails method.  \n  \n [!code-cs[System.Web.Management.WebBaseEvent#17](~/add/codesnippet/csharp/a03cb3e9-dc34-4fef-aa66-_1.cs)]\n [!code-vb[System.Web.Management.WebBaseEvent#17](~/add/codesnippet/visualbasic/a03cb3e9-dc34-4fef-aa66-_1.vb)]"
   syntax:
@@ -347,7 +347,7 @@ items:
     parameters:
     - id: formatter
       type: System.Web.Management.WebEventFormatter
-      description: "A <xref href=&quot;System.Web.Management.WebEventFormatter&quot;></xref> object that contains the formatted event information."
+      description: "A <xref href=&quot;System.Web.Management.WebEventFormatter&quot;> </xref> obiekt, który zawiera informacje dotyczące sformatowany zdarzenia."
   overload: System.Web.Management.WebBaseEvent.FormatCustomEventDetails*
   exceptions: []
   platform:
@@ -364,7 +364,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Used internally to increment performance counters."
+  summary: "Używana wewnętrznie w celu zwiększenia liczniki wydajności."
   syntax:
     content: protected virtual void IncrementPerfCounters ();
     parameters: []
@@ -384,15 +384,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the message that describes the event."
-  remarks: "This property describes the meaning of the <xref:System.Web.Management.WebEventCodes> code value associated with the raised event."
+  summary: "Pobiera komunikat, który opisuje zdarzenia."
+  remarks: "Ta właściwość określa znaczenie <xref:System.Web.Management.WebEventCodes>kodu wartość skojarzona ze zdarzeniem zgłoszono.</xref:System.Web.Management.WebEventCodes>"
   example:
   - "The following code example shows how to obtain the Message value.  \n  \n [!code-cs[System.Web.Management.WebBaseEvent#8](~/add/codesnippet/csharp/p-system.web.management._41_1.cs)]\n [!code-vb[System.Web.Management.WebBaseEvent#8](~/add/codesnippet/visualbasic/p-system.web.management._41_1.vb)]"
   syntax:
     content: public string Message { get; }
     return:
       type: System.String
-      description: "The description of the event."
+      description: "Opis zdarzenia."
   overload: System.Web.Management.WebBaseEvent.Message*
   exceptions: []
   platform:
@@ -409,8 +409,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Raises an event by notifying any configured provider that the event has occurred."
-  remarks: "If you override this method, the event raised is your custom event.      > [!NOTE] >  Medium trust or higher is required to raise an event."
+  summary: "Wywołuje zdarzenie przez powiadomienie skonfigurowanego dostawcy, które wystąpiło zdarzenie."
+  remarks: "Jeśli przesłonić tę metodę, Zdarzenie wywoływane jest zdarzenie niestandardowe.      > [!NOTE] > Zaufania średnia lub nowszego jest wymagany, aby wywołać zdarzenie."
   example:
   - "The following code example shows how to use the Raise method.  \n  \n [!code-cs[System.Web.Management.WebBaseEvent#4](~/add/codesnippet/csharp/m-system.web.management._1_1.cs)]\n [!code-vb[System.Web.Management.WebBaseEvent#4](~/add/codesnippet/visualbasic/m-system.web.management._1_1.vb)]"
   syntax:
@@ -432,8 +432,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Raises the specified event by notifying any configured provider that the event has occurred."
-  remarks: "This method raises the specified event by notifying any configured provider that the event has occurred.      > [!NOTE] >  Medium trust or higher is required to raise an event."
+  summary: "Zgłasza zdarzenie określony przez powiadomienie skonfigurowanego dostawcy, które wystąpiło zdarzenie."
+  remarks: "Ta metoda wywołuje zdarzenie określony przez powiadomienie skonfigurowanego dostawcy, które wystąpiło zdarzenie.      > [!NOTE] > Zaufania średnia lub nowszego jest wymagany, aby wywołać zdarzenie."
   example:
   - "The following code example shows how to use the Raise method.  \n  \n [!code-cs[System.Web.Management.WebBaseEvent#5](~/add/codesnippet/csharp/m-system.web.management._7_1.cs)]\n [!code-vb[System.Web.Management.WebBaseEvent#5](~/add/codesnippet/visualbasic/m-system.web.management._7_1.vb)]"
   syntax:
@@ -446,7 +446,7 @@ items:
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "The <xref:System.Web.Management.WebBaseEvent.EventCode*> property of <code>eventRaised</code> has a value that is reserved for ASP.NET."
+    description: "<xref:System.Web.Management.WebBaseEvent.EventCode*>Właściwość <code> eventRaised </code> ma wartość, która jest zarezerwowana dla platformy ASP.NET.</xref:System.Web.Management.WebBaseEvent.EventCode*>"
   platform:
   - net462
 - uid: System.Web.Management.WebBaseEvent.ToString
@@ -461,8 +461,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Formats event information for display purposes."
-  remarks: "The ToString method is generally invoked by the provider that processes the event. The method ensures that the standard <xref:System.Web.Management.WebApplicationInformation> object is provided with the event-specific data. It formats event information by calling the event-specific <xref:System.Web.Management.WebBaseEvent.FormatCustomEventDetails%2A> method.      > [!NOTE] >  When you format your custom event information for display, override the <xref:System.Web.Management.WebBaseEvent.FormatCustomEventDetails%2A> method rather than the <xref:System.Web.Management.WebBaseEvent.ToString%2A> method. This will avoid overwriting or tampering with sensitive system information."
+  summary: "Formatuje do wyświetlania informacji o zdarzeniu."
+  remarks: "ToString — metoda jest zazwyczaj wywoływana przez dostawcę, który umożliwia przetwarzanie zdarzenia. Metoda gwarantuje, że standardowego <xref:System.Web.Management.WebApplicationInformation>obiektu jest dostarczana z danych dotyczących zdarzeń.</xref:System.Web.Management.WebApplicationInformation> Formatowania informacji o zdarzeniach przez wywołanie zdarzenia specyficzne <xref:System.Web.Management.WebBaseEvent.FormatCustomEventDetails%2A>metody.</xref:System.Web.Management.WebBaseEvent.FormatCustomEventDetails%2A>      > [!NOTE] > Podczas formatowania danych niestandardowych zdarzeń do wyświetlenia, Zastąp <xref:System.Web.Management.WebBaseEvent.FormatCustomEventDetails%2A>metody zamiast <xref:System.Web.Management.WebBaseEvent.ToString%2A>— Metoda.</xref:System.Web.Management.WebBaseEvent.ToString%2A> </xref:System.Web.Management.WebBaseEvent.FormatCustomEventDetails%2A> Pozwoli to uniknąć zastąpienia lub naruszeniu systemu poufnych informacji."
   example:
   - "The following code example shows how to use the ToString method  \n  \n [!code-cs[System.Web.Management.WebBaseEvent#14](~/add/codesnippet/csharp/m-system.web.management._3_1.cs)]\n [!code-vb[System.Web.Management.WebBaseEvent#14](~/add/codesnippet/visualbasic/m-system.web.management._3_1.vb)]"
   syntax:
@@ -470,7 +470,7 @@ items:
     parameters: []
     return:
       type: System.String
-      description: "The event information."
+      description: "Dane zdarzenia."
   overload: System.Web.Management.WebBaseEvent.ToString*
   exceptions: []
   platform:
@@ -487,20 +487,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Formats event information for display purposes."
-  remarks: "The <xref:System.Web.Management.WebBaseEvent.ToString%2A> method is generally invoked by the provider that processes the event. It formats event information by calling the event-specific <xref:System.Web.Management.WebBaseEvent.FormatCustomEventDetails%2A> method. If `includeAppInfo` is `true`, the standard <xref:System.Web.Management.WebApplicationInformation> object is provided with the event-specific data.      > [!NOTE] >  When you format your custom event information for display, override the <xref:System.Web.Management.WebBaseEvent.FormatCustomEventDetails%2A> method rather than the <xref:System.Web.Management.WebBaseEvent.ToString%2A> method. This will avoid overwriting or tampering with sensitive system information."
+  summary: "Formatuje do wyświetlania informacji o zdarzeniu."
+  remarks: "<xref:System.Web.Management.WebBaseEvent.ToString%2A>Zazwyczaj wywoływana jest metoda przez dostawcę, który umożliwia przetwarzanie zdarzenia.</xref:System.Web.Management.WebBaseEvent.ToString%2A> Formatowania informacji o zdarzeniach przez wywołanie zdarzenia specyficzne <xref:System.Web.Management.WebBaseEvent.FormatCustomEventDetails%2A>metody.</xref:System.Web.Management.WebBaseEvent.FormatCustomEventDetails%2A> Jeśli `includeAppInfo` jest `true`, standardowe <xref:System.Web.Management.WebApplicationInformation>obiektu jest dostarczana z danych dotyczących zdarzeń.</xref:System.Web.Management.WebApplicationInformation>      > [!NOTE] > Podczas formatowania danych niestandardowych zdarzeń do wyświetlenia, Zastąp <xref:System.Web.Management.WebBaseEvent.FormatCustomEventDetails%2A>metody zamiast <xref:System.Web.Management.WebBaseEvent.ToString%2A>— Metoda.</xref:System.Web.Management.WebBaseEvent.ToString%2A> </xref:System.Web.Management.WebBaseEvent.FormatCustomEventDetails%2A> Pozwoli to uniknąć zastąpienia lub naruszeniu systemu poufnych informacji."
   syntax:
     content: public virtual string ToString (bool includeAppInfo, bool includeCustomEventDetails);
     parameters:
     - id: includeAppInfo
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if standard application information must be displayed as part of the event information; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli informacje o standardowych aplikacji musi być wyświetlona jako część informacji o zdarzeniu; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: includeCustomEventDetails
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if custom information must be displayed as part of the event information; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli niestandardowa wartość musi być wyświetlona jako część informacji o zdarzeniu; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.String
-      description: "The event information."
+      description: "Dane zdarzenia."
   overload: System.Web.Management.WebBaseEvent.ToString*
   exceptions: []
   platform:

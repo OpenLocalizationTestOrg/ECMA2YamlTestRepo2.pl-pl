@@ -17,8 +17,8 @@ items:
   nameWithType: TrustSection
   fullName: System.Web.Configuration.TrustSection
   type: Class
-  summary: "Configures the code-access security level that is applied to an application. This class cannot be inherited."
-  remarks: "The TrustSection class lets you programmatically access and modify the configuration file `<trust>` section. The `<trust>` section configures the code-access-security permissions set that is used to run a particular application. This section can be declared at the machine, site, and application levels."
+  summary: "Umożliwia skonfigurowanie poziomu zabezpieczeń dostępu kodu, który jest stosowanych do aplikacji. Ta klasa nie może być dziedziczona."
+  remarks: "Klasa TrustSection umożliwia programowo modyfikacji i dostępu w pliku konfiguracji `<trust>` sekcji. `<trust>` Sekcji konfiguruje zestaw uprawnień zabezpieczeń dostępu kodu, który zostanie użyty do uruchomienia określonej aplikacji. W tej sekcji mogą być deklarowane w komputera, witryn i aplikacji."
   example:
   - "This section provides two code examples. The first demonstrates how to declaratively specify values for several properties of the TrustSection class. The second demonstrates how to use the TrustSection type.  \n  \n The following configuration file example shows how to declaratively specify values for several properties of the TrustSection class.  \n  \n```  \n<system.web>  \n  <trust level=\"Full\" originUrl=\"\"/>  \n</system.web>  \n```  \n  \n The following code example demonstrates how to use the TrustSection type.  \n  \n [!code-cs[System.Web.Configuration.TrustSection#1](~/add/codesnippet/csharp/t-system.web.configurati_21_1.cs)]\n [!code-vb[System.Web.Configuration.TrustSection#1](~/add/codesnippet/visualbasic/t-system.web.configurati_21_1.vb)]"
   syntax:
@@ -84,8 +84,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Configuration.TrustSection&quot;></xref> class using default settings."
-  remarks: "The TrustSection constructor is not intended to be used directly from your code. It is called by the ASP.NET configuration system. You obtain an instance of the <xref:System.Web.Configuration.TrustSection> class by using the <xref:System.Configuration.Configuration.GetSection%2A> method.       The following table shows the default settings that are used for the TrustSection constructor.      |Setting|Default value|   |-------------|-------------------|   |<xref:System.Web.Configuration.TrustSection.Level%2A>|`Full`|   |<xref:System.Web.Configuration.TrustSection.OriginUrl%2A>|`&quot;&quot;`|"
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Web.Configuration.TrustSection&quot;> </xref> przy użyciu ustawień domyślnych."
+  remarks: "Konstruktor TrustSection nie jest przeznaczona do użycia bezpośrednio w kodzie. Jest ona wywoływana przez system konfiguracji programu ASP.NET. Uzyskać wystąpienia <xref:System.Web.Configuration.TrustSection>przy użyciu <xref:System.Configuration.Configuration.GetSection%2A>metody.</xref:System.Configuration.Configuration.GetSection%2A> </xref:System.Web.Configuration.TrustSection>       W poniższej tabeli przedstawiono domyślne ustawienia, które są używane dla konstruktora TrustSection.      | Ustawienie | Wartość domyślna |   |-------------|-------------------|   | <xref:System.Web.Configuration.TrustSection.Level%2A>| `Full`|   | <xref:System.Web.Configuration.TrustSection.OriginUrl%2A>| `&quot;&quot;`|</xref:System.Web.Configuration.TrustSection.OriginUrl%2A></xref:System.Web.Configuration.TrustSection.Level%2A>"
   syntax:
     content: public TrustSection ();
     parameters: []
@@ -105,13 +105,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets the custom security-policy resolution type."
-  remarks: "If HostSecurityPolicyResolverType is an empty string, the application uses ASP.NET default policy to determine an assembly&quot;s permissions. The default policy for evaluating permissions grants full trust to the Global Assembly Cache (GAC) assemblies and partial trust to the other assemblies.       This attribute cannot be set to a `null` value."
+  summary: "Pobiera lub ustawia typ rozwiązywania konfliktów niestandardowe zasady zabezpieczeń."
+  remarks: "Jeśli HostSecurityPolicyResolverType jest pustym ciągiem, ASP.NET domyślną zasadę przez aplikację do określania zestawu uprawnień. Domyślne zasady umożliwiające ocenę uprawnienia przyznaje status całkowitego zaufania częściowego zaufania do innych zestawów i zestawów w globalnej pamięci podręcznej zestawów (GAC).       Nie można ustawić ten atrybut `null` wartość."
   syntax:
     content: public string HostSecurityPolicyResolverType { get; set; }
     return:
       type: System.String
-      description: "The custom security-policy resolution type."
+      description: "Typ rozwiązywania konfliktów niestandardowe zasady zabezpieczeń."
   overload: System.Web.Configuration.TrustSection.HostSecurityPolicyResolverType*
   exceptions: []
   platform:
@@ -128,13 +128,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or set a value that indicates whether the legacy code access security is enabled."
-  remarks: "When legacy code access security is enabled, the following security rules apply:      -   Code access security (CAS) policy is established from the combination of machine policy and the specified ASP.NET partial trust policy file.      -   Partial trust application domains revert to being full trust at the application domain level.      -   The legacy partial trust files located in the CONFIG directory in the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] install directory are used instead of the new partial trust configuration files that are located in the same directory. The legacy files include the membership conditions that were found in the [!INCLUDE[net_v11_long](~/add/includes/net-v11-long-md.md)] or [!INCLUDE[net_v20SP1_short](~/add/includes/net-v20sp1-short-md.md)] versions of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)].      -   Additional membership conditions to evaluate permissions are applied, as defined in ASP.NET partial trust files. The CONFIG directory that ships with the [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)] release contains legacy partial-trust policy files. The names of these files include the string &quot;legacy&quot; and contain the [!INCLUDE[net_v20SP1_short](~/add/includes/net-v20sp1-short-md.md)] sections. These sections contain non-empty membership conditions that are needed to evaluating CAS policy against assemblies.      -   If the ASP.NET application is running in partial trust and the security policy file for the trust level maps to one of the default partial trust configuration files, ASP.NET automatically chooses the corresponding legacy configuration file. For example, if the security policy would ordinarily be loaded from Web_mediumtrust.config, then in legacy mode ASP.NET will instead load security policy from Legacy.web_mediumtrust.config."
+  summary: "Pobiera lub ustawia wartość wskazującą, czy włączono zabezpieczenia dostępu kodu starszej wersji."
+  remarks: "Po włączeniu zabezpieczenia dostępu kodu starszej wersji, obowiązują następujące reguły zabezpieczeń:-zasady zabezpieczeń (CAS) kod dostępu zostanie nawiązane z kombinacji zasad komputera i określony plik zasad ASP.NET częściowej relacji zaufania.      -Częściowej relacji zaufania domeny aplikacji przywrócić trwa pełnego zaufania na poziomie domeny aplikacji.      Pliki starszych częściowej relacji zaufania, znajduje się w katalogu CONFIG w [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] katalog instalacji są używane zamiast nowe pliki konfiguracji częściowej relacji zaufania, które znajdują się w tym samym katalogu. Warunki członkostwa, które zostały znalezione w zawierają plików starszych [!INCLUDE[net_v11_long](~/add/includes/net-v11-long-md.md)] lub [!INCLUDE[net_v20SP1_short](~/add/includes/net-v20sp1-short-md.md)] wersji [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)].      -Dodatkowe członkostwa warunków wymagających oceny uprawnień są stosowane zgodnie z definicją w plikach ASP.NET częściowej relacji zaufania. Katalog konfiguracji, który jest dostarczany z [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)] wersja zawiera pliki starszej wersji zasad zaufania częściowego. Nazwy te pliki zawierają ciąg &quot;starszych&quot; oraz zawierać [!INCLUDE[net_v20SP1_short](~/add/includes/net-v20sp1-short-md.md)] sekcje. Poniższe sekcje zawierają członkostwa niepusty warunki, które są niezbędne do obliczenia urzędów certyfikacji zasad pod kątem zestawy.      — Jeśli aplikacja ASP.NET działa w częściowej relacji zaufania i plik zasad zabezpieczeń dla mapy poziomu zaufania do jednego z domyślnych plików konfiguracji częściowej relacji zaufania, ASP.NET automatycznie wybierze odpowiedni plik starszej wersji konfiguracji. Na przykład jeśli zasady zabezpieczeń zwykle może zostać załadowany z Web_mediumtrust.config, następnie w trybie starszej wersji platformy ASP.NET zamiast tego załaduje zasady zabezpieczeń z Legacy.web_mediumtrust.config."
   syntax:
     content: public bool LegacyCasModel { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if legacy code access security is enabled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli włączono zabezpieczenia dostępu kodu starszej wersji; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Wartość domyślna to <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Configuration.TrustSection.LegacyCasModel*
   exceptions: []
   platform:
@@ -151,15 +151,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets the name of the security level under which the application will run."
-  remarks: "The Level property specifies the security level under which the application will be run. The default is `&quot;Full&quot;`.       There are five available trust levels:      -   Full      -   High      -   Medium      -   Low      -   Minimal       The named levels correspond to the security levels that are defined in the `<trustLevel>` element for `<securityPolicy>`."
+  summary: "Pobiera lub ustawia nazwę poziomu zabezpieczeń, na którym będzie uruchamiana aplikacja."
+  remarks: "Właściwość poziomu określa poziom zabezpieczeń, w którym będzie działać aplikacja. Wartość domyślna to `&quot;Full&quot;`.       Istnieje pięć poziomów zaufania dostępne: wysoki — pełna - — średni - niski - minimalne nazwane poziomy odpowiadają poziomów zabezpieczeń, które są zdefiniowane w `<trustLevel>` elementu `<securityPolicy>`."
   example:
   - "The following code example demonstrates how to use the Level property. This code example is part of a larger example provided for the <xref:System.Web.Configuration.TrustSection> class.  \n  \n [!code-cs[System.Web.Configuration.TrustSection#2](~/add/codesnippet/csharp/p-system.web.configurati_147_1.cs)]\n [!code-vb[System.Web.Configuration.TrustSection#2](~/add/codesnippet/visualbasic/p-system.web.configurati_147_1.vb)]"
   syntax:
     content: public string Level { get; set; }
     return:
       type: System.String
-      description: "The name of the trust level. The default is <xref uid=&quot;langword_csharp_&quot;Full&quot;&quot; name=&quot;&quot;Full&quot;&quot; href=&quot;&quot;></xref>."
+      description: "Nazwa poziomu zaufania. Wartość domyślna to <xref uid=&quot;langword_csharp_&quot;Full&quot;&quot; name=&quot;&quot;Full&quot;&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Configuration.TrustSection.Level*
   exceptions: []
   platform:
@@ -176,15 +176,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Specifies the URL of origin for an application."
-  remarks: "The OriginUrl property specifies the URL of origin for an application. If present, this can be used for some permissions, such as those associated with the <xref:System.Net.WebRequest> class. This enables you to specify a single URL that is used to create permission through a <xref:System.Net.WebPermission> instance. This permission then grants ASP.NET code that has partial trust the right to make HTTP calls (for example, a Web service call) to that URL. The value must be a well-formed HTTP URL."
+  summary: "Określa adres URL źródła dla aplikacji."
+  remarks: "Właściwość OriginUrl Określa adres URL źródła dla aplikacji. Jeśli jest obecny, ten może służyć do niektórych uprawnień, takich jak powiązane z <xref:System.Net.WebRequest>klasy.</xref:System.Net.WebRequest> Dzięki temu można określić pojedynczy adres URL, który służy do tworzenia uprawnienie poprzez <xref:System.Net.WebPermission>wystąpienia.</xref:System.Net.WebPermission> Następnie to uprawnienie przyznaje kodu platformy ASP.NET, który ma częściowej relacji zaufania prawo do nawiązywania połączeń HTTP (na przykład wywołanie usługi sieci Web) do tego adresu URL. Wartość musi być poprawnie sformułowany adres URL HTTP."
   example:
   - "The following code example demonstrates how to use the OriginUrl property. This code example is part of a larger example provided for the <xref:System.Web.Configuration.TrustSection> class.  \n  \n [!code-cs[System.Web.Configuration.TrustSection#3](~/add/codesnippet/csharp/p-system.web.configurati_332_1.cs)]\n [!code-vb[System.Web.Configuration.TrustSection#3](~/add/codesnippet/visualbasic/p-system.web.configurati_332_1.vb)]"
   syntax:
     content: public string OriginUrl { get; set; }
     return:
       type: System.String
-      description: "A well-formed HTTP URL or an empty string (&quot;&quot;). The default is an empty string."
+      description: "Poprawnie sformułowany adres URL protokołu HTTP lub ciąg pusty (&quot;&quot;). Wartość domyślna to ciąg pusty."
   overload: System.Web.Configuration.TrustSection.OriginUrl*
   exceptions: []
   platform:
@@ -201,13 +201,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or sets the name of the permission set."
-  remarks: "The PermissionSetName property enables you to define in a partial trust configuration file the named permission set that is used during the initialization of an application domain.       By default, the PermissionSetName property is &quot;ASP.Net&quot; This is the name of the permission set that is used to initialize the application domain.       This attribute cannot be set to an empty string or a `null` value."
+  summary: "Pobiera lub ustawia nazwę zestawu uprawnień."
+  remarks: "Właściwość PermissionSetName umożliwia zdefiniowanie w pliku konfiguracyjnym częściowej relacji zaufania nazwany zestaw uprawnień używanego podczas inicjowania domeny aplikacji.       Domyślnie właściwość PermissionSetName jest &quot;ASP.Net&quot; jest to nazwa zestawu uprawnień, który służy do inicjowania domeny aplikacji.       Nie można ustawić tego atrybutu na ciąg pusty lub `null` wartość."
   syntax:
     content: public string PermissionSetName { get; set; }
     return:
       type: System.String
-      description: "The name of the permission set."
+      description: "Nazwa zestawu uprawnień."
   overload: System.Web.Configuration.TrustSection.PermissionSetName*
   exceptions: []
   platform:
@@ -224,12 +224,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Configuration
-  summary: "Gets or set a value that indicates whether page requests are automatically restricted to the permissions that are configured in the trust policy file that is applied to the ASP.NET application."
+  summary: "Pobiera lub ustawia wartość wskazującą, czy strona żądań jest automatycznie ograniczany do uprawnienia, które są skonfigurowane w pliku zasad zaufania, który jest stosowany do aplikacji ASP.NET."
   syntax:
     content: public bool ProcessRequestInApplicationTrust { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if requests are automatically restricted to the permissions that are configured in the trust policy file; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli żądań jest automatycznie ograniczany do uprawnienia, które są konfigurowane w pliku zasad zaufania; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Configuration.TrustSection.ProcessRequestInApplicationTrust*
   exceptions: []
   platform:
@@ -250,7 +250,7 @@ items:
     content: protected override System.Configuration.ConfigurationPropertyCollection Properties { get; }
     return:
       type: System.Configuration.ConfigurationPropertyCollection
-      description: "To be added."
+      description: "Do dodania."
   overload: System.Web.Configuration.TrustSection.Properties*
   exceptions: []
   platform:

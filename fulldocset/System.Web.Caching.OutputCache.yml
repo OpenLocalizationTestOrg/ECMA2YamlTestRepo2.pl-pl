@@ -13,8 +13,8 @@ items:
   nameWithType: OutputCache
   fullName: System.Web.Caching.OutputCache
   type: Class
-  summary: "Provides programmatic access to the output-cache providers that are specified in the configuration file for a Web site."
-  remarks: "Output caching stores the generated output of pages, controls, and HTTP responses in memory. Output caching enables you to cache different versions of content depending on the query string and on form-post parameters to a page, on browser type, or on the language of the user. You can configure ASP.NET to cache an output-cache entry for a specific period. You can also configure ASP.NET to evict a cache entry automatically based on an external event such as changes in the database that the cache depends on.       The OutputCache class enables you to extend output caching. For example, you can configure one or more custom output-cache providers that target other storage devices such as local or remote disks, databases, cloud storage, and distributed cache engines."
+  summary: "Zapewnia dostęp programistyczny z dostawcami pamięci podręcznej danych wyjściowych, które są określone w pliku konfiguracji witryny sieci Web."
+  remarks: "Buforowanie danych wyjściowych w pamięci są przechowywane wygenerowanych danych wyjściowych stron, kontrolek i odpowiedzi HTTP. Buforowanie danych wyjściowych umożliwia buforowania różnych wersji zawartości, w zależności od ciągu zapytania i parametrów post formularza do strony, typ przeglądarki lub języka użytkownika. Możesz skonfigurować platformę ASP.NET z pamięci podręcznej danych wyjściowych wpisu pamięci podręcznej w danym okresie. Można również skonfigurować platformę ASP.NET w celu wykluczenia wpis pamięci podręcznej automatycznie w oparciu o zdarzenie zewnętrzne, takie jak zmiany w bazie danych, która zależy od pamięci podręcznej.       Klasa OutputCache umożliwia rozszerzanie buforowanie danych wyjściowych. Na przykład można skonfigurować jeden lub więcej pamięci podręcznej danych wyjściowych dostawców niestandardowych przeznaczone inne urządzenia pamięci masowej, takich jak dyski lokalne lub zdalne, baz danych magazynu w chmurze i aparatów rozproszonej pamięci podręcznej."
   syntax:
     content: public static class OutputCache
   inheritance:
@@ -35,13 +35,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: "Gets the name of the default provider that is configured for the output cache."
-  remarks: "By default, all HTTP responses, rendered pages, and controls use `AspNetInternalProvider`, the in-memory output cache provider. To use a different provider, set the `defaultProvider` attribute to the name of the alternative provider."
+  summary: "Pobiera nazwę domyślnego dostawcę, który jest skonfigurowany do obsługi pamięci podręcznej danych wyjściowych."
+  remarks: "Domyślnie wszystkie odpowiedzi HTTP, renderowania stron i formantów użyj `AspNetInternalProvider`, dostawcy pamięci podręcznej danych wyjściowych w pamięci. Aby użyć innego dostawcę, należy ustawić `defaultProvider` atrybutu nazwę alternatywnego dostawcy."
   syntax:
     content: public static string DefaultProviderName { get; }
     return:
       type: System.String
-      description: "The name of the default provider."
+      description: "Nazwa domyślnego dostawcy."
   overload: System.Web.Caching.OutputCache.DefaultProviderName*
   exceptions: []
   platform:
@@ -58,25 +58,25 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: "Deserializes a binary object into output-cache data."
-  remarks: "This method is used by output-cache providers that are operating under partial trust."
+  summary: "Deserializuje obiekt binarny na dane pamięci podręcznej danych wyjściowych."
+  remarks: "Ta metoda jest używana przez dostawców pamięci podręcznej danych wyjściowych, które działają w częściowej relacji zaufania."
   syntax:
     content: public static object Deserialize (System.IO.Stream stream);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The data to deserialize."
+      description: "Dane do zdeserializowania."
     return:
       type: System.Object
-      description: "An object that contains the deserialized data."
+      description: "Obiekt zawierający dane zdeserializowany."
   overload: System.Web.Caching.OutputCache.Deserialize*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The deserialized object that is returned by the method is not a valid output-cache type."
+    description: "Zdeserializowany obiekt, który jest zwracany przez metodę nie jest prawidłowym typem pamięci podręcznej danych wyjściowych."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>stream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.Caching.OutputCache.Providers
@@ -91,13 +91,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: "Gets a collection of the output-cache providers that are specified in the configuration file for a Web site."
-  remarks: "You configure one or more custom output-cache providers that target other storage devices, such as local or remote disks, databases, cloud storage, and distributed cache engines. To configure custom output-cache providers, you add a provider to the collection that is represented by the Providers property."
+  summary: "Pobiera kolekcję dostawców pamięci podręcznej danych wyjściowych, które są określone w pliku konfiguracji witryny sieci Web."
+  remarks: "Możesz skonfigurować jeden lub więcej pamięci podręcznej danych wyjściowych dostawców niestandardowych przeznaczone inne urządzenia pamięci masowej, takich jak dyski lokalne lub zdalne, baz danych magazynu w chmurze i aparatów rozproszonej pamięci podręcznej. Aby skonfigurować niestandardowych dostawców pamięci podręcznej danych wyjściowych, dodać dostawcę kolekcji, która jest reprezentowana przez właściwość dostawców."
   syntax:
     content: public static System.Web.Caching.OutputCacheProviderCollection Providers { get; }
     return:
       type: System.Web.Caching.OutputCacheProviderCollection
-      description: "The collection of configured providers."
+      description: "Kolekcja dostawców skonfigurowany."
   overload: System.Web.Caching.OutputCache.Providers*
   exceptions: []
   platform:
@@ -114,25 +114,25 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: "Serializes output-cache data into binary data."
-  remarks: "This method is used by output-cache providers that are operating under partial trust."
+  summary: "Serializuje dane pamięci podręcznej danych wyjściowych do danych binarnych."
+  remarks: "Ta metoda jest używana przez dostawców pamięci podręcznej danych wyjściowych, które działają w częściowej relacji zaufania."
   syntax:
     content: public static void Serialize (System.IO.Stream stream, object data);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The object to contain the serialized binary data."
+      description: "Obiekt, który zawiera seryjnych danych binarnych."
     - id: data
       type: System.Object
-      description: "The output-cache data to serialize."
+      description: "Dane pamięci podręcznej danych wyjściowych do serializacji."
   overload: System.Web.Caching.OutputCache.Serialize*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>data</code> is not one of the specified output-cache types."
+    description: "<code>data</code>nie jest jednym z określonych typów pamięci podręcznej danych wyjściowych."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>data</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or <code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>data</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or <code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:
