@@ -17,8 +17,8 @@ items:
   nameWithType: AcknowledgeTypes
   fullName: System.Messaging.AcknowledgeTypes
   type: Enum
-  summary: "Specifies the types of acknowledgment message that Message Queuing returns to the sending application."
-  remarks: "The AcknowledgeTypes class provides a set of flags that you can combine to request one or more categories of acknowledgment messages.       When an application sends a message, it can request that Message Queuing return acknowledgment messages indicating the success or failure of the original message. Message Queuing sends these acknowledgment messages to the administration queue you specify. Acknowledgment types can be divided broadly into four groups: positive arrival acknowledgments, positive read acknowledgments, negative arrival acknowledgments, and negative read acknowledgments. Requesting acknowledgments enables your application to receive notification of certain occurrences—for example, a message reaching its destination queue, a message being retrieved, or a time-out preventing a message from reaching or being retrieved from the destination queue.       When you are using the <xref:System.Messaging.Message> class to send messages to a queue, you specify the types of acknowledgments your application should receive in the <xref:System.Messaging.Message.AcknowledgeType%2A> property, as well as the administration queue that receives the acknowledgment messages in the <xref:System.Messaging.Message.AdministrationQueue%2A> property.       When you use the <xref:System.Messaging.Message> class to read acknowledgment messages in the administration queue, the instance&quot;s <xref:System.Messaging.Message.Acknowledgment%2A> property indicates the condition responsible for the acknowledgment message, for example, if a time-out expired before the original message was read from the queue."
+  summary: "Określa typy komunikat potwierdzenia, który zwraca usługi kolejkowania komunikatów do wysyłania aplikacji."
+  remarks: "Klasa AcknowledgeTypes zawiera zestaw flag można łączyć żądania co najmniej jednej kategorii komunikatów potwierdzenia.       Gdy aplikacja wysyła wiadomość, mogą żądać, że usługi kolejkowania komunikatów zwracać wiadomości potwierdzających oznaczający powodzenie lub niepowodzenie oryginalnej wiadomości. Usługa kolejkowania komunikatów wysyła te wiadomości potwierdzających do kolejkę administracyjną, które określisz. Typy potwierdzenia można podzielić na cztery grupy szeroko: potwierdzeń odbioru dodatnią, dodatnią potwierdzenia odczytu negatywne potwierdzenia i ujemną potwierdzenia odczytu. Żądanie potwierdzenia pozwala aplikacji odbierać powiadomienie o niektórych wystąpień — na przykład komunikat dotarciem do kolejki docelowej, trwa pobieranie wiadomości lub limit czasu wiadomości uniemożliwia osiągnięcie bądź właśnie pobierane z kolejki docelowej.       W przypadku używania <xref:System.Messaging.Message>klasy do wysyłania wiadomości do kolejki, określić typy potwierdzenia aplikacji powinien zostać wyświetlony w <xref:System.Messaging.Message.AcknowledgeType%2A>Właściwości, a także kolejkę administracyjną, która odbiera wiadomości potwierdzających w <xref:System.Messaging.Message.AdministrationQueue%2A>Właściwości.</xref:System.Messaging.Message.AdministrationQueue%2A> </xref:System.Messaging.Message.AcknowledgeType%2A> </xref:System.Messaging.Message>       Jeśli używasz <xref:System.Messaging.Message>klasy odczytać wiadomości potwierdzających w administracji kolejki, wystąpienie <xref:System.Messaging.Message.Acknowledgment%2A>właściwość wskazuje na przykład odpowiedzialna za komunikat potwierdzenia warunku, jeśli limit czasu upłynął przed odczytano oryginalnej wiadomości z kolejki.</xref:System.Messaging.Message.Acknowledgment%2A> </xref:System.Messaging.Message>"
   example:
   - "The following code example sends and receives a message that contains an order to and from a queue. It specifically requests a positive acknowledgment when the original message reaches or is retrieved from the queue.  \n  \n [!code-cs[Message.Acknowledgment#1](~/add/codesnippet/csharp/t-system.messaging.ackno_1_1.cs)]\n [!code-cpp[Message.Acknowledgment#1](~/add/codesnippet/cpp/t-system.messaging.ackno_1_1.cpp)]\n [!code-vb[Message.Acknowledgment#1](~/add/codesnippet/visualbasic/t-system.messaging.ackno_1_1.vb)]"
   syntax:
@@ -42,12 +42,12 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "A mask used to request positive acknowledgment if the original message reaches the queue or negative acknowledgment if the time-to-reach-queue timer expires or if the original message cannot be authenticated."
+  summary: "Maska, używane do żądania potwierdzenia dodatnią, jeśli oryginalnej wiadomości osiągnie kolejki lub negatywnego potwierdzenia, jeśli wygaśnięciu czasomierza czas do dotarcia do kolejki lub nie można uwierzytelnić oryginalnej wiadomości."
   syntax:
     content: FullReachQueue
     return:
       type: System.Messaging.AcknowledgeTypes
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -63,12 +63,12 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "A mask used to request positive acknowledgment if the original message is received from the queue before its time-to-be-received timer expires or negative acknowledgment otherwise."
+  summary: "Maska, używany do żądania pozytywne potwierdzenie w przypadku nieodebrania oryginalnej wiadomości z kolejki, przed wygaśnięciem jego czasomierz czas do odbioru lub w przeciwnym razie wartość ujemną potwierdzenia."
   syntax:
     content: FullReceive
     return:
       type: System.Messaging.AcknowledgeTypes
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -84,13 +84,13 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "A mask used to request a negative acknowledgment when the original message fails to be received from the queue."
-  remarks: "Using the <xref:System.Messaging.MessageQueue.Peek%2A?displayProperty=fullName> method does not remove a message from the queue, so this acknowledgment type could be returned even if you did peek the message. Only the <xref:System.Messaging.MessageQueue.Receive%2A?displayProperty=fullName> method (or the related asynchronous <xref:System.Messaging.MessageQueue.BeginReceive%2A?displayProperty=fullName> method) removes a message from the queue."
+  summary: "Maska, używane do żądania potwierdzenie negatywne nieudanej oryginalnej wiadomości z kolejki."
+  remarks: "Przy użyciu <xref:System.Messaging.MessageQueue.Peek%2A?displayProperty=fullName>— Metoda nie powoduje usunięcia komunikatu z kolejki, dlatego mogą być zwracane tego typu potwierdzenia, nawet jeśli Podgląd wiadomości.</xref:System.Messaging.MessageQueue.Peek%2A?displayProperty=fullName> Tylko <xref:System.Messaging.MessageQueue.Receive%2A?displayProperty=fullName>— Metoda (lub są odnośnych asynchroniczne <xref:System.Messaging.MessageQueue.BeginReceive%2A?displayProperty=fullName>metody) usuwa komunikat z kolejki.</xref:System.Messaging.MessageQueue.BeginReceive%2A?displayProperty=fullName> </xref:System.Messaging.MessageQueue.Receive%2A?displayProperty=fullName>"
   syntax:
     content: NegativeReceive
     return:
       type: System.Messaging.AcknowledgeTypes
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -106,12 +106,12 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "A mask used to request that no acknowledgment messages (positive or negative) be posted."
+  summary: "Maska, używane do żądania zaksięgowania żadnych komunikatów potwierdzenia (dodatnie lub ujemne)."
   syntax:
     content: None
     return:
       type: System.Messaging.AcknowledgeTypes
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -127,12 +127,12 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "A mask used to request a negative acknowledgment when the original message cannot reach the queue. This can happen when the time-to-reach-queue timer expires or if a message cannot be authenticated."
+  summary: "Maska, używane do żądania potwierdzenie negatywne, gdy oryginalnej wiadomości można nawiązać połączenia z kolejki. Może to się zdarzyć, po wygaśnięciu czasomierza czas do dotarcia do kolejki lub jeśli wiadomość nie może zostać uwierzytelnione."
   syntax:
     content: NotAcknowledgeReachQueue
     return:
       type: System.Messaging.AcknowledgeTypes
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -148,12 +148,12 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "A mask used to request a negative acknowledgment when an error occurs that prevents the original message from being received from the queue before its time-to-be-received timer expires."
+  summary: "Maski używane do żądania potwierdzenie negatywne, gdy wystąpi błąd, który uniemożliwia odbieranie z kolejki przed wygaśnięciem jego czasomierz czas do odbioru oryginalnej wiadomości."
   syntax:
     content: NotAcknowledgeReceive
     return:
       type: System.Messaging.AcknowledgeTypes
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -169,12 +169,12 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "A mask used to request a positive acknowledgment when the original message reaches the queue."
+  summary: "Maska, używane do żądania pozytywne potwierdzenie, gdy kolejka osiągnie oryginalnej wiadomości."
   syntax:
     content: PositiveArrival
     return:
       type: System.Messaging.AcknowledgeTypes
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -190,12 +190,12 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "A mask used to request a positive acknowledgment when the original message is successfully retrieved from the queue."
+  summary: "Maska, używane do żądania pozytywne potwierdzenie, gdy oryginalnej wiadomości pomyślnie są pobierane z kolejki."
   syntax:
     content: PositiveReceive
     return:
       type: System.Messaging.AcknowledgeTypes
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462

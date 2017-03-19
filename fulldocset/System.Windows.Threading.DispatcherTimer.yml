@@ -20,8 +20,8 @@ items:
   nameWithType: DispatcherTimer
   fullName: System.Windows.Threading.DispatcherTimer
   type: Class
-  summary: "A timer that is integrated into the <xref href=&quot;System.Windows.Threading.Dispatcher&quot;></xref> queue which is processed at a specified interval of time and at a specified priority."
-  remarks: "The DispatcherTimer is reevaluated at the top of every <xref:System.Windows.Threading.Dispatcher> loop.       Timers are not guaranteed to execute exactly when the time interval occurs, but they are guaranteed to not execute before the time interval occurs.  This is because DispatcherTimer operations are placed on the <xref:System.Windows.Threading.Dispatcher> queue like other operations.  When the DispatcherTimer operation executes is dependent on the other jobs in the queue and their priorities.       If a <xref:System.Timers.Timer?displayProperty=fullName> is used in a [!INCLUDE[TLA2#tla_wpf](~/add/includes/ajax-current-ext-md.md)] application, it is worth noting that the <xref:System.Timers.Timer?displayProperty=fullName> runs on a different thread then the [!INCLUDE[TLA#tla_ui](~/add/includes/tlasharptla-ui-md.md)] thread.  In order to access objects on the [!INCLUDE[TLA#tla_ui](~/add/includes/tlasharptla-ui-md.md)] thread, it is necessary to post the operation onto the <xref:System.Windows.Threading.Dispatcher> of the [!INCLUDE[TLA#tla_ui](~/add/includes/tlasharptla-ui-md.md)] thread using <xref:System.Windows.Threading.Dispatcher.Invoke%2A> or <xref:System.Windows.Threading.Dispatcher.BeginInvoke%2A>. Reasons for using a DispatcherTimer opposed to a <xref:System.Timers.Timer?displayProperty=fullName> are that the DispatcherTimer runs on the same thread as the <xref:System.Windows.Threading.Dispatcher> and a <xref:System.Windows.Threading.DispatcherPriority> can be set on the DispatcherTimer.       A DispatcherTimer will keep an object alive whenever the object&quot;s methods are bound to the timer.      <a name=&quot;xamlTextUsage_DispatcherTimer&quot;></a>    ## XAML Text Usage"
+  summary: "Czasomierz, który jest zintegrowany z <xref href=&quot;System.Windows.Threading.Dispatcher&quot;> </xref> kolejki, które są przetwarzane w określonym interwale czasu i z priorytetem."
+  remarks: "DispatcherTimer jest ponownie oceniane w górnej części każdego <xref:System.Windows.Threading.Dispatcher>pętli.</xref:System.Windows.Threading.Dispatcher>       Czasomierze nie ma gwarancji do wykonania, dokładnie tak, gdy występuje przedział czasu, ale ma gwarancji nie wykonać przed wystąpieniem przedział czasu.  Jest to spowodowane DispatcherTimer operacje są umieszczane na <xref:System.Windows.Threading.Dispatcher>kolejki, podobnie jak inne operacje.</xref:System.Windows.Threading.Dispatcher>  Gdy wykonuje operację DispatcherTimer jest zależny od innych zadań w kolejce i ich priorytety.       Jeśli <xref:System.Timers.Timer?displayProperty=fullName>jest używany w [!INCLUDE[TLA2#tla_wpf](~/add/includes/ajax-current-ext-md.md)] aplikacji, warto zauważyć, że <xref:System.Timers.Timer?displayProperty=fullName>działa w innym wątku, a następnie [!INCLUDE[TLA#tla_ui](~/add/includes/tlasharptla-ui-md.md)] wątku.</xref:System.Timers.Timer?displayProperty=fullName> </xref:System.Timers.Timer?displayProperty=fullName>  Aby uzyskać dostęp do obiektów na [!INCLUDE[TLA#tla_ui](~/add/includes/tlasharptla-ui-md.md)] wątku, konieczne jest po operacji na <xref:System.Windows.Threading.Dispatcher>z [!INCLUDE[TLA#tla_ui](~/add/includes/tlasharptla-ui-md.md)] wątku przy użyciu <xref:System.Windows.Threading.Dispatcher.Invoke%2A>lub <xref:System.Windows.Threading.Dispatcher.BeginInvoke%2A>.</xref:System.Windows.Threading.Dispatcher.BeginInvoke%2A> </xref:System.Windows.Threading.Dispatcher.Invoke%2A> </xref:System.Windows.Threading.Dispatcher> Przyczyny DispatcherTimer, w przeciwieństwie do <xref:System.Timers.Timer?displayProperty=fullName>są DispatcherTimer uruchamiany na tym samym wątku, co <xref:System.Windows.Threading.Dispatcher>i <xref:System.Windows.Threading.DispatcherPriority>można ustawić DispatcherTimer.</xref:System.Windows.Threading.DispatcherPriority> </xref:System.Windows.Threading.Dispatcher> </xref:System.Timers.Timer?displayProperty=fullName>       DispatcherTimer będzie podtrzymywania obiektu zawsze, gdy metody obiektu są powiązane z czasomierza.      <a name=&quot;xamlTextUsage_DispatcherTimer&quot;></a>## Użycie tekstu języka XAML"
   example:
   - "The following example creates a DispatcherTimer that updates the contents of a <xref:System.Windows.Controls.Label> and calls the <xref:System.Windows.Input.CommandManager.InvalidateRequerySuggested%2A> method on the <xref:System.Windows.Input.CommandManager>.  \n  \n A DispatcherTimer object named `dispatcherTimer` is created.  The event handler `dispatcherTimer_Tick` is added to the <xref:System.Windows.Threading.DispatcherTimer.Tick> event of `dispatcherTimer`.  The <xref:System.Windows.Threading.DispatcherTimer.Interval%2A> is set to 1 second using a <xref:System.Windows.Duration.TimeSpan%2A> object, and the timer is started.  \n  \n [!code-vb[invalidaterequerywithdispatchertimer#InvalidateSampleDispatcherTimerInit](~/add/codesnippet/visualbasic/invalidaterequerywithdispatchertimer/window1.xaml.vb#invalidatesampledispatchertimerinit)]\n [!code-cs[invalidaterequerywithdispatchertimer#InvalidateSampleDispatcherTimerInit](~/add/codesnippet/csharp/InvalidateRequeryWithDispatcherTimer/Window1.xaml.cs#invalidatesampledispatchertimerinit)]  \n  \n The <xref:System.Windows.Threading.DispatcherTimer.Tick> event handler updates a <xref:System.Windows.Controls.Label> that displays the current second, and it calls <xref:System.Windows.Input.CommandManager.InvalidateRequerySuggested%2A> on the <xref:System.Windows.Input.CommandManager>.  \n  \n [!code-vb[invalidaterequerywithdispatchertimer#InvalidateSampleDispatcherTimer](~/add/codesnippet/visualbasic/invalidaterequerywithdispatchertimer/window1.xaml.vb#invalidatesampledispatchertimer)]\n [!code-cs[invalidaterequerywithdispatchertimer#InvalidateSampleDispatcherTimer](~/add/codesnippet/csharp/InvalidateRequeryWithDispatcherTimer/Window1.xaml.cs#invalidatesampledispatchertimer)]"
   syntax:
@@ -44,8 +44,8 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Threading
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Threading.DispatcherTimer&quot;></xref> class."
-  remarks: '<xref:System.Windows.Threading.DispatcherTimer> runs on the <xref:System.Windows.Threading.Dispatcher> of the current thread at <xref:System.Windows.Threading.DispatcherPriority> priority.  To specify a different <xref:System.Windows.Threading.Dispatcher>, use the following constructor: <xref:System.Windows.Threading.DispatcherTimer.%23ctor%28System.Windows.Threading.DispatcherPriority%2CSystem.Windows.Threading.Dispatcher%29?displayProperty=fullName>.'
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Windows.Threading.DispatcherTimer&quot;> </xref> klasy."
+  remarks: '<xref:System.Windows.Threading.DispatcherTimer>działa na <xref:System.Windows.Threading.Dispatcher>bieżącego wątku w <xref:System.Windows.Threading.DispatcherPriority>priorytet.</xref:System.Windows.Threading.DispatcherPriority> </xref:System.Windows.Threading.Dispatcher></xref:System.Windows.Threading.DispatcherTimer>  Aby określić inną <xref:System.Windows.Threading.Dispatcher>, użyj następującego konstruktora: <xref:System.Windows.Threading.DispatcherTimer.%23ctor%28System.Windows.Threading.DispatcherPriority%2CSystem.Windows.Threading.Dispatcher%29?displayProperty=fullName>.</xref:System.Windows.Threading.DispatcherTimer.%23ctor%28System.Windows.Threading.DispatcherPriority%2CSystem.Windows.Threading.Dispatcher%29?displayProperty=fullName> </xref:System.Windows.Threading.Dispatcher>'
   syntax:
     content: public DispatcherTimer ();
     parameters: []
@@ -65,14 +65,14 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Threading
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Threading.DispatcherTimer&quot;></xref> class which processes timer events at the specified priority."
-  remarks: '<xref:System.Windows.Threading.DispatcherTimer> runs on the <xref:System.Windows.Threading.Dispatcher> of the current thread.  To specify a different <xref:System.Windows.Threading.Dispatcher>, use the following constructor: <xref:System.Windows.Threading.DispatcherTimer.%23ctor%28System.Windows.Threading.DispatcherPriority%2CSystem.Windows.Threading.Dispatcher%29>.'
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Windows.Threading.DispatcherTimer&quot;> </xref> klasy, która przetwarza zdarzenia w określony priorytet."
+  remarks: '<xref:System.Windows.Threading.DispatcherTimer>działa na <xref:System.Windows.Threading.Dispatcher>bieżącego wątku.</xref:System.Windows.Threading.Dispatcher></xref:System.Windows.Threading.DispatcherTimer>  Aby określić inną <xref:System.Windows.Threading.Dispatcher>, użyj następującego konstruktora: <xref:System.Windows.Threading.DispatcherTimer.%23ctor%28System.Windows.Threading.DispatcherPriority%2CSystem.Windows.Threading.Dispatcher%29>.</xref:System.Windows.Threading.DispatcherTimer.%23ctor%28System.Windows.Threading.DispatcherPriority%2CSystem.Windows.Threading.Dispatcher%29> </xref:System.Windows.Threading.Dispatcher>'
   syntax:
     content: public DispatcherTimer (System.Windows.Threading.DispatcherPriority priority);
     parameters:
     - id: priority
       type: System.Windows.Threading.DispatcherPriority
-      description: "The priority at which to invoke the timer."
+      description: "Priorytet, jaką można wywołać czasomierza."
   overload: System.Windows.Threading.DispatcherTimer.#ctor*
   exceptions: []
   platform:
@@ -89,21 +89,21 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Threading
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Threading.DispatcherTimer&quot;></xref> class which runs on the specified <xref href=&quot;System.Windows.Threading.Dispatcher&quot;></xref> at the specified priority."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Windows.Threading.DispatcherTimer&quot;> </xref> klasy, w którym jest uruchomiona na określonym <xref href=&quot;System.Windows.Threading.Dispatcher&quot;> </xref> na określony priorytet."
   syntax:
     content: public DispatcherTimer (System.Windows.Threading.DispatcherPriority priority, System.Windows.Threading.Dispatcher dispatcher);
     parameters:
     - id: priority
       type: System.Windows.Threading.DispatcherPriority
-      description: "The priority at which to invoke the timer."
+      description: "Priorytet, jaką można wywołać czasomierza."
     - id: dispatcher
       type: System.Windows.Threading.Dispatcher
-      description: "The dispatcher the timer is associated with."
+      description: "Dyspozytor czasomierz jest skojarzony."
   overload: System.Windows.Threading.DispatcherTimer.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>dispatcher</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>dispatcher</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Windows.Threading.DispatcherTimer.#ctor(System.TimeSpan,System.Windows.Threading.DispatcherPriority,System.EventHandler,System.Windows.Threading.Dispatcher)
@@ -118,30 +118,30 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Threading
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Threading.DispatcherTimer&quot;></xref> class which uses the specified time interval, priority, event handler, and <xref href=&quot;System.Windows.Threading.Dispatcher&quot;></xref>."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Windows.Threading.DispatcherTimer&quot;> </xref> klasy, który używa określony interwał czasu, priorytet, program obsługi zdarzeń, a <xref href=&quot;System.Windows.Threading.Dispatcher&quot;> </xref>."
   syntax:
     content: public DispatcherTimer (TimeSpan interval, System.Windows.Threading.DispatcherPriority priority, EventHandler callback, System.Windows.Threading.Dispatcher dispatcher);
     parameters:
     - id: interval
       type: System.TimeSpan
-      description: "The period of time between ticks."
+      description: "Okres czasu między taktami."
     - id: priority
       type: System.Windows.Threading.DispatcherPriority
-      description: "The priority at which to invoke the timer."
+      description: "Priorytet, jaką można wywołać czasomierza."
     - id: callback
       type: System.EventHandler
-      description: "The event handler to call when the <xref href=&quot;System.Windows.Threading.DispatcherTimer.Tick&quot;></xref> event occurs."
+      description: "Program obsługi zdarzeń do wywołania, gdy <xref href=&quot;System.Windows.Threading.DispatcherTimer.Tick&quot;> </xref> zdarzenie."
     - id: dispatcher
       type: System.Windows.Threading.Dispatcher
-      description: "The dispatcher the timer is associated with."
+      description: "Dyspozytor czasomierz jest skojarzony."
   overload: System.Windows.Threading.DispatcherTimer.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>callback</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>callback</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>interval</code> is less than 0 or greater than <xref:System.Int32.MaxValue>."
+    description: "<code>interval</code>jest mniejsza niż 0 lub większą niż <xref:System.Int32.MaxValue>."
   platform:
   - net462
 - uid: System.Windows.Threading.DispatcherTimer.Dispatcher
@@ -156,13 +156,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Threading
-  summary: "Gets the <xref href=&quot;System.Windows.Threading.Dispatcher&quot;></xref> associated with this <xref href=&quot;System.Windows.Threading.DispatcherTimer&quot;></xref>."
-  remarks: "The Dispatcher property is determined at the creation of the <xref:System.Windows.Threading.DispatcherTimer> object.  The <xref:System.Windows.Threading.Dispatcher> property is set to the current <xref:System.Windows.Threading.Dispatcher> at the time of creation unless a different <xref:System.Windows.Threading.Dispatcher> is specified."
+  summary: "Pobiera <xref href=&quot;System.Windows.Threading.Dispatcher&quot;> </xref> skojarzony z tym <xref href=&quot;System.Windows.Threading.DispatcherTimer&quot;> </xref>."
+  remarks: "Właściwość dyspozytora jest określany przy tworzeniu <xref:System.Windows.Threading.DispatcherTimer>obiektu.</xref:System.Windows.Threading.DispatcherTimer>  <xref:System.Windows.Threading.Dispatcher>Właściwość jest ustawiona na bieżącą <xref:System.Windows.Threading.Dispatcher>w czasie tworzenia chyba że innej <xref:System.Windows.Threading.Dispatcher>jest określona.</xref:System.Windows.Threading.Dispatcher> </xref:System.Windows.Threading.Dispatcher> </xref:System.Windows.Threading.Dispatcher>"
   syntax:
     content: public System.Windows.Threading.Dispatcher Dispatcher { get; }
     return:
       type: System.Windows.Threading.Dispatcher
-      description: "The dispatcher."
+      description: "Dyspozytor."
   overload: System.Windows.Threading.DispatcherTimer.Dispatcher*
   exceptions: []
   platform:
@@ -179,20 +179,20 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Threading
-  summary: "Gets or sets the period of time between timer ticks."
-  remarks: "Timers are not guaranteed to execute exactly when the time interval occurs, but they are guaranteed to not execute before the time interval occurs.  This is because <xref:System.Windows.Threading.DispatcherTimer> operations are placed on the <xref:System.Windows.Threading.Dispatcher> queue like other operations.  When the <xref:System.Windows.Threading.DispatcherTimer> operation executes is dependent on the other jobs in the queue and their priorities.      <a name=&quot;XAMLTextUsage_Interval&quot;></a>    ## XAML Text Usage"
+  summary: "Pobiera lub ustawia czas między taktami."
+  remarks: "Czasomierze nie ma gwarancji do wykonania, dokładnie tak, gdy występuje przedział czasu, ale ma gwarancji nie wykonać przed wystąpieniem przedział czasu.  Jest to spowodowane <xref:System.Windows.Threading.DispatcherTimer>operacje są umieszczane na <xref:System.Windows.Threading.Dispatcher>kolejki, podobnie jak inne operacje.</xref:System.Windows.Threading.Dispatcher> </xref:System.Windows.Threading.DispatcherTimer>  Gdy <xref:System.Windows.Threading.DispatcherTimer>wykonuje operację jest zależny od innych zadań w kolejce i ich priorytety.</xref:System.Windows.Threading.DispatcherTimer>      <a name=&quot;XAMLTextUsage_Interval&quot;></a>## Użycie tekstu języka XAML"
   example:
   - "The following example creates a <xref:System.Windows.Threading.DispatcherTimer>.  A new <xref:System.Windows.Threading.DispatcherTimer> object named `dispatcherTimer` is created.  The event handler `dispatcherTimer_Tick` is added to the <xref:System.Windows.Threading.DispatcherTimer.Tick> event.  The Interval is set to 1 second using a <xref:System.TimeSpan> object.  \n  \n [!code-vb[invalidaterequerywithdispatchertimer#InvalidateSampleDispatcherTimerInit](~/add/codesnippet/visualbasic/invalidaterequerywithdispatchertimer/window1.xaml.vb#invalidatesampledispatchertimerinit)]\n [!code-cs[invalidaterequerywithdispatchertimer#InvalidateSampleDispatcherTimerInit](~/add/codesnippet/csharp/InvalidateRequeryWithDispatcherTimer/Window1.xaml.cs#invalidatesampledispatchertimerinit)]"
   syntax:
     content: public TimeSpan Interval { get; set; }
     return:
       type: System.TimeSpan
-      description: "The period of time between ticks. The default is 00:00:00."
+      description: "Okres czasu między taktami. Wartość domyślna to 00:00:00."
   overload: System.Windows.Threading.DispatcherTimer.Interval*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>interval</code> is less than 0 or greater than <xref:System.Int32.MaxValue> milliseconds."
+    description: "<code>interval</code>jest mniejsza niż 0 lub większą niż <xref:System.Int32.MaxValue> milisekund."
   platform:
   - net462
 - uid: System.Windows.Threading.DispatcherTimer.IsEnabled
@@ -207,15 +207,15 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Threading
-  summary: "Gets or sets a value that indicates whether the timer is running."
-  remarks: "IsEnabled must be set to `true` for the <xref:System.Windows.Threading.DispatcherTimer.Tick> event to be raised.       Calling <xref:System.Windows.Threading.DispatcherTimer.Start%2A> sets IsEnabled to `true`.       Calling <xref:System.Windows.Threading.DispatcherTimer.Stop%2A> sets IsEnabled to `false`.      <a name=&quot;XAMLTextUsage_IsEnabled&quot;></a>    ## XAML Text Usage"
+  summary: "Pobiera lub ustawia wartość wskazującą, czy czasomierz jest uruchomiona."
+  remarks: "Musi mieć ustawioną IsEnabled `true` dla <xref:System.Windows.Threading.DispatcherTimer.Tick>się zdarzenia.</xref:System.Windows.Threading.DispatcherTimer.Tick>       Wywoływanie <xref:System.Windows.Threading.DispatcherTimer.Start%2A>Ustawia IsEnabled `true`.</xref:System.Windows.Threading.DispatcherTimer.Start%2A>       Wywoływanie <xref:System.Windows.Threading.DispatcherTimer.Stop%2A>Ustawia IsEnabled `false`.</xref:System.Windows.Threading.DispatcherTimer.Stop%2A>      <a name=&quot;XAMLTextUsage_IsEnabled&quot;></a>## Użycie tekstu języka XAML"
   example:
   - "The following example creates a <xref:System.Windows.Threading.DispatcherTimer>.  A new <xref:System.Windows.Threading.DispatcherTimer> object named `dispatcherTimer` is created.  The event handler `dispatcherTimer_Tick` is added to the <xref:System.Windows.Threading.DispatcherTimer.Tick> event.  The <xref:System.Windows.Threading.DispatcherTimer.Interval%2A> is set to 1 second using a <xref:System.TimeSpan> object.  \n  \n [!code-vb[invalidaterequerywithdispatchertimer#InvalidateSampleDispatcherTimerInit](~/add/codesnippet/visualbasic/invalidaterequerywithdispatchertimer/window1.xaml.vb#invalidatesampledispatchertimerinit)]\n [!code-cs[invalidaterequerywithdispatchertimer#InvalidateSampleDispatcherTimerInit](~/add/codesnippet/csharp/InvalidateRequeryWithDispatcherTimer/Window1.xaml.cs#invalidatesampledispatchertimerinit)]"
   syntax:
     content: public bool IsEnabled { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the timer is enabled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.  The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Włączenie czasomierza; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.  Wartość domyślna to <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Threading.DispatcherTimer.IsEnabled*
   exceptions: []
   platform:
@@ -232,8 +232,8 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Threading
-  summary: "Starts the <xref href=&quot;System.Windows.Threading.DispatcherTimer&quot;></xref>."
-  remarks: "Setting <xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A> to `false` when the timer is started stops the timer.       Setting <xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A> to `true` when the timer is stopped starts the timer.       Start sets <xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A> to `true`.       Start resets the timer <xref:System.Windows.Threading.DispatcherTimer.Interval%2A>."
+  summary: "Uruchamia <xref href=&quot;System.Windows.Threading.DispatcherTimer&quot;> </xref>."
+  remarks: "Ustawienie <xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A>do `false` po uruchomieniu czasomierza zatrzymuje czasomierza.</xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A>       Ustawienie <xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A>do `true` po zatrzymaniu czasomierza uruchamia czasomierz.</xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A>       Uruchom zestawy <xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A>do `true`.</xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A>       Start zresetowanie czasomierza <xref:System.Windows.Threading.DispatcherTimer.Interval%2A>.</xref:System.Windows.Threading.DispatcherTimer.Interval%2A>"
   example:
   - "The following example creates a <xref:System.Windows.Threading.DispatcherTimer>.  A new <xref:System.Windows.Threading.DispatcherTimer> object named `dispatcherTimer` is created.  The event handler `dispatcherTimer_Tick` is added to the <xref:System.Windows.Threading.DispatcherTimer.Tick> event.  The <xref:System.Windows.Threading.DispatcherTimer.Interval%2A> is set to 1 second using a <xref:System.Windows.Duration.TimeSpan%2A> object.  \n  \n [!code-vb[invalidaterequerywithdispatchertimer#InvalidateSampleDispatcherTimerInit](~/add/codesnippet/visualbasic/invalidaterequerywithdispatchertimer/window1.xaml.vb#invalidatesampledispatchertimerinit)]\n [!code-cs[invalidaterequerywithdispatchertimer#InvalidateSampleDispatcherTimerInit](~/add/codesnippet/csharp/InvalidateRequeryWithDispatcherTimer/Window1.xaml.cs#invalidatesampledispatchertimerinit)]"
   syntax:
@@ -255,8 +255,8 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Threading
-  summary: "Stops the <xref href=&quot;System.Windows.Threading.DispatcherTimer&quot;></xref>."
-  remarks: "Setting <xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A> to `false` when the timer is started stops the timer.       Setting <xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A> to `true` when the timer is stopped starts the timer.       Calling Stop sets <xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A> to `false`."
+  summary: "Zatrzymuje <xref href=&quot;System.Windows.Threading.DispatcherTimer&quot;> </xref>."
+  remarks: "Ustawienie <xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A>do `false` po uruchomieniu czasomierza zatrzymuje czasomierza.</xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A>       Ustawienie <xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A>do `true` po zatrzymaniu czasomierza uruchamia czasomierz.</xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A>       Wywoływanie zestawy Stop <xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A>do `false`.</xref:System.Windows.Threading.DispatcherTimer.IsEnabled%2A>"
   syntax:
     content: public void Stop ();
     parameters: []
@@ -276,13 +276,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Threading
-  summary: "Gets or sets a user-defined data object."
-  remarks: "<a name=&quot;XAMLTextUsage_Tag&quot;></a>    ## XAML Text Usage"
+  summary: "Pobiera lub ustawia obiekt danych zdefiniowane przez użytkownika."
+  remarks: "<a name=&quot;XAMLTextUsage_Tag&quot;></a>## Użycie tekstu języka XAML"
   syntax:
     content: public object Tag { get; set; }
     return:
       type: System.Object
-      description: "The user-defined data.  The default is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Dane zdefiniowane przez użytkownika.  Wartość domyślna to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Threading.DispatcherTimer.Tag*
   exceptions: []
   platform:
@@ -299,15 +299,15 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.Windows.Threading
-  summary: "Occurs when the timer interval has elapsed."
-  remarks: "<a name=&quot;xamlTextUsage_Tick&quot;></a>    ## XAML Text Usage"
+  summary: "Występuje po upłynięciu interwału czasomierza."
+  remarks: "<a name=&quot;xamlTextUsage_Tick&quot;></a>## Użycie tekstu języka XAML"
   example:
   - "The following example creates a Tick event handler.  The event handler updates a <xref:System.Windows.Controls.Label> that displays the current second, and it calls <xref:System.Windows.Input.CommandManager.InvalidateRequerySuggested%2A> on the <xref:System.Windows.Input.CommandManager>.  \n  \n [!code-vb[invalidaterequerywithdispatchertimer#InvalidateSampleDispatcherTimer](~/add/codesnippet/visualbasic/invalidaterequerywithdispatchertimer/window1.xaml.vb#invalidatesampledispatchertimer)]\n [!code-cs[invalidaterequerywithdispatchertimer#InvalidateSampleDispatcherTimer](~/add/codesnippet/csharp/InvalidateRequeryWithDispatcherTimer/Window1.xaml.cs#invalidatesampledispatchertimer)]"
   syntax:
     content: public event EventHandler Tick;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462

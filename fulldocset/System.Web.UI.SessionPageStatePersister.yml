@@ -12,8 +12,8 @@ items:
   nameWithType: SessionPageStatePersister
   fullName: System.Web.UI.SessionPageStatePersister
   type: Class
-  summary: "Stores ASP.NET page view state on the Web server."
-  remarks: "ASP.NET pages can store <xref:System.Web.UI.Page> state information between the inherently stateless HTTP request and response required to process and serve any Web page. This state is called &quot;view state.&quot;       The default ASP.NET persistence mechanism is to store view state on the client using the <xref:System.Web.UI.HiddenFieldPageStatePersister> class. Storing view state and data with each HTTP request and response performs well in general and is important in large Web farm scenarios because it does not matter which Web server services the request: the page state is available in the current context for the server to accurately render the page.       In scenarios where pages are served to small devices that have limited client-side resources or use a markup language that does not support a hidden field element, it is required to store view state on the server. Several ASP.NET device page adapters override the `GetStatePersister` method to return a SessionPageStatePersister object that stores page state on the server in the session object associated with the client."
+  summary: "Przechowuje stan widoku strony ASP.NET na serwerze sieci Web."
+  remarks: "Strony ASP.NET mogą przechowywać <xref:System.Web.UI.Page>stanu informacji między z założenia bezstanowych żądania HTTP i odpowiedź wymagane do przetwarzania i obsługiwać wszystkie strony sieci Web.</xref:System.Web.UI.Page> Ten stan jest nazywany &quot;Wyświetl stan&quot;.       Domyślny mechanizm trwałości ASP.NET jest przechowywanie stanu widoku na kliencie przy użyciu <xref:System.Web.UI.HiddenFieldPageStatePersister>klasy.</xref:System.Web.UI.HiddenFieldPageStatePersister> Przechowywanie widok stanu i danych z każdego żądania HTTP i odpowiedzi wykonuje również ogólne i jest ważne w dużych scenariusze farmy sieci Web, ponieważ nie ma znaczenia, który serwer sieci Web usług żądania: stan strony jest dostępny w bieżącym kontekście dla serwera, aby dokładnie renderowania strony.       W scenariuszach, w którym stron są udostępniane małych urządzeń, które mają ograniczone zasoby po stronie klienta lub używać języka znaczników, który nie obsługuje elementu ukryte pole jest wymagane do przechowywania stanu widoku na serwerze. Zastąpienie kilka kart strony urządzenia ASP.NET `GetStatePersister` metoda zwraca obiekt Element SessionPageStatePersister, która przechowuje stan strony na serwerze w obiekcie sesji skojarzone z klientami."
   example:
   - "The following code example demonstrates how you can write a <xref:System.Web.UI.Adapters.PageAdapter> class to return an instance of the SessionPageStatePersister class instead of the default <xref:System.Web.UI.HiddenFieldPageStatePersister> class to save view state to the server-side session object.  \n  \n [!code-cs[System.Web.UI.SessionPageStatePersister_1#1](~/add/codesnippet/csharp/t-system.web.ui.sessionp_1.cs)]\n [!code-vb[System.Web.UI.SessionPageStatePersister_1#1](~/add/codesnippet/visualbasic/t-system.web.ui.sessionp_1.vb)]"
   syntax:
@@ -41,7 +41,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.SessionPageStatePersister&quot;></xref> class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Web.UI.SessionPageStatePersister&quot;> </xref> klasy."
   remarks: ''
   example:
   - "The following code example demonstrates how you can write a <xref:System.Web.UI.Adapters.PageAdapter> class to return an instance of the <xref:System.Web.UI.SessionPageStatePersister> class to save view state to the server-side session object.  \n  \n [!code-cs[System.Web.UI.SessionPageStatePersister_1#1](~/add/codesnippet/csharp/m-system.web.ui.sessionp_1.cs)]\n [!code-vb[System.Web.UI.SessionPageStatePersister_1#1](~/add/codesnippet/visualbasic/m-system.web.ui.sessionp_1.vb)]"
@@ -50,12 +50,12 @@ items:
     parameters:
     - id: page
       type: System.Web.UI.Page
-      description: "The <xref href=&quot;System.Web.UI.Page&quot;></xref> that the view state persistence mechanism is created for."
+      description: "<xref href=&quot;System.Web.UI.Page&quot;> </xref> Utworzonego dla mechanizmu stanu trwałego stanu widoku."
   overload: System.Web.UI.SessionPageStatePersister.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <xref href=&quot;System.Web.SessionState.HttpSessionState&quot;></xref> is null (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)"
+    description: "<xref href=&quot;System.Web.SessionState.HttpSessionState&quot;> </xref> Ma wartość null (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> w języku Visual Basic)"
   platform:
   - net462
 - uid: System.Web.UI.SessionPageStatePersister.Load
@@ -70,8 +70,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Deserializes and loads persisted state from the server-side session object when a <xref href=&quot;System.Web.UI.Page&quot;></xref> object initializes its control hierarchy."
-  remarks: "The <xref:System.Web.UI.SessionPageStatePersister> class implements the Load method to load page state from the <xref:System.Web.SessionState.HttpSessionState> object associated with the client."
+  summary: "Deserializuje i ładuje stanu utrwalonego z obiektu sesji po stronie serwera podczas <xref href=&quot;System.Web.UI.Page&quot;> </xref> hierarchii formant inicjuje obiekt."
+  remarks: "<xref:System.Web.UI.SessionPageStatePersister>Klasa implementuje metodę obciążenia można załadować stanu strony z <xref:System.Web.SessionState.HttpSessionState>obiekt skojarzony z klientem.</xref:System.Web.SessionState.HttpSessionState> </xref:System.Web.UI.SessionPageStatePersister>"
   syntax:
     content: public override void Load ();
     parameters: []
@@ -79,7 +79,7 @@ items:
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "The Load method could not successfully deserialize the state contained in the request to the Web server."
+    description: "Metoda Load nie można deserializować pomyślnie stanie zawartymi w żądaniu, aby serwer sieci Web."
   platform:
   - net462
 - uid: System.Web.UI.SessionPageStatePersister.Save
@@ -94,8 +94,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Serializes any object state contained in the <xref:System.Web.UI.PageStatePersister.ViewState*> or the <xref:System.Web.UI.PageStatePersister.ControlState*> property and writes the state to the session object."
-  remarks: "The <xref:System.Web.UI.SessionPageStatePersister> class implements the <xref:System.Web.UI.HiddenFieldPageStatePersister.Save%2A> method to persist page state in the <xref:System.Web.SessionState.HttpSessionState> object associated with the client."
+  summary: "Serializuje stan dowolnego obiektu zawarte w <> </> *> lub <> </> *> właściwości i zapisuje stan obiektu session."
+  remarks: "<xref:System.Web.UI.SessionPageStatePersister>Klasa implementuje <xref:System.Web.UI.HiddenFieldPageStatePersister.Save%2A>metodę, aby utrwalić stanu strony w <xref:System.Web.SessionState.HttpSessionState>obiekt skojarzony z klientem.</xref:System.Web.SessionState.HttpSessionState> </xref:System.Web.UI.HiddenFieldPageStatePersister.Save%2A> </xref:System.Web.UI.SessionPageStatePersister>"
   syntax:
     content: public override void Save ();
     parameters: []

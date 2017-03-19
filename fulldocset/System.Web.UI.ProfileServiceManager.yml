@@ -12,8 +12,8 @@ items:
   nameWithType: ProfileServiceManager
   fullName: System.Web.UI.ProfileServiceManager
   type: Class
-  summary: "Configures a set of preloaded profile properties and the location of a custom implementation of the profile service."
-  remarks: "The ProfileServiceManager class corresponds to the <xref:System.Web.UI.ScriptManager.ProfileService%2A> property that can be added to the <xref:System.Web.UI.ScriptManager> or <xref:System.Web.UI.ScriptManagerProxy> control.       You can use ProfileServiceManager to specify a set of profile properties that will be preloaded when the page is rendered and will be available to client script. Also, instead of using the built-in profile Web service provided by AJAX features of ASP.NET, you can use this class to provide the path of an alternative implementation of the Web service that will be used for loading or saving profile properties from script.       To use the profile service in your application, you must enable it in the configuration file. If you use the built-in profile Web service and do not have to preload properties, you do not have to explicitly declare the profile service manager on the page.       To declaratively specify a set of preloaded properties, or a custom profile Web service, include a `<ProfileService>` element inside the `<asp:ScriptManager>` element on the page, as shown in the following example.      ```   <asp:ScriptManager ID=&quot;SM1&quot; runat=&quot;server&quot;>     <ProfileService LoadProperties=&quot;propertyA,propertyB&quot; Path=&quot;MyProfileService.asmx&quot; />   </asp:ScriptManager>   ```       You can also programmatically configure the profile service to preload properties or to use a custom profile Web service.       The following example shows the basic class structure that must be implemented in a custom profile Web service.       [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
+  summary: "Konfiguruje zestawu właściwości profilu wstępnie i lokalizacja niestandardowych implementacji usługi profilu."
+  remarks: "Klasa ProfileServiceManager odpowiada <xref:System.Web.UI.ScriptManager.ProfileService%2A>Właściwości, które mogą być dodawane do <xref:System.Web.UI.ScriptManager>lub <xref:System.Web.UI.ScriptManagerProxy>kontroli.</xref:System.Web.UI.ScriptManagerProxy> </xref:System.Web.UI.ScriptManager> </xref:System.Web.UI.ScriptManager.ProfileService%2A>       ProfileServiceManager służy do określenia zestawu właściwości profilu, które zostaną załadowane, gdy strona jest renderowany i będzie dostępna do skryptu klienta. Ponadto zamiast za pomocą wbudowanych profilu usługi sieci Web zapewnianej przez funkcje AJAX programu ASP.NET, możesz użyć tej klasy o podanie ścieżki alternatywnej implementacji usługi sieci Web, która będzie służyć do ładowania lub zapisywania właściwości profilu ze skryptu.       Aby korzystać z usługi profilu aplikacji, należy włączyć ją w pliku konfiguracji. Jeśli za pomocą wbudowanych profilu usługi sieci Web i nie ma potrzeby wstępnego ładowania właściwości ma jawnie deklarować profil programu service manager na stronie.       Aby deklaratywnie określić zestaw właściwości wstępnie lub niestandardowego profilu usługi sieci Web, obejmują `<ProfileService>` element wewnątrz `<asp:ScriptManager>` elementu na stronie, jak pokazano w poniższym przykładzie.      ```   <asp:ScriptManager ID=&quot;SM1&quot; runat=&quot;server&quot;>     <ProfileService LoadProperties=&quot;propertyA,propertyB&quot; Path=&quot;MyProfileService.asmx&quot; />   </asp:ScriptManager>   ```Można skonfigurować również programowe usługi profilu wstępnie właściwości lub użyć niestandardowego profilu usługi sieci Web.       Poniższy przykład przedstawia struktura klasy podstawowej, która musi zostać wdrożona w niestandardowego profilu usługi sieci Web.       [!code-cs[XpsCreate #XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
     content: >-
       [System.ComponentModel.DefaultProperty("Path")]
@@ -39,7 +39,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.ProfileServiceManager&quot;></xref> class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Web.UI.ProfileServiceManager&quot;> </xref> klasy."
   syntax:
     content: public ProfileServiceManager ();
     parameters: []
@@ -59,18 +59,18 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI
-  summary: "Gets or sets an array that contains the profile properties that will be made available to client script."
-  remarks: "If LoadProperties contains at least one string that corresponds to the name of a profile property, then the built-in profile service in the Web application retrieves the current user&quot;s profile data for each of the specified profile properties. The profile property values are serialized and then made available to client script through the [properties Field](~/add/includes/ajax-current-ext-md.md) collection.      > [!NOTE] >  To set this property declaratively, use a comma-separated list of property names. For grouped property values, use the syntax *GroupName*.*PropertyName*.       When LoadProperties is an empty array, no profile data is preloaded.       The LoadProperties property can be specified in the <xref:System.Web.UI.ScriptManager> control or in an associated <xref:System.Web.UI.ScriptManagerProxy> control. When LoadProperties is set on both the <xref:System.Web.UI.ScriptManager> control and on one or more <xref:System.Web.UI.ScriptManagerProxy> controls, the set of properties is determined by merging all the specified properties. Duplicate properties are ignored."
+  summary: "Pobiera lub ustawia tablicę, która zawiera właściwości profilów, które będą dostępne do skryptu klienta."
+  remarks: "Jeśli LoadProperties zawiera co najmniej jeden ciąg, który odpowiada nazwie właściwości profilu, następnie usługi profilu wbudowanych w aplikacji sieci Web pobiera dane profilu bieżącego użytkownika dla każdej właściwości określonego profilu. Wartości właściwości profilu są serializowane i następnie udostępniane na skrypt po stronie klienta za pośrednictwem [właściwości pola](~/add/includes/ajax-current-ext-md.md) kolekcji.      > [!NOTE] > Deklaratywnie ustawić tę właściwość, użyj listy rozdzielanej przecinkami nazw właściwości. Dla wartości właściwości grupowanych, należy użyć składni *GroupName*.* PropertyName*.       Gdy LoadProperties jest pusta tablica, żadne dane profilu są wstępnie ładowane.       Właściwość LoadProperties może zostać określona w <xref:System.Web.UI.ScriptManager>kontroli lub skojarzony <xref:System.Web.UI.ScriptManagerProxy>kontroli.</xref:System.Web.UI.ScriptManagerProxy> </xref:System.Web.UI.ScriptManager> Gdy LoadProperties ustawiona jest opcja zarówno <xref:System.Web.UI.ScriptManager>kontroli i na co najmniej jednym <xref:System.Web.UI.ScriptManagerProxy>formantów, zbiór właściwości jest określany przez scalanie określonej właściwości.</xref:System.Web.UI.ScriptManagerProxy> </xref:System.Web.UI.ScriptManager> Zduplikowane właściwości są ignorowane."
   syntax:
     content: public string[] LoadProperties { get; set; }
     return:
       type: System.String[]
-      description: "A string array that contains the names of the profile properties that will be preloaded and made available to client script. The default is an empty array."
+      description: "Tablica ciągów zawierająca nazwy właściwości profilu, które zostaną załadowane i udostępnione na skrypt po stronie klienta. Wartość domyślna to być pustą tablicą."
   overload: System.Web.UI.ProfileServiceManager.LoadProperties*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The LoadProperties property includes property names that are not in the current application’s profile schema."
+    description: "Właściwość LoadProperties zawiera nazwy właściwości, które nie należą do schematu profilu bieżącej aplikacji."
   platform:
   - net462
 - uid: System.Web.UI.ProfileServiceManager.Path
@@ -85,18 +85,18 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI
-  summary: "Gets or sets the path of a custom implementation of the profile Web service."
-  remarks: "Relative virtual paths, absolute virtual paths, and fully-qualified paths are allowed.       If the Path property is not set, the return value is <xref:System.String>. In this case, the AJAX features of ASP.NET will then use the built-in profile Web service that corresponds to the following internal default path: ~/ScriptServices_ProfileService.asmx. The same behavior occurs if you set Path to be an empty value or `null`.       Path can be specified in the <xref:System.Web.UI.ScriptManager> control or in an associated <xref:System.Web.UI.ScriptManagerProxy> control. When Path is set at the <xref:System.Web.UI.ScriptManagerProxy> level, the following caveats apply:      -   If there are multiple proxies in the control hierarchy, Path does not have to be set on each proxy instance.      -   If Path is explicitly set on a proxy instance, the value must be the same for all other proxies on which this property is explicitly set."
+  summary: "Pobiera lub ustawia ścieżkę implementacja niestandardowa profilu usługi sieci Web."
+  remarks: "Względne ścieżki wirtualne, bezwzględnej ścieżki wirtualnej i pełni kwalifikowanymi ścieżkami są dozwolone.       Jeśli nie ustawiono właściwości Path, zwracana wartość jest <xref:System.String>.</xref:System.String> W takim przypadku funkcje AJAX programu ASP.NET będzie używać wbudowanych profilu usługi sieci Web, która odnosi się do następującej ścieżki wewnętrznego ustawienia domyślnego: ~ / ScriptServices_ProfileService.asmx. Takie samo zachowanie występuje, jeśli zostanie ustawiona ścieżka mają być pustą wartość lub `null`.       Można określić ścieżkę w <xref:System.Web.UI.ScriptManager>kontroli lub skojarzony <xref:System.Web.UI.ScriptManagerProxy>kontroli.</xref:System.Web.UI.ScriptManagerProxy> </xref:System.Web.UI.ScriptManager> Jeśli ścieżka jest ustawiona na <xref:System.Web.UI.ScriptManagerProxy>poziomu, zastosuj następujące ostrzeżenia:-w przypadku wielu serwerów proxy w hierarchii kontroli, ścieżka nie ma można ustawić dla każdego wystąpienia serwera proxy.</xref:System.Web.UI.ScriptManagerProxy>      — Jeśli ścieżka jest jawnie ustawione na wystąpienie serwera proxy, wartość musi być taka sama dla wszystkich innych proxy, na których ta właściwość jest jawnie ustawiona."
   syntax:
     content: public string Path { get; set; }
     return:
       type: System.String
-      description: "The path of a custom implementation of the profile Web service."
+      description: "Ścieżka implementacja niestandardowa profilu usługi sieci Web."
   overload: System.Web.UI.ProfileServiceManager.Path*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "More than one unique path was set in the control hierarchy."
+    description: "Więcej niż jednej unikatowej ścieżki została ustawiona w hierarchii formantu."
   platform:
   - net462
 references:
