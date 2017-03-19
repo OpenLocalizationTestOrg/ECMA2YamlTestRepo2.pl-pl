@@ -21,8 +21,8 @@ items:
   nameWithType: IReflect
   fullName: System.Reflection.IReflect
   type: Interface
-  summary: "Interoperates with the [IDispatch interface](http://msdn.microsoft.com/en-us/ebbff4bc-36b2-4861-9efa-ffa45e013eb5)."
-  remarks: "The IReflect interface is used to interoperate with the [IDispatch interface](http://msdn.microsoft.com/en-us/ebbff4bc-36b2-4861-9efa-ffa45e013eb5). IReflect defines a subset of the <xref:System.Type> reflection methods. Implementing this interface enables a type to customize its behavior when the object is being accessed from COM as an `IDispatch` object. The <xref:System.Runtime.InteropServices.CustomMarshalers.ExpandoToDispatchExMarshaler> class can be used to marshal an object that implements IReflect or <xref:System.Runtime.InteropServices.Expando.IExpando> as a COM `IDispatch` object, and vice versa."
+  summary: "Współdziała z [interfejsu IDispatch](http://msdn.microsoft.com/en-us/ebbff4bc-36b2-4861-9efa-ffa45e013eb5)."
+  remarks: "Interfejs interfejsu IReflect jest używany na potrzeby współdziałania z [interfejsu IDispatch](http://msdn.microsoft.com/en-us/ebbff4bc-36b2-4861-9efa-ffa45e013eb5). Interfejsu IReflect definiuje podzbiór <xref:System.Type>metody odbicia.</xref:System.Type> Implementowanie ten interfejs umożliwia typ, aby dostosować zachowanie, gdy obiekt jest uzyskiwany z modelu COM jako `IDispatch` obiektu. <xref:System.Runtime.InteropServices.CustomMarshalers.ExpandoToDispatchExMarshaler>Klasa może być używana do organizowania obiektu, który zawiera implementację interfejsu IReflect lub <xref:System.Runtime.InteropServices.Expando.IExpando>jako COM `IDispatch` obiektu i na odwrót.</xref:System.Runtime.InteropServices.Expando.IExpando> </xref:System.Runtime.InteropServices.CustomMarshalers.ExpandoToDispatchExMarshaler>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -45,24 +45,24 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Returns the <xref:System.Reflection.FieldInfo> object that corresponds to the specified field and binding flag."
+  summary: "Zwraca <xref:System.Reflection.FieldInfo>obiekt, który odpowiada flagi powiązania i określonego pola.</xref:System.Reflection.FieldInfo>"
   syntax:
     content: public System.Reflection.FieldInfo GetField (string name, System.Reflection.BindingFlags bindingAttr);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the field to find."
+      description: "Nazwa pola można znaleźć."
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: "The binding attributes used to control the search."
+      description: "Atrybuty powiązanie używane do sterowania wyszukiwania."
     return:
       type: System.Reflection.FieldInfo
-      description: "A <xref:System.Reflection.FieldInfo> object containing the field information for the named object that meets the search constraints specified in <code>bindingAttr</code>."
+      description: "A <xref:System.Reflection.FieldInfo>obiektu zawierającego informacje pola o nazwie obiektu spełniającego ograniczenia wyszukiwania określone w <code> bindingAttr </code>.</xref:System.Reflection.FieldInfo>"
   overload: System.Reflection.IReflect.GetField*
   exceptions:
   - type: System.Reflection.AmbiguousMatchException
     commentId: T:System.Reflection.AmbiguousMatchException
-    description: "The object implements multiple fields with the same name."
+    description: "Obiekt implementuje wiele pól o takiej samej nazwie."
   platform:
   - net462
 - uid: System.Reflection.IReflect.GetFields(System.Reflection.BindingFlags)
@@ -77,17 +77,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Returns an array of <xref:System.Reflection.FieldInfo> objects that correspond to all fields of the current class."
-  remarks: "The match is based upon a name. Each field must have a unique name. The <xref:System.Reflection.BindingFlags?displayProperty=fullName> flag specifies that non-public methods are included in the search. The <xref:System.Reflection.BindingFlags?displayProperty=fullName> flag specifies that public methods are included in the search."
+  summary: "Zwraca tablicę <xref:System.Reflection.FieldInfo>obiektów, które odnoszą się do wszystkich pól bieżącej klasy.</xref:System.Reflection.FieldInfo>"
+  remarks: "Dopasowanie opiera się na nazwę. Każde pole musi mieć unikatową nazwę. <xref:System.Reflection.BindingFlags?displayProperty=fullName>Flaga Określa, że metody niepublicznej znajdują się w wyszukiwaniu.</xref:System.Reflection.BindingFlags?displayProperty=fullName> <xref:System.Reflection.BindingFlags?displayProperty=fullName>Flaga Określa, że metody publiczne są uwzględniane w wyszukiwaniu.</xref:System.Reflection.BindingFlags?displayProperty=fullName>"
   syntax:
     content: public System.Reflection.FieldInfo[] GetFields (System.Reflection.BindingFlags bindingAttr);
     parameters:
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: "The binding attributes used to control the search."
+      description: "Atrybuty powiązanie używane do sterowania wyszukiwania."
     return:
       type: System.Reflection.FieldInfo[]
-      description: "An array of <xref:System.Reflection.FieldInfo> objects containing all the field information for this reflection object that meets the search constraints specified in <code>bindingAttr</code>."
+      description: "Tablica <xref:System.Reflection.FieldInfo>obiektów zawierających wszystkie informacje pola dla tego obiektu odbicia spełniającego ograniczenia wyszukiwania określone w <code> bindingAttr </code>.</xref:System.Reflection.FieldInfo>"
   overload: System.Reflection.IReflect.GetFields*
   exceptions: []
   platform:
@@ -104,20 +104,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Retrieves an array of <xref:System.Reflection.MemberInfo> objects corresponding to all public members or to all members that match a specified name."
-  remarks: "The GetMember method retrieves an array of <xref:System.Reflection.MemberInfo> objects by using the name and binding attribute that correspond to all public members or to all members that match a specified name. The case of the specified name is observed or ignored, as specified by <xref:System.Reflection.BindingFlags?displayProperty=fullName>."
+  summary: "Pobiera tablicę <xref:System.Reflection.MemberInfo>obiekty odpowiadające wszystkich publicznych elementów członkowskich lub wszystkie elementy członkowskie, które odpowiada określonej nazwy.</xref:System.Reflection.MemberInfo>"
+  remarks: "Metoda GetMember pobiera tablicę <xref:System.Reflection.MemberInfo>obiektów przy użyciu nazwy i atrybut wiązania, które odpowiadają wszystkich publicznych elementów członkowskich lub wszystkie elementy członkowskie, które odpowiada określonej nazwy.</xref:System.Reflection.MemberInfo> W przypadku określonej nazwy jest obserwowanych lub ignorowane, zgodnie z określonym <xref:System.Reflection.BindingFlags?displayProperty=fullName>.</xref:System.Reflection.BindingFlags?displayProperty=fullName>"
   syntax:
     content: public System.Reflection.MemberInfo[] GetMember (string name, System.Reflection.BindingFlags bindingAttr);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the member to find."
+      description: "Nazwa elementu członkowskiego do znalezienia."
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: "The binding attributes used to control the search."
+      description: "Atrybuty powiązanie używane do sterowania wyszukiwania."
     return:
       type: System.Reflection.MemberInfo[]
-      description: "An array of <xref:System.Reflection.MemberInfo> objects matching the <code>name</code> parameter."
+      description: "Tablica <xref:System.Reflection.MemberInfo>obiektów pasujących <code> name </code> parametru.</xref:System.Reflection.MemberInfo>"
   overload: System.Reflection.IReflect.GetMember*
   exceptions: []
   platform:
@@ -134,17 +134,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Retrieves an array of <xref:System.Reflection.MemberInfo> objects that correspond either to all public members or to all members of the current class."
-  remarks: "This method retrieves an array of <xref:System.Reflection.MemberInfo> objects by using the binding attribute that corresponds either to all public members or to all members of the current class. It returns an array of all of the members defined for this object."
+  summary: "Pobiera tablicę <xref:System.Reflection.MemberInfo>obiektów, które odnoszą się do wszystkich publicznych elementów członkowskich lub dla wszystkich członków bieżącej klasy.</xref:System.Reflection.MemberInfo>"
+  remarks: "Ta metoda pobiera tablicę <xref:System.Reflection.MemberInfo>obiektów przy użyciu atrybutu powiązania, który odpowiada do wszystkich publicznych elementów członkowskich lub dla wszystkich członków bieżącej klasy.</xref:System.Reflection.MemberInfo> Zwraca tablicę wszystkich elementów członkowskich zdefiniowanych dla tego obiektu."
   syntax:
     content: public System.Reflection.MemberInfo[] GetMembers (System.Reflection.BindingFlags bindingAttr);
     parameters:
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: "The binding attributes used to control the search."
+      description: "Atrybuty powiązanie używane do sterowania wyszukiwania."
     return:
       type: System.Reflection.MemberInfo[]
-      description: "An array of <xref:System.Reflection.MemberInfo> objects containing all the member information for this reflection object."
+      description: "Tablica <xref:System.Reflection.MemberInfo>obiektów zawierających wszystkie informacje elementu członkowskiego dla tego obiektu odbicia.</xref:System.Reflection.MemberInfo>"
   overload: System.Reflection.IReflect.GetMembers*
   exceptions: []
   platform:
@@ -161,24 +161,24 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Retrieves a <xref:System.Reflection.MethodInfo> object that corresponds to a specified method under specified search constraints."
+  summary: "Pobiera <xref:System.Reflection.MethodInfo>obiekt, który odpowiada określonej metody w obszarze określonej ograniczenia wyszukiwania.</xref:System.Reflection.MethodInfo>"
   syntax:
     content: public System.Reflection.MethodInfo GetMethod (string name, System.Reflection.BindingFlags bindingAttr);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the member to find."
+      description: "Nazwa elementu członkowskiego do znalezienia."
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: "The binding attributes used to control the search."
+      description: "Atrybuty powiązanie używane do sterowania wyszukiwania."
     return:
       type: System.Reflection.MethodInfo
-      description: "A <xref:System.Reflection.MethodInfo> object containing the method information, with the match being based on the method name and search constraints specified in <code>bindingAttr</code>."
+      description: "A <xref:System.Reflection.MethodInfo>obiekt zawierający informacje o metodzie dopasowany na ograniczenia nazwy i wyszukiwania metody określone w <code> bindingAttr </code>.</xref:System.Reflection.MethodInfo>"
   overload: System.Reflection.IReflect.GetMethod*
   exceptions:
   - type: System.Reflection.AmbiguousMatchException
     commentId: T:System.Reflection.AmbiguousMatchException
-    description: "The object implements multiple methods with the same name."
+    description: "Obiekt implementuje wiele metod o tej samej nazwie."
   platform:
   - net462
 - uid: System.Reflection.IReflect.GetMethod(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Type[],System.Reflection.ParameterModifier[])
@@ -193,34 +193,34 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Retrieves a <xref:System.Reflection.MethodInfo> object corresponding to a specified method, using a <xref:System.Type> array to choose from among overloaded methods."
-  remarks: "The return value is a match based on the method name, <xref:System.Reflection.BindingFlags> enum member, the kind of type conversion specified by the `binder` parameter, the overload, and the <xref:System.Reflection.ParameterInfo> that describes the signature of the method."
+  summary: "Pobiera <xref:System.Reflection.MethodInfo>obiekt odpowiadający określonej metody, przy użyciu <xref:System.Type>tablicy można wybrać jeden z metody przeciążane.</xref:System.Type> </xref:System.Reflection.MethodInfo>"
+  remarks: "Wartość zwracana jest dopasowania na podstawie nazwy metody <xref:System.Reflection.BindingFlags>elementu członkowskiego wyliczenia, rodzaj konwersji typu określony przez `binder` parametr, przeciążenia i <xref:System.Reflection.ParameterInfo>, który opisuje sygnaturę metody.</xref:System.Reflection.ParameterInfo> </xref:System.Reflection.BindingFlags>"
   syntax:
     content: public System.Reflection.MethodInfo GetMethod (string name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, Type[] types, System.Reflection.ParameterModifier[] modifiers);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the member to find."
+      description: "Nazwa elementu członkowskiego do znalezienia."
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: "The binding attributes used to control the search."
+      description: "Atrybuty powiązanie używane do sterowania wyszukiwania."
     - id: binder
       type: System.Reflection.Binder
-      description: "An object that implements <xref href=&quot;System.Reflection.Binder&quot;></xref>, containing properties related to this method."
+      description: "Obiekt, który implementuje <xref href=&quot;System.Reflection.Binder&quot;> </xref>, zawierający właściwości związanych z tej metody."
     - id: types
       type: System.Type[]
-      description: "An array used to choose among overloaded methods."
+      description: "Tablica pozwala wybrać jedną z metod przeciążona."
     - id: modifiers
       type: System.Reflection.ParameterModifier[]
-      description: "An array of parameter modifiers used to make binding work with parameter signatures in which the types have been modified."
+      description: "Tablica modyfikatorów parametrów umożliwia powiązanie pracować z podpisów parametru, w których typy zostały zmodyfikowane."
     return:
       type: System.Reflection.MethodInfo
-      description: "The requested method that matches all the specified parameters."
+      description: "Żądana metoda zgodny z określonymi parametrami."
   overload: System.Reflection.IReflect.GetMethod*
   exceptions:
   - type: System.Reflection.AmbiguousMatchException
     commentId: T:System.Reflection.AmbiguousMatchException
-    description: "The object implements multiple methods with the same name."
+    description: "Obiekt implementuje wiele metod o tej samej nazwie."
   platform:
   - net462
 - uid: System.Reflection.IReflect.GetMethods(System.Reflection.BindingFlags)
@@ -235,17 +235,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Retrieves an array of <xref:System.Reflection.MethodInfo> objects with all public methods or all methods of the current class."
-  remarks: "The non-public attribute of `bindingAttr` is indicated only if public methods are returned."
+  summary: "Pobiera tablicę <xref:System.Reflection.MethodInfo>obiektów z wszystkich metod publicznych lub wszystkie metody bieżącej klasy.</xref:System.Reflection.MethodInfo>"
+  remarks: "Atrybut niepublicznych `bindingAttr` wskazane jest tylko metody publiczne są zwracane."
   syntax:
     content: public System.Reflection.MethodInfo[] GetMethods (System.Reflection.BindingFlags bindingAttr);
     parameters:
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: "The binding attributes used to control the search."
+      description: "Atrybuty powiązanie używane do sterowania wyszukiwania."
     return:
       type: System.Reflection.MethodInfo[]
-      description: "An array of <xref:System.Reflection.MethodInfo> objects containing all the methods defined for this reflection object that meet the search constraints specified in <code>bindingAttr</code>."
+      description: "Tablica <xref:System.Reflection.MethodInfo>obiektów zawierających wszystkie metody zdefiniowane dla tego obiektu odbicia, spełniających ograniczenia wyszukiwania określone w <code> bindingAttr </code>.</xref:System.Reflection.MethodInfo>"
   overload: System.Reflection.IReflect.GetMethods*
   exceptions: []
   platform:
@@ -262,16 +262,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Retrieves an array of <xref:System.Reflection.PropertyInfo> objects corresponding to all public properties or to all properties of the current class."
+  summary: "Pobiera tablicę <xref:System.Reflection.PropertyInfo>obiektów odpowiadającym wszystkie właściwości publiczne lub na wszystkie właściwości bieżącej klasy.</xref:System.Reflection.PropertyInfo>"
   syntax:
     content: public System.Reflection.PropertyInfo[] GetProperties (System.Reflection.BindingFlags bindingAttr);
     parameters:
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: "The binding attribute used to control the search."
+      description: "Atrybut wiązania użyć do kontrolowania wyszukiwania."
     return:
       type: System.Reflection.PropertyInfo[]
-      description: "An array of <xref:System.Reflection.PropertyInfo> objects for all the properties defined on the reflection object."
+      description: "Tablica <xref:System.Reflection.PropertyInfo>obiektów dla wszystkich właściwości zdefiniowane w obiekcie odbicia.</xref:System.Reflection.PropertyInfo>"
   overload: System.Reflection.IReflect.GetProperties*
   exceptions: []
   platform:
@@ -288,24 +288,24 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Retrieves a <xref:System.Reflection.PropertyInfo> object corresponding to a specified property under specified search constraints."
+  summary: "Pobiera <xref:System.Reflection.PropertyInfo>odpowiadający określonej właściwości w obiekcie określono ograniczenia wyszukiwania.</xref:System.Reflection.PropertyInfo>"
   syntax:
     content: public System.Reflection.PropertyInfo GetProperty (string name, System.Reflection.BindingFlags bindingAttr);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the property to find."
+      description: "Nazwa właściwości, aby znaleźć."
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: "The binding attributes used to control the search."
+      description: "Atrybuty powiązanie używane do sterowania wyszukiwania."
     return:
       type: System.Reflection.PropertyInfo
-      description: "A <xref:System.Reflection.PropertyInfo> object for the located property that meets the search constraints specified in <code>bindingAttr</code>, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the property was not located."
+      description: "A <xref:System.Reflection.PropertyInfo>obiektu właściwości zlokalizować spełniającego ograniczenia wyszukiwania określone w <code> bindingAttr </code>, lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli właściwość nie jest zlokalizowany.</xref:System.Reflection.PropertyInfo>"
   overload: System.Reflection.IReflect.GetProperty*
   exceptions:
   - type: System.Reflection.AmbiguousMatchException
     commentId: T:System.Reflection.AmbiguousMatchException
-    description: "The object implements multiple fields with the same name."
+    description: "Obiekt implementuje wiele pól o takiej samej nazwie."
   platform:
   - net462
 - uid: System.Reflection.IReflect.GetProperty(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Type,System.Type[],System.Reflection.ParameterModifier[])
@@ -320,32 +320,32 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Retrieves a <xref:System.Reflection.PropertyInfo> object that corresponds to a specified property with specified search constraints."
-  remarks: "This method retrieves a <xref:System.Reflection.PropertyInfo> object corresponding to a specified property under specified search constraints. A type array is used to choose from among overloaded methods."
+  summary: "Pobiera <xref:System.Reflection.PropertyInfo>ograniczenia wyszukiwania określony obiekt, który odpowiada określonej właściwości przy.</xref:System.Reflection.PropertyInfo>"
+  remarks: "Ta metoda pobiera <xref:System.Reflection.PropertyInfo>odpowiadający określonej właściwości w obiekcie określono ograniczenia wyszukiwania.</xref:System.Reflection.PropertyInfo> Tablica typu służy do wybierz spośród przeciążonej metody."
   syntax:
     content: public System.Reflection.PropertyInfo GetProperty (string name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, Type returnType, Type[] types, System.Reflection.ParameterModifier[] modifiers);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the member to find."
+      description: "Nazwa elementu członkowskiego do znalezienia."
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: "The binding attribute used to control the search."
+      description: "Atrybut wiązania użyć do kontrolowania wyszukiwania."
     - id: binder
       type: System.Reflection.Binder
-      description: "An object that implements <xref href=&quot;System.Reflection.Binder&quot;></xref>, containing properties related to this method."
+      description: "Obiekt, który implementuje <xref href=&quot;System.Reflection.Binder&quot;> </xref>, zawierający właściwości związanych z tej metody."
     - id: returnType
       type: System.Type
-      description: "The type of the property."
+      description: "Typ właściwości."
     - id: types
       type: System.Type[]
-      description: "An array used to choose among overloaded methods with the same name."
+      description: "Tablica umożliwia wybranie jednego z przeciążonych metod o tej samej nazwie."
     - id: modifiers
       type: System.Reflection.ParameterModifier[]
-      description: "An array used to choose the parameter modifiers."
+      description: "Tablica pozwala wybrać modyfikatorów parametrów."
     return:
       type: System.Reflection.PropertyInfo
-      description: "A <xref:System.Reflection.PropertyInfo> object for the located property, if a property with the specified name was located in this reflection object, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the property was not located."
+      description: "A <xref:System.Reflection.PropertyInfo>obiektu zlokalizować właściwości, jeśli właściwość o podanej nazwie znajdował się w tym obiekcie odbicia lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli właściwość nie jest zlokalizowany.</xref:System.Reflection.PropertyInfo>"
   overload: System.Reflection.IReflect.GetProperty*
   exceptions: []
   platform:
@@ -362,8 +362,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Invokes a specified member."
-  remarks: "The method that is to be invoked must be accessible and provide the most specific match with the specified argument list, under the constraints of the specified binder and invocation attributes.       A method is invoked if the number of parameters in the method declaration equals the number of arguments in the specified argument list, and the type of each argument can be converted by the binder to the type of the parameter.      > [!NOTE] >  The array of parameter modifiers passed to the InvokeMember method must contain a single parameter modifier. Only the first parameter modifier is considered when determining which argument needs to be passed by reference when exposed to COM.       The binder finds all matching methods, in accordance with the type of binding requested (<xref:System.Reflection.BindingFlags?displayProperty=fullName>, <xref:System.Reflection.IReflect.GetProperties%2A>, and so on). The set of methods is filtered by the name, number of arguments, and a set of search modifiers defined in the binder. After the method is selected, it is invoked, and accessibility is checked at that point. The search may control which set of methods is searched based upon the accessibility attribute associated with the method. <xref:System.Reflection.Binder.BindToMethod%2A> selects the method to be invoked. The default binder selects the most specific match.       Access restrictions are ignored for fully trusted code. That is, private constructors, methods, fields, and properties can be accessed and invoked through reflection whenever the code is fully trusted."
+  summary: "Wywołuje określony element członkowski."
+  remarks: "Metodę, która ma zostać wywołana musi być dostępna i udostępnia specyficzny dopasowania z określona lista argumentów, w obszarze ograniczenia określonych atrybutów integratora i wywołanie.       Metoda jest wywoływana, jeśli liczba parametrów w deklaracji metody jest równa liczbie argumentów określona lista argumentów i można przekonwertować typu argumentu przez obiekt wiążący z typem parametru.      > [!NOTE] > Tablicy Modyfikatory parametr przekazywany do metody Element InvokeMember może zawierać modyfikatora jeden parametr. Tylko pierwszy modyfikator parametru jest uznawany za podczas określania, który argument musi być przekazywane przez odwołanie, gdy ujawniać modelowi COM.       Obiekt wiążący znajduje wszystkie metody dopasowania, zgodnie z typem powiązania żądanie (<xref:System.Reflection.BindingFlags?displayProperty=fullName>, <xref:System.Reflection.IReflect.GetProperties%2A>i tak dalej).</xref:System.Reflection.IReflect.GetProperties%2A> </xref:System.Reflection.BindingFlags?displayProperty=fullName> Zbiór metod są filtrowane według nazwy, liczba argumentów i zestaw Modyfikatory wyszukiwania zdefiniowane w obiekt wiążący. Po wybraniu metody jest wywoływana, a w tym momencie zaznaczono ułatwień dostępu. Wyszukiwanie może kontrolować, które zestaw metod jest przeszukiwany zależności atrybutu dostępności skojarzonego z metodą. <xref:System.Reflection.Binder.BindToMethod%2A>Wybiera wywoływanej metody.</xref:System.Reflection.Binder.BindToMethod%2A> Domyślnego integratora wybierze najbardziej zgodne.       Ograniczenia dostępu są ignorowane w przypadku całkowicie zaufanego kodu. Oznacza to konstruktory prywatne, pola, metody i właściwości można uzyskać dostępu do się wywołana przez odbicie w każdym przypadku, gdy kod jest w pełni zaufany."
   example:
   - "The following example obtains the value of the <xref:System.DateTime.Now%2A> property.  \n  \n [!code-cs[Classic IReflect.InvokeMember Example#1](~/add/codesnippet/csharp/46b5c0ee-07c6-4491-8e06-_1.cs)]\n [!code-vb[Classic IReflect.InvokeMember Example#1](~/add/codesnippet/visualbasic/46b5c0ee-07c6-4491-8e06-_1.vb)]\n [!code-cpp[Classic IReflect.InvokeMember Example#1](~/add/codesnippet/cpp/46b5c0ee-07c6-4491-8e06-_1.cpp)]"
   syntax:
@@ -371,45 +371,45 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the member to find."
+      description: "Nazwa elementu członkowskiego do znalezienia."
     - id: invokeAttr
       type: System.Reflection.BindingFlags
-      description: "One of the <xref href=&quot;System.Reflection.BindingFlags&quot;></xref> invocation attributes. The `invokeAttr` parameter may be a constructor, method, property, or field. A suitable invocation attribute must be specified. Invoke the default member of a class by passing the empty string (&quot;&quot;) as the name of the member."
+      description: "Jeden z <xref href=&quot;System.Reflection.BindingFlags&quot;> </xref> atrybuty wywołania. `invokeAttr` Parametr może być Konstruktor, metody, właściwości lub pola. Należy określić atrybut odpowiedniego wywołania. Wywołaj domyślny element członkowski klasy, przekazując pustego ciągu (&quot;&quot;) jako nazwa elementu członkowskiego."
     - id: binder
       type: System.Reflection.Binder
-      description: "One of the <xref href=&quot;System.Reflection.BindingFlags&quot;></xref> bit flags. Implements <xref href=&quot;System.Reflection.Binder&quot;></xref>, containing properties related to this method."
+      description: "Jeden z <xref href=&quot;System.Reflection.BindingFlags&quot;> </xref> bit flagi. Implementuje <xref href=&quot;System.Reflection.Binder&quot;> </xref>, zawierający właściwości związanych z tej metody."
     - id: target
       type: System.Object
-      description: "The object on which to invoke the specified member. This parameter is ignored for static members."
+      description: "Obiekt do wywołania określonego elementu członkowskiego. Ten parametr jest ignorowany dla statycznych elementów członkowskich."
     - id: args
       type: System.Object[]
-      description: "An array of objects that contains the number, order, and type of the parameters of the member to be invoked. This is an empty array if there are no parameters."
+      description: "Tablica obiektów zawierającą numer, kolejność i typy parametrów elementu członkowskiego, do wywołania. Jest to pusta tablica, jeśli nie ma żadnych parametrów."
     - id: modifiers
       type: System.Reflection.ParameterModifier[]
       description: 'An array of <xref href="System.Reflection.ParameterModifier"></xref> objects. This array has the same length as the `args` parameter, representing the invoked member''s argument attributes in the metadata. A parameter can have the following attributes: <xref uid="langword_csharp_pdIn" name="pdIn" href=""></xref>, <xref uid="langword_csharp_pdOut" name="pdOut" href=""></xref>, <xref uid="langword_csharp_pdRetval" name="pdRetval" href=""></xref>, <xref uid="langword_csharp_pdOptional" name="pdOptional" href=""></xref>, and <xref uid="langword_csharp_pdHasDefault" name="pdHasDefault" href=""></xref>. These represent [In], [Out], [retval], [optional], and a default parameter, respectively. These attributes are used by various interoperability services.'
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "An instance of <xref:System.Globalization.CultureInfo> used to govern the coercion of types. For example, `culture` converts a <xref uid=&quot;langword_csharp_String&quot; name=&quot;String&quot; href=&quot;&quot;></xref> that represents 1000 to a <xref uid=&quot;langword_csharp_Double&quot; name=&quot;Double&quot; href=&quot;&quot;></xref> value, since 1000 is represented differently by different cultures. If this parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the <xref:System.Globalization.CultureInfo> for the current thread is used."
+      description: "Wystąpienie <xref:System.Globalization.CultureInfo>używane do sterowania koercja typów.</xref:System.Globalization.CultureInfo> Na przykład `culture` konwertuje <xref uid=&quot;langword_csharp_String&quot; name=&quot;String&quot; href=&quot;&quot;> </xref> reprezentujący 1000 do <xref uid=&quot;langword_csharp_Double&quot; name=&quot;Double&quot; href=&quot;&quot;> </xref> wartości, ponieważ 1000 jest inaczej reprezentowany przez innych kultur. Jeśli ten parametr ma <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, <xref:System.Globalization.CultureInfo>służy bieżącego wątku.</xref:System.Globalization.CultureInfo>"
     - id: namedParameters
       type: System.String[]
-      description: "A <xref uid=&quot;langword_csharp_String&quot; name=&quot;String&quot; href=&quot;&quot;></xref> array of parameters."
+      description: "A <xref uid=&quot;langword_csharp_String&quot; name=&quot;String&quot; href=&quot;&quot;> </xref> tablicy parametrów."
     return:
       type: System.Object
-      description: "The specified member."
+      description: "Określony element członkowski."
   overload: System.Reflection.IReflect.InvokeMember*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "More than one argument is specified for a field <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;></xref>."
+    description: "Określono więcej niż jeden argument dla pola <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;> </xref>."
   - type: System.MissingFieldException
     commentId: T:System.MissingFieldException
-    description: "The field or property cannot be found."
+    description: "Nie można odnaleźć pola lub właściwości."
   - type: System.MissingMethodException
     commentId: T:System.MissingMethodException
-    description: "The method cannot be found."
+    description: "Nie można odnaleźć metody."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "A private member is invoked without the necessary <xref href=&quot;System.Security.Permissions.ReflectionPermission&quot;></xref>."
+    description: "Prywatnego elementu członkowskiego jest wywoływana bez potrzeby <xref href=&quot;System.Security.Permissions.ReflectionPermission&quot;> </xref>."
   platform:
   - net462
 - uid: System.Reflection.IReflect.UnderlyingSystemType
@@ -424,12 +424,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Gets the underlying type that represents the <xref href=&quot;System.Reflection.IReflect&quot;></xref> object."
+  summary: "Pobiera typ podstawowy, który reprezentuje <xref href=&quot;System.Reflection.IReflect&quot;> </xref> obiektu."
   syntax:
     content: public Type UnderlyingSystemType { get; }
     return:
       type: System.Type
-      description: "The underlying type that represents the <xref href=&quot;System.Reflection.IReflect&quot;></xref> object."
+      description: "Typ podstawowy, który reprezentuje <xref href=&quot;System.Reflection.IReflect&quot;> </xref> obiektu."
   overload: System.Reflection.IReflect.UnderlyingSystemType*
   exceptions: []
   platform:
