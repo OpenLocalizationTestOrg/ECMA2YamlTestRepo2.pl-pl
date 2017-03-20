@@ -12,8 +12,8 @@ items:
   nameWithType: HostNameComparisonMode
   fullName: System.ServiceModel.HostNameComparisonMode
   type: Enum
-  summary: "Specifies how the host name should be used in URI comparisons when dispatching an incoming message to a service endpoint."
-  remarks: "The value is used to specify the URI matching rules used by transports such as HTTP, Net.Tcp, and Net.Pipe when dispatching incoming messages. Configure the value of the HostNameComparisonMode for a standard binding using one of the preceding transports, such as <xref:System.ServiceModel.BasicHttpBinding>, using the corresponding <xref:System.ServiceModel.BasicHttpBinding.HostNameComparisonMode%2A> property. Configure the value of the HostNameComparisonMode for a binding element using one of the preceding transports, such as <xref:System.ServiceModel.Channels.HttpTransportBindingElement>, using the corresponding <xref:System.ServiceModel.Channels.HttpTransportBindingElement.HostNameComparisonMode%2A> property.       Each value of the HostNameComparisonMode corresponds to a specific type of matching rule. The sequence of matching rules attempted is always ordered as follows:      1.  StrongWildcard      2.  Exact      3.  WeakWildcard       The first value, StrongWildcard, ignores the host name when matching and it takes the highest precedence of the three different matching modes. It is the default value for a [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] system-provided binding or binding element. This indicates that a service endpoint can be reached using any valid host name. For example, if MyService is hosted using http://localhost/MyService, it is still reachable using http://www.adatum.com/MyService because the (presumably valid) host name, &quot;adatum.com&quot;, is ignored. Note that the port is a wildcard here as well.       The second value, Exact, requires that an exact match is found with the URI specified, including the hostname, if no strong match is found. This mode, for example, does not perform equivalence between short hostnames and fully-qualified domain names. This allows hostnames to be used as match criteria in the scenarios where multiple hosts are assigned a single IP address and it enables different services to be hosted on the same machine with distinct endpoints. Note that the port is a wildcard here as well.       The third value, WeakWildcard, matches by ignoring the hostname if no strong or exact match was found. The behavior is the same as for StrongWildcard other than the order of matching: it runs after the strong and exact bindings have been tried.      > [!NOTE] >  These values have no effect when used inside of the Internet Information Services (IIS) or Windows Process Activation Service (WAS) hosting environment. In those cases, [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] uses whatever hostname comparison mode is provided by the IIS Web Site hosting the [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] services."
+  summary: "Określa, jak nazwa hosta ma być używany przy porównywaniu identyfikatorów URI podczas rozsyłania komunikatu przychodzącego do punktu końcowego usługi."
+  remarks: "Wartość jest używana do określenia regułami dopasowywania identyfikatora URI używany przez transport, takich jak HTTP, Net.Tcp i Net.Pipe podczas rozsyłania wiadomości przychodzących. Konfigurowanie wartości parametru HostNameComparisonMode Powiązanie standardowe przy użyciu jednej z poprzednim transport, takich jak <xref:System.ServiceModel.BasicHttpBinding>, przy użyciu odpowiednich <xref:System.ServiceModel.BasicHttpBinding.HostNameComparisonMode%2A>Właściwości.</xref:System.ServiceModel.BasicHttpBinding.HostNameComparisonMode%2A> </xref:System.ServiceModel.BasicHttpBinding> Element powiązania przy użyciu jednej z poprzednim transport, takich jak skonfigurować wartość parametru HostNameComparisonMode <xref:System.ServiceModel.Channels.HttpTransportBindingElement>, przy użyciu odpowiednich <xref:System.ServiceModel.Channels.HttpTransportBindingElement.HostNameComparisonMode%2A>Właściwości.</xref:System.ServiceModel.Channels.HttpTransportBindingElement.HostNameComparisonMode%2A> </xref:System.ServiceModel.Channels.HttpTransportBindingElement>       Każda wartość parametru HostNameComparisonMode odnosi się do określonego typu Reguła dopasowywania. Kolejność reguł próby dopasowania zawsze uporządkowanych w następujący sposób: 1.  StrongWildcard 2.  Dokładnie 3.  WeakWildcard pierwsza wartość StrongWildcard, ignoruje nazwy hosta podczas dopasowywania i ma najwyższy priorytet z trzy różne tryby dopasowania. Jest wartością domyślną dla [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] powiązania dostarczane przez system lub element powiązania. Oznacza to, że punkt końcowy usługi jest osiągalny za pomocą dowolnego prawidłową nazwę hosta. Na przykład, jeśli Moja_usługa znajduje się za pomocą http://localhost/MyService, jest nadal dostępny przy użyciu http://www.adatum.com/MyService, ponieważ nazwa hosta (prawdopodobnie nieprawidłowa), &quot;adatum.com&quot; zostanie zignorowany. Należy pamiętać, że port symbolu wieloznacznego tutaj również.       Drugi jest to wartość Exact, wymaga się, że znaleziono o określony identyfikator URI, włącznie z nazwą hosta, jeśli nie silne znaleziono dokładnego dopasowania. Ten tryb, na przykład nie wykonuje równoważność krótkiej nazwy hostów i w pełni kwalifikowanych nazw domen. Dzięki temu nazwy hostów mają być używane jako kryteriów dopasowania w scenariuszach, w której wiele hostów przypisanych pojedynczego adresu IP i umożliwia korzystanie z różnych usług ma być obsługiwana na tym samym komputerze z różnych punktów końcowych. Należy pamiętać, że port symbolu wieloznacznego tutaj również.       Dopasowuje trzecia wartość WeakWildcard, ignorując nazwę hosta, jeśli nie silne lub dokładnego znaleziono dopasowania. Zachowanie jest takie same jak w przypadku StrongWildcard innych niż kolejność dopasowania: uruchomieniu po próbowano powiązania silne i dokładne.      > [!NOTE] > Tych wartości nie przyniosło żadnego skutku, gdy jest używany wewnątrz środowisko macierzyste Internet Information Services (IIS) lub usługi aktywacji procesów systemu Windows (WAS). W takich przypadkach [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] używa niezależnie od tryb porównania nazw hostów jest dostarczany przez witrynę sieci Web usług IIS obsługującym [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] usług."
   example:
   - "The following is an example of how to set StrongWildcard value in a service side configuration file.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]  \n  \n Here is a basic service and client that use the preceding configuration file.  \n  \n [!code-cs[S_UEHostnameComparisonMode#2](~/add/codesnippet/csharp/t-system.servicemodel.ho_2.cs)]  \n  \n [!code-cs[S_UEHostnameComparisonMode#3](~/add/codesnippet/csharp/t-system.servicemodel.ho_3.cs)]"
   syntax:
@@ -34,12 +34,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Uses the hostname when dispatching incoming messages to this endpoint, if no strong match was found."
+  summary: "Używa nazwy hosta podczas rozsyłania komunikatów przychodzących do tego punktu końcowego nie silne znaleziono dopasowania."
   syntax:
     content: Exact
     return:
       type: System.ServiceModel.HostNameComparisonMode
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -55,12 +55,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Ignores the hostname when dispatching incoming messages to this endpoint. This is the default value."
+  summary: "Ignoruje nazwa hosta podczas rozsyłania komunikatów przychodzących do tego punktu końcowego. Jest to wartość domyślna."
   syntax:
     content: StrongWildcard
     return:
       type: System.ServiceModel.HostNameComparisonMode
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -76,12 +76,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "If no strong or exact match was found, ignores the hostname when matching."
+  summary: "Jeśli nie silne lub dokładnego znaleziono dopasowania, ignoruje nazwa hosta podczas dopasowywania."
   syntax:
     content: WeakWildcard
     return:
       type: System.ServiceModel.HostNameComparisonMode
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462

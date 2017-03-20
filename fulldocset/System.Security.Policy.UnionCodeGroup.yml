@@ -14,8 +14,8 @@ items:
   nameWithType: UnionCodeGroup
   fullName: System.Security.Policy.UnionCodeGroup
   type: Class
-  summary: "Represents a code group whose policy statement is the union of the current code group&quot;s policy statement and the policy statement of all its matching child code groups. This class cannot be inherited."
-  remarks: "Code groups are the building blocks of code access security policy. Each policy level consists of a root code group that can have child code groups (and so on), forming a tree. Each code group has a membership condition that determines if a given assembly belongs to it or not, based on the evidence for that assembly. Only code groups whose membership conditions match a given assembly and their child code groups apply policy.       UnionCodeGroup is the most common type of code group; the policy statement of all matching child code groups (and by extension their child code groups) are combined with the permission set of the matching parent code group. Thus, if its membership condition matches, this code group forms the union of its policy statement and those of all its child code groups that also match the evidence.       UnionCodeGroup code groups are the code groups created by the CASPOL utility (see [Caspol.exe (Code Access Security Policy Tool)](~/add/includes/ajax-current-ext-md.md))."
+  summary: "Reprezentuje grupę kodu którego deklaracji zasad jest złożenie deklaracji zasad bieżącej grupy kodu i deklaracji zasad w wszystkie jej zgodnego kodu grup podrzędnych. Ta klasa nie może być dziedziczona."
+  remarks: "Grupy kodów są blokami konstrukcyjnymi zasad zabezpieczeń dostępu kodu. Każdy poziom zasad składa się z głównej grupy kodów, który może mieć grup kodów podrzędnych (i tak dalej), stanowiące drzewa. Każda grupa kodów zawiera warunek członkostwa, który określa, czy danego zestawu należy do niego lub nie, na podstawie dowodów dla tego zestawu. Tylko grupy kodów, których warunki członkostwa odpowiadają danego zestawu i ich grup kodów podrzędnych stosowanie zasad.       UnionCodeGroup jest najczęściej spotykanym typem grupy kodów; Deklaracja zasad wszystkich grup zgodnych kod podrzędny (i przez rozszerzenie ich grup kodów podrzędnych) są połączone z zestaw uprawnień zgodnego kodu grupy nadrzędnej. W związku z tym jeśli pasuje do jego warunek członkostwa, ta grupa kodów formularzy Unii jego deklaracji zasad, a także wszystkie jej podrzędnych grup kodów zgodne dowody.       Grupy kodów UnionCodeGroup są utworzone przez narzędzie CASPOL grupy kodu (zobacz [Caspol.exe (narzędzie zasad zabezpieczenia dostępu kodu)](~/add/includes/ajax-current-ext-md.md))."
   syntax:
     content: >-
       [System.Obsolete("This type is obsolete and will be removed in a future release of the .NET Framework. See http://go.microsoft.com/fwlink/?LinkID=155570 for more information.")]
@@ -60,22 +60,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Policy.UnionCodeGroup&quot;></xref> class."
-  remarks: "This constructor creates a basic code group and should be called from the constructors of custom code groups. You can add child code groups by using the <xref:System.Security.Policy.CodeGroup.AddChild%2A> method."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Security.Policy.UnionCodeGroup&quot;> </xref> klasy."
+  remarks: "Ten konstruktor tworzy grupę kodów podstawowe i powinna być wywoływana z konstruktorów grup niestandardowych kodów. Grupy kodów podrzędne można dodać za pomocą <xref:System.Security.Policy.CodeGroup.AddChild%2A>metody.</xref:System.Security.Policy.CodeGroup.AddChild%2A>"
   syntax:
     content: public UnionCodeGroup (System.Security.Policy.IMembershipCondition membershipCondition, System.Security.Policy.PolicyStatement policy);
     parameters:
     - id: membershipCondition
       type: System.Security.Policy.IMembershipCondition
-      description: "A membership condition that tests evidence to determine whether this code group applies policy."
+      description: "Warunek członkostwa, który testuje dowody, aby określić, czy ta grupa kodów stosuje zasady."
     - id: policy
       type: System.Security.Policy.PolicyStatement
-      description: "The policy statement for the code group in the form of a permission set and attributes to grant code that matches the membership condition."
+      description: "Deklaracja zasad grupy kodu w formie zestaw uprawnień i atrybuty udzielenia kod zgodny z warunkiem członkostwa."
   overload: System.Security.Policy.UnionCodeGroup.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The type of the <code>membershipCondition</code> parameter is not valid.       -or-       The type of the <code>policy</code> parameter is not valid."
+    description: "Typ <code> membershipCondition </code> parametr jest nieprawidłowy.       - lub - typ <code> policy </code> parametr jest nieprawidłowy."
   platform:
   - net462
 - uid: System.Security.Policy.UnionCodeGroup.Copy
@@ -90,14 +90,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Makes a deep copy of the current code group."
-  remarks: "This method makes a deep copy of the code group, so that copies of all objects the code group contains are also made."
+  summary: "Tworzy kopię głębokie bieżącą grupę kodu."
+  remarks: "Ta metoda tworzy kopię głębokie grupy kodu tak, aby również kopię wszystkich obiektów, które zawiera grupy kodu."
   syntax:
     content: public override System.Security.Policy.CodeGroup Copy ();
     parameters: []
     return:
       type: System.Security.Policy.CodeGroup
-      description: "An equivalent copy of the current code group, including its membership conditions and child code groups."
+      description: "Odpowiednik kopia bieżącej grupy kodu, w tym warunki członkostwa i grup kodów podrzędnych."
   overload: System.Security.Policy.UnionCodeGroup.Copy*
   exceptions: []
   platform:
@@ -114,12 +114,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets the merge logic."
+  summary: "Pobiera logiki scalania."
   syntax:
     content: public override string MergeLogic { get; }
     return:
       type: System.String
-      description: "Always the string &quot;Union&quot;."
+      description: "Zawsze ciąg &quot;Union&quot;."
   overload: System.Security.Policy.UnionCodeGroup.MergeLogic*
   exceptions: []
   platform:
@@ -136,17 +136,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Resolves policy for the code group and its descendants for a set of evidence."
-  remarks: "Given evidence for an assembly to be loaded, this method evaluates the code group by first checking the membership condition against the specified evidence. If there is a match, this method returns a policy statement for the code group, including evaluation of child code groups.       For union code groups, all child code groups whose membership condition match the evidence are also resolved, and all resulting policy statements form a union with the policy statement of the parent union code group. Each child code group type determines how its child groups are applied, depending on how their respective Resolve methods work.       The .NET Framework security system uses Resolve on the policy levels to determine which permissions to grant to loaded code from the resulting policy statements and the code request on the assembly.       If the membership condition does not match the specified evidence, this method returns `null`; otherwise, it sets the permission set to be returned (P) equal to the code group&quot;s policy statement, and then continues. For each child code group, the method resolves the code group with the same evidence; if the result is not `null`, it sets P equal to the union of P and the child code group&quot;s policy statement. It then returns P, which is now the union of the current code group&quot;s policy statement and all child group policy statements."
+  summary: "Usuwa zasady dla grupy kodu i jego elementy podrzędne dla zestawem świadectwo."
+  remarks: "Podana dowody dla zestawu do załadowania, ta metoda ocenia grupa kodów sprawdzając pierwszy warunek członkostwa przed dowód określony. Jeśli istnieje dopasowanie, ta metoda zwraca instrukcję zasady dla grupy kodu, w tym ocenę grup kodów podrzędnych.       Dla grup Unii kodu wszystkich podrzędnych grup kodu którego warunku członkostwa odpowiada dowody również zostaną rozwiązane, a wszystkie instrukcje wynikowe zasady tworzą union z deklaracji zasad grupy nadrzędnej Unii kodu. Każdy typ grupy kod podrzędny określa sposób stosowania jej grup podrzędnych, w zależności od tego, jak działają ich odpowiednich metod Resolve.       System zabezpieczeń .NET Framework używane rozwiązanie na poziomy zasad w celu określenia uprawnienia, których chcesz udzielić wynikowy deklaracji zasad i żądania kodu w zestawie załadowanym kodzie.       Jeśli warunek członkostwa nie odpowiada określonym dowód, ta metoda zwraca `null`; w przeciwnym razie ustawia równa deklaracji zasad grupy kodu zestawu ma zostać zwrócona uprawnień (P), a następnie jest kontynuowana. Dla każdej grupy kod podrzędny metoda usuwa grupę kodów te same dowody; Jeśli wynik nie jest `null`, P ustawia równa Unii P i deklaracji zasad grupy podrzędnej kodu. Zwraca P, która jest teraz Unii w bieżącej grupie Kod deklaracji zasad i wszystkie podrzędne grupy zasad instrukcje."
   syntax:
     content: public override System.Security.Policy.PolicyStatement Resolve (System.Security.Policy.Evidence evidence);
     parameters:
     - id: evidence
       type: System.Security.Policy.Evidence
-      description: "The evidence for the assembly."
+      description: "Dowody dla zestawu."
     return:
       type: System.Security.Policy.PolicyStatement
-      description: "A policy statement consisting of the permissions granted by the code group with optional attributes, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the code group does not apply (the membership condition does not match the specified evidence)."
+      description: "Deklaracja zasad, składające się z uprawnienia przyznane przez Grupa kodów z opcjonalne atrybuty lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli grupa kodów nie ma zastosowania (warunek członkostwa jest niezgodny dowód określony)."
   overload: System.Security.Policy.UnionCodeGroup.Resolve*
   exceptions:
   - type: System.ArgumentNullException
@@ -154,7 +154,7 @@ items:
     description: "The <code>evidence</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Policy.PolicyException
     commentId: T:System.Security.Policy.PolicyException
-    description: "More than one code group (including the parent code group and any child code groups) is marked <xref href=&quot;System.Security.Policy.PolicyStatementAttribute&quot;></xref>."
+    description: "Więcej niż jednej grupy kodu (w tym kod grupy nadrzędnej oraz wszystkich podrzędnych grup kodu) jest oznaczony jako <xref href=&quot;System.Security.Policy.PolicyStatementAttribute&quot;> </xref>."
   platform:
   - net462
 - uid: System.Security.Policy.UnionCodeGroup.ResolveMatchingCodeGroups(System.Security.Policy.Evidence)
@@ -169,17 +169,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Resolves matching code groups."
-  remarks: "Given evidence for an assembly to be loaded, this method evaluates the code group by first checking the membership condition against the specified evidence. If there is a match, this method returns a root code group. The code group that is returned may contain child code groups, which, in turn, may also contain child code groups, so the return value reflects the complete set of code groups that were matched by the evidence provided."
+  summary: "Dopasowanie grup kodu jest rozpoznawana."
+  remarks: "Podana dowody dla zestawu do załadowania, ta metoda ocenia grupa kodów sprawdzając pierwszy warunek członkostwa przed dowód określony. Jeśli istnieje dopasowanie, ta metoda zwraca głównej grupy kodów. Grupa kodów, która jest zwracana mogą zawierać grup kodów podrzędne, które z kolei może również zawierać podrzędnych grup kodów, dlatego zwracana wartość odzwierciedla pełny zestaw grup kodów, zgodnych przez podany."
   syntax:
     content: public override System.Security.Policy.CodeGroup ResolveMatchingCodeGroups (System.Security.Policy.Evidence evidence);
     parameters:
     - id: evidence
       type: System.Security.Policy.Evidence
-      description: "The evidence for the assembly."
+      description: "Dowody dla zestawu."
     return:
       type: System.Security.Policy.CodeGroup
-      description: "The complete set of code groups that were matched by the evidence."
+      description: "Pełny zestaw grup kodów, zgodnych dowody."
   overload: System.Security.Policy.UnionCodeGroup.ResolveMatchingCodeGroups*
   exceptions:
   - type: System.ArgumentNullException

@@ -11,8 +11,8 @@ items:
   nameWithType: IStyleSheet
   fullName: System.Web.UI.IStyleSheet
   type: Interface
-  summary: "Defines the methods that a class must implement in order to support the creation of style rules."
-  remarks: "Classes that implement this interface can use it to support the creation of style rules.       To customize the way cascading style sheets are created and registered, you must create a class that implements this interface.       The <xref:System.Web.UI.HtmlControls.HtmlHead> class implements this interface for use by ASP.NET through the <xref:System.Web.UI.Page.Header%2A> property.      > [!NOTE] >  Adding or modifying styles or style rules programmatically during asynchronous postbacks is not supported. When you add AJAX capabilities to an ASP.NET Web page, asynchronous postbacks update regions of the page without updating the whole page. For more information, see [Microsoft Ajax Overview](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Definiuje metody klasy należy wdrożyć w celu obsługi tworzenia reguł stylu."
+  remarks: "Klasy, które implementują ten interfejs służy do obsługi tworzenia reguł stylu.       Aby dostosować sposób kaskadowych arkuszy stylów są tworzone i zarejestrowane, należy utworzyć klasę, która implementuje ten interfejs.       <xref:System.Web.UI.HtmlControls.HtmlHead>Klasa implementuje ten interfejs do użytku przez platformę ASP.NET za pośrednictwem <xref:System.Web.UI.Page.Header%2A>Właściwości.</xref:System.Web.UI.Page.Header%2A> </xref:System.Web.UI.HtmlControls.HtmlHead>      > [!NOTE] > Dodawanie lub modyfikowanie style lub reguły stylu programowo podczas asynchronicznego ogłaszania zwrotnego nie są obsługiwane. Po dodaniu możliwości technologii AJAX do strony sieci Web ASP.NET asynchroniczne ogłaszanie zwrotne aktualizacji regiony strony bez aktualizowania całej strony. Aby uzyskać więcej informacji, zobacz [Microsoft Ajax omówienie](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example uses the <xref:System.Web.UI.Page.Header%2A> implementation of IStyleSheet to demonstrate programmatically creating a new style rule and registering the custom <xref:System.Web.UI.WebControls.Style> object.  \n  \n In the first part of the example, a custom <xref:System.Web.UI.WebControls.Style> object, `labelStyle`, is created and then registered for the current location (URL). Then the `label1` label calls the <xref:System.Web.UI.WebControls.WebControl.MergeStyle%2A> method so that the `labelStyle` style is applied to the `label1` label.  \n  \n The second part of the example defines another custom <xref:System.Web.UI.WebControls.Style> object, `bodyStyle`,and sets its properties to create a new style rule.  \n  \n> [!NOTE]\n>  This class is intended primarily for developers that want to create a custom implementation. This example demonstrates the implementation provided by the .NET Framework.  \n  \n [!code-cs[System.Web.UI.IStyleSheet#1](~/add/codesnippet/csharp/t-system.web.ui.istylesh_1.aspx)]\n [!code-vb[System.Web.UI.IStyleSheet#1](~/add/codesnippet/visualbasic/t-system.web.ui.istylesh_1.aspx)]  \n  \n The following is the code-behind file for the Web page in the preceding example.  \n  \n [!code-cs[System.Web.UI.IStyleSheet#2](~/add/codesnippet/csharp/t-system.web.ui.istylesh_2.cs)]"
   syntax:
@@ -32,8 +32,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "When implemented by a class, creates a style rule for the specified document language element type, or selector."
-  remarks: "The CreateStyleRule method creates a style rule for the specified selector. Multiple style rules can be created for the same selector.       If `urlResolver` is set to `null`, the URL of the current <xref:System.Web.UI.Page> instance is used.      > [!NOTE] >  Adding or modifying styles or style rules programmatically during asynchronous postbacks is not supported. When you add AJAX capabilities to an ASP.NET Web page, asynchronous postbacks update regions of the page without updating the whole page. For more information, see [Microsoft Ajax Overview](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Po zaimplementowaniu w klasie, tworzy regułę stylu dla typu elementu język określony dokument lub selektor."
+  remarks: "Metoda CreateStyleRule tworzy regułę stylu dla określonego selektora. Można tworzyć wiele reguł stylu dla tego samego selektora.       Jeśli `urlResolver` ustawiono `null`, adres URL bieżącego <xref:System.Web.UI.Page>jest używane wystąpienie.</xref:System.Web.UI.Page>      > [!NOTE] > Dodawanie lub modyfikowanie style lub reguły stylu programowo podczas asynchronicznego ogłaszania zwrotnego nie są obsługiwane. Po dodaniu możliwości technologii AJAX do strony sieci Web ASP.NET asynchroniczne ogłaszanie zwrotne aktualizacji regiony strony bez aktualizowania całej strony. Aby uzyskać więcej informacji, zobacz [Microsoft Ajax omówienie](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example uses the <xref:System.Web.UI.Page.Header%2A> implementation of <xref:System.Web.UI.IStyleSheet> to demonstrate defining a new <xref:System.Web.UI.WebControls.Style> object, `bodyStyle`. Then `bodyStyle` is added to the current URL by calling CreateStyleRule.  \n  \n [!code-vb[System.Web.UI.IStyleSheetCreateStyleRule#1](~/add/codesnippet/visualbasic/09cdd0ca-214b-45c1-9eb9-_1.aspx)]\n [!code-cs[System.Web.UI.IStyleSheetCreateStyleRule#1](~/add/codesnippet/csharp/09cdd0ca-214b-45c1-9eb9-_1.aspx)]"
   syntax:
@@ -41,13 +41,13 @@ items:
     parameters:
     - id: style
       type: System.Web.UI.WebControls.Style
-      description: "The style rule to be added to the embedded style sheet."
+      description: "Reguły stylu, który ma zostać dodany do arkusza stylów osadzonych."
     - id: urlResolver
       type: System.Web.UI.IUrlResolutionService
-      description: "An <xref href=&quot;System.Web.UI.IUrlResolutionService&quot;></xref>-implemented object that contains the context information for the current location (URL)."
+      description: "<xref href=&quot;System.Web.UI.IUrlResolutionService&quot;> </xref>-Zaimplementowany obiekt, który zawiera informacje o kontekście dla bieżącej lokalizacji (URL)."
     - id: selector
       type: System.String
-      description: "The part of the HTML page affected by the style."
+      description: "Część dotyczy styl strony HTML."
   overload: System.Web.UI.IStyleSheet.CreateStyleRule*
   exceptions: []
   platform:
@@ -64,8 +64,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "When implemented by a class, adds a new style rule to the embedded style sheet in the <xref uid=&quot;langword_csharp_&lt;head&gt;&quot; name=&quot;&lt;head&gt;&quot; href=&quot;&quot;></xref> section of a Web page."
-  remarks: "This method adds a new style rule and <xref:System.Web.UI.WebControls.Style.RegisteredCssClass%2A> property name to the embedded style sheet within the `<head>` section of a <xref:System.Web.UI.Page> object, and associates the rule with an auto-generated style name. The <xref:System.Web.UI.WebControls.Style> object is rendered using the specified `urlResolver` parameter.       If `urlResolver` is set to `null`, the URL of the current <xref:System.Web.UI.Page> is used.       If a <xref:System.Web.UI.WebControls.Style> object is already registered, it is not added multiple times.      > [!NOTE] >  Adding or modifying styles programmatically during asynchronous postbacks is not supported. When you add AJAX capabilities to an ASP.NET Web page, asynchronous postbacks update regions of the page without updating the whole page. For more information, see [Microsoft Ajax Overview](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Po zaimplementowaniu w klasie, dodaje nową regułę stylu do arkusza stylów osadzony w <xref uid=&quot;langword_csharp_&lt;head&gt;&quot; name=&quot;&lt;head&gt;&quot; href=&quot;&quot;> </xref> części strony sieci Web."
+  remarks: "Ta metoda dodaje nową regułę stylu i <xref:System.Web.UI.WebControls.Style.RegisteredCssClass%2A>Nazwa właściwości do arkusza stylów osadzony w `<head>` sekcji <xref:System.Web.UI.Page>obiektu i kojarzy reguły o nazwie stylu wygenerowany automatycznie.</xref:System.Web.UI.Page> </xref:System.Web.UI.WebControls.Style.RegisteredCssClass%2A> <xref:System.Web.UI.WebControls.Style>Obiekt jest renderowany przy użyciu określonego `urlResolver` parametru.</xref:System.Web.UI.WebControls.Style>       Jeśli `urlResolver` ustawiono `null`, adres URL bieżącego <xref:System.Web.UI.Page>jest używany.</xref:System.Web.UI.Page>       Jeśli <xref:System.Web.UI.WebControls.Style>obiekt jest już zarejestrowany, nie został dodany wiele razy.</xref:System.Web.UI.WebControls.Style>      > [!NOTE] > Dodawanie lub modyfikowanie style programowo podczas asynchronicznego ogłaszania zwrotnego nie są obsługiwane. Po dodaniu możliwości technologii AJAX do strony sieci Web ASP.NET asynchroniczne ogłaszanie zwrotne aktualizacji regiony strony bez aktualizowania całej strony. Aby uzyskać więcej informacji, zobacz [Microsoft Ajax omówienie](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example uses the <xref:System.Web.UI.Page.Header%2A> implementation of <xref:System.Web.UI.IStyleSheet> to demonstrate creating a custom <xref:System.Web.UI.WebControls.Style> object, `labelStyle`, and then registering it for the current location (URL). Then the `label1` label calls the <xref:System.Web.UI.WebControls.WebControl.MergeStyle%2A> method so that the `labelStyle` style is applied to the `label1` label.  \n  \n [!code-cs[System.Web.UI.IStyleSheetRegisterStyle#1](~/add/codesnippet/csharp/11636414-b23d-4285-aafe-_1.aspx)]\n [!code-vb[System.Web.UI.IStyleSheetRegisterStyle#1](~/add/codesnippet/visualbasic/11636414-b23d-4285-aafe-_1.aspx)]"
   syntax:
@@ -73,10 +73,10 @@ items:
     parameters:
     - id: style
       type: System.Web.UI.WebControls.Style
-      description: "The style rule to be added to the embedded style sheet."
+      description: "Reguły stylu, który ma zostać dodany do arkusza stylów osadzonych."
     - id: urlResolver
       type: System.Web.UI.IUrlResolutionService
-      description: "An <xref href=&quot;System.Web.UI.IUrlResolutionService&quot;></xref>-implemented object that contains the context information for the current location (URL)."
+      description: "<xref href=&quot;System.Web.UI.IUrlResolutionService&quot;> </xref>-Zaimplementowany obiekt, który zawiera informacje o kontekście dla bieżącej lokalizacji (URL)."
   overload: System.Web.UI.IStyleSheet.RegisterStyle*
   exceptions: []
   platform:

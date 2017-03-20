@@ -13,8 +13,8 @@ items:
   nameWithType: ReceiveErrorHandling
   fullName: System.ServiceModel.ReceiveErrorHandling
   type: Enum
-  summary: "An enumeration that specifies handling for a poison message."
-  remarks: "A poison message is a message that fails repeated attempts to deliver to the application. This is applicable only when using a Message Queuing (MSMQ)-based binding. The default value is `Fault`, which faults the listener and therefore the ServiceHost. In the case where the service was to fault because of a poison message, a <xref:System.ServiceModel.MsmqPoisonMessageException> is thrown. The exception contains the `LookupId` of the MSMQ message that can be used to move the message out of the way using System.Messaging API. Certain values of the ReceiveErrorHandling enumeration such as `Reject` and `Move` are only available on [!INCLUDE[wv](~/add/includes/wv-md.md)]. You control poison message handling by setting the <xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A> property to one of the values of this enumeration."
+  summary: "Wyliczenie określająca obsługę Trująca wiadomość."
+  remarks: "Trująca wiadomość jest komunikat, który zakończy się niepowodzeniem kolejnych nieudanych prób dostarczenia do aplikacji. Ma to zastosowanie tylko wtedy, gdy użycie powiązania na podstawie usługi kolejkowania wiadomości MSMQ. Wartość domyślna to `Fault`, który błędów odbiornika i w związku z tym ServiceHost. W przypadku których usługa była do awarii z powodu Trująca wiadomość, <xref:System.ServiceModel.MsmqPoisonMessageException>jest generowany.</xref:System.ServiceModel.MsmqPoisonMessageException> Wyjątek zawiera `LookupId` wiadomości MSMQ, które można przenieść komunikatu przeszkadza przy użyciu interfejsu API System.Messaging. Niektóre wartości wyliczenia ReceiveErrorHandling, takich jak `Reject` i `Move` są dostępne tylko na [!INCLUDE[wv](~/add/includes/wv-md.md)]. Kontrolowanie Trująca wiadomość została obsługa przez ustawienie <xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A>właściwości do jednej z wartości to wyliczenie.</xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A>"
   example:
   - "The following configuration code illustrates how to set this property in the service configuration file:  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -35,13 +35,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This option drops the poison message. The message never gets delivered to the application. If the message&quot;s TTL had already expired at this point, then the message may appear in the sender&quot;s Dead Letter Queue. If not, the message does not appear anywhere. This option indicates that the user does not really care if the message is lost."
-  remarks: 'Applicable platforms: [!INCLUDE[wxp](~/add/includes/wxp-md.md)], [!INCLUDE[ws2003](~/add/includes/ws2003-md.md)], and [!INCLUDE[wv](~/add/includes/wv-md.md)].'
+  summary: "Ta opcja powoduje Trująca wiadomość. Komunikat nigdy nie pobiera dostarczany do aplikacji. Jeśli czas wygaśnięcia wiadomości już wygasło na tym etapie, komunikat może się pojawić w kolejki utraconych wiadomości nadawcy. Jeśli nie, wiadomość nie jest wyświetlana z dowolnego miejsca. Ta opcja wskazuje, że użytkownik naprawdę interesują Jeśli wiadomość zostanie przerwane."
+  remarks: 'Odpowiednie platformy: [!INCLUDE[wxp](~/add/includes/wxp-md.md)], [!INCLUDE[ws2003](~/add/includes/ws2003-md.md)], i [!INCLUDE[wv](~/add/includes/wv-md.md)].'
   syntax:
     content: Drop
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -57,13 +57,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This option sends a fault to the listener that caused the ServiceHost to fault. The message must be removed from the application queue by some external mechanism before the application can continue to process messages from the queue."
-  remarks: 'Applicable platforms: Windows XP, Windows Server 2003, and Windows Vista.'
+  summary: "Ta opcja wysyła usterki do odbiornika, który spowodował ServiceHost do błędów. Komunikat należy usunąć z kolejki aplikacji przez inny mechanizm zewnętrzny przed kontynuowaniem aplikacji do przetwarzania komunikatów z kolejki."
+  remarks: 'Odpowiednie platformy: Windows XP, Windows Server 2003 i Windows Vista.'
   syntax:
     content: Fault
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -79,13 +79,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This moves the poison message to a Poison Message Queue for later processing by a poison message handling application."
-  remarks: 'Applicable platforms: [!INCLUDE[wv](~/add/includes/wv-md.md)] only.'
+  summary: "Spowoduje to przeniesienie Trująca wiadomość do skażone kolejki komunikatów do późniejszego przetwarzania przez Trująca wiadomość obsługi aplikacji."
+  remarks: 'Odpowiednie platformy: [!INCLUDE[wv](~/add/includes/wv-md.md)] tylko.'
   syntax:
     content: Move
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -101,13 +101,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This instructs MSMQ to send a negative acknowledgement back to the sending queue manager that the message cannot be received by the application. The message is placed in the sending queue manager&quot;s Dead Letter Queue."
-  remarks: 'Applicable platforms: [!INCLUDE[wv](~/add/includes/wv-md.md)] only.'
+  summary: "Powoduje to, że usługi MSMQ do odesłania negatywnego potwierdzenia do wysyłania menedżera kolejek, że nie można odebrać wiadomości przez aplikację. Wiadomość jest umieszczana w kolejce wiadomości utraconych wysyłania menedżera kolejek."
+  remarks: 'Odpowiednie platformy: [!INCLUDE[wv](~/add/includes/wv-md.md)] tylko.'
   syntax:
     content: Reject
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
