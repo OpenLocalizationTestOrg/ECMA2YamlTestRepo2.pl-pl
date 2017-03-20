@@ -14,8 +14,8 @@ items:
   nameWithType: IResourceWriter
   fullName: System.Resources.IResourceWriter
   type: Interface
-  summary: "Provides the base functionality for writing resources to an output file or stream."
-  remarks: "Resource writers are used to write resources to files in a particular file format. Implement this interface if you want to control the way in which a resource file is written (for example, to store resources in something other than a .txt, .resx, or binary .resources file). Otherwise, use the default <xref:System.Resources.ResourceWriter> class, which writes resources to a binary .resources file, or the <xref:System.Resources.ResXResourceWriter> class, which writes resources to an XML resource (.resx) file."
+  summary: "Udostępnia podstawowe funkcje do zapisywania do pliku wyjściowego i strumienia zasobów."
+  remarks: "Autorzy zasobów są używane do zapisu do plików w określonym formacie zasobów. Implementuje ten interfejs, jeśli chcesz kontrolować sposób, w którym napisano pliku zasobów (na przykład do przechowywania zasobów w coś innego niż txt, .resx lub plik binarny .resources). W przeciwnym razie użyj wartości domyślnej <xref:System.Resources.ResourceWriter>klasy, która zapisuje zasobów pliku binarnego .resources, lub <xref:System.Resources.ResXResourceWriter>klasy, która zapisuje zasobów do pliku zasobów (resx) XML.</xref:System.Resources.ResXResourceWriter> </xref:System.Resources.ResourceWriter>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -37,17 +37,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Adds an 8-bit unsigned integer array as a named resource to the list of resources to be written."
-  remarks: "The resources are not written until the <xref:System.Resources.IResourceWriter.Generate%2A> method is called."
+  summary: "Dodaje tablicy 8-bitową liczbę całkowitą bez znaku jako zasób o nazwie do listy zasobów do zapisania."
+  remarks: "Zasoby nie są zapisywane do momentu <xref:System.Resources.IResourceWriter.Generate%2A>Metoda jest wywoływana.</xref:System.Resources.IResourceWriter.Generate%2A>"
   syntax:
     content: public void AddResource (string name, byte[] value);
     parameters:
     - id: name
       type: System.String
-      description: "Name of a resource."
+      description: "Nazwa zasobu."
     - id: value
       type: System.Byte[]
-      description: "Value of a resource as an 8-bit unsigned integer array."
+      description: "Wartość zasobu jako tablica 8-bitową liczbę całkowitą bez znaku."
   overload: System.Resources.IResourceWriter.AddResource*
   exceptions:
   - type: System.ArgumentNullException
@@ -67,17 +67,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Adds a named resource of type <xref:System.Object> to the list of resources to be written."
-  remarks: "The resource is not written until the <xref:System.Resources.IResourceWriter.Generate%2A> method is called.      > [!NOTE] >  `value` might have to be serializable, so you might have to provide a type converter, depending on which resource writer is used."
+  summary: "Dodaje nazwany zasobu typu <xref:System.Object>do listy zasobów, które ma zostać zapisany.</xref:System.Object>"
+  remarks: "Zasób nie jest zapisywany do <xref:System.Resources.IResourceWriter.Generate%2A>Metoda jest wywoływana.</xref:System.Resources.IResourceWriter.Generate%2A>      > [!NOTE]  >   `value` może musi być możliwy do serializacji, dlatego może być konieczne podanie konwertera typów, w zależności od tego, którego zasobu używa się składnika zapisywania."
   syntax:
     content: public void AddResource (string name, object value);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the resource."
+      description: "Nazwa zasobu."
     - id: value
       type: System.Object
-      description: "The value of the resource."
+      description: "Wartość zasobów."
   overload: System.Resources.IResourceWriter.AddResource*
   exceptions:
   - type: System.ArgumentNullException
@@ -97,17 +97,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Adds a named resource of type <xref:System.String> to the list of resources to be written."
-  remarks: "The resource is not written until the <xref:System.Resources.IResourceWriter.Generate%2A> method is called."
+  summary: "Dodaje nazwany zasobu typu <xref:System.String>do listy zasobów, które ma zostać zapisany.</xref:System.String>"
+  remarks: "Zasób nie jest zapisywany do <xref:System.Resources.IResourceWriter.Generate%2A>Metoda jest wywoływana.</xref:System.Resources.IResourceWriter.Generate%2A>"
   syntax:
     content: public void AddResource (string name, string value);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the resource."
+      description: "Nazwa zasobu."
     - id: value
       type: System.String
-      description: "The value of the resource."
+      description: "Wartość zasobów."
   overload: System.Resources.IResourceWriter.AddResource*
   exceptions:
   - type: System.ArgumentException
@@ -127,8 +127,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Closes the underlying resource file or stream, ensuring all the data has been written to the file."
-  remarks: "If necessary, Close will call the <xref:System.Resources.IResourceWriter.Generate%2A> method to output the resources to the underlying file or stream before closing it."
+  summary: "Zamyka strumienia i sprawdzeniu wszystkich danych został zapisany do pliku lub plik zasobu podstawowej."
+  remarks: "Jeśli to konieczne, zamknij wywoła <xref:System.Resources.IResourceWriter.Generate%2A>metodę output zasobów do źródłowego pliku lub strumienia przed zamknięciem go.</xref:System.Resources.IResourceWriter.Generate%2A>"
   syntax:
     content: public void Close ();
     parameters: []
@@ -148,8 +148,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Writes all the resources added by the <xref:System.Resources.IResourceWriter.AddResource*> method to the output file or stream."
-  remarks: "Generate does not close the output file or output stream. Instead, consider calling the <xref:System.Resources.IResourceWriter.Close%2A> method. Generate is useful when you want to create a resource file, but you don&quot;t want to close the output stream. Generate can be called only once. After you call Generate, all <xref:System.Resources.IResourceWriter> methods other than <xref:System.Resources.IResourceWriter.Close%2A> will throw an exception."
+  summary: "Zapisuje wszystkie zasoby, które są dodawane przez <xref:System.Resources.IResourceWriter.AddResource*>metody do pliku wyjściowego i strumienia.</xref:System.Resources.IResourceWriter.AddResource*>"
+  remarks: "Generowanie nie zamyka pliku wyjściowego i strumienia wyjściowego. Zamiast tego należy wziąć pod uwagę wywołania <xref:System.Resources.IResourceWriter.Close%2A>metody.</xref:System.Resources.IResourceWriter.Close%2A> Generowanie jest przydatne, gdy chcesz utworzyć plik zasobów, ale nie chcesz zamknąć strumienia wyjściowego. Generowanie może zostać wywołany tylko raz. Po wywołaniu metody Generate, wszystkie <xref:System.Resources.IResourceWriter>metod innych niż <xref:System.Resources.IResourceWriter.Close%2A>spowoduje zgłoszenie wyjątku.</xref:System.Resources.IResourceWriter.Close%2A> </xref:System.Resources.IResourceWriter>"
   syntax:
     content: public void Generate ();
     parameters: []
