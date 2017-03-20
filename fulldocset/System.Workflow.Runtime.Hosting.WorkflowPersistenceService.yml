@@ -21,8 +21,8 @@ items:
   nameWithType: WorkflowPersistenceService
   fullName: System.Workflow.Runtime.Hosting.WorkflowPersistenceService
   type: Class
-  summary: "The abstract base class from which all persistence services are derived."
-  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]       When certain conditions occur while the workflow is running, the workflow runtime engine persists state information about the workflow instance. Persistence can occur, for example, when an atomic transaction finishes, when the workflow instance becomes idle, when the host calls <xref:System.Workflow.Runtime.WorkflowInstance.Unload%2A?displayProperty=fullName> on the workflow instance, or when a workflow instance is terminated or finishes. When the workflow runtime engine semantics dictate that persistence should occur, the workflow runtime engine calls methods that are supplied by a persistence service to save state information about the workflow instance. Likewise, when the workflow runtime engine needs to restore a previously persisted workflow instance, it calls methods that are supplied by the persistence service to load this state information. The workflow runtime engine handles all the semantics regarding when to perform persistence. The persistence service handles actually saving and loading the workflow state information to or from a data store.       You can create a persistence service by deriving a class from the WorkflowPersistenceService class.  You can add your persistence service to the workflow runtime engine by calling <xref:System.Workflow.Runtime.WorkflowRuntime.AddService%2A> or by making an appropriate entry in the application configuration file. The <xref:System.Workflow.Runtime.WorkflowRuntime> should only contain one persistence service. Windows Workflow Foundation provides the <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService> class, an out-of-box persistence service, which you can use as is or extend.       The workflow runtime engine has semantics for locking workflow state information for use in environments where persistence services that run in different processes might have access to a single data store. The WorkflowPersistenceService class provides the capability to support this functionality of the workflow runtime engine by providing a parameter to <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveWorkflowInstanceState%2A> that specifies whether the state information of a workflow instance should be unlocked in the data store, and by providing a method <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.UnlockWorkflowInstanceState%2A> to unlock previously locked workflow state information. In a persistence service that implements locking, a call to <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadWorkflowInstanceState%2A> should lock the state information for a workflow instance.       Your persistence service should throw a <xref:System.Workflow.Runtime.Hosting.PersistenceException> if it fails to save state information to its data store or load state information from its data store. The workflow runtime engine expects this behavior.       A batching mechanism is provided for services that use a durable store to save workflow state information. It is important in these cases to maintain consistency between the durable store that is used by the persistence service and the internal state of the workflow runtime engine. You can add functionality defined by the <xref:System.Workflow.Runtime.IPendingWork> interface to your service, and then participate in workflow transaction batching provided by the <xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService> by adding changes to your data store as work items to the <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>. The durable store itself should implement the <xref:System.Transactions.IEnlistmentNotification> interface, so that workflow information is not persisted incorrectly in the event of a transaction rollback. For more information, see <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveCompletedContextActivity%2A> or <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveWorkflowInstanceState%2A>."
+  summary: "Abstrakcyjna klasa podstawowa, z których wszystkie trwałości są uzyskiwane usług."
+  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]Gdy określone warunki są wykonywane, gdy jest uruchomiony przepływ pracy, aparatu wykonawczego workflow utrzymuje informacje o stanie dotyczące wystąpienia przepływu pracy. Trwałość mogą wystąpić, na przykład po zakończeniu transakcji atomic podczas wystąpienia przepływu pracy staje się bezczynności, gdy host wywołuje <xref:System.Workflow.Runtime.WorkflowInstance.Unload%2A?displayProperty=fullName>w wystąpieniu przepływu pracy lub gdy wystąpienia przepływu pracy zostało zakończone lub zakończeniu.</xref:System.Workflow.Runtime.WorkflowInstance.Unload%2A?displayProperty=fullName> Podczas semantykę aparat środowiska uruchomieniowego przepływu pracy dyktowania, że powinno nastąpić trwałości, aparatu wykonawczego workflow wywołuje metody, które są dostarczane przez usługę trwałości, aby zapisać informacje o stanie dotyczące wystąpienia przepływu pracy. Podobnie gdy aparat środowiska uruchomieniowego przepływu pracy musi przywrócić wystąpienia przepływu pracy utrwalonych wcześniej, wywołuje metody, które są dostarczane przez usługę trwałości można załadować informacji o stanie. Aparatu wykonawczego workflow obsługuje wszystkie semantyki dotyczące przeprowadzania trwałości. Usługa trwałości obsługuje faktycznie zapisywanie i ładowanie informacji stanu przepływu pracy do lub z magazynu danych.       Można utworzyć usługi utrwalania przez wyprowadzanie klasy z klasy WorkflowPersistenceService.  Można dodać usługi trwałości do aparatu wykonawczego workflow przez wywołanie metody <xref:System.Workflow.Runtime.WorkflowRuntime.AddService%2A>lub tworząc odpowiedni wpis w pliku konfiguracyjnym aplikacji.</xref:System.Workflow.Runtime.WorkflowRuntime.AddService%2A> <xref:System.Workflow.Runtime.WorkflowRuntime>Powinna zawierać tylko jedną usługę trwałości.</xref:System.Workflow.Runtime.WorkflowRuntime> Windows Workflow Foundation udostępnia <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService>klasy usługi out-of-box trwałości, którego można użyć jako jest lub rozszerzyć.</xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService>       Aparat środowiska uruchomieniowego przepływu pracy ma semantykę blokowania informacje o stanie przepływu pracy do użytku w środowiskach, w którym usług trwałości, które działają w różnych procesów może mieć dostępu do magazynu danych. Klasa WorkflowPersistenceService oferuje możliwość obsługują tę funkcję, aparatu środowiska uruchomieniowego przepływu pracy, podając parametr <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveWorkflowInstanceState%2A>określający, czy informacje o stanie wystąpienia przepływu pracy ma zostać odblokowana w magazynie danych, a dzięki udostępnieniu metod <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.UnlockWorkflowInstanceState%2A>do odblokowania wcześniej zablokowane informacje o stanie przepływu pracy.</xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.UnlockWorkflowInstanceState%2A> </xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveWorkflowInstanceState%2A> Usługi trwałości, który implementuje blokowania wywołanie <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadWorkflowInstanceState%2A>powinna zablokować informacje o stanie dla wystąpienia przepływu pracy.</xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadWorkflowInstanceState%2A>       Usługi trwałości powinien zgłosić <xref:System.Workflow.Runtime.Hosting.PersistenceException>Jeśli jej nie powiedzie się zapisać informacje o stanie do jego magazynu danych lub załadować informacji o stanie z magazynu danych.</xref:System.Workflow.Runtime.Hosting.PersistenceException> Aparatu wykonawczego workflow oczekuje to zachowanie.       Przetwarzanie wsadowe mechanizm jest dostępna dla usług, które korzystają z magazynu trwałego można zapisać informacji o stanie przepływu pracy. Jest ważne w tych przypadkach do zapewniania spójności między trwałe magazynu, który jest używany przez usługę trwałości i wewnętrzny stan klasy aparatu wykonawczego workflow. Możesz dodać funkcje zdefiniowane przez <xref:System.Workflow.Runtime.IPendingWork>interfejs z usługą i następnie brać udziału w dostarczonych przez <xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService>dodanie zmiany do magazynu danych jako elementów roboczych, aby <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>.</xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A> </xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService> partie transakcji przepływu pracy</xref:System.Workflow.Runtime.IPendingWork> Trwałe samego magazynu powinien implementować <xref:System.Transactions.IEnlistmentNotification>interfejsu, dzięki czemu informacje o przepływie pracy nie jest trwały nieprawidłowo w przypadku wycofywania transakcji.</xref:System.Transactions.IEnlistmentNotification> Aby uzyskać więcej informacji zobacz <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveCompletedContextActivity%2A>lub <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveWorkflowInstanceState%2A>.</xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveWorkflowInstanceState%2A> </xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveCompletedContextActivity%2A>"
   syntax:
     content: >-
       [System.Obsolete("The System.Workflow.* types are deprecated.  Instead, please use the new types from System.Activities.*")]
@@ -54,7 +54,7 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "When implemented in a derived class, initializes a new instance of the <xref href=&quot;System.Workflow.Runtime.Hosting.WorkflowPersistenceService&quot;></xref> class."
+  summary: "Po zaimplementowaniu w klasie pochodnej inicjuje nowe wystąpienie klasy <xref href=&quot;System.Workflow.Runtime.Hosting.WorkflowPersistenceService&quot;> </xref> klasy."
   remarks: ''
   example:
   - "The following example demonstrates creating an instance of the `SqlWorkflowPersistenceService` class (derived from `WorkflowPersistenceService`). This example is from the Nested Exception Handlers SDK sample, from the Program.cs class.  For more information, see the [Nested Exception Handlers Sample](http://msdn.microsoft.com/en-us/d1da0209-842b-41c8-9b7c-0cbaa1034265).  \n  \n [!code-cs[WF_Samples#161](~/add/codesnippet/csharp/wf_snippets/snippets11.cs#161)]\n [!code-vb[WF_Samples#161](~/add/codesnippet/visualbasic/wf_snippets/snippets11.vb#161)]"
@@ -77,16 +77,16 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Retrieves the serialized default form of the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
+  summary: "Pobiera serializacji domyślnego formularza z <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>."
   syntax:
     content: protected static byte[] GetDefaultSerializedForm (System.Workflow.ComponentModel.Activity activity);
     parameters:
     - id: activity
       type: System.Workflow.ComponentModel.Activity
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> whose serialized form is requested."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> Których serializacji formularza jest wymagane."
     return:
       type: System.Byte[]
-      description: "The serialized default form of the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
+      description: "Zserializowany domyślnego formularza z <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>."
   overload: System.Workflow.Runtime.Hosting.WorkflowPersistenceService.GetDefaultSerializedForm*
   exceptions: []
   platform:
@@ -103,16 +103,16 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Indicates whether the given activity is blocked."
+  summary: "Wskazuje, czy dane działanie jest zablokowany."
   syntax:
     content: protected static bool GetIsBlocked (System.Workflow.ComponentModel.Activity rootActivity);
     parameters:
     - id: rootActivity
       type: System.Workflow.ComponentModel.Activity
-      description: "The root activity of the workflow instance."
+      description: "Działanie główne wystąpienia przepływu pracy."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the given activity is blocked; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli dane działanie jest zablokowany; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Workflow.Runtime.Hosting.WorkflowPersistenceService.GetIsBlocked*
   exceptions: []
   platform:
@@ -129,16 +129,16 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Retrieves the termination or suspend information of the given activity."
+  summary: "Pobiera przerwanie lub wstrzymać informacji danego działania."
   syntax:
     content: protected static string GetSuspendOrTerminateInfo (System.Workflow.ComponentModel.Activity rootActivity);
     parameters:
     - id: rootActivity
       type: System.Workflow.ComponentModel.Activity
-      description: "The root activity of the workflow instance."
+      description: "Działanie główne wystąpienia przepływu pracy."
     return:
       type: System.String
-      description: "A <xref:System.String> that contains the termination or suspend information."
+      description: "A <xref:System.String>zawiera przerwanie albo zawiesić informacji.</xref:System.String>"
   overload: System.Workflow.Runtime.Hosting.WorkflowPersistenceService.GetSuspendOrTerminateInfo*
   exceptions: []
   platform:
@@ -155,16 +155,16 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Retrieves the status of the workflow."
+  summary: "Pobiera stan przepływu pracy."
   syntax:
     content: protected static System.Workflow.Runtime.WorkflowStatus GetWorkflowStatus (System.Workflow.ComponentModel.Activity rootActivity);
     parameters:
     - id: rootActivity
       type: System.Workflow.ComponentModel.Activity
-      description: "The root activity of the workflow instance."
+      description: "Działanie główne wystąpienia przepływu pracy."
     return:
       type: System.Workflow.Runtime.WorkflowStatus
-      description: "A <xref href=&quot;System.Workflow.Runtime.WorkflowStatus&quot;></xref> enumeration value that denotes the status of the workflow."
+      description: "A <xref href=&quot;System.Workflow.Runtime.WorkflowStatus&quot;> </xref> wartości wyliczenia, które wskazuje stan przepływu pracy."
   overload: System.Workflow.Runtime.Hosting.WorkflowPersistenceService.GetWorkflowStatus*
   exceptions: []
   platform:
@@ -181,8 +181,8 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "When implemented in a derived class, loads the specified completed scope back into memory."
-  remarks: "The workflow runtime engine uses LoadCompletedContextActivity to implement compensation. You must restore an identical copy of the completed scope. To do this, you must restore a valid <xref:System.IO.Stream> from your representation of the completed scope in the data store. Then you must pass this <xref:System.IO.Stream> to one of the overloaded methods of <xref:System.Workflow.ComponentModel.Activity.Load%2A> to perform deserialization of the scope.       If your persistence service cannot load the completed scope from its data store, it should throw a <xref:System.Workflow.Runtime.Hosting.PersistenceException> with an appropriate message."
+  summary: "Po zaimplementowaniu w klasie pochodnej, ładuje określony zakres ukończone do pamięci."
+  remarks: "Aparat środowiska uruchomieniowego przepływu pracy używa LoadCompletedContextActivity do implementacji kompensacji. Należy przywrócić identyczne kopię ukończonego zakresu. Aby to zrobić, należy przywrócić prawidłową <xref:System.IO.Stream>z Twojej reprezentację ukończone zakres danych magazynu.</xref:System.IO.Stream> Następnie należy przekazać to <xref:System.IO.Stream>do jednego z przeciążonej metody <xref:System.Workflow.ComponentModel.Activity.Load%2A>do wykonania deserializacji zakresu.</xref:System.Workflow.ComponentModel.Activity.Load%2A> </xref:System.IO.Stream>       Jeśli usługi utrwalania nie można załadować zakresu ukończone z magazynu danych, powinien zgłosić <xref:System.Workflow.Runtime.Hosting.PersistenceException>z odpowiedni komunikat.</xref:System.Workflow.Runtime.Hosting.PersistenceException>"
   example:
   - "The following example demonstrates an implementation of the `LoadCompletedContextActivity` method. This example is from the Custom Persistence Service sample, from the FilePersistenceService.cs file. For more information, see [Custom Persistence Service Sample](http://msdn.microsoft.com/en-us/869dfadf-5298-4551-bc80-f4cf7918729d).  \n  \n [!code-cs[WF_Samples#269](~/add/codesnippet/csharp/wf_snippets/snippets24.cs#269)]\n [!code-vb[WF_Samples#269](~/add/codesnippet/visualbasic/wf_snippets/snippets24.vb#269)]"
   syntax:
@@ -190,13 +190,13 @@ items:
     parameters:
     - id: scopeId
       type: System.Guid
-      description: "The <xref:System.Guid> of the completed scope."
+      description: "<xref:System.Guid>Zakresu ukończone.</xref:System.Guid>"
     - id: outerActivity
       type: System.Workflow.ComponentModel.Activity
-      description: "An <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> that represents the activity that encloses the completed scope."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> Reprezentujący działanie, które umieszcza ukończone zakresu."
     return:
       type: System.Workflow.ComponentModel.Activity
-      description: "An <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> that represents the completed scope."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> Reprezentujący ukończone zakresu."
   overload: System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadCompletedContextActivity*
   exceptions: []
   platform:
@@ -213,8 +213,8 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "When implemented in a derived class, loads the specified state of the workflow instance back into memory."
-  remarks: "You must restore an identical copy of the activity. To do this, you must restore a valid <xref:System.IO.Stream> from your representation of the workflow instance in the data store; then you must pass this <xref:System.IO.Stream> to one of the overloaded <xref:System.Workflow.ComponentModel.Activity.Load%2A> methods to deserialize the workflow instance state. If your persistence service cannot load the workflow instance state from its data store, it should throw a <xref:System.Workflow.Runtime.Hosting.PersistenceException> with an appropriate message.       The workflow runtime engine implements locking semantics to restrict access to a workflow instance state that is saved in a data store. This can be accessed by persistence services that run in multiple processes. The locking semantics are designed to prevent persistence services that run in two different processes from loading the same workflow instance into memory at the same time. Depending on the type of environment that your persistence service is designed to support, you may choose whether to support this functionality. If you choose to support the runtime locking semantics, and if this workflow instance state has been previously locked by another process, then you should throw a <xref:System.Workflow.Runtime.WorkflowOwnershipException>. Otherwise, you should lock access to the workflow instance state in your data store. The workflow instance state can be unlocked by a call to <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.UnlockWorkflowInstanceState%2A> or a call to <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveWorkflowInstanceState%2A> with the unlock parameter set to `true`."
+  summary: "Po zaimplementowaniu w klasie pochodnej, ładuje określonego stanu wystąpienia przepływu pracy do pamięci."
+  remarks: "Należy przywrócić identyczne kopię działania. Aby to zrobić, należy przywrócić prawidłową <xref:System.IO.Stream>z Twojej reprezentacja wystąpienia przepływu pracy w magazynie danych; następnie trzeba przekazać to <xref:System.IO.Stream>do jednego z przeciążone <xref:System.Workflow.ComponentModel.Activity.Load%2A>stan wystąpienia metody deserializować przepływu pracy.</xref:System.Workflow.ComponentModel.Activity.Load%2A> </xref:System.IO.Stream> </xref:System.IO.Stream> Jeśli usługi utrwalania nie można załadować stanu wystąpienia przepływu pracy z magazynu danych, powinien zgłosić <xref:System.Workflow.Runtime.Hosting.PersistenceException>z odpowiedni komunikat.</xref:System.Workflow.Runtime.Hosting.PersistenceException>       Aparatu wykonawczego workflow implementuje semantykę blokowania, aby ograniczyć dostęp do stanu wystąpienia przepływu pracy, który jest zapisany w magazynie danych. To jest możliwy za usług trwałości, które działają w wielu procesów. Semantyka blokowania zapobiegające usług trwałości, które działają w dwóch różnych procesów ładowania tego samego wystąpienia przepływu pracy do pamięci w tym samym czasie. W zależności od typu środowiska zaprojektowano usługi trwałości do obsługi, można wybrać opcję obsługują tę funkcję. Jeśli wybierzesz do obsługi semantykę blokowania środowiska uruchomieniowego, a jeśli ten stan wystąpienia przepływu pracy zostało wcześniej zablokowany przez inny proces, następnie użytkownik powinien zgłosić <xref:System.Workflow.Runtime.WorkflowOwnershipException>.</xref:System.Workflow.Runtime.WorkflowOwnershipException> W przeciwnym razie należy zablokować dostęp do stanu wystąpienia przepływu pracy w magazynie danych. Stan wystąpienia przepływu pracy może zostać odblokowany przez wywołanie do <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.UnlockWorkflowInstanceState%2A>lub wywołanie <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveWorkflowInstanceState%2A>z parametrem unlock ustawioną `true`.</xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveWorkflowInstanceState%2A> </xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.UnlockWorkflowInstanceState%2A>"
   example:
   - "The following example demonstrates an implementation of the `LoadWorkflowInstanceState` method. This example is from the Custom Persistence Service sample, from the FilePersistenceService.cs file. For more information, see [Custom Persistence Service Sample](http://msdn.microsoft.com/en-us/869dfadf-5298-4551-bc80-f4cf7918729d).  \n  \n [!code-cs[WF_Samples#266](~/add/codesnippet/csharp/wf_snippets/snippets24.cs#266)]\n [!code-vb[WF_Samples#266](~/add/codesnippet/visualbasic/wf_snippets/snippets24.vb#266)]"
   syntax:
@@ -222,10 +222,10 @@ items:
     parameters:
     - id: instanceId
       type: System.Guid
-      description: "The <xref:System.Guid> of the root activity of the workflow instance."
+      description: "<xref:System.Guid>Głównego działania wystąpienia przepływu pracy.</xref:System.Guid>"
     return:
       type: System.Workflow.ComponentModel.Activity
-      description: "An <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> that represents the root activity of the workflow instance."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> Reprezentujący działanie główne wystąpienia przepływu pracy."
   overload: System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadWorkflowInstanceState*
   exceptions: []
   platform:
@@ -242,7 +242,7 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Restores the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> from its serialized form."
+  summary: "Przywraca <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> z jego serializacji formularza."
   remarks: ''
   example:
   - "The following example demonstrates an implementation of the `RestoreFromDefaultSerializedForm` method. This example is from the Custom Persistence Service sample, from the FilePersistenceService.cs file. For more information, see [Custom Persistence Service Sample](http://msdn.microsoft.com/en-us/869dfadf-5298-4551-bc80-f4cf7918729d).  \n  \n [!code-cs[WF_Samples#269](~/add/codesnippet/csharp/wf_snippets/snippets24.cs#269)]\n [!code-vb[WF_Samples#269](~/add/codesnippet/visualbasic/wf_snippets/snippets24.vb#269)]"
@@ -251,13 +251,13 @@ items:
     parameters:
     - id: activityBytes
       type: System.Byte[]
-      description: "The serialized form of <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
+      description: "Zserializowany formę <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>."
     - id: outerActivity
       type: System.Workflow.ComponentModel.Activity
-      description: "The outer <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>, containing the <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> to restore."
+      description: "Zewnętrznego <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>, zawierającego <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> do przywrócenia."
     return:
       type: System.Workflow.ComponentModel.Activity
-      description: "The restored <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref>."
+      description: "Przywróconej <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref>."
   overload: System.Workflow.Runtime.Hosting.WorkflowPersistenceService.RestoreFromDefaultSerializedForm*
   exceptions: []
   platform:
@@ -274,8 +274,8 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "When implemented in a derived class, saves the specified completed scope to a data store."
-  remarks: "The workflow runtime engine saves the state of completed scope activities in order to implement compensation. You must call one of the overloaded <xref:System.Workflow.ComponentModel.Activity.Save%2A> methods to serialize `activity` into a <xref:System.IO.Stream>; you may then choose to additionally process the <xref:System.IO.Stream> before writing it to your data store. However, when the workflow runtime engine calls <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadCompletedContextActivity%2A>, you must restore an identical copy of the activity.       You must be able to associate the completed scope with its enclosing workflow instance to mark the scope as unneeded in your data store when the workflow instance finishes or is terminated. Therefore, you should also save the <xref:System.Guid> of the workflow instance that is associated with the completed scope; this can be obtained from the <xref:System.Workflow.Runtime.WorkflowInstance.InstanceId%2A> property of the <xref:System.Workflow.Runtime.WorkflowInstance> associated with `activity`.       <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadCompletedContextActivity%2A> takes the <xref:System.Guid> of the completed scope as a parameter. Therefore, you must also save the <xref:System.Workflow.ComponentModel.ActivityExecutionContext.ContextGuid%2A> property associated with `activity`. This property can be referenced through the <xref:System.Workflow.ComponentModel.Activity.ActivityContextGuidProperty> field of `activity`.       If you are implementing a persistence service that uses a durable store, to maintain consistency with the internal state of the workflow runtime engine, you should participate in workflow transaction batching to defer the actual write to your durable store until a workflow commit point. To participate in batching, add a work item to the <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A> property that represents the pending changes to the database, and implement the <xref:System.Workflow.Runtime.IPendingWork> interface in your persistence service.       If you cannot save the completed scope to your data store, you should throw a <xref:System.Workflow.Runtime.Hosting.PersistenceException> with an appropriate error message."
+  summary: "Po zaimplementowaniu w klasie pochodnej, zapisuje określony zakres ukończone w magazynie danych."
+  remarks: "Aparatu wykonawczego workflow zapisuje stan ukończonych zakres działań w celu wdrożenia kompensacji. Należy wywołać z przeciążone <xref:System.Workflow.ComponentModel.Activity.Save%2A>metod do serializacji `activity` do <xref:System.IO.Stream>; można następnie dodatkowo przetworzyć <xref:System.IO.Stream>przed zapisywanie w magazynie danych.</xref:System.IO.Stream> </xref:System.IO.Stream> </xref:System.Workflow.ComponentModel.Activity.Save%2A> Jednakże, gdy aparatu wykonawczego workflow wywołuje <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadCompletedContextActivity%2A>, należy przywrócić identyczne kopię działania.</xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadCompletedContextActivity%2A>       Użytkownik musi mieć możliwość skojarzenia zakresu ukończone z otaczającym wystąpienia przepływu pracy, tak aby oznaczyć zakresu jako niepotrzebnych w magazynie danych po zakończeniu działania wystąpienia przepływu pracy lub przerwane. Dlatego też należy zapisać <xref:System.Guid>wystąpienia przepływu pracy, który jest skojarzony z zakresem ukończone; to można uzyskać z <xref:System.Workflow.Runtime.WorkflowInstance.InstanceId%2A>Właściwość <xref:System.Workflow.Runtime.WorkflowInstance>skojarzone z `activity`.</xref:System.Workflow.Runtime.WorkflowInstance> </xref:System.Workflow.Runtime.WorkflowInstance.InstanceId%2A> </xref:System.Guid>       <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadCompletedContextActivity%2A>Trwa <xref:System.Guid>ukończone zakresu jako parametr.</xref:System.Guid></xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadCompletedContextActivity%2A> Dlatego też należy zapisać <xref:System.Workflow.ComponentModel.ActivityExecutionContext.ContextGuid%2A>Właściwości skojarzonej z `activity`.</xref:System.Workflow.ComponentModel.ActivityExecutionContext.ContextGuid%2A> Ta właściwość może być przywoływany przez <xref:System.Workflow.ComponentModel.Activity.ActivityContextGuidProperty>pole `activity`.</xref:System.Workflow.ComponentModel.Activity.ActivityContextGuidProperty>       W przypadku wdrażania usługi utrwalania, która używa magazynu trwałego, aby zachować spójność z wewnętrzny stan klasy środowiska uruchomieniowego przepływu można powinny uczestniczyć w transakcji przepływu pracy, przetwarzanie wsadowe umożliwiające odroczenie rzeczywiste zapisu w magazynie trwałe, aż do punktu zatwierdzania przepływu pracy. Aby wziąć udział w przetwarzaniu wsadowym, Dodaj element roboczy do <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>właściwość, która reprezentuje oczekujące zmiany do bazy danych i implementować <xref:System.Workflow.Runtime.IPendingWork>interfejsu w usłudze utrwalania.</xref:System.Workflow.Runtime.IPendingWork> </xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>       Jeśli ukończono zakresu nie może zapisać do magazynu danych, powinien zgłosić <xref:System.Workflow.Runtime.Hosting.PersistenceException>odpowiedni komunikat o błędzie.</xref:System.Workflow.Runtime.Hosting.PersistenceException>"
   example:
   - "The following example demonstrates an implementation of the `SaveCompletedContextActivity` method. This example is from the Custom Persistence Service sample, from the FilePersistenceService.cs file. For more information, see [Custom Persistence Service Sample](http://msdn.microsoft.com/en-us/869dfadf-5298-4551-bc80-f4cf7918729d).  \n  \n [!code-cs[WF_Samples#268](~/add/codesnippet/csharp/wf_snippets/snippets24.cs#268)]\n [!code-vb[WF_Samples#268](~/add/codesnippet/visualbasic/wf_snippets/snippets24.vb#268)]"
   syntax:
@@ -283,7 +283,7 @@ items:
     parameters:
     - id: activity
       type: System.Workflow.ComponentModel.Activity
-      description: "An <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> that represents the completed scope."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> Reprezentujący ukończone zakresu."
   overload: System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveCompletedContextActivity*
   exceptions: []
   platform:
@@ -300,8 +300,8 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "When implemented in a derived class, saves the workflow instance state to a data store."
-  remarks: "You must call one of the overloaded <xref:System.Workflow.ComponentModel.Activity.Save%2A> methods to serialize `rootActivity` into a <xref:System.IO.Stream>. You can then choose to additionally process the <xref:System.IO.Stream> before writing it to your data store. However, when the workflow runtime engine calls <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadWorkflowInstanceState%2A>, you must restore an identical copy of the root activity. If you cannot save the workflow instance state to your data store, you should throw a <xref:System.Workflow.Runtime.Hosting.PersistenceException> with an appropriate error message.       The workflow runtime engine provides locking semantics to restrict access to a workflow instance state that is saved in the data store. This can be accessed by the persistence services running in multiple hosts and pointing to the same data store. The locking semantics are designed to prevent persistence services that run in two different workflow runtimes from loading the same workflow instance into memory at the same time. Depending on the type of environment your persistence service is designed to support, you can choose whether to support this functionality. If you choose to support the runtime locking semantics, then, if a persistence service tries to save a workflow instance state that has been previously locked by another persistence service, you should throw a <xref:System.Workflow.Runtime.WorkflowOwnershipException>. If `unlock` is `true`, you should unlock access to the workflow instance state after you save it.       <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadWorkflowInstanceState%2A> takes the <xref:System.Guid> of the workflow instance as a parameter. Therefore, you should save this <xref:System.Guid>. You can also use this <xref:System.Guid> to associate the workflow instance with the saved states of its completed scopes. You must do this because you must be able to mark these completed scopes as unneeded when the workflow instance completes.       The workflow runtime engine calls SaveWorkflowInstanceState a final time when the workflow instance is completed or terminated. Therefore, if <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.GetWorkflowStatus%2A> is equal to <xref:System.Workflow.Runtime.WorkflowStatus> or <xref:System.Workflow.Runtime.WorkflowStatus>, you can safely delete the workflow instance and all its associated completed scopes from your data store. Alternatively, you can subscribe to the <xref:System.Workflow.Runtime.WorkflowRuntime.WorkflowCompleted> or <xref:System.Workflow.Runtime.WorkflowRuntime.WorkflowTerminated> events to determine when it is safe to delete records associated with the workflow instance. Whether you actually delete the records from your data store depends on your implementation.       If you implement a persistence service that uses a durable store, then, to maintain consistency with the internal state of the workflow runtime engine, you should participate in workflow transaction batching to defer the actual write to your durable store until a workflow commit point. To participate in batching, add a work item that represents the pending changes to your durable store to the <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A> property, and implement the <xref:System.Workflow.Runtime.IPendingWork> interface in your persistence service."
+  summary: "Po zaimplementowaniu w klasie pochodnej, zapisuje stan wystąpienia przepływu pracy w magazynie danych."
+  remarks: "Należy wywołać z przeciążone <xref:System.Workflow.ComponentModel.Activity.Save%2A>metod do serializacji `rootActivity` do <xref:System.IO.Stream>.</xref:System.IO.Stream> </xref:System.Workflow.ComponentModel.Activity.Save%2A> Następnie użytkownik może także przetwarzać <xref:System.IO.Stream>przed zapisywanie w magazynie danych.</xref:System.IO.Stream> Jednakże, gdy aparatu wykonawczego workflow wywołuje <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadWorkflowInstanceState%2A>, należy przywrócić identyczne kopię działania głównego.</xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadWorkflowInstanceState%2A> Jeśli nie można zapisać stanu wystąpienia przepływu pracy do magazynu danych, powinien zgłosić <xref:System.Workflow.Runtime.Hosting.PersistenceException>odpowiedni komunikat o błędzie.</xref:System.Workflow.Runtime.Hosting.PersistenceException>       Aparat środowiska uruchomieniowego przepływu pracy zawiera semantyką blokowania, aby ograniczyć dostęp do stanu wystąpienia przepływu pracy, który jest zapisany w magazynie danych. To są dostępne przez trwałości usługi uruchomione na wielu hostach i wskazujący tego samego magazynu danych. Semantyka blokowania zapobiegające usług trwałości, które działają w dwóch różnych przepływu pracy środowiska uruchomieniowe ładowania tego samego wystąpienia przepływu pracy do pamięci w tym samym czasie. W zależności od typu środowiska, które umożliwia obsługę usługi trwałości możesz wybrać, czy do obsługi tej funkcji. Jeśli wybierzesz obsługuje semantykę blokowania środowiska uruchomieniowego, następnie, jeśli usługa trwałości próbuje zapisać stan wystąpienia przepływu pracy, który wcześniej został zablokowany przez inną usługę trwałości, możesz powinien zgłosić <xref:System.Workflow.Runtime.WorkflowOwnershipException>.</xref:System.Workflow.Runtime.WorkflowOwnershipException> Jeśli `unlock` jest `true`, należy odblokować dostęp do stanu wystąpienia przepływu pracy po jego zapisaniu.       <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadWorkflowInstanceState%2A>Trwa <xref:System.Guid>wystąpienia przepływu pracy jako parametr.</xref:System.Guid></xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.LoadWorkflowInstanceState%2A> W związku z tym należy zapisać ten <xref:System.Guid>.</xref:System.Guid> Możesz także użyć tej funkcji <xref:System.Guid>do skojarzenia z zapisanymi stanami jego zakresów ukończone wystąpienia przepływu pracy.</xref:System.Guid> Należy to zrobić, ponieważ użytkownik musi mieć możliwość tych zakresów ukończone zostać oznaczone jako niepotrzebne, gdy ukończy wystąpienia przepływu pracy.       Aparatu wykonawczego workflow wywołuje SaveWorkflowInstanceState końcowego czasu, gdy wystąpienie przepływu pracy jest wykonana lub zakończona. W związku z tym jeśli <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.GetWorkflowStatus%2A>jest równa <xref:System.Workflow.Runtime.WorkflowStatus>lub <xref:System.Workflow.Runtime.WorkflowStatus>, można bezpiecznie usunąć wystąpienia przepływu pracy i jego skojarzony zakresy ukończone z magazynu danych.</xref:System.Workflow.Runtime.WorkflowStatus> </xref:System.Workflow.Runtime.WorkflowStatus> </xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.GetWorkflowStatus%2A> Alternatywnie można subskrybować <xref:System.Workflow.Runtime.WorkflowRuntime.WorkflowCompleted>lub <xref:System.Workflow.Runtime.WorkflowRuntime.WorkflowTerminated>zdarzeń w celu określenia, kiedy jest bezpiecznie usunąć rekordy skojarzone z wystąpieniem przepływu pracy.</xref:System.Workflow.Runtime.WorkflowRuntime.WorkflowTerminated> </xref:System.Workflow.Runtime.WorkflowRuntime.WorkflowCompleted> Czy rzeczywiście Usuń rekordy z magazynu danych, zależy od implementacji.       W przypadku zastosowania usługi utrwalania, która używa magazynu trwałego, następnie, aby zachować spójność z wewnętrzny stan klasy środowiska uruchomieniowego przepływu można powinny uczestniczyć w transakcji przepływu pracy, przetwarzanie wsadowe umożliwiające odroczenie rzeczywiste zapisu w magazynie trwałe, aż do punktu zatwierdzania przepływu pracy. Aby wziąć udział w przetwarzaniu wsadowym, Dodaj element roboczy, który reprezentuje oczekujące zmiany do magazynu trwałego na <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>Właściwości i wdrożenie <xref:System.Workflow.Runtime.IPendingWork>interfejsu w usłudze utrwalania.</xref:System.Workflow.Runtime.IPendingWork> </xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>"
   example:
   - "The following example demonstrates an implementation of the `SaveWorkflowInstanceState` method. This example is from the Custom Persistence Service sample, from the FilePersistenceService.cs file. For more information, see [Custom Persistence Service Sample](http://msdn.microsoft.com/en-us/869dfadf-5298-4551-bc80-f4cf7918729d).  \n  \n [!code-cs[WF_Samples#264](~/add/codesnippet/csharp/wf_snippets/snippets24.cs#264)]\n [!code-vb[WF_Samples#264](~/add/codesnippet/visualbasic/wf_snippets/snippets24.vb#264)]"
   syntax:
@@ -309,10 +309,10 @@ items:
     parameters:
     - id: rootActivity
       type: System.Workflow.ComponentModel.Activity
-      description: "The root activity of the workflow instance."
+      description: "Działanie główne wystąpienia przepływu pracy."
     - id: unlock
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the workflow instance should not be locked; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the workflow instance should be locked."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli wystąpienie przepływu pracy nie ma zostać zablokowana; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Jeśli wystąpienia przepływu pracy ma być zablokowana."
   overload: System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveWorkflowInstanceState*
   exceptions: []
   platform:
@@ -329,7 +329,7 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Determines whether a workflow should be unloaded when idle."
+  summary: "Określa, czy przepływ pracy ma być zwolniony podczas bezczynności."
   remarks: ''
   example:
   - "The following example demonstrates an implementation of the `UnloadOnIdle` method. This example is from the Custom Persistence Service sample, from the FilePersistenceService.cs file. For more information, see [Custom Persistence Service Sample](http://msdn.microsoft.com/en-us/869dfadf-5298-4551-bc80-f4cf7918729d).  \n  \n [!code-cs[WF_Samples#270](~/add/codesnippet/csharp/wf_snippets/snippets24.cs#270)]\n [!code-vb[WF_Samples#270](~/add/codesnippet/visualbasic/wf_snippets/snippets24.vb#270)]"
@@ -338,10 +338,10 @@ items:
     parameters:
     - id: activity
       type: System.Workflow.ComponentModel.Activity
-      description: "An <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> that represents the completed scope."
+      description: "<xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> Reprezentujący ukończone zakresu."
     return:
       type: System.Boolean
-      description: "If <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, the workflow runtime engine unloads the specified workflow when it becomes idle."
+      description: "Jeśli <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>, aparatu wykonawczego workflow zwalnia określonego przepływu pracy, gdy stanie się bezczynności."
   overload: System.Workflow.Runtime.Hosting.WorkflowPersistenceService.UnloadOnIdle*
   exceptions: []
   platform:
@@ -358,8 +358,8 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "When overridden in a derived class, unlocks the workflow instance state."
-  remarks: "This method is abstract, so it does not contain a default implementation on locking and unlocking.       While implementing a custom persistence service, if you want to implement a locking scheme you will need to override this method and provide a locking-unlocking mechanism in the <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveWorkflowInstanceState%2A> method based on the value of the unlock parameter."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, odblokowuje stanu wystąpienia przepływu pracy."
+  remarks: "Ta metoda jest abstrakcyjna, więc nie zawiera domyślną implementację na blokowanie i odblokowywanie.       Podczas wdrożenia usługi utrwalania niestandardowe, aby zaimplementować blokowania schematu należy przesłonić tę metodę i udostępniają mechanizm blokowania odblokowywania w <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveWorkflowInstanceState%2A>Metoda oparta na wartości parametru unlock.</xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService.SaveWorkflowInstanceState%2A>"
   example:
   - "The following example demonstrates an implementation of the `UnlockWorkflowInstanceState` method. This example is from the Custom Persistence Service sample, from the FilePersistenceService.cs file. For more information, see [Custom Persistence Service Sample](http://msdn.microsoft.com/en-us/869dfadf-5298-4551-bc80-f4cf7918729d).  \n  \n [!code-cs[WF_Samples#267](~/add/codesnippet/csharp/wf_snippets/snippets24.cs#267)]\n [!code-vb[WF_Samples#267](~/add/codesnippet/visualbasic/wf_snippets/snippets24.vb#267)]"
   syntax:
@@ -367,7 +367,7 @@ items:
     parameters:
     - id: rootActivity
       type: System.Workflow.ComponentModel.Activity
-      description: "The root activity of the workflow instance."
+      description: "Działanie główne wystąpienia przepływu pracy."
   overload: System.Workflow.Runtime.Hosting.WorkflowPersistenceService.UnlockWorkflowInstanceState*
   exceptions: []
   platform:

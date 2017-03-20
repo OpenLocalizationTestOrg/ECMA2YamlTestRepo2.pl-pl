@@ -12,8 +12,8 @@ items:
   nameWithType: IWebPartParameters
   fullName: System.Web.UI.WebControls.WebParts.IWebPartParameters
   type: Interface
-  summary: "Defines the contract a Web Parts control implements to pass a parameter value in a Web Parts connection."
-  remarks: "Data is usually sent from a provider to a consumer in a Web Parts connection. However, in some cases, a provider needs a parameter from the consumer to determine which values it should send back. The IWebPartParameters interface defines members to implement that facilitate the passing of a parameter from a consumer to a provider.       The <xref:System.Web.UI.WebControls.WebParts.RowToParametersTransformer> class implements the IWebPartParameters interface. Transformers are used to translate data between two Web Parts controls with incompatible connection points. A <xref:System.Web.UI.WebControls.WebParts.RowToParametersTransformer> object transforms data from a provider implementing the <xref:System.Web.UI.WebControls.WebParts.IWebPartRow> interface when the provider needs a parameter from the consumer.       The <xref:System.Web.UI.WebControls.WebParts.IWebPartParameters.GetParametersData%2A> method retrieves the data from the provider and provides a callback method to process the data for the consumer. The callback method can be a customized method within the consumer that sets the return values accordingly."
+  summary: "Definiuje kontrakt, który implementuje formantu składników Web Part do przekazania wartości parametru, w związku z części sieci Web."
+  remarks: "Dane są zwykle wysyłane od dostawcy z klientem w przypadku połączenia części sieci Web. Jednak w niektórych przypadkach dostawcy wymaga parametru od konsumenta, aby określić wartości, które należy wysłać ponownie. Interfejs parametrów IWebPartParameters definiuje elementy członkowskie do zaimplementowania ułatwiających przekazywanie parametru od klienta do dostawcy.       <xref:System.Web.UI.WebControls.WebParts.RowToParametersTransformer>Klasa implementuje interfejs parametrów IWebPartParameters.</xref:System.Web.UI.WebControls.WebParts.RowToParametersTransformer> Transformatory są używane do tłumaczenia danych między dwóch formantów składników Web Part z punktami połączenia niezgodne. A <xref:System.Web.UI.WebControls.WebParts.RowToParametersTransformer>obiektu przekształcenia danych od dostawcy implementacja <xref:System.Web.UI.WebControls.WebParts.IWebPartRow>interfejs, gdy dostawca wymaga parametru od konsumenta.</xref:System.Web.UI.WebControls.WebParts.IWebPartRow> </xref:System.Web.UI.WebControls.WebParts.RowToParametersTransformer>       <xref:System.Web.UI.WebControls.WebParts.IWebPartParameters.GetParametersData%2A>Metoda pobiera dane od dostawcy i udostępnia metodę wywołania zwrotnego do przetwarzania danych dla konsumentów.</xref:System.Web.UI.WebControls.WebParts.IWebPartParameters.GetParametersData%2A> Metoda wywołania zwrotnego może być metodą dostosowanego w konsumenta, która ustawia wartości zwracanych w związku z tym."
   syntax:
     content: public interface IWebPartParameters
   implements: []
@@ -31,14 +31,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets the value of the data from the connection provider."
-  remarks: "The GetParametersData method is used to retrieve the values from the provider based on a parameter. The method represented by the `callback` parameter processes the data for use by the consumer."
+  summary: "Pobiera wartość danych od dostawcy połączenia."
+  remarks: "Metoda GetParametersData służy do pobierania wartości z dostawcy na podstawie parametru. Metodę reprezentowaną przez `callback` parametru przetwarza dane do użytku przez klienta."
   syntax:
     content: public void GetParametersData (System.Web.UI.WebControls.WebParts.ParametersCallback callback);
     parameters:
     - id: callback
       type: System.Web.UI.WebControls.WebParts.ParametersCallback
-      description: "The method to call to process the data from the provider."
+      description: "Metoda do wywołania w celu przetworzenia danych od dostawcy."
   overload: System.Web.UI.WebControls.WebParts.IWebPartParameters.GetParametersData*
   exceptions: []
   platform:
@@ -55,13 +55,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Gets the property descriptors for the data to be received by the consumer."
-  remarks: "The Schema property provides property information for the data passed by the interface. Transformer and consumer controls can query this property to get information about the type, contents, and other details of the field contained in the <xref:System.Web.UI.WebControls.WebParts.IWebPartParameters> interface instance."
+  summary: "Pobiera deskryptory właściwości dla danych do odebrania przez klienta."
+  remarks: "Właściwość schematu informacje właściwości danych przekazanych przez interfejs. Formanty transformatora i klienta może wysyłać zapytania tę właściwość, aby uzyskać informacje o typie zawartości, i inne szczegóły pola zawarte w <xref:System.Web.UI.WebControls.WebParts.IWebPartParameters>wystąpienie interfejsu.</xref:System.Web.UI.WebControls.WebParts.IWebPartParameters>"
   syntax:
     content: public System.ComponentModel.PropertyDescriptorCollection Schema { get; }
     return:
       type: System.ComponentModel.PropertyDescriptorCollection
-      description: "A <xref href=&quot;System.ComponentModel.PropertyDescriptorCollection&quot;></xref> describing the data."
+      description: "A <xref href=&quot;System.ComponentModel.PropertyDescriptorCollection&quot;> </xref> opisujący dane."
   overload: System.Web.UI.WebControls.WebParts.IWebPartParameters.Schema*
   exceptions: []
   platform:
@@ -78,13 +78,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls.WebParts
-  summary: "Sets the property descriptors for the properties that the consumer receives when calling the <xref:System.Web.UI.WebControls.WebParts.IWebPartParameters.GetParametersData*> method."
+  summary: "Ustawia deskryptorów właściwości dla właściwości, które klient otrzymuje podczas wywoływania metody <xref:System.Web.UI.WebControls.WebParts.IWebPartParameters.GetParametersData*>metody.</xref:System.Web.UI.WebControls.WebParts.IWebPartParameters.GetParametersData*>"
   syntax:
     content: public void SetConsumerSchema (System.ComponentModel.PropertyDescriptorCollection schema);
     parameters:
     - id: schema
       type: System.ComponentModel.PropertyDescriptorCollection
-      description: "The <xref href=&quot;System.ComponentModel.PropertyDescriptorCollection&quot;></xref> returned by <xref:System.Web.UI.WebControls.WebParts.IWebPartParameters.Schema*>."
+      description: "<xref href=&quot;System.ComponentModel.PropertyDescriptorCollection&quot;> </xref> Zwrócony przez <xref:System.Web.UI.WebControls.WebParts.IWebPartParameters.Schema*>.</xref:System.Web.UI.WebControls.WebParts.IWebPartParameters.Schema*>"
   overload: System.Web.UI.WebControls.WebParts.IWebPartParameters.SetConsumerSchema*
   exceptions: []
   platform:

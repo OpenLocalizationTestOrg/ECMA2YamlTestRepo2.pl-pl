@@ -21,8 +21,8 @@ items:
   nameWithType: XhtmlTextWriter
   fullName: System.Web.UI.XhtmlTextWriter
   type: Class
-  summary: "Writes Extensible Hypertext Markup Language (XHTML)-specific characters, including all variations of XHTML modules that derive from XTHML, to the output stream for an ASP.NET server control for mobile devices. Override the XhtmlTextWriter class to provide custom XHTML rendering for ASP.NET pages and server controls."
-  remarks: "XHTML is an XML-compliant markup language, based on HTML 4.1, which allows you to create Web sites that are suitable for multiple device types. It merges the ease of use provided by HTML with the strict element guidelines provided by XML to produce a markup language with a wide range of format and style options, and with reduced markup tag ambiguity. The XhtmlTextWriter class provides formatting capabilities that ASP.NET server controls use when rendering XHTML content to clients. You can use the <xref:System.Web.UI.XhtmlTextWriter.SetDocType%2A> method to specify which type of XHTML the text writer renders. Supported document types are defined in the <xref:System.Web.UI.XhtmlMobileDocType> enumeration.       The XhtmlTextWriter class renders two sets of attributes for elements. One set is a collection of common attributes, as referenced in the <xref:System.Web.UI.XhtmlTextWriter.CommonAttributes%2A> property. The second set is a collection of element-specific attributes, as referenced in the <xref:System.Web.UI.XhtmlTextWriter.ElementSpecificAttributes%2A> property. For more information on the elements and styles that are rendered, see the XHTML modularization specification at the [World Wide Web Consortium (W3C) Web site](http://go.microsoft.com/fwlink/?linkid=37125).       You can use the members of the XhtmlTextWriter class and any derived classes to create custom text writers to use in custom XHTML page adapters or class adapters. You can also create derived classes that override the standard behavior of the XhtmlTextWriter class.       By default, when you are working with browsers that support HTML 4.0, ASP.NET pages and controls render markup that is compatible with the XHTML 1.1 standard. For more information, see [XHTML Standards in Visual Studio and ASP.NET](~/add/includes/ajax-current-ext-md.md).       The <xref:System.Web.UI.HtmlTextWriter> outputs XHTML unless you configure ASP.NET specifically to not render XHTML markup. For more information, see [NIB: How to: Configure XHTML Rendering in ASP.NET Web Sites](http://msdn.microsoft.com/en-us/42483a54-f1ae-44e1-88e6-4370f8690149)."
+  summary: "Zapisuje Extensible Hypertext Markup Language (XHTML)-określonych znaków, w tym wszystkie odmiany XHTML modułów, które pochodzą z XTHML, do strumienia wyjściowego dla kontrolki serwera ASP.NET dla urządzeń przenośnych. Zastąp klasy XhtmlTextWriter zapewnienie niestandardowe renderowanie XHTML dla stron i kontrolek serwera ASP.NET."
+  remarks: "XHTML jest standardem XML języka znaczników, w oparciu o 4.1 HTML, który umożliwia tworzenie witryn sieci Web, które są odpowiednie dla różnych typów urządzeń. Scala go łatwość użycia dostarczanych przez HTML z podane wskazówki strict — element XML do produkcji język z szeroką gamę opcji format i styl i zmniejszenie znaczników tag niejednoznaczności. Klasa XhtmlTextWriter udostępnia możliwości formatowania, korzystających z kontrolek serwera ASP.NET podczas renderowania XHTML zawartości do klientów. Można użyć <xref:System.Web.UI.XhtmlTextWriter.SetDocType%2A>metodę, aby określić, jakiego typu XHTML składnik zapisywania tekstu renderuje.</xref:System.Web.UI.XhtmlTextWriter.SetDocType%2A> Dokument obsługiwane typy są definiowane w <xref:System.Web.UI.XhtmlMobileDocType>wyliczenie.</xref:System.Web.UI.XhtmlMobileDocType>       Klasa XhtmlTextWriter renderuje dwa zestawy atrybutów elementów. Jeden zestaw jest kolekcją atrybuty wspólne, zgodnie z informacjami zawartymi w <xref:System.Web.UI.XhtmlTextWriter.CommonAttributes%2A>Właściwości.</xref:System.Web.UI.XhtmlTextWriter.CommonAttributes%2A> Drugi zestaw jest kolekcją atrybuty specyficzne dla elementu, zgodnie z informacjami zawartymi w <xref:System.Web.UI.XhtmlTextWriter.ElementSpecificAttributes%2A>Właściwości.</xref:System.Web.UI.XhtmlTextWriter.ElementSpecificAttributes%2A> Aby uzyskać więcej informacji na elementy i style, które mają być renderowane, zobacz specyfikację modularyzacji XHTML przy [witryny sieci Web w sieci World Wide Web konsorcjum W3C](http://go.microsoft.com/fwlink/?linkid=37125).       Elementy członkowskie klasy XhtmlTextWriter i wszystkie klasy pochodne służy do tworzenia składników zapisywania tekstu niestandardowego do użycia w niestandardowych XHTML strony lub klasy kartami. Można również utworzyć klasy pochodne, które zastępują standardowe zachowanie klasy XhtmlTextWriter.       Domyślnie podczas pracy z przeglądarkach obsługujących język HTML 4.0, stron i kontrolek ASP.NET renderowania kodu znaczników zgodny ze standardem XHTML 1.1. Aby uzyskać więcej informacji, zobacz [standardów XHTML w Visual Studio i ASP.NET](~/add/includes/ajax-current-ext-md.md).       <xref:System.Web.UI.HtmlTextWriter>Danych wyjściowych XHTML dopiero po skonfigurowaniu programu ASP.NET, w szczególności, aby nie renderowania kodu znaczników XHTML.</xref:System.Web.UI.HtmlTextWriter> Aby uzyskać więcej informacji, zobacz [NIB: porady: Konfigurowanie XHTML renderowania w witrynach sieci Web platformy ASP.NET](http://msdn.microsoft.com/en-us/42483a54-f1ae-44e1-88e6-4370f8690149)."
   example:
   - "The code example in this section contains four parts. The first example demonstrates how to create a derived class. The second code example demonstrates how to create a custom control. The third code example demonstrates how to use the custom control. The fourth code example provides the code that is required to run the custom control.  \n  \n The following code example demonstrates how to create a custom class that is derived from the XhtmlTextWriter class. It has two constructors, which is standard for all classes that inherit directly or indirectly from the <xref:System.Web.UI.HtmlTextWriter> class. The first constructor takes a <xref:System.IO.TextWriter> object as a parameter and calls the second constructor, passing the following two parameter values:  \n  \n-   The <xref:System.IO.TextWriter> instance.  \n  \n-   The value of the <xref:System.Web.UI.HtmlTextWriter.DefaultTabString?displayProperty=fullName> property, which defines the default line indentation that is used by the XHTML text writer.  \n  \n This code example also shows how to override the <xref:System.Web.UI.XhtmlTextWriter.OnAttributeRender%2A> and <xref:System.Web.UI.XhtmlTextWriter.OnStyleAttributeRender%2A> methods to filter for text size and color style, respectively. Additionally, it overrides the <xref:System.Web.UI.HtmlTextWriter.BeginRender%2A> and <xref:System.Web.UI.HtmlTextWriter.EndRender%2A> methods to write a text string before and after a control has rendered.  \n  \n [!code-vb[System.Web.UI.XhtmlTextWriter_Sample2#1](~/add/codesnippet/visualbasic/t-system.web.ui.xhtmltex_1.vb)]\n [!code-cs[System.Web.UI.XhtmlTextWriter_Sample2#1](~/add/codesnippet/csharp/t-system.web.ui.xhtmltex_1.cs)]  \n  \n The following code example demonstrates how to create a custom <xref:System.Web.UI.WebControls.Label> control named `TestLabel` and a custom adapter named `XhtmlTestLabelAdapter` that renders the content of the control as XHTML.  \n  \n [!code-cs[System.Web.UI.XhtmlTextWriter_Sample1#1](~/add/codesnippet/csharp/t-system.web.ui.xhtmltex_2.cs)]\n [!code-vb[System.Web.UI.XhtmlTextWriter_Sample1#1](~/add/codesnippet/visualbasic/t-system.web.ui.xhtmltex_2.vb)]  \n  \n The following code example demonstrates how to use the custom control `TestLabel` on an ASP.NET Web page.  \n  \n [!code-cs[System.Web.UI.XhtmlTextWriter_Sample1#4](~/add/codesnippet/csharp/t-system.web.ui.xhtmltex_3.aspx)]\n [!code-vb[System.Web.UI.XhtmlTextWriter_Sample1#4](~/add/codesnippet/visualbasic/t-system.web.ui.xhtmltex_3.aspx)]  \n  \n To use the custom control in the preceding code example, add the following `<controlAdapters>` element to one of two files. You can add it to the appropriate machine-wide file in the subdirectory for a specific browser, as a subfolder of the .NET Framework configuration directory. Alternatively, you can add it to a custom browser file in the App_Browsers directory under the Web application root.  \n  \n```  \n<controlAdapters>  \n   <adapter controlType=\"AspNet.Samples.TestLabel\"  \n   adapterType=\"AspNet.Samples.XhtmlTestLabelAdapter\" />  \n</controlAdapters>  \n```"
   syntax:
@@ -150,8 +150,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.XhtmlTextWriter&quot;></xref> class that uses the line indentation that is specified in the <xref href=&quot;System.Web.UI.HtmlTextWriter.DefaultTabString&quot;></xref> field. Use the XhtmlTextWriter constructor if you do not want to change the default line indentation."
-  remarks: "The XhtmlTextWriter constructor that takes a <xref:System.IO.TextWriter> object as a parameter calls the second constructor, passing two parameter values:      -   The <xref:System.IO.TextWriter> instance.      -   The string value that is specified in the <xref:System.Web.UI.HtmlTextWriter.DefaultTabString> field, which defines the tab spacing that is used by the XHTML text writer."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Web.UI.XhtmlTextWriter&quot;> </xref> klasy, która używa wcięcie linii, określonego w <xref href=&quot;System.Web.UI.HtmlTextWriter.DefaultTabString&quot;> </xref> pola. Użyj konstruktora XhtmlTextWriter, jeśli nie chcesz zmienić domyślne wcięcie linii."
+  remarks: "Konstruktor XhtmlTextWriter, który pobiera <xref:System.IO.TextWriter>obiekt jako parametr wywołań drugi Konstruktor przekazywanie dwóch wartości parametrów: - <xref:System.IO.TextWriter>wystąpienia.</xref:System.IO.TextWriter> </xref:System.IO.TextWriter>      — Wartość ciągu, która została określona w <xref:System.Web.UI.HtmlTextWriter.DefaultTabString>pola, które definiuje odstęp kartę, który jest używany przez składnik zapisywania tekstu XHTML.</xref:System.Web.UI.HtmlTextWriter.DefaultTabString>"
   example:
   - "The following code example demonstrates how to create the two constructors, which is standard for all classes that derive directly or indirectly from the <xref:System.Web.UI.HtmlTextWriter> class, for a custom class that is derived from the <xref:System.Web.UI.XhtmlTextWriter> class.  \n  \n [!code-vb[System.Web.UI.XhtmlTextWriter_Sample2#5](~/add/codesnippet/visualbasic/m-system.web.ui.xhtmltex_0_1.vb)]\n [!code-cs[System.Web.UI.XhtmlTextWriter_Sample2#5](~/add/codesnippet/csharp/m-system.web.ui.xhtmltex_0_1.cs)]"
   syntax:
@@ -159,7 +159,7 @@ items:
     parameters:
     - id: writer
       type: System.IO.TextWriter
-      description: "A <xref:System.IO.TextWriter> instance that renders the XHTML content."
+      description: "A <xref:System.IO.TextWriter>wystąpienia, który renderuje zawartość XHTML.</xref:System.IO.TextWriter>"
   overload: System.Web.UI.XhtmlTextWriter.#ctor*
   exceptions: []
   platform:
@@ -176,7 +176,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.XhtmlTextWriter&quot;></xref> class with the specified line indentation."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Web.UI.XhtmlTextWriter&quot;> </xref> klasy z wcięcie określonego wiersza."
   remarks: ''
   example:
   - "The following code example demonstrates how to create the two constructors, which is standard for all classes that derive directly or indirectly from the <xref:System.Web.UI.HtmlTextWriter> class, for a custom class that is derived from the <xref:System.Web.UI.XhtmlTextWriter> class.  \n  \n [!code-vb[System.Web.UI.XhtmlTextWriter_Sample2#5](~/add/codesnippet/visualbasic/m-system.web.ui.xhtmltex_2_1.vb)]\n [!code-cs[System.Web.UI.XhtmlTextWriter_Sample2#5](~/add/codesnippet/csharp/m-system.web.ui.xhtmltex_2_1.cs)]"
@@ -185,10 +185,10 @@ items:
     parameters:
     - id: writer
       type: System.IO.TextWriter
-      description: "A <xref:System.IO.TextWriter> instance that renders the XHTML content."
+      description: "A <xref:System.IO.TextWriter>wystąpienia, który renderuje zawartość XHTML.</xref:System.IO.TextWriter>"
     - id: tabString
       type: System.String
-      description: "The string used to render a line indentation."
+      description: "Ciąg używany do renderowania wcięcie linii."
   overload: System.Web.UI.XhtmlTextWriter.#ctor*
   exceptions: []
   platform:
@@ -205,17 +205,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Adds an attribute to an XHTML element. The collection of element-specific attributes for the <xref href=&quot;System.Web.UI.XhtmlTextWriter&quot;></xref> object is referenced by the <xref:System.Web.UI.XhtmlTextWriter.ElementSpecificAttributes*> property."
-  remarks: "Use the AddRecognizedAttribute method to add an attribute to an XHTML element. The added attribute can then be recognized and rendered by the <xref:System.Web.UI.XhtmlTextWriter> object. To prevent the writer from rendering a common attribute of an XHTML element, use the <xref:System.Web.UI.XhtmlTextWriter.RemoveRecognizedAttribute%2A> method."
+  summary: "Dodaje atrybut do elementu XHTML. Kolekcja atrybutów elementu specyficznych dla <xref href=&quot;System.Web.UI.XhtmlTextWriter&quot;> </xref> odwołuje się obiekt <xref:System.Web.UI.XhtmlTextWriter.ElementSpecificAttributes*>Właściwości.</xref:System.Web.UI.XhtmlTextWriter.ElementSpecificAttributes*>"
+  remarks: "Aby dodać atrybut do elementu XHTML, należy użyć metody AddRecognizedAttribute. Następnie można rozpoznawać oraz renderowana przez dodane atrybuty <xref:System.Web.UI.XhtmlTextWriter>obiektu.</xref:System.Web.UI.XhtmlTextWriter> Aby zapobiec twórcę renderowania wspólny atrybut elementu XHTML, użyj <xref:System.Web.UI.XhtmlTextWriter.RemoveRecognizedAttribute%2A>metody.</xref:System.Web.UI.XhtmlTextWriter.RemoveRecognizedAttribute%2A>"
   syntax:
     content: public virtual void AddRecognizedAttribute (string elementName, string attributeName);
     parameters:
     - id: elementName
       type: System.String
-      description: "The XHTML element to add the attribute to."
+      description: "Element XHTML, Dodaj atrybut do."
     - id: attributeName
       type: System.String
-      description: "The attribute to add."
+      description: "Atrybut do dodania."
   overload: System.Web.UI.XhtmlTextWriter.AddRecognizedAttribute*
   exceptions: []
   platform:
@@ -232,13 +232,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets a <xref href=&quot;System.Collections.Hashtable&quot;></xref> object containing common attributes of the markup tags for the <xref href=&quot;System.Web.UI.XhtmlTextWriter&quot;></xref> object."
-  remarks: "The CommonAttributes collection contains attributes that are allowed in XHTML elements and that are not suppressed in the <xref:System.Web.UI.XhtmlTextWriter.SuppressCommonAttributes%2A> property. For more information on common attributes, see the [World Wide Web Consortium (W3C) Web site](http://go.microsoft.com/fwlink/?linkid=37125).       When a new instance of the <xref:System.Web.UI.XhtmlTextWriter> class is created, the common attributes that are initialized are:      -   `class`      -   `id`      -   `title`      -   `xml:lang`"
+  summary: "Pobiera <xref href=&quot;System.Collections.Hashtable&quot;> </xref> obiekt zawierający atrybuty wspólne dla znaczników dla <xref href=&quot;System.Web.UI.XhtmlTextWriter&quot;> </xref> obiektu."
+  remarks: "Kolekcja CommonAttributes zawiera atrybuty, które są dozwolone w elementach XHTML i które nie są pomijane w <xref:System.Web.UI.XhtmlTextWriter.SuppressCommonAttributes%2A>Właściwości.</xref:System.Web.UI.XhtmlTextWriter.SuppressCommonAttributes%2A> Aby uzyskać więcej informacji na takie same atrybuty wspólne, zobacz [witryny sieci Web w sieci World Wide Web konsorcjum W3C](http://go.microsoft.com/fwlink/?linkid=37125).       Jeśli nowe wystąpienie klasy <xref:System.Web.UI.XhtmlTextWriter>klasa została utworzona, są atrybuty wspólne, które są inicjowane:- `class`       -    `id`       -    `title`       -    `xml:lang` </xref:System.Web.UI.XhtmlTextWriter>"
   syntax:
     content: protected System.Collections.Hashtable CommonAttributes { get; }
     return:
       type: System.Collections.Hashtable
-      description: "A <xref href=&quot;System.Collections.Hashtable&quot;></xref> object containing common attributes."
+      description: "A <xref href=&quot;System.Collections.Hashtable&quot;> </xref> obiekt zawierający atrybuty wspólne."
   overload: System.Web.UI.XhtmlTextWriter.CommonAttributes*
   exceptions: []
   platform:
@@ -255,13 +255,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets a <xref href=&quot;System.Collections.Hashtable&quot;></xref> object containing element-specific attributes."
-  remarks: "Use the <xref:System.Web.UI.XhtmlTextWriter.AddRecognizedAttribute%2A> method to add recognized attributes to an XHTML element. To remove common attributes on an XHTML element, use the <xref:System.Web.UI.XhtmlTextWriter.RemoveRecognizedAttribute%2A> method.       When a new instance of the <xref:System.Web.UI.XhtmlTextWriter> class is created, the <xref:System.Collections.Hashtable> object of element-specific attributes is populated with the attributes shown in the following table.      |Element|Attributes|   |-------------|----------------|   |`<a>`|`accesskey`, `href`, `charset`, `hreflang`, `rel`, `type`, `rev`, `title`, `tabindex`|   |`<base>`|`href`|   |`<blockquote>`|`cite`|   |`<br>`|`id`, `class`, `title`|   |`<form>`|`action`, `method`, `enctype`|   |`<head>`|`xml:lang`|   |`<html>`|`version`, `xml:lang`, `xmlns`|   |`<img>`|`src`, `alt`, `width`, `longdesc`, `height`|   |`<input>`|`size`, `accesskey`, `title`, `name`, `type`, `disabled`, `value`, `src`, `checked`, `maxlength`, `tabindex`|   |`<label>`|`accesskey`, `for`|   |`<li>`|`value`|   |`<link>`|`hreflang`, `rev`, `type`, `charset`, `rel`, `href`, `media`|   |`<meta>`|`content`, `name`, `xml:lang`, `http-equiv`, `scheme`|   |`<object>`|`codebase`, `classid`, `data`, `standby`, `name`, `type`, `height`, `archive`, `declare`, `width`, `tabindex`, `codetype`|   |`<ol>`|`start`|   |`<optgroup>`|`label`, `disabled`|   |`<option>`|`selected`, `value`|   |`<param>`|`id`, `name`, `valuetype`, `value`, `type`|   |`<pre>`|`xml:space`|   |`<q>`|`cite`|   |`<select>`|`name`, `tabindex`, `disabled`, `multiple`, `size`|   |`<style>`|`xml:lang`, `xml:space`, `type`, `title`, `media`|   |`<table>`|`width`, `summary`|   |`<textarea>`|`name`, `cols`, `accesskey`, `tabindex`, `rows`|   |`<td>`|`headers`, `align`, `rowspan`, `colspan`, `axis`, `scope`, `abbr`, `valign`|   |`<th>`|`headers`, `align`, `rowspan`, `colspan`, `axis`, `scope`, `abbr`, `valign`|   |`<title>`|`xml:lang`|   |`<tr>`|`align`, `valign`|       For more information on the elements and styles that are rendered, see the XHTML modularization specification at the [World Wide Web Consortium (W3C) Web site](http://go.microsoft.com/fwlink/?linkid=37125)."
+  summary: "Pobiera <xref href=&quot;System.Collections.Hashtable&quot;> </xref> obiekt zawierający atrybuty specyficzne dla elementu."
+  remarks: "Użyj <xref:System.Web.UI.XhtmlTextWriter.AddRecognizedAttribute%2A>metody w celu dodania rozpoznanym atrybutów do elementu XHTML.</xref:System.Web.UI.XhtmlTextWriter.AddRecognizedAttribute%2A> Aby usunąć atrybuty wspólne dla elementu XHTML, użyj <xref:System.Web.UI.XhtmlTextWriter.RemoveRecognizedAttribute%2A>metody.</xref:System.Web.UI.XhtmlTextWriter.RemoveRecognizedAttribute%2A>       Jeśli nowe wystąpienie klasy <xref:System.Web.UI.XhtmlTextWriter>utworzeniu klasy <xref:System.Collections.Hashtable>obiektu atrybuty specyficzne dla elementu jest wypełniana atrybuty przedstawiono w poniższej tabeli.</xref:System.Collections.Hashtable> </xref:System.Web.UI.XhtmlTextWriter>      | Element | Atrybuty |   |-------------|----------------|   | `<a>`|`accesskey`, `href`, `charset`, `hreflang`, `rel`, `type`, `rev`, `title`, `tabindex`|   | `<base>`|`href`|   | `<blockquote>`|`cite`|   | `<br>`|`id`, `class`, `title`|   | `<form>`|`action`, `method`, `enctype`|   | `<head>`|`xml:lang`|   | `<html>`|`version`, `xml:lang`, `xmlns`|   | `<img>`|`src`, `alt`, `width`, `longdesc`, `height`|   | `<input>`|`size`, `accesskey`, `title`, `name`, `type`, `disabled`, `value`, `src`, `checked`, `maxlength`, `tabindex`|   | `<label>`|`accesskey`, `for`|   | `<li>`|`value`|   | `<link>`|`hreflang`, `rev`, `type`, `charset`, `rel`, `href`, `media`|   | `<meta>`|`content`, `name`, `xml:lang`, `http-equiv`, `scheme`|   | `<object>`|`codebase`, `classid`, `data`, `standby`, `name`, `type`, `height`, `archive`, `declare`, `width`, `tabindex`, `codetype`|   | `<ol>`|`start`|   | `<optgroup>`|`label`, `disabled`|   | `<option>`|`selected`, `value`|   | `<param>`|`id`, `name`, `valuetype`, `value`, `type`|   | `<pre>`|`xml:space`|   | `<q>`|`cite`|   | `<select>`|`name`, `tabindex`, `disabled`, `multiple`, `size`|   | `<style>`|`xml:lang`, `xml:space`, `type`, `title`, `media`|   | `<table>`|`width`, `summary`|   | `<textarea>`|`name`, `cols`, `accesskey`, `tabindex`, `rows`|   | `<td>`|`headers`, `align`, `rowspan`, `colspan`, `axis`, `scope`, `abbr`, `valign`|   | `<th>`|`headers`, `align`, `rowspan`, `colspan`, `axis`, `scope`, `abbr`, `valign`|   | `<title>`|`xml:lang`|   | `<tr>`|`align`, `valign`|       Aby uzyskać więcej informacji na elementy i style, które mają być renderowane, zobacz specyfikację modularyzacji XHTML przy [witryny sieci Web w sieci World Wide Web konsorcjum W3C](http://go.microsoft.com/fwlink/?linkid=37125)."
   syntax:
     content: protected System.Collections.Hashtable ElementSpecificAttributes { get; }
     return:
       type: System.Collections.Hashtable
-      description: "A <xref href=&quot;System.Collections.Hashtable&quot;></xref> object containing element-specific attributes."
+      description: "A <xref href=&quot;System.Collections.Hashtable&quot;> </xref> obiekt zawierający atrybuty specyficzne dla elementu."
   overload: System.Web.UI.XhtmlTextWriter.ElementSpecificAttributes*
   exceptions: []
   platform:
@@ -278,8 +278,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Checks an XHTML attribute to ensure that it can be rendered in the opening tag of a <xref uid=&quot;langword_csharp_&lt;form&gt;&quot; name=&quot;&lt;form&gt;&quot; href=&quot;&quot;></xref> element."
-  remarks: "This method is useful to conditionally render an attribute depending on whether it is supported by the XHTML document type of the requesting device."
+  summary: "Sprawdza atrybutu XHTML, aby upewnić się, że mogą być renderowane w tagu otwierającym <xref uid=&quot;langword_csharp_&lt;form&gt;&quot; name=&quot;&lt;form&gt;&quot; href=&quot;&quot;> </xref> elementu."
+  remarks: "Ta metoda jest przydatna do renderowania warunkowo atrybutu w zależności od tego, czy jest to obsługiwane przez typu dokumentu XHTML urządzenia wysyłającego żądanie."
   example:
   - "The following code example is part of a larger example that creates a custom <xref:System.Web.UI.WebControls.Label> control and an adapter that renders the content of the control as XHTML.  \n  \n This code example demonstrates how to create a Boolean variable named `attTest` and set it to the return value that results from calling the IsValidFormAttribute method with the parameter value \"style\". If the IsValidFormAttribute method returns `true`, the styles that are associated with the control are rendered using the <xref:System.Web.UI.HtmlTextWriter.EnterStyle%2A?displayProperty=fullName> and <xref:System.Web.UI.HtmlTextWriter.ExitStyle%2A?displayProperty=fullName> methods. If the `attTest` value is `false`, the styles are not rendered. Instead, the page displays the text for the control, a `<br/>` element that is rendered by the <xref:System.Web.UI.XhtmlTextWriter.WriteBreak%2A> method, and a text string informing the user that the XHTML content of the control has rendered conditionally.  \n  \n This code example is part of a larger example provided for the <xref:System.Web.UI.XhtmlTextWriter> class.  \n  \n [!code-cs[System.Web.UI.XhtmlTextWriter_Sample1#3](~/add/codesnippet/csharp/m-system.web.ui.xhtmltex_1_1.cs)]\n [!code-vb[System.Web.UI.XhtmlTextWriter_Sample1#3](~/add/codesnippet/visualbasic/m-system.web.ui.xhtmltex_1_1.vb)]"
   syntax:
@@ -287,10 +287,10 @@ items:
     parameters:
     - id: attributeName
       type: System.String
-      description: "The attribute name to check."
+      description: "Nazwa atrybutu do sprawdzenia."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the attribute can be applied to a <xref uid=&quot;langword_csharp_&lt;form&gt;&quot; name=&quot;&lt;form&gt;&quot; href=&quot;&quot;></xref> element; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli ten atrybut można zastosować do <xref uid=&quot;langword_csharp_&lt;form&gt;&quot; name=&quot;&lt;form&gt;&quot; href=&quot;&quot;> </xref> elementu; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.XhtmlTextWriter.IsValidFormAttribute*
   exceptions: []
   platform:
@@ -307,7 +307,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Determines whether the specified XHTML attribute and its value can be rendered to the current markup element."
+  summary: "Określa, czy określony atrybut XHTML i jej wartość może być renderowana do bieżącego elementu znaczników."
   remarks: ''
   example:
   - "The following code example demonstrates how to override the OnAttributeRender method to check whether a `size` attribute is rendered for any of the elements that are rendered by this text writer. If a `size` attribute is rendered, the code checks whether its value is 8 point. If so, the OnAttributeRender method returns `true`, allowing the attribute and its value to render. If the value is other than 8 point, the OnAttributeRender method returns `false`, and the attribute and its value are not rendered. If the key parameter of the OnAttributeRender method does not match the <xref:System.Web.UI.HtmlTextWriterAttribute> attribute, the base functionality of the OnAttributeRender method is called, as defined in the <xref:System.Web.UI.XhtmlTextWriter> class.  \n  \n This code example is part of a larger example provided for the <xref:System.Web.UI.XhtmlTextWriter> class.  \n  \n [!code-vb[System.Web.UI.XhtmlTextWriter_Sample2#2](~/add/codesnippet/visualbasic/6d2b07a3-4dc4-4907-8a6f-_1.vb)]\n [!code-cs[System.Web.UI.XhtmlTextWriter_Sample2#2](~/add/codesnippet/csharp/6d2b07a3-4dc4-4907-8a6f-_1.cs)]"
@@ -316,16 +316,16 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The XHTML attribute to render."
+      description: "Atrybut XHTML do renderowania."
     - id: value
       type: System.String
-      description: "The value assigned to the XHTML attribute."
+      description: "Wartość atrybutu XHTML."
     - id: key
       type: System.Web.UI.HtmlTextWriterAttribute
-      description: "The <xref href=&quot;System.Web.UI.HtmlTextWriterAttribute&quot;></xref> enumeration value associated with the XHTML attribute."
+      description: "<xref href=&quot;System.Web.UI.HtmlTextWriterAttribute&quot;> </xref> Wartość wyliczenia skojarzone z atrybutu XHTML."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the attribute is rendered to the page; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli atrybut jest odwzorowywany na stronie; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.XhtmlTextWriter.OnAttributeRender*
   exceptions: []
   platform:
@@ -342,7 +342,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Determines whether the specified XHTML style attribute and its value can be rendered to the current markup element."
+  summary: "Określa, czy określony atrybut stylu XHTML i jej wartość może być renderowana do bieżącego elementu znaczników."
   remarks: ''
   example:
   - "The following code example demonstrates how to override the OnStyleAttributeRender method to check whether a <xref:System.Web.UI.HtmlTextWriterStyle> attribute is being rendered for any of the elements that are rendered by this text writer. If a <xref:System.Web.UI.HtmlTextWriterStyle> attribute is rendered, the code checks whether its value is purple. If the value is purple, the OnStyleAttributeRender method returns `false` and the attribute and its value are not rendered. If the <xref:System.Web.UI.HtmlTextWriterStyle> attribute is set to any other value, the OnStyleAttributeRender method returns `true` and the attribute and its value are rendered. If the key parameter of the <xref:System.Web.UI.XhtmlTextWriter.OnAttributeRender%2A> method does not match the <xref:System.Web.UI.HtmlTextWriterStyle> attribute, the base functionality of the OnStyleAttributeRender method is called, as defined in the <xref:System.Web.UI.XhtmlTextWriter> class.  \n  \n This code example is part of a larger example provided for the <xref:System.Web.UI.XhtmlTextWriter> class.  \n  \n [!code-vb[System.Web.UI.XhtmlTextWriter_Sample2#3](~/add/codesnippet/visualbasic/ff86d040-785b-430e-bd82-_1.vb)]\n [!code-cs[System.Web.UI.XhtmlTextWriter_Sample2#3](~/add/codesnippet/csharp/ff86d040-785b-430e-bd82-_1.cs)]"
@@ -351,16 +351,16 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The XHTML style attribute to render."
+      description: "Atrybut stylu XHTML do renderowania."
     - id: value
       type: System.String
-      description: "The value assigned to the XHTML style attribute."
+      description: "Wartość atrybutu stylu XHTML."
     - id: key
       type: System.Web.UI.HtmlTextWriterStyle
-      description: "The <xref href=&quot;System.Web.UI.HtmlTextWriterStyle&quot;></xref> enumeration value associated with the XHTML style attribute."
+      description: "<xref href=&quot;System.Web.UI.HtmlTextWriterStyle&quot;> </xref> Wartość wyliczenia skojarzony z atrybutem stylu XHTML."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the style attribute is rendered; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli atrybut stylu jest renderowany; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.XhtmlTextWriter.OnStyleAttributeRender*
   exceptions: []
   platform:
@@ -377,16 +377,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Removes an attribute from the <xref:System.Web.UI.XhtmlTextWriter.ElementSpecificAttributes*> collection of an element."
+  summary: "Usuwa atrybut z <xref:System.Web.UI.XhtmlTextWriter.ElementSpecificAttributes*>kolekcji elementu.</xref:System.Web.UI.XhtmlTextWriter.ElementSpecificAttributes*>"
   syntax:
     content: public virtual void RemoveRecognizedAttribute (string elementName, string attributeName);
     parameters:
     - id: elementName
       type: System.String
-      description: "The XHTML element to remove an attribute from."
+      description: "Aby usunąć atrybut z elementu XHTML."
     - id: attributeName
       type: System.String
-      description: "The attribute to remove from the specified XHTML element."
+      description: "Ten atrybut można usunąć z określonego elementu XHTML."
   overload: System.Web.UI.XhtmlTextWriter.RemoveRecognizedAttribute*
   exceptions: []
   platform:
@@ -403,14 +403,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Specifies the XHTML document type for the text writer to render to the page or control."
-  remarks: "Use the SetDocType method in a custom page adapter to define the type of XHTML that you want to render to the requesting device. Supported document types are defined in the <xref:System.Web.UI.XhtmlMobileDocType> enumeration."
+  summary: "Określa typ dokumentu XHTML dla składnika zapisywania tekstu do renderowania strony lub kontrolki."
+  remarks: "Metoda SetDocType karty niestandardowej strony do definiowania typu XHTML, który ma być renderowany dla urządzenia wysyłającego żądanie. Dokument obsługiwane typy są definiowane w <xref:System.Web.UI.XhtmlMobileDocType>wyliczenie.</xref:System.Web.UI.XhtmlMobileDocType>"
   syntax:
     content: public virtual void SetDocType (System.Web.UI.XhtmlMobileDocType docType);
     parameters:
     - id: docType
       type: System.Web.UI.XhtmlMobileDocType
-      description: "One of the <xref href=&quot;System.Web.UI.XhtmlMobileDocType&quot;></xref> enumeration values."
+      description: "Jeden z <xref href=&quot;System.Web.UI.XhtmlMobileDocType&quot;> </xref> wartości wyliczenia."
   overload: System.Web.UI.XhtmlTextWriter.SetDocType*
   exceptions: []
   platform:
@@ -427,13 +427,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets a <xref href=&quot;System.Collections.Hashtable&quot;></xref> object of elements for which <xref:System.Web.UI.XhtmlTextWriter.CommonAttributes*> attributes are suppressed."
-  remarks: "The suppressed attribute collection includes a list of XHTML elements for which <xref:System.Web.UI.XhtmlTextWriter.CommonAttributes%2A> attributes are not rendered.       When a new instance of the <xref:System.Web.UI.XhtmlTextWriter> class is created, the <xref:System.Collections.Hashtable> object of elements for which <xref:System.Web.UI.XhtmlTextWriter.CommonAttributes%2A> attributes are suppressed includes:      -   `base`      -   `meta`      -   `br`      -   `head`      -   `title`      -   `html`      -   `style`"
+  summary: "Pobiera <xref href=&quot;System.Collections.Hashtable&quot;> </xref> obiektu elementy, dla którego <xref:System.Web.UI.XhtmlTextWriter.CommonAttributes*>atrybuty są pomijane.</xref:System.Web.UI.XhtmlTextWriter.CommonAttributes*>"
+  remarks: "Kolekcja pominięty atrybut zawiera listę elementów XHTML dla którego <xref:System.Web.UI.XhtmlTextWriter.CommonAttributes%2A>atrybuty nie są renderowane.</xref:System.Web.UI.XhtmlTextWriter.CommonAttributes%2A>       Gdy nowe wystąpienie klasy <xref:System.Web.UI.XhtmlTextWriter>Klasa jest tworzona, <xref:System.Collections.Hashtable>obiektu elementy, dla którego <xref:System.Web.UI.XhtmlTextWriter.CommonAttributes%2A>atrybuty są pomijane obejmuje:- `base`       -    `meta`       -    `br`       -    `head`       -    `title`       -    `html`       -    `style` </xref:System.Web.UI.XhtmlTextWriter.CommonAttributes%2A> </xref:System.Collections.Hashtable> </xref:System.Web.UI.XhtmlTextWriter>"
   syntax:
     content: protected System.Collections.Hashtable SuppressCommonAttributes { get; }
     return:
       type: System.Collections.Hashtable
-      description: "A <xref href=&quot;System.Collections.Hashtable&quot;></xref> of elements containing a collection of <xref:System.Web.UI.XhtmlTextWriter.CommonAttributes*> that are not rendered."
+      description: "A <xref href=&quot;System.Collections.Hashtable&quot;> </xref> zawierający kolekcję elementów <xref:System.Web.UI.XhtmlTextWriter.CommonAttributes*>nie są renderowane.</xref:System.Web.UI.XhtmlTextWriter.CommonAttributes*>"
   overload: System.Web.UI.XhtmlTextWriter.SuppressCommonAttributes*
   exceptions: []
   platform:
@@ -450,7 +450,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Writes a <xref uid=&quot;langword_csharp_&lt;br/&gt;&quot; name=&quot;&lt;br/&gt;&quot; href=&quot;&quot;></xref> element to the XHTML output stream."
+  summary: "Zapisuje <xref uid=&quot;langword_csharp_&lt;br/&gt;&quot; name=&quot;&lt;br/&gt;&quot; href=&quot;&quot;> </xref> strumienia wyjściowego elementu XHTML."
   remarks: ''
   example:
   - "The following code example demonstrates how to override the inherited <xref:System.Web.UI.HtmlTextWriter.BeginRender%2A?displayProperty=fullName> method to write a text string with the <xref:System.Web.UI.HtmlTextWriter.Write%2A?displayProperty=fullName> method and a `<br/>` element with the WriteBreak method.  \n  \n [!code-vb[system.web.ui.xhtmltextwriter_sample2#4](~/add/codesnippet/visualbasic/m-system.web.ui.xhtmltex_3_1.vb)]\n [!code-cs[system.web.ui.xhtmltextwriter_sample2#4](~/add/codesnippet/csharp/m-system.web.ui.xhtmltex_3_1.cs)]"

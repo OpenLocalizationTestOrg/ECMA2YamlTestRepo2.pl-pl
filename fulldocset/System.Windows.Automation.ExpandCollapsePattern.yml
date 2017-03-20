@@ -15,8 +15,8 @@ items:
   nameWithType: ExpandCollapsePattern
   fullName: System.Windows.Automation.ExpandCollapsePattern
   type: Class
-  summary: "Represents controls that visually expand to display content and collapse to hide content."
-  remarks: "Aggregate controls—built with child objects that provide the UI for expand/collapse functionality—must support the ExpandCollapsePattern control pattern while their child elements do not. For example, a combo box control is built with a combination of list box, button, and edit controls, but it is only the parent combo box that must support the ExpandCollapsePattern.      > [!NOTE] >  A menu control, even though an aggregate of individual menu items, is an exception to this rule. The menu items support the ExpandCollapsePattern control pattern, but the parent menu control does not. A similar exception applies to the tree and tree item controls."
+  summary: "Reprezentuje formantów, które wizualnie Rozwiń, aby wyświetlić zawartość i zwijanie ukrycia zawartości."
+  remarks: "Formanty agregacji — skompilowanej za pomocą obiektów podrzędnych, które zapewniają interfejsu użytkownika dla funkcji Rozwiń/Zwiń — musi obsługiwać klasy ExpandCollapsePattern — wzorzec formantu, gdy nie chcesz ich elementy podrzędne. Na przykład wbudowana w kombinację pola listy, przycisk i formantów edycji kontrolki pola kombi, ale jest tylko pola kombi nadrzędnego, który musi obsługiwać klasy ExpandCollapsePattern.      > [!NOTE] > Kontrolkę menu, nawet wtedy, gdy wartość zagregowana poszczególnych elementów menu, jest wyjątek od tej reguły. Elementy menu obsługuje klasy ExpandCollapsePattern — wzorzec formantu, ale formant menu nadrzędny nie. Podobne wyjątek ma zastosowanie do drzewa i sterowania elementu drzewa."
   syntax:
     content: 'public class ExpandCollapsePattern : System.Windows.Automation.BasePattern'
   inheritance:
@@ -38,18 +38,18 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Gets the cached [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] property values for this <xref href=&quot;System.Windows.Automation.ExpandCollapsePattern&quot;></xref>."
-  remarks: "Cached property values must have been previously requested using a <xref:System.Windows.Automation.CacheRequest>. Use <xref:System.Windows.Automation.SelectionPattern.Current%2A> to get the current value of a property.       For information on the properties available and their use, see <xref:System.Windows.Automation.SelectionPattern.SelectionPatternInformation>."
+  summary: "Pobiera buforowany [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] wartości właściwości dla tego <xref href=&quot;System.Windows.Automation.ExpandCollapsePattern&quot;> </xref>."
+  remarks: "Wartości właściwości pamięci podręcznej musi wcześniej żądano przy użyciu <xref:System.Windows.Automation.CacheRequest>.</xref:System.Windows.Automation.CacheRequest> Użyj <xref:System.Windows.Automation.SelectionPattern.Current%2A>można pobrać bieżącą wartość właściwości.</xref:System.Windows.Automation.SelectionPattern.Current%2A>       Informacje dotyczące dostępnych właściwości i ich użycia zobacz <xref:System.Windows.Automation.SelectionPattern.SelectionPatternInformation>.</xref:System.Windows.Automation.SelectionPattern.SelectionPatternInformation>"
   syntax:
     content: public System.Windows.Automation.ExpandCollapsePattern.ExpandCollapsePatternInformation Cached { get; }
     return:
       type: System.Windows.Automation.ExpandCollapsePattern.ExpandCollapsePatternInformation
-      description: "A structure containing the cached [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] property values for the control pattern."
+      description: "Struktury zawierające zapisane w pamięci podręcznej [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] wartości właściwości wzorca formantu."
   overload: System.Windows.Automation.ExpandCollapsePattern.Cached*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The requested property is not in the cache."
+    description: "Żądana właściwość nie jest w pamięci podręcznej."
   platform:
   - net462
 - uid: System.Windows.Automation.ExpandCollapsePattern.Collapse
@@ -64,8 +64,8 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Hides all descendant nodes, controls, or content of the <xref href=&quot;System.Windows.Automation.AutomationElement&quot;></xref>."
-  remarks: "This is a blocking method that returns after the UI Automation element has been collapsed.       There are cases when a UI Automation element that is marked as a leaf node might not know whether it has children until either the Collapse or the <xref:System.Windows.Automation.ExpandCollapsePattern.Expand%2A> method is called. This behavior is possible with a tree view control that does delayed loading of its child items. For example, [!INCLUDE[TLA#tla_winexpl](~/add/includes/tlasharptla-winexpl-md.md)] might display the expand icon for a node even though there are currently no child items; when the icon is clicked, the control polls for child items, finds none, and removes the expand icon. In these cases clients should listen for a property-changed event on the <xref:System.Windows.Automation.ExpandCollapsePattern.ExpandCollapsePatternInformation.ExpandCollapseState%2A> property by registering an event handler with the <xref:System.Windows.Automation.Automation.AddAutomationPropertyChangedEventHandler%2A> method."
+  summary: "Ukrywa wszystkie węzły podrzędne, formanty lub zawartości elementu <xref href=&quot;System.Windows.Automation.AutomationElement&quot;> </xref>."
+  remarks: "Jest to blokowania metodę, która zwraca po elementu automatyzacji interfejsu użytkownika zostanie zwinięty.       Istnieją przypadki, gdy element automatyzacji interfejsu użytkownika, który jest oznaczony jako węzeł liścia nie wiedzieć, czy ma on elementy podrzędne do momentu Zwiń lub <xref:System.Windows.Automation.ExpandCollapsePattern.Expand%2A>Metoda jest wywoływana.</xref:System.Windows.Automation.ExpandCollapsePattern.Expand%2A> To zachowanie jest niemożliwe w kontrolce widok drzewa nieistniejącego opóźnienie załadowanie jego elementów podrzędnych. Na przykład [!INCLUDE[TLA#tla_winexpl](~/add/includes/tlasharptla-winexpl-md.md)] może wyświetlać ikony rozwiń węzeł, nawet jeśli obecnie nie istnieją żadne elementy podrzędne; po kliknięciu ikony formantu sonduje dla elementów podrzędnych, brak wyszukuje i usuwa ikonę rozwijania. W takich sytuacjach klienci powinien nasłuchiwać zdarzenie zmiany właściwości <xref:System.Windows.Automation.ExpandCollapsePattern.ExpandCollapsePatternInformation.ExpandCollapseState%2A>Właściwości rejestrując program obsługi zdarzeń z <xref:System.Windows.Automation.Automation.AddAutomationPropertyChangedEventHandler%2A>metody.</xref:System.Windows.Automation.Automation.AddAutomationPropertyChangedEventHandler%2A> </xref:System.Windows.Automation.ExpandCollapsePattern.ExpandCollapsePatternInformation.ExpandCollapseState%2A>"
   example:
   - "In the following example, a UI Automation element representing a menu item is passed to a function that attempts to expand or collapse the menu item based on its current <xref:System.Windows.Automation.ExpandCollapseState>.  \n  \n [!code-vb[UIAExpandCollapsePattern_snip#101](~/add/codesnippet/visualbasic/UIAExpandCollapsePattern_snip/UIAExpandCollapsePattern_snippets.vb#101)]\n [!code-cs[UIAExpandCollapsePattern_snip#101](~/add/codesnippet/csharp/UIAExpandCollapsePattern_snip/UIAExpandCollapsePattern_snippets.cs#101)]  \n[!code-vb[UIAExpandCollapsePattern_snip#102](~/add/codesnippet/visualbasic/UIAExpandCollapsePattern_snip/UIAExpandCollapsePattern_snippets.vb#102)]\n[!code-cs[UIAExpandCollapsePattern_snip#102](~/add/codesnippet/csharp/UIAExpandCollapsePattern_snip/UIAExpandCollapsePattern_snippets.cs#102)]"
   syntax:
@@ -75,7 +75,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Collapse is called when the <xref href=&quot;System.Windows.Automation.ExpandCollapseState&quot;></xref> = <xref href=&quot;System.Windows.Automation.ExpandCollapseState&quot;></xref>."
+    description: "Zwiń jest wywoływane, gdy <xref href=&quot;System.Windows.Automation.ExpandCollapseState&quot;> </xref>  =  <xref href=&quot;System.Windows.Automation.ExpandCollapseState&quot;> </xref>."
   platform:
   - net462
 - uid: System.Windows.Automation.ExpandCollapsePattern.Current
@@ -90,13 +90,13 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Gets the current [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] property values for this <xref href=&quot;System.Windows.Automation.ExpandCollapsePattern&quot;></xref>."
-  remarks: "This pattern must be from an <xref:System.Windows.Automation.AutomationElement> with an <xref:System.Windows.Automation.AutomationElementMode> reference in order to get current values. If the <xref:System.Windows.Automation.AutomationElement> was obtained using <xref:System.Windows.Automation.AutomationElementMode>, it contains only cached data, and attempting to get the current value of any property raises an exception. Use <xref:System.Windows.Automation.ExpandCollapsePattern.Cached%2A> to get the cached value of a property that was previously specified using a <xref:System.Windows.Automation.CacheRequest>.       For information on the properties available and their use, see <xref:System.Windows.Automation.ExpandCollapsePattern.ExpandCollapsePatternInformation>."
+  summary: "Pobiera bieżący [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] wartości właściwości dla tego <xref href=&quot;System.Windows.Automation.ExpandCollapsePattern&quot;> </xref>."
+  remarks: "Ten wzorzec musi pochodzić z <xref:System.Windows.Automation.AutomationElement>z <xref:System.Windows.Automation.AutomationElementMode>odwołania, aby uzyskać bieżące wartości.</xref:System.Windows.Automation.AutomationElementMode> </xref:System.Windows.Automation.AutomationElement> Jeśli <xref:System.Windows.Automation.AutomationElement>został uzyskany przy użyciu <xref:System.Windows.Automation.AutomationElementMode>, zawiera tylko dane z pamięci podręcznej i podjęto próbę uzyskania bieżącej wartości dowolnej właściwości zgłasza wyjątek.</xref:System.Windows.Automation.AutomationElementMode> </xref:System.Windows.Automation.AutomationElement> Użyj <xref:System.Windows.Automation.ExpandCollapsePattern.Cached%2A>można pobrać wartość w pamięci podręcznej z właściwością, który został wcześniej określony przy użyciu <xref:System.Windows.Automation.CacheRequest>.</xref:System.Windows.Automation.CacheRequest> </xref:System.Windows.Automation.ExpandCollapsePattern.Cached%2A>       Informacje dotyczące dostępnych właściwości i ich użycia zobacz <xref:System.Windows.Automation.ExpandCollapsePattern.ExpandCollapsePatternInformation>.</xref:System.Windows.Automation.ExpandCollapsePattern.ExpandCollapsePatternInformation>"
   syntax:
     content: public System.Windows.Automation.ExpandCollapsePattern.ExpandCollapsePatternInformation Current { get; }
     return:
       type: System.Windows.Automation.ExpandCollapsePattern.ExpandCollapsePatternInformation
-      description: "A structure containing the current [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] property values for the control pattern."
+      description: "Struktury zawierające bieżącego [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] wartości właściwości wzorca formantu."
   overload: System.Windows.Automation.ExpandCollapsePattern.Current*
   exceptions: []
   platform:
@@ -113,8 +113,8 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Displays all child nodes, controls, or content of the <xref href=&quot;System.Windows.Automation.AutomationElement&quot;></xref>."
-  remarks: "This is a blocking method that returns after the <xref:System.Windows.Automation.AutomationElement> has been expanded.       There are cases when a <xref:System.Windows.Automation.AutomationElement>that is marked as a leaf node might not know whether it has children until either the <xref:System.Windows.Automation.ExpandCollapsePattern.Collapse%2A> or the Expand method is called. This behavior is possible with a tree view control that does delayed loading of its child items. For example, [!INCLUDE[TLA#tla_winexpl](~/add/includes/tlasharptla-winexpl-md.md)] might display the expand icon for a node even though there are currently no child items; when the icon is clicked, the control polls for child items, finds none, and removes the expand icon. In these cases clients should listen for a property-changed event on the <xref:System.Windows.Automation.ExpandCollapsePattern.ExpandCollapsePatternInformation.ExpandCollapseState%2A> property by registering an event handler with the <xref:System.Windows.Automation.Automation.AddAutomationPropertyChangedEventHandler%2A> method."
+  summary: "Wyświetla wszystkie węzły podrzędne, formanty lub zawartość <xref href=&quot;System.Windows.Automation.AutomationElement&quot;> </xref>."
+  remarks: "Jest to blokującego metodę, która zwraca po <xref:System.Windows.Automation.AutomationElement>została rozszerzona.</xref:System.Windows.Automation.AutomationElement>       Brak przypadków, gdy <xref:System.Windows.Automation.AutomationElement>oznaczona jako węzeł liścia może nie wiadomo, czy ma elementy podrzędne do momentu <xref:System.Windows.Automation.ExpandCollapsePattern.Collapse%2A>lub wywoływana jest metoda Rozwiń.</xref:System.Windows.Automation.ExpandCollapsePattern.Collapse%2A> </xref:System.Windows.Automation.AutomationElement> To zachowanie jest niemożliwe w kontrolce widok drzewa nieistniejącego opóźnienie załadowanie jego elementów podrzędnych. Na przykład [!INCLUDE[TLA#tla_winexpl](~/add/includes/tlasharptla-winexpl-md.md)] może wyświetlać ikony rozwiń węzeł, nawet jeśli obecnie nie istnieją żadne elementy podrzędne; po kliknięciu ikony formantu sonduje dla elementów podrzędnych, brak wyszukuje i usuwa ikonę rozwijania. W takich sytuacjach klienci powinien nasłuchiwać zdarzenie zmiany właściwości <xref:System.Windows.Automation.ExpandCollapsePattern.ExpandCollapsePatternInformation.ExpandCollapseState%2A>Właściwości rejestrując program obsługi zdarzeń z <xref:System.Windows.Automation.Automation.AddAutomationPropertyChangedEventHandler%2A>metody.</xref:System.Windows.Automation.Automation.AddAutomationPropertyChangedEventHandler%2A> </xref:System.Windows.Automation.ExpandCollapsePattern.ExpandCollapsePatternInformation.ExpandCollapseState%2A>"
   example:
   - "In the following example, an <xref:System.Windows.Automation.AutomationElement>representing a menu item is passed to a function that attempts to expand or collapse the menu item based on its current <xref:System.Windows.Automation.ExpandCollapseState>.  \n  \n [!code-vb[UIAExpandCollapsePattern_snip#101](~/add/codesnippet/visualbasic/UIAExpandCollapsePattern_snip/UIAExpandCollapsePattern_snippets.vb#101)]\n [!code-cs[UIAExpandCollapsePattern_snip#101](~/add/codesnippet/csharp/UIAExpandCollapsePattern_snip/UIAExpandCollapsePattern_snippets.cs#101)]  \n[!code-vb[UIAExpandCollapsePattern_snip#102](~/add/codesnippet/visualbasic/UIAExpandCollapsePattern_snip/UIAExpandCollapsePattern_snippets.vb#102)]\n[!code-cs[UIAExpandCollapsePattern_snip#102](~/add/codesnippet/csharp/UIAExpandCollapsePattern_snip/UIAExpandCollapsePattern_snippets.cs#102)]"
   syntax:
@@ -124,7 +124,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Expand is called when the <xref href=&quot;System.Windows.Automation.ExpandCollapseState&quot;></xref> = <xref href=&quot;System.Windows.Automation.ExpandCollapseState&quot;></xref>."
+    description: "Rozwiń węzeł jest wywoływane, gdy <xref href=&quot;System.Windows.Automation.ExpandCollapseState&quot;> </xref>  =  <xref href=&quot;System.Windows.Automation.ExpandCollapseState&quot;> </xref>."
   platform:
   - net462
 - uid: System.Windows.Automation.ExpandCollapsePattern.ExpandCollapseStateProperty
@@ -139,15 +139,15 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Identifies the <xref:System.Windows.Automation.ExpandCollapsePattern.ExpandCollapsePatternInformation.ExpandCollapseState*> property."
-  remarks: "This identifier is used by UI Automation client applications. UI Automation providers should use the equivalent field in <xref:System.Windows.Automation.ExpandCollapsePatternIdentifiers>.       <xref:System.Windows.Automation.ExpandCollapseState> refers to the visibility of immediate child objects only; it does not refer to the visibility of all descendant objects.       The default value is <xref:System.Windows.Automation.ExpandCollapseState>."
+  summary: "Identyfikuje <xref:System.Windows.Automation.ExpandCollapsePattern.ExpandCollapsePatternInformation.ExpandCollapseState*>Właściwości.</xref:System.Windows.Automation.ExpandCollapsePattern.ExpandCollapsePatternInformation.ExpandCollapseState*>"
+  remarks: "Ten identyfikator jest używany przez aplikacje klienckie automatyzacji interfejsu użytkownika. Dostawcy automatyzacji interfejsu użytkownika należy używać odpowiadającego mu pola w <xref:System.Windows.Automation.ExpandCollapsePatternIdentifiers>.</xref:System.Windows.Automation.ExpandCollapsePatternIdentifiers>       <xref:System.Windows.Automation.ExpandCollapseState>odwołuje się do widoczność obiektów natychmiastowego podrzędnych. nie odwołuje się do widoczność wszystkie obiekty zależne.</xref:System.Windows.Automation.ExpandCollapseState>       Wartość domyślna to <xref:System.Windows.Automation.ExpandCollapseState>.</xref:System.Windows.Automation.ExpandCollapseState>"
   example:
   - "In the following example, a root element is passed to a function that returns a collection of [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] elements that are descendants of the root and satisfy a set of property conditions.  \n  \n [!code-vb[UIAExpandCollapsePattern_snip#100](~/add/codesnippet/visualbasic/UIAExpandCollapsePattern_snip/UIAExpandCollapsePattern_snippets.vb#100)]\n [!code-cs[UIAExpandCollapsePattern_snip#100](~/add/codesnippet/csharp/UIAExpandCollapsePattern_snip/UIAExpandCollapsePattern_snippets.cs#100)]"
   syntax:
     content: public static readonly System.Windows.Automation.AutomationProperty ExpandCollapseStateProperty;
     return:
       type: System.Windows.Automation.AutomationProperty
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -163,15 +163,15 @@ items:
   assemblies:
   - UIAutomationClient
   namespace: System.Windows.Automation
-  summary: "Identifies the <xref href=&quot;System.Windows.Automation.ExpandCollapsePattern&quot;></xref> control pattern."
-  remarks: "This identifier is used by UI Automation client applications. UI Automation providers should use the equivalent field in <xref:System.Windows.Automation.ExpandCollapsePatternIdentifiers>.       The pattern [!INCLUDE[TLA#tla_id](~/add/includes/tlasharptla-id-md.md)] is passed to methods such as <xref:System.Windows.Automation.AutomationElement.GetCurrentPattern%2A> to retrieve the control pattern of interest from the specified <xref:System.Windows.Automation.AutomationElement>."
+  summary: "Identyfikuje <xref href=&quot;System.Windows.Automation.ExpandCollapsePattern&quot;> </xref> — wzorzec formantu."
+  remarks: "Ten identyfikator jest używany przez aplikacje klienckie automatyzacji interfejsu użytkownika. Dostawcy automatyzacji interfejsu użytkownika należy używać odpowiadającego mu pola w <xref:System.Windows.Automation.ExpandCollapsePatternIdentifiers>.</xref:System.Windows.Automation.ExpandCollapsePatternIdentifiers>       Wzorzec [!INCLUDE[TLA#tla_id](~/add/includes/tlasharptla-id-md.md)] jest przekazywany do metody, takie jak <xref:System.Windows.Automation.AutomationElement.GetCurrentPattern%2A>pobrać wzorca formantu płynących z określonym <xref:System.Windows.Automation.AutomationElement>.</xref:System.Windows.Automation.AutomationElement> </xref:System.Windows.Automation.AutomationElement.GetCurrentPattern%2A>"
   example:
   - "In the following example, a <xref:System.Windows.Automation.ExpandCollapsePattern> control pattern is obtained from a UI Automation element.  \n  \n [!code-vb[UIAExpandCollapsePattern_snip#101](~/add/codesnippet/visualbasic/UIAExpandCollapsePattern_snip/UIAExpandCollapsePattern_snippets.vb#101)]\n [!code-cs[UIAExpandCollapsePattern_snip#101](~/add/codesnippet/csharp/UIAExpandCollapsePattern_snip/UIAExpandCollapsePattern_snippets.cs#101)]"
   syntax:
     content: public static readonly System.Windows.Automation.AutomationPattern Pattern;
     return:
       type: System.Windows.Automation.AutomationPattern
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462

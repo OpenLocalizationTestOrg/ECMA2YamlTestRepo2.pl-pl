@@ -16,8 +16,8 @@ items:
   nameWithType: XmlUrlResolver
   fullName: System.Xml.XmlUrlResolver
   type: Class
-  summary: "Resolves external XML resources named by a Uniform Resource Identifier (URI)."
-  remarks: "XmlUrlResolver is used to resolve external XML resources such as entities, document type definitions (DTDs) or schemas. It is also used to process include and import elements found in Extensible StyleSheet Language (XSL) style sheets or XML Schema definition language (XSD) schemas.       XmlUrlResolver is the default resolver for all classes in the <xref:System.Xml> namespace. It supports the `file://` and `http://` protocols and requests from the <xref:System.Net.WebRequest> class.      > [!IMPORTANT] >  XmlUrlResolver objects can contain sensitive information such as user credentials. You should be careful when you cache XmlUrlResolver objects and should not pass XmlUrlResolver objects to an untrusted component.      ## Resolving DTDs    If an XML reader (<xref:System.Xml.XmlReader>) is reading an XML file that contains an external DTD, it calls the <xref:System.Xml.XmlUrlResolver.GetEntityAsync%2A?displayProperty=fullName> method to get a stream representation of the DTD. If the URI of the DTD is a relative URI, the XML reader calls the <xref:System.Xml.XmlUrlResolver.ResolveUri%2A?displayProperty=fullName> method and returns an absolute URI for the given `relativeUri` and `baseURi` parameters. If the XmlUrlResolver doesn&quot;t know how to resolve the URI, it returns `null`.       The <xref:System.Xml.XmlUrlResolver.GetEntity%2A?displayProperty=fullName> method uses the information in the <xref:System.Xml.XmlUrlResolver.Credentials%2A> property as appropriate to gain access to the resource. There is no `get` accessor to this property for security reasons. When overwriting <xref:System.Xml.XmlResolver>, **GetEntity** is the method that utilizes the credential information in the **Credentials** property.       Resolving all other XML resources is very similar to resolving DTDs. <xref:System.Xml.XmlResolver> negotiates the connection with the external resource and returns a <xref:System.IO.Stream> representation of the content. The object that is making the call to <xref:System.Xml.XmlResolver> interprets the stream.      ## Extending the XmlUrlResolver class    The default behavior of the XmlUrlResolver class is to resolve an XML data resource from its source, not from cache. In some cases, resolving a data resource from cache can improve the performance of an application by saving a trip to the data resource&quot;s server. The performance gains here must be weighed against the need for up-to-date content.       The following example extends XmlUrlResolver and builds a new class, `XmlCachingResolver`, to retrieve resources from the cache. This is done by overriding the <xref:System.Xml.XmlUrlResolver.Credentials%2A?displayProperty=fullName> property and the <xref:System.Xml.XmlUrlResolver.GetEntity%2A?displayProperty=fullName> method.       [!code-vb[XmlCachingResolver_ex#1](~/add/codesnippet/visualbasic/t-system.xml.xmlurlresol_1.vb)]  [!code-cs[XmlCachingResolver_ex#1](~/add/codesnippet/csharp/t-system.xml.xmlurlresol_1.cs)]       The caching behavior of the `XmlCachingResolver` class is implemented in the `GetEntity` method. This is done by creating new <xref:System.Net.WebRequest> and <xref:System.Net.Cache.HttpRequestCachePolicy> objects. The <xref:System.Net.Cache.HttpRequestCachePolicy> object is created using the <xref:System.Net.Cache.HttpRequestCacheLevel> member of the <xref:System.Net.Cache.HttpRequestCacheLevel> enumeration.       The <xref:System.Net.WebRequest.CachePolicy%2A> property of the <xref:System.Net.WebRequest> object is set with the <xref:System.Net.Cache.HttpRequestCachePolicy> object.       An instance of the `XmlCachingResolver` class is created with the `Boolean``enableHttpCaching`. When this value is set to `true`, the instance resolves a resource from the default cache if possible. When `enableHttpCaching` is set to `false`, the instance uses the default behavior and resolves resources from their source.      > [!NOTE] >  This example leverages the extensibility of the XML classes in the .NET Framework. Other classes can be extended and customized to suit the needs of a particular application."
+  summary: "Usuwa zasoby zewnętrzne XML o nazwie przez zasób identyfikator URI (Uniform)."
+  remarks: "XmlUrlResolver jest używany do rozpoznawania zewnętrznych zasobów XML, takich jak jednostki, definicji typu dokumentu (pliki DTD) lub schematów. Jest również używane do procesu obejmują i zaimportować elementy znalezione w arkusze stylów Extensible StyleSheet Language (XSL) lub schematu XML definition language (XSD) schematów.       XmlUrlResolver jest domyślny program rozpoznawania nazw dla wszystkich klas w <xref:System.Xml>przestrzeni nazw.</xref:System.Xml> Obsługuje on `file://` i `http://` protokoły i żądań z <xref:System.Net.WebRequest>klasy.</xref:System.Net.WebRequest>      > [!IMPORTANT] > XmlUrlResolver obiekty mogą zawierać poufne informacje, takie jak poświadczenia użytkownika. Należy zachować ostrożność podczas buforowania obiektów XmlUrlResolver i nie powinno przekazać XmlUrlResolver obiekty do niezaufany składnik.      ## Rozpoznawanie definicji DTD, jeśli czytnik XML (<xref:System.Xml.XmlReader>) odczytuje plik XML, który zawiera zewnętrznego elementu DTD, wywołuje <xref:System.Xml.XmlUrlResolver.GetEntityAsync%2A?displayProperty=fullName>metody można uzyskać strumienia reprezentację element DTD.</xref:System.Xml.XmlUrlResolver.GetEntityAsync%2A?displayProperty=fullName> </xref:System.Xml.XmlReader> Jeśli identyfikator URI element DTD jest względnym identyfikatorem URI, wywołuje metodę modułu odczytującego XML <xref:System.Xml.XmlUrlResolver.ResolveUri%2A?displayProperty=fullName>metodę i zwraca bezwzględny identyfikator URI dla danego `relativeUri` i `baseURi` parametrów.</xref:System.Xml.XmlUrlResolver.ResolveUri%2A?displayProperty=fullName> Jeśli XmlUrlResolver nie wiadomo, jak rozwiązać identyfikatora URI, zwraca `null`.       <xref:System.Xml.XmlUrlResolver.GetEntity%2A?displayProperty=fullName>— Metoda korzysta z informacji w <xref:System.Xml.XmlUrlResolver.Credentials%2A>właściwości odpowiednio w celu uzyskania dostępu do zasobu.</xref:System.Xml.XmlUrlResolver.Credentials%2A> </xref:System.Xml.XmlUrlResolver.GetEntity%2A?displayProperty=fullName> Brak nie `get` dostępu do tej właściwości ze względów bezpieczeństwa. Podczas zastępowania <xref:System.Xml.XmlResolver>, **GetEntity** to metoda, która używa informacji poświadczeń w **poświadczenia** właściwości.</xref:System.Xml.XmlResolver>       Rozpoznawanie innych zasobów XML jest bardzo podobny do rozpoznawania elementów DTD. <xref:System.Xml.XmlResolver>negocjuje połączenie z zewnętrznych zasobów i zwraca <xref:System.IO.Stream>reprezentację zawartości.</xref:System.IO.Stream></xref:System.Xml.XmlResolver> Obiekt, do której wysłano wywołaniu <xref:System.Xml.XmlResolver>interpretuje strumienia.</xref:System.Xml.XmlResolver>      ## Rozszerzenie klasy XmlUrlResolver domyślne zachowanie klasy XmlUrlResolver jest rozwiązanie zasobów danych XML od źródła, a nie z pamięci podręcznej. W niektórych przypadkach rozpoznawania zasobu danych z pamięci podręcznej może poprawić wydajność aplikacji przez zapisanie podróży serwer zasobów danych. Zwiększenie wydajności w tym miejscu należy porównać potrzebę aktualna zawartość.       W poniższym przykładzie rozszerza XmlUrlResolver i tworzy nową klasę `XmlCachingResolver`, aby pobrać zasobów z pamięci podręcznej. Odbywa się przez zastąpienie <xref:System.Xml.XmlUrlResolver.Credentials%2A?displayProperty=fullName>Właściwości i <xref:System.Xml.XmlUrlResolver.GetEntity%2A?displayProperty=fullName>metody.</xref:System.Xml.XmlUrlResolver.GetEntity%2A?displayProperty=fullName> </xref:System.Xml.XmlUrlResolver.Credentials%2A?displayProperty=fullName>       [!code-vb[XmlCachingResolver_ex&#1;](~/add/codesnippet/visualbasic/t-system.xml.xmlurlresol_1.vb)][!code-cs[XmlCachingResolver_ex&#1;](~/add/codesnippet/csharp/t-system.xml.xmlurlresol_1.cs) ] zachowania buforowania `XmlCachingResolver` klasy jest zaimplementowana w `GetEntity` metody.   Jest to realizowane przez tworzenie nowego <xref:System.Net.WebRequest>i <xref:System.Net.Cache.HttpRequestCachePolicy>obiektów.</xref:System.Net.Cache.HttpRequestCachePolicy> </xref:System.Net.WebRequest> <xref:System.Net.Cache.HttpRequestCachePolicy>Obiekt jest tworzony przy użyciu <xref:System.Net.Cache.HttpRequestCacheLevel>członkiem <xref:System.Net.Cache.HttpRequestCacheLevel>wyliczenie.</xref:System.Net.Cache.HttpRequestCacheLevel> </xref:System.Net.Cache.HttpRequestCacheLevel> </xref:System.Net.Cache.HttpRequestCachePolicy>       <xref:System.Net.WebRequest.CachePolicy%2A>Właściwość <xref:System.Net.WebRequest>ustawiono obiektu <xref:System.Net.Cache.HttpRequestCachePolicy>obiektu.</xref:System.Net.Cache.HttpRequestCachePolicy> </xref:System.Net.WebRequest> </xref:System.Net.WebRequest.CachePolicy%2A>       Wystąpienie `XmlCachingResolver` klasy jest tworzony z `Boolean``enableHttpCaching`. Jeśli ta wartość jest równa `true`, wystąpienie jest rozpoznawany jako zasób z pamięci podręcznej domyślne, jeśli to możliwe. Gdy `enableHttpCaching` ma ustawioną wartość `false`, wystąpienie stosowanie domyślnego zachowania i usuwa zasoby z ich źródłem.      > [!NOTE] > W tym przykładzie korzysta z rozszerzeń klas XML w programie .NET Framework. Inne klasy można ją rozszerzać oraz dostosowywać odpowiednio do potrzeb określonej aplikacji."
   example:
   - "The following example creates an <xref:System.Xml.XmlReader> that uses an XmlUrlResolver with default credentials.  \n  \n [!code-vb[XmlResolver_Samples#1](~/add/codesnippet/visualbasic/t-system.xml.xmlurlresol_2.vb)]\n [!code-cs[XmlResolver_Samples#1](~/add/codesnippet/csharp/t-system.xml.xmlurlresol_2.cs)]"
   syntax:
@@ -42,7 +42,7 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Initializes a new instance of the <xref href=&quot;System.Xml.XmlUrlResolver&quot;></xref> class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Xml.XmlUrlResolver&quot;> </xref> klasy."
   syntax:
     content: public XmlUrlResolver ();
     parameters: []
@@ -62,12 +62,12 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets or sets the cache policy for the underlying <xref:System.Net.WebRequest> object."
+  summary: "Pobiera lub ustawia zasady pamięci podręcznej dla podstawowych <xref:System.Net.WebRequest>obiektu.</xref:System.Net.WebRequest>"
   syntax:
     content: public System.Net.Cache.RequestCachePolicy CachePolicy { set; }
     return:
       type: System.Net.Cache.RequestCachePolicy
-      description: "The cache policy for the underlying web request."
+      description: "Zasady pamięci podręcznej dla podstawowego żądania sieci web."
   overload: System.Xml.XmlUrlResolver.CachePolicy*
   exceptions: []
   platform:
@@ -84,15 +84,15 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Sets credentials used to authenticate web requests."
-  remarks: "If the virtual directory does not require authentication, this property does not need to be set. Otherwise, the credentials of the user must be supplied.       You can associate different credentials with different URIs and add them to a cache. You can then use the credentials to check authentication for different URIs, regardless of the original source of the XML.       The following C# code shows how to set the Credentials property to a credential cache.      ```   NetworkCredential myCred = new NetworkCredential(UserName,SecurelyStoredPassword,Domain);    CredentialCache myCache = new CredentialCache();    myCache.Add(new Uri(&quot;http://www.contoso.com/&quot;), &quot;Basic&quot;, myCred);    myCache.Add(new Uri(&quot;http://app.contoso.com/&quot;), &quot;Basic&quot;, myCred);   XmlUrlResolver resolver = new XmlUrlResolver();   resolver.Credentials = myCache;   ```"
+  summary: "Ustawia poświadczenia używane do uwierzytelniania żądań sieci web."
+  remarks: "Jeśli katalog wirtualny nie wymaga uwierzytelniania, ta właściwość nie trzeba ustawić. W przeciwnym razie należy podać poświadczenia użytkownika.       Można skojarzyć z różnych identyfikatorów URI różnych poświadczeń i dodaj je do pamięci podręcznej. Można następnie używać poświadczeń do sprawdzenia uwierzytelniania różne identyfikatory URI, niezależnie od oryginalnego źródła kodu XML.       Poniższy kod C# przedstawia sposób ustawiania właściwości poświadczenia do pamięci podręcznej poświadczeń.      ```   NetworkCredential myCred = new NetworkCredential(UserName,SecurelyStoredPassword,Domain);    CredentialCache myCache = new CredentialCache();    myCache.Add(new Uri(&quot;http://www.contoso.com/&quot;), &quot;Basic&quot;, myCred);    myCache.Add(new Uri(&quot;http://app.contoso.com/&quot;), &quot;Basic&quot;, myCred);   XmlUrlResolver resolver = new XmlUrlResolver();   resolver.Credentials = myCache;   ```"
   example:
   - "The following example creates an <xref:System.Xml.XmlUrlResolver> object with credentials. The <xref:System.Xml.XmlReader> uses the credentials on the <xref:System.Xml.XmlUrlResolver> object to access a network resource.  \n  \n [!code-vb[XmlResolver_Samples#2](~/add/codesnippet/visualbasic/p-system.xml.xmlurlresol_1.vb)]\n [!code-cs[XmlResolver_Samples#2](~/add/codesnippet/csharp/p-system.xml.xmlurlresol_1.cs)]"
   syntax:
     content: public override System.Net.ICredentials Credentials { set; }
     return:
       type: System.Net.ICredentials
-      description: "The credentials to be used to authenticate web requests. If this property is not set, the value defaults to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>; that is, the <xref uid=&quot;langword_csharp_XmlUrlResolver&quot; name=&quot;XmlUrlResolver&quot; href=&quot;&quot;></xref> has no user credentials."
+      description: "Poświadczenia, które ma być używany do uwierzytelniania żądań sieci web. Jeśli ta właściwość nie jest ustawiona, domyślnie przyjmowana jest wartość <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, <xref uid=&quot;langword_csharp_XmlUrlResolver&quot; name=&quot;XmlUrlResolver&quot; href=&quot;&quot;> </xref> nie poświadczeniami użytkownika."
   overload: System.Xml.XmlUrlResolver.Credentials*
   exceptions: []
   platform:
@@ -109,8 +109,8 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Maps a URI to an object that contains the actual resource."
-  remarks: "This method is used when the caller wants to map a given URI to an object that contains the resource that the URI represents.       For the asynchronous version of this method, see <xref:System.Xml.XmlUrlResolver.GetEntityAsync%2A>.      > [!IMPORTANT] >  Your application can mitigate memory denial of service threats to the GetEntity method by implementing IStream<xref:System.Runtime.InteropServices.ComTypes.IStream> to limit the number of bytes read. This helps guard against situations where malicious code attempts to pass an infinite stream of bytes to the GetEntity method."
+  summary: "Identyfikator URI jest mapowany na obiekt, który zawiera zasobów."
+  remarks: "Ta metoda jest używana, gdy obiekt wywołujący chce mapy dany identyfikator URI do obiektu, który zawiera zasób, który reprezentuje identyfikator URI.       Asynchroniczne wersję tej metody zobacz <xref:System.Xml.XmlUrlResolver.GetEntityAsync%2A>.</xref:System.Xml.XmlUrlResolver.GetEntityAsync%2A>      > [!IMPORTANT] > Aplikacji można ograniczyć odmowa pamięci zagrożeń usługi do metody GetEntity dzięki implementacji IStream<xref:System.Runtime.InteropServices.ComTypes.IStream> Aby ograniczyć liczbę bajtów odczytanych.</xref:System.Runtime.InteropServices.ComTypes.IStream> Dzięki temu można zabezpieczyć się przed sytuacji, gdy próbuje przekazać nieskończone strumień bajtów do metody GetEntity złośliwego kodu."
   example:
   - "The following example demonstrates the `GetEntity` and <xref:System.Xml.XmlResolver.ResolveUri%2A> methods.  \n  \n [!code-vb[Classic WebData XmlUrlResolver.ResolveUri Example#1](~/add/codesnippet/visualbasic/m-system.xml.xmlurlresol_1.vb)]\n [!code-cpp[Classic WebData XmlUrlResolver.ResolveUri Example#1](~/add/codesnippet/cpp/m-system.xml.xmlurlresol_1.cpp)]\n [!code-cs[Classic WebData XmlUrlResolver.ResolveUri Example#1](~/add/codesnippet/csharp/m-system.xml.xmlurlresol_1.cs)]"
   syntax:
@@ -118,30 +118,30 @@ items:
     parameters:
     - id: absoluteUri
       type: System.Uri
-      description: "The URI returned from <xref:System.Xml.XmlResolver.ResolveUri*>."
+      description: "Identyfikator URI zwrócony z <xref:System.Xml.XmlResolver.ResolveUri*>.</xref:System.Xml.XmlResolver.ResolveUri*>"
     - id: role
       type: System.String
-      description: "Currently not used."
+      description: "Obecnie nieużywane."
     - id: ofObjectToReturn
       type: System.Type
-      description: "The type of object to return. The current implementation only returns <xref:System.IO.Stream> objects."
+      description: "Typ obiektu do zwrócenia. Bieżąca implementacja zwraca tylko <xref:System.IO.Stream>obiektów.</xref:System.IO.Stream>"
     return:
       type: System.Object
-      description: "A stream object or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if a type other than stream is specified."
+      description: "Obiekt stream lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli określono typ innych niż strumienia."
   overload: System.Xml.XmlUrlResolver.GetEntity*
   exceptions:
   - type: System.Xml.XmlException
     commentId: T:System.Xml.XmlException
-    description: "<code>ofObjectToReturn</code> is neither <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> nor a <xref uid=&quot;langword_csharp_Stream&quot; name=&quot;Stream&quot; href=&quot;&quot;></xref> type."
+    description: "<code>ofObjectToReturn</code>nie jest ani <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> ani <xref uid=&quot;langword_csharp_Stream&quot; name=&quot;Stream&quot; href=&quot;&quot;> </xref> typu."
   - type: System.UriFormatException
     commentId: T:System.UriFormatException
-    description: "The specified URI is not an absolute URI."
+    description: "Określony identyfikator URI nie jest bezwzględnym identyfikatorem URI."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>absoluteUri</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>absoluteUri</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Exception
     commentId: T:System.Exception
-    description: "There is a runtime error (for example, an interrupted server connection)."
+    description: "Istnieje błąd w czasie wykonywania (na przykład połączenie serwera przerwania)."
   platform:
   - net462
 - uid: System.Xml.XmlUrlResolver.GetEntityAsync(System.Uri,System.String,System.Type)
@@ -156,22 +156,22 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Asynchronously maps a URI to an object that contains the actual resource."
+  summary: "Asynchronicznie identyfikatora URI jest mapowany na obiekt, który zawiera zasobów."
   syntax:
     content: public override System.Threading.Tasks.Task<object> GetEntityAsync (Uri absoluteUri, string role, Type ofObjectToReturn);
     parameters:
     - id: absoluteUri
       type: System.Uri
-      description: "The URI returned from <xref:System.Xml.XmlResolver.ResolveUri*>."
+      description: "Identyfikator URI zwrócony z <xref:System.Xml.XmlResolver.ResolveUri*>.</xref:System.Xml.XmlResolver.ResolveUri*>"
     - id: role
       type: System.String
-      description: "Currently not used."
+      description: "Obecnie nieużywane."
     - id: ofObjectToReturn
       type: System.Type
-      description: "The type of object to return. The current implementation only returns <xref:System.IO.Stream> objects."
+      description: "Typ obiektu do zwrócenia. Bieżąca implementacja zwraca tylko <xref:System.IO.Stream>obiektów.</xref:System.IO.Stream>"
     return:
       type: System.Threading.Tasks.Task{System.Object}
-      description: "A stream object or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if a type other than stream is specified."
+      description: "Obiekt stream lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli określono typ innych niż strumienia."
   overload: System.Xml.XmlUrlResolver.GetEntityAsync*
   exceptions: []
   platform:
@@ -188,12 +188,12 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets or sets the network proxy for the underlying <xref:System.Net.WebRequest> object."
+  summary: "Pobiera lub ustawia sieciowego serwera proxy dla podstawowych <xref:System.Net.WebRequest>obiektu.</xref:System.Net.WebRequest>"
   syntax:
     content: public System.Net.IWebProxy Proxy { set; }
     return:
       type: System.Net.IWebProxy
-      description: "The <xref:System.Net.IWebProxy> to use to access the Internet resource."
+      description: "<xref:System.Net.IWebProxy>Na potrzeby dostępu do zasobu internetowego.</xref:System.Net.IWebProxy>"
   overload: System.Xml.XmlUrlResolver.Proxy*
   exceptions: []
   platform:
@@ -210,25 +210,25 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Resolves the absolute URI from the base and relative URIs."
-  remarks: "The absolute URI can be used as the base URI for any subsequent requests for entities that are relative to this URI."
+  summary: "Rozpoznaje bezwzględnego identyfikatora URI z podstawową i względne identyfikatory URI."
+  remarks: "Bezwzględny identyfikator URI może służyć jako podstawowy identyfikator URI dla kolejnych żądań dla jednostek, które są względem tego identyfikatora URI."
   syntax:
     content: public override Uri ResolveUri (Uri baseUri, string relativeUri);
     parameters:
     - id: baseUri
       type: System.Uri
-      description: "The base URI used to resolve the relative URI."
+      description: "Podstawowy identyfikator URI używany do rozpoznania względnym identyfikatorem URI."
     - id: relativeUri
       type: System.String
-      description: "The URI to resolve. The URI can be absolute or relative. If absolute, this value effectively replaces the `baseUri` value. If relative, it combines with the `baseUri` to make an absolute URI."
+      description: "Identyfikator URI do rozpoznania. Identyfikator URI może być bezwzględny lub względny. Jeśli bezwzględne, ta wartość skutecznie zastępuje `baseUri` wartość. Jeśli względną, składa się z `baseUri` być bezwzględnym identyfikatorem URI."
     return:
       type: System.Uri
-      description: "The absolute URI, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the relative URI cannot be resolved."
+      description: "Bezwzględny identyfikator URI lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli względny identyfikator URI nie można rozpoznać."
   overload: System.Xml.XmlUrlResolver.ResolveUri*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>baseUri</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or <code>relativeUri</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>baseUri</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or <code>relativeUri</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:
