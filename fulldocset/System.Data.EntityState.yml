@@ -14,8 +14,8 @@ items:
   nameWithType: EntityState
   fullName: System.Data.EntityState
   type: Enum
-  summary: "The state of an entity object."
-  remarks: "The object context must know the state of an object to save changes back to the data source. <xref:System.Data.Objects.ObjectStateEntry> objects store EntityState information. The `SaveChanges` methods of the <xref:System.Data.Objects.ObjectContext> process entities that are attached to the context and update the data source depending on the EntityState of each object. For more information, see [Creating, Adding, Modifying, and Deleting Objects](http://msdn.microsoft.com/en-us/f76f1fad-c553-4b59-820b-89b3dec2fad1).       The state of objects inside an object context is managed by the <xref:System.Data.Objects.ObjectStateManager>. To find out the state of an object, call one of the following <xref:System.Data.Objects.ObjectStateManager> methods: <xref:System.Data.Objects.ObjectStateManager.TryGetObjectStateEntry%2A>, <xref:System.Data.Objects.ObjectStateManager.GetObjectStateEntry%2A>, or <xref:System.Data.Objects.ObjectStateManager.GetObjectStateEntries%2A>. The <xref:System.Data.Objects.ObjectStateEntry.State%2A> property of the <xref:System.Data.Objects.ObjectStateEntry> defines the state of the object."
+  summary: "Stan obiektu jednostki."
+  remarks: "Kontekst musi znać stan obiekt, aby zapisać zmiany w źródle danych. <xref:System.Data.Objects.ObjectStateEntry>obiekty przechowywane informacje o EntityState.</xref:System.Data.Objects.ObjectStateEntry> `SaveChanges` Metody <xref:System.Data.Objects.ObjectContext>przetworzyć jednostek, które są dołączone do kontekstu i zaktualizować źródła danych, w zależności od EntityState każdego obiektu.</xref:System.Data.Objects.ObjectContext> Aby uzyskać więcej informacji, zobacz [tworzenie, dodawanie, modyfikowanie i usuwanie obiektów](http://msdn.microsoft.com/en-us/f76f1fad-c553-4b59-820b-89b3dec2fad1).       Stan obiektów wewnątrz obiektu kontekstu jest zarządzany przez <xref:System.Data.Objects.ObjectStateManager>.</xref:System.Data.Objects.ObjectStateManager> Aby sprawdzić stan obiektu, wywoływanie jednego z następujących <xref:System.Data.Objects.ObjectStateManager>metody: <xref:System.Data.Objects.ObjectStateManager.TryGetObjectStateEntry%2A>, <xref:System.Data.Objects.ObjectStateManager.GetObjectStateEntry%2A>, lub <xref:System.Data.Objects.ObjectStateManager.GetObjectStateEntries%2A>.</xref:System.Data.Objects.ObjectStateManager.GetObjectStateEntries%2A> </xref:System.Data.Objects.ObjectStateManager.GetObjectStateEntry%2A> </xref:System.Data.Objects.ObjectStateManager.TryGetObjectStateEntry%2A> </xref:System.Data.Objects.ObjectStateManager> <xref:System.Data.Objects.ObjectStateEntry.State%2A>Właściwość <xref:System.Data.Objects.ObjectStateEntry>definiuje stan obiektu.</xref:System.Data.Objects.ObjectStateEntry> </xref:System.Data.Objects.ObjectStateEntry.State%2A>"
   syntax:
     content: >-
       [System.ComponentModel.DataAnnotations.BindableType(IsBindable=false)]
@@ -39,12 +39,12 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data
-  summary: "The object is new, has been added to the object context, and the <xref:System.Data.Objects.ObjectContext.SaveChanges*> method has not been called. After the changes are saved, the object state changes to Unchanged. Objects in the Added state do not have original values in the <xref href=&quot;System.Data.Objects.ObjectStateEntry&quot;></xref>."
+  summary: "Obiekt jest nowa, został dodany do kontekstu obiektów i <xref:System.Data.Objects.ObjectContext.SaveChanges*>nie zostanie wywołana metoda.</xref:System.Data.Objects.ObjectContext.SaveChanges*> Po zmianie zostaną zapisane, zmiany stanu obiektu Unchanged. Obiekty w stanie Added, nie mają oryginalnych wartości <xref href=&quot;System.Data.Objects.ObjectStateEntry&quot;> </xref>."
   syntax:
     content: Added
     return:
       type: System.Data.EntityState
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -60,12 +60,12 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data
-  summary: "The object has been deleted from the object context. After the changes are saved, the object state changes to Detached."
+  summary: "Obiekt został usunięty z kontekstu obiektów. Po zmianie zostaną zapisane, Detached zmiany stanu obiektu."
   syntax:
     content: Deleted
     return:
       type: System.Data.EntityState
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -81,12 +81,12 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data
-  summary: "The object exists but is not being tracked. An entity is in this state immediately after it has been created and before it is added to the object context. An entity is also in this state after it has been removed from the context by calling the <xref:System.Data.Objects.ObjectContext.Detach*> method or if it is loaded by using a <xref:System.Data.Objects.MergeOption.NoTracking><xref href=&quot;System.Data.Objects.MergeOption&quot;></xref>. There is no <xref href=&quot;System.Data.Objects.ObjectStateEntry&quot;></xref> instance associated with objects in the Detached state."
+  summary: "Obiekt istnieje, ale nie jest śledzony. Jednostka jest w tym stanie, natychmiast po jej utworzeniu i przed dodaniem jej do kontekstu obiektów. Jednostka jest również w tym stanie po został on usunięty z kontekstu przez wywołanie metody <xref:System.Data.Objects.ObjectContext.Detach*>metody lub jeśli jest on załadowany przy użyciu <xref:System.Data.Objects.MergeOption.NoTracking> <xref href=&quot;System.Data.Objects.MergeOption&quot;> </xref>.</xref:System.Data.Objects.MergeOption.NoTracking> </xref:System.Data.Objects.ObjectContext.Detach*> Brak nie <xref href=&quot;System.Data.Objects.ObjectStateEntry&quot;> </xref> wystąpienie skojarzone z obiektami w stanie odłączony."
   syntax:
     content: Detached
     return:
       type: System.Data.EntityState
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -102,12 +102,12 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data
-  summary: "One of the scalar properties on the object was modified and the <xref:System.Data.Objects.ObjectContext.SaveChanges*> method has not been called. In POCO entities without change-tracking proxies, the state of the modified properties changes to Modified when the <xref:System.Data.Objects.ObjectContext.DetectChanges*> method is called. After the changes are saved, the object state changes to Unchanged."
+  summary: "Jedna z właściwości skalarnych na obiekt został zmodyfikowany i <> </> *> nie zostanie wywołana metoda. W jednostki POCO bez śledzenia zmian serwery proxy, stan zmiany zmodyfikowane właściwości zmodyfikowane gdy <> </> *> metoda jest wywoływana. Po zmianie zostaną zapisane, zmiany stanu obiektu Unchanged."
   syntax:
     content: Modified
     return:
       type: System.Data.EntityState
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -123,12 +123,12 @@ items:
   assemblies:
   - System.Data.Entity
   namespace: System.Data
-  summary: "The object has not been modified since it was attached to the context or since the last time that the <xref:System.Data.Objects.ObjectContext.SaveChanges*> method was called."
+  summary: "Obiekt nie został zmodyfikowany, ponieważ zostało ono podłączone do kontekstu, lub od czasu ostatniego <xref:System.Data.Objects.ObjectContext.SaveChanges*>wywołano metodę.</xref:System.Data.Objects.ObjectContext.SaveChanges*>"
   syntax:
     content: Unchanged
     return:
       type: System.Data.EntityState
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462

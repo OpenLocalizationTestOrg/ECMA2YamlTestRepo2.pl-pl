@@ -14,8 +14,8 @@ items:
   nameWithType: CompressedStack
   fullName: System.Threading.CompressedStack
   type: Class
-  summary: "Provides methods for setting and capturing the compressed stack on the current thread. This class cannot be inherited."
-  remarks: "The compressed stack is a compact representation of all the code access security information on the call stack, such as <xref:System.Security.CodeAccessPermission.Deny%2A> and <xref:System.Security.CodeAccessPermission.Assert%2A> actions. For example, if a <xref:System.Security.CodeAccessPermission.Deny%2A> action is two stack frames up from the current frame and there are no other code access security annotations between there and the current frame, the compressed stack records only that information, without having to serialize the entire call stack.       The CompressedStackclass is used internally by the <xref:System.Security.SecurityContext> class. For example, the <xref:System.Security.SecurityContext.Capture%2A?displayProperty=fullName> method captures the compressed stack for the current call stack, along with impersonation and culture information. The <xref:System.Security.SecurityContext> class is used in turn by the <xref:System.Threading.ExecutionContext> class to flow context across threads, for example when scheduling thread pool tasks.       This class is not used in ordinary application programming."
+  summary: "Udostępnia metody do ustawiania i przechwytywanie skompresowany stosu w bieżącym wątku. Ta klasa nie może być dziedziczona."
+  remarks: "Skompresowany stos jest compact reprezentacja wszystkich kodu dostępu do informacji o zabezpieczeniach w stosie wywołań, taką jak <xref:System.Security.CodeAccessPermission.Deny%2A>i <xref:System.Security.CodeAccessPermission.Assert%2A>Akcje.</xref:System.Security.CodeAccessPermission.Assert%2A> </xref:System.Security.CodeAccessPermission.Deny%2A> Na przykład jeśli <xref:System.Security.CodeAccessPermission.Deny%2A>akcji jest dwa zająć ramki z bieżącej ramki i nie Brak kodu dostępu adnotacje zabezpieczeń między nim a bieżącej ramki stosu skompresowany rejestruje tylko te informacje, bez konieczności serializować cały stos wywołań.</xref:System.Security.CodeAccessPermission.Deny%2A>       CompressedStackclass jest używana wewnętrznie przez <xref:System.Security.SecurityContext>klasę.</xref:System.Security.SecurityContext> Na przykład <xref:System.Security.SecurityContext.Capture%2A?displayProperty=fullName>metody przechwytuje skompresowany stosu dla bieżącego stosu wywołań, wraz z informacjami personifikacja i kultury.</xref:System.Security.SecurityContext.Capture%2A?displayProperty=fullName> <xref:System.Security.SecurityContext>Klasa jest używana z kolei przez <xref:System.Threading.ExecutionContext>klasy do kontekstu przepływu w wątkach, na przykład podczas planowania zadań puli wątków.</xref:System.Threading.ExecutionContext> </xref:System.Security.SecurityContext>       Ta klasa nie jest używana w programowaniu zwykłej aplikacji."
   syntax:
     content: 'public sealed class CompressedStack : System.Runtime.Serialization.ISerializable'
   inheritance:
@@ -37,8 +37,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Captures the compressed stack from the current thread."
-  remarks: "Captures all the code access security information on the call stack, such as <xref:System.Security.CodeAccessPermission.Deny%2A> and <xref:System.Security.CodeAccessPermission.Assert%2A> actions, in a compressed format. For example, if a <xref:System.Security.CodeAccessPermission.Deny%2A> action is two stack frames up from the current frame and there are no other code access security annotations between there and the current frame, the compressed stack records only that information, without having to serialize the entire call stack.       The captured compressed stack can be applied to another thread."
+  summary: "Przechwytuje skompresowany stosu z bieżącego wątku."
+  remarks: "Przechwytuje wszystkie kodu dostępu do informacji o zabezpieczeniach w stosie wywołań, taką jak <xref:System.Security.CodeAccessPermission.Deny%2A>i <xref:System.Security.CodeAccessPermission.Assert%2A>działania w formacie skompresowanym.</xref:System.Security.CodeAccessPermission.Assert%2A> </xref:System.Security.CodeAccessPermission.Deny%2A> Na przykład jeśli <xref:System.Security.CodeAccessPermission.Deny%2A>akcji jest dwa zająć ramki z bieżącej ramki i nie Brak kodu dostępu adnotacje zabezpieczeń między nim a bieżącej ramki stosu skompresowany rejestruje tylko te informacje, bez konieczności serializować cały stos wywołań.</xref:System.Security.CodeAccessPermission.Deny%2A>       Przechwycony stosu skompresowany może odnosić się do innego wątku."
   syntax:
     content: public static System.Threading.CompressedStack Capture ();
     parameters: []
@@ -61,14 +61,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Creates a copy of the current compressed stack."
-  remarks: "This method is useful for creating a copy of the current compressed stack to apply to another thread."
+  summary: "Tworzy kopię bieżącego stosu skompresowane."
+  remarks: "Ta metoda jest przydatna przy tworzeniu kopię bieżącego stosu skompresowany do zastosowania do innego wątku."
   syntax:
     content: public System.Threading.CompressedStack CreateCopy ();
     parameters: []
     return:
       type: System.Threading.CompressedStack
-      description: "A <xref href=&quot;System.Threading.CompressedStack&quot;></xref> object representing the current compressed stack."
+      description: "A <xref href=&quot;System.Threading.CompressedStack&quot;> </xref> obiekt reprezentujący bieżący stos skompresowane."
   overload: System.Threading.CompressedStack.CreateCopy*
   exceptions: []
   platform:
@@ -85,19 +85,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Gets the compressed stack for the current thread."
-  remarks: "If security is enabled, the current compressed stack is returned. If security is disabled, GetCompressedStack returns an empty <xref:System.Threading.CompressedStack> object.      > [!NOTE] >  This method uses <xref:System.Security.Permissions.SecurityAction?displayProperty=fullName> to prevent it from being called from untrusted code; only the immediate caller is required to have <xref:System.Security.Permissions.SecurityPermissionAttribute.UnmanagedCode%2A?displayProperty=fullName> permission. For important limitations on using the `LinkDemand` member, see [Demand vs. LinkDemand](http://msdn.microsoft.com/en-us/1ab877f2-70f4-4e0d-8116-943999dfe8f5).      > [!NOTE] >  This member also makes a link demand for the ECMA public key, which is not a valid cryptographic key but a pseudo key. Within the .NET Framework the link demand for the ECMA pseudo key is automatically converted to a link demand for the Microsoft public key. The security exception is based on the Microsoft public key, not the ECMA pseudo key."
+  summary: "Pobiera stos skompresowany bieżącego wątku."
+  remarks: "W przypadku zabezpieczeń jest włączone, jest zwracana bieżącego stosu skompresowane. Wyłączenie zabezpieczeń GetCompressedStack zwraca pustą <xref:System.Threading.CompressedStack>obiektu.</xref:System.Threading.CompressedStack>      > [!NOTE] > Ta metoda używa <xref:System.Security.Permissions.SecurityAction?displayProperty=fullName>Aby zapobiec jest wywoływany z kodu niezaufane; musi mieć tylko bezpośredniego obiektu wywołującego <xref:System.Security.Permissions.SecurityPermissionAttribute.UnmanagedCode%2A?displayProperty=fullName>uprawnień.</xref:System.Security.Permissions.SecurityPermissionAttribute.UnmanagedCode%2A?displayProperty=fullName> </xref:System.Security.Permissions.SecurityAction?displayProperty=fullName> Ważne ograniczenia dotyczące używania `LinkDemand` — członek, zobacz [żądanie vs. Żądanie LinkDemand](http://msdn.microsoft.com/en-us/1ab877f2-70f4-4e0d-8116-943999dfe8f5).      > [!NOTE] > Żądanie łącza ECMA klucza publicznego, który nie jest prawidłowy klucz kryptograficzny, ale klucz pseudo powoduje tego elementu członkowskiego. W programie .NET Framework linkdemand dla klucza pseudo ECMA jest automatycznie konwertowany na żądanie łącza dla klucza publicznego firmy Microsoft. Wyjątek zabezpieczeń jest oparta na Microsoft klucz publiczny nie klucza pseudo ECMA."
   syntax:
     content: public static System.Threading.CompressedStack GetCompressedStack ();
     parameters: []
     return:
       type: System.Threading.CompressedStack
-      description: "A <xref href=&quot;System.Threading.CompressedStack&quot;></xref> for the current thread."
+      description: "A <xref href=&quot;System.Threading.CompressedStack&quot;> </xref> dla bieżącego wątku."
   overload: System.Threading.CompressedStack.GetCompressedStack*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "A caller in the call chain does not have permission to access unmanaged code.       -or-       The request for <xref href=&quot;System.Security.Permissions.StrongNameIdentityPermission&quot;></xref> failed."
+    description: "Obiekt wywołujący w łańcuchu wywołań nie ma uprawnień dostępu do kodu niezarządzanego.       - lub - żądanie <xref href=&quot;System.Security.Permissions.StrongNameIdentityPermission&quot;> </xref> nie powiodło się."
   platform:
   - net462
 - uid: System.Threading.CompressedStack.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
@@ -112,22 +112,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Sets the <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref> object with the logical context information needed to recreate an instance of this execution context."
-  remarks: "GetObjectData sets a <xref:System.Runtime.Serialization.SerializationInfo> with the logical call context information. During deserialization, the execution context object is reconstituted from the <xref:System.Runtime.Serialization.SerializationInfo> transmitted over the stream.       For more information, see <xref:System.Runtime.Serialization.SerializationInfo>."
+  summary: "Ustawia <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;> </xref> obiekt z kontekstu logicznej potrzebnych do ponownie tworzy wystąpienie tego kontekstu wykonywania."
+  remarks: "Ustawia metodę GetObjectData <xref:System.Runtime.Serialization.SerializationInfo>o logicznym wywołań informacje o kontekście.</xref:System.Runtime.Serialization.SerializationInfo> Podczas deserializacji, obiekt kontekstu wykonywania jest odtworzonych z <xref:System.Runtime.Serialization.SerializationInfo>przesyłane przez strumień.</xref:System.Runtime.Serialization.SerializationInfo>       Aby uzyskać więcej informacji zobacz <xref:System.Runtime.Serialization.SerializationInfo>.</xref:System.Runtime.Serialization.SerializationInfo>"
   syntax:
     content: public void GetObjectData (System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context);
     parameters:
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "The <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref> object to be populated with serialization information."
+      description: "<xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;> </xref> Obiektu wypełniana informacje o serializacji."
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: "The <xref:System.Runtime.Serialization.StreamingContext> structure representing the destination context of the serialization."
+      description: "<xref:System.Runtime.Serialization.StreamingContext>Strukturę przedstawiającą docelowy kontekst serializacji.</xref:System.Runtime.Serialization.StreamingContext>"
   overload: System.Threading.CompressedStack.GetObjectData*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>info</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>info</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Threading.CompressedStack.Run(System.Threading.CompressedStack,System.Threading.ContextCallback,System.Object)
@@ -142,8 +142,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Threading
-  summary: "Runs a method in the specified compressed stack on the current thread."
-  remarks: "The compressed stack is returned to its previous state when the method completes."
+  summary: "Uruchamia metody w określonym stosie skompresowanych w bieżącym wątku."
+  remarks: "Po zakończeniu metody, skompresowany stosu jest zwracana do jego poprzedniego stanu."
   syntax:
     content: public static void Run (System.Threading.CompressedStack compressedStack, System.Threading.ContextCallback callback, object state);
     parameters:
@@ -152,15 +152,15 @@ items:
       description: "The <xref href=&quot;System.Threading.CompressedStack&quot;></xref> to set."
     - id: callback
       type: System.Threading.ContextCallback
-      description: "A <xref:System.Threading.ContextCallback> that represents the method to be run in the specified security context."
+      description: "A <xref:System.Threading.ContextCallback>reprezentujący metody, które mają być wykonywane w kontekście zabezpieczeń określonego.</xref:System.Threading.ContextCallback>"
     - id: state
       type: System.Object
-      description: "The object to be passed to the callback method."
+      description: "Obiekt przekazywany do metody wywołania zwrotnego."
   overload: System.Threading.CompressedStack.Run*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>compressedStack</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>compressedStack</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:

@@ -11,8 +11,8 @@ items:
   nameWithType: EnlistmentOptions
   fullName: System.Transactions.EnlistmentOptions
   type: Enum
-  summary: "Determines whether the object should be enlisted during the prepare phase."
-  remarks: "This enumeration is passed into the <xref:System.Transactions.Transaction.EnlistVolatile%2A> and <xref:System.Transactions.Transaction.EnlistDurable%2A> and methods to notify the transaction manager whether the resource manager needs to create another enlistment during the Prepare phase. For more information on enlistment, see [Enlisting Resources as Participants in a Transaction](http://msdn.microsoft.com/en-us/7bf66ce7-4190-4910-89d7-df4ad43e9f31).       If EnlistDuringPrepareRequired is specified during enlistment, the resource manager indicates that it wants to receive a Prepare notification while new enlistments are still allowed for the transaction. A resource manager who acts as a cache for another durable resource, such as a backend database, would probably use this option during enlistment. When the caching resource gets its Prepare notification, it transfers its content to the durable resource. By doing so, the durable resource enlists on the transaction to become a participant of the 2 Phase Commit (2PC) protocol. Before this happens, only the caching resource (not the durable resource) was enlisted.       If None is specified, the enlistment indicates that it will not receive a Prepare notification until it is too late to create new enlistments in 2PC. In our preceding scenario, if a caching resource specifies this option during enlistment, and attempts to flush its cache during the Prepare notification, the durable resource gets an exception when it attempts on enlisting since it is too late.       None should be used as a default."
+  summary: "Określa, czy obiekt powinien być zarejestrowany w fazie przygotowywania."
+  remarks: "To wyliczenie jest przekazywany do <xref:System.Transactions.Transaction.EnlistVolatile%2A>i <xref:System.Transactions.Transaction.EnlistDurable%2A>i metody, aby powiadomić menedżera transakcji Menedżera zasobów należy utworzyć inny rejestracji w fazie przygotowywania.</xref:System.Transactions.Transaction.EnlistDurable%2A> </xref:System.Transactions.Transaction.EnlistVolatile%2A> Aby uzyskać więcej informacji o rejestracji, zobacz [rejestrowanie zasobów jako uczestnicy transakcji](http://msdn.microsoft.com/en-us/7bf66ce7-4190-4910-89d7-df4ad43e9f31).       Jeśli EnlistDuringPrepareRequired jest określana podczas rejestracji, Menedżer zasobów wskazuje, że chce otrzymywać powiadomienia Prepare podczas rejestracji nowego nadal są dozwolone dla transakcji. Menedżer zasobów, który działa jako pamięci podręcznej dla innego zasobu trwałe, takie jak bazy danych zaplecza, prawdopodobnie użyć tej opcji podczas rejestracji. Podczas buforowania zasobów pobiera notyfikacji Prepare, przesyła zawartość do zasobu trwałe. W ten sposób trwałego zasobu powoduje zarejestrowanie transakcji jako uczestnik 2 protokołu fazy zatwierdzania (2PC). Przed takim została zarejestrowana tylko buforowania zasobów (nie trwałe zasobów).       Jeśli nie zostanie określona, rejestracja wskazuje nie odbieranie powiadomień przygotowanie do momentu jest za późno do utworzenia nowej rejestracji w 2PC. W poprzednim scenariuszu jeśli zasób buforowania określa tej opcji podczas rejestracji, a próby opróżnienia pamięci podręcznej podczas powiadamiania Prepare trwałe zasobów pobiera Wystąpił wyjątek podczas prób na rejestrowanie, ponieważ jest za późno.       Nie należy użyte jako domyślny."
   syntax:
     content: >-
       [System.Flags]
@@ -34,12 +34,12 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "The object must enlist during the initial phase of the commitment process."
+  summary: "Obiekt musi zarejestrować się w fazie początkowego procesu zobowiązań."
   syntax:
     content: EnlistDuringPrepareRequired
     return:
       type: System.Transactions.EnlistmentOptions
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -55,12 +55,12 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "The object does not require enlistment during the initial phase of the commitment process."
+  summary: "Obiekt nie wymaga rejestracji w początkowej fazie procesu zobowiązań."
   syntax:
     content: None
     return:
       type: System.Transactions.EnlistmentOptions
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462

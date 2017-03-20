@@ -12,8 +12,8 @@ items:
   nameWithType: MessageProtectionOrder
   fullName: System.ServiceModel.Security.MessageProtectionOrder
   type: Enum
-  summary: "Specifies the order of operations that protect a message."
-  remarks: "This enumeration is used with the <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement.MessageProtectionOrder%2A?displayProperty=fullName> property of the <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement> and the <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement.MessageProtectionOrder%2A?displayProperty=fullName> property of the <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement> classes.       If a message is vulnerable to a digest attack (for example, if the message is short or the entropy is low), you should use the SignBeforeEncryptAndEncryptSignature or EncryptBeforeSign option. (*Entropy* is random data provided by a server, a client, or both, and is used to create a shared key for encrypting and decrypting data.)      ## What Is Ordered?    [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] offers three different protection levels that determine how messages are secured using SOAP message security. The default is SignBeforeEncryptAndEncryptSignature. This setting first signs the message, encrypts the message body, and then encrypts the XML signature. This reduces the likelihood of a successful cryptographic guessing attack against the signature.       However, using the default has performance implications. In effect, there is a tradeoff of performance for increased security. Encrypting the signature can decrease performance between 10 percent and 40 percent. If the data content of the message is of low value, and performance throughput is more significant, use SignBeforeEncrypt. With this setting, the signature digest is sent in clear text, and thus the message is more vulnerable to guess-and-verify attacks on low entropy.      ## Custom Bindings Only    To change the `MessageProtectionOrder` property requires the creation of a custom security binding. For more information about creating custom bindings, see [Creating User-Defined Bindings](~/add/includes/ajax-current-ext-md.md). For more information about creating a custom binding for a specific authentication mode, see [How to: Create a SecurityBindingElement for a Specified Authentication Mode](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Określa kolejność operacji, które chronić wiadomości."
+  remarks: "To wyliczenie jest używany z <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement.MessageProtectionOrder%2A?displayProperty=fullName>właściwości <xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement>i <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement.MessageProtectionOrder%2A?displayProperty=fullName>Właściwość <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement>klasy.</xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement> </xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement.MessageProtectionOrder%2A?displayProperty=fullName> </xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement> </xref:System.ServiceModel.Channels.AsymmetricSecurityBindingElement.MessageProtectionOrder%2A?displayProperty=fullName>       Jeśli komunikat jest narażony na atak szyfrowanego (na przykład, jeśli komunikat jest krótka lub brakuje entropii), należy użyć opcji SignBeforeEncryptAndEncryptSignature lub EncryptBeforeSign. (*Entropii* jest losowe dane dostarczone przez serwer i klienta i jest używany do tworzenia klucza wspólnego szyfrowania i odszyfrowywania danych.)      ## Co porządkowania?    [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)]oferuje trzy różnych poziomów ochrony określające, jak komunikaty są chronione przy użyciu zabezpieczeń wiadomości protokołu SOAP. Wartość domyślna to SignBeforeEncryptAndEncryptSignature. To ustawienie najpierw podpisuje komunikat, szyfruje treść komunikatu i następnie szyfruje podpis XML. Zmniejsza to prawdopodobieństwo kryptograficznych guessing ataku podpisu.       Jednak przy użyciu domyślnego ma wpływ na wydajność. W efekcie jest wadą wydajności, aby zwiększyć bezpieczeństwo. Szyfrowanie podpis może obniżyć wydajność od 40 procent 10. Jeśli zawartość danych komunikatu jest o niskiej wartości, i zwiększa się przepływności wydajności, użyj SignBeforeEncrypt. To ustawienie, skrót sygnatura są wysyłane w postaci zwykłego tekstu, a w związku z tym komunikacie jest bardziej narażony na wynik i sprawdź ataków na niski entropii.      ## Niestandardowe powiązania tylko do zmiany `MessageProtectionOrder` właściwości wymaga utworzenia powiązania niestandardowego zabezpieczeń. Aby uzyskać więcej informacji o tworzeniu niestandardowych powiązań, zobacz [powiązania Creating User-Defined](~/add/includes/ajax-current-ext-md.md). Aby uzyskać więcej informacji na temat tworzenia niestandardowego powiązania dla trybu uwierzytelniania określonych zobacz [porady: Tworzenie elementu SecurityBindingElement dla trybu uwierzytelniania określone](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example creates a <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement> element and sets its <xref:System.ServiceModel.Channels.SymmetricSecurityBindingElement.MessageProtectionOrder%2A> property to SignBeforeEncrypt.  \n  \n [!code-vb[c_CustomBinding#3](~/add/codesnippet/visualbasic/t-system.servicemodel.se_8_1.vb)]\n [!code-cs[c_CustomBinding#3](~/add/codesnippet/csharp/t-system.servicemodel.se_8_1.cs)]"
   syntax:
@@ -34,12 +34,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "Specifies that the SOAP message is encrypted before a digital signature is generated for the SOAP message."
+  summary: "Określa, że komunikatu protokołu SOAP są szyfrowane przed wygenerowaniem podpisu cyfrowego dla komunikatu SOAP."
   syntax:
     content: EncryptBeforeSign
     return:
       type: System.ServiceModel.Security.MessageProtectionOrder
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -55,12 +55,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "Specifies that a digital signature is generated for the SOAP message before any portion of the SOAP message is encrypted, but the digital signature is not encrypted."
+  summary: "Określa, że podpis cyfrowy jest generowany dla komunikatu protokołu SOAP, zanim jakiejkolwiek jego części komunikatu protokołu SOAP jest zaszyfrowany, ale nie jest zaszyfrowany podpisu cyfrowego."
   syntax:
     content: SignBeforeEncrypt
     return:
       type: System.ServiceModel.Security.MessageProtectionOrder
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -76,12 +76,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "Specifies that a digital signature is generated for the SOAP message before any portion of the SOAP message is encrypted, and the digital signature is encrypted."
+  summary: "Określa, że podpis cyfrowy jest generowany dla komunikatu protokołu SOAP, zanim jakiejkolwiek jego części komunikatu protokołu SOAP są szyfrowane i podpis cyfrowy jest zaszyfrowany."
   syntax:
     content: SignBeforeEncryptAndEncryptSignature
     return:
       type: System.ServiceModel.Security.MessageProtectionOrder
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462

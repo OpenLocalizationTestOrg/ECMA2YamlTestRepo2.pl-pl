@@ -17,8 +17,8 @@ items:
   nameWithType: TransactionInterop
   fullName: System.Transactions.TransactionInterop
   type: Class
-  summary: "Facilitates interaction between <xref href=&quot;System.Transactions&quot;></xref> and components that were previously written to interact with MSDTC, COM+, or <xref href=&quot;System.EnterpriseServices&quot;></xref>. This class cannot be inherited."
-  remarks: "This class provides methods for transaction propagation. For more information on how this process works, see [Transaction Propagation](http://msdn.microsoft.com/library/default.asp?url=/library/cossdk/html/b09541e6-4baf-4e37-b879-62884fbb0969.asp).       Using the methods provided by this class, you can engage in two types of transaction propagations, Export/Import (push model) and Transmitter/Receiver (pull model).       The Export/Import (push model) propagation involves these steps,      1.  On the remote machine, obtain the &quot;whereabouts&quot; of the transaction manager of that machine by calling the <xref:System.Transactions.TransactionInterop.GetWhereabouts%2A> method. You can then cache this piece of information on the client machine for future usage.      2.  Send the data containing the whereabouts to the client machine using any preferred method      3.  On the client machine, use the whereabouts to &quot;export&quot; the transaction to the remote machine and generate a transaction &quot;cookie&quot;.  This is done by calling <xref:System.Transactions.TransactionInterop.GetExportCookie%2A> and passing in the remote machine&quot;s whereabouts.      4.  Send the data containing the transaction &quot;cookie&quot; to the remote machine using any preferred method      5.  On the remote machine, use the transaction &quot;cookie&quot; to obtain a clone of the client transaction by calling the <xref:System.Transactions.TransactionInterop.GetTransactionFromExportCookie%2A> method.      6.  On the remote machine, use the clone transaction to enlist the resource manager using the <xref:System.Transactions.Transaction.EnlistVolatile%2A> or <xref:System.Transactions.Transaction.EnlistDurable%2A> methods of the <xref:System.Transactions.Transaction> class.       The Transmitter/Receiver (pull model) propagation involves these steps,      -   On the client machine, using the transaction generates a corresponding &quot;propagation token&quot; by calling <xref:System.Transactions.TransactionInterop.GetTransmitterPropagationToken%2A>      -   Send the data containing the &quot;propagation token&quot; of the transaction to the remote machine using any preferred method      -   On the remote machine, use the &quot;propagation token&quot; to obtain a clone of the client transaction by calling <xref:System.Transactions.TransactionInterop.GetTransactionFromTransmitterPropagationToken%2A>       The Transmitter/Receiver model provides better performance in scenarios where the transaction token is sent to a remote machine, but the remote machine may not use it to obtain the transaction.  This is because the transaction is not propagated until <xref:System.Transactions.TransactionInterop.GetTransactionFromTransmitterPropagationToken%2A> is called. Another advantage is that the propagation token can be sent to any remote machine, while the export cookie can be used only on the machine that provided the whereabouts.       However, you should also note that the whereabouts of remote transaction managers are encapsulated in all the propagation tokens, making them bigger than the corresponding transaction cookies from the Export/Import model.       **Note** This type uses <xref:System.Security.Permissions.SecurityAction> to prevent it from being called from untrusted code; however, only the immediate caller is required to possess the `FullTrust` permission set."
+  summary: "Umożliwia interakcję między <xref href=&quot;System.Transactions&quot;> </xref> i składników, które zostały wcześniej zapisane w interakcję z usługi MSDTC, COM + lub <xref href=&quot;System.EnterpriseServices&quot;> </xref>. Ta klasa nie może być dziedziczona."
+  remarks: "Ta klasa dostarcza metody propagacji transakcji. Aby uzyskać więcej informacji na działanie tego procesu, zobacz [propagacji transakcji](http://msdn.microsoft.com/library/default.asp?url=/library/cossdk/html/b09541e6-4baf-4e37-b879-62884fbb0969.asp).       Przy użyciu metody dostarczone przez tę klasę, można udziału w dwa rodzaje propagacji transakcji, Eksport (model wypychania) i nadajnika/odbiornika (model ściągania).       Propagacja eksportu/importu (model wypychania) obejmuje następujące kroki: 1.  Na komputerze zdalnym &quot;miejsc pobytu&quot; Menedżera transakcji tej maszynie uzyskać przez wywołanie metody <xref:System.Transactions.TransactionInterop.GetWhereabouts%2A>metody.</xref:System.Transactions.TransactionInterop.GetWhereabouts%2A> Następnie można buforować ten element informacji na komputerze klienckim na potrzeby przyszłego użycia.      2.  Wyślij dane zawierające lokalizacji do komputera klienckiego przy użyciu dowolnej metody preferowane 3.  Na komputerze klienckim umożliwia bajtów &quot;Eksportuj&quot; transakcji z komputerem zdalnym i Generuj transakcji &quot;plik cookie&quot;.  Jest to realizowane przez wywołanie <xref:System.Transactions.TransactionInterop.GetExportCookie%2A>i przekazując lokalizacji na komputerze zdalnym.</xref:System.Transactions.TransactionInterop.GetExportCookie%2A>      4.  Wyślij dane zawierające transakcji &quot;plik cookie&quot; z komputerem zdalnym przy użyciu dowolnej metody preferowanych 5.  Na komputerze zdalnym, aby uzyskać Sklonowanie transakcji klienta przez wywołanie metody wykonaj transakcji &quot;plik cookie&quot; <xref:System.Transactions.TransactionInterop.GetTransactionFromExportCookie%2A>metody.</xref:System.Transactions.TransactionInterop.GetTransactionFromExportCookie%2A>      6.  Na komputerze zdalnym należy użyć transakcji klonowania można zarejestrować Menedżera zasobów przy użyciu <xref:System.Transactions.Transaction.EnlistVolatile%2A>lub <xref:System.Transactions.Transaction.EnlistDurable%2A>metody <xref:System.Transactions.Transaction>klasy.</xref:System.Transactions.Transaction> </xref:System.Transactions.Transaction.EnlistDurable%2A> </xref:System.Transactions.Transaction.EnlistVolatile%2A>       Propagacja nadajnika/odbiornika (model ściągania) obejmuje następujące kroki, - na komputerze klienckim przy użyciu transakcji generuje odpowiedni &quot;tokenu propagacji&quot; przez wywołanie metody <xref:System.Transactions.TransactionInterop.GetTransmitterPropagationToken%2A>— Wyślij dane zawierające &quot;tokenu propagacji&quot; transakcji z komputerem zdalnym za pomocą dowolnego preferowaną metodą - na komputerze zdalnym, użyj &quot;tokenu propagacji&quot; można uzyskać w klonowania klienta transakcji przez wywołanie metody modelu <xref:System.Transactions.TransactionInterop.GetTransactionFromTransmitterPropagationToken%2A>nadajnika/odbiornika zapewnia lepszą wydajność w scenariuszach, gdzie token transakcji jest wysyłany do komputera zdalnego , ale komputer zdalny nie może korzystać z uzyskanie transakcji.</xref:System.Transactions.TransactionInterop.GetTransactionFromTransmitterPropagationToken%2A> </xref:System.Transactions.TransactionInterop.GetTransmitterPropagationToken%2A>  Jest to spowodowane transakcji nie są propagowane do <xref:System.Transactions.TransactionInterop.GetTransactionFromTransmitterPropagationToken%2A>jest wywoływana.</xref:System.Transactions.TransactionInterop.GetTransactionFromTransmitterPropagationToken%2A> Inną zaletą jest to, że tokenu propagacji mogą być wysyłane do dowolnego komputera zdalnego, chociaż eksportu pliku cookie mogą być używane tylko na komputerze, który dostarczony o lokalizacji.       Jednak należy również zauważyć, że lokalizacji menedżerowie transakcji zdalnego znajdują się w wszystkie tokeny propagacji nadawania większe niż odpowiednie pliki cookie transakcji z modelu eksportu/importu.       **Uwaga** używa tego typu <xref:System.Security.Permissions.SecurityAction>Aby zapobiec jest wywoływany z kodu niezaufane; jednak tylko bezpośredniego obiektu wywołującego jest wymagany do posiadał `FullTrust` zestaw uprawnień.</xref:System.Security.Permissions.SecurityAction>"
   syntax:
     content: public static class TransactionInterop
   inheritance:
@@ -39,16 +39,16 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Gets an <xref href=&quot;System.Transactions.IDtcTransaction&quot;></xref> instance that represents a <xref href=&quot;System.Transactions.Transaction&quot;></xref>."
+  summary: "Pobiera <xref href=&quot;System.Transactions.IDtcTransaction&quot;> </xref> wystąpienia, który reprezentuje <xref href=&quot;System.Transactions.Transaction&quot;> </xref>."
   syntax:
     content: public static System.Transactions.IDtcTransaction GetDtcTransaction (System.Transactions.Transaction transaction);
     parameters:
     - id: transaction
       type: System.Transactions.Transaction
-      description: "A <xref href=&quot;System.Transactions.Transaction&quot;></xref> instance to be marshaled."
+      description: "A <xref href=&quot;System.Transactions.Transaction&quot;> </xref> wystąpienia można zorganizować."
     return:
       type: System.Transactions.IDtcTransaction
-      description: "An <xref href=&quot;System.Transactions.IDtcTransaction&quot;></xref> instance that represents a <xref href=&quot;System.Transactions.Transaction&quot;></xref>.  The <xref href=&quot;System.Transactions.IDtcTransaction&quot;></xref> instance is compatible with the unmanaged form of [ITransaction](http://msdn.microsoft.com/library/default.asp?url=/library/cossdk/html/d40264be-f9b2-4044-aac6-84b43e5be666.asp) used by MSDTC and with the Managed form of <xref href=&quot;System.EnterpriseServices.ITransaction&quot;></xref> used by <xref href=&quot;System.EnterpriseServices&quot;></xref>."
+      description: "<xref href=&quot;System.Transactions.IDtcTransaction&quot;> </xref> Wystąpienia, który reprezentuje <xref href=&quot;System.Transactions.Transaction&quot;> </xref>.  <xref href=&quot;System.Transactions.IDtcTransaction&quot;> </xref> Wystąpienia jest zgodny z niezarządzanego formę [ITransaction](http://msdn.microsoft.com/library/default.asp?url=/library/cossdk/html/d40264be-f9b2-4044-aac6-84b43e5be666.asp) używanych przez usługi MSDTC i z zarządzanego formę <xref href=&quot;System.EnterpriseServices.ITransaction&quot;> </xref> używane przez <xref href=&quot;System.EnterpriseServices&quot;> </xref>."
   overload: System.Transactions.TransactionInterop.GetDtcTransaction*
   exceptions: []
   platform:
@@ -65,20 +65,20 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Transforms a transaction object into an export transaction cookie."
-  remarks: "Call this method if you want to export a transaction. The `transaction` that is passed along is marshaled into a transaction cookie. You can then send the transaction cookie to the destination process. This is referred to as propagating the transaction between processes or systems. The propagation is considered to be a push model where the local transaction is pushed to the destination.  Therefore, information contained in `whereabouts` must describe the destination transaction manager.       For more information on different propagation models, see the Remarks section of the <xref:System.Transactions.TransactionInterop> class."
+  summary: "Przekształca obiekt transaction w pliku cookie eksportu transakcji."
+  remarks: "Tę metodę można wywołać, jeśli chcesz wyeksportować transakcję. `transaction` Jest ono przekazywane wraz jest przekazywane do pliku cookie transakcji. Następnie można wysłać pliku cookie transakcji do procesu docelowego. Jest to określane jako propagowanie transakcji między procesami lub systemów. Propagacji jest uważany za modelu wypychania, gdzie transakcja lokalnego zostanie przypisany do miejsca docelowego.  W związku z tym informacji zawartych w `whereabouts` musi opisywać docelowym Menedżera transakcji.       Aby uzyskać więcej informacji na propagacji różne modele zobacz sekcję uwag <xref:System.Transactions.TransactionInterop>klasy.</xref:System.Transactions.TransactionInterop>"
   syntax:
     content: public static byte[] GetExportCookie (System.Transactions.Transaction transaction, byte[] whereabouts);
     parameters:
     - id: transaction
       type: System.Transactions.Transaction
-      description: "The <xref href=&quot;System.Transactions.Transaction&quot;></xref> object to be marshaled."
+      description: "<xref href=&quot;System.Transactions.Transaction&quot;> </xref> Obiektu można zorganizować."
     - id: whereabouts
       type: System.Byte[]
-      description: "An address that describes the location of the destination transaction manager. This permits two transaction managers to communicate with one another and thereby propagate a transaction from one system to the other."
+      description: "Adres, który opisuje lokalizacji docelowej Menedżera transakcji. Pozwala to na dwóch menedżerowie transakcji do komunikowania się ze sobą i tym samym propagację transakcji z jednego systemu do drugiego."
     return:
       type: System.Byte[]
-      description: "An export transaction cookie representing the specified <xref href=&quot;System.Transactions.Transaction&quot;></xref> object."
+      description: "Plik cookie eksportu transakcji reprezentującą określoną <xref href=&quot;System.Transactions.Transaction&quot;> </xref> obiektu."
   overload: System.Transactions.TransactionInterop.GetExportCookie*
   exceptions: []
   platform:
@@ -95,17 +95,17 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Generates a <xref href=&quot;System.Transactions.Transaction&quot;></xref> from a specified <xref href=&quot;System.Transactions.IDtcTransaction&quot;></xref>."
-  remarks: "The `transactionNative` is compatible with the unmanaged form of [ITransaction](http://msdn.microsoft.com/library/default.asp?url=/library/cossdk/html/d40264be-f9b2-4044-aac6-84b43e5be666.asp) used by MSDTC and with the Managed form of <xref:System.EnterpriseServices.ITransaction> used by <xref:System.EnterpriseServices>."
+  summary: "Generuje <xref href=&quot;System.Transactions.Transaction&quot;> </xref> z określonej <xref href=&quot;System.Transactions.IDtcTransaction&quot;> </xref>."
+  remarks: "`transactionNative` Jest zgodny z niezarządzanego formę [ITransaction](http://msdn.microsoft.com/library/default.asp?url=/library/cossdk/html/d40264be-f9b2-4044-aac6-84b43e5be666.asp) używanych przez usługi MSDTC i za pomocą formularza zarządzane przez <xref:System.EnterpriseServices.ITransaction> <xref:System.EnterpriseServices>.</xref:System.EnterpriseServices> </xref:System.EnterpriseServices.ITransaction>"
   syntax:
     content: public static System.Transactions.Transaction GetTransactionFromDtcTransaction (System.Transactions.IDtcTransaction transactionNative);
     parameters:
     - id: transactionNative
       type: System.Transactions.IDtcTransaction
-      description: "The <xref href=&quot;System.Transactions.IDtcTransaction&quot;></xref> object to be marshaled."
+      description: "<xref href=&quot;System.Transactions.IDtcTransaction&quot;> </xref> Obiektu można zorganizować."
     return:
       type: System.Transactions.Transaction
-      description: "A <xref href=&quot;System.Transactions.Transaction&quot;></xref> instance that represents the given <xref href=&quot;System.Transactions.IDtcTransaction&quot;></xref>."
+      description: "A <xref href=&quot;System.Transactions.Transaction&quot;> </xref> wystąpienia, który reprezentuje danego <xref href=&quot;System.Transactions.IDtcTransaction&quot;> </xref>."
   overload: System.Transactions.TransactionInterop.GetTransactionFromDtcTransaction*
   exceptions: []
   platform:
@@ -122,17 +122,17 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Generates a <xref href=&quot;System.Transactions.Transaction&quot;></xref> from the specified an export cookie."
-  remarks: "For more information on different propagation models, see the Remarks section of the <xref:System.Transactions.TransactionInterop> class."
+  summary: "Generuje <xref href=&quot;System.Transactions.Transaction&quot;> </xref> z określonego pliku cookie eksportu."
+  remarks: "Aby uzyskać więcej informacji na propagacji różne modele zobacz sekcję uwag <xref:System.Transactions.TransactionInterop>klasy.</xref:System.Transactions.TransactionInterop>"
   syntax:
     content: public static System.Transactions.Transaction GetTransactionFromExportCookie (byte[] cookie);
     parameters:
     - id: cookie
       type: System.Byte[]
-      description: "A marshaled form of the transaction object."
+      description: "Formularz organizowane obiektu transakcji."
     return:
       type: System.Transactions.Transaction
-      description: "A <xref href=&quot;System.Transactions.Transaction&quot;></xref> from the specified export cookie."
+      description: "A <xref href=&quot;System.Transactions.Transaction&quot;> </xref> z określonym eksportu pliku cookie."
   overload: System.Transactions.TransactionInterop.GetTransactionFromExportCookie*
   exceptions: []
   platform:
@@ -149,22 +149,22 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Generates a <xref href=&quot;System.Transactions.Transaction&quot;></xref> instance from the specified transmitter propagation token."
-  remarks: "This method, together with the <xref:System.Transactions.TransactionInterop.GetTransmitterPropagationToken%2A> method, provide functionality for &quot;pull&quot; propagation, in which the transaction is &quot;pulled&quot; from the remote machine when this method is called to unmarshal the transaction.       For more information on different propagation models, see the Remarks section of the <xref:System.Transactions.TransactionInterop> class."
+  summary: "Generuje <xref href=&quot;System.Transactions.Transaction&quot;> </xref> wystąpienie z tokenu propagacji nadajnika określony."
+  remarks: "Ta metoda, wraz z <xref:System.Transactions.TransactionInterop.GetTransmitterPropagationToken%2A>metody zapewniają funkcje propagacji &quot;ściągania&quot;, w którym transakcji &quot;pobieranych&quot; z komputera zdalnego, gdy ta metoda jest wywoływana do wycofania transakcji.</xref:System.Transactions.TransactionInterop.GetTransmitterPropagationToken%2A>       Aby uzyskać więcej informacji na propagacji różne modele zobacz sekcję uwag <xref:System.Transactions.TransactionInterop>klasy.</xref:System.Transactions.TransactionInterop>"
   syntax:
     content: public static System.Transactions.Transaction GetTransactionFromTransmitterPropagationToken (byte[] propagationToken);
     parameters:
     - id: propagationToken
       type: System.Byte[]
-      description: "A propagation token representing a transaction."
+      description: "Tokenu propagacji transakcji reprezentujący."
     return:
       type: System.Transactions.Transaction
-      description: "A <xref href=&quot;System.Transactions.Transaction&quot;></xref> from the specified transmitter propagation token."
+      description: "A <xref href=&quot;System.Transactions.Transaction&quot;> </xref> z tokenu propagacji nadajnika określony."
   overload: System.Transactions.TransactionInterop.GetTransactionFromTransmitterPropagationToken*
   exceptions:
   - type: System.Transactions.TransactionManagerCommunicationException
     commentId: T:System.Transactions.TransactionManagerCommunicationException
-    description: "The deserialization of a transaction fails because the transaction manager cannot be contacted. This may be caused by network firewall or security settings."
+    description: "Deserializacja transakcji nie powiedzie się, ponieważ nie można skontaktować się z menedżerem transakcji. Może to być spowodowane ustawień zapory lub zabezpieczeń sieci."
   platform:
   - net462
 - uid: System.Transactions.TransactionInterop.GetTransmitterPropagationToken(System.Transactions.Transaction)
@@ -179,16 +179,16 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Generates a propagation token for the specified <xref href=&quot;System.Transactions.Transaction&quot;></xref>."
+  summary: "Generuje token dla określonego propagacji <xref href=&quot;System.Transactions.Transaction&quot;> </xref>."
   syntax:
     content: public static byte[] GetTransmitterPropagationToken (System.Transactions.Transaction transaction);
     parameters:
     - id: transaction
       type: System.Transactions.Transaction
-      description: "A transaction to be marshaled into a propagation token."
+      description: "Aby być przekazywane do tokenu propagacji transakcji."
     return:
       type: System.Byte[]
-      description: "This method, together with the <xref:System.Transactions.TransactionInterop.GetTransactionFromTransmitterPropagationToken*> method, provide functionality for Transmitter/Receiver propagation, in which the transaction is &quot;pulled&quot; from the remote machine when the latter is called to unmarshal the transaction.       For more information on different propagation models, see the Remarks section of the <xref href=&quot;System.Transactions.TransactionInterop&quot;></xref> class."
+      description: "Ta metoda, wraz z <xref:System.Transactions.TransactionInterop.GetTransactionFromTransmitterPropagationToken*>metody zapewniają funkcje propagacji odbiornik/nadajnik, w którym transakcji &quot;pobieranych&quot; z maszyny zdalnej podczas jego wywołania do wycofania transakcji.</xref:System.Transactions.TransactionInterop.GetTransactionFromTransmitterPropagationToken*>       Aby uzyskać więcej informacji na propagacji różne modele, zobacz sekcję uwag <xref href=&quot;System.Transactions.TransactionInterop&quot;> </xref> klasy."
   overload: System.Transactions.TransactionInterop.GetTransmitterPropagationToken*
   exceptions: []
   platform:
@@ -205,14 +205,14 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Gets the Whereabouts of the distributed transaction manager that <xref href=&quot;System.Transactions&quot;></xref> uses."
-  remarks: "The Whereabouts contains an address that describes the location of a transaction manager. This permits two transaction managers to communicate with one another and thereby propagate a transaction from one system to the other. The information returned by this method can be used to provide location information for push model transaction propagation with the <xref:System.Transactions.TransactionInterop.GetExportCookie%2A> method.       For more information on different propagation models, see the Remarks section of the <xref:System.Transactions.TransactionInterop> class."
+  summary: "Pobiera lokalizacji Menedżera transakcji rozproszonych, który <xref href=&quot;System.Transactions&quot;> </xref> używa."
+  remarks: "Lokalizacji zawiera adres, który określa lokalizację Menedżera transakcji. Pozwala to na dwóch menedżerowie transakcji do komunikowania się ze sobą i tym samym propagację transakcji z jednego systemu do drugiego. Informacje zwracane przez tę metodę mogą służyć do zapewnienia informacji o lokalizacji propagacji transakcji modelu wypychania z <xref:System.Transactions.TransactionInterop.GetExportCookie%2A>metody.</xref:System.Transactions.TransactionInterop.GetExportCookie%2A>       Aby uzyskać więcej informacji na propagacji różne modele zobacz sekcję uwag <xref:System.Transactions.TransactionInterop>klasy.</xref:System.Transactions.TransactionInterop>"
   syntax:
     content: public static byte[] GetWhereabouts ();
     parameters: []
     return:
       type: System.Byte[]
-      description: "The Whereabouts of the distributed transaction manager that <xref href=&quot;System.Transactions&quot;></xref> uses."
+      description: "Lokalizacji Menedżera transakcji rozproszonych który <xref href=&quot;System.Transactions&quot;> </xref> używa."
   overload: System.Transactions.TransactionInterop.GetWhereabouts*
   exceptions: []
   platform:
@@ -229,13 +229,13 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "The type of the distributed transaction processor."
-  remarks: "This value is used for the `Transaction.PromoterType` property if the transaction is or will be promoted to MSDTC and the `Transaction.GetPromotedToken` method will return an MSDTC transaction propagation token for the `byte[]` result."
+  summary: "Typ procesora transakcji rozproszonej."
+  remarks: "Ta wartość jest używana dla `Transaction.PromoterType` właściwości, gdy transakcja jest lub zostanie podwyższony do usługi MSDTC i `Transaction.GetPromotedToken` metoda zwróci tokenu propagacji transakcji usługi MSDTC dla `byte[]` wynik."
   syntax:
     content: public static readonly Guid PromoterTypeDtc;
     return:
       type: System.Guid
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
