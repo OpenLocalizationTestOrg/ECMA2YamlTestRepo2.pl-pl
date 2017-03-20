@@ -38,8 +38,8 @@ items:
   nameWithType: CheckBoxList
   fullName: System.Web.UI.WebControls.CheckBoxList
   type: Class
-  summary: "Creates a multi selection check box group that can be dynamically created by binding the control to a data source."
-  remarks: "In this topic:      -   [Introduction](#Introduction)      -   [Specifying List Layout](#SpecifyingListLayout)      -   [Specifying List Items](#SpecifyingListItems)      -   [Accessibility](#Accessibility)      -   [Declarative Syntax](#DeclarativeSyntax)      <a name=&quot;Introduction&quot;></a>    ## Introduction    The CheckBoxList control provides a multi selection check box group that can be dynamically generated with data binding. It contains an <xref:System.Web.UI.WebControls.ListControl.Items%2A> collection with members corresponding to individual items in the list. To determine which items are checked, iterate through the collection and test the <xref:System.Web.UI.WebControls.ListItem.Selected%2A> property of each item in the list.      > [!NOTE] >  You can also use multiple <xref:System.Web.UI.WebControls.CheckBox> controls. The CheckBoxList control is easier for creating a set of check boxes using data binding, while the individual <xref:System.Web.UI.WebControls.CheckBox> control gives you greater control over layout.      <a name=&quot;SpecifyingListLayout&quot;></a>    ## Specifying List Layout    You can specify the way the list is displayed by using the <xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A> and <xref:System.Web.UI.WebControls.CheckBoxList.RepeatDirection%2A> properties. For information about layout options, see the <xref:System.Web.UI.WebControls.RepeatLayout> enumeration.       By default, <xref:System.Web.UI.WebControls.CheckBoxList.RepeatDirection%2A> is set to `RepeatDirection.Vertical`. Setting this property to `RepeatDirection.Horizontal` renders the list horizontally. Some <xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A> settings do not allow horizontal layout. For more information, see the <xref:System.Web.UI.WebControls.RepeatLayout> enumeration.      <a name=&quot;SpecifyingListItems&quot;></a>    ## Specifying List Items    To specify items that you want to appear in the CheckBoxList control, place a `ListItem` element for each entry between the opening and closing tags of the CheckBoxList control.       The CheckBoxList control also supports data binding. To bind the control to a data source, first create a data source, such as one of the <xref:System.Web.UI.DataSourceControl> objects, that contains the items to display in the control. Next, use the <xref:System.Web.UI.Control.DataBind%2A> method to bind the data source to the CheckBoxList control. Use the <xref:System.Web.UI.WebControls.ListControl.DataTextField%2A> and <xref:System.Web.UI.WebControls.ListControl.DataValueField%2A> properties to specify which field in the data source to bind to the `Text` and `Value` properties of each list item in the control, respectively. The CheckBoxList control will now display the information from the data source.       To determine the selected items in the CheckBoxList control, iterate through the <xref:System.Web.UI.WebControls.ListControl.Items%2A> collection and test the <xref:System.Web.UI.WebControls.ListItem.Selected%2A> property of each item in the collection.      > [!CAUTION] >  This control can be used to display user input, which might include malicious client script. Check any information that is sent from a client for executable script, SQL statements, or other code before displaying it in your application. You can use validation controls to verify user input before displaying the input text in a control. ASP.NET provides an input request validation feature to block script and HTML in user input. For more information, see [Securing Standard Controls](~/add/includes/ajax-current-ext-md.md), [How to: Protect Against Script Exploits in a Web Application by Applying HTML Encoding to Strings](~/add/includes/ajax-current-ext-md.md), and [Validating User Input in ASP.NET Web Pages](~/add/includes/ajax-current-ext-md.md).      <a name=&quot;Accessibility&quot;></a>    ## Accessibility    For information about how to configure this control so that it generates markup that conforms to accessibility standards, see [Accessibility in Visual Studio and ASP.NET](~/add/includes/ajax-current-ext-md.md) and [ASP.NET Controls and Accessibility](~/add/includes/ajax-current-ext-md.md).      <a name=&quot;DeclarativeSyntax&quot;></a>    ## Declarative Syntax      ```   <asp:CheckBoxList       AccessKey=&quot;string&quot;       AppendDataBoundItems=&quot;True|False&quot;       AutoPostBack=&quot;True|False&quot;       BackColor=&quot;color name|#dddddd&quot;       BorderColor=&quot;color name|#dddddd&quot;       BorderStyle=&quot;NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge|           Inset|Outset&quot;       BorderWidth=&quot;size&quot;       CausesValidation=&quot;True|False&quot;       CellPadding=&quot;integer&quot;       CellSpacing=&quot;integer&quot;       CssClass=&quot;string&quot;       DataMember=&quot;string&quot;       DataSource=&quot;string&quot;       DataSourceID=&quot;string&quot;       DataTextField=&quot;string&quot;       DataTextFormatString=&quot;string&quot;       DataValueField=&quot;string&quot;       Enabled=&quot;True|False&quot;       EnableTheming=&quot;True|False&quot;       EnableViewState=&quot;True|False&quot;       Font-Bold=&quot;True|False&quot;       Font-Italic=&quot;True|False&quot;       Font-Names=&quot;string&quot;       Font-Overline=&quot;True|False&quot;       Font-Size=&quot;string|Smaller|Larger|XX-Small|X-Small|Small|Medium|           Large|X-Large|XX-Large&quot;       Font-Strikeout=&quot;True|False&quot;       Font-Underline=&quot;True|False&quot;       ForeColor=&quot;color name|#dddddd&quot;       Height=&quot;size&quot;       ID=&quot;string&quot;       OnDataBinding=&quot;DataBinding event handler&quot;       OnDataBound=&quot;DataBound event handler&quot;       OnDisposed=&quot;Disposed event handler&quot;       OnInit=&quot;Init event handler&quot;       OnLoad=&quot;Load event handler&quot;       OnPreRender=&quot;PreRender event handler&quot;       OnSelectedIndexChanged=&quot;SelectedIndexChanged event handler&quot;       OnTextChanged=&quot;TextChanged event handler&quot;       OnUnload=&quot;Unload event handler&quot;       RepeatColumns=&quot;integer&quot;       RepeatDirection=&quot;Horizontal|Vertical&quot;       RepeatLayout=&quot;Table|Flow|OrderedList|UnorderedList&quot;       runat=&quot;server&quot;       SelectedIndex=&quot;integer&quot;       SelectedValue=&quot;string&quot;       SkinID=&quot;string&quot;       Style=&quot;string&quot;       TabIndex=&quot;integer&quot;       TextAlign=&quot;Left|Right&quot;       ToolTip=&quot;string&quot;       ValidationGroup=&quot;string&quot;       Visible=&quot;True|False&quot;       Width=&quot;size&quot;   >               <asp:ListItem                   Enabled=&quot;True|False&quot;                   Selected=&quot;True|False&quot;                   Text=&quot;string&quot;                   Value=&quot;string&quot;               />   </asp:CheckBoxList>   ```"
+  summary: "Tworzy grupę pole wyboru zaznaczenia wielu, które można dynamicznie utworzyć przez powiązanie formantu ze źródłem danych."
+  remarks: "W tym temacie:- [wprowadzenie](#Introduction)      -   [określający układ listy](#SpecifyingListLayout)      -   [Określanie elementów listy](#SpecifyingListItems)      -   [ułatwień dostępu](#Accessibility)      -   [składni deklaratywnej](#DeclarativeSyntax) <a name=&quot;Introduction&quot;> </a> ## CheckBoxList wprowadzenie kontrola zapewnia grupy pole wyboru zaznaczenia wielu można dynamicznie wygenerować za pomocą wiązania z danymi.       Zawiera on <xref:System.Web.UI.WebControls.ListControl.Items%2A>kolekcji z elementami członkowskimi odpowiadający poszczególne elementy na liście.</xref:System.Web.UI.WebControls.ListControl.Items%2A> Aby określić elementy, które są sprawdzane, iteracji kolekcji i testowania <xref:System.Web.UI.WebControls.ListItem.Selected%2A>Właściwości każdego elementu na liście.</xref:System.Web.UI.WebControls.ListItem.Selected%2A>      > [!NOTE] > Można również użyć wielu <xref:System.Web.UI.WebControls.CheckBox>formantów.</xref:System.Web.UI.WebControls.CheckBox> Formant CheckBoxList jest łatwiejsze do utworzenia zestawu pól wyboru Używanie powiązania danych podczas poszczególnych <xref:System.Web.UI.WebControls.CheckBox>kontroli zapewnia większą kontrolę nad układu.</xref:System.Web.UI.WebControls.CheckBox>      <a name=&quot;SpecifyingListLayout&quot;></a>## Określający układ listy można określić sposób listy jest wyświetlany za pomocą <xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A>i <xref:System.Web.UI.WebControls.CheckBoxList.RepeatDirection%2A>Właściwości.</xref:System.Web.UI.WebControls.CheckBoxList.RepeatDirection%2A> </xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A> Informacje o opcjach układu, zobacz <xref:System.Web.UI.WebControls.RepeatLayout>wyliczenie.</xref:System.Web.UI.WebControls.RepeatLayout>       Domyślnie <xref:System.Web.UI.WebControls.CheckBoxList.RepeatDirection%2A>ustawiono `RepeatDirection.Vertical`.</xref:System.Web.UI.WebControls.CheckBoxList.RepeatDirection%2A> Ustawienie tej właściwości na `RepeatDirection.Horizontal` poziomie renderuje listy. Niektóre <xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A>Ustawienia nie zezwalają na układ poziomy.</xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A> Aby uzyskać więcej informacji, zobacz <xref:System.Web.UI.WebControls.RepeatLayout>wyliczenie.</xref:System.Web.UI.WebControls.RepeatLayout>      <a name=&quot;SpecifyingListItems&quot;></a>## Umieść Określanie elementów listy, aby określić elementy, które ma być wyświetlany w formancie CheckBoxList `ListItem` elementu dla każdego wpisu pomiędzy otwierającym, a zamykającym tagiem CheckBoxList formantu.       Sterowanie CheckBoxList również obsługuje powiązanie danych. Aby powiązać formantu ze źródłem danych, należy najpierw utworzyć źródło danych, takich jak jeden z <xref:System.Web.UI.DataSourceControl>obiektów, które zawiera elementy do wyświetlenia w formancie.</xref:System.Web.UI.DataSourceControl> Następnie użyj <xref:System.Web.UI.Control.DataBind%2A>metody, aby powiązać ze źródłem danych z formantem CheckBoxList.</xref:System.Web.UI.Control.DataBind%2A> Użyj <xref:System.Web.UI.WebControls.ListControl.DataTextField%2A>i <xref:System.Web.UI.WebControls.ListControl.DataValueField%2A>Właściwości, aby określić, które pole w źródle danych, aby powiązać `Text` i `Value` właściwości każdej z list elementów w formancie, odpowiednio.</xref:System.Web.UI.WebControls.ListControl.DataValueField%2A> </xref:System.Web.UI.WebControls.ListControl.DataTextField%2A> Formant CheckBoxList wyświetli informacje ze źródła danych.       Aby ustalić wybranych elementów w formancie CheckBoxList, iterację <xref:System.Web.UI.WebControls.ListControl.Items%2A>kolekcji i testowania <xref:System.Web.UI.WebControls.ListItem.Selected%2A>Właściwości każdego elementu w kolekcji.</xref:System.Web.UI.WebControls.ListItem.Selected%2A> </xref:System.Web.UI.WebControls.ListControl.Items%2A>      > [!CAUTION] > Ten formant może służyć do wyświetlania danych wejściowych użytkownika, która może obejmować skryptu złośliwego klienta. Sprawdź wszystkie informacje, które są wysyłane z klienta do pliku wykonywalnego skrypt, instrukcji SQL lub inny kod przed wyświetleniem go w aplikacji. Formanty walidacji służy do sprawdzenia danych wejściowych użytkownika przed wyświetleniem wejściowego tekstu w formancie. Program ASP.NET udostępnia funkcję sprawdzania poprawności żądanie wejściowe do bloku skryptu, jak i HTML w danych wejściowych użytkownika. Aby uzyskać więcej informacji, zobacz [zabezpieczanie standardowych formantów](~/add/includes/ajax-current-ext-md.md), [jak: ochrona przed skryptu wykorzystuje luki w aplikacji sieci Web przez stosowanie kodowanie HTML do ciągów](~/add/includes/ajax-current-ext-md.md), i [sprawdzanie poprawności danych wejściowych użytkownika w programie ASP.NET Web Pages](~/add/includes/ajax-current-ext-md.md).      <a name=&quot;Accessibility&quot;></a>## Ułatwień dostępu do informacji na temat sposobu konfigurowania tego formantu, dzięki czemu generuje kod znaczników, który jest zgodny ze standardami ułatwień dostępu, zobacz [ułatwień dostępu w Visual Studio i ASP.NET](~/add/includes/ajax-current-ext-md.md) i [kontrolki ASP.NET i dostępności](~/add/includes/ajax-current-ext-md.md).      <a name=&quot;DeclarativeSyntax&quot;></a>## Składnia deklaratywne```   <asp:CheckBoxList       AccessKey=&quot;string&quot;       AppendDataBoundItems=&quot;True|False&quot;       AutoPostBack=&quot;True|False&quot;       BackColor=&quot;color name|#dddddd&quot;       BorderColor=&quot;color name|#dddddd&quot;       BorderStyle=&quot;NotSet|None|Dotted|Dashed|Solid|Double|Groove|Ridge|           Inset|Outset&quot;       BorderWidth=&quot;size&quot;       CausesValidation=&quot;True|False&quot;       CellPadding=&quot;integer&quot;       CellSpacing=&quot;integer&quot;       CssClass=&quot;string&quot;       DataMember=&quot;string&quot;       DataSource=&quot;string&quot;       DataSourceID=&quot;string&quot;       DataTextField=&quot;string&quot;       DataTextFormatString=&quot;string&quot;       DataValueField=&quot;string&quot;       Enabled=&quot;True|False&quot;       EnableTheming=&quot;True|False&quot;       EnableViewState=&quot;True|False&quot;       Font-Bold=&quot;True|False&quot;       Font-Italic=&quot;True|False&quot;       Font-Names=&quot;string&quot;       Font-Overline=&quot;True|False&quot;       Font-Size=&quot;string|Smaller|Larger|XX-Small|X-Small|Small|Medium|           Large|X-Large|XX-Large&quot;       Font-Strikeout=&quot;True|False&quot;       Font-Underline=&quot;True|False&quot;       ForeColor=&quot;color name|#dddddd&quot;       Height=&quot;size&quot;       ID=&quot;string&quot;       OnDataBinding=&quot;DataBinding event handler&quot;       OnDataBound=&quot;DataBound event handler&quot;       OnDisposed=&quot;Disposed event handler&quot;       OnInit=&quot;Init event handler&quot;       OnLoad=&quot;Load event handler&quot;       OnPreRender=&quot;PreRender event handler&quot;       OnSelectedIndexChanged=&quot;SelectedIndexChanged event handler&quot;       OnTextChanged=&quot;TextChanged event handler&quot;       OnUnload=&quot;Unload event handler&quot;       RepeatColumns=&quot;integer&quot;       RepeatDirection=&quot;Horizontal|Vertical&quot;       RepeatLayout=&quot;Table|Flow|OrderedList|UnorderedList&quot;       runat=&quot;server&quot;       SelectedIndex=&quot;integer&quot;       SelectedValue=&quot;string&quot;       SkinID=&quot;string&quot;       Style=&quot;string&quot;       TabIndex=&quot;integer&quot;       TextAlign=&quot;Left|Right&quot;       ToolTip=&quot;string&quot;       ValidationGroup=&quot;string&quot;       Visible=&quot;True|False&quot;       Width=&quot;size&quot;   >               <asp:ListItem                   Enabled=&quot;True|False&quot;                   Selected=&quot;True|False&quot;                   Text=&quot;string&quot;                   Value=&quot;string&quot;               />   </asp:CheckBoxList>   ```"
   example:
   - "A Visual Studio Web site project with source code is available to accompany this topic: [Download](http://go.microsoft.com/fwlink/?LinkId=191890).  \n  \n The following code example demonstrates how to create a CheckBoxList control on a Web page.  \n  \n> [!NOTE]\n>  The following code sample uses the single-file code model and may not work correctly if copied directly into a code-behind file. This code sample must be copied into an empty text file that has an .aspx extension. For more information on the Web Forms code model, see [ASP.NET Web Forms Page Code Model](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-vb[CheckBoxList#1](~/add/codesnippet/visualbasic/t-system.web.ui.webcontr_283_1.aspx)]\n [!code-cs[CheckBoxList#1](~/add/codesnippet/csharp/t-system.web.ui.webcontr_283_1.aspx)]"
   syntax:
@@ -255,8 +255,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> class."
-  remarks: "Use this constructor to create and initialize a new instance of the <xref:System.Web.UI.WebControls.CheckBoxList> class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> klasy."
+  remarks: "Ten konstruktor umożliwia tworzenie i inicjuje nowe wystąpienie <xref:System.Web.UI.WebControls.CheckBoxList>klasy.</xref:System.Web.UI.WebControls.CheckBoxList>"
   example:
   - "The following code example demonstrates how to create and initialize a new instance of the <xref:System.Web.UI.WebControls.CheckBoxList> control.  \n  \n> [!NOTE]\n>  The following code sample uses the single-file code model and may not work correctly if copied directly into a code-behind file. This code sample must be copied into an empty text file that has an .aspx extension. For more information on the Web Forms code model, see [ASP.NET Web Forms Page Code Model](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[CheckBoxListCtor#1](~/add/codesnippet/csharp/m-system.web.ui.webcontr_216_1.aspx)]\n [!code-vb[CheckBoxListCtor#1](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_216_1.aspx)]"
   syntax:
@@ -278,15 +278,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the distance (in pixels) between the border and contents of the cell."
-  remarks: "Use this property to control the spacing between the contents of a cell and the cell&quot;s border in the <xref:System.Web.UI.WebControls.CheckBoxList> control.       The padding amount specified is added to all four sides of a cell with the height of the tallest cell and width of the widest cell in the <xref:System.Web.UI.WebControls.CheckBoxList> control. The resulting cell size is applied uniformly to all cells in the <xref:System.Web.UI.WebControls.CheckBoxList> control."
+  summary: "Pobiera lub Ustawia odległość (w pikselach) między obramowania i zawartości komórki."
+  remarks: "Ta właściwość służy do kontrolowania odstępów między zawartość komórki, obramowania komórki w <xref:System.Web.UI.WebControls.CheckBoxList>kontroli.</xref:System.Web.UI.WebControls.CheckBoxList>       Wielkość dopełnienia określony jest dodawany do wszystkich czterech krawędzi komórki z najwyższego komórki szerokości i wysokości najszerszych komórkę w <xref:System.Web.UI.WebControls.CheckBoxList>kontroli.</xref:System.Web.UI.WebControls.CheckBoxList> Wynikowa rozmiar komórki są stosowane jednakowo do wszystkich komórek w <xref:System.Web.UI.WebControls.CheckBoxList>kontroli.</xref:System.Web.UI.WebControls.CheckBoxList>"
   example:
   - "The following code example demonstrates how to use the CellPadding property to specify that the cell padding for the <xref:System.Web.UI.WebControls.CheckBoxList> control is 5 pixels.  \n  \n> [!NOTE]\n>  The following code samples use the single-file code model and may not work correctly if copied directly into a code-behind file. Each code sample must be copied into an empty text file that has an .aspx extension. For more information on the Web Forms code model, see [ASP.NET Web Forms Page Code Model](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[Classic CheckBoxList.CellPadding Example#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_668_1.aspx)]\n [!code-vb[Classic CheckBoxList.CellPadding Example#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_668_1.aspx)]  \n  \n [!code-cs[CheckBoxListCellPadding#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_668_2.aspx)]\n [!code-vb[CheckBoxListCellPadding#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_668_2.aspx)]"
   syntax:
     content: public virtual int CellPadding { get; set; }
     return:
       type: System.Int32
-      description: "The distance (in pixels) between the border and contents of the cell. The default is -1, which indicates this property is not set."
+      description: "Odległość (w pikselach) między obramowania i zawartości komórki. Wartość domyślna to -1, która wskazuje, że ta właściwość nie została ustawiona."
   overload: System.Web.UI.WebControls.CheckBoxList.CellPadding*
   exceptions: []
   platform:
@@ -303,15 +303,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the distance (in pixels) between cells."
-  remarks: "Use this property to control the spacing between individual cells in the <xref:System.Web.UI.WebControls.CheckBoxList> control. This property is applied both vertically and horizontally."
+  summary: "Pobiera lub Ustawia odległość (w pikselach) między komórkami."
+  remarks: "Ta właściwość służy do kontrolowania odstępy między komórkami poszczególnych w <xref:System.Web.UI.WebControls.CheckBoxList>kontroli.</xref:System.Web.UI.WebControls.CheckBoxList> Ta właściwość jest stosowana w pionie i w poziomie."
   example:
   - "The following code example demonstrates how to use the CellSpacing property to specify that the cell spacing for the <xref:System.Web.UI.WebControls.CheckBoxList> control is 5 pixels.  \n  \n> [!NOTE]\n>  The following code samples use the single-file code model and may not work correctly if copied directly into a code-behind file. Each code sample must be copied into an empty text file that has an .aspx extension. For more information on the Web Forms code model, see [ASP.NET Web Forms Page Code Model](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[Classic CheckBoxList.CellPadding Example#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_873_1.aspx)]\n [!code-vb[Classic CheckBoxList.CellPadding Example#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_873_1.aspx)]  \n  \n [!code-cs[CheckBoxListCellPadding#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_873_2.aspx)]\n [!code-vb[CheckBoxListCellPadding#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_873_2.aspx)]"
   syntax:
     content: public virtual int CellSpacing { get; set; }
     return:
       type: System.Int32
-      description: "The distance (in pixels) between cells. The default is <xref uid=&quot;langword_csharp_-1&quot; name=&quot;-1&quot; href=&quot;&quot;></xref>, which indicates that this property is not set."
+      description: "Odległość (w pikselach) między komórkami. Wartość domyślna to <xref uid=&quot;langword_csharp_-1&quot; name=&quot;-1&quot; href=&quot;&quot;> </xref>, co oznacza, że ta właściwość nie jest ustawiona."
   overload: System.Web.UI.WebControls.CheckBoxList.CellSpacing*
   exceptions: []
   platform:
@@ -328,8 +328,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Creates a style object that is used internally by the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> control to implement all style related properties."
-  remarks: "The CreateControlStyle method is used primarily by control developers in custom controls that derive from the <xref:System.Web.UI.WebControls.CheckBoxList> class."
+  summary: "Tworzy obiekt stylu, która jest używana wewnętrznie przez <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> właściwości powiązanych z formantu do zaimplementowania wszystkie style."
+  remarks: "Metoda CreateControlStyle jest używana głównie przez deweloperów kontroli w formantach niestandardowych, które pochodzą z <xref:System.Web.UI.WebControls.CheckBoxList>klasy.</xref:System.Web.UI.WebControls.CheckBoxList>"
   example:
   - "The following code example demonstrates how to override the CreateControlStyle method in a custom server control so that it always returns a new instance of the <xref:System.Web.UI.WebControls.TableStyle> class for the <xref:System.Web.UI.WebControls.CheckBoxList> control.  \n  \n [!code-cs[CustomCheckBoxListCreateControlStyle#1](~/add/codesnippet/csharp/m-system.web.ui.webcontr_123_1.aspx)]\n [!code-vb[CustomCheckBoxListCreateControlStyle#1](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_123_1.aspx)]  \n[!code-cs[CustomCheckBoxListCreateControlStyle#2](~/add/codesnippet/csharp/m-system.web.ui.webcontr_123_2.cs)]\n[!code-vb[CustomCheckBoxListCreateControlStyle#2](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_123_2.vb)]"
   syntax:
@@ -337,7 +337,7 @@ items:
     parameters: []
     return:
       type: System.Web.UI.WebControls.Style
-      description: "A <xref href=&quot;System.Web.UI.WebControls.Style&quot;></xref> that contains the style properties of the control."
+      description: "A <xref href=&quot;System.Web.UI.WebControls.Style&quot;> </xref> zawierający właściwości stylu dla formantu."
   overload: System.Web.UI.WebControls.CheckBoxList.CreateControlStyle*
   exceptions: []
   platform:
@@ -354,20 +354,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Searches the current naming container for a server control with the specified ID and path offset. The FindControl method always returns the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> object."
-  remarks: "The FindControl method is used primarily by control developers in custom controls that derive from the <xref:System.Web.UI.WebControls.CheckBoxList> class.       The FindControl method overrides the <xref:System.Web.UI.Control.FindControl%2A> method of the base <xref:System.Web.UI.Control> class. You should not override this version of the <xref:System.Web.UI.Control.FindControl%2A> method."
+  summary: "Wyszukiwania w bieżącym kontenerze nazewnictwa kontrolki serwera z określonego przesunięcia identyfikator i ścieżkę. Metoda metody FindControl zawsze zwraca <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> obiektu."
+  remarks: "Metoda metody FindControl jest używana głównie przez deweloperów kontroli w formantach niestandardowych, które pochodzą z <xref:System.Web.UI.WebControls.CheckBoxList>klasy.</xref:System.Web.UI.WebControls.CheckBoxList>       Metoda metody FindControl zastępuje <xref:System.Web.UI.Control.FindControl%2A>metody podstawowej <xref:System.Web.UI.Control>klasy.</xref:System.Web.UI.Control> </xref:System.Web.UI.Control.FindControl%2A> Ta wersja nie powinien zastąpić <xref:System.Web.UI.Control.FindControl%2A>metody.</xref:System.Web.UI.Control.FindControl%2A>"
   syntax:
     content: protected override System.Web.UI.Control FindControl (string id, int pathOffset);
     parameters:
     - id: id
       type: System.String
-      description: "The identifier for the control to find."
+      description: "Identyfikator formantu można znaleźć."
     - id: pathOffset
       type: System.Int32
-      description: "The number of controls up the page control hierarchy needed to reach a naming container."
+      description: "Liczba formantów w hierarchii formantu strony potrzebny do osiągnięcia kontenera nazewnictwa."
     return:
       type: System.Web.UI.Control
-      description: "The current <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref>."
+      description: "Bieżący <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref>."
   overload: System.Web.UI.WebControls.CheckBoxList.FindControl*
   exceptions: []
   platform:
@@ -384,20 +384,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Retrieves the style of the specified item type at the specified index in the list control."
-  remarks: "The GetItemStyle method is used primarily by control developers in custom controls that derive from the <xref:System.Web.UI.WebControls.CheckBoxList> class.       The style attribute for the <xref:System.Web.UI.WebControls.CheckBoxList> control applies to all list items that are contained by the control. Use the <xref:System.Web.UI.WebControls.Style> property of the <xref:System.Web.UI.WebControls.CheckBoxList> to examine or set the style attribute for the control and its list items."
+  summary: "Pobiera rodzaj typu określony element pod określonym indeksem w formancie listy."
+  remarks: "Metoda GetItemStyle jest używana głównie przez deweloperów kontroli w formantach niestandardowych, które pochodzą z <xref:System.Web.UI.WebControls.CheckBoxList>klasy.</xref:System.Web.UI.WebControls.CheckBoxList>       Atrybut stylu <xref:System.Web.UI.WebControls.CheckBoxList>formantu ma zastosowanie do wszystkich elementów listy, które znajdują się przez formant.</xref:System.Web.UI.WebControls.CheckBoxList> Użyj <xref:System.Web.UI.WebControls.Style>Właściwość <xref:System.Web.UI.WebControls.CheckBoxList>Sprawdź lub ustaw atrybut stylu dla formantu i jego elementów listy.</xref:System.Web.UI.WebControls.CheckBoxList> </xref:System.Web.UI.WebControls.Style>"
   syntax:
     content: protected virtual System.Web.UI.WebControls.Style GetItemStyle (System.Web.UI.WebControls.ListItemType itemType, int repeatIndex);
     parameters:
     - id: itemType
       type: System.Web.UI.WebControls.ListItemType
-      description: "One of the <xref href=&quot;System.Web.UI.WebControls.ListItemType&quot;></xref> enumeration values."
+      description: "Jeden z <xref href=&quot;System.Web.UI.WebControls.ListItemType&quot;> </xref> wartości wyliczenia."
     - id: repeatIndex
       type: System.Int32
-      description: "An ordinal index that specifies the location of the item in the list control."
+      description: "{Numer porządkowy indeksu, który określa lokalizację elementu w formancie listy."
     return:
       type: System.Web.UI.WebControls.Style
-      description: "<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, indicating that style attributes are not set on individual list items in a <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> control."
+      description: "<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, wskazujący, że atrybuty stylu nie są ustawione na poszczególnych elementów w <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> formantu."
   overload: System.Web.UI.WebControls.CheckBoxList.GetItemStyle*
   exceptions: []
   platform:
@@ -414,13 +414,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets a value indicating whether the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> control contains a footer section."
-  remarks: "The HasFooter property is used primarily by control developers in custom controls that derive from the <xref:System.Web.UI.WebControls.CheckBoxList> class. Footers are not supported when the <xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A> property is set to <xref:System.Web.UI.WebControls.RepeatLayout> or <xref:System.Web.UI.WebControls.RepeatLayout>."
+  summary: "Pobiera wartość wskazującą czy <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> formant zawiera stopki."
+  remarks: "Właściwość HasFooter jest używana głównie przez deweloperów kontroli w formantach niestandardowych, które pochodzą z <xref:System.Web.UI.WebControls.CheckBoxList>klasy.</xref:System.Web.UI.WebControls.CheckBoxList> Stopki nie są obsługiwane, gdy <xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A>wartość właściwości jest równa <xref:System.Web.UI.WebControls.RepeatLayout>lub <xref:System.Web.UI.WebControls.RepeatLayout>.</xref:System.Web.UI.WebControls.RepeatLayout> </xref:System.Web.UI.WebControls.RepeatLayout> </xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A>"
   syntax:
     content: protected virtual bool HasFooter { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, indicating that a <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> does not contain a footer section."
+      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, co oznacza, że <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> nie zawiera sekcji stopki."
   overload: System.Web.UI.WebControls.CheckBoxList.HasFooter*
   exceptions: []
   platform:
@@ -437,13 +437,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets a value indicating whether the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> control contains a heading section."
-  remarks: "The HasHeader property is used primarily by control developers in custom controls that derive from the <xref:System.Web.UI.WebControls.CheckBoxList> class. Headers are not supported when the <xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A> property is set to <xref:System.Web.UI.WebControls.RepeatLayout> or <xref:System.Web.UI.WebControls.RepeatLayout>."
+  summary: "Pobiera wartość wskazującą czy <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> formant zawiera sekcja nagłówka."
+  remarks: "Właściwość HasHeader jest używana głównie przez deweloperów kontroli w formantach niestandardowych, które pochodzą z <xref:System.Web.UI.WebControls.CheckBoxList>klasy.</xref:System.Web.UI.WebControls.CheckBoxList> Nagłówki nie są obsługiwane, gdy <xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A>wartość właściwości jest równa <xref:System.Web.UI.WebControls.RepeatLayout>lub <xref:System.Web.UI.WebControls.RepeatLayout>.</xref:System.Web.UI.WebControls.RepeatLayout> </xref:System.Web.UI.WebControls.RepeatLayout> </xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A>"
   syntax:
     content: protected virtual bool HasHeader { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, indicating that a <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> does not contain a heading section."
+      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, co oznacza, że <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> nie zawiera sekcji nagłówka."
   overload: System.Web.UI.WebControls.CheckBoxList.HasHeader*
   exceptions: []
   platform:
@@ -460,13 +460,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets a value indicating whether the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> control contains a separator between items in the list."
-  remarks: "The HasSeparators method is used primarily by control developers in custom controls that derive from the <xref:System.Web.UI.WebControls.CheckBoxList> class. Separators are not supported when the <xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A> property is set to <xref:System.Web.UI.WebControls.RepeatLayout> or <xref:System.Web.UI.WebControls.RepeatLayout>."
+  summary: "Pobiera wartość wskazującą czy <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> formant zawiera znak oddzielający elementy na liście."
+  remarks: "Metoda HasSeparators jest używana głównie przez deweloperów kontroli w formantach niestandardowych, które pochodzą z <xref:System.Web.UI.WebControls.CheckBoxList>klasy.</xref:System.Web.UI.WebControls.CheckBoxList> Separatory nie są obsługiwane, gdy <xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A>wartość właściwości jest równa <xref:System.Web.UI.WebControls.RepeatLayout>lub <xref:System.Web.UI.WebControls.RepeatLayout>.</xref:System.Web.UI.WebControls.RepeatLayout> </xref:System.Web.UI.WebControls.RepeatLayout> </xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A>"
   syntax:
     content: protected virtual bool HasSeparators { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, indicating that a <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> does not contain separators."
+      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, co oznacza, że <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> nie zawierać separatorów."
   overload: System.Web.UI.WebControls.CheckBoxList.HasSeparators*
   exceptions: []
   platform:
@@ -483,20 +483,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Processes the posted data for the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> control."
-  remarks: "The LoadPostData method is used primarily by control developers in custom controls that derive from the <xref:System.Web.UI.WebControls.CheckBoxList> class.       The LoadPostData method indicates whether the state of the <xref:System.Web.UI.WebControls.CheckBoxList> control has changed. In other words, it determines whether each list item in the control has the same <xref:System.Web.UI.WebControls.ListItem.Selected%2A> value as the last posted value. A user selecting or clearing an item in the control changes the <xref:System.Web.UI.WebControls.ListItem.Selected%2A> property value for the corresponding <xref:System.Web.UI.WebControls.ListItem> object in the <xref:System.Web.UI.WebControls.ListControl.Items%2A> collection of the <xref:System.Web.UI.WebControls.CheckBoxList> control. If the same list items are selected in the control, or if the <xref:System.Web.UI.WebControls.CheckBoxList> is disabled, LoadPostData returns `false`.       When the LoadPostData method returns `true` for a control, the page framework invokes the <xref:System.Web.UI.WebControls.CheckBoxList.RaisePostDataChangedEvent%2A> method for the control."
+  summary: "Przetwarza dane przesłane <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> formantu."
+  remarks: "Metoda element LoadPostData jest używana głównie przez deweloperów kontroli w formantach niestandardowych, które pochodzą z <xref:System.Web.UI.WebControls.CheckBoxList>klasy.</xref:System.Web.UI.WebControls.CheckBoxList>       Metoda element LoadPostData wskazuje, czy stan <xref:System.Web.UI.WebControls.CheckBoxList>formant został zmieniony.</xref:System.Web.UI.WebControls.CheckBoxList> Innymi słowy, określa czy każdego elementu listy w formancie ma tę samą <xref:System.Web.UI.WebControls.ListItem.Selected%2A>wartości jako ostatnią wartość oczekujących na opublikowanie.</xref:System.Web.UI.WebControls.ListItem.Selected%2A> Użytkownika, zaznaczając lub usuwając element zmiany kontroli <xref:System.Web.UI.WebControls.ListItem.Selected%2A>wartości właściwości dla odpowiednich <xref:System.Web.UI.WebControls.ListItem>obiektu w <xref:System.Web.UI.WebControls.ListControl.Items%2A>Kolekcja <xref:System.Web.UI.WebControls.CheckBoxList>kontroli.</xref:System.Web.UI.WebControls.CheckBoxList> </xref:System.Web.UI.WebControls.ListControl.Items%2A> </xref:System.Web.UI.WebControls.ListItem> </xref:System.Web.UI.WebControls.ListItem.Selected%2A> Jeśli te same elementy listy są zaznaczone w formancie lub <xref:System.Web.UI.WebControls.CheckBoxList>jest wyłączone, zwraca element LoadPostData `false`.</xref:System.Web.UI.WebControls.CheckBoxList>       Gdy metoda element LoadPostData zwraca `true` kontrolki, wywołuje framework strony <xref:System.Web.UI.WebControls.CheckBoxList.RaisePostDataChangedEvent%2A>metody dla formantu.</xref:System.Web.UI.WebControls.CheckBoxList.RaisePostDataChangedEvent%2A>"
   syntax:
     content: protected virtual bool LoadPostData (string postDataKey, System.Collections.Specialized.NameValueCollection postCollection);
     parameters:
     - id: postDataKey
       type: System.String
-      description: "The key identifier for the control, used to index the <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;></xref> specified in the `postCollection` parameter."
+      description: "Identyfikator klucza dla formantu, używany do indeksu <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;> </xref> określony w `postCollection` parametru."
     - id: postCollection
       type: System.Collections.Specialized.NameValueCollection
-      description: "A <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;></xref> that contains value information indexed by control identifiers."
+      description: "A <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;> </xref> zawierającego informacje o wartości indeksowany przez identyfikatory formantu."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the state of the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> is different from the last posting; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli stan <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> jest inny niż ostatni publikowanie; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.CheckBoxList.LoadPostData*
   exceptions: []
   platform:
@@ -513,13 +513,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Raises the <xref href=&quot;System.Web.UI.Control.Init&quot;></xref> event."
+  summary: "Zgłasza <xref href=&quot;System.Web.UI.Control.Init&quot;> </xref> zdarzeń."
   syntax:
     content: protected override void OnInit (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An object that contains event data."
+      description: "Obiekt zawierający dane zdarzenia."
   overload: System.Web.UI.WebControls.CheckBoxList.OnInit*
   exceptions: []
   platform:
@@ -536,8 +536,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Configures the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> control prior to rendering on the client."
-  remarks: "The OnPreRender method is used primarily by control developers in custom controls that derive from the <xref:System.Web.UI.WebControls.CheckBoxList> class. The OnPreRender method allows derived classes to handle the <xref:System.Web.UI.Control.PreRender> event without attaching a delegate. This is the preferred technique for handling the event in a derived class.       The OnPreRender method performs any necessary prerendering steps prior to saving view state and rendering content for the <xref:System.Web.UI.WebControls.CheckBoxList>. The individual list items contained in the <xref:System.Web.UI.WebControls.CheckBoxList> control are initialized for rendering using the current <xref:System.Web.UI.WebControls.ListControl.AutoPostBack%2A>, <xref:System.Web.UI.WebControls.ListControl.CausesValidation%2A>, and <xref:System.Web.UI.WebControls.ListControl.ValidationGroup%2A> values."
+  summary: "Konfiguruje <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> kontroli przed renderowaniem na kliencie."
+  remarks: "Metoda OnPreRender jest używana głównie przez deweloperów kontroli w formantach niestandardowych, które pochodzą z <xref:System.Web.UI.WebControls.CheckBoxList>klasy.</xref:System.Web.UI.WebControls.CheckBoxList> Metoda OnPreRender umożliwia klas pochodnych do obsługi <xref:System.Web.UI.Control.PreRender>zdarzeń bez dołączanie delegata.</xref:System.Web.UI.Control.PreRender> Jest to preferowana metoda obsługi zdarzeń w klasie pochodnej.       Metoda OnPreRender wykonuje wszystkie niezbędne kroki prerendering przed zapisaniem stanu widoku i renderowania zawartości dla <xref:System.Web.UI.WebControls.CheckBoxList>.</xref:System.Web.UI.WebControls.CheckBoxList> Lista poszczególnych elementów zawartych w <xref:System.Web.UI.WebControls.CheckBoxList>formantu są inicjowane w celu renderowania przy użyciu bieżącego <xref:System.Web.UI.WebControls.ListControl.AutoPostBack%2A>, <xref:System.Web.UI.WebControls.ListControl.CausesValidation%2A>, i <xref:System.Web.UI.WebControls.ListControl.ValidationGroup%2A>wartości.</xref:System.Web.UI.WebControls.ListControl.ValidationGroup%2A> </xref:System.Web.UI.WebControls.ListControl.CausesValidation%2A> </xref:System.Web.UI.WebControls.ListControl.AutoPostBack%2A> </xref:System.Web.UI.WebControls.CheckBoxList>"
   example:
   - "The following code example demonstrates how to override the <xref:System.Web.UI.WebControls.CheckBoxList.CreateControlStyle%2A> method in a custom server control so that it always returns a new instance of the <xref:System.Web.UI.WebControls.TableStyle> class for the <xref:System.Web.UI.WebControls.CheckBoxList>.  \n  \n [!code-cs[CustomCheckBoxListOnPreRender#1](~/add/codesnippet/csharp/m-system.web.ui.webcontr_93_1.aspx)]\n [!code-vb[CustomCheckBoxListOnPreRender#1](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_93_1.aspx)]  \n[!code-cs[CustomCheckBoxListOnPreRender#2](~/add/codesnippet/csharp/m-system.web.ui.webcontr_93_2.cs)]\n[!code-vb[CustomCheckBoxListOnPreRender#2](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_93_2.vb)]"
   syntax:
@@ -545,7 +545,7 @@ items:
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> that contains the event data."
+      description: "<xref:System.EventArgs>Zawierający dane zdarzenia.</xref:System.EventArgs>"
   overload: System.Web.UI.WebControls.CheckBoxList.OnPreRender*
   exceptions: []
   platform:
@@ -562,8 +562,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Notifies the ASP.NET application that the state of the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> control has changed."
-  remarks: "The RaisePostDataChangedEvent method is used primarily by control developers in custom controls that derive from the <xref:System.Web.UI.WebControls.CheckBoxList> class.       The page framework calls the RaisePostDataChangedEvent method on a <xref:System.Web.UI.WebControls.CheckBoxList> control when the <xref:System.Web.UI.WebControls.CheckBoxList.LoadPostData%2A> method indicates that the state of the list items have changed in the <xref:System.Web.UI.WebControls.CheckBoxList> control. The RaisePostDataChangedEvent method calls the <xref:System.Web.UI.WebControls.ListControl.OnSelectedIndexChanged%2A> method to raise the <xref:System.Web.UI.WebControls.ListControl.SelectedIndexChanged> event. Control developers can override the <xref:System.Web.UI.WebControls.ListControl.OnSelectedIndexChanged%2A> method to perform custom processing when the user selects or clears list items in the control.       The <xref:System.Web.UI.IPostBackDataHandler.RaisePostDataChangedEvent%2A> method can optionally perform validation before raising the <xref:System.Web.UI.WebControls.ListControl.SelectedIndexChanged> event for the control. To validate a group of controls on the page when a list item within the <xref:System.Web.UI.WebControls.CheckBoxList> is selected, set the <xref:System.Web.UI.WebControls.ListControl.AutoPostBack%2A> and <xref:System.Web.UI.WebControls.ListControl.CausesValidation%2A> properties to `true`, and specify the group of controls to validate in the <xref:System.Web.UI.WebControls.ListControl.ValidationGroup%2A> property."
+  summary: "Powiadamia aplikację ASP.NET który stan <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> kontrolki została zmieniona."
+  remarks: "Metoda RaisePostDataChangedEvent jest używana głównie przez deweloperów kontroli w formantach niestandardowych, które pochodzą z <xref:System.Web.UI.WebControls.CheckBoxList>klasy.</xref:System.Web.UI.WebControls.CheckBoxList>       Framework strona wywołuje metodę RaisePostDataChangedEvent <xref:System.Web.UI.WebControls.CheckBoxList>decyduje o <xref:System.Web.UI.WebControls.CheckBoxList.LoadPostData%2A>— Metoda wskazuje, że stan elementów listy zostały zmienione w <xref:System.Web.UI.WebControls.CheckBoxList>kontroli.</xref:System.Web.UI.WebControls.CheckBoxList> </xref:System.Web.UI.WebControls.CheckBoxList.LoadPostData%2A> </xref:System.Web.UI.WebControls.CheckBoxList> Wywołania metody RaisePostDataChangedEvent <xref:System.Web.UI.WebControls.ListControl.OnSelectedIndexChanged%2A>metodę, aby podnieść <xref:System.Web.UI.WebControls.ListControl.SelectedIndexChanged>zdarzeń.</xref:System.Web.UI.WebControls.ListControl.SelectedIndexChanged> </xref:System.Web.UI.WebControls.ListControl.OnSelectedIndexChanged%2A> Formant deweloperzy mogą zastąpić <xref:System.Web.UI.WebControls.ListControl.OnSelectedIndexChanged%2A>metodę w celu przetwarzania niestandardowych, gdy użytkownik wybierze lub elementów w formancie listy czyści.</xref:System.Web.UI.WebControls.ListControl.OnSelectedIndexChanged%2A>       <xref:System.Web.UI.IPostBackDataHandler.RaisePostDataChangedEvent%2A>Metody opcjonalnie przeprowadzić weryfikacji przed zgłoszeniem <xref:System.Web.UI.WebControls.ListControl.SelectedIndexChanged>zdarzenia.</xref:System.Web.UI.WebControls.ListControl.SelectedIndexChanged> </xref:System.Web.UI.IPostBackDataHandler.RaisePostDataChangedEvent%2A> Można sprawdzić poprawności grupy formantów na stronie, gdy element listy w <xref:System.Web.UI.WebControls.CheckBoxList>jest zaznaczone, ustaw <xref:System.Web.UI.WebControls.ListControl.AutoPostBack%2A>i <xref:System.Web.UI.WebControls.ListControl.CausesValidation%2A>Właściwości, aby `true`, i określ grupę formantów do weryfikacji w <xref:System.Web.UI.WebControls.ListControl.ValidationGroup%2A>Właściwości.</xref:System.Web.UI.WebControls.ListControl.ValidationGroup%2A> </xref:System.Web.UI.WebControls.ListControl.CausesValidation%2A> </xref:System.Web.UI.WebControls.ListControl.AutoPostBack%2A> </xref:System.Web.UI.WebControls.CheckBoxList>"
   syntax:
     content: protected virtual void RaisePostDataChangedEvent ();
     parameters: []
@@ -583,8 +583,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Displays the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> on the client."
-  remarks: "The Render method is used primarily by control developers in custom controls that derive from the <xref:System.Web.UI.WebControls.CheckBoxList> class.       The Render implementation for a <xref:System.Web.UI.WebControls.CheckBoxList> control initializes a <xref:System.Web.UI.WebControls.RepeatInfo> object for the list, and calls the <xref:System.Web.UI.WebControls.RepeatInfo.RenderRepeater%2A> method, which in turn uses the <xref:System.Web.UI.WebControls.CheckBoxList.RenderItem%2A> method to render individual check box list items."
+  summary: "Wyświetla <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> na kliencie."
+  remarks: "Metoda renderowania jest używany głównie przez deweloperów kontroli w formantach niestandardowych, które pochodzą z <xref:System.Web.UI.WebControls.CheckBoxList>klasy.</xref:System.Web.UI.WebControls.CheckBoxList>       Implementacja renderowania dla <xref:System.Web.UI.WebControls.CheckBoxList>kontrolować inicjuje <xref:System.Web.UI.WebControls.RepeatInfo>obiekt do listy i wywołania <xref:System.Web.UI.WebControls.RepeatInfo.RenderRepeater%2A>metodę, która z kolei używa <xref:System.Web.UI.WebControls.CheckBoxList.RenderItem%2A>metody do renderowania elementów listy poszczególne pola wyboru.</xref:System.Web.UI.WebControls.CheckBoxList.RenderItem%2A> </xref:System.Web.UI.WebControls.RepeatInfo.RenderRepeater%2A> </xref:System.Web.UI.WebControls.RepeatInfo> </xref:System.Web.UI.WebControls.CheckBoxList>"
   example:
   - "The following code example demonstrates how to override the Render method in a custom server control so that the <xref:System.Web.UI.WebControls.CheckBoxList> always displays an image.  \n  \n [!code-cs[CustomCheckBoxListRender#1](~/add/codesnippet/csharp/m-system.web.ui.webcontr_34_1.aspx)]\n [!code-vb[CustomCheckBoxListRender#1](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_34_1.aspx)]  \n[!code-vb[CustomCheckBoxListRender#2](~/add/codesnippet/visualbasic/m-system.web.ui.webcontr_34_2.vb)]\n[!code-cs[CustomCheckBoxListRender#2](~/add/codesnippet/csharp/m-system.web.ui.webcontr_34_2.cs)]"
   syntax:
@@ -592,7 +592,7 @@ items:
     parameters:
     - id: writer
       type: System.Web.UI.HtmlTextWriter
-      description: "A <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> that contains the output stream for rendering on the client."
+      description: "A <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> zawierający strumienia wyjściowego do renderowania na kliencie."
   overload: System.Web.UI.WebControls.CheckBoxList.Render*
   exceptions: []
   platform:
@@ -609,23 +609,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Renders a list item in the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> control."
-  remarks: "This method is used primarily by control developers in custom controls that derive from the <xref:System.Web.UI.WebControls.CheckBoxList> class.       The <xref:System.Web.UI.WebControls.CheckBoxList.Render%2A> implementation for a <xref:System.Web.UI.WebControls.CheckBoxList> control calls the <xref:System.Web.UI.WebControls.RepeatInfo.RenderRepeater%2A> method, which in turn uses the RenderItem method to render individual checkbox list items.       The RenderItem method for a <xref:System.Web.UI.WebControls.CheckBoxList> control ignores the `itemType` and `repeatInfo` parameters. The `repeatIndex` value is used to select the checkbox list item in the <xref:System.Web.UI.WebControls.ListControl.Items%2A> collection, and the selected list item is rendered to the output stream."
+  summary: "Renderuje element listy w <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> formantu."
+  remarks: "Ta metoda jest używana głównie przez deweloperów kontroli w formantach niestandardowych, które pochodzą z <xref:System.Web.UI.WebControls.CheckBoxList>klasy.</xref:System.Web.UI.WebControls.CheckBoxList>       <xref:System.Web.UI.WebControls.CheckBoxList.Render%2A>Implementację <xref:System.Web.UI.WebControls.CheckBoxList>kontrolować wywołania <xref:System.Web.UI.WebControls.RepeatInfo.RenderRepeater%2A>metodę, która z kolei używa metody renderowanego do renderowania wyboru poszczególnych elementów listy.</xref:System.Web.UI.WebControls.RepeatInfo.RenderRepeater%2A> </xref:System.Web.UI.WebControls.CheckBoxList> </xref:System.Web.UI.WebControls.CheckBoxList.Render%2A>       Metoda renderowanego <xref:System.Web.UI.WebControls.CheckBoxList>ignoruje kontroli `itemType` i `repeatInfo` parametrów.</xref:System.Web.UI.WebControls.CheckBoxList> `repeatIndex` Wartość służy do wybierania elementu listy wyboru w <xref:System.Web.UI.WebControls.ListControl.Items%2A>kolekcji i wybranego elementu listy jest renderowany do strumienia wyjściowego.</xref:System.Web.UI.WebControls.ListControl.Items%2A>"
   syntax:
     content: protected virtual void RenderItem (System.Web.UI.WebControls.ListItemType itemType, int repeatIndex, System.Web.UI.WebControls.RepeatInfo repeatInfo, System.Web.UI.HtmlTextWriter writer);
     parameters:
     - id: itemType
       type: System.Web.UI.WebControls.ListItemType
-      description: "One of the <xref href=&quot;System.Web.UI.WebControls.ListItemType&quot;></xref> enumeration values."
+      description: "Jeden z <xref href=&quot;System.Web.UI.WebControls.ListItemType&quot;> </xref> wartości wyliczenia."
     - id: repeatIndex
       type: System.Int32
-      description: "An ordinal index that specifies the location of the item in the list control."
+      description: "{Numer porządkowy indeksu, który określa lokalizację elementu w formancie listy."
     - id: repeatInfo
       type: System.Web.UI.WebControls.RepeatInfo
-      description: "A <xref href=&quot;System.Web.UI.WebControls.RepeatInfo&quot;></xref> object that represents the information used to render the item in the list."
+      description: "A <xref href=&quot;System.Web.UI.WebControls.RepeatInfo&quot;> </xref> obiekt, który reprezentuje informacje używane do renderowania elementu na liście."
     - id: writer
       type: System.Web.UI.HtmlTextWriter
-      description: "An <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> object that represents the output stream to render HTML content on the client."
+      description: "<xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> Obiekt, który reprezentuje strumienia wyjściowego do renderowania elementów HTML zawartości na kliencie."
   overload: System.Web.UI.WebControls.CheckBoxList.RenderItem*
   exceptions: []
   platform:
@@ -642,12 +642,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets a value that indicates whether the control is rendered when the data source has no data or the control is not data-bound."
+  summary: "Pobiera lub ustawia wartość wskazującą, czy formant jest renderowany źródła danych nie zawiera danych lub formant nie jest powiązany z danymi."
   syntax:
     content: public virtual bool RenderWhenDataEmpty { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the control is rendered when the data source has no data or the control is not data-bound; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli renderowania formantu źródła danych nie zawiera danych lub formant nie jest powiązany z danymi; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.CheckBoxList.RenderWhenDataEmpty*
   exceptions: []
   platform:
@@ -664,20 +664,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the number of columns to display in the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> control."
-  remarks: "When the <xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A> property is set to <xref:System.Web.UI.WebControls.RepeatLayout>, you can use this property to specify the number of columns that display in the <xref:System.Web.UI.WebControls.CheckBoxList> control. If this property is not set, the <xref:System.Web.UI.WebControls.CheckBoxList> control displays all list items in a single column."
+  summary: "Pobiera lub ustawia liczbę kolumn do wyświetlenia w <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> formantu."
+  remarks: "Gdy <xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A>właściwość jest ustawiona na <xref:System.Web.UI.WebControls.RepeatLayout>, ta właściwość służy do określania liczby kolumn wyświetlanych w <xref:System.Web.UI.WebControls.CheckBoxList>kontroli.</xref:System.Web.UI.WebControls.CheckBoxList> </xref:System.Web.UI.WebControls.RepeatLayout> </xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A> Jeśli ta właściwość nie jest ustawiona, <xref:System.Web.UI.WebControls.CheckBoxList>Kontrola Wyświetla wszystkie elementy listy w jednej kolumny.</xref:System.Web.UI.WebControls.CheckBoxList>"
   example:
   - "The following code example demonstrates how to use the RepeatColumns property to specify that two columns are displayed in the <xref:System.Web.UI.WebControls.CheckBoxList> control.  \n  \n> [!NOTE]\n>  The following code samples use the single-file code model and may not work correctly if copied directly into a code-behind file. Each code sample must be copied into an empty text file that has an .aspx extension. For more information on the Web Forms code model, see [ASP.NET Web Forms Page Code Model](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[Classic CheckBoxList.CellPadding Example#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_27_1.aspx)]\n [!code-vb[Classic CheckBoxList.CellPadding Example#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_27_1.aspx)]  \n  \n [!code-cs[CheckBoxListRepeatColumns#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_27_2.aspx)]\n [!code-vb[CheckBoxListRepeatColumns#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_27_2.aspx)]"
   syntax:
     content: public virtual int RepeatColumns { get; set; }
     return:
       type: System.Int32
-      description: "The number of columns to display in the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> control. The default is <xref uid=&quot;langword_csharp_0&quot; name=&quot;0&quot; href=&quot;&quot;></xref>, which indicates this property is not set."
+      description: "Liczba kolumn do wyświetlenia w <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> formantu. Wartość domyślna to <xref uid=&quot;langword_csharp_0&quot; name=&quot;0&quot; href=&quot;&quot;> </xref>, co oznacza, ta właściwość nie jest ustawiona."
   overload: System.Web.UI.WebControls.CheckBoxList.RepeatColumns*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The number of columns is set to a negative value."
+    description: "Liczba kolumn ma ustawioną wartość ujemną."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.CheckBoxList.RepeatDirection
@@ -692,20 +692,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets a value that indicates whether the control displays vertically or horizontally."
-  remarks: "Use this property to specify the display direction of the <xref:System.Web.UI.WebControls.CheckBoxList> control.      > [!NOTE] >  The number of columns that are displayed is always determined by the <xref:System.Web.UI.WebControls.CheckBoxList.RepeatColumns%2A> property.       If this property is set to `RepeatDirection.Vertical` and if the <xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A> property is set to <xref:System.Web.UI.WebControls.RepeatLayout>, the first column is filled from top to bottom, then the next column, and so on until all items are rendered. For example, if the <xref:System.Web.UI.WebControls.CheckBoxList.RepeatColumns%2A> property is set to `3`, the items in the <xref:System.Web.UI.WebControls.CheckBoxList> control are displayed in three columns, as in the following table.      ||||   |-|-|-|   |1|4|7|   |2|5|8|   |3|6|9|       If this property is set to `RepeatDirection.Horizontal` and if the <xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A> property is set to <xref:System.Web.UI.WebControls.RepeatLayout>, the first column is filled from top to bottom, then the next column, and so on until all items are rendered. For example, if the <xref:System.Web.UI.WebControls.CheckBoxList.RepeatColumns%2A> property is set to `3`, the items of the <xref:System.Web.UI.WebControls.CheckBoxList> control are displayed in rows of three items each, as in the following table.      ||||   |-|-|-|   |1|2|3|   |4|5|6|   |7|8|9|"
+  summary: "Pobiera lub ustawia wartość wskazującą, czy formant ma być wyświetlana w poziomie czy w pionie."
+  remarks: "Użyj tej właściwości, aby określić kierunek wyświetlania <xref:System.Web.UI.WebControls.CheckBoxList>kontroli.</xref:System.Web.UI.WebControls.CheckBoxList>      > [!NOTE] > Liczba kolumn, które są wyświetlane zawsze jest określana przez <xref:System.Web.UI.WebControls.CheckBoxList.RepeatColumns%2A>Właściwości.</xref:System.Web.UI.WebControls.CheckBoxList.RepeatColumns%2A>       Jeśli ta właściwość jest ustawiona na `RepeatDirection.Vertical` i jeśli <xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A>właściwość jest ustawiona na <xref:System.Web.UI.WebControls.RepeatLayout>, pierwsza kolumna jest wypełniony od góry do dołu, następnie w następnej kolumnie, i tak dalej, aż wszystkie elementy są renderowane.</xref:System.Web.UI.WebControls.RepeatLayout> </xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A> Na przykład jeśli <xref:System.Web.UI.WebControls.CheckBoxList.RepeatColumns%2A>właściwość jest ustawiona na `3`, elementy <xref:System.Web.UI.WebControls.CheckBoxList>sterowania są wyświetlane w trzech kolumn w tabeli poniżej.</xref:System.Web.UI.WebControls.CheckBoxList> </xref:System.Web.UI.WebControls.CheckBoxList.RepeatColumns%2A>      ||||   |-|-|-|   |&1; |&4; |&7; |   |&2; |&5; |&8; |   |&3; |&6; |&9; |       Jeśli ta właściwość jest ustawiona na `RepeatDirection.Horizontal` i jeśli <xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A>właściwość jest ustawiona na <xref:System.Web.UI.WebControls.RepeatLayout>, pierwsza kolumna jest wypełniony od góry do dołu, następnie w następnej kolumnie, i tak dalej, aż wszystkie elementy są renderowane.</xref:System.Web.UI.WebControls.RepeatLayout> </xref:System.Web.UI.WebControls.CheckBoxList.RepeatLayout%2A> Na przykład jeśli <xref:System.Web.UI.WebControls.CheckBoxList.RepeatColumns%2A>właściwość jest ustawiona na `3`, elementy <xref:System.Web.UI.WebControls.CheckBoxList>kontroli są wyświetlane w wierszach trzech elementów, ponieważ w tabeli poniżej.</xref:System.Web.UI.WebControls.CheckBoxList> </xref:System.Web.UI.WebControls.CheckBoxList.RepeatColumns%2A>      ||||   |-|-|-|   |1|2|3|   |4|5|6|   |7|8|9|"
   example:
   - "The following code example demonstrates how to set the RepeatDirection property to specify that the display direction is vertical.  \n  \n> [!NOTE]\n>  The following code samples use the single-file code model and may not work correctly if copied directly into a code-behind file. Each code sample must be copied into an empty text file that has an .aspx extension. For more information on the Web Forms code model, see [ASP.NET Web Forms Page Code Model](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[Classic CheckBoxList.CellPadding Example#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_50_1.aspx)]\n [!code-vb[Classic CheckBoxList.CellPadding Example#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_50_1.aspx)]  \n  \n [!code-cs[CheckBoxListRepeatDirection#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_50_2.aspx)]\n [!code-vb[CheckBoxListRepeatDirection#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_50_2.aspx)]"
   syntax:
     content: public virtual System.Web.UI.WebControls.RepeatDirection RepeatDirection { get; set; }
     return:
       type: System.Web.UI.WebControls.RepeatDirection
-      description: "One of the <xref href=&quot;System.Web.UI.WebControls.RepeatDirection&quot;></xref> values. The default is <xref uid=&quot;langword_csharp_Vertical&quot; name=&quot;Vertical&quot; href=&quot;&quot;></xref>."
+      description: "Jeden z <xref href=&quot;System.Web.UI.WebControls.RepeatDirection&quot;> </xref> wartości. Wartość domyślna to <xref uid=&quot;langword_csharp_Vertical&quot; name=&quot;Vertical&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.CheckBoxList.RepeatDirection*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The specified display direction of the list is not one of the <xref href=&quot;System.Web.UI.WebControls.RepeatDirection&quot;></xref> values."
+    description: "Kierunek określony wyświetlania listy nie jest jednym z <xref href=&quot;System.Web.UI.WebControls.RepeatDirection&quot;> </xref> wartości."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.CheckBoxList.RepeatedItemCount
@@ -720,13 +720,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets the number of list items in the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> control."
-  remarks: "The RepeatedItemCount property is used primarily by control developers in custom controls that derive from the <xref:System.Web.UI.WebControls.CheckBoxList> class.       If there are no items set in the <xref:System.Web.UI.WebControls.CheckBoxList>, the RepeatedItemCount is zero. If there are items set in the <xref:System.Web.UI.WebControls.CheckBoxList>, the RepeatedItemCount is the same as the <xref:System.Web.UI.WebControls.ListItemCollection.Count%2A> property on the <xref:System.Web.UI.WebControls.ListControl.Items%2A> collection."
+  summary: "Pobiera liczbę elementów listy w <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> formantu."
+  remarks: "Właściwość RepeatedItemCount jest używana głównie przez deweloperów kontroli w formantach niestandardowych, które pochodzą z <xref:System.Web.UI.WebControls.CheckBoxList>klasy.</xref:System.Web.UI.WebControls.CheckBoxList>       Jeśli występują żadne elementy ustawione <xref:System.Web.UI.WebControls.CheckBoxList>, RepeatedItemCount wynosi zero.</xref:System.Web.UI.WebControls.CheckBoxList> Czy istnieją elementy ustawiona <xref:System.Web.UI.WebControls.CheckBoxList>, RepeatedItemCount jest taka sama jak <xref:System.Web.UI.WebControls.ListItemCollection.Count%2A>Właściwość <xref:System.Web.UI.WebControls.ListControl.Items%2A>kolekcji.</xref:System.Web.UI.WebControls.ListControl.Items%2A> </xref:System.Web.UI.WebControls.ListItemCollection.Count%2A> </xref:System.Web.UI.WebControls.CheckBoxList>"
   syntax:
     content: protected virtual int RepeatedItemCount { get; }
     return:
       type: System.Int32
-      description: "The number of items in the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref>."
+      description: "Liczba elementów w <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref>."
   overload: System.Web.UI.WebControls.CheckBoxList.RepeatedItemCount*
   exceptions: []
   platform:
@@ -743,20 +743,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets a value that specifies whether the list will be rendered by using a <xref uid=&quot;langword_csharp_table&quot; name=&quot;table&quot; href=&quot;&quot;></xref> element, a <xref uid=&quot;langword_csharp_ul&quot; name=&quot;ul&quot; href=&quot;&quot;></xref> element, an <xref uid=&quot;langword_csharp_ol&quot; name=&quot;ol&quot; href=&quot;&quot;></xref> element, or a <xref uid=&quot;langword_csharp_span&quot; name=&quot;span&quot; href=&quot;&quot;></xref> element."
-  remarks: "For information about the available options, see the <xref:System.Web.UI.WebControls.RepeatLayout> enumeration.      > [!NOTE] >  Two options are new as of ASP.NET 4: <xref:System.Web.UI.WebControls.RepeatLayout> and <xref:System.Web.UI.WebControls.RepeatLayout>.       Some RepeatLayout settings do not allow horizontal layout. For more information, see the <xref:System.Web.UI.WebControls.RepeatLayout> enumeration."
+  summary: "Pobiera lub ustawia wartość określającą, czy lista będzie renderowany przy użyciu <xref uid=&quot;langword_csharp_table&quot; name=&quot;table&quot; href=&quot;&quot;> </xref> elementu <xref uid=&quot;langword_csharp_ul&quot; name=&quot;ul&quot; href=&quot;&quot;> </xref> elementu <xref uid=&quot;langword_csharp_ol&quot; name=&quot;ol&quot; href=&quot;&quot;> </xref> elementu, lub <xref uid=&quot;langword_csharp_span&quot; name=&quot;span&quot; href=&quot;&quot;> </xref> elementu."
+  remarks: "Aby uzyskać informacje o dostępnych opcjach, zobacz <xref:System.Web.UI.WebControls.RepeatLayout>wyliczenie.</xref:System.Web.UI.WebControls.RepeatLayout>      > [!NOTE] > Nowego w wersji platformy ASP.NET 4 są dwie opcje: <xref:System.Web.UI.WebControls.RepeatLayout>i <xref:System.Web.UI.WebControls.RepeatLayout>.</xref:System.Web.UI.WebControls.RepeatLayout> </xref:System.Web.UI.WebControls.RepeatLayout>       Niektóre ustawienia RepeatLayout nie zezwalają na układ poziomy. Aby uzyskać więcej informacji, zobacz <xref:System.Web.UI.WebControls.RepeatLayout>wyliczenie.</xref:System.Web.UI.WebControls.RepeatLayout>"
   example:
   - "The following code example demonstrates how to use the RepeatLayout property to change the HTML that the <xref:System.Web.UI.WebControls.CheckBoxList> control renders.  \n  \n> [!NOTE]\n>  The following code samples use the single-file code model and may not work correctly if copied directly into a code-behind file. Each code sample must be copied into an empty text file that has an .aspx extension. For more information on the Web Forms code model, see [ASP.NET Web Forms Page Code Model](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[CheckBoxListRepeatLayout#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_157_1.aspx)]\n [!code-vb[CheckBoxListRepeatLayout#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_157_1.aspx)]"
   syntax:
     content: public virtual System.Web.UI.WebControls.RepeatLayout RepeatLayout { get; set; }
     return:
       type: System.Web.UI.WebControls.RepeatLayout
-      description: "A value that specifies whether the list will be rendered by using a <xref uid=&quot;langword_csharp_table&quot; name=&quot;table&quot; href=&quot;&quot;></xref> element, a <xref uid=&quot;langword_csharp_ul&quot; name=&quot;ul&quot; href=&quot;&quot;></xref> element, an <xref uid=&quot;langword_csharp_ol&quot; name=&quot;ol&quot; href=&quot;&quot;></xref> element, or a <xref uid=&quot;langword_csharp_span&quot; name=&quot;span&quot; href=&quot;&quot;></xref> element. The default is <xref href=&quot;System.Web.UI.WebControls.RepeatLayout&quot;></xref>."
+      description: "Wartość, która określa, czy lista będzie renderowany przy użyciu <xref uid=&quot;langword_csharp_table&quot; name=&quot;table&quot; href=&quot;&quot;> </xref> elementu <xref uid=&quot;langword_csharp_ul&quot; name=&quot;ul&quot; href=&quot;&quot;> </xref> elementu <xref uid=&quot;langword_csharp_ol&quot; name=&quot;ol&quot; href=&quot;&quot;> </xref> elementu, lub <xref uid=&quot;langword_csharp_span&quot; name=&quot;span&quot; href=&quot;&quot;> </xref> elementu. Wartość domyślna to <xref href=&quot;System.Web.UI.WebControls.RepeatLayout&quot;> </xref>."
   overload: System.Web.UI.WebControls.CheckBoxList.RepeatLayout*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The specified layout is not one of the <xref href=&quot;System.Web.UI.WebControls.RepeatLayout&quot;></xref> values."
+    description: "Wybranego układu nie jest jednym z <xref href=&quot;System.Web.UI.WebControls.RepeatLayout&quot;> </xref> wartości."
   platform:
   - net462
 - uid: System.Web.UI.WebControls.CheckBoxList.System#Web#UI#IPostBackDataHandler#LoadPostData(System.String,System.Collections.Specialized.NameValueCollection)
@@ -772,20 +772,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Processes posted data for the <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;></xref> control."
-  remarks: "Typically, you should use the <xref:System.Web.UI.WebControls.CheckBoxList.LoadPostData%2A> method to process posted data for a <xref:System.Web.UI.WebControls.CheckBoxList> object.       The IPostBackDataHandler.LoadPostData method is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.CheckBoxList> instance is cast to an <xref:System.Web.UI.IPostBackDataHandler> interface."
+  summary: "Procesy opublikowane dane dla <xref href=&quot;System.Web.UI.WebControls.CheckBoxList&quot;> </xref> formantu."
+  remarks: "Zwykle należy używać <xref:System.Web.UI.WebControls.CheckBoxList.LoadPostData%2A>metody do danych w procesie zaksięgowany <xref:System.Web.UI.WebControls.CheckBoxList>obiektu.</xref:System.Web.UI.WebControls.CheckBoxList> </xref:System.Web.UI.WebControls.CheckBoxList.LoadPostData%2A>       Metoda IPostBackDataHandler.LoadPostData jest jawną implementacją elementu interfejsu. Można go używać tylko wtedy, gdy <xref:System.Web.UI.WebControls.CheckBoxList>wystąpienia jest rzutowane na <xref:System.Web.UI.IPostBackDataHandler>interfejsu.</xref:System.Web.UI.IPostBackDataHandler> </xref:System.Web.UI.WebControls.CheckBoxList>"
   syntax:
     content: bool IPostBackDataHandler.LoadPostData (string postDataKey, System.Collections.Specialized.NameValueCollection postCollection);
     parameters:
     - id: postDataKey
       type: System.String
-      description: "The key identifier for the control, used to index the `postCollection`."
+      description: "Identyfikator klucza dla formantu, używany do indeksu `postCollection`."
     - id: postCollection
       type: System.Collections.Specialized.NameValueCollection
-      description: "A <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;></xref> object that contains value information indexed by control identifiers."
+      description: "A <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;> </xref> obiekt, który zawiera informacje o wartości indeksowany przez identyfikatory formantu."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the server control&quot;s state changes as a result of the postback; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>w przypadku zmiany stanu formantu serwera wyniku ogłaszania zwrotnego; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.CheckBoxList.System#Web#UI#IPostBackDataHandler#LoadPostData*
   exceptions: []
   platform:
@@ -803,8 +803,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Raised when posted data for a control has changed."
-  remarks: "Typically, you should use the <xref:System.Web.UI.WebControls.CheckBoxList.RaisePostDataChangedEvent%2A?displayProperty=fullName> method to raise an event when the posted data for a <xref:System.Web.UI.WebControls.CheckBoxList> object changes.       The IPostBackDataHandler.RaisePostDataChangedEvent method is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.CheckBoxList> instance is cast to an <xref:System.Web.UI.IPostBackDataHandler> interface."
+  summary: "Wywoływane, gdy przesłane dane w formancie zostanie zmieniona."
+  remarks: "Zwykle należy używać <xref:System.Web.UI.WebControls.CheckBoxList.RaisePostDataChangedEvent%2A?displayProperty=fullName>metody, aby wywołać zdarzenie po przesłane dane dla <xref:System.Web.UI.WebControls.CheckBoxList>obiekt zmian.</xref:System.Web.UI.WebControls.CheckBoxList> </xref:System.Web.UI.WebControls.CheckBoxList.RaisePostDataChangedEvent%2A?displayProperty=fullName>       Metoda IPostBackDataHandler.RaisePostDataChangedEvent jest jawną implementacją elementu interfejsu. Można go używać tylko wtedy, gdy <xref:System.Web.UI.WebControls.CheckBoxList>wystąpienia jest rzutowane na <xref:System.Web.UI.IPostBackDataHandler>interfejsu.</xref:System.Web.UI.IPostBackDataHandler> </xref:System.Web.UI.WebControls.CheckBoxList>"
   syntax:
     content: void IPostBackDataHandler.RaisePostDataChangedEvent ();
     parameters: []
@@ -825,8 +825,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "For a description of this member, see &lt;xref:System.Web.UI.WebControls.IRepeatInfoUser.GetItemStyle%2A?displayProperty=fullName&gt;."
-  remarks: "Typically, you should use the <xref:System.Web.UI.WebControls.CheckBoxList.GetItemStyle%2A?displayProperty=fullName> method to retrieve the style of an item in a <xref:System.Web.UI.WebControls.CheckBoxList> object.       The IRepeatInfoUser.GetItemStyle method is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.CheckBoxList> instance is cast to an <xref:System.Web.UI.WebControls.IRepeatInfoUser> interface."
+  summary: "Opis tego elementu członkowskiego, zobacz &lt;xref:System.Web.UI.WebControls.IRepeatInfoUser.GetItemStyle%2A?displayProperty=fullName&gt;."
+  remarks: "Zwykle należy używać <xref:System.Web.UI.WebControls.CheckBoxList.GetItemStyle%2A?displayProperty=fullName>Metoda pobierania styl elementu <xref:System.Web.UI.WebControls.CheckBoxList>obiektu.</xref:System.Web.UI.WebControls.CheckBoxList> </xref:System.Web.UI.WebControls.CheckBoxList.GetItemStyle%2A?displayProperty=fullName>       Metoda IRepeatInfoUser.GetItemStyle jest jawną implementacją elementu interfejsu. Można go używać tylko wtedy, gdy <xref:System.Web.UI.WebControls.CheckBoxList>wystąpienia jest rzutowane na <xref:System.Web.UI.WebControls.IRepeatInfoUser>interfejsu.</xref:System.Web.UI.WebControls.IRepeatInfoUser> </xref:System.Web.UI.WebControls.CheckBoxList>"
   example:
   - "The following code example demonstrates how to use the <xref:System.Web.UI.WebControls.IRepeatInfoUser> interface members on a custom <xref:System.Web.UI.WebControls.CheckBoxList> object.  \n  \n [!code-cs[CustomCheckBoxListIRepeatInfoUser#1](~/add/codesnippet/csharp/57f322d7-1b25-414f-93d5-_1.aspx)]\n [!code-vb[CustomCheckBoxListIRepeatInfoUser#1](~/add/codesnippet/visualbasic/57f322d7-1b25-414f-93d5-_1.aspx)]  \n[!code-vb[CustomCheckBoxListIRepeatInfoUser#2](~/add/codesnippet/visualbasic/57f322d7-1b25-414f-93d5-_2.vb)]\n[!code-cs[CustomCheckBoxListIRepeatInfoUser#2](~/add/codesnippet/csharp/57f322d7-1b25-414f-93d5-_2.cs)]"
   syntax:
@@ -834,13 +834,13 @@ items:
     parameters:
     - id: itemType
       type: System.Web.UI.WebControls.ListItemType
-      description: "One of the <xref href=&quot;System.Web.UI.WebControls.ListItemType&quot;></xref> enumeration values."
+      description: "Jeden z <xref href=&quot;System.Web.UI.WebControls.ListItemType&quot;> </xref> wartości wyliczenia."
     - id: repeatIndex
       type: System.Int32
-      description: "An ordinal index that specifies the location of the item in the list control."
+      description: "{Numer porządkowy indeksu, który określa lokalizację elementu w formancie listy."
     return:
       type: System.Web.UI.WebControls.Style
-      description: "A <xref href=&quot;System.Web.UI.WebControls.Style&quot;></xref> object that represents the style of the specified item type at the specified index in the list control."
+      description: "A <xref href=&quot;System.Web.UI.WebControls.Style&quot;> </xref> obiekt, który reprezentuje rodzaj typu określony element pod określonym indeksem w formancie listy."
   overload: System.Web.UI.WebControls.CheckBoxList.System#Web#UI#WebControls#IRepeatInfoUser#GetItemStyle*
   exceptions: []
   platform:
@@ -858,13 +858,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets a value that indicates whether the list control contains a footer section."
-  remarks: "Typically, you should use the <xref:System.Web.UI.WebControls.CheckBoxList.HasFooter%2A?displayProperty=fullName> property to determine if a <xref:System.Web.UI.WebControls.CheckBoxList> object contains a footer section.       The IRepeatInfoUser.HasFooter member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.CheckBoxList> instance is cast to an <xref:System.Web.UI.WebControls.IRepeatInfoUser> interface."
+  summary: "Pobiera wartość wskazującą, czy formant listy zawiera stopki."
+  remarks: "Zwykle należy używać <xref:System.Web.UI.WebControls.CheckBoxList.HasFooter%2A?displayProperty=fullName>Właściwości, aby określić, czy <xref:System.Web.UI.WebControls.CheckBoxList>obiekt zawiera stopki.</xref:System.Web.UI.WebControls.CheckBoxList> </xref:System.Web.UI.WebControls.CheckBoxList.HasFooter%2A?displayProperty=fullName>       Element członkowski IRepeatInfoUser.HasFooter jest jawną implementacją elementu interfejsu. Można go używać tylko wtedy, gdy <xref:System.Web.UI.WebControls.CheckBoxList>wystąpienia jest rzutowane na <xref:System.Web.UI.WebControls.IRepeatInfoUser>interfejsu.</xref:System.Web.UI.WebControls.IRepeatInfoUser> </xref:System.Web.UI.WebControls.CheckBoxList>"
   syntax:
     content: bool System.Web.UI.WebControls.IRepeatInfoUser.HasFooter { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the list control contains a footer section; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli formant listy zawiera stopki; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.CheckBoxList.System#Web#UI#WebControls#IRepeatInfoUser#HasFooter*
   exceptions: []
   platform:
@@ -882,13 +882,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets a value that indicates whether the list control contains a heading section."
-  remarks: "Typically, you should use the <xref:System.Web.UI.WebControls.CheckBoxList.HasHeader%2A?displayProperty=fullName> property to determine a <xref:System.Web.UI.WebControls.CheckBoxList> object contains a heading section.       The IRepeatInfoUser.HasHeader member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.CheckBoxList> instance is cast to an <xref:System.Web.UI.WebControls.IRepeatInfoUser> interface."
+  summary: "Pobiera wartość wskazującą, czy formant listy zawiera sekcja nagłówka."
+  remarks: "Zwykle należy używać <xref:System.Web.UI.WebControls.CheckBoxList.HasHeader%2A?displayProperty=fullName>Właściwości w celu określenia <xref:System.Web.UI.WebControls.CheckBoxList>obiekt zawiera sekcja nagłówka.</xref:System.Web.UI.WebControls.CheckBoxList> </xref:System.Web.UI.WebControls.CheckBoxList.HasHeader%2A?displayProperty=fullName>       Element członkowski IRepeatInfoUser.HasHeader jest jawną implementacją elementu interfejsu. Można go używać tylko wtedy, gdy <xref:System.Web.UI.WebControls.CheckBoxList>wystąpienia jest rzutowane na <xref:System.Web.UI.WebControls.IRepeatInfoUser>interfejsu.</xref:System.Web.UI.WebControls.IRepeatInfoUser> </xref:System.Web.UI.WebControls.CheckBoxList>"
   syntax:
     content: bool System.Web.UI.WebControls.IRepeatInfoUser.HasHeader { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the list control contains a heading section; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli formant listy zawiera nagłówek sekcji; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.CheckBoxList.System#Web#UI#WebControls#IRepeatInfoUser#HasHeader*
   exceptions: []
   platform:
@@ -906,13 +906,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets a value that indicates whether the list control contains a separator between items in the list."
-  remarks: "Typically, you should use the <xref:System.Web.UI.WebControls.CheckBoxList.HasSeparators%2A?displayProperty=fullName> property to determine whether a <xref:System.Web.UI.WebControls.CheckBoxList> object contains a separator.       The IRepeatInfoUser.HasSeparators member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.CheckBoxList> instance is cast to an <xref:System.Web.UI.WebControls.IRepeatInfoUser> interface."
+  summary: "Pobiera wartość wskazującą, czy formant listy zawiera znak oddzielający elementy na liście."
+  remarks: "Zwykle należy używać <xref:System.Web.UI.WebControls.CheckBoxList.HasSeparators%2A?displayProperty=fullName>Umożliwia określenie, czy <xref:System.Web.UI.WebControls.CheckBoxList>obiekt zawiera separator.</xref:System.Web.UI.WebControls.CheckBoxList> </xref:System.Web.UI.WebControls.CheckBoxList.HasSeparators%2A?displayProperty=fullName>       Element członkowski IRepeatInfoUser.HasSeparators jest jawną implementacją elementu interfejsu. Można go używać tylko wtedy, gdy <xref:System.Web.UI.WebControls.CheckBoxList>wystąpienia jest rzutowane na <xref:System.Web.UI.WebControls.IRepeatInfoUser>interfejsu.</xref:System.Web.UI.WebControls.IRepeatInfoUser> </xref:System.Web.UI.WebControls.CheckBoxList>"
   syntax:
     content: bool System.Web.UI.WebControls.IRepeatInfoUser.HasSeparators { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the list control contains a separator; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli separator; zawiera kontrolki listy w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.CheckBoxList.System#Web#UI#WebControls#IRepeatInfoUser#HasSeparators*
   exceptions: []
   platform:
@@ -930,8 +930,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "For a description of this member, see <xref:System.Web.UI.WebControls.IRepeatInfoUser.RenderItem*>."
-  remarks: "Typically, you should use the <xref:System.Web.UI.WebControls.CheckBoxList.RenderItem%2A?displayProperty=fullName> method to render items in a <xref:System.Web.UI.WebControls.CheckBoxList> object.       The IRepeatInfoUser.RenderItem method is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.CheckBoxList> instance is cast to an <xref:System.Web.UI.WebControls.IRepeatInfoUser> interface."
+  summary: "Opis tego elementu członkowskiego zobacz <xref:System.Web.UI.WebControls.IRepeatInfoUser.RenderItem*>.</xref:System.Web.UI.WebControls.IRepeatInfoUser.RenderItem*>"
+  remarks: "Zwykle należy używać <xref:System.Web.UI.WebControls.CheckBoxList.RenderItem%2A?displayProperty=fullName>metody do renderowania elementów w <xref:System.Web.UI.WebControls.CheckBoxList>obiektu.</xref:System.Web.UI.WebControls.CheckBoxList> </xref:System.Web.UI.WebControls.CheckBoxList.RenderItem%2A?displayProperty=fullName>       Metoda IRepeatInfoUser.RenderItem jest jawną implementacją elementu interfejsu. Można go używać tylko wtedy, gdy <xref:System.Web.UI.WebControls.CheckBoxList>wystąpienia jest rzutowane na <xref:System.Web.UI.WebControls.IRepeatInfoUser>interfejsu.</xref:System.Web.UI.WebControls.IRepeatInfoUser> </xref:System.Web.UI.WebControls.CheckBoxList>"
   example:
   - "The following code example demonstrates how to use the <xref:System.Web.UI.WebControls.IRepeatInfoUser> interface members on a custom <xref:System.Web.UI.WebControls.CheckBoxList> object.  \n  \n [!code-cs[CustomCheckBoxListIRepeatInfoUser#1](~/add/codesnippet/csharp/e49736d7-b499-41ec-9408-_1.aspx)]\n [!code-vb[CustomCheckBoxListIRepeatInfoUser#1](~/add/codesnippet/visualbasic/e49736d7-b499-41ec-9408-_1.aspx)]  \n[!code-vb[CustomCheckBoxListIRepeatInfoUser#2](~/add/codesnippet/visualbasic/e49736d7-b499-41ec-9408-_2.vb)]\n[!code-cs[CustomCheckBoxListIRepeatInfoUser#2](~/add/codesnippet/csharp/e49736d7-b499-41ec-9408-_2.cs)]"
   syntax:
@@ -939,16 +939,16 @@ items:
     parameters:
     - id: itemType
       type: System.Web.UI.WebControls.ListItemType
-      description: "One of the <xref href=&quot;System.Web.UI.WebControls.ListItemType&quot;></xref> enumeration values."
+      description: "Jeden z <xref href=&quot;System.Web.UI.WebControls.ListItemType&quot;> </xref> wartości wyliczenia."
     - id: repeatIndex
       type: System.Int32
-      description: "An ordinal index that specifies the location of the item in the list control."
+      description: "{Numer porządkowy indeksu, który określa lokalizację elementu w formancie listy."
     - id: repeatInfo
       type: System.Web.UI.WebControls.RepeatInfo
-      description: "A <xref href=&quot;System.Web.UI.WebControls.RepeatInfo&quot;></xref> object that represents the information used to render the item in the list."
+      description: "A <xref href=&quot;System.Web.UI.WebControls.RepeatInfo&quot;> </xref> obiekt, który reprezentuje informacje używane do renderowania elementu na liście."
     - id: writer
       type: System.Web.UI.HtmlTextWriter
-      description: "An <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> object that represents the output stream to render HTML content on the client."
+      description: "<xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> Obiekt, który reprezentuje strumienia wyjściowego do renderowania elementów HTML zawartości na kliencie."
   overload: System.Web.UI.WebControls.CheckBoxList.System#Web#UI#WebControls#IRepeatInfoUser#RenderItem*
   exceptions: []
   platform:
@@ -966,13 +966,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets the number of items in the list control."
-  remarks: "Typically, you should use the <xref:System.Web.UI.WebControls.CheckBoxList.RepeatedItemCount%2A?displayProperty=fullName> property to determine the number of items in a <xref:System.Web.UI.WebControls.CheckBoxList> object.       The IRepeatInfoUser.RepeatedItemCount member is an explicit interface member implementation. It can be used only when the <xref:System.Web.UI.WebControls.CheckBoxList> instance is cast to an <xref:System.Web.UI.WebControls.IRepeatInfoUser> interface."
+  summary: "Pobiera liczbę elementów w formancie listy."
+  remarks: "Zwykle należy używać <xref:System.Web.UI.WebControls.CheckBoxList.RepeatedItemCount%2A?displayProperty=fullName>Właściwości w celu ustalenia liczby elementów w <xref:System.Web.UI.WebControls.CheckBoxList>obiektu.</xref:System.Web.UI.WebControls.CheckBoxList> </xref:System.Web.UI.WebControls.CheckBoxList.RepeatedItemCount%2A?displayProperty=fullName>       Element członkowski IRepeatInfoUser.RepeatedItemCount jest jawną implementacją elementu interfejsu. Można go używać tylko wtedy, gdy <xref:System.Web.UI.WebControls.CheckBoxList>wystąpienia jest rzutowane na <xref:System.Web.UI.WebControls.IRepeatInfoUser>interfejsu.</xref:System.Web.UI.WebControls.IRepeatInfoUser> </xref:System.Web.UI.WebControls.CheckBoxList>"
   syntax:
     content: int System.Web.UI.WebControls.IRepeatInfoUser.RepeatedItemCount { get; }
     return:
       type: System.Int32
-      description: "The number of items in the list."
+      description: "Liczba elementów na liście."
   overload: System.Web.UI.WebControls.CheckBoxList.System#Web#UI#WebControls#IRepeatInfoUser#RepeatedItemCount*
   exceptions: []
   platform:
@@ -989,20 +989,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI.WebControls
-  summary: "Gets or sets the text alignment for the check boxes within the group."
-  remarks: "Use this property to specify whether the text associated with the check boxes appears on the left or right of the check box. If this property is set to `TextAlign.Right`, the text is displayed to the right of the check box. If this property is set to `TextAlign.Left`, the text is displayed to the left of the check box."
+  summary: "Pobiera lub Ustawia wyrównanie tekstu dla pola wyboru w obrębie grupy."
+  remarks: "Ta właściwość umożliwia określenie, czy tekst skojarzony z polami wyboru pojawia się po lewej lub prawej strony pola wyboru. Jeśli ta właściwość jest ustawiona na `TextAlign.Right`, tekst jest wyświetlany po prawej stronie pola wyboru. Jeśli ta właściwość jest ustawiona na `TextAlign.Left`, tekst jest wyświetlany na lewo od pola wyboru."
   example:
   - "The following code example demonstrates how to use the TextAlign property to specify that the text associated with the check boxes appears on the right side of the <xref:System.Web.UI.WebControls.CheckBoxList> control.  \n  \n> [!NOTE]\n>  The following code samples use the single-file code model and may not work correctly if copied directly into a code-behind file. Each code sample must be copied into an empty text file that has an .aspx extension. For more information on the Web Forms code model, see [ASP.NET Web Forms Page Code Model](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[Classic CheckBoxList.CellPadding Example#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_667_1.aspx)]\n [!code-vb[Classic CheckBoxList.CellPadding Example#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_667_1.aspx)]  \n  \n [!code-cs[CheckBoxListTextAlign#1](~/add/codesnippet/csharp/p-system.web.ui.webcontr_667_2.aspx)]\n [!code-vb[CheckBoxListTextAlign#1](~/add/codesnippet/visualbasic/p-system.web.ui.webcontr_667_2.aspx)]"
   syntax:
     content: public virtual System.Web.UI.WebControls.TextAlign TextAlign { get; set; }
     return:
       type: System.Web.UI.WebControls.TextAlign
-      description: "One of the <xref href=&quot;System.Web.UI.WebControls.TextAlign&quot;></xref> values. The default value is <xref uid=&quot;langword_csharp_Right&quot; name=&quot;Right&quot; href=&quot;&quot;></xref>."
+      description: "Jeden z <xref href=&quot;System.Web.UI.WebControls.TextAlign&quot;> </xref> wartości. Wartość domyślna to <xref uid=&quot;langword_csharp_Right&quot; name=&quot;Right&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.WebControls.CheckBoxList.TextAlign*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The specified label text alignment is not one of the <xref href=&quot;System.Web.UI.WebControls.TextAlign&quot;></xref> values."
+    description: "Wyrównanie tekstu etykiety nie jest jednym z <xref href=&quot;System.Web.UI.WebControls.TextAlign&quot;> </xref> wartości."
   platform:
   - net462
 references:
