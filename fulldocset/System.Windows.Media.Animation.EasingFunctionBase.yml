@@ -14,8 +14,8 @@ items:
   nameWithType: EasingFunctionBase
   fullName: System.Windows.Media.Animation.EasingFunctionBase
   type: Class
-  summary: "Provides the base class for all the easing functions."
-  remarks: "You can create your own custom easing functions by inheriting from this class."
+  summary: "Udostępnia klasę podstawową dla wszystkich funkcji sterowania tempem zmian."
+  remarks: "Możesz utworzyć własne niestandardowe funkcji sterowania tempem zmian przez dziedziczenie po tej klasie."
   example:
   - "The following example demonstrates how to create a simple custom easing function. You can add your own mathematical logic for how the easing function behaves by overriding the <xref:System.Windows.Media.Animation.EasingFunctionBase.EaseInCore%2A> method.  \n  \n [!code-xml[CustomEasingFunction#CustomEasingFunction](~/add/codesnippet/xaml/customeasingfunction/window1.xaml#customeasingfunction)]\n [!code-cs[CustomEasingFunction#CustomEasingFunction](~/add/codesnippet/csharp/customeasingfunction/customlog10easingfunction.cs#customeasingfunction)]\n [!code-vb[CustomEasingFunction#CustomEasingFunction](~/add/codesnippet/visualbasic/customeasingfunction/customlog10easingfunction.vb#customeasingfunction)]"
   syntax:
@@ -83,7 +83,7 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Media.Animation.EasingFunctionBase&quot;></xref> class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Windows.Media.Animation.EasingFunctionBase&quot;> </xref> klasy."
   syntax:
     content: protected EasingFunctionBase ();
     parameters: []
@@ -103,17 +103,17 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Transforms normalized time to control the pace of an animation."
-  remarks: "Uses the <xref:System.Windows.Media.Animation.EasingFunctionBase.EasingMode%2A> property in conjunction with the <xref:System.Windows.Media.Animation.EasingFunctionBase.EaseInCore%2A> method to evaluate the easing function."
+  summary: "Transformacje znormalizowanych czas do kontrolowania tempie animacji."
+  remarks: "Używa <xref:System.Windows.Media.Animation.EasingFunctionBase.EasingMode%2A>właściwość w połączeniu z <xref:System.Windows.Media.Animation.EasingFunctionBase.EaseInCore%2A>metody można obliczyć wartości funkcji sterowania tempem zmian.</xref:System.Windows.Media.Animation.EasingFunctionBase.EaseInCore%2A> </xref:System.Windows.Media.Animation.EasingFunctionBase.EasingMode%2A>"
   syntax:
     content: public double Ease (double normalizedTime);
     parameters:
     - id: normalizedTime
       type: System.Double
-      description: "Normalized time (progress) of the animation, which is a value from 0 through 1."
+      description: "Czas znormalizowane (postępu) animacji, czyli wartość z zakresu od 0 do 1."
     return:
       type: System.Double
-      description: "A double that represents the transformed progress."
+      description: "Wartość o podwójnej precyzji reprezentującą przekształcone postępu."
   overload: System.Windows.Media.Animation.EasingFunctionBase.Ease*
   exceptions: []
   platform:
@@ -130,17 +130,17 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Provides the logic portion of the easing function that you can override to produce the <xref href=&quot;System.Windows.Media.Animation.EasingMode&quot;></xref> mode of the custom easing function."
-  remarks: "This method transforms normalized time to control the pace of an animation for the <xref:System.Windows.Media.Animation.EasingMode> case of <xref:System.Windows.Media.Animation.EasingFunctionBase.EasingMode%2A>.       You only have to specify your easing function for the <xref:System.Windows.Media.Animation.EasingMode> case because the implementation of the <xref:System.Windows.Media.Animation.EasingFunctionBase.Ease%2A> method handles transforming `normalizedTime` for the <xref:System.Windows.Media.Animation.EasingMode> and <xref:System.Windows.Media.Animation.EasingMode> cases."
+  summary: "Udostępnia część logiki funkcji sterowania tempem zmian, którą można zastąpić w celu utworzenia <xref href=&quot;System.Windows.Media.Animation.EasingMode&quot;> </xref> tryb niestandardowej funkcji sterowania tempem zmian."
+  remarks: "Ta metoda przekształca czasu znormalizowane do kontrolowania tempie animacji do <xref:System.Windows.Media.Animation.EasingMode>sprawę <xref:System.Windows.Media.Animation.EasingFunctionBase.EasingMode%2A>.</xref:System.Windows.Media.Animation.EasingFunctionBase.EasingMode%2A> </xref:System.Windows.Media.Animation.EasingMode>       Należy określić dla funkcji sterowania tempem zmian <xref:System.Windows.Media.Animation.EasingMode>wielkość liter, ponieważ implementacja <xref:System.Windows.Media.Animation.EasingFunctionBase.Ease%2A>obsługuje metoda przekształcania `normalizedTime` dla <xref:System.Windows.Media.Animation.EasingMode>i <xref:System.Windows.Media.Animation.EasingMode>przypadków.</xref:System.Windows.Media.Animation.EasingMode> </xref:System.Windows.Media.Animation.EasingMode> </xref:System.Windows.Media.Animation.EasingFunctionBase.Ease%2A> </xref:System.Windows.Media.Animation.EasingMode>"
   syntax:
     content: protected abstract double EaseInCore (double normalizedTime);
     parameters:
     - id: normalizedTime
       type: System.Double
-      description: "Normalized time (progress) of the animation, which is a value from 0 through 1."
+      description: "Czas znormalizowane (postępu) animacji, czyli wartość z zakresu od 0 do 1."
     return:
       type: System.Double
-      description: "A double that represents the transformed progress."
+      description: "Wartość o podwójnej precyzji reprezentującą przekształcone postępu."
   overload: System.Windows.Media.Animation.EasingFunctionBase.EaseInCore*
   exceptions: []
   platform:
@@ -157,13 +157,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Gets or sets a value that specifies how the animation interpolates."
-  remarks: "<a name=&quot;xamlAttributeUsage_easingMode&quot;></a>    ## XAML Attribute Usage      ```   <easingFunction EasingMode=&quot;easingMode&quot;/>   ```      <a name=&quot;xamlValues_easingMode&quot;></a>    ## XAML Values    *easingFunction*    An object element for a class that derives from <xref:System.Windows.Media.Animation.EasingFunctionBase>.       *easingMode*    The value of the <xref:System.Windows.Media.Animation.EasingMode> enumeration that specifies how the easing function interpolates."
+  summary: "Pobiera lub ustawia wartość określającą, jak interpolacji animacji."
+  remarks: "<a name=&quot;xamlAttributeUsage_easingMode&quot;></a>## Użycie atrybutu XAML ```   <easingFunction EasingMode=&quot;easingMode&quot;/>   ``` <a name=&quot;xamlValues_easingMode&quot;> </a> ## wartości XAML *właściwość Easingfuncion* element object dla klasy, która jest pochodną <xref:System.Windows.Media.Animation.EasingFunctionBase>.</xref:System.Windows.Media.Animation.EasingFunctionBase>             *Obiektu* wartość <xref:System.Windows.Media.Animation.EasingMode>wyliczenia, która określa, jak interpolacji funkcji sterowania tempem zmian.</xref:System.Windows.Media.Animation.EasingMode>"
   syntax:
     content: public System.Windows.Media.Animation.EasingMode EasingMode { get; set; }
     return:
       type: System.Windows.Media.Animation.EasingMode
-      description: "One of the enumeration values that specifies how the animation interpolates. The default is <xref href=&quot;System.Windows.Media.Animation.EasingMode&quot;></xref>."
+      description: "Jedna z wartości wyliczenia, które określa, jak interpolacji animacji. Wartość domyślna to <xref href=&quot;System.Windows.Media.Animation.EasingMode&quot;> </xref>."
   overload: System.Windows.Media.Animation.EasingFunctionBase.EasingMode*
   exceptions: []
   platform:
@@ -180,12 +180,12 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows.Media.Animation
-  summary: "Identifies the <xref:System.Windows.Media.Animation.EasingFunctionBase.EasingMode*> dependency property."
+  summary: "Identyfikuje <xref:System.Windows.Media.Animation.EasingFunctionBase.EasingMode*>Właściwości zależności.</xref:System.Windows.Media.Animation.EasingFunctionBase.EasingMode*>"
   syntax:
     content: public static readonly System.Windows.DependencyProperty EasingModeProperty;
     return:
       type: System.Windows.DependencyProperty
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
