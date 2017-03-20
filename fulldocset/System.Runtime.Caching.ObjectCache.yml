@@ -36,8 +36,8 @@ items:
   nameWithType: ObjectCache
   fullName: System.Runtime.Caching.ObjectCache
   type: Class
-  summary: "Represents an object cache and provides the base methods and properties for accessing the object cache."
-  remarks: "The ObjectCache type is the primary type for the in-memory object cache. To develop a custom cache implementation, you derive from the ObjectCache class.      > [!NOTE] >  The ObjectCache class is new as of the [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)].       The built-in <xref:System.Runtime.Caching.MemoryCache> class derives from the ObjectCache class. The <xref:System.Runtime.Caching.MemoryCache> class is the only concrete object cache implementation in the [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)] that derives from the ObjectCache class."
+  summary: "Reprezentuje obiekt pamięci podręcznej i udostępnia właściwości i metod bazowych do uzyskiwania dostępu do pamięci podręcznej obiektów."
+  remarks: "Typ ObjectCache jest typu podstawowego dla obiektów w pamięci podręcznej. Aby opracować implementacji niestandardowych pamięci podręcznej, pochodzi z klasy ObjectCache.      > [!NOTE] > ObjectCache klasa jest nowa w [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)].       Wbudowane <xref:System.Runtime.Caching.MemoryCache>klasa pochodzi od klasy ObjectCache.</xref:System.Runtime.Caching.MemoryCache> <xref:System.Runtime.Caching.MemoryCache>Klasa jest implementacją pamięci podręcznej tylko konkretny obiekt w [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)] która pochodzi z klasy ObjectCache</xref:System.Runtime.Caching.MemoryCache>"
   syntax:
     content: 'public abstract class ObjectCache : System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string,object>>'
   inheritance:
@@ -59,7 +59,7 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "Called from constructors in derived classes in order to initialize the <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;></xref> class."
+  summary: "Metoda wywoływana z konstruktorów w klasach pochodnych w celu zainicjowania <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;> </xref> klasy."
   syntax:
     content: protected ObjectCache ();
     parameters: []
@@ -79,20 +79,20 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, tries to insert a cache entry into the cache as a <xref href=&quot;System.Runtime.Caching.CacheItem&quot;></xref> instance, and adds details about how the entry should be evicted."
-  remarks: "The <xref:System.Runtime.Caching.ObjectCache.Add%2A> method overloads are virtual (not abstract) on the <xref:System.Runtime.Caching.ObjectCache> class, because the <xref:System.Runtime.Caching.ObjectCache.Add%2A> method internally calls <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>. This reduces the number of method overloads that a cache implementer has to provide. If a cache implementation does not require any special behavior for the <xref:System.Runtime.Caching.ObjectCache.Add%2A> method, it can just implement the <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> method overloads."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, próbuje Wstaw wpis pamięci podręcznej w pamięci podręcznej jako <xref href=&quot;System.Runtime.Caching.CacheItem&quot;> </xref> wystąpienia i dodaje szczegółowe informacje dotyczące sposobu wykluczyć wpis."
+  remarks: "<xref:System.Runtime.Caching.ObjectCache.Add%2A>Przeciążenia metody są wirtualnych (nie jako abstract) na <xref:System.Runtime.Caching.ObjectCache>klasy, ponieważ <xref:System.Runtime.Caching.ObjectCache.Add%2A>Metoda wywołuje wewnętrznie <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>.</xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> </xref:System.Runtime.Caching.ObjectCache.Add%2A> </xref:System.Runtime.Caching.ObjectCache> </xref:System.Runtime.Caching.ObjectCache.Add%2A> Zmniejsza liczbę przeciążenia metody, które musi dostarczyć implementujący pamięci podręcznej. Implementacja pamięci podręcznej nie wymaga specjalnego zachowania w przypadku <xref:System.Runtime.Caching.ObjectCache.Add%2A>metody, można po prostu implementuje ona <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>przeciążenia metody.</xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> </xref:System.Runtime.Caching.ObjectCache.Add%2A>"
   syntax:
     content: public virtual bool Add (System.Runtime.Caching.CacheItem item, System.Runtime.Caching.CacheItemPolicy policy);
     parameters:
     - id: item
       type: System.Runtime.Caching.CacheItem
-      description: "The object to add."
+      description: "Obiekt do dodania."
     - id: policy
       type: System.Runtime.Caching.CacheItemPolicy
-      description: "An object that contains eviction details for the cache entry. This object provides more options for eviction than a simple absolute expiration."
+      description: "Obiekt zawierający szczegóły wykluczenia wpisu pamięci podręcznej. Ten obiekt zawiera więcej opcji wykluczenia niż proste wygaśnięcia bezwzględne."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if insertion succeeded, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if there is an already an entry in the cache that has the same key as <code>item</code>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli wstawiania zakończyło się pomyślnie, lub <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Jeśli istnieje już wpis w pamięci podręcznej, który ma tego samego klucza <code> item </code>."
   overload: System.Runtime.Caching.ObjectCache.Add*
   exceptions: []
   platform:
@@ -109,26 +109,26 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, inserts a cache entry into the cache without overwriting any existing cache entry."
-  remarks: "The <xref:System.Runtime.Caching.ObjectCache.Add%2A> method overloads are virtual (not abstract) on the <xref:System.Runtime.Caching.ObjectCache> class, because the <xref:System.Runtime.Caching.ObjectCache.Add%2A> method internally calls <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>. This reduces the number of method overloads that a cache implementer has to provide. If a cache implementation does not require any special behavior for the <xref:System.Runtime.Caching.ObjectCache.Add%2A> method, it can just implement the <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> method overloads."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, wstawia wpis pamięci podręcznej w pamięci podręcznej bez zastępowania żadnych istniejący wpis pamięci podręcznej."
+  remarks: "<xref:System.Runtime.Caching.ObjectCache.Add%2A>Przeciążenia metody są wirtualnych (nie jako abstract) na <xref:System.Runtime.Caching.ObjectCache>klasy, ponieważ <xref:System.Runtime.Caching.ObjectCache.Add%2A>Metoda wywołuje wewnętrznie <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>.</xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> </xref:System.Runtime.Caching.ObjectCache.Add%2A> </xref:System.Runtime.Caching.ObjectCache> </xref:System.Runtime.Caching.ObjectCache.Add%2A> Zmniejsza liczbę przeciążenia metody, które musi dostarczyć implementujący pamięci podręcznej. Implementacja pamięci podręcznej nie wymaga specjalnego zachowania w przypadku <xref:System.Runtime.Caching.ObjectCache.Add%2A>metody, można po prostu implementuje ona <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>przeciążenia metody.</xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> </xref:System.Runtime.Caching.ObjectCache.Add%2A>"
   syntax:
     content: public virtual bool Add (string key, object value, DateTimeOffset absoluteExpiration, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry."
+      description: "Unikatowy identyfikator wpisu pamięci podręcznej."
     - id: value
       type: System.Object
-      description: "The object to insert."
+      description: "Obiekt do wstawienia."
     - id: absoluteExpiration
       type: System.DateTimeOffset
-      description: "The fixed date and time at which the cache entry will expire. This parameter is required when the <xref:System.Runtime.Caching.ObjectCache.Add*> method is called."
+      description: "Stałe datę i godzinę wygaśnięcia wpisu pamięci podręcznej. Ten parametr jest wymagany, gdy <xref:System.Runtime.Caching.ObjectCache.Add*>Metoda jest wywoływana.</xref:System.Runtime.Caching.ObjectCache.Add*>"
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry can be added, if regions are implemented. Because regions are not implemented in [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)], the default value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Opcjonalny. Nazwane region w pamięci podręcznej, do której można dodać wpisu pamięci podręcznej, jeśli zostaną zaimplementowane regionów. Ponieważ regiony nie są zaimplementowane w [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)], wartością domyślną jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if insertion succeeded, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if there is an already an entry in the cache that has the same key as <code>key</code>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli wstawiania zakończyło się pomyślnie, lub <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Jeśli istnieje już wpis w pamięci podręcznej, który ma tego samego klucza <code> key </code>."
   overload: System.Runtime.Caching.ObjectCache.Add*
   exceptions: []
   platform:
@@ -145,26 +145,26 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, inserts a cache entry into the cache, specifying information about how the entry will be evicted."
-  remarks: "The <xref:System.Runtime.Caching.ObjectCache.Add%2A> method overloads are virtual (not abstract) on the <xref:System.Runtime.Caching.ObjectCache> class, because the <xref:System.Runtime.Caching.ObjectCache.Add%2A> method internally calls <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>. This reduces the number of method overloads that a cache implementer has to provide. If a cache implementation does not require any special behavior for the <xref:System.Runtime.Caching.ObjectCache.Add%2A> method, it can just implement the <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> method overloads."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, wstawia wpis pamięci podręcznej w pamięci podręcznej, określania informacji o jak wpis zostanie usunięty."
+  remarks: "<xref:System.Runtime.Caching.ObjectCache.Add%2A>Przeciążenia metody są wirtualnych (nie jako abstract) na <xref:System.Runtime.Caching.ObjectCache>klasy, ponieważ <xref:System.Runtime.Caching.ObjectCache.Add%2A>Metoda wywołuje wewnętrznie <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>.</xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> </xref:System.Runtime.Caching.ObjectCache.Add%2A> </xref:System.Runtime.Caching.ObjectCache> </xref:System.Runtime.Caching.ObjectCache.Add%2A> Zmniejsza liczbę przeciążenia metody, które musi dostarczyć implementujący pamięci podręcznej. Implementacja pamięci podręcznej nie wymaga specjalnego zachowania w przypadku <xref:System.Runtime.Caching.ObjectCache.Add%2A>metody, można po prostu implementuje ona <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>przeciążenia metody.</xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> </xref:System.Runtime.Caching.ObjectCache.Add%2A>"
   syntax:
     content: public virtual bool Add (string key, object value, System.Runtime.Caching.CacheItemPolicy policy, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry."
+      description: "Unikatowy identyfikator wpisu pamięci podręcznej."
     - id: value
       type: System.Object
-      description: "The object to insert."
+      description: "Obiekt do wstawienia."
     - id: policy
       type: System.Runtime.Caching.CacheItemPolicy
-      description: "An object that contains eviction details for the cache entry. This object provides more options for eviction than a simple absolute expiration."
+      description: "Obiekt zawierający szczegóły wykluczenia wpisu pamięci podręcznej. Ten obiekt zawiera więcej opcji wykluczenia niż proste wygaśnięcia bezwzględne."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry can be added, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Opcjonalny. Nazwane region w pamięci podręcznej, do której można dodać wpisu pamięci podręcznej, jeśli zostaną zaimplementowane regionów. Wartość domyślna dla parametru opcjonalnego to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the insertion try succeeds, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if there is an already an entry in the cache with the same key as <code>key</code>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli spróbuj wstawiania zakończy się pomyślnie, lub <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Jeśli istnieje już wpis w pamięci podręcznej przy użyciu tego samego klucza <code> key </code>."
   overload: System.Runtime.Caching.ObjectCache.Add*
   exceptions: []
   platform:
@@ -181,19 +181,19 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, inserts the specified <xref href=&quot;System.Runtime.Caching.CacheItem&quot;></xref> object into the cache, specifying information about how the entry will be evicted."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, wstawia określony <xref href=&quot;System.Runtime.Caching.CacheItem&quot;> </xref> obiektu w pamięci podręcznej, określania informacji o jak wpis zostanie usunięty."
   syntax:
     content: public abstract System.Runtime.Caching.CacheItem AddOrGetExisting (System.Runtime.Caching.CacheItem value, System.Runtime.Caching.CacheItemPolicy policy);
     parameters:
     - id: value
       type: System.Runtime.Caching.CacheItem
-      description: "The object to insert."
+      description: "Obiekt do wstawienia."
     - id: policy
       type: System.Runtime.Caching.CacheItemPolicy
-      description: "An object that contains eviction details for the cache entry. This object provides more options for eviction than a simple absolute expiration."
+      description: "Obiekt zawierający szczegóły wykluczenia wpisu pamięci podręcznej. Ten obiekt zawiera więcej opcji wykluczenia niż proste wygaśnięcia bezwzględne."
     return:
       type: System.Runtime.Caching.CacheItem
-      description: "If a cache entry with the same key exists, the specified cache entry; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Jeśli istnieje wpis pamięci podręcznej z tym samym kluczem, wpis pamięci podręcznej określony; w przeciwnym razie <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Caching.ObjectCache.AddOrGetExisting*
   exceptions: []
   platform:
@@ -210,26 +210,26 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, inserts a cache entry into the cache, by using a key, an object for the cache entry, an absolute expiration value, and an optional region to add the cache into."
-  remarks: "This AddOrGetExisting method overload returns an object value, not a <xref:System.Runtime.Caching.CacheItem> object."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, wstawia wpis pamięci podręcznej w pamięci podręcznej, za pomocą klucza, obiekt do wpisu pamięci podręcznej, wartość bezwzględna wygaśnięcia i region opcjonalny do dodania do pamięci podręcznej."
+  remarks: "Przeciążenie metody AddOrGetExisting nie zwraca wartości obiektu <xref:System.Runtime.Caching.CacheItem>obiektu.</xref:System.Runtime.Caching.CacheItem>"
   syntax:
     content: public abstract object AddOrGetExisting (string key, object value, DateTimeOffset absoluteExpiration, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry."
+      description: "Unikatowy identyfikator wpisu pamięci podręcznej."
     - id: value
       type: System.Object
-      description: "The object to insert."
+      description: "Obiekt do wstawienia."
     - id: absoluteExpiration
       type: System.DateTimeOffset
-      description: "The fixed date and time at which the cache entry will expire."
+      description: "Stałe datę i godzinę wygaśnięcia wpisu pamięci podręcznej."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry can be added, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Opcjonalny. Nazwane region w pamięci podręcznej, do której można dodać wpisu pamięci podręcznej, jeśli zostaną zaimplementowane regionów. Wartość domyślna dla parametru opcjonalnego to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Object
-      description: "If a cache entry with the same key exists, the specified cache entry&quot;s value; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Jeśli istnieje wpis pamięci podręcznej z tym samym kluczem, wpis pamięci podręcznej określonej wartości. w przeciwnym razie <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Caching.ObjectCache.AddOrGetExisting*
   exceptions: []
   platform:
@@ -246,26 +246,26 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, inserts a cache entry into the cache, specifying a key and a value for the cache entry, and information about how the entry will be evicted."
-  remarks: "The AddOrGetExisting method returns an object value, not a <xref:System.Runtime.Caching.CacheItem> object."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, wstawia wpis pamięci podręcznej w pamięci podręcznej, określając klucza i wartość dla wpisu pamięci podręcznej i dowiedzieć się, jak wpis zostanie usunięty."
+  remarks: "Metoda AddOrGetExisting nie zwraca wartości obiektu <xref:System.Runtime.Caching.CacheItem>obiektu.</xref:System.Runtime.Caching.CacheItem>"
   syntax:
     content: public abstract object AddOrGetExisting (string key, object value, System.Runtime.Caching.CacheItemPolicy policy, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry."
+      description: "Unikatowy identyfikator wpisu pamięci podręcznej."
     - id: value
       type: System.Object
-      description: "The object to insert."
+      description: "Obiekt do wstawienia."
     - id: policy
       type: System.Runtime.Caching.CacheItemPolicy
-      description: "An object that contains eviction details for the cache entry. This object provides more options for eviction than a simple absolute expiration."
+      description: "Obiekt zawierający szczegóły wykluczenia wpisu pamięci podręcznej. Ten obiekt zawiera więcej opcji wykluczenia niż proste wygaśnięcia bezwzględne."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry can be added, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Opcjonalny. Nazwane region w pamięci podręcznej, do której można dodać wpisu pamięci podręcznej, jeśli zostaną zaimplementowane regionów. Wartość domyślna dla parametru opcjonalnego to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Object
-      description: "If a cache entry with the same key exists, the specified cache entry&quot;s value; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Jeśli istnieje wpis pamięci podręcznej z tym samym kluczem, wpis pamięci podręcznej określonej wartości. w przeciwnym razie <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Caching.ObjectCache.AddOrGetExisting*
   exceptions: []
   platform:
@@ -282,19 +282,19 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, checks whether the cache entry already exists in the cache."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, sprawdza, czy istnieje już wpis pamięci podręcznej w pamięci podręcznej."
   syntax:
     content: public abstract bool Contains (string key, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry."
+      description: "Unikatowy identyfikator wpisu pamięci podręcznej."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache where the cache can be found, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Opcjonalny. Nazwane region w pamięci podręcznej, w których pamięci podręcznej można znaleźć, jeśli zostaną zaimplementowane regionów. Wartość domyślna dla parametru opcjonalnego to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the cache contains a cache entry with the same key value as <code>key</code>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli pamięć podręczna zawiera wpis pamięci podręcznej o tej samej wartości klucza jako <code> key </code>; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Caching.ObjectCache.Contains*
   exceptions: []
   platform:
@@ -311,20 +311,20 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, creates a <xref href=&quot;System.Runtime.Caching.CacheEntryChangeMonitor&quot;></xref> object that can trigger events in response to changes to specified cache entries."
-  remarks: "When a derived <xref:System.Runtime.Caching.ObjectCache> class overrides the base CreateCacheEntryChangeMonitor method, the cache implementation must create a <xref:System.Runtime.Caching.CacheEntryChangeMonitor> object. This specialized change monitor notifies callers when there are changes to the cache entries that are specified in the `keys` parameter. For example, if a monitored item in the `keys` parameter is updated or removed from the cache, the change monitor created by this method triggers an event.       If a cache implementation supports named cache regions, a string value can be specified as the `regionName` parameter. Otherwise, the parameter defaults to `null`.      > [!NOTE] >  Not all cache implementations support cache-entry change monitors. To determine whether your cache implementation supports <xref:System.Runtime.Caching.CacheEntryChangeMonitor> objects, see the documentation for the specific cache implementation."
+  summary: "W przypadku przesłonięcia w klasie pochodnej tworzy <xref href=&quot;System.Runtime.Caching.CacheEntryChangeMonitor&quot;> </xref> obiektów, które mogą wyzwalać zdarzenia w odpowiedzi na zmiany we określone wpisy w pamięci podręcznej."
+  remarks: "Gdy pochodnego <xref:System.Runtime.Caching.ObjectCache>Klasa zastępuje metodę CreateCacheEntryChangeMonitor podstawową, należy utworzyć implementację buforu <xref:System.Runtime.Caching.CacheEntryChangeMonitor>obiektu.</xref:System.Runtime.Caching.CacheEntryChangeMonitor> </xref:System.Runtime.Caching.ObjectCache> Ten monitor specjalne zmiany powiadamia wywołań w przypadku zmiany wpisy w pamięci podręcznej, które są określone w `keys` parametru. Na przykład, jeśli element monitorowanych w `keys` parametr jest zaktualizowane lub usunięte z pamięci podręcznej, monitor zmiany utworzone przez tę metodę wyzwala zdarzenie.       Jeśli implementację buforu obsługuje regionów nazwanego pamięci podręcznej, wartość ciągu można określić jako `regionName` parametru. W przeciwnym razie jest domyślnie `null`.      > [!NOTE] > Nie wszystkie implementacje pamięci podręcznej obsługuje monitorów zmiana wpisu pamięci podręcznej. Aby sprawdzić, czy obsługuje implementacji pamięci podręcznej <xref:System.Runtime.Caching.CacheEntryChangeMonitor>obiektów, zobacz dokumentację do wykonania określonych pamięci podręcznej.</xref:System.Runtime.Caching.CacheEntryChangeMonitor>"
   syntax:
     content: public abstract System.Runtime.Caching.CacheEntryChangeMonitor CreateCacheEntryChangeMonitor (System.Collections.Generic.IEnumerable<string> keys, string regionName = null);
     parameters:
     - id: keys
       type: System.Collections.Generic.IEnumerable{System.String}
-      description: "The unique identifiers for cache entries to monitor."
+      description: "Unikatowe identyfikatory wpisów pamięci podręcznej do monitorowania."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache where the cache keys in the `keys` parameter exist, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Opcjonalny. Nazwane regionu w pamięci podręcznej, w których pamięci podręcznej klucze w `keys` parametr istnieje, jeśli zostaną zaimplementowane regionów. Wartość domyślna dla parametru opcjonalnego to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Runtime.Caching.CacheEntryChangeMonitor
-      description: "A change monitor that monitors cache entries in the cache."
+      description: "Monitor zmian, który monitoruje wpisy w pamięci podręcznej w pamięci podręcznej."
   overload: System.Runtime.Caching.ObjectCache.CreateCacheEntryChangeMonitor*
   exceptions: []
   platform:
@@ -341,12 +341,12 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, gets a description of the features that a cache implementation provides."
+  summary: "W przypadku przesłonięcia w klasie pochodnej pobiera opis funkcji, które zawiera implementację buforu."
   syntax:
     content: public abstract System.Runtime.Caching.DefaultCacheCapabilities DefaultCacheCapabilities { get; }
     return:
       type: System.Runtime.Caching.DefaultCacheCapabilities
-      description: "A bitwise combination of flags that indicate the default capabilities of a cache implementation."
+      description: "Bitowe połączenie flag, które wskazują możliwości domyślną implementację buforu."
   overload: System.Runtime.Caching.ObjectCache.DefaultCacheCapabilities*
   exceptions: []
   platform:
@@ -363,19 +363,19 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, gets the specified cache entry from the cache as an object."
+  summary: "W przypadku przesłonięcia w klasie pochodnej pobiera wpisu określony pamięci podręcznej z pamięci podręcznej jako obiekt."
   syntax:
     content: public abstract object Get (string key, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry to get."
+      description: "Unikatowy identyfikator dla wpisu pamięci podręcznej do pobrania."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry was added, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Opcjonalny. Nazwane region w pamięci podręcznej, do którego został dodany wpisu pamięci podręcznej, jeśli zostaną zaimplementowane regionów. Wartość domyślna dla parametru opcjonalnego to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Object
-      description: "The cache entry that is identified by <code>key</code>."
+      description: "Wpis pamięci podręcznej, który jest identyfikowany przez <code> key </code>."
   overload: System.Runtime.Caching.ObjectCache.Get*
   exceptions: []
   platform:
@@ -392,20 +392,20 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, gets the specified cache entry from the cache as a <xref href=&quot;System.Runtime.Caching.CacheItem&quot;></xref> instance."
-  remarks: "This method overload exists because some cache implementations might extend the <xref:System.Runtime.Caching.CacheItem> class. In that case, the <xref:System.Runtime.Caching.ObjectCache.Get%28System.String%2CSystem.String%29> method overload will not necessarily return all the information about cached data. However, the GetCacheItem method overload enables custom caches to return more than just the cache value.       The GetCacheItem method is like the <xref:System.Runtime.Caching.ObjectCache.Get%28System.String%2CSystem.String%29> method, except that the GetCacheItem method returns return the cache entry as a <xref:System.Runtime.Caching.CacheItem> instance."
+  summary: "W przypadku przesłonięcia w klasie pochodnej pobiera wpisu określony pamięci podręcznej z pamięci podręcznej jako <xref href=&quot;System.Runtime.Caching.CacheItem&quot;> </xref> wystąpienia."
+  remarks: "Przeciążenie tej metody nie istnieje, ponieważ niektóre implementacje pamięci podręcznej może rozszerzyć <xref:System.Runtime.Caching.CacheItem>klasy.</xref:System.Runtime.Caching.CacheItem> W takim przypadku <xref:System.Runtime.Caching.ObjectCache.Get%28System.String%2CSystem.String%29>przeciążenie metody nie będzie zawsze zwracać wszystkie informacje o danych z pamięci podręcznej.</xref:System.Runtime.Caching.ObjectCache.Get%28System.String%2CSystem.String%29> Jednak przeciążenie metody GetCacheItem Włącza niestandardowe pamięci podręcznej otrzymać więcej niż wartość pamięci podręcznej.       Metoda GetCacheItem przypomina <xref:System.Runtime.Caching.ObjectCache.Get%28System.String%2CSystem.String%29>metody, z wyjątkiem tego, że metoda GetCacheItem zwraca zwracanego wpisu pamięci podręcznej jako <xref:System.Runtime.Caching.CacheItem>wystąpienia.</xref:System.Runtime.Caching.CacheItem> </xref:System.Runtime.Caching.ObjectCache.Get%28System.String%2CSystem.String%29>"
   syntax:
     content: public abstract System.Runtime.Caching.CacheItem GetCacheItem (string key, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry to get."
+      description: "Unikatowy identyfikator dla wpisu pamięci podręcznej do pobrania."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache was added, if regions are implemented. Because regions are not implemented in [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)], the default is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Opcjonalny. Nazwane regionu w pamięci podręcznej, do którego został dodany pamięci podręcznej, jeśli zostaną zaimplementowane regionów. Ponieważ regiony nie są zaimplementowane w [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)], wartość domyślna to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Runtime.Caching.CacheItem
-      description: "The cache entry that is identified by <code>key</code>."
+      description: "Wpis pamięci podręcznej, który jest identyfikowany przez <code> key </code>."
   overload: System.Runtime.Caching.ObjectCache.GetCacheItem*
   exceptions: []
   platform:
@@ -422,16 +422,16 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, gets the total number of cache entries in the cache."
+  summary: "W przypadku przesłonięcia w klasie pochodnej pobiera całkowita liczba wpisów pamięci podręcznej w pamięci podręcznej."
   syntax:
     content: public abstract long GetCount (string regionName = null);
     parameters:
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache for which the cache entry count should be computed, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Opcjonalny. Nazwane region w pamięci podręcznej, dla którego liczba wpisu pamięci podręcznej powinien zostać obliczony, jeśli zostaną zaimplementowane regionów. Wartość domyślna dla parametru opcjonalnego to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Int64
-      description: "The number of cache entries in the cache. If <code>regionName</code> is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the count indicates the number of entries that are in the specified cache region."
+      description: "Liczba wpisów w pamięci podręcznej w pamięci podręcznej. Jeśli <code> regionName </code> nie jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, licznik wskazuje liczbę wpisów, które znajdują się w pamięci podręcznej określonego regionu."
   overload: System.Runtime.Caching.ObjectCache.GetCount*
   exceptions: []
   platform:
@@ -448,14 +448,14 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, creates an enumerator that can be used to iterate through a collection of cache entries."
-  remarks: "Cache implementers can override and extend this method to provide a custom means of iterating through a collection of cache entries.      > [!NOTE] >  Returning an enumerator is typically a more expensive operation than returning the entire cache entry.       This method is called by the explicit interface implementations that the <xref:System.Runtime.Caching.ObjectCache> class has for the <xref:System.Collections.IEnumerable.GetEnumerator%2A> and <xref:System.Collections.Generic.IEnumerable%601.GetEnumerator%2A> methods."
+  summary: "W przypadku przesłonięcia w klasie pochodnej tworzy moduł wyliczający, który może służyć do iterowania po kolekcji wpisów pamięci podręcznej."
+  remarks: "Implementacje pamięci podręcznej można zastąpić i rozszerzenie tej metody, aby zapewnić niestandardowych środka iteracji w kolekcji wpisów pamięci podręcznej.      > [!NOTE] > Zwraca moduł wyliczający jest zazwyczaj operacją droższe niż powrót całą pamięć podręczną zapisu.       Ta metoda jest wywoływana przez implementacje interfejsu jawnego który <xref:System.Runtime.Caching.ObjectCache>Klasa ma dla <xref:System.Collections.IEnumerable.GetEnumerator%2A>i <xref:System.Collections.Generic.IEnumerable%601.GetEnumerator%2A>metody.</xref:System.Collections.Generic.IEnumerable%601.GetEnumerator%2A> </xref:System.Collections.IEnumerable.GetEnumerator%2A> </xref:System.Runtime.Caching.ObjectCache>"
   syntax:
     content: protected abstract System.Collections.Generic.IEnumerator<System.Collections.Generic.KeyValuePair<string,object>> GetEnumerator ();
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerator{System.Collections.Generic.KeyValuePair{System.String,System.Object}}
-      description: "The enumerator object that provides access to the cache entries in the cache."
+      description: "Obiekt moduł wyliczający, który zapewnia dostęp do wpisów pamięci podręcznej w pamięci podręcznej."
   overload: System.Runtime.Caching.ObjectCache.GetEnumerator*
   exceptions: []
   platform:
@@ -472,20 +472,20 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, gets a set of cache entries that correspond to the specified keys."
-  remarks: "The GetValues method overload is a performance optimization for distributed caches that support fetching multiple cache entries from the cache during a single network call.       Although a caller can pass one or more keys to the method, there is no guarantee that all keys represent entries in the cache. Therefore, the returned dictionary might contain fewer items than the number of keys that were passed to the method."
+  summary: "W przypadku przesłonięcia w klasie pochodnej pobiera zbiór wpisy w pamięci podręcznej, które odpowiadają na określone klucze."
+  remarks: "Przeciążenie metody GetValues jest optymalizację wydajności dla rozproszonej pamięci podręcznej, które obsługuje pobierania wiele wpisów pamięci podręcznej z pamięci podręcznej podczas wywoływania jednej sieci.       Mimo że obiekt wywołujący może przekazać przynajmniej jednego klucza do metody, brak żadnej gwarancji, że wszystkie klucze reprezentują wpisów w pamięci podręcznej. W związku z tym zwrócony słownika może zawierać mniej niż liczba kluczy, które zostały przekazane do metody."
   syntax:
     content: public abstract System.Collections.Generic.IDictionary<string,object> GetValues (System.Collections.Generic.IEnumerable<string> keys, string regionName = null);
     parameters:
     - id: keys
       type: System.Collections.Generic.IEnumerable{System.String}
-      description: "A collection of unique identifiers for the cache entries to get."
+      description: "Kolekcja unikatowych identyfikatorów dla wpisów pamięci podręcznej do pobrania."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry or entries were added, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Opcjonalny. Nazwane region w pamięci podręcznej, do którego wpisu pamięci podręcznej lub wpisy zostały dodane, jeśli zostaną zaimplementowane regionów. Wartość domyślna dla parametru opcjonalnego to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.Object}
-      description: "A dictionary of key/value pairs that represent cache entries."
+      description: "Słownik zawierający pary klucz wartość, które reprezentują wpisy w pamięci podręcznej."
   overload: System.Runtime.Caching.ObjectCache.GetValues*
   exceptions: []
   platform:
@@ -502,20 +502,20 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "Gets a set of cache entries that correspond to the specified keys."
-  remarks: "The GetValues method overload is like the <xref:System.Runtime.Caching.ObjectCache.GetValues%28System.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.String%29> method overload, but lets you pass the named region by using optional parameter syntax that is supported by managed languages such as C#.       This method is a virtual method because the <xref:System.Runtime.Caching.ObjectCache> class provides a default implementation that passes the `params` array to the <xref:System.Runtime.Caching.ObjectCache.GetValues%28System.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.String%29> method overload."
+  summary: "Pobiera zestaw wpisy w pamięci podręcznej, które odpowiadają na określone klucze."
+  remarks: "Przeciążenie metody GetValues przypomina <xref:System.Runtime.Caching.ObjectCache.GetValues%28System.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.String%29>przeciążenie metody, ale pozwala przekazać nazwanego region przy użyciu składni opcjonalny parametr, który jest obsługiwany przez zarządzane języków, takich jak C#.</xref:System.Runtime.Caching.ObjectCache.GetValues%28System.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.String%29>       Ta metoda jest metodą wirtualną, ponieważ <xref:System.Runtime.Caching.ObjectCache>Klasa udostępnia domyślną implementację, która przekazuje `params` tablicy do <xref:System.Runtime.Caching.ObjectCache.GetValues%28System.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.String%29>przeciążenie metody.</xref:System.Runtime.Caching.ObjectCache.GetValues%28System.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.String%29> </xref:System.Runtime.Caching.ObjectCache>"
   syntax:
     content: public virtual System.Collections.Generic.IDictionary<string,object> GetValues (string regionName, string[] keys);
     parameters:
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry or entries were added, if regions are implemented. Because regions are not implemented in [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)], the default is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Opcjonalny. Nazwane region w pamięci podręcznej, do którego wpisu pamięci podręcznej lub wpisy zostały dodane, jeśli zostaną zaimplementowane regionów. Ponieważ regiony nie są zaimplementowane w [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)], wartość domyślna to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     - id: keys
       type: System.String[]
-      description: "A collection of unique identifiers for the cache entries to get."
+      description: "Kolekcja unikatowych identyfikatorów dla wpisów pamięci podręcznej do pobrania."
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.Object}
-      description: "A dictionary of key/value pairs that represent cache entries."
+      description: "Słownik zawierający pary klucz wartość, które reprezentują wpisy w pamięci podręcznej."
   overload: System.Runtime.Caching.ObjectCache.GetValues*
   exceptions: []
   platform:
@@ -532,21 +532,21 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "Gets or set a reference to a managed hosting environment that is available to <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;></xref> implementations and that can provide host-specific services to <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;></xref> implementations."
-  remarks: "The Host property is intended for use by [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] host environments and by cache implementations that implement behavior that depends on the .NET Framework host environment.       The following table lists the set of host environment services that might be available from a managed hosting environment and that are available to <xref:System.Runtime.Caching.ObjectCache> implementations through the Host property:      |Service|Description|   |-------------|-----------------|   |<xref:System.Runtime.Caching.Hosting.IApplicationIdentifier>|Lets host environments provide application domain identifiers that might be needed by a cache implementation for features such as identifying performance counters.|   |<xref:System.Runtime.Caching.Hosting.IFileChangeNotificationSystem>|Lets host environments provide a custom file-change notification system, instead of using the one provided in the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)].|   |<xref:System.Runtime.Caching.Hosting.IMemoryCacheManager>|Lets cache implementations report cache memory consumption to the host environment. This enables host environments to centrally manage memory consumption across multiple cache implementations.|      > [!NOTE] >  Callers of this property value require unrestricted code access security permissions."
+  summary: "Pobiera lub ustaw odwołanie do zarządzanego środowiska hostingu, która jest dostępna dla <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;> </xref> implementacji, które zapewniają usługi specyficzne dla hosta, aby <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;> </xref> implementacji."
+  remarks: "Właściwości hosta jest przeznaczony do użytku przez [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] środowiska, a przez implementacje pamięci podręcznej, które implementuje zachowanie, która jest zależna od programu .NET Framework środowisko.       Poniższa lista zawiera zbiór usług środowiska hosta, co może być dostępny w środowisku macierzystym zarządzane i które są dostępne dla <xref:System.Runtime.Caching.ObjectCache>implementacje za pośrednictwem właściwości hosta: | Usługa | Opis elementu |   |-------------|-----------------|   | <xref:System.Runtime.Caching.Hosting.IApplicationIdentifier>| Umożliwia Podaj identyfikatory domeny aplikacji, które mogą być wymagane przez implementację buforu, funkcji, takich jak identyfikujący liczniki wydajności środowiska hosta. |   | <xref:System.Runtime.Caching.Hosting.IFileChangeNotificationSystem>| Umożliwia zapewniają niestandardowe zmianę pliku system powiadomień, zamiast przy użyciu jednej w środowiskach hosta [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]. |   | <xref:System.Runtime.Caching.Hosting.IMemoryCacheManager>| Umożliwia zmniejszenie zużycia pamięci pamięci podręcznej raportu implementacje pamięci podręcznej w środowisku hosta.</xref:System.Runtime.Caching.Hosting.IMemoryCacheManager> </xref:System.Runtime.Caching.Hosting.IFileChangeNotificationSystem> </xref:System.Runtime.Caching.Hosting.IApplicationIdentifier> </xref:System.Runtime.Caching.ObjectCache> Umożliwia to centralne zarządzanie użycie pamięci przez wiele implementacji pamięci podręcznej środowiska hosta. |      > [!NOTE] > Wywołań wartość tej właściwości wymagane uprawnienia zabezpieczeń dostępu kodu bez ograniczeń."
   syntax:
     content: public static IServiceProvider Host { get; set; }
     return:
       type: System.IServiceProvider
-      description: "A reference to a cache-aware managed hosting environment."
+      description: "Odwołanie do pamięci podręcznej obsługujący zarządzanego środowiska hostingu."
   overload: System.Runtime.Caching.ObjectCache.Host*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value being assigned to the property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Wartość przypisywane do właściwości jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An attempt was made to set the property value more than one time."
+    description: "Próbowano ustawić wartość właściwości więcej niż jeden raz."
   platform:
   - net462
 - uid: System.Runtime.Caching.ObjectCache.InfiniteAbsoluteExpiration
@@ -561,13 +561,13 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "Gets a value that indicates that a cache entry has no absolute expiration."
-  remarks: "A cache entry that is inserted into the cache with the InfiniteAbsoluteExpiration field value set as the expiration value should never expire based on an absolute point in time. However, a cache entry with this setting can be evicted from the cache for other reasons that are determined by a particular cache implementation, such as a change-monitor event eviction caused by memory pressure."
+  summary: "Pobiera wartość wskazującą, czy wpis pamięci podręcznej nie ma żadnych wygaśnięcia bezwzględne."
+  remarks: "Wpis pamięci podręcznej, który znajduje się w pamięci podręcznej zestawu wartości pól InfiniteAbsoluteExpiration, jako wartość wygaśnięcia nigdy nie wygaśnie oparte na bezwzględne punktu w czasie. Wpis pamięci podręcznej tego ustawienia może jednak wykluczony z pamięci podręcznej z innych przyczyn, które są określone przez implementację określonego pamięci podręcznej, na przykład monitor zmianach wykluczenia zdarzeń, spowodowane wykorzystania pamięci."
   syntax:
     content: public static readonly DateTimeOffset InfiniteAbsoluteExpiration;
     return:
       type: System.DateTimeOffset
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -583,17 +583,17 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "Gets or sets the default indexer for the <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;></xref> class."
-  remarks: "The behavior of the set accessor of this property is like the <xref:System.Runtime.Caching.MemoryCache.Set%28System.String%2CSystem.Object%2CSystem.DateTimeOffset%2CSystem.String%29> method. Internally, a cache implementation could set the absolute expiration of the specified value to the <xref:System.Runtime.Caching.ObjectCache.InfiniteAbsoluteExpiration> method. However this behavior is ultimately up to the cache implementation.       The behavior of get accessor is like calling the <xref:System.Collections.Specialized.NameValueCollection.Get%28System.String%29> method and using `null` for the region name."
+  summary: "Pobiera lub ustawia indeksatora domyślny dla <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;> </xref> klasy."
+  remarks: "Przypomina zachowanie metody dostępu set tej właściwości <xref:System.Runtime.Caching.MemoryCache.Set%28System.String%2CSystem.Object%2CSystem.DateTimeOffset%2CSystem.String%29>metody.</xref:System.Runtime.Caching.MemoryCache.Set%28System.String%2CSystem.Object%2CSystem.DateTimeOffset%2CSystem.String%29> Wewnętrznie implementację buforu można ustawić czas wygaśnięcia bezwzględne określoną wartość na <xref:System.Runtime.Caching.ObjectCache.InfiniteAbsoluteExpiration>metody.</xref:System.Runtime.Caching.ObjectCache.InfiniteAbsoluteExpiration> Jednak to zachowanie jest ostatecznie do implementacji pamięci podręcznej.       Metody dostępu get jest takie jak wywołania <xref:System.Collections.Specialized.NameValueCollection.Get%28System.String%29>— Metoda i przy użyciu `null` nazwę regionu.</xref:System.Collections.Specialized.NameValueCollection.Get%28System.String%29>"
   syntax:
     content: public abstract object this[string key] { get; set; }
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for a cache entry in the cache."
+      description: "Unikatowy identyfikator dla wpisu pamięci podręcznej w pamięci podręcznej."
     return:
       type: System.Object
-      description: "A key that serves as an indexer into the cache instance."
+      description: "Klucz, który służy jako indeksatora do wystąpienia pamięci podręcznej."
   overload: System.Runtime.Caching.ObjectCache.Item*
   exceptions: []
   platform:
@@ -610,13 +610,13 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "Gets the name of a specific <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;></xref> instance."
-  remarks: "Some cache implementations might support multiple instances of the cache that is running in a single application. This property lets cache implementers return a name that identifies a specific cache instance."
+  summary: "Pobiera nazwę określonego <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;> </xref> wystąpienia."
+  remarks: "Niektóre implementacje pamięci podręcznej może obsługiwać wiele wystąpień w pamięci podręcznej działającej w pojedynczej aplikacji. Ta właściwość umożliwia zwraca nazwę identyfikującą wystąpienie pamięci podręcznej określonych implementacje pamięci podręcznej."
   syntax:
     content: public abstract string Name { get; }
     return:
       type: System.String
-      description: "The name of a specific cache instance."
+      description: "Nazwa wystąpienia określonego pamięci podręcznej."
   overload: System.Runtime.Caching.ObjectCache.Name*
   exceptions: []
   platform:
@@ -633,13 +633,13 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "Indicates that a cache entry has no sliding expiration time."
-  remarks: "Expiration that is based on duration or a defined window of time is also referred to as sliding expiration. Normally, a cache implementation that evicts items that are based on sliding expiration will remove an item that has not been accessed in the specified window of time.       A cache entry that is inserted into the cache with the NoSlidingExpiration field value set as the expiration value should never be evicted because of non-activity in a sliding time window. However, a cache item can be evicted if it has an absolute expiration, or if some other eviction event occurs, such a change monitor or memory pressure."
+  summary: "Wskazuje, czy wpis pamięci podręcznej nie ma żadnych przesuwanego czas wygaśnięcia."
+  remarks: "Wygaśnięcia opartego na czas trwania lub zdefiniowanych przedziale czasu jest również nazywany przedłużanie ważności. Zwykle implementację buforu, który wyklucza mogą elementy, które są oparte na przedłużanie ważności spowoduje usunięcie elementu, który nie była używana w określonym przedziale czasu.       Wpis pamięci podręcznej, który znajduje się w pamięci podręcznej z wartością pola NoSlidingExpiration ustawiona jako wartość wygaśnięcia nigdy nie wykluczyć z powodu innej niż działania w metodzie przesuwanego okna czasu. Jednak element pamięci podręcznej może zostać wykluczony, jeśli ma ona wygaśnięcia bezwzględne lub inne zdarzenia wykluczenia występuje takie zmiany monitora lub pamięci wykorzystania."
   syntax:
     content: public static readonly TimeSpan NoSlidingExpiration;
     return:
       type: System.TimeSpan
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -655,20 +655,20 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, removes the cache entry from the cache."
-  remarks: "If you override this method in a custom cache implementation, if there is a cache entry in the cache that corresponds to `key`, the value of the removed item should be returned. If nothing was removed from the cache, the method should return `null`.      > [!NOTE] >  Some distributed cache implementations might not support the ability to return the value that was removed from the cache. This might be because the cache implementation does not support returning the value of a removed cache item. It might also be because marshaling the object as a return value is too expensive. In such cases, cache implementations can return `null`."
+  summary: "W przypadku przesłonięcia w klasie pochodnej usuwa wpis pamięci podręcznej z pamięci podręcznej."
+  remarks: "Jeśli przesłonić tę metodę w implementacji niestandardowych pamięci podręcznej, jeśli istnieje wpis pamięci podręcznej w pamięci podręcznej, która odpowiada `key`, powinna zostać zwrócona wartość z usuniętym elementem. Jeśli nic nie został usunięty z pamięci podręcznej, metoda powinna zwrócić `null`.      > [!NOTE] > Niektóre implementacje rozproszonej pamięci podręcznej mogą nie obsługiwać możliwość zwracania wartości, który został usunięty z pamięci podręcznej. Może to być spowodowane implementację buforu nie obsługuje zwracania wartości elementów usuniętych pamięci podręcznej. Być może przekazywanie obiektu jako zwracana wartość jest zbyt drogie. W takich przypadkach może zwrócić implementacje pamięci podręcznej `null`."
   syntax:
     content: public abstract object Remove (string key, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry."
+      description: "Unikatowy identyfikator wpisu pamięci podręcznej."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry was added, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Opcjonalny. Nazwane region w pamięci podręcznej, do którego został dodany wpisu pamięci podręcznej, jeśli zostaną zaimplementowane regionów. Wartość domyślna dla parametru opcjonalnego to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Object
-      description: "An object that represents the value of the removed cache entry that was specified by the key, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the specified entry was not found."
+      description: "Obiekt reprezentujący wartość wpisu pamięci podręcznej usunięty, która została określona za pomocą klucza lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> , jeśli nie można odnaleźć określonego wpisu."
   overload: System.Runtime.Caching.ObjectCache.Remove*
   exceptions: []
   platform:
@@ -685,17 +685,17 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, inserts the cache entry into the cache as a <xref href=&quot;System.Runtime.Caching.CacheItem&quot;></xref> instance, specifying information about how the entry will be evicted."
-  remarks: "If the key for `item` does not exist, `item` is inserted as a new cache entry. If an item with a key that matches `item` exists, the value from `item` is used to update or overwrite the value of the existing cache entry."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, wstawia wpisu pamięci podręcznej w pamięci podręcznej jako <xref href=&quot;System.Runtime.Caching.CacheItem&quot;> </xref> wystąpienia, określania informacji o jak wpis zostanie usunięty."
+  remarks: "Jeśli klucz `item` nie istnieje, `item` są wstawiane jako nowy wpis pamięci podręcznej. Jeśli element z kluczem takim samym `item` istnieje wartość `item` służy do aktualizacji lub zastąpić wartość istniejący wpis pamięci podręcznej."
   syntax:
     content: public abstract void Set (System.Runtime.Caching.CacheItem item, System.Runtime.Caching.CacheItemPolicy policy);
     parameters:
     - id: item
       type: System.Runtime.Caching.CacheItem
-      description: "The cache item to add."
+      description: "Aby dodać element pamięci podręcznej."
     - id: policy
       type: System.Runtime.Caching.CacheItemPolicy
-      description: "An object that contains eviction details for the cache entry. This object provides more options for eviction than a simple absolute expiration."
+      description: "Obiekt zawierający szczegóły wykluczenia wpisu pamięci podręcznej. Ten obiekt zawiera więcej opcji wykluczenia niż proste wygaśnięcia bezwzględne."
   overload: System.Runtime.Caching.ObjectCache.Set*
   exceptions: []
   platform:
@@ -712,23 +712,23 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, inserts a cache entry into the cache, specifying time-based expiration details."
-  remarks: "If an item that matches `key` does not exist in the cache, `value` and `key` are used to insert as a new cache entry. If an item with a key that matches `item` exists, the cache entry is updated or overwritten by using `value`."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, wstawia wpis pamięci podręcznej w pamięci podręcznej, określając szczegóły na podstawie czasu wygaśnięcia."
+  remarks: "Jeśli element odpowiadający `key` nie istnieje w pamięci podręcznej, `value` i `key` są używane do wstawiania jako nowy wpis pamięci podręcznej. Jeśli element z kluczem takim samym `item` istnieje, aktualizacji lub zastąpić, przy użyciu wpisu pamięci podręcznej `value`."
   syntax:
     content: public abstract void Set (string key, object value, DateTimeOffset absoluteExpiration, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry."
+      description: "Unikatowy identyfikator wpisu pamięci podręcznej."
     - id: value
       type: System.Object
-      description: "The object to insert."
+      description: "Obiekt do wstawienia."
     - id: absoluteExpiration
       type: System.DateTimeOffset
-      description: "The fixed date and time at which the cache entry will expire."
+      description: "Stałe datę i godzinę wygaśnięcia wpisu pamięci podręcznej."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry can be added, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Opcjonalny. Nazwane region w pamięci podręcznej, do której można dodać wpisu pamięci podręcznej, jeśli zostaną zaimplementowane regionów. Wartość domyślna dla parametru opcjonalnego to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Caching.ObjectCache.Set*
   exceptions: []
   platform:
@@ -745,23 +745,23 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, inserts a cache entry into the cache."
-  remarks: "This method overload lets you provide more eviction or expiration details than those that are available in time-based absolute expiration.       If an item that matches `key` does not exist in the cache, `value` and `key` are used to insert as a new cache entry. If an item with a key that matches `item` exists, the cache entry is updated or overwritten by using `value`."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, wstawia wpis pamięci podręcznej w pamięci podręcznej."
+  remarks: "To przeciążenie metody umożliwia bardziej szczegółowe wykluczenia i wygaśnięcia niż te, które są dostępne w na podstawie czasu wygaśnięcia bezwzględne.       Jeśli element odpowiadający `key` nie istnieje w pamięci podręcznej, `value` i `key` są używane do wstawiania jako nowy wpis pamięci podręcznej. Jeśli element z kluczem takim samym `item` istnieje, aktualizacji lub zastąpić, przy użyciu wpisu pamięci podręcznej `value`."
   syntax:
     content: public abstract void Set (string key, object value, System.Runtime.Caching.CacheItemPolicy policy, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry."
+      description: "Unikatowy identyfikator wpisu pamięci podręcznej."
     - id: value
       type: System.Object
-      description: "The object to insert."
+      description: "Obiekt do wstawienia."
     - id: policy
       type: System.Runtime.Caching.CacheItemPolicy
-      description: "An object that contains eviction details for the cache entry. This object provides more options for eviction than a simple absolute expiration."
+      description: "Obiekt zawierający szczegóły wykluczenia wpisu pamięci podręcznej. Ten obiekt zawiera więcej opcji wykluczenia niż proste wygaśnięcia bezwzględne."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry can be added, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Opcjonalny. Nazwane region w pamięci podręcznej, do której można dodać wpisu pamięci podręcznej, jeśli zostaną zaimplementowane regionów. Wartość domyślna dla parametru opcjonalnego to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Caching.ObjectCache.Set*
   exceptions: []
   platform:
@@ -784,7 +784,7 @@ items:
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerator{System.Collections.Generic.KeyValuePair{System.String,System.Object}}
-      description: "To be added."
+      description: "Do dodania."
   overload: System.Runtime.Caching.ObjectCache.System#Collections#Generic#IEnumerable<System#Collections#Generic#KeyValuePair<System#String,System#Object>>#GetEnumerator*
   exceptions: []
   platform:
@@ -802,14 +802,14 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "Supports iteration over a generic collection."
-  remarks: "This member is an explicit interface member implementation. It can be used only when a derived <xref:System.Runtime.Caching.ObjectCache> instance is cast to an <xref:System.Collections.IEnumerable> interface.       Developers can use this method to iterate through a generic collection of cache entries.       This is the default <xref:System.Collections.IEnumerable.GetEnumerator%2A> implementation that internally calls the <xref:System.Runtime.Caching.ObjectCache.GetEnumerator%2A> method."
+  summary: "Obsługuje iteracji przez kolekcję ogólną."
+  remarks: "Ten element jest jawną implementacją elementu interfejsu. Można użyć tylko wtedy, gdy pochodnego <xref:System.Runtime.Caching.ObjectCache>wystąpienia jest rzutowane na <xref:System.Collections.IEnumerable>interfejsu.</xref:System.Collections.IEnumerable> </xref:System.Runtime.Caching.ObjectCache>       Deweloperzy mogą używać tej metody do iteracji ogólnych kolekcji wpisów pamięci podręcznej.       Jest to domyślny <xref:System.Collections.IEnumerable.GetEnumerator%2A>implementację, która wywołuje wewnętrznie <xref:System.Runtime.Caching.ObjectCache.GetEnumerator%2A>metody.</xref:System.Runtime.Caching.ObjectCache.GetEnumerator%2A> </xref:System.Collections.IEnumerable.GetEnumerator%2A>"
   syntax:
     content: System.Collections.IEnumerator IEnumerable.GetEnumerator ();
     parameters: []
     return:
       type: System.Collections.IEnumerator
-      description: "The enumerator object that provides access to the items in the cache."
+      description: "Obiekt moduł wyliczający, który zapewnia dostęp do elementów w pamięci podręcznej."
   overload: System.Runtime.Caching.ObjectCache.System#Collections#IEnumerable#GetEnumerator*
   exceptions: []
   platform:

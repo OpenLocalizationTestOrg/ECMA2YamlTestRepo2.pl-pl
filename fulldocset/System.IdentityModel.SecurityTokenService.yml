@@ -41,8 +41,8 @@ items:
   nameWithType: SecurityTokenService
   fullName: System.IdentityModel.SecurityTokenService
   type: Class
-  summary: "The abstract base class that defines the properties and methods of a security token service (STS)."
-  remarks: "To create an STS you must derive from the SecurityTokenService class. In your custom class you must, at a minimum, override the <xref:System.IdentityModel.SecurityTokenService.GetScope%2A> and <xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A> methods. With these overrides, the STS created using the default implementation of all the other methods defined in the class is capable of issuing security tokens in response to security token requests (RST). That is, the Issue binding defined in the WS-Trust specification is implemented. This binding is implemented in the <xref:System.IdentityModel.SecurityTokenService.Issue%2A> method. None of the other WS-Trust bindings (Renew, Cancel, and Validate) are implemented in the default case and an appropriate fault is returned to the caller if an RST that corresponds to one of these bindings is encountered. You can, of course, override the appropriate methods (<xref:System.IdentityModel.SecurityTokenService.Renew%2A>, <xref:System.IdentityModel.SecurityTokenService.Cancel%2A>, and <xref:System.IdentityModel.SecurityTokenService.Validate%2A>) to implement these bindings in your STS.      > [!IMPORTANT] >  Implementing a production-ready STS entails careful planning and considerable resources to mitigate the potential security risks inherent in exposing such a service. Most developers using Windows Identity Foundation (WIF) will be developing applications that outsource identity management to an STS, rather than developing an STS itself. WIF provides a Visual Studio extension, the Identity and Access Tool for Visual Studio 2012, to help developers test solutions in the development environment. This tool includes an STS, `LocalSTS`, that you can configure to serve specific claims to the application that you are developing. For more information about the Identity and Access tool, see [Identity and Access Tool for Visual Studio 2012](~/add/includes/ajax-current-ext-md.md). In some scenarios, `LocalSTS` may not provide the functionality necessary to adequately test your application; for example, in a scenario that involves developing a custom token handler for use by an application. In these cases, you can derive from SecurityTokenService to create one or more simple STSs that can be deployed in your development environment and that can be used to test such features in your application. The rest of this section focuses on the methods exposed by the SecurityTokenService class that enable you to implement a simple STS and extend the token issuance pipeline.       The following list provides a brief overview of the methods of primary importance to the developer for use in a test or development environment.      -   The <xref:System.IdentityModel.SecurityTokenService.GetScope%2A> method. This method returns a <xref:System.IdentityModel.Scope> object that contains information about the RP. This object is used in the rest of the token issuance pipeline and includes information about the signing and encrypting credentials to use in the response, as well as the `AppliesTo` and `ReplyTo` (if required) addresses. You must override this method.      -   The <xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A> method. This method returns an <xref:System.Security.Claims.ClaimsIdentity> object that contains the claims to return to the RP. You must override this method.      -   The <xref:System.IdentityModel.SecurityTokenService.Issue%2A> method. This method implements the token request pipeline, which processes an incoming security token request (RST) and returns a response (RSTR) to the caller that contains a token that can be used to authenticate with an RP. Many of the other methods defined in the SecurityTokenService class are called from this method, including the <xref:System.IdentityModel.SecurityTokenService.GetScope%2A> and <xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A> methods. You do not have to override this method, but an understanding of the token request pipeline it implements may be helpful.       An STS is configured through the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration> class."
+  summary: "Abstrakcyjna klasa podstawowa, która definiuje właściwości i metody usługi tokenu zabezpieczającego (STS)."
+  remarks: "Do utworzenia tokenu Zabezpieczającego musi pochodzić od klasy SecurityTokenService. W klasie niestandardowych co najmniej przesłonięcia <xref:System.IdentityModel.SecurityTokenService.GetScope%2A>i <xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A>metody.</xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A> </xref:System.IdentityModel.SecurityTokenService.GetScope%2A> Te zastąpienia STS utworzone za pomocą Domyślna implementacja wszystkie inne metody zdefiniowanej w klasie jest może wystawiać tokeny zabezpieczające w odpowiedzi na zabezpieczeń żądania tokenu (RST). Oznacza to, że powiązanie problem zdefiniowane w specyfikacji WS-Trust jest zaimplementowana. To powiązanie jest zaimplementowana w <xref:System.IdentityModel.SecurityTokenService.Issue%2A>metody.</xref:System.IdentityModel.SecurityTokenService.Issue%2A> Brak innych powiązania WS-Trust (odnawiania, Anuluj i sprawdzania poprawności) zostały zaimplementowane w przypadku domyślnym i odpowiednie błąd jest zwracany do obiektu wywołującego po napotkaniu RST, która odpowiada jednej z tych powiązań. Oczywiście można zastąpić odpowiednie metody (<xref:System.IdentityModel.SecurityTokenService.Renew%2A>, <xref:System.IdentityModel.SecurityTokenService.Cancel%2A>, i <xref:System.IdentityModel.SecurityTokenService.Validate%2A>) do zaimplementowania tych powiązań w Twojej STS protokołu</xref:System.IdentityModel.SecurityTokenService.Validate%2A> </xref:System.IdentityModel.SecurityTokenService.Cancel%2A> </xref:System.IdentityModel.SecurityTokenService.Renew%2A>      > [!IMPORTANT] > Implementacja gotowe do produkcji STS pociąga za sobą staranne planowanie oraz znaczne zasobów, aby ograniczyć potencjalne zagrożenia bezpieczeństwa związane z udostępnianie takiej usługi. Większość deweloperów przy użyciu systemu Windows Identity Foundation (WIF) będzie można tworzenia aplikacji, które zewnętrzny Zarządzanie tożsamościami do usługi tokenu Zabezpieczającego, a nie samego tworzenia tokenu Zabezpieczającego. WIF udostępnia rozszerzenie programu Visual Studio, tożsamość i narzędzie dostępu do programu Visual Studio 2012, aby pomóc deweloperom testowanie rozwiązań w środowisku programistycznym. To narzędzie zawiera tokenu Zabezpieczającego `LocalSTS`, które można skonfigurować do obsługi oświadczenia właściwe dla aplikacji, które tworzysz. Aby uzyskać więcej informacji o narzędziu tożsamościami i dostępem, zobacz [tożsamości i dostępu do narzędzi dla programu Visual Studio 2012](~/add/includes/ajax-current-ext-md.md). W niektórych scenariuszach `LocalSTS` mogą nie zapewniać funkcje niezbędne do odpowiednio przetestować aplikację; przykładowo w scenariuszu, która obejmuje tworzenie programu obsługi tokenów niestandardowych do użytku przez aplikację. W takich sytuacjach może pochodzić od SecurityTokenService można utworzyć jeden lub więcej STSs proste który można wdrożyć w środowisku projektowania i który może służyć do testowania tych funkcji w aplikacji. W tej sekcji reszty koncentruje się na metody ujawnione przez klasę SecurityTokenService umożliwiające implementowanie prostego STS i rozszerzanie Potok wydawania tokenów.       Poniższa lista zawiera krótki przegląd metod podstawowe znaczenie deweloperowi do użycia w środowisku testowym lub programowanie.      - <xref:System.IdentityModel.SecurityTokenService.GetScope%2A>Metody.</xref:System.IdentityModel.SecurityTokenService.GetScope%2A> Ta metoda zwraca <xref:System.IdentityModel.Scope>obiektu, który zawiera informacje o RP.</xref:System.IdentityModel.Scope> Ten obiekt jest używany w pozostałej części potok wydawania tokenów i zawiera informacje na temat podpisywania i szyfrowania poświadczeń do użycia w odpowiedzi, a także `AppliesTo` i `ReplyTo` (jeśli jest to wymagane) adresów. Należy przesłonić tę metodę.      - <xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A>Metody.</xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A> Ta metoda zwraca <xref:System.Security.Claims.ClaimsIdentity>obiekt, który zawiera oświadczenia, aby powrócić do planu odzyskiwania.</xref:System.Security.Claims.ClaimsIdentity> Należy przesłonić tę metodę.      - <xref:System.IdentityModel.SecurityTokenService.Issue%2A>Metody.</xref:System.IdentityModel.SecurityTokenService.Issue%2A> Ta metoda implementuje potoku żądania tokenu, który przetwarza przychodzące żądanie tokenu zabezpieczeń (RST) i zwraca odpowiedź (odpowiedź RSTR) do obiektu wywołującego, który zawiera token, który może służyć do uwierzytelniania w usłudze RP. Wiele innych metod zdefiniowana w klasie SecurityTokenService są wywoływane z tej metody, w tym <xref:System.IdentityModel.SecurityTokenService.GetScope%2A>i <xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A>metody.</xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A> </xref:System.IdentityModel.SecurityTokenService.GetScope%2A> Nie należy przesłonić tę metodę, ale opis potoku żądania tokenu, który implementuje mogą być pomocne.       STS jest skonfigurowana za pośrednictwem <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration>klasy.</xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration>"
   example:
   - "The code examples that are used in the SecurityTokenService topics are taken from the `Custom Token` sample. This sample provides custom classes that enable processing of Simple Web Tokens (SWT) and it includes an implementation of a passive STS that is capable of serving an SWT token. For an example of how to implement an active STS, you can see the `Federation Metadata` sample. For information about these samples and other samples available for WIF and about where to download them, see [WIF Code Sample Index](~/add/includes/ajax-current-ext-md.md). The following code shows the implementation of a passive STS using the SecurityTokenService class.  \n  \n [!code-cs[WIFCustomTokenSTS#3](~/add/codesnippet/csharp/passivests/customsecuritytokenservice.cs#3)]  \n  \n The following code shows how to invoke a custom passive STS to process a WS-Federation request by calling the <xref:System.IdentityModel.Services.FederatedPassiveSecurityTokenServiceOperations.ProcessRequest%28System.Web.HttpRequest%2CSystem.Security.Claims.ClaimsPrincipal%2CSystem.IdentityModel.SecurityTokenService%2CSystem.Web.HttpResponse%29?displayProperty=fullName> method from the code behind in the `default.aspx.cs` file.  \n  \n [!code-cs[WIFCustomTokenSTS#1](~/add/codesnippet/csharp/passivests/default.aspx.cs#1)]"
   syntax:
@@ -65,19 +65,19 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Called from derived classes to initialize the <xref href=&quot;System.IdentityModel.SecurityTokenService&quot;></xref> class using the specified configuration settings."
-  remarks: "Use this constructor to initialize scope provider and token issuer certificate."
+  summary: "Wywoływana z klas pochodnych zainicjować <xref href=&quot;System.IdentityModel.SecurityTokenService&quot;> </xref> przy użyciu określonych ustawień konfiguracyjnych."
+  remarks: "Aby zainicjować dostawcy zakresu i certyfikat wystawcy tokenów, należy użyć tego konstruktora."
   syntax:
     content: protected SecurityTokenService (System.IdentityModel.Configuration.SecurityTokenServiceConfiguration securityTokenServiceConfiguration);
     parameters:
     - id: securityTokenServiceConfiguration
       type: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration
-      description: "A <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;></xref> that contains the settings for the STS."
+      description: "A <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;> </xref> zawierający ustawienia dla usługi STS."
   overload: System.IdentityModel.SecurityTokenService.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>securityTokenServiceConfiguration</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>securityTokenServiceConfiguration</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.SecurityTokenService.BeginCancel(System.Security.Claims.ClaimsPrincipal,System.IdentityModel.Protocols.WSTrust.RequestSecurityToken,System.AsyncCallback,System.Object)
@@ -92,26 +92,26 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "When overridden in a derived class, begins an asynchronous WS-Trust Cancel request."
-  remarks: "The default implementation of this method throws an <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, rozpoczyna się asynchroniczne żądanie usługi WS-Trust anulować."
+  remarks: "Domyślna implementacja tej metody zgłasza <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>.</xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>"
   syntax:
     content: public virtual IAsyncResult BeginCancel (System.Security.Claims.ClaimsPrincipal principal, System.IdentityModel.Protocols.WSTrust.RequestSecurityToken request, AsyncCallback callback, object state);
     parameters:
     - id: principal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> that represents the identity of the token requestor."
+      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref> reprezentujący tożsamość żądającego tokenu."
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;></xref> that represents the security token request. This includes the request message as well as other client related information such as authorization context."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;> </xref> reprezentujący żądania tokenu zabezpieczeń. W tym żądaniu wiadomości, a także innych klienta powiązane informacje, takie jak kontekst autoryzacji."
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous cancel operation."
+      description: "<xref:System.AsyncCallback>Delegata, która odbiera powiadomienia o ukończeniu operacji asynchronicznej Anuluj.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object that contains state information associated with the asynchronous cancel operation."
+      description: "Obiekt zawierający informacje o stanie skojarzone z operacji asynchronicznych anulowania."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous cancel operation."
+      description: "<xref:System.IAsyncResult>, Która odwołuje się operacja asynchronicznego anulowania.</xref:System.IAsyncResult>"
   overload: System.IdentityModel.SecurityTokenService.BeginCancel*
   exceptions: []
   platform:
@@ -128,29 +128,29 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "When overridden in a derived class, begins an asynchronous call to the <xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity*> method."
-  remarks: "The default implementation of this method throws a <xref:System.NotImplementedException>."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, rozpoczyna się wywołanie asynchroniczne <xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity*>metody.</xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity*>"
+  remarks: "Domyślna implementacja tej metody zgłasza <xref:System.NotImplementedException>.</xref:System.NotImplementedException>"
   syntax:
     content: protected virtual IAsyncResult BeginGetOutputClaimsIdentity (System.Security.Claims.ClaimsPrincipal principal, System.IdentityModel.Protocols.WSTrust.RequestSecurityToken request, System.IdentityModel.Scope scope, AsyncCallback callback, object state);
     parameters:
     - id: principal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> that represents the identity of the token requestor."
+      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref> reprezentujący tożsamość żądającego tokenu."
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;></xref> that represents the security token request. This includes the request message as well as other client related information such as authorization context."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;> </xref> reprezentujący żądania tokenu zabezpieczeń. W tym żądaniu wiadomości, a także innych klienta powiązane informacje, takie jak kontekst autoryzacji."
     - id: scope
       type: System.IdentityModel.Scope
-      description: "The <xref href=&quot;System.IdentityModel.Scope&quot;></xref> that contains information about the relying party associated with the request."
+      description: "<xref href=&quot;System.IdentityModel.Scope&quot;> </xref> Zawierający informacje dotyczące jednostki uzależnionej skojarzonej z żądaniem."
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous operation."
+      description: "<xref:System.AsyncCallback>Delegata, która odbiera powiadomienia o ukończeniu operacji asynchronicznej.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object that contains state information associated with the asynchronous operation."
+      description: "Obiekt zawierający informacje o stanie skojarzone z operacji asynchronicznej."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous operation."
+      description: "<xref:System.IAsyncResult>, Która odwołuje się operacja asynchroniczna.</xref:System.IAsyncResult>"
   overload: System.IdentityModel.SecurityTokenService.BeginGetOutputClaimsIdentity*
   exceptions: []
   platform:
@@ -167,26 +167,26 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "When overridden in a derived class, begins an asynchronous call for the <xref:System.IdentityModel.SecurityTokenService.GetScope*> method."
-  remarks: "The default implementation of this method throws a <xref:System.NotImplementedException>."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, rozpoczyna się wywołanie asynchroniczne dla <xref:System.IdentityModel.SecurityTokenService.GetScope*>metody.</xref:System.IdentityModel.SecurityTokenService.GetScope*>"
+  remarks: "Domyślna implementacja tej metody zgłasza <xref:System.NotImplementedException>.</xref:System.NotImplementedException>"
   syntax:
     content: protected virtual IAsyncResult BeginGetScope (System.Security.Claims.ClaimsPrincipal principal, System.IdentityModel.Protocols.WSTrust.RequestSecurityToken request, AsyncCallback callback, object state);
     parameters:
     - id: principal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> that represents the identity of the token requestor."
+      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref> reprezentujący tożsamość żądającego tokenu."
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;></xref> that represents the security token request. This includes the request message as well as other client related information such as authorization context."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;> </xref> reprezentujący żądania tokenu zabezpieczeń. W tym żądaniu wiadomości, a także innych klienta powiązane informacje, takie jak kontekst autoryzacji."
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous operation."
+      description: "<xref:System.AsyncCallback>Delegata, która odbiera powiadomienia o ukończeniu operacji asynchronicznej.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object that contains state information associated with the asynchronous operation."
+      description: "Obiekt zawierający informacje o stanie skojarzone z operacji asynchronicznej."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous cancel operation."
+      description: "<xref:System.IAsyncResult>, Która odwołuje się operacja asynchronicznego anulowania.</xref:System.IAsyncResult>"
   overload: System.IdentityModel.SecurityTokenService.BeginGetScope*
   exceptions: []
   platform:
@@ -203,26 +203,26 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "When overridden in a derived class, begins an asynchronous WS-Trust Issue request."
-  remarks: "The default implementation of this method throws an <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, rozpoczyna się asynchroniczne żądanie usługi WS-Trust problem."
+  remarks: "Domyślna implementacja tej metody zgłasza <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>.</xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>"
   syntax:
     content: public virtual IAsyncResult BeginIssue (System.Security.Claims.ClaimsPrincipal principal, System.IdentityModel.Protocols.WSTrust.RequestSecurityToken request, AsyncCallback callback, object state);
     parameters:
     - id: principal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> that represents the identity of the token requestor."
+      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref> reprezentujący tożsamość żądającego tokenu."
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;></xref> that represents the security token request. This includes the request message as well as other client related information such as authorization context."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;> </xref> reprezentujący żądania tokenu zabezpieczeń. W tym żądaniu wiadomości, a także innych klienta powiązane informacje, takie jak kontekst autoryzacji."
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous issue operation."
+      description: "<xref:System.AsyncCallback>Delegata, która odbiera powiadomienia o ukończeniu operacji asynchronicznej problem.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object that contains state information associated with the asynchronous issue operation."
+      description: "Obiekt zawierający informacje o stanie skojarzonych z operacją asynchroniczną problem."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous issue operation."
+      description: "<xref:System.IAsyncResult>, Która odwołuje się operacja asynchronicznego problem.</xref:System.IAsyncResult>"
   overload: System.IdentityModel.SecurityTokenService.BeginIssue*
   exceptions: []
   platform:
@@ -239,26 +239,26 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "When overridden in a derived class, begins an asynchronous WS-Trust Renew request."
-  remarks: "The default implementation of this method throws an <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, rozpoczyna się asynchroniczne żądanie odnowienia WS-Trust."
+  remarks: "Domyślna implementacja tej metody zgłasza <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>.</xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>"
   syntax:
     content: public virtual IAsyncResult BeginRenew (System.Security.Claims.ClaimsPrincipal principal, System.IdentityModel.Protocols.WSTrust.RequestSecurityToken request, AsyncCallback callback, object state);
     parameters:
     - id: principal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> that represents the identity of the token requestor."
+      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref> reprezentujący tożsamość żądającego tokenu."
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;></xref> that represents the security token request. This includes the request message as well as other client related information such as authorization context."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;> </xref> reprezentujący żądania tokenu zabezpieczeń. W tym żądaniu wiadomości, a także innych klienta powiązane informacje, takie jak kontekst autoryzacji."
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous renew operation."
+      description: "<xref:System.AsyncCallback>Delegata, która odbiera powiadomienia o zakończeniu asynchroniczną odnowić operacji.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object that contains state information associated with the asynchronous renew operation."
+      description: "Obiekt zawierający informacje o stanie skojarzone z asynchroniczną odnowić operacji."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous renew operation."
+      description: "<xref:System.IAsyncResult>Czy odwołania asynchroniczną odnowić operacji.</xref:System.IAsyncResult>"
   overload: System.IdentityModel.SecurityTokenService.BeginRenew*
   exceptions: []
   platform:
@@ -275,26 +275,26 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "When overridden in a derived class, begins an asynchronous WS-Trust Validate request."
-  remarks: "The default implementation of this method throws an <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, rozpoczyna się asynchroniczne żądanie usługi WS-Trust sprawdzania poprawności."
+  remarks: "Domyślna implementacja tej metody zgłasza <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>.</xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>"
   syntax:
     content: public virtual IAsyncResult BeginValidate (System.Security.Claims.ClaimsPrincipal principal, System.IdentityModel.Protocols.WSTrust.RequestSecurityToken request, AsyncCallback callback, object state);
     parameters:
     - id: principal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> that represents the identity of the token requestor."
+      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref> reprezentujący tożsamość żądającego tokenu."
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;></xref> that represents the security token request. This includes the request message as well as other client related information such as authorization context."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;> </xref> reprezentujący żądania tokenu zabezpieczeń. W tym żądaniu wiadomości, a także innych klienta powiązane informacje, takie jak kontekst autoryzacji."
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous validate operation."
+      description: "<xref:System.AsyncCallback>Delegata, która odbiera powiadomienia o zakończeniu asynchroniczną weryfikowanie operacji.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object that contains state information associated with the asynchronous validate operation."
+      description: "Obiekt zawierający informacje o stanie skojarzone z asynchroniczną weryfikowanie operacji."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous validate operation."
+      description: "<xref:System.IAsyncResult>Czy odwołania asynchroniczną weryfikowanie operacji.</xref:System.IAsyncResult>"
   overload: System.IdentityModel.SecurityTokenService.BeginValidate*
   exceptions: []
   platform:
@@ -311,20 +311,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "When overridden in a derived class, processes a WS-Trust Cancel request."
-  remarks: "The default implementation of this method throws an <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, przetwarza żądanie anulowania WS-Trust."
+  remarks: "Domyślna implementacja tej metody zgłasza <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>.</xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>"
   syntax:
     content: public virtual System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse Cancel (System.Security.Claims.ClaimsPrincipal principal, System.IdentityModel.Protocols.WSTrust.RequestSecurityToken request);
     parameters:
     - id: principal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> that represents the identity of the token requestor."
+      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref> reprezentujący tożsamość żądającego tokenu."
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;></xref> that represents the security token request. This includes the request message as well as other client related information such as authorization context."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;> </xref> reprezentujący żądania tokenu zabezpieczeń. W tym żądaniu wiadomości, a także innych klienta powiązane informacje, takie jak kontekst autoryzacji."
     return:
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse&quot;></xref> that represents the RSTR to return to the caller."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse&quot;> </xref> reprezentujący odpowiedź RSTR, aby powrócić do obiektu wywołującego."
   overload: System.IdentityModel.SecurityTokenService.Cancel*
   exceptions: []
   platform:
@@ -341,25 +341,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Creates an instance of a <xref:System.IdentityModel.SecurityTokenService.SecurityTokenDescriptor*>."
-  remarks: "Invoked during token issuance after <xref:System.IdentityModel.SecurityTokenService.GetScope%2A>."
+  summary: "Tworzy wystąpienie <xref:System.IdentityModel.SecurityTokenService.SecurityTokenDescriptor*>.</xref:System.IdentityModel.SecurityTokenService.SecurityTokenDescriptor*>"
+  remarks: "Wywoływane podczas wystawiania tokenu po <xref:System.IdentityModel.SecurityTokenService.GetScope%2A>.</xref:System.IdentityModel.SecurityTokenService.GetScope%2A>"
   syntax:
     content: protected virtual System.IdentityModel.Tokens.SecurityTokenDescriptor CreateSecurityTokenDescriptor (System.IdentityModel.Protocols.WSTrust.RequestSecurityToken request, System.IdentityModel.Scope scope);
     parameters:
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "The incoming token request."
+      description: "Przychodzące żądania tokenu."
     - id: scope
       type: System.IdentityModel.Scope
-      description: "The <xref:System.IdentityModel.SecurityTokenService.Scope*> object returned from <xref:System.IdentityModel.SecurityTokenService.GetScope*>."
+      description: "<> </> *> Obiektu zwróconego z <> </> *>."
     return:
       type: System.IdentityModel.Tokens.SecurityTokenDescriptor
-      description: "The <xref:System.IdentityModel.SecurityTokenService.SecurityTokenDescriptor*>."
+      description: "<xref:System.IdentityModel.SecurityTokenService.SecurityTokenDescriptor*>.</xref:System.IdentityModel.SecurityTokenService.SecurityTokenDescriptor*>"
   overload: System.IdentityModel.SecurityTokenService.CreateSecurityTokenDescriptor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>request</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>scope</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>request</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>scope</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.SecurityTokenService.EndCancel(System.IAsyncResult)
@@ -374,17 +374,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "When overridden in a derived class, completes the asynchronous WS-Trust Cancel request."
-  remarks: "The default implementation of this method throws an <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, wykonuje asynchroniczne żądanie anulowania WS-Trust."
+  remarks: "Domyślna implementacja tej metody zgłasza <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>.</xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>"
   syntax:
     content: public virtual System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse EndCancel (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.SecurityTokenService.BeginCancel*> method."
+      description: "<xref:System.IAsyncResult>Który jest zwracany przez wywołanie do <xref:System.IdentityModel.SecurityTokenService.BeginCancel*>metody.</xref:System.IdentityModel.SecurityTokenService.BeginCancel*> </xref:System.IAsyncResult>"
     return:
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse&quot;></xref> that represents the RSTR to return to the caller."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse&quot;> </xref> reprezentujący odpowiedź RSTR, aby powrócić do obiektu wywołującego."
   overload: System.IdentityModel.SecurityTokenService.EndCancel*
   exceptions: []
   platform:
@@ -401,17 +401,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "When overridden in a derived class, completes the asynchronous call to the <xref:System.IdentityModel.SecurityTokenService.BeginGetOutputClaimsIdentity*> method."
-  remarks: "The default implementation of this method throws a <xref:System.NotImplementedException>."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, wykonuje asynchroniczne wywołanie <xref:System.IdentityModel.SecurityTokenService.BeginGetOutputClaimsIdentity*>metody.</xref:System.IdentityModel.SecurityTokenService.BeginGetOutputClaimsIdentity*>"
+  remarks: "Domyślna implementacja tej metody zgłasza <xref:System.NotImplementedException>.</xref:System.NotImplementedException>"
   syntax:
     content: protected virtual System.Security.Claims.ClaimsIdentity EndGetOutputClaimsIdentity (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.SecurityTokenService.BeginGetOutputClaimsIdentity*> method."
+      description: "<xref:System.IAsyncResult>Który jest zwracany przez wywołanie do <xref:System.IdentityModel.SecurityTokenService.BeginGetOutputClaimsIdentity*>metody.</xref:System.IdentityModel.SecurityTokenService.BeginGetOutputClaimsIdentity*> </xref:System.IAsyncResult>"
     return:
       type: System.Security.Claims.ClaimsIdentity
-      description: "A <xref href=&quot;System.Security.Claims.ClaimsIdentity&quot;></xref> that contains the collection of claims that will be placed in the issued security token."
+      description: "A <xref href=&quot;System.Security.Claims.ClaimsIdentity&quot;> </xref> zawierający kolekcję oświadczenia, które zostaną umieszczone w tokenie zabezpieczającym wystawione."
   overload: System.IdentityModel.SecurityTokenService.EndGetOutputClaimsIdentity*
   exceptions: []
   platform:
@@ -428,17 +428,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "When overridden in a derived class, completes the asynchronous call to the <xref:System.IdentityModel.SecurityTokenService.BeginGetScope*> method."
-  remarks: "The default implementation of this method throws a <xref:System.NotImplementedException>."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, wykonuje asynchroniczne wywołanie <xref:System.IdentityModel.SecurityTokenService.BeginGetScope*>metody.</xref:System.IdentityModel.SecurityTokenService.BeginGetScope*>"
+  remarks: "Domyślna implementacja tej metody zgłasza <xref:System.NotImplementedException>.</xref:System.NotImplementedException>"
   syntax:
     content: protected virtual System.IdentityModel.Scope EndGetScope (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.SecurityTokenService.BeginGetScope*> method."
+      description: "<xref:System.IAsyncResult>Który jest zwracany przez wywołanie do <xref:System.IdentityModel.SecurityTokenService.BeginGetScope*>metody.</xref:System.IdentityModel.SecurityTokenService.BeginGetScope*> </xref:System.IAsyncResult>"
     return:
       type: System.IdentityModel.Scope
-      description: "A <xref href=&quot;System.IdentityModel.Scope&quot;></xref> that encapsulates the relying party (RP) information associated with the request (RST) specified in the call to the <xref:System.IdentityModel.SecurityTokenService.BeginGetScope*> method."
+      description: "A <xref href=&quot;System.IdentityModel.Scope&quot;> </xref> która hermetyzuje jednostki uzależnionej informacje firmy (RP) skojarzony z żądaniem (RST) określona w wywołaniu <xref:System.IdentityModel.SecurityTokenService.BeginGetScope*>metody.</xref:System.IdentityModel.SecurityTokenService.BeginGetScope*>"
   overload: System.IdentityModel.SecurityTokenService.EndGetScope*
   exceptions: []
   platform:
@@ -455,17 +455,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "When overridden in a derived class, completes the asynchronous WS-Trust Issue request."
-  remarks: "The default implementation of this method throws an <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, wykonuje asynchroniczne żądanie usługi WS-Trust problem."
+  remarks: "Domyślna implementacja tej metody zgłasza <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>.</xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>"
   syntax:
     content: public virtual System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse EndIssue (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.SecurityTokenService.BeginIssue*> method."
+      description: "<xref:System.IAsyncResult>Który jest zwracany przez wywołanie do <xref:System.IdentityModel.SecurityTokenService.BeginIssue*>metody.</xref:System.IdentityModel.SecurityTokenService.BeginIssue*> </xref:System.IAsyncResult>"
     return:
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse&quot;></xref> that represents the RSTR to return to the caller."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse&quot;> </xref> reprezentujący odpowiedź RSTR, aby powrócić do obiektu wywołującego."
   overload: System.IdentityModel.SecurityTokenService.EndIssue*
   exceptions: []
   platform:
@@ -482,17 +482,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "When overridden in a derived class, completes the asynchronous WS-Trust Renew request."
-  remarks: "The default implementation of this method throws an <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, wykonuje asynchroniczne żądanie odnowienia WS-Trust."
+  remarks: "Domyślna implementacja tej metody zgłasza <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>.</xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>"
   syntax:
     content: public virtual System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse EndRenew (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.SecurityTokenService.BeginRenew*> method."
+      description: "<xref:System.IAsyncResult>Który jest zwracany przez wywołanie do <xref:System.IdentityModel.SecurityTokenService.BeginRenew*>metody.</xref:System.IdentityModel.SecurityTokenService.BeginRenew*> </xref:System.IAsyncResult>"
     return:
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse&quot;></xref> that represents the RSTR to return to the caller."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse&quot;> </xref> reprezentujący odpowiedź RSTR, aby powrócić do obiektu wywołującego."
   overload: System.IdentityModel.SecurityTokenService.EndRenew*
   exceptions: []
   platform:
@@ -509,17 +509,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "When overridden in a derived class, completes the asynchronous WS-Trust Validate request."
-  remarks: "The default implementation of this method throws an <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, wykonuje asynchroniczne żądanie zweryfikowania WS-Trust."
+  remarks: "Domyślna implementacja tej metody zgłasza <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>.</xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>"
   syntax:
     content: public virtual System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse EndValidate (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.SecurityTokenService.BeginValidate*> method."
+      description: "<xref:System.IAsyncResult>Który jest zwracany przez wywołanie do <xref:System.IdentityModel.SecurityTokenService.BeginValidate*>metody.</xref:System.IdentityModel.SecurityTokenService.BeginValidate*> </xref:System.IAsyncResult>"
     return:
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse&quot;></xref> that represents the RSTR to return to the caller."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse&quot;> </xref> reprezentujący odpowiedź RSTR, aby powrócić do obiektu wywołującego."
   overload: System.IdentityModel.SecurityTokenService.EndValidate*
   exceptions: []
   platform:
@@ -536,14 +536,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets the name of the security token service (STS)."
-  remarks: "This method is called from the default token issuance pipeline implemented in the <xref:System.IdentityModel.SecurityTokenService.Issue%2A> method.       The default implementation returns the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A> property from configuration accessed through the <xref:System.IdentityModel.SecurityTokenService.SecurityTokenServiceConfiguration%2A> property."
+  summary: "Pobiera nazwę usługi tokenu zabezpieczającego (STS)."
+  remarks: "Ta metoda jest wywoływana z domyślnej potok wydawania tokenów zaimplementowana w <xref:System.IdentityModel.SecurityTokenService.Issue%2A>metody.</xref:System.IdentityModel.SecurityTokenService.Issue%2A>       Domyślna implementacja zwraca <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A>Właściwości z konfiguracji dostępne za pośrednictwem <xref:System.IdentityModel.SecurityTokenService.SecurityTokenServiceConfiguration%2A>Właściwości.</xref:System.IdentityModel.SecurityTokenService.SecurityTokenServiceConfiguration%2A> </xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.TokenIssuerName%2A>"
   syntax:
     content: protected virtual string GetIssuerName ();
     parameters: []
     return:
       type: System.String
-      description: "The issuer name."
+      description: "Nazwa wystawcy."
   overload: System.IdentityModel.SecurityTokenService.GetIssuerName*
   exceptions: []
   platform:
@@ -560,8 +560,8 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "When overridden in a derived class, this method returns a collection of output subjects to be included in the issued token."
-  remarks: "The GetOutputClaimsIdentity method is called from the token issuance pipeline, which is implemented by the <xref:System.IdentityModel.SecurityTokenService.Issue%2A> method. It returns an <xref:System.Security.Claims.ClaimsIdentity> that contains the claims to include in the issued security token based on the requestor of the token (the `principal` parameter), the incoming RST (the `request` parameter), and the relying party for which the token is intended (the `scope` parameter). The logic in this method is primarily concerned with answering the following questions:      -   **Which claim types should be included in the response based on the RP for which it is intended?** Typically this is decided on a per-RP basis from lists of claim types required for each RP or on a per-request basis by examining the <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken.Claims%2A> property of the request. However, the logic and details for determining the claims to include in the response is completely up to your implementation.      -   **Which claim values should be assigned to the claims in the response?** For an Identity Provider (IP-STS) this typically means using one or more claims in the requestor’s <xref:System.Security.Claims.ClaimsPrincipal> (provided by the `principal` parameter) to access a store (or other entity) to return values for the required claim types. For a Federation Provider (R-STS) this typically means performing some kind of processing on the requestor’s incoming claims to fulfill the request; perhaps performing filtering or transformation on some claims presented by the requestor, while passing others through unmodified. Of course, as in the case of deciding which claims to include in the response, the details and logic of how to determine the values of these claims is up to your implementation."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, ta metoda zwraca zbiór tematów dane wyjściowe do uwzględnienia w wystawionego tokenu."
+  remarks: "Metoda GetOutputClaimsIdentity jest wywoływana z potoku wystawiania tokenu, który jest implementowany przez <xref:System.IdentityModel.SecurityTokenService.Issue%2A>metody.</xref:System.IdentityModel.SecurityTokenService.Issue%2A> Zwraca <xref:System.Security.Claims.ClaimsIdentity>zawierający oświadczenia do uwzględnienia w tokenie zabezpieczeń oparte na obiekt żądający tokenu ( `principal` parametru), RST przychodzące ( `request` parametru) i jednostki uzależnionej strony dla tokenu jest przeznaczony ( `scope` parametru).</xref:System.Security.Claims.ClaimsIdentity> Logikę tej metody jest przede wszystkim odpowiedzieć na następujące pytania:- **które typy oświadczeń powinny być uwzględnione w odpowiedzi oparte na planu odzyskiwania, dla której jest przeznaczony?** Zwykle to decyzji na podstawie-RP z listy typów oświadczeń wymagane dla każdego planu odzyskiwania lub na podstawie danego żądania, sprawdzając <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken.Claims%2A>Właściwości żądania.</xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken.Claims%2A> Jednak wartości logiczne i szczegóły dotyczące określania oświadczeń do uwzględnienia w odpowiedzi jest całkowicie do implementacji.      - **Której wartości oświadczeń powinny zostać przypisane do oświadczeń w odpowiedzi?** Dla dostawcy tożsamości (Usługa STS protokołu IP) zazwyczaj oznacza to przy użyciu co najmniej jednego oświadczenia w obiektu żądającego <xref:System.Security.Claims.ClaimsPrincipal>(dostarczonych przez `principal` parametrów) do uzyskania dostępu do Sklepu (lub innego podmiotu), aby zwrócić wartości dla wymaganych typów oświadczeń.</xref:System.Security.Claims.ClaimsPrincipal> Dla dostawcy federacyjnego (R STS) zazwyczaj oznacza to wykonywanie określonego rodzaju przetwarzania na obiektu żądającego oświadczeń przychodzących do spełnienia żądania; na niektórych oświadczeń przedstawiony przez obiekt żądający, podczas przekazywania innymi przez niezmodyfikowany prawdopodobnie wykonywanie filtrowania lub transformacji. Oczywiście tak jak w przypadku podejmowania decyzji o tym, które oświadczenia do uwzględnienia w odpowiedzi szczegóły i logiki sposobu określania wartości tych oświadczeń zależy od implementacji."
   example:
   - "The code example that is used in this topic is taken from the `Custom Token` sample. This sample provides custom classes that enable processing of Simple Web Tokens (SWT) and it includes an implementation of a passive STS that is capable of serving an SWT token. For an example of how to implement an active STS, you can see the `Federation Metadata` sample. For information about these samples and other samples available for WIF and about where to download them, see [WIF Code Sample Index](~/add/includes/ajax-current-ext-md.md). The following code shows how to override the GetOutputClaimsIdentity method to return claims for your STS. In this example, the Request Security Token (RST) message is ignored and a collection of claims based on the user as authenticated at the STS is returned.  \n  \n [!code-cs[WIFCustomTokenSTS#6](~/add/codesnippet/csharp/passivests/customsecuritytokenservice.cs#6)]"
   syntax:
@@ -569,16 +569,16 @@ items:
     parameters:
     - id: principal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> that represents the identity of the token requestor."
+      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref> reprezentujący tożsamość żądającego tokenu."
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;></xref> that represents the security token request. This includes the request message as well as other client related information such as authorization context."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;> </xref> reprezentujący żądania tokenu zabezpieczeń. W tym żądaniu wiadomości, a także innych klienta powiązane informacje, takie jak kontekst autoryzacji."
     - id: scope
       type: System.IdentityModel.Scope
-      description: "The <xref href=&quot;System.IdentityModel.Scope&quot;></xref> that contains information about the relying party associated with the request. This is the <xref href=&quot;System.IdentityModel.Scope&quot;></xref> object that was returned by the <xref:System.IdentityModel.SecurityTokenService.GetScope*> method."
+      description: "<xref href=&quot;System.IdentityModel.Scope&quot;> </xref> Zawierający informacje dotyczące jednostki uzależnionej skojarzonej z żądaniem. Jest to <xref href=&quot;System.IdentityModel.Scope&quot;> </xref> obiekt, który został zwrócony przez <xref:System.IdentityModel.SecurityTokenService.GetScope*>metody.</xref:System.IdentityModel.SecurityTokenService.GetScope*>"
     return:
       type: System.Security.Claims.ClaimsIdentity
-      description: "A <xref href=&quot;System.Security.Claims.ClaimsIdentity&quot;></xref> that contains the collection of claims that will be placed in the issued security token."
+      description: "A <xref href=&quot;System.Security.Claims.ClaimsIdentity&quot;> </xref> zawierający kolekcję oświadczenia, które zostaną umieszczone w tokenie zabezpieczającym wystawione."
   overload: System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity*
   exceptions: []
   platform:
@@ -595,25 +595,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets the proof token to be included in the response (RSTR)."
-  remarks: "This method is called from the default token issuance pipeline implemented in the <xref:System.IdentityModel.SecurityTokenService.Issue%2A> method.       The default implementation returns a proof descriptor or throws an appropriate exception."
+  summary: "Pobiera token potwierdzenia do uwzględnienia w odpowiedzi (odpowiedź RSTR)."
+  remarks: "Ta metoda jest wywoływana z domyślnej potok wydawania tokenów zaimplementowana w <xref:System.IdentityModel.SecurityTokenService.Issue%2A>metody.</xref:System.IdentityModel.SecurityTokenService.Issue%2A>       Domyślna implementacja zwraca deskryptor potwierdzającego lub zgłasza wyjątek odpowiednie."
   syntax:
     content: protected virtual System.IdentityModel.Tokens.ProofDescriptor GetProofToken (System.IdentityModel.Protocols.WSTrust.RequestSecurityToken request, System.IdentityModel.Scope scope);
     parameters:
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;></xref> that represents the incoming token request (RST)."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;> </xref> reprezentujący przychodzącego żądania tokenu (RST)."
     - id: scope
       type: System.IdentityModel.Scope
-      description: "The <xref href=&quot;System.IdentityModel.Scope&quot;></xref> instance that encapsulates information about the relying party."
+      description: "<xref href=&quot;System.IdentityModel.Scope&quot;> </xref> Wystąpienia, który hermetyzuje informacje dotyczące jednostki uzależnionej."
     return:
       type: System.IdentityModel.Tokens.ProofDescriptor
-      description: "A <xref href=&quot;System.IdentityModel.Tokens.ProofDescriptor&quot;></xref> that represents the newly created proof descriptor. The proof descriptor can be an asymmetric proof descriptor, a symmetric proof descriptor, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> in the bearer token case."
+      description: "A <xref href=&quot;System.IdentityModel.Tokens.ProofDescriptor&quot;> </xref> reprezentujący nowo utworzony potwierdzającego deskryptora. Deskryptor potwierdzającego może być asymetrycznego deskryptora potwierdzającego, deskryptor potwierdzającego symetrycznego lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> w przypadku tokenu elementu nośnego."
   overload: System.IdentityModel.SecurityTokenService.GetProofToken*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>request</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>scope</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>request</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>scope</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.SecurityTokenService.GetRequestorProofEncryptingCredentials(System.IdentityModel.Protocols.WSTrust.RequestSecurityToken)
@@ -628,22 +628,22 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets the requestor&quot;s proof encrypting credentials."
-  remarks: "This method is called from the <xref:System.IdentityModel.SecurityTokenService.GetProofToken%2A> method.       The default implementation does the following. Returns `null` if there is no encryption token specified in the request (the <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken.ProofEncryption%2A?displayProperty=fullName> property is `null`). Otherwise, if it can get the token as an <xref:System.IdentityModel.Tokens.X509SecurityToken>, it returns credentials based on that token. If it cannot resolve the token as an <xref:System.IdentityModel.Tokens.X509SecurityToken>, a <xref:System.IdentityModel.RequestFailedException> is thrown."
+  summary: "Pobiera dowód obiektu żądającego szyfrowania poświadczeń."
+  remarks: "Ta metoda jest wywoływana z <xref:System.IdentityModel.SecurityTokenService.GetProofToken%2A>metody.</xref:System.IdentityModel.SecurityTokenService.GetProofToken%2A>       Domyślna implementacja wykonuje następujące czynności. Zwraca `null` Jeśli jest nie tokenu szyfrowania określony w żądaniu ( <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken.ProofEncryption%2A?displayProperty=fullName>jest właściwość `null`).</xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityToken.ProofEncryption%2A?displayProperty=fullName> W przeciwnym razie, jeśli można uzyskać tokenu jako <xref:System.IdentityModel.Tokens.X509SecurityToken>, zwraca poświadczeń na podstawie tego tokenów.</xref:System.IdentityModel.Tokens.X509SecurityToken> Jeśli nie można rozpoznać tokenu jako <xref:System.IdentityModel.Tokens.X509SecurityToken>, <xref:System.IdentityModel.RequestFailedException>jest generowany.</xref:System.IdentityModel.RequestFailedException> </xref:System.IdentityModel.Tokens.X509SecurityToken>"
   syntax:
     content: protected virtual System.IdentityModel.Tokens.EncryptingCredentials GetRequestorProofEncryptingCredentials (System.IdentityModel.Protocols.WSTrust.RequestSecurityToken request);
     parameters:
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;></xref> that represents the incoming token request (RST)."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;> </xref> reprezentujący przychodzącego żądania tokenu (RST)."
     return:
       type: System.IdentityModel.Tokens.EncryptingCredentials
-      description: "An <xref href=&quot;System.IdentityModel.Tokens.EncryptingCredentials&quot;></xref> object that represents the requestor’s encrypting credentials."
+      description: "<xref href=&quot;System.IdentityModel.Tokens.EncryptingCredentials&quot;> </xref> Obiekt, który reprezentuje obiekt żądający do szyfrowania poświadczeń."
   overload: System.IdentityModel.SecurityTokenService.GetRequestorProofEncryptingCredentials*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>request</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>request</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.SecurityTokenService.GetResponse(System.IdentityModel.Protocols.WSTrust.RequestSecurityToken,System.IdentityModel.Tokens.SecurityTokenDescriptor)
@@ -658,20 +658,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Creates the response (RSTR) that contains the issued token by using the specified request (RST) and security token descriptor."
-  remarks: "The GetResponse method is called as the last step from the token issuance pipeline, which is implemented by the <xref:System.IdentityModel.SecurityTokenService.Issue%2A> method. It creates and returns the response (RSTR) by using the original incoming request (RST) and the token descriptor that was built up during previous steps in the token issuance pipeline.       The default implementation creates the RSTR by passing the RST specified in the request parameter to the <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse.%23ctor%28System.IdentityModel.Protocols.WSTrust.WSTrustMessage%29?displayProperty=fullName> constructor, invoking the <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.ApplyTo%2A?displayProperty=fullName> method on the token descriptor passed into GetResponse to apply its properties to the newly created RSTR, setting the <xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.AppliesTo%2A> property on the RSTR by using the <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.AppliesToAddress%2A> property on the token descriptor, and finally setting the <xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.ReplyTo%2A> property on the RSTR according to the following table:      |`RST.ReplyTo` property|<xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.AppliesToAddress%2A?displayProperty=fullName> property.|`RSTR.ReplyTo` property|   |----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|   |Set|Not Set|Not Set|   |Set|Set|<xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.AppliesToAddress%2A?displayProperty=fullName>|   |Not Set|Set|Not Set|   |Not Set|Not Set|Not Set|"
+  summary: "Tworzy odpowiedź (odpowiedź RSTR), która zawiera wystawionego tokenu przy użyciu określonego żądania (RST) i tokenów deskryptora zabezpieczeń."
+  remarks: "Wywoływana jest metoda GetResponse jako ostatni etap w potoku wystawiania tokenu, który jest implementowany przez <xref:System.IdentityModel.SecurityTokenService.Issue%2A>metody.</xref:System.IdentityModel.SecurityTokenService.Issue%2A> Tworzy i zwraca odpowiedź (odpowiedź RSTR) przy użyciu oryginalnego żądania przychodzącego (RST) i deskryptora token, który został zbudowany w poprzednich krokach w potoku wystawiania tokenu.       Domyślna implementacja tworzy komunikacie RSTR przez przekazanie RST, określonego w parametrze żądania do konstruktora <xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse.%23ctor%28System.IdentityModel.Protocols.WSTrust.WSTrustMessage%29?displayProperty=fullName>wywołania metody <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.ApplyTo%2A?displayProperty=fullName>na deskryptorze tokenu przekazanego do GetResponse się jego właściwości do nowo utworzonej odpowiedź RSTR ustawienie właściwości <xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.AppliesTo%2A>w komunikacie RSTR za pomocą właściwości <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.AppliesToAddress%2A>na deskryptorze token, a ostatecznie ustawienie właściwości <xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.ReplyTo%2A>w komunikacie RSTR zgodnie z poniższą tabelą :      | `RST.ReplyTo` właściwości | Właściwość <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.AppliesToAddress%2A?displayProperty=fullName>. | `RSTR.ReplyTo` właściwości |   |----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|   | Ustaw | Nieustawione | Nieustawione |   | Ustaw | Ustaw | <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.AppliesToAddress%2A?displayProperty=fullName>|   | Nieustawione | Ustaw | Nieustawione |   | Nieustawione | Nieustawione | Not Set|</xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.AppliesToAddress%2A?displayProperty=fullName></xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.AppliesToAddress%2A?displayProperty=fullName></xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.ReplyTo%2A></xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.AppliesToAddress%2A></xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.AppliesTo%2A></xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.ApplyTo%2A?displayProperty=fullName></xref:System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse.%23ctor%28System.IdentityModel.Protocols.WSTrust.WSTrustMessage%29?displayProperty=fullName>"
   syntax:
     content: protected virtual System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse GetResponse (System.IdentityModel.Protocols.WSTrust.RequestSecurityToken request, System.IdentityModel.Tokens.SecurityTokenDescriptor tokenDescriptor);
     parameters:
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "The RST that contains the token request."
+      description: "RST, który zawiera żądania tokenu."
     - id: tokenDescriptor
       type: System.IdentityModel.Tokens.SecurityTokenDescriptor
-      description: "The token descriptor that contains the information to use for the issued token."
+      description: "Deskryptora token, który zawiera informacje na potrzeby wystawionego tokenu."
     return:
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse
-      description: "The response (RSTR) or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if a response cannot be created from the specified request and token descriptor. The default implementation returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the <code>tokenDescriptor</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Odpowiedź (odpowiedź RSTR) lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli odpowiedzi nie można utworzyć określonego żądania i deskryptora tokenu. Domyślna implementacja zwraca <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli <code> tokenDescriptor </code> parametr jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.SecurityTokenService.GetResponse*
   exceptions: []
   platform:
@@ -688,8 +688,8 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets a <xref href=&quot;System.IdentityModel.Scope&quot;></xref> object that contains information about the relying party (RP) associated with the specified request (RST). You must override this method in your implementation of the <xref href=&quot;System.IdentityModel.SecurityTokenService&quot;></xref> class."
-  remarks: "The GetScope method is called from the token issuance pipeline after the <xref:System.IdentityModel.SecurityTokenService.ValidateRequest%2A> method and should return a <xref:System.IdentityModel.Scope> object configured for the incoming request. (The token issuance pipeline is implemented in the <xref:System.IdentityModel.SecurityTokenService.Issue%2A> method.) The <xref:System.IdentityModel.Scope> object encapsulates information about the RP associated with the security token request (RST). This includes information about the encrypting and signing credentials to be used with the RP and whether or not to encrypt any issued tokens and/or symmetric keys in the response. Some typical tasks performed in the GetScope method are:      -   Determine whether the RP for which the token is intended is a recognized RP. How this is accomplished depends on your implementation. If the intended RP is not a valid RP for this STS, then the method should throw an <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>.      -   Determine the signing credentials to be used in the response (RSTR) and set the <xref:System.IdentityModel.Scope.SigningCredentials%2A> property accordingly.      -   Determine whether the response and/or any included symmetrical keys should be encrypted and the credentials to be used for encryption. Set the <xref:System.IdentityModel.Scope.TokenEncryptionRequired%2A>, <xref:System.IdentityModel.Scope.SymmetricKeyEncryptionRequired%2A>, and <xref:System.IdentityModel.Scope.EncryptingCredentials%2A> properties accordingly.          > [!IMPORTANT]     >  By default, the <xref:System.IdentityModel.Scope.TokenEncryptionRequired%2A> and <xref:System.IdentityModel.Scope.SymmetricKeyEncryptionRequired%2A> properties are set `true` to prevent the STS from issuing tokens that are not secure. It is recommended that these properties never be set to `false` in a production environment.      -   Determine the address to which the response should be returned. Set either the <xref:System.IdentityModel.Scope.AppliesToAddress%2A> or <xref:System.IdentityModel.Scope.ReplyToAddress%2A> property accordingly."
+  summary: "Pobiera <xref href=&quot;System.IdentityModel.Scope&quot;> </xref> obiekt, który zawiera informacje dotyczące jednostki uzależnionej (RP) skojarzony z określonym żądaniem (RST). Należy przesłonić tę metodę w implementacji <xref href=&quot;System.IdentityModel.SecurityTokenService&quot;> </xref> klasy."
+  remarks: "GetScope — metoda jest wywoływana z potoku wystawiania tokenu po <xref:System.IdentityModel.SecurityTokenService.ValidateRequest%2A>— Metoda i powinien zwrócić <xref:System.IdentityModel.Scope>obiektu skonfigurowane dla żądania przychodzącego.</xref:System.IdentityModel.Scope> </xref:System.IdentityModel.SecurityTokenService.ValidateRequest%2A> (Potok wydawania tokenów jest zaimplementowana w <xref:System.IdentityModel.SecurityTokenService.Issue%2A>metody.)</xref:System.IdentityModel.SecurityTokenService.Issue%2A> <xref:System.IdentityModel.Scope>Obiekt hermetyzujący informacje o RP skojarzony z żądaniem tokenu zabezpieczeń (RST).</xref:System.IdentityModel.Scope> Zawiera informacje dotyczące szyfrowania i podpisywania poświadczenia do użycia z planu odzyskiwania i czy nie można zaszyfrować wystawione tokeny i/lub kluczy symetrycznych w odpowiedzi. Niektóre typowe zadania wykonywane w GetScope — metoda są:-określają, czy planu odzyskiwania, dla którego przeznaczona jest token rozpoznanym planu odzyskiwania. Jak to zrobić, zależy od implementacji. Jeśli danego planu odzyskiwania nie jest prawidłową planu odzyskiwania dla tej usługi STS, następnie metoda powinien zgłosić <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>.</xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>      -Określić poświadczeń podpisywania używanych w odpowiedzi (odpowiedź RSTR) i ustawić <xref:System.IdentityModel.Scope.SigningCredentials%2A>właściwości odpowiednio.</xref:System.IdentityModel.Scope.SigningCredentials%2A>      — Określ, czy ma być szyfrowana odpowiedzi i/lub klucze symetryczne dołączone i poświadczenia, które mają być używane do szyfrowania. Ustaw <xref:System.IdentityModel.Scope.TokenEncryptionRequired%2A>, <xref:System.IdentityModel.Scope.SymmetricKeyEncryptionRequired%2A>, i <xref:System.IdentityModel.Scope.EncryptingCredentials%2A>właściwości odpowiednio.</xref:System.IdentityModel.Scope.EncryptingCredentials%2A> </xref:System.IdentityModel.Scope.SymmetricKeyEncryptionRequired%2A> </xref:System.IdentityModel.Scope.TokenEncryptionRequired%2A>          > [!IMPORTANT] > Domyślnie <xref:System.IdentityModel.Scope.TokenEncryptionRequired%2A>i <xref:System.IdentityModel.Scope.SymmetricKeyEncryptionRequired%2A>Właściwości są ustawione `true` aby uniemożliwić wystawianie tokenów, które nie są zabezpieczone przez usługi STS.</xref:System.IdentityModel.Scope.SymmetricKeyEncryptionRequired%2A> </xref:System.IdentityModel.Scope.TokenEncryptionRequired%2A> Zaleca się, że te właściwości nie można ustawić `false` w środowisku produkcyjnym.      -Określ adres, do którego ma zostać zwrócony odpowiedzi. Ustawić <xref:System.IdentityModel.Scope.AppliesToAddress%2A>lub <xref:System.IdentityModel.Scope.ReplyToAddress%2A>właściwości odpowiednio.</xref:System.IdentityModel.Scope.ReplyToAddress%2A> </xref:System.IdentityModel.Scope.AppliesToAddress%2A>"
   example:
   - "The code example that is used in this topic is taken from the `Custom Token` sample. This sample provides custom classes that enable processing of Simple Web Tokens (SWT) and it includes an implementation of a passive STS that is capable of serving an SWT token. For an example of how to implement an active STS, you can see the `Federation Metadata` sample. For information about these samples and other samples available for WIF and about where to download them, see [WIF Code Sample Index](~/add/includes/ajax-current-ext-md.md).  \n  \n The following code example shows an implementation of the GetScope method. This implementation verifies that the RP is recognized by the STS, validates the <xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.ReplyTo%2A> address in the request and sets the <xref:System.IdentityModel.Scope.ReplyToAddress%2A?displayProperty=fullName> property accordingly, and sets the signing and encrypting credentials to use with the RP based on certificates that are hard-coded in the file.  \n  \n [!code-cs[WIFCustomTokenSTS#4](~/add/codesnippet/csharp/passivests/customsecuritytokenservice.cs#4)]  \n[!code-cs[WIFCustomTokenSTS#5](~/add/codesnippet/csharp/passivests/customsecuritytokenservice.cs#5)]  \n[!code-cs[WIFCustomTokenSTS#7](~/add/codesnippet/csharp/passivests/customsecuritytokenservice.cs#7)]"
   syntax:
@@ -697,13 +697,13 @@ items:
     parameters:
     - id: principal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> that represents the client making the request."
+      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref> reprezentujący klienta zgłoszenia żądania."
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;></xref> that represents the incoming request (RST)."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;> </xref> reprezentujący żądania przychodzącego (RST)."
     return:
       type: System.IdentityModel.Scope
-      description: "A <xref href=&quot;System.IdentityModel.Scope&quot;></xref> that encapsulates the RP information associated with the request."
+      description: "A <xref href=&quot;System.IdentityModel.Scope&quot;> </xref> który hermetyzuje informacje RP skojarzone z żądaniem."
   overload: System.IdentityModel.SecurityTokenService.GetScope*
   exceptions: []
   platform:
@@ -720,17 +720,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets the appropriate security token handler for issuing a security token of the specified type."
-  remarks: "In the default implementation if `requestedTokenType` is `null` or an empty string, the default token type from configuration is used. This is specified by the <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DefaultTokenType%2A> property of the STS configuration object accessed through the <xref:System.IdentityModel.SecurityTokenService.SecurityTokenServiceConfiguration%2A> property.       This method is called from the default token issuance pipeline implemented in the <xref:System.IdentityModel.SecurityTokenService.Issue%2A> method."
+  summary: "Pobiera program obsługi tokenów zabezpieczeń odpowiednich do wystawiania tokenu zabezpieczającego określonego typu."
+  remarks: "W implementacji domyślnej Jeśli `requestedTokenType` jest `null` lub pusty ciąg, wartość domyślna jest używany typ tokenu z konfiguracji. Jest to określone przez <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DefaultTokenType%2A>dostępne za pośrednictwem obiektu konfiguracji usługi STS <xref:System.IdentityModel.SecurityTokenService.SecurityTokenServiceConfiguration%2A>Właściwości.</xref:System.IdentityModel.SecurityTokenService.SecurityTokenServiceConfiguration%2A> </xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DefaultTokenType%2A>       Ta metoda jest wywoływana z domyślnej potok wydawania tokenów zaimplementowana w <xref:System.IdentityModel.SecurityTokenService.Issue%2A>metody.</xref:System.IdentityModel.SecurityTokenService.Issue%2A>"
   syntax:
     content: protected virtual System.IdentityModel.Tokens.SecurityTokenHandler GetSecurityTokenHandler (string requestedTokenType);
     parameters:
     - id: requestedTokenType
       type: System.String
-      description: "A string that contains the requested token type URI."
+      description: "Ciąg, który zawiera identyfikator URI żądanego typu tokenu."
     return:
       type: System.IdentityModel.Tokens.SecurityTokenHandler
-      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityTokenHandler&quot;></xref> that represents the token handler to be used for creating the issued security token. Returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the requested token type is not supported (there is no handler configured for the specified token type)."
+      description: "A <xref href=&quot;System.IdentityModel.Tokens.SecurityTokenHandler&quot;> </xref> reprezentujący programu obsługi tokenów służący do tworzenia tokenu zabezpieczeń. Zwraca <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli żądany typ tokenu nie jest obsługiwane (braku obsługi skonfigurowane dla określonego typu tokenu)."
   overload: System.IdentityModel.SecurityTokenService.GetSecurityTokenHandler*
   exceptions: []
   platform:
@@ -747,17 +747,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets the lifetime for the issued token."
-  remarks: "This method is normally called with the lifetime that arrived in the RST. In the default implementation, the token lifetime is calculated according to the following table.      |Created (in)|Expires (in)|Created (in)|Expires (out)|   |--------------------|--------------------|--------------------|---------------------|   |`null`|`null`|<xref:System.DateTime.UtcNow%2A?displayProperty=fullName>|<xref:System.DateTime.UtcNow%2A?displayProperty=fullName> + <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DefaultTokenLifetime%2A?displayProperty=fullName>|   |C|`null`|C|C + <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DefaultTokenLifetime%2A?displayProperty=fullName>|   |`null`|E|<xref:System.DateTime.UtcNow%2A?displayProperty=fullName>|E|   |C|E|C|E|       This method is called from the default token issuance pipeline implemented in the <xref:System.IdentityModel.SecurityTokenService.Issue%2A> method."
+  summary: "Pobiera okres istnienia wystawionego tokenu."
+  remarks: "Ta metoda jest wywoływana zwykle z okresu istnienia, który dostarczona RST. W implementacji domyślnej okres istnienia tokenu jest obliczane zgodnie z poniższą tabelą.      | Utworzony (ruch przychodzący) | Wygasa (ruch przychodzący) | Utworzony (ruch przychodzący) | Wygasa (out) |   |--------------------|--------------------|--------------------|---------------------|   | `null`|`null`|<xref:System.DateTime.UtcNow%2A?displayProperty=fullName>| <xref:System.DateTime.UtcNow%2A?displayProperty=fullName> + <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DefaultTokenLifetime%2A?displayProperty=fullName>|   | C | `null`| C | C + <xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DefaultTokenLifetime%2A?displayProperty=fullName>|   | `null`| E | <xref:System.DateTime.UtcNow%2A?displayProperty=fullName>| E |   | C | E | C | E |       Ta metoda jest wywoływana z domyślnej potok wydawania tokenów zaimplementowana w <xref:System.IdentityModel.SecurityTokenService.Issue%2A>metody.</xref:System.IdentityModel.SecurityTokenService.Issue%2A> </xref:System.DateTime.UtcNow%2A?displayProperty=fullName> </xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DefaultTokenLifetime%2A?displayProperty=fullName> </xref:System.IdentityModel.Configuration.SecurityTokenServiceConfiguration.DefaultTokenLifetime%2A?displayProperty=fullName> </xref:System.DateTime.UtcNow%2A?displayProperty=fullName> </xref:System.DateTime.UtcNow%2A?displayProperty=fullName>"
   syntax:
     content: protected virtual System.IdentityModel.Protocols.WSTrust.Lifetime GetTokenLifetime (System.IdentityModel.Protocols.WSTrust.Lifetime requestLifetime);
     parameters:
     - id: requestLifetime
       type: System.IdentityModel.Protocols.WSTrust.Lifetime
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.Lifetime&quot;></xref> that represents the requested lifetime."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.Lifetime&quot;> </xref> reprezentujący żądanego okresu istnienia."
     return:
       type: System.IdentityModel.Protocols.WSTrust.Lifetime
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.Lifetime&quot;></xref> that represents the granted lifetime."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.Lifetime&quot;> </xref> reprezentujący nadanego okres istnienia."
   overload: System.IdentityModel.SecurityTokenService.GetTokenLifetime*
   exceptions: []
   platform:
@@ -774,20 +774,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Issues a security token."
-  remarks: "This method implements the Issue binding defined in the WS-Trust specification. The default implementation of the Issue method processes the incoming request (RST) through a token issuance (claims issuance) pipeline and returns either a response (RSTR) that contains a security token with the appropriate claims to authenticate the requestor with the RP or an appropriate exception. The token issuance pipeline in the default implementation consists of calls to the following methods (of the <xref:System.IdentityModel.SecurityTokenService> class).      1.  The <xref:System.IdentityModel.SecurityTokenService.ValidateRequest%2A> method to validate the request (RST).      2.  The <xref:System.IdentityModel.SecurityTokenService.GetScope%2A> method to get a <xref:System.IdentityModel.Scope> object that contains information about the relying party (RP) associated with the request. You must override this method. If <xref:System.IdentityModel.SecurityTokenService.GetScope%2A> returns `null`, a <xref:System.InvalidOperationException> is thrown.      3.  The <xref:System.IdentityModel.SecurityTokenService.CreateSecurityTokenDescriptor%2A> method to return a security token descriptor based on the RST and the <xref:System.IdentityModel.Scope> object returned in the previous step. The security token descriptor (<xref:System.IdentityModel.Tokens.SecurityTokenDescriptor>) contains information about the request in a form that can be used by a token handler. The <xref:System.IdentityModel.SecurityTokenService.SecurityTokenDescriptor%2A?displayProperty=fullName> property is set to the descriptor returned by the call. If `null` is returned or if the <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.SigningCredentials%2A> property of the descriptor is `null`, an <xref:System.InvalidOperationException> is thrown. The exception is also thrown if the <xref:System.IdentityModel.Scope.TokenEncryptionRequired%2A?displayProperty=fullName> property is `true` but the <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.EncryptingCredentials%2A> property on the returned descriptor is `null`.      4.  The <xref:System.IdentityModel.SecurityTokenService.GetSecurityTokenHandler%2A> method to get the appropriate token handler based on the kind of token requested. If `null` is returned, a <xref:System.NotImplementedException> is thrown.      5.  The <xref:System.IdentityModel.SecurityTokenService.GetIssuerName%2A> method to get the issuer name for the token. Throws an <xref:System.InvalidOperationException> if the name is `null` or empty; otherwise sets the <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.TokenIssuerName%2A> property on the descriptor.      6.  The <xref:System.IdentityModel.SecurityTokenService.GetTokenLifetime%2A> method to get the lifetime for the token and sets the <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Lifetime%2A> property on the descriptor.      7.  The <xref:System.IdentityModel.SecurityTokenService.GetProofToken%2A> method to get the proof token to include in the issued token and sets the <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Proof%2A> property on the descriptor.      8.  The <xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A> method to get the claims to include in the issued token and sets the <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Subject%2A> property on the descriptor. You must override this method.      9. The <xref:System.IdentityModel.SecurityTokenService.GetResponse%2A> method to create a response (RSTR) that contains the issued token.       You can override the Issue method to implement a custom token issuance pipeline; however this is typically not necessary in the development and test environments for which most custom implementations of the <xref:System.IdentityModel.SecurityTokenService> class are intended. In many of these cases you override the <xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A> and <xref:System.IdentityModel.SecurityTokenService.GetScope%2A> methods and optionally override the <xref:System.IdentityModel.SecurityTokenService.ValidateRequest%2A> method  to provide a serviceable STS for your environment. If further customization is necessary you can often provide it by overriding the methods that implement each stage of the default token issuance pipeline listed above."
+  summary: "Wystawia token zabezpieczający."
+  remarks: "Ta metoda implementuje powiązania problem zdefiniowane w specyfikacji WS-Trust. Domyślna implementacja metody problem przetwarza przychodzące żądanie (RST) przez potok wydawania tokenów (wystawiania oświadczeń) i zwraca odpowiedź (odpowiedź RSTR), która zawiera token zabezpieczający z odpowiednich oświadczeń do uwierzytelniania w usłudze RP obiekt żądający lub odpowiedni wyjątek. Potok wydawania tokenów w implementacji domyślnej składa się z następujących metod wywołania (z <xref:System.IdentityModel.SecurityTokenService>klasy).</xref:System.IdentityModel.SecurityTokenService>      1.  <xref:System.IdentityModel.SecurityTokenService.ValidateRequest%2A>Metodę weryfikacji żądania (RST).</xref:System.IdentityModel.SecurityTokenService.ValidateRequest%2A>      2.  <xref:System.IdentityModel.SecurityTokenService.GetScope%2A>Metodę, aby pobrać <xref:System.IdentityModel.Scope>obiekt, który zawiera informacje dotyczące jednostki uzależnionej (RP) skojarzone z żądaniem.</xref:System.IdentityModel.Scope> </xref:System.IdentityModel.SecurityTokenService.GetScope%2A> Należy przesłonić tę metodę. Jeśli <xref:System.IdentityModel.SecurityTokenService.GetScope%2A>zwraca `null`, <xref:System.InvalidOperationException>jest generowany.</xref:System.InvalidOperationException> </xref:System.IdentityModel.SecurityTokenService.GetScope%2A>      3.  <xref:System.IdentityModel.SecurityTokenService.CreateSecurityTokenDescriptor%2A>Metodę, aby zwrócić token deskryptor zabezpieczeń oparte na RST i <xref:System.IdentityModel.Scope>obiekt jest zwracany w poprzednim kroku.</xref:System.IdentityModel.Scope> </xref:System.IdentityModel.SecurityTokenService.CreateSecurityTokenDescriptor%2A> Deskryptor tokenu zabezpieczeń (<xref:System.IdentityModel.Tokens.SecurityTokenDescriptor>) zawiera informacje o żądaniu w postaci mogą być używane przez program obsługi tokenów.</xref:System.IdentityModel.Tokens.SecurityTokenDescriptor> <xref:System.IdentityModel.SecurityTokenService.SecurityTokenDescriptor%2A?displayProperty=fullName>Właściwość jest ustawiona na deskryptora zwrócony przez wywołanie.</xref:System.IdentityModel.SecurityTokenService.SecurityTokenDescriptor%2A?displayProperty=fullName> Jeśli `null` jest zwracany lub, jeśli <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.SigningCredentials%2A>Właściwość deskryptora jest `null`, <xref:System.InvalidOperationException>jest generowany.</xref:System.InvalidOperationException> </xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.SigningCredentials%2A> Wyjątek jest również element zgłaszany, gdy <xref:System.IdentityModel.Scope.TokenEncryptionRequired%2A?displayProperty=fullName>jest właściwość `true` , ale <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.EncryptingCredentials%2A>Właściwość deskryptora zwracane jest `null`.</xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.EncryptingCredentials%2A> </xref:System.IdentityModel.Scope.TokenEncryptionRequired%2A?displayProperty=fullName>      4.  <xref:System.IdentityModel.SecurityTokenService.GetSecurityTokenHandler%2A>Metoda uzyskanie odpowiedniego programu obsługi tokenów oparta na rodzaj żądany token.</xref:System.IdentityModel.SecurityTokenService.GetSecurityTokenHandler%2A> Jeśli `null` jest zwracany, <xref:System.NotImplementedException>jest generowany.</xref:System.NotImplementedException>      5.  <xref:System.IdentityModel.SecurityTokenService.GetIssuerName%2A>Metody można uzyskać nazwy wystawcy tokenu.</xref:System.IdentityModel.SecurityTokenService.GetIssuerName%2A> Zgłasza wyjątek <xref:System.InvalidOperationException>Jeśli nazwa jest `null` lub pusty; w przeciwnym razie ustawia <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.TokenIssuerName%2A>Właściwość deskryptora.</xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.TokenIssuerName%2A> </xref:System.InvalidOperationException>      6.  <xref:System.IdentityModel.SecurityTokenService.GetTokenLifetime%2A>Metodę, aby pobrać okres istnienia tokenu i zestawy <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Lifetime%2A>Właściwość deskryptora.</xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Lifetime%2A> </xref:System.IdentityModel.SecurityTokenService.GetTokenLifetime%2A>      7.  <xref:System.IdentityModel.SecurityTokenService.GetProofToken%2A>Metodę, aby uzyskać token potwierdzenia do dołączenia wystawionego tokenu i zestawy <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Proof%2A>Właściwość deskryptora.</xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Proof%2A> </xref:System.IdentityModel.SecurityTokenService.GetProofToken%2A>      8.  <xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A>Metodę, aby pobrać oświadczenia do dołączenia wystawionego tokenu i zestawy <xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Subject%2A>Właściwość deskryptora.</xref:System.IdentityModel.Tokens.SecurityTokenDescriptor.Subject%2A> </xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A> Należy przesłonić tę metodę.      9. <xref:System.IdentityModel.SecurityTokenService.GetResponse%2A>Metody do tworzenia odpowiedzi (odpowiedź RSTR), który zawiera wystawiony token.</xref:System.IdentityModel.SecurityTokenService.GetResponse%2A>       Można zastąpić metodę problem do zaimplementowania potok wydawania tokenów niestandardowych; jednak nie jest to zazwyczaj konieczne w przypadku środowisk projektowania i testowania, które najbardziej niestandardowych implementacji <xref:System.IdentityModel.SecurityTokenService>klasy są przeznaczone.</xref:System.IdentityModel.SecurityTokenService> W wielu przypadkach można zastąpić <xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A>i <xref:System.IdentityModel.SecurityTokenService.GetScope%2A>metody i opcjonalnie Przesłoń <xref:System.IdentityModel.SecurityTokenService.ValidateRequest%2A>metodę w celu zapewnienia obsługiwanych STS dla danego środowiska.</xref:System.IdentityModel.SecurityTokenService.ValidateRequest%2A> </xref:System.IdentityModel.SecurityTokenService.GetScope%2A> </xref:System.IdentityModel.SecurityTokenService.GetOutputClaimsIdentity%2A> Są niezbędne dodatkowe dostosowania można często udostępniają go przez zastąpienie metody, które implementuje każdego etapu domyślne potok wydawania tokenów wymienionych powyżej."
   syntax:
     content: public virtual System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse Issue (System.Security.Claims.ClaimsPrincipal principal, System.IdentityModel.Protocols.WSTrust.RequestSecurityToken request);
     parameters:
     - id: principal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> that represents the identity of the token requestor."
+      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref> reprezentujący tożsamość żądającego tokenu."
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;></xref> that represents the security token request. This includes the request message as well as other client related information such as authorization context."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;> </xref> reprezentujący żądania tokenu zabezpieczeń. W tym żądaniu wiadomości, a także innych klienta powiązane informacje, takie jak kontekst autoryzacji."
     return:
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse&quot;></xref> that contains the issued security token."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse&quot;> </xref> zawiera token zabezpieczeń."
   overload: System.IdentityModel.SecurityTokenService.Issue*
   exceptions: []
   platform:
@@ -804,12 +804,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets or sets the principal associated with the current instance."
+  summary: "Pobiera lub ustawia podmiot zabezpieczeń skojarzony z bieżącym wystąpieniem."
   syntax:
     content: public System.Security.Claims.ClaimsPrincipal Principal { get; set; }
     return:
       type: System.Security.Claims.ClaimsPrincipal
-      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> that represents the current principal."
+      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref> reprezentujący bieżący podmiot zabezpieczeń."
   overload: System.IdentityModel.SecurityTokenService.Principal*
   exceptions: []
   platform:
@@ -826,20 +826,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "When overridden in a derived class, processes a WS-Trust Renew request."
-  remarks: "The default implementation of this method throws an <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, przetwarza żądanie odnowienia WS-Trust."
+  remarks: "Domyślna implementacja tej metody zgłasza <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>.</xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>"
   syntax:
     content: public virtual System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse Renew (System.Security.Claims.ClaimsPrincipal principal, System.IdentityModel.Protocols.WSTrust.RequestSecurityToken request);
     parameters:
     - id: principal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> that represents the identity of the token requestor."
+      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref> reprezentujący tożsamość żądającego tokenu."
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;></xref> that represents the security token request. This includes the request message as well as other client related information such as authorization context."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;> </xref> reprezentujący żądania tokenu zabezpieczeń. W tym żądaniu wiadomości, a także innych klienta powiązane informacje, takie jak kontekst autoryzacji."
     return:
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse&quot;></xref> that represents the RSTR to return to the caller."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse&quot;> </xref> reprezentujący odpowiedź RSTR, aby powrócić do obiektu wywołującego."
   overload: System.IdentityModel.SecurityTokenService.Renew*
   exceptions: []
   platform:
@@ -856,12 +856,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets or sets the security token request (RST) associated with the current instance."
+  summary: "Pobiera lub ustawia żądanie tokenu zabezpieczeń (RST) skojarzone z bieżącym wystąpieniem."
   syntax:
     content: public System.IdentityModel.Protocols.WSTrust.RequestSecurityToken Request { get; set; }
     return:
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;></xref> that contains the request."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;> </xref> zawierający żądania."
   overload: System.IdentityModel.SecurityTokenService.Request*
   exceptions: []
   platform:
@@ -878,12 +878,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets or sets the scope associated with the current instance."
+  summary: "Pobiera lub ustawia zakres skojarzony z bieżącym wystąpieniem."
   syntax:
     content: public System.IdentityModel.Scope Scope { get; set; }
     return:
       type: System.IdentityModel.Scope
-      description: "A <xref href=&quot;System.IdentityModel.Scope&quot;></xref> that represents the configuration for the token issuance request."
+      description: "A <xref href=&quot;System.IdentityModel.Scope&quot;> </xref> reprezentujący konfigurację dla żądania wydawania tokenów."
   overload: System.IdentityModel.SecurityTokenService.Scope*
   exceptions: []
   platform:
@@ -900,17 +900,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets or sets the <xref href=&quot;System.IdentityModel.Tokens.SecurityTokenDescriptor&quot;></xref> associated with the current instance."
+  summary: "Pobiera lub ustawia <xref href=&quot;System.IdentityModel.Tokens.SecurityTokenDescriptor&quot;> </xref> skojarzone z bieżącym wystąpieniem."
   syntax:
     content: protected System.IdentityModel.Tokens.SecurityTokenDescriptor SecurityTokenDescriptor { get; set; }
     return:
       type: System.IdentityModel.Tokens.SecurityTokenDescriptor
-      description: "The security token descriptor that is associated with the current instance."
+      description: "Token deskryptora zabezpieczeń skojarzony z bieżącym wystąpieniem."
   overload: System.IdentityModel.SecurityTokenService.SecurityTokenDescriptor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "An attempt to set the property to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> occurs."
+    description: "Próba ustawioną właściwość <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> występuje."
   platform:
   - net462
 - uid: System.IdentityModel.SecurityTokenService.SecurityTokenServiceConfiguration
@@ -925,12 +925,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Gets the owner configuration instance."
+  summary: "Pobiera właściciela wystąpienia konfiguracji."
   syntax:
     content: public System.IdentityModel.Configuration.SecurityTokenServiceConfiguration SecurityTokenServiceConfiguration { get; }
     return:
       type: System.IdentityModel.Configuration.SecurityTokenServiceConfiguration
-      description: "A <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;></xref> that contains the configuration for the current instance."
+      description: "A <xref href=&quot;System.IdentityModel.Configuration.SecurityTokenServiceConfiguration&quot;> </xref> zawierający konfiguracji dla bieżącego wystąpienia."
   overload: System.IdentityModel.SecurityTokenService.SecurityTokenServiceConfiguration*
   exceptions: []
   platform:
@@ -947,20 +947,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "When overridden in a derived class, processes a WS-Trust Validate request."
-  remarks: "The default implementation of this method throws an <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>."
+  summary: "W przypadku przesłonięcia w klasie pochodnej, przetwarza żądanie zweryfikowania WS-Trust."
+  remarks: "Domyślna implementacja tej metody zgłasza <xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>.</xref:System.IdentityModel.Protocols.WSTrust.InvalidRequestException>"
   syntax:
     content: public virtual System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse Validate (System.Security.Claims.ClaimsPrincipal principal, System.IdentityModel.Protocols.WSTrust.RequestSecurityToken request);
     parameters:
     - id: principal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;></xref> that represents the identity of the token requestor."
+      description: "A <xref href=&quot;System.Security.Claims.ClaimsPrincipal&quot;> </xref> reprezentujący tożsamość żądającego tokenu."
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;></xref> that represents the security token request. This includes the request message as well as other client related information such as authorization context."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;> </xref> reprezentujący żądania tokenu zabezpieczeń. W tym żądaniu wiadomości, a także innych klienta powiązane informacje, takie jak kontekst autoryzacji."
     return:
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse&quot;></xref> that represents the RSTR to return to the caller."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityTokenResponse&quot;> </xref> reprezentujący odpowiedź RSTR, aby powrócić do obiektu wywołującego."
   overload: System.IdentityModel.SecurityTokenService.Validate*
   exceptions: []
   platform:
@@ -977,22 +977,22 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel
-  summary: "Validates the security token request (RST) encapsulated by this instance."
-  remarks: "The ValidateRequest method is called from the token issuance pipeline (the <xref:System.IdentityModel.SecurityTokenService.Issue%2A> method) to validate the incoming RST. The RST is validated against the requirements (policy) of the STS and an appropriate exception is thrown if it is not valid.       The default implementation of the <xref:System.IdentityModel.SecurityTokenService> class supports only the RST-RSTR pattern and only the Issue binding of the WS-Trust specification (the <xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.RequestType%2A> property of the request must be set to <xref:System.IdentityModel.Protocols.WSTrust.RequestTypes.Issue?displayProperty=fullName>). The default implementation of this method enforces these requirements (and others noted in the exceptions section). You can override this method if you must enforce different validation requirements for your custom STS."
+  summary: "Weryfikuje żądanie tokenu zabezpieczeń (RST) hermetyzowany przez to wystąpienie."
+  remarks: "Metoda parametr ValidateRequest jest wywoływana z potoku wystawiania tokenu ( <xref:System.IdentityModel.SecurityTokenService.Issue%2A>metody) do sprawdzania poprawności przychodzących RST.</xref:System.IdentityModel.SecurityTokenService.Issue%2A> RST jest weryfikowana pod kątem wymagań usługi STS (zasady) i jest zgłaszany wyjątek odpowiednie, jeśli nie jest prawidłowy.       Domyślna implementacja <xref:System.IdentityModel.SecurityTokenService>klasa obsługuje tylko wzorzec odpowiedź RSTR RST oraz tylko powiązanie problem ze specyfikacją WS-Trust ( <xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.RequestType%2A>musi mieć ustawioną właściwość żądania <xref:System.IdentityModel.Protocols.WSTrust.RequestTypes.Issue?displayProperty=fullName>).</xref:System.IdentityModel.Protocols.WSTrust.RequestTypes.Issue?displayProperty=fullName> </xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.RequestType%2A> </xref:System.IdentityModel.SecurityTokenService> Domyślna implementacja tej metody wymusza tych wymagań (i innych wymienionych w sekcji wyjątki). Można przesłonić tę metodę, jeśli muszą wymuszać weryfikacji różne wymagania dotyczące z STS niestandardowych."
   syntax:
     content: protected virtual void ValidateRequest (System.IdentityModel.Protocols.WSTrust.RequestSecurityToken request);
     parameters:
     - id: request
       type: System.IdentityModel.Protocols.WSTrust.RequestSecurityToken
-      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;></xref> that represents the request."
+      description: "A <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestSecurityToken&quot;> </xref> reprezentujący żądanie."
   overload: System.IdentityModel.SecurityTokenService.ValidateRequest*
   exceptions:
   - type: System.IdentityModel.Protocols.WSTrust.InvalidRequestException
     commentId: T:System.IdentityModel.Protocols.WSTrust.InvalidRequestException
-    description: "<code>request</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.RequestType*> property of the request is not set to <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestTypes.Issue&quot;></xref>.       -or-       The <xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.KeyType*> property of the request is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or one of the constants defined in the <xref href=&quot;System.IdentityModel.Protocols.WSTrust.KeyTypes&quot;></xref> class.       -or-       The <xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.KeyType*> of the request is <xref href=&quot;System.IdentityModel.Protocols.WSTrust.KeyTypes.Bearer&quot;></xref> and the <xref uid=&quot;langword_csharp_KeySize&quot; name=&quot;KeySize&quot; href=&quot;&quot;></xref> element is present, but its value is not equal to zero."
+    description: "<code>request</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       - lub - <xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.RequestType*> nie ustawiono właściwości żądania <xref href=&quot;System.IdentityModel.Protocols.WSTrust.RequestTypes.Issue&quot;> </xref>.       - lub - <xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.KeyType*> właściwość żądania nie jest <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> lub jednego z stałe zdefiniowane w <xref href=&quot;System.IdentityModel.Protocols.WSTrust.KeyTypes&quot;> </xref> klasy.       - lub - <xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.KeyType*> żądań <xref href=&quot;System.IdentityModel.Protocols.WSTrust.KeyTypes.Bearer&quot;> </xref> i <xref uid=&quot;langword_csharp_KeySize&quot; name=&quot;KeySize&quot; href=&quot;&quot;> </xref> element jest obecny, ale jego wartość nie jest równa zero."
   - type: System.IdentityModel.UnsupportedTokenTypeBadRequestException
     commentId: T:System.IdentityModel.UnsupportedTokenTypeBadRequestException
-    description: "The STS does not support the request token type (based on the value of the <xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.TokenType*> property of the request)."
+    description: "Usługa tokenu Zabezpieczającego nie obsługuje żądania tokenu typu (na podstawie wartości z <xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.TokenType*>Właściwości żądania).</xref:System.IdentityModel.Protocols.WSTrust.WSTrustMessage.TokenType*>"
   platform:
   - net462
 references:

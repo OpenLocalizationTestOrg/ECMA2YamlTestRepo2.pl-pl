@@ -11,8 +11,8 @@ items:
   nameWithType: IMemoryCacheManager
   fullName: System.Runtime.Caching.Hosting.IMemoryCacheManager
   type: Interface
-  summary: "Defines an interface that a cache uses in order to communicate cache memory usage to a host environment."
-  remarks: "The IMemoryCacheManager interface is implemented by host environments such as ASP.NET, and is consumed by <xref:System.Runtime.Caching.ObjectCache> implementations that must interact with the host environment to determine memory usage. Because caches often consume significant quantities of memory, the IMemoryCacheManager interface helps host environments manage memory usage.       Typically, only <xref:System.Runtime.Caching.ObjectCache> implementations that manage cache objects in memory would use this interface."
+  summary: "Definiuje interfejs, który używa pamięci podręcznej, aby komunikować się użycie pamięci podręcznej w środowisku hosta."
+  remarks: "Interfejs IMemoryCacheManager jest implementowany przez hosta środowiskach, takich jak ASP.NET i jest używany przez <xref:System.Runtime.Caching.ObjectCache>implementacji, które musi współdziałać ze środowiskiem hosta w celu określenia użycia pamięci.</xref:System.Runtime.Caching.ObjectCache> Ponieważ pamięci podręcznych korzystać często znacznych ilości pamięci, interfejs IMemoryCacheManager pomaga zarządzać użyciem pamięci środowiska hosta.       Zwykle tylko <xref:System.Runtime.Caching.ObjectCache>implementacji, które zarządzają obiektów pamięci podręcznej w pamięci użyje tego interfejsu.</xref:System.Runtime.Caching.ObjectCache>"
   syntax:
     content: public interface IMemoryCacheManager
   implements: []
@@ -30,14 +30,14 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching.Hosting
-  summary: "Removes all references to a cache in the host environment."
-  remarks: "If a cache has previously registered itself with the host environment, the cache can call the ReleaseCache method to release the reference. When a cache is being disposed, it should call the ReleaseCache method to make sure that no reference to the cache is held on the host."
+  summary: "Usuwa wszystkie odwołania do pamięci podręcznej w środowisku hosta."
+  remarks: "Jeśli pamięć podręczna zarejestrował się wcześniej ze środowiskiem hosta, pamięci podręcznej można wywołać metody ReleaseCache do zwolnienia odwołania. Gdy pamięci podręcznej zostanie usunięty, jego powinien wywoływać metodę ReleaseCache, aby upewnić się, że żadne odwołanie do pamięci podręcznej jest przechowywany na hoście."
   syntax:
     content: public void ReleaseCache (System.Runtime.Caching.MemoryCache cache);
     parameters:
     - id: cache
       type: System.Runtime.Caching.MemoryCache
-      description: "A reference to the cache."
+      description: "Odwołanie do pamięci podręcznej."
   overload: System.Runtime.Caching.Hosting.IMemoryCacheManager.ReleaseCache*
   exceptions: []
   platform:
@@ -54,17 +54,17 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching.Hosting
-  summary: "Reports the size of the current cache."
-  remarks: "A well-behaved cache implementation should use the UpdateCacheSize method to periodically report the size of the cache&quot;s memory footprint to the host environment.       The cache implementation that reports the size also passes a reference to itself as a parameter. This enables the host environment to perform the following tasks:      -   Maintain a list of known object caches.      -   Call the cache and request that the cache trim a percentage of cache items based on the reported size, if it is required."
+  summary: "Informuje o rozmiarze bieżącej pamięci podręcznej."
+  remarks: "Implementacja dobrze behaved pamięci podręcznej powinien użyć metody UpdateCacheSize okresowo zgłosić rozmiar zużycie pamięci podręcznej w środowisku hosta.       Implementacja pamięci podręcznej, który informuje o rozmiarze przekazuje również odwołanie do samego siebie jako parametr. Dzięki temu w środowisku hosta do wykonywania następujących zadań:-utrzymywać listę znanych obiektu w pamięci podręcznej.      -Wywołań pamięci podręcznej i żądania pamięci podręcznej trim procent elementów pamięci podręcznej na podstawie rozmiaru zgłoszony, jeśli jest to wymagane."
   syntax:
     content: public void UpdateCacheSize (long size, System.Runtime.Caching.MemoryCache cache);
     parameters:
     - id: size
       type: System.Int64
-      description: "The size of the memory, in bytes, that the cache consumes."
+      description: "Rozmiar w bajtach, które korzysta z pamięci podręcznej pamięci."
     - id: cache
       type: System.Runtime.Caching.MemoryCache
-      description: "A reference to the cache."
+      description: "Odwołanie do pamięci podręcznej."
   overload: System.Runtime.Caching.Hosting.IMemoryCacheManager.UpdateCacheSize*
   exceptions: []
   platform:

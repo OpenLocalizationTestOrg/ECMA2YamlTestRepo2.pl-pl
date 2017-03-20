@@ -18,8 +18,8 @@ items:
   nameWithType: CodeDomSerializer
   fullName: System.ComponentModel.Design.Serialization.CodeDomSerializer
   type: Class
-  summary: "Serializes an object graph to a series of CodeDOM statements. This class provides an abstract base class for a serializer."
-  remarks: "You can implement a custom CodeDomSerializer to control the generation of component initialization code for a type of component at design time.       To implement a custom CodeDomSerializer for a type, you must:      1.  Define a class that derives from CodeDomSerializer.      2.  Implement method overrides for serialization or deserialization methods. (See the information below for details.)      3.  Associate your custom CodeDomSerializer implementation with a type of component using a <xref:System.ComponentModel.Design.Serialization.DesignerSerializerAttribute>.       To implement a serialization method for generating configuration code for a component:      1.  Within a class that derives from CodeDomSerializer, override an appropriate serialization or deserialization method of the base class.      2.  If you want the default serializer to generate code statements that perform the default component configuration, you must obtain and call the base serializer for the component. To obtain the base serializer for the component, call the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A> method of the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager> passed to your method override. Pass the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A> method the type of the component to serialize the configuration of, along with the base type of serializer you are requesting, which is CodeDomSerializer. Call the method of the same name you are overriding on the base serializer, using the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager> and object passed to your method override. If you are implementing the <xref:System.ComponentModel.Design.Serialization.CodeDomSerializer.Serialize%2A> method, the <xref:System.ComponentModel.Design.Serialization.CodeDomSerializer.Serialize%2A> method of the base serializer will return an object. The type of this object depends on the type of base serializer which depends on the type of component you are serializing the values of. If you are implementing the <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeEvents%2A>, <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeProperties%2A>, or <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializePropertiesToResources%2A> method, you must create a new <xref:System.CodeDom.CodeStatementCollection> to contain the generated code statements, and pass it to the method.      3.  If you have called a base serializer method, you will have a <xref:System.CodeDom.CodeStatementCollection> that contains the statements to generate to initialize the component. Otherwise you should create a <xref:System.CodeDom.CodeStatementCollection>. You can add <xref:System.CodeDom.CodeStatement> objects representing statements to generate in the component configuration code to this collection.      4.  Return the <xref:System.CodeDom.CodeStatementCollection> that represents the source code to generate to configure the component."
+  summary: "Serializuje wykres obiektu do serii instrukcji CodeDOM. Ta klasa udostępnia abstrakcyjną klasę podstawową dla serializatora."
+  remarks: "Można zaimplementować niestandardowych CodeDomSerializer do kontrolowania generowania kodu inicjowania składników dla typu składnika w czasie projektowania.       Aby wdrożyć niestandardowy CodeDomSerializer dla typu, należy najpierw: 1.  Definiowanie klasy, która jest pochodną CodeDomSerializer.      2.  Implementuje metody przesłonięcia metody serializacji lub deserializacji. (Zobacz poniższe informacje, aby uzyskać szczegółowe informacje).      3.  Kojarzenie niestandardowych implementacji CodeDomSerializer z typem przy użyciu <xref:System.ComponentModel.Design.Serialization.DesignerSerializerAttribute>.</xref:System.ComponentModel.Design.Serialization.DesignerSerializerAttribute> składnika       Aby zaimplementować metody serializacji dla generowania kodu konfiguracji dla składnika: 1.  W obrębie klasy, która jest pochodną CodeDomSerializer musi zostać zastąpiona odpowiedniej metody serializacji lub deserializacji klasy podstawowej.      2.  Jeśli chcesz wygenerować instrukcji kodu, które wykonują domyślnej konfiguracji składnika domyślnego elementu serializującego, należy uzyskać i wywołać podstawową serializator dla składnika. Aby uzyskać podstawowe serializator dla składnika, należy wywołać <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A>metody <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager>przekazany do metody zastąpienia.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager> </xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A> Przekaż <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A>metody typ składnika do serializacji konfigurację, wraz z typem bazowym serializator żądania dostępu, który jest CodeDomSerializer.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A> Wywołać metody o tej samej nazwie są zastępowanie serializator podstawowy, za pomocą <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager>i obiekt przekazywany do metody przesłonić.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager> W przypadku wdrażania <xref:System.ComponentModel.Design.Serialization.CodeDomSerializer.Serialize%2A>metody <xref:System.ComponentModel.Design.Serialization.CodeDomSerializer.Serialize%2A>metody podstawowej serializator zwróci obiektu.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializer.Serialize%2A> </xref:System.ComponentModel.Design.Serialization.CodeDomSerializer.Serialize%2A> Typ obiektu, zależy od typu serializatora podstawowej, która zależy od typu składników, które są serializacji wartości. W przypadku wdrażania <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeEvents%2A>, <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeProperties%2A>, lub <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializePropertiesToResources%2A>metody, należy utworzyć nowy <xref:System.CodeDom.CodeStatementCollection>zawierają instrukcje wygenerowanego kodu i przekazać go do metody.</xref:System.CodeDom.CodeStatementCollection> </xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializePropertiesToResources%2A> </xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeProperties%2A> </xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeEvents%2A>      3.  Po wywołaniu metody podstawowej serializator, trzeba będzie <xref:System.CodeDom.CodeStatementCollection>zawierający instrukcje, aby wygenerować zainicjować składnika.</xref:System.CodeDom.CodeStatementCollection> W przeciwnym razie należy utworzyć <xref:System.CodeDom.CodeStatementCollection>.</xref:System.CodeDom.CodeStatementCollection> Możesz dodać <xref:System.CodeDom.CodeStatement>obiekty reprezentujące instrukcje, aby wygenerować kod konfiguracji składnika do tej kolekcji.</xref:System.CodeDom.CodeStatement>      4.  Zwraca <xref:System.CodeDom.CodeStatementCollection>reprezentujący kod źródłowy do generowania konfigurowania składnika.</xref:System.CodeDom.CodeStatementCollection>"
   example:
   - "The following code example illustrates how to create a custom CodeDOM serializer that derives from CodeDomSerializer.  \n  \n [!code-cs[IDesignerSerializationManagerSample#1](~/add/codesnippet/csharp/t-system.componentmodel._57_1.cs)]\n [!code-cpp[IDesignerSerializationManagerSample#1](~/add/codesnippet/cpp/t-system.componentmodel._57_1.cpp)]\n [!code-vb[IDesignerSerializationManagerSample#1](~/add/codesnippet/visualbasic/t-system.componentmodel._57_1.vb)]"
   syntax:
@@ -76,7 +76,7 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.Serialization.CodeDomSerializer&quot;></xref> class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.ComponentModel.Design.Serialization.CodeDomSerializer&quot;> </xref> klasy."
   syntax:
     content: public CodeDomSerializer ();
     parameters: []
@@ -96,28 +96,28 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Deserializes the specified serialized CodeDOM object into an object."
-  remarks: "This method uses the serialization manager to create objects and resolve data types. The root of the object graph is returned."
+  summary: "Deserializuje określony obiekt serializacji CodeDOM do obiektu."
+  remarks: "Ta metoda używa tego menedżera serializacji do tworzenia obiektów i rozwiązać typy danych. Wykres obiektu katalogu są zwracane."
   syntax:
     content: public virtual object Deserialize (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object codeObject);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "A serialization manager interface that is used during the deserialization process."
+      description: "Interfejs menedżera serializacji, który jest używany podczas deserializacji."
     - id: codeObject
       type: System.Object
-      description: "A serialized CodeDOM object to deserialize."
+      description: "Zserializowany obiekt CodeDOM do deserializacji."
     return:
       type: System.Object
-      description: "The deserialized CodeDOM object."
+      description: "Zdeserializowany obiekt CodeDOM."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializer.Deserialize*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> or <code>codeObject</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>or <code>codeObject</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>codeObject</code> is an unsupported code element."
+    description: "<code>codeObject</code>jest elementem nieobsługiwany kod."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializer.DeserializeStatementToInstance(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.CodeDom.CodeStatement)
@@ -132,20 +132,20 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Deserializes a single statement."
-  remarks: "The DeserializeStatementToInstance is equivalent of calling <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement%2A>, except that it returns an object instance if the resulting statement was a variable assign statement, a variable declaration with an init expression, or a field assignment statement."
+  summary: "Deserializuje jednej instrukcji."
+  remarks: "DeserializeStatementToInstance jest odpowiednikiem wywołania <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement%2A>, ale jeśli wynikowa instrukcja instrukcji przypisania zmiennej, deklaracji zmiennej init wyrażenia lub instrukcji przypisania pola Zwraca wystąpienie obiektu.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement%2A>"
   syntax:
     content: protected object DeserializeStatementToInstance (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, System.CodeDom.CodeStatement statement);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The serialization manager to use for serialization."
+      description: "Tego menedżera serializacji do użycia na potrzeby serializacji."
     - id: statement
       type: System.CodeDom.CodeStatement
-      description: "The statement to deserialize."
+      description: "Instrukcja do deserializacji."
     return:
       type: System.Object
-      description: "An object instance resulting from deserializing <code>statement</code>."
+      description: "Wystąpienie obiektu, w wyniku deserializacji <code> statement </code>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializer.DeserializeStatementToInstance*
   exceptions: []
   platform:
@@ -162,22 +162,22 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Determines which statement group the given statement should belong to."
+  summary: "Określa grupę instrukcji w danej instrukcji powinna należeć do."
   syntax:
     content: public virtual string GetTargetComponentName (System.CodeDom.CodeStatement statement, System.CodeDom.CodeExpression expression, Type targetType);
     parameters:
     - id: statement
       type: System.CodeDom.CodeStatement
-      description: "The <xref href=&quot;System.CodeDom.CodeStatement&quot;></xref> for which to determine the group."
+      description: "<xref href=&quot;System.CodeDom.CodeStatement&quot;> </xref> Dla którego można określić grupy."
     - id: expression
       type: System.CodeDom.CodeExpression
-      description: "A <xref href=&quot;System.CodeDom.CodeExpression&quot;></xref> that `statement` has been reduced to."
+      description: "A <xref href=&quot;System.CodeDom.CodeExpression&quot;> </xref> który `statement` została zmniejszona do."
     - id: targetType
       type: System.Type
-      description: "The <xref:System.Type> of `statement`."
+      description: "The <xref:System.Type> of `statement`.</xref:System.Type>"
     return:
       type: System.String
-      description: "The name of the component with which <code>statement</code> should be grouped."
+      description: "Nazwa składnika, z którym <code> statement </code> powinny zostać utworzone."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializer.GetTargetComponentName*
   exceptions: []
   platform:
@@ -194,24 +194,24 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the specified object into a CodeDOM object."
+  summary: "Serializuje określony obiekt na obiekt CodeDOM."
   syntax:
     content: public virtual object Serialize (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object value);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The serialization manager to use during serialization."
+      description: "Tego menedżera serializacji do użycia podczas serializacji."
     - id: value
       type: System.Object
-      description: "The object to serialize."
+      description: "Obiekt do zserializowania."
     return:
       type: System.Object
-      description: "A CodeDOM object representing the object that has been serialized."
+      description: "Obiekt CodeDOM reprezentujący obiekt, który został serializacji."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializer.Serialize*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializer.SerializeAbsolute(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.Object)
@@ -226,24 +226,24 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the given object, accounting for default values."
+  summary: "Wykonuje serializację danego obiektu dla wartości domyślnej."
   syntax:
     content: public virtual object SerializeAbsolute (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object value);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The serialization manager to use for serialization."
+      description: "Tego menedżera serializacji do użycia na potrzeby serializacji."
     - id: value
       type: System.Object
-      description: "The object to serialize."
+      description: "Obiekt do zserializowania."
     return:
       type: System.Object
-      description: "A CodeDom object representing <code>value</code>."
+      description: "Reprezentujący obiekt CodeDom <code> value </code>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializer.SerializeAbsolute*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializer.SerializeMember(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.Object,System.ComponentModel.MemberDescriptor)
@@ -258,22 +258,22 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the given member on the given object."
+  summary: "Wykonuje serializację danego elementu członkowskiego dla danego obiektu."
   syntax:
     content: public virtual System.CodeDom.CodeStatementCollection SerializeMember (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object owningObject, System.ComponentModel.MemberDescriptor member);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The serialization manager to use for serialization."
+      description: "Tego menedżera serializacji do użycia na potrzeby serializacji."
     - id: owningObject
       type: System.Object
-      description: "The object to which is `member` attached."
+      description: "Obiekt, do którego jest `member` dołączony."
     - id: member
       type: System.ComponentModel.MemberDescriptor
-      description: "The member to serialize."
+      description: "Element członkowski do serializacji."
     return:
       type: System.CodeDom.CodeStatementCollection
-      description: "A <xref href=&quot;System.CodeDom.CodeStatementCollection&quot;></xref> representing the serialized state of <code>member</code>."
+      description: "A <xref href=&quot;System.CodeDom.CodeStatementCollection&quot;> </xref> reprezentujący Zserializowany stan <code> member </code>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializer.SerializeMember*
   exceptions:
   - type: System.ArgumentNullException
@@ -281,7 +281,7 @@ items:
     description: "<code>manager</code>, <code>owningObject</code>, or <code>member</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "<code>member</code> is not a serializable type."
+    description: "<code>member</code>nie jest typem umożliwiającym serializację."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializer.SerializeMemberAbsolute(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.Object,System.ComponentModel.MemberDescriptor)
@@ -296,22 +296,22 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the given member, accounting for default values."
+  summary: "Wykonuje serializację danego elementu członkowskiego dla wartości domyślnej."
   syntax:
     content: public virtual System.CodeDom.CodeStatementCollection SerializeMemberAbsolute (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object owningObject, System.ComponentModel.MemberDescriptor member);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The serialization manager to use for serialization."
+      description: "Tego menedżera serializacji do użycia na potrzeby serializacji."
     - id: owningObject
       type: System.Object
-      description: "The object to which is `member` attached."
+      description: "Obiekt, do którego jest `member` dołączony."
     - id: member
       type: System.ComponentModel.MemberDescriptor
-      description: "The member to serialize."
+      description: "Element członkowski do serializacji."
     return:
       type: System.CodeDom.CodeStatementCollection
-      description: "A CodeDom object representing <code>member</code>."
+      description: "Reprezentujący obiekt CodeDom <code> member </code>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializer.SerializeMemberAbsolute*
   exceptions:
   - type: System.ArgumentNullException
@@ -319,7 +319,7 @@ items:
     description: "<code>manager</code>, <code>owningObject</code>, or <code>member</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "<code>member</code> is not a serializable type."
+    description: "<code>member</code>nie jest typem umożliwiającym serializację."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializer.SerializeToReferenceExpression(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.Object)
@@ -334,20 +334,20 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the specified value to a CodeDOM expression."
-  remarks: "This method is similar to <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToExpression%2A>, except that it stops if it cannot obtain a simple reference expression for the value. Call this method when you expect the resulting expression to be used as a parameter or target of a statement."
+  summary: "Serializuje określonej wartości wyrażenia CodeDOM."
+  remarks: "Ta metoda jest podobna do <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToExpression%2A>, ale zatrzymuje się jeśli nie można uzyskać wyrażenia proste odwołania do wartości.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToExpression%2A> Tę metodę można wywołać, jeśli będziesz wynikowe wyrażenie ma być używany jako parametr lub docelowy instrukcji."
   syntax:
     content: protected System.CodeDom.CodeExpression SerializeToReferenceExpression (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object value);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The serialization manager to use during serialization."
+      description: "Tego menedżera serializacji do użycia podczas serializacji."
     - id: value
       type: System.Object
-      description: "The object to serialize."
+      description: "Obiekt do zserializowania."
     return:
       type: System.CodeDom.CodeExpression
-      description: "The serialized value. This returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no reference expression can be obtained for the specified value, or the value cannot be serialized."
+      description: "Wartość zserializowana. To polecenie zwróci <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> wyrażenie odwołania do nie można uzyskać określoną wartość, czy wartość nie może być serializowany."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializer.SerializeToReferenceExpression*
   exceptions: []
   platform:

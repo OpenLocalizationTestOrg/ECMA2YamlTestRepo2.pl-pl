@@ -14,8 +14,8 @@ items:
   nameWithType: FederationManagement
   fullName: System.IdentityModel.Services.FederationManagement
   type: Class
-  summary: "Defines static methods for creating Federation Metadata documents and for updating application configuration based on Federation Metadata documents."
-  remarks: 'For more information about Federation Metadata documents, see section three of the following specification: [Web Services Federation Language (WS-Federation) Version 1.2](http://go.microsoft.com/fwlink/?LinkID=210152) (http://go.microsoft.com/fwlink/?LinkID=210152).'
+  summary: "Definiuje metody statyczne tworzenie dokumentów metadanych Federacji i aktualizowania konfiguracji aplikacji w oparciu dokumentów metadanych federacji."
+  remarks: 'Aby uzyskać więcej informacji na temat dokumentów metadanych Federacji, zobacz sekcję trzech następującej specyfikacji: [Web Services Federation Language (WS-Federation) w wersji 1.2](http://go.microsoft.com/fwlink/?LinkID=210152) (http://go.microsoft.com/fwlink/?LinkID=210152).'
   syntax:
     content: public static class FederationManagement
   inheritance:
@@ -36,28 +36,28 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Creates an XML document that contains Federation Metadata."
+  summary: "Tworzy dokument XML, który zawiera metadanych federacji."
   syntax:
     content: public static System.Xml.XmlReader CreateApplicationFederationMetadata (Uri applicationUri, System.Security.Cryptography.X509Certificates.X509Certificate2 certificate, System.Collections.ObjectModel.Collection<System.IdentityModel.Metadata.DisplayClaim> claimsRequired, System.IdentityModel.Services.ApplicationType applicationType, System.Collections.ObjectModel.Collection<Uri> audienceUris);
     parameters:
     - id: applicationUri
       type: System.Uri
-      description: "The application URI."
+      description: "Identyfikator URI aplikacji."
     - id: certificate
       type: System.Security.Cryptography.X509Certificates.X509Certificate2
-      description: "The X.509 certificate to use to sign the metadata."
+      description: "Certyfikat X.509 do podpisania metadanych."
     - id: claimsRequired
       type: System.Collections.ObjectModel.Collection{System.IdentityModel.Metadata.DisplayClaim}
-      description: "The claims required by the application."
+      description: "Oświadczenia wymagane przez aplikację."
     - id: applicationType
       type: System.IdentityModel.Services.ApplicationType
-      description: "One of the <xref href=&quot;System.IdentityModel.Services.ApplicationType&quot;></xref> values that specifies the type of application that the metadata describes. This is used to determine the endpoints to create."
+      description: "Jeden z <xref href=&quot;System.IdentityModel.Services.ApplicationType&quot;> </xref> wartości, które określają typ aplikacji, który opisuje metadanych. Służy do określenia punktów końcowych do utworzenia."
     - id: audienceUris
       type: System.Collections.ObjectModel.Collection{System.Uri}
-      description: "The collection of acceptable URIs that can be used for this application."
+      description: "Zbiór dopuszczalnych identyfikatory URI, które mogą służyć do tej aplikacji."
     return:
       type: System.Xml.XmlReader
-      description: "An XML reader that contains the metadata document that was created by using the parameters."
+      description: "Czytnik XML, który zawiera dokument metadanych, który został utworzony przy użyciu parametrów."
   overload: System.IdentityModel.Services.FederationManagement.CreateApplicationFederationMetadata*
   exceptions: []
   platform:
@@ -74,27 +74,27 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Updates the specified application configuration, if needed, based on the specified Federation Metadata document and a value that specifies whether the claims offered list should be updated."
+  summary: "Aktualizuje konfigurację określonej aplikacji, jeśli wymagane, na podstawie określonego dokumentu metadanych Federacji i wartość, która określa, czy oświadczenia oferowane się, że można zaktualizować listy."
   syntax:
     content: public static System.Xml.XmlReader UpdateIdentityProviderTrustInfo (System.Xml.XmlReader metadataReader, System.Xml.XmlReader inputConfiguration, bool claimsOfferedUpdate);
     parameters:
     - id: metadataReader
       type: System.Xml.XmlReader
-      description: "An XML reader that contains the metadata document."
+      description: "Czytnik XML, który zawiera dokumentu metadanych."
     - id: inputConfiguration
       type: System.Xml.XmlReader
-      description: "An XML reader that contains the configuration."
+      description: "Czytnik XML zawierający konfigurację."
     - id: claimsOfferedUpdate
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the claims offered list should be updated; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli oświadczenia oferowana powinny być zaktualizowane listy; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Xml.XmlReader
-      description: "An XML reader that contains the updated configuration or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the configuration could not be updated."
+      description: "Czytnik XML, który zawiera zaktualizowanej konfiguracji lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli nie można zaktualizować konfiguracji."
   overload: System.IdentityModel.Services.FederationManagement.UpdateIdentityProviderTrustInfo*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>metadataReader</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>inputConfiguration</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>metadataReader</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>inputConfiguration</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Services.FederationManagement.UpdateIdentityProviderTrustInfo(System.Xml.XmlReader,System.Xml.XmlReader,System.Boolean,System.IdentityModel.Metadata.MetadataSerializer)
@@ -109,30 +109,30 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Updates the specified application configuration, if needed, based on the specified Federation Metadata document and a value that specifies whether the claims offered list should be updated. The serializer with which to read the security token service (STS) metadata is also specified."
+  summary: "Aktualizuje konfigurację określonej aplikacji, jeśli wymagane, na podstawie określonego dokumentu metadanych Federacji i wartość, która określa, czy oświadczenia oferowane się, że można zaktualizować listy. Serializator, z której mają być odczytywane zabezpieczeń metadanych usługi tokenów (STS) jest określona."
   syntax:
     content: public static System.Xml.XmlReader UpdateIdentityProviderTrustInfo (System.Xml.XmlReader metadataReader, System.Xml.XmlReader inputConfiguration, bool claimsOfferedUpdate, System.IdentityModel.Metadata.MetadataSerializer metadataSerializer);
     parameters:
     - id: metadataReader
       type: System.Xml.XmlReader
-      description: "An XML reader that contains the metadata document."
+      description: "Czytnik XML, który zawiera dokumentu metadanych."
     - id: inputConfiguration
       type: System.Xml.XmlReader
-      description: "An XML reader that contains the configuration."
+      description: "Czytnik XML zawierający konfigurację."
     - id: claimsOfferedUpdate
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the claims offered list should be updated; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli oświadczenia oferowana powinny być zaktualizowane listy; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: metadataSerializer
       type: System.IdentityModel.Metadata.MetadataSerializer
-      description: "The serializer with which to read the STS metadata."
+      description: "Serializator, z której mają być odczytywane metadanych usługi STS."
     return:
       type: System.Xml.XmlReader
-      description: "An XML reader that contains the updated configuration or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the configuration could not be updated."
+      description: "Czytnik XML, który zawiera zaktualizowanej konfiguracji lub <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> Jeśli nie można zaktualizować konfiguracji."
   overload: System.IdentityModel.Services.FederationManagement.UpdateIdentityProviderTrustInfo*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>metadataReader</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>inputConfiguration</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>metadataSerializer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>metadataReader</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>inputConfiguration</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>metadataSerializer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Services.FederationManagement.UpdateIdentityProviderTrustInfo(System.Xml.XmlReader,System.Xml.XmlReader,System.Xml.XmlNodeReader@,System.Xml.XmlNodeReader@)
@@ -147,27 +147,27 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Updates the specified application configuration, if needed, based on the specified Federation Metadata document. Returns the configuration elements for the issuer name registry, as well as the configuration elements for the updated list of claims types offered, if it has been updated."
+  summary: "Aktualizuje konfigurację określonej aplikacji, jeśli potrzebne, w zależności od określonego dokumentu metadanych federacji. Zwraca, elementy konfiguracji rejestru nazwy dostawcy, a także elementy konfiguracji dla zaktualizowanej listy typów oświadczeń oferowane, jeśli został zaktualizowany."
   syntax:
     content: public static void UpdateIdentityProviderTrustInfo (System.Xml.XmlReader metadataReader, System.Xml.XmlReader inputConfiguration, out System.Xml.XmlNodeReader newIssuerNameRegistry, out System.Xml.XmlNodeReader claimTypesOffered);
     parameters:
     - id: metadataReader
       type: System.Xml.XmlReader
-      description: "An XML reader that contains the metadata document."
+      description: "Czytnik XML, który zawiera dokumentu metadanych."
     - id: inputConfiguration
       type: System.Xml.XmlReader
-      description: "An XML reader that contains the configuration."
+      description: "Czytnik XML zawierający konfigurację."
     - id: newIssuerNameRegistry
       type: System.Xml.XmlNodeReader
-      description: "When this method returns, contains an XML node reader that contains the elements that specify the issuer name registry. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there are is no issuer name registry specified. This parameter is treated as uninitialized."
+      description: "Po powrocie z tej metody zawiera czytnik węzła XML, który zawiera elementy, które określają rejestru nazwy dostawcy. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>Jeśli ma nie rejestru nazwy dostawcy jest określona. Ten parametr jest traktowany jako niezainicjowany."
     - id: claimTypesOffered
       type: System.Xml.XmlNodeReader
-      description: "When this method returns, if the list of claim types offered has been changed, contains an XML node reader that contains elements that specify new list. If the list has not been changed, returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>. This parameter is treated as uninitialized."
+      description: "Jeśli ten zwraca metody zmiana listy typy oświadczeń oferowane zawiera czytnik węzła XML, który zawiera elementy, które określają nową listę. Jeśli nie zmieniono listy, zwraca <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>. Ten parametr jest traktowany jako niezainicjowany."
   overload: System.IdentityModel.Services.FederationManagement.UpdateIdentityProviderTrustInfo*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>metadataReader</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>inputConfiguration</code><code>metadataReader</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>metadataReader</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>inputConfiguration</code><code>metadataReader</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Services.FederationManagement.UpdateIdentityProviderTrustInfo(System.Xml.XmlReader,System.Xml.XmlReader,System.Xml.XmlNodeReader@,System.Xml.XmlNodeReader@,System.IdentityModel.Metadata.MetadataSerializer)
@@ -182,30 +182,30 @@ items:
   assemblies:
   - System.IdentityModel.Services
   namespace: System.IdentityModel.Services
-  summary: "Updates the specified application configuration, if needed, based on the specified Federation Metadata document. Returns configuration elements for the issuer name registry, as well as the configuration elements for the updated list of claims types offered, if it has been updated. The serializer with which to read the security token service (STS) metadata is also specified."
+  summary: "Aktualizuje konfigurację określonej aplikacji, jeśli potrzebne, w zależności od określonego dokumentu metadanych federacji. Zwraca elementy konfiguracji rejestru nazwy dostawcy, a także elementy konfiguracji dla zaktualizowanej listy typów oświadczeń oferowane, jeśli został zaktualizowany. Serializator, z której mają być odczytywane zabezpieczeń metadanych usługi tokenów (STS) jest określona."
   syntax:
     content: public static void UpdateIdentityProviderTrustInfo (System.Xml.XmlReader metadataReader, System.Xml.XmlReader inputConfiguration, out System.Xml.XmlNodeReader newIssuerNameRegistry, out System.Xml.XmlNodeReader claimTypesOffered, System.IdentityModel.Metadata.MetadataSerializer metadataSerializer);
     parameters:
     - id: metadataReader
       type: System.Xml.XmlReader
-      description: "An XML reader that contains the metadata document."
+      description: "Czytnik XML, który zawiera dokumentu metadanych."
     - id: inputConfiguration
       type: System.Xml.XmlReader
-      description: "An XML reader that contains the configuration."
+      description: "Czytnik XML zawierający konfigurację."
     - id: newIssuerNameRegistry
       type: System.Xml.XmlNodeReader
-      description: "When this method returns, contains an XML node reader that contains the elements that specify the issuer name registry. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there are is no issuer name registry specified. This parameter is treated as uninitialized."
+      description: "Po powrocie z tej metody zawiera czytnik węzła XML, który zawiera elementy, które określają rejestru nazwy dostawcy. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>Jeśli ma nie rejestru nazwy dostawcy jest określona. Ten parametr jest traktowany jako niezainicjowany."
     - id: claimTypesOffered
       type: System.Xml.XmlNodeReader
-      description: "When this method returns, if the list of claim types offered has been changed, contains an XML node reader that contains elements that specify new list. If the list has not been changed, returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>. This parameter is treated as uninitialized."
+      description: "Jeśli ten zwraca metody zmiana listy typy oświadczeń oferowane zawiera czytnik węzła XML, który zawiera elementy, które określają nową listę. Jeśli nie zmieniono listy, zwraca <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>. Ten parametr jest traktowany jako niezainicjowany."
     - id: metadataSerializer
       type: System.IdentityModel.Metadata.MetadataSerializer
-      description: "The serializer with which to read the STS metadata."
+      description: "Serializator, z której mają być odczytywane metadanych usługi STS."
   overload: System.IdentityModel.Services.FederationManagement.UpdateIdentityProviderTrustInfo*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>metadataReader</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>inputConfiguration</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>metadataSerializer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>metadataReader</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>inputConfiguration</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>metadataSerializer</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:
