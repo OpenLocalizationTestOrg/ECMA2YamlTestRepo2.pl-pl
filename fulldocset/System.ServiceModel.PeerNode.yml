@@ -16,8 +16,8 @@ items:
   nameWithType: PeerNode
   fullName: System.ServiceModel.PeerNode
   type: Class
-  summary: "Defines the instance of of a peer node used by an application participating in a specific peer mesh."
-  remarks: "A peer node can host multiple peer channels within the mesh as long as they share a common URI and host name in the <xref:System.ServiceModel.EndpointAddress> supplied to the binding for each channel.       If two or more peer channels defined for a peer node are created with separate bindings, then the <xref:System.ServiceModel.NetPeerTcpBinding.Port%2A>, <xref:System.ServiceModel.NetPeerTcpBinding.ListenIPAddress%2A>, and <xref:System.ServiceModel.NetPeerTcpBinding.Resolver%2A> properties must be identical on all bindings.       If a subsequent channel binding is created after the first one for the same peer node instance, then the <xref:System.ServiceModel.NetPeerTcpBinding.MaxReceivedMessageSize%2A> property on this and subsequent bindings must be less than or equal to the value of <xref:System.ServiceModel.NetPeerTcpBinding.MaxReceivedMessageSize%2A> property as set on the first channel binding."
+  summary: "Określa wystąpienie używany przez aplikację należący do sieci określonych elementów równorzędnych węzła równorzędnego."
+  remarks: "Węzeł równorzędny może obsługiwać wiele kanałów elementów równorzędnych w sieci, tak długo, jak długo mają identyfikatora URI i hosta nazwą pospolitą w <xref:System.ServiceModel.EndpointAddress>dostarczonego do powiązania dla poszczególnych kanałów.</xref:System.ServiceModel.EndpointAddress>       Jeśli co najmniej dwa kanały równorzędnej zdefiniowane dla węzła równorzędnego są tworzone za pomocą osobnych powiązań, a następnie <xref:System.ServiceModel.NetPeerTcpBinding.Port%2A>, <xref:System.ServiceModel.NetPeerTcpBinding.ListenIPAddress%2A>, i <xref:System.ServiceModel.NetPeerTcpBinding.Resolver%2A>Właściwości muszą być takie same na wszystkich powiązań.</xref:System.ServiceModel.NetPeerTcpBinding.Resolver%2A> </xref:System.ServiceModel.NetPeerTcpBinding.ListenIPAddress%2A> </xref:System.ServiceModel.NetPeerTcpBinding.Port%2A>       Powiązania kanału kolejnych zostanie utworzony po pierwszej dla tego samego wystąpienia węzła równorzędnego, a następnie <xref:System.ServiceModel.NetPeerTcpBinding.MaxReceivedMessageSize%2A>Właściwości na tej i kolejnych powiązania musi być mniejsza niż wartość <xref:System.ServiceModel.NetPeerTcpBinding.MaxReceivedMessageSize%2A>Właściwości ustalone na pierwszej powiązania kanałów.</xref:System.ServiceModel.NetPeerTcpBinding.MaxReceivedMessageSize%2A> </xref:System.ServiceModel.NetPeerTcpBinding.MaxReceivedMessageSize%2A>"
   syntax:
     content: 'public sealed class PeerNode : System.ServiceModel.IOnlineStatus'
   inheritance:
@@ -39,13 +39,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets a value indicating whether the peer node is online and able to send messages to neighboring nodes in the peer mesh."
-  remarks: "&quot;Online&quot; indicates that a peer node has available neighbor nodes. &quot;Offline&quot; indicates that a peer node has no available neighbors."
+  summary: "Pobiera wartość wskazującą, czy węzeł elementu równorzędnego jest w trybie online i możliwość wysyłania wiadomości do sąsiednich węzłach w sieci równorzędnej."
+  remarks: "&quot;Online&quot; oznacza, że węzeł równorzędny ma sąsiada dostępnych węzłów. &quot;Offline&quot; oznacza, że węzeł równorzędny ma dostępne sąsiadów."
   syntax:
     content: public bool IsOnline { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the peer node is online; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli węzeł elementu równorzędnego jest w trybie online; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.PeerNode.IsOnline*
   exceptions: []
   platform:
@@ -62,18 +62,18 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets and sets a custom filter for messages received over the peer channel."
-  remarks: "The message filter must be a derived type and should be recast to that type to use any custom features defined on it."
+  summary: "Pobiera i ustawia niestandardowy filtr komunikatów odebranych przez kanał elementu równorzędnego."
+  remarks: "Filtr komunikatu musi być typem pochodnym i sformułować dla tego typu, aby korzystać z żadnych niestandardowych funkcji zdefiniowanej."
   syntax:
     content: public System.ServiceModel.PeerMessagePropagationFilter MessagePropagationFilter { get; set; }
     return:
       type: System.ServiceModel.PeerMessagePropagationFilter
-      description: "<xref href=&quot;System.ServiceModel.PeerMessagePropagationFilter&quot;></xref> that contains a custom message filter."
+      description: "<xref href=&quot;System.ServiceModel.PeerMessagePropagationFilter&quot;></xref>zawiera niestandardowy filtr komunikatów."
   overload: System.ServiceModel.PeerNode.MessagePropagationFilter*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "No channel is open for listening."
+    description: "Kanał nie jest otwarty w celu nasłuchiwania."
   platform:
   - net462
 - uid: System.ServiceModel.PeerNode.Offline
@@ -88,13 +88,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Signals when the peer node goes offline from the peer mesh."
-  remarks: "An offline peer node has no neighbor nodes within the peer mesh to which it can connect."
+  summary: "Siatka sygnałów, gdy węzeł równorzędny przejdzie do trybu offline z węzła równorzędnego."
+  remarks: "Węzeł równorzędny w trybie offline nie ma sąsiada węzłów siatki elementów równorzędnych, z którym mogą się łączyć."
   syntax:
     content: public event EventHandler Offline;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -110,13 +110,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Signals when a peer node comes online within the peer mesh."
-  remarks: "An online peer node has at least one neighbor node within the peer mesh to which it is connected."
+  summary: "Sygnały, gdy węzeł elementu równorzędnego w sieci równorzędnej do trybu online."
+  remarks: "Węzeł równorzędny online ma co najmniej jeden węzeł sąsiada siatki elementów równorzędnych, do którego jest podłączony."
   syntax:
     content: public event EventHandler Online;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Do dodania."
   exceptions: []
   platform:
   - net462
@@ -132,17 +132,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets the network port on which the peer node is listening."
+  summary: "Pobiera portu sieci, na którym nasłuchuje węzła równorzędnego."
   syntax:
     content: public int Port { get; }
     return:
       type: System.Int32
-      description: "<xref:System.Int32> that specifies the network port on which the peer node is listening."
+      description: "<xref:System.Int32>która określa port sieci, na którym nasłuchuje węzła równorzędnego.</xref:System.Int32>"
   overload: System.ServiceModel.PeerNode.Port*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "No channel is open for listening."
+    description: "Kanał nie jest otwarty w celu nasłuchiwania."
   platform:
   - net462
 - uid: System.ServiceModel.PeerNode.RefreshConnection
@@ -157,7 +157,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Refreshes the connection with the peer mesh."
+  summary: "Odświeża połączenie z siatki elementów równorzędnych."
   syntax:
     content: public void RefreshConnection ();
     parameters: []
@@ -165,19 +165,19 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "No channel is open for listening."
+    description: "Kanał nie jest otwarty w celu nasłuchiwania."
   - type: System.TimeoutException
     commentId: T:System.TimeoutException
-    description: "The refresh operation timed out."
+    description: "Upłynął limit czasu operacji odświeżania."
   - type: System.ServiceModel.CommunicationException
     commentId: T:System.ServiceModel.CommunicationException
-    description: "A network error occurred during the refresh attempt."
+    description: "Wystąpił błąd sieciowy podczas próby odświeżania."
   - type: System.ServiceModel.CommunicationObjectAbortedException
     commentId: T:System.ServiceModel.CommunicationObjectAbortedException
-    description: "The connection aborted during the refresh attempt."
+    description: "Połączenie zostało przerwane podczas próby odświeżania."
   - type: System.ServiceModel.CommunicationObjectFaultedException
     commentId: T:System.ServiceModel.CommunicationObjectFaultedException
-    description: "The connection faulted during the refresh attempt."
+    description: "Połączenie wystąpił błąd podczas próby odświeżania."
   platform:
   - net462
 - uid: System.ServiceModel.PeerNode.ToString
@@ -192,13 +192,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Provides a string representation of a peer node."
+  summary: "Udostępnia reprezentację ciągu obiektu węzła równorzędnego."
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "<xref:System.String> value that contains the mesh ID of the peer node if the mesh ID is set; otherwise, it returns the type."
+      description: "<xref:System.String>wartość, która zawiera identyfikator siatki węzła równorzędnego, jeśli został ustawiony identyfikator siatki; w przeciwnym razie zwraca wartość typu.</xref:System.String>"
   overload: System.ServiceModel.PeerNode.ToString*
   exceptions: []
   platform:

@@ -26,8 +26,8 @@ items:
   nameWithType: MsmqBindingBase
   fullName: System.ServiceModel.MsmqBindingBase
   type: Class
-  summary: "The base class for <xref href=&quot;System.ServiceModel.NetMsmqBinding&quot;></xref> and <xref href=&quot;System.ServiceModel.MsmqIntegration.MsmqIntegrationBinding&quot;></xref>."
-  remarks: "This abstract class contains properties common to <xref:System.ServiceModel.NetMsmqBinding> and <xref:System.ServiceModel.MsmqIntegration.MsmqIntegrationBinding>. All of the fundamental concepts in queuing are displayed in the form of properties."
+  summary: "Klasa podstawowa dla <xref href=&quot;System.ServiceModel.NetMsmqBinding&quot;> </xref> i <xref href=&quot;System.ServiceModel.MsmqIntegration.MsmqIntegrationBinding&quot;> </xref>."
+  remarks: "Ta klasa ogólna zawiera właściwości wspólne <xref:System.ServiceModel.NetMsmqBinding>i <xref:System.ServiceModel.MsmqIntegration.MsmqIntegrationBinding>.</xref:System.ServiceModel.MsmqIntegration.MsmqIntegrationBinding> </xref:System.ServiceModel.NetMsmqBinding> Wyświetlane są wszystkie podstawowe pojęcia związane z usługi kolejkowania wiadomości w formie właściwości."
   syntax:
     content: 'public abstract class MsmqBindingBase : System.ServiceModel.Channels.Binding, System.ServiceModel.Channels.IBindingRuntimePreferences'
   inheritance:
@@ -49,7 +49,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.MsmqBindingBase&quot;></xref> class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.ServiceModel.MsmqBindingBase&quot;> </xref> klasy."
   syntax:
     content: protected MsmqBindingBase ();
     parameters: []
@@ -69,13 +69,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets a URI that contains the location of the dead-letter queue for each application, where messages that have expired or that have failed transfer or delivery are placed."
-  remarks: "The dead-letter queue is a queue on the queue manager of the sending application for expired messages that failed to be delivered.       The URI that is specified by CustomDeadLetterQueue must use the net.msmq scheme.       If <xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A> is set to <xref:System.ServiceModel.DeadLetterQueue> or <xref:System.ServiceModel.DeadLetterQueue>, then CustomDeadLetterQueue must be set to `null`. If CustomDeadLetterQueue is not `null`, then <xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A> must be set to <xref:System.ServiceModel.DeadLetterQueue>."
+  summary: "Pobiera lub ustawia identyfikator URI, który zawiera lokalizację kolejki utraconych wiadomości dla każdej aplikacji, gdzie umieścić są komunikaty wygasłe, lub które nie przeszły przesłanie bądź dostarczenie."
+  remarks: "Kolejki utraconych wiadomości jest kolejką na aplikację wysyłającą dla wygasłych komunikatów, które nie mają być dostarczone do menedżera kolejki.       Identyfikator URI, który jest określony przez CustomDeadLetterQueue musi być stosowany schemat net.msmq.       Jeśli <xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A>ma ustawioną wartość <xref:System.ServiceModel.DeadLetterQueue>lub <xref:System.ServiceModel.DeadLetterQueue>, a następnie CustomDeadLetterQueue musi mieć ustawioną `null`.</xref:System.ServiceModel.DeadLetterQueue> </xref:System.ServiceModel.DeadLetterQueue> </xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A> Jeśli CustomDeadLetterQueue nie jest `null`, następnie <xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A>należy wybrać opcję <xref:System.ServiceModel.DeadLetterQueue>.</xref:System.ServiceModel.DeadLetterQueue> </xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A>"
   syntax:
     content: public Uri CustomDeadLetterQueue { get; set; }
     return:
       type: System.Uri
-      description: "The <xref:System.Uri> that contains the location of the dead-letter queue for each application. The default value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "<xref:System.Uri>Zawierający lokalizację kolejki utraconych wiadomości dla każdej aplikacji.</xref:System.Uri> Wartość domyślna to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.MsmqBindingBase.CustomDeadLetterQueue*
   exceptions: []
   platform:
@@ -92,13 +92,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets an enumeration value that indicates the type of dead-letter queue to use."
-  remarks: "The dead-letter queue is a queue on the queue manager of the sending application for expired messages that have failed to be delivered. The dead-letter queue enumeration specifies the type of dead-letter queue to use. The values are:      -   `None`: No dead-letter queue is required. If a message fails delivery, no record of it is maintained in the dead-letter queue. This is the default value when <xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A> is set to `false`.      -   `System`: The system-wide dead-letter queue is used to record messages that fail delivery. Message Queuing (MSMQ) has a transactional, system, dead-letter queue and a non-transactional, system, dead-letter queue to record messages that fail delivery from transactional and non-transactional queues, respectively. This is the default value when <xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A> is set to `true`.      -   `Custom`: The queue specified in the <xref:System.ServiceModel.MsmqBindingBase.CustomDeadLetterQueue%2A> property that is used to record messages that fail delivery.       The reasons a message can fail to reach the receiving application include:      -   A transactional message is sent to a non-transactional queue.      -   A non-transactional message is sent to a transactional queue.      -   An unauthenticated message is sent to a queue that accepts only authenticated messages.      -   An unencrypted message is sent to a queue that accepts only encrypted messages.      -   The message expires before the message is delivered to a receiver.      -   The message storage quota of the target computer or the storage quota of the destination queue is exceeded, or there is no available storage space on the target computer when the message arrives.      -   The sender does not have the [access rights](http://go.microsoft.com/fwlink/?LinkID=96167) required to place the message in the destination queue.      -   The digital signature attached to the message is not valid.      -   An encrypted message cannot be decrypted by the destination queue manager.      -   The destination queue is purged or deleted before the message is retrieved."
+  summary: "Pobiera lub ustawia wartość wyliczenia wskazująca typ używanej kolejki utraconych wiadomości."
+  remarks: "Kolejki utraconych wiadomości jest kolejką na aplikację wysyłającą dla wygasłych komunikatów, które nie powiodły się dostarczanej do menedżera kolejki. Wyliczenie kolejki utraconych wiadomości określa typ używanej kolejki utraconych wiadomości. Wartości są:- `None`: nie kolejki utraconych wiadomości jest wymagana. W przypadku niepowodzenia dostarczenia komunikatu ma rekordów jest zachowywana w kolejce wiadomości utraconych. Jest to domyślna wartość przy <xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A>ustawiono `false`.</xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A>      - `System`: Systemowe kolejki utraconych wiadomości jest używany do rejestrowania wiadomości, które nie są dostawy. Komunikatów usługi kolejkowania wiadomości (MSMQ) ma transakcyjnych, system, kolejki utraconych wiadomości i nietransakcyjnej, systemu, kolejki utraconych wiadomości do rejestrowania komunikatów dostarczenie kończyć się niepowodzeniem z kolejek transakcyjnych i nietransakcyjnej, odpowiednio. Jest to domyślna wartość przy <xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A>ustawiono `true`.</xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A>      - `Custom`: Kolejkę określoną w <xref:System.ServiceModel.MsmqBindingBase.CustomDeadLetterQueue%2A>właściwość, która jest używana do rekordu wiadomości, które nie są dostawy.</xref:System.ServiceModel.MsmqBindingBase.CustomDeadLetterQueue%2A>       Komunikat może zakończyć się niepowodzeniem do aplikacji odbierającej przyczyny:-wiadomości transakcyjnych są wysyłane do kolejki nietransakcyjnej.      -Nietransakcyjnej wiadomości są wysyłane do kolejką transakcyjną.      -Nieuwierzytelnione komunikatów są wysyłane do kolejki, która akceptuje tylko wiadomości uwierzytelnione.      -Niezaszyfrowane komunikatów są wysyłane do kolejki, która akceptuje tylko wiadomości zaszyfrowane.      -Komunikat wygasa przed wiadomość zostanie dostarczona do odbiornika.      Przekroczono przydział magazynowania wiadomości na komputerze docelowym lub przydział magazynowania kolejki docelowej lub wystąpił nie dostępnego miejsca na komputerze docelowym po odebraniu wiadomości.      -Nadawca nie ma [praw dostępu](http://go.microsoft.com/fwlink/?LinkID=96167) wymagane do umieszczenia wiadomości w kolejce docelowej.      -Podpisu cyfrowego dołączanego do wiadomości jest nieprawidłowy.      -Nie można odszyfrować wiadomości zaszyfrowanych przez menedżera kolejki docelowej.      -Kolejka docelowa jest wyczyszczone lub usunięte przed pobraniem wiadomości."
   syntax:
     content: public System.ServiceModel.DeadLetterQueue DeadLetterQueue { get; set; }
     return:
       type: System.ServiceModel.DeadLetterQueue
-      description: "A <xref href=&quot;System.ServiceModel.DeadLetterQueue&quot;></xref> enumeration value that indicates the type of dead-letter queue to use."
+      description: "A <xref href=&quot;System.ServiceModel.DeadLetterQueue&quot;> </xref> wartość wyliczenia wskazująca typ używanej kolejki utraconych wiadomości."
   overload: System.ServiceModel.MsmqBindingBase.DeadLetterQueue*
   exceptions: []
   platform:
@@ -115,13 +115,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets a value that indicates whether the messages processed by this binding are durable or volatile."
-  remarks: "A durable message survives when a queue manager stops responding, while a volatile message does not. Volatile messages are useful when applications can tolerate occasional lost messages.       If <xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A> is set to `true`, the messages must be durable."
+  summary: "Pobiera lub ustawia wartość wskazującą, czy komunikaty przetwarzane przez to powiązanie są trwałe lub zmienne."
+  remarks: "Trwałe komunikat przeżyje podczas menedżera kolejek przestaje odpowiadać, a komunikat nietrwałe nie. Volatile wiadomości są przydatne, gdy aplikacje może tolerować okazjonalne utratą komunikatów.       Jeśli <xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A>ma ustawioną wartość `true`, komunikaty muszą być trwałe.</xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A>"
   syntax:
     content: public bool Durable { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the messages processed by this binding are durable; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if they are volatile. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli komunikaty przetwarzane przez to powiązanie są trwałe; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Jeśli nietrwałego. Wartość domyślna to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.MsmqBindingBase.Durable*
   exceptions: []
   platform:
@@ -138,13 +138,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets a value that indicates whether messages processed by this binding are received exactly once."
-  remarks: "A message can be sent with or without assurances. An assurance enables an application to ensure that a sent message reached the receiving message queue, or if it did not, the application can determine this by reading the dead-letter queue.       Messages sent with ExactlyOnce set to `true` must be sent to a transactional queue only.       ExactlyOnce, when set to `true`, indicates that Message Queuing (MSMQ) ensures that a sent message is delivered to the receiving message queue once and only once. If delivery fails, the message is sent to the dead-letter queue.       For messages that require ExactlyOnce to be `false`, the <xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A> property defaults to `null`.       For messages that require ExactlyOnce to be `true`, the <xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A> property defaults to a transactional system-wide dead-letter queue in MSMQ."
+  summary: "Pobiera lub ustawia wartość wskazującą, czy komunikaty przetwarzane przez to powiązanie są odbierane dokładnie raz."
+  remarks: "Można wysłać komunikatu z lub bez gwarancji. Zapewnienie umożliwia aplikacji upewnij się, że wiadomość dotarła do odbierania kolejki wiadomości, lub jeśli nie, aplikacja może to ustalić, odczytując kolejki utraconych wiadomości.       Wiadomości wysyłane z ExactlyOnce jest ustawiona na `true` muszą zostać przesłane do tylko kolejką transakcyjną.       ExactlyOnce, gdy wartość `true`, wskazuje, że usługi kolejkowania komunikatów (MSMQ) zapewnia, że wiadomość jest dostarczany do odbierania kolejki komunikatów raz i tylko raz. W przypadku niepowodzenia dostarczenia komunikat jest wysyłany do kolejki utraconych wiadomości.       Dla wiadomości, które wymagają ExactlyOnce jako `false`, <xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A>wartością domyślną właściwości `null`.</xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A>       Dla wiadomości, które wymagają ExactlyOnce jako `true`, <xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A>Właściwości domyślne do kolejki utraconych wiadomości transakcyjnych systemowe w usłudze MSMQ.</xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A>"
   syntax:
     content: public bool ExactlyOnce { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if messages processed by this binding are received exactly once; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli komunikaty przetwarzane przez to powiązanie są odbierane dokładnie raz; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Wartość domyślna to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.MsmqBindingBase.ExactlyOnce*
   exceptions: []
   platform:
@@ -161,13 +161,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets the maximum size, in bytes, for a message that is processed by this binding."
-  remarks: "This bound on message size is intended to limit exposure to Denial of Service (DoS) attacks."
+  summary: "Pobiera lub ustawia maksymalny rozmiar w bajtach dla komunikatu przetwarzanego przez to powiązanie."
+  remarks: "To powiązana rozmiar wiadomości ma na celu ograniczenia narażenia na ataki przeprowadzenie ataku typu &quot;odmowa usługi&quot; (DoS)."
   syntax:
     content: public long MaxReceivedMessageSize { get; set; }
     return:
       type: System.Int64
-      description: "The maximum size (in bytes) for a message that is processed by this binding. The default value is 65,536 bytes."
+      description: "Maksymalny rozmiar (w bajtach) komunikatu przetwarzanego przez to powiązanie. Wartość domyślna to 65 536 bajtów."
   overload: System.ServiceModel.MsmqBindingBase.MaxReceivedMessageSize*
   exceptions: []
   platform:
@@ -184,13 +184,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets the maximum number of retry cycles to attempt delivery of messages to the receiving application."
-  remarks: "A single retry cycle attempts to deliver a message to an application a specified number of times. The number of attempts made is set by the <xref:System.ServiceModel.MsmqBindingBase.ReceiveRetryCount%2A> property. If the application fails to access the message after the specified number of immediate retries, the message is sent to a retry queue. Subsequent retry cycles consist of the message being returned from the retry queue to the application queue to attempt delivery to the application again, after a delay specified by the <xref:System.ServiceModel.MsmqBindingBase.RetryCycleDelay%2A> property. The MaxRetryCycles property specifies the number of retry cycles that the application uses to attempt to deliver the message."
+  summary: "Pobiera lub ustawia maksymalną liczbę cykli ponawiania próby dostarczenia komunikatów do aplikacji odbierającej."
+  remarks: "Jeden cykl prób dostarczenia komunikatu, do aplikacji przez określoną liczbę razy. Liczba prób jest ustawiana przez <xref:System.ServiceModel.MsmqBindingBase.ReceiveRetryCount%2A>Właściwości.</xref:System.ServiceModel.MsmqBindingBase.ReceiveRetryCount%2A> Jeśli aplikacja nie powiedzie się po określonej liczbie prób natychmiastowego dostęp do wiadomości, komunikat jest wysyłany do kolejki ponawiania. Liczbę cykli ponownych prób kolejnych składają się z komunikat z kolejki ponawiania do kolejki aplikacji prób dostarczenia do aplikacji, z opóźnieniem określony przez <xref:System.ServiceModel.MsmqBindingBase.RetryCycleDelay%2A>Właściwości.</xref:System.ServiceModel.MsmqBindingBase.RetryCycleDelay%2A> Właściwość MaxRetryCycles określa liczbę cykli ponownych prób, używanych przez aplikację prób dostarczenia komunikatu."
   syntax:
     content: public int MaxRetryCycles { get; set; }
     return:
       type: System.Int32
-      description: "The maximum number of retry cycles to attempt delivery of messages to the application. The default value is 2."
+      description: "Maksymalna liczba cykli ponawiania próby dostarczenia komunikatów do aplikacji. Wartość domyślna to 2."
   overload: System.ServiceModel.MsmqBindingBase.MaxRetryCycles*
   exceptions: []
   platform:
@@ -207,12 +207,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets a value that indicates whether the receive context behavior is requested."
+  summary: "Pobiera lub ustawia wartość wskazującą, czy wymagane jest zachowanie kontekstu odbierania."
   syntax:
     content: public bool ReceiveContextEnabled { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the receive context behavior is requested; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli wymagane jest zachowanie kontekstu odbierania; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.MsmqBindingBase.ReceiveContextEnabled*
   exceptions: []
   platform:
@@ -229,13 +229,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets an enumeration value that specifies how poison messages are handled."
-  remarks: "A message in the queue becomes poisoned if repeated attempts to deliver the message failed. This poison message is eventually handled based on the setting of this property. When this property is set to <xref:System.ServiceModel.ReceiveErrorHandling>, the listener is faulted and a <xref:System.ServiceModel.MsmqPoisonMessageException> is traced and thrown. The poison message is left in the queue and must be removed before more messages can be accessed from the queue. The <xref:System.ServiceModel.MsmqPoisonMessageException> contains a <xref:System.ServiceModel.MsmqPoisonMessageException.MessageLookupId%2A> that can be used to identify and manually remove the poison message from the queue.       When this property is set to <xref:System.ServiceModel.ReceiveErrorHandling>, the poison message is dropped.       When this property is set to <xref:System.ServiceModel.ReceiveErrorHandling>, a negative acknowledgement is sent to the client and the poison message is removed from the queue. This option is available only on Message Queuing 4.0 and requires [!INCLUDE[wv](~/add/includes/wv-md.md)].       When set to <xref:System.ServiceModel.ReceiveErrorHandling>, the poison message is moved to the final poison subqueue. This option is only available on Message Queuing 4.0 and requires [!INCLUDE[wv](~/add/includes/wv-md.md)]."
+  summary: "Pobiera lub ustawia wartość wyliczenia, który określa sposób skażone wiadomości są obsługiwane."
+  remarks: "Wiadomości w kolejce staje się intoksykowane, jeśli powtarzane próby dostarczenia komunikatów nie powiodło się. Ta Trująca wiadomość została ostatecznie jest obsługiwane na podstawie ustawienia tej właściwości. Jeśli ta właściwość jest równa <xref:System.ServiceModel.ReceiveErrorHandling>, odbiornika jest uszkodzona i <xref:System.ServiceModel.MsmqPoisonMessageException>jest śledzić i zgłoszony.</xref:System.ServiceModel.MsmqPoisonMessageException> </xref:System.ServiceModel.ReceiveErrorHandling> Trująca wiadomość pozostaje w kolejce i muszą zostać usunięte przed więcej wiadomości z kolejki. <xref:System.ServiceModel.MsmqPoisonMessageException>Zawiera <xref:System.ServiceModel.MsmqPoisonMessageException.MessageLookupId%2A>który może służyć do identyfikowania i ręcznie usunąć Trująca wiadomość z kolejki.</xref:System.ServiceModel.MsmqPoisonMessageException.MessageLookupId%2A> </xref:System.ServiceModel.MsmqPoisonMessageException>       Jeśli ta właściwość jest równa <xref:System.ServiceModel.ReceiveErrorHandling>, Trująca wiadomość jest porzucany.</xref:System.ServiceModel.ReceiveErrorHandling>       Jeśli ta właściwość jest równa <xref:System.ServiceModel.ReceiveErrorHandling>, negatywna są wysyłane do klienta i Trująca wiadomość zostanie usunięta z kolejki.</xref:System.ServiceModel.ReceiveErrorHandling> Ta opcja jest dostępna tylko w usłudze MSMQ 4.0 i wymaga [!INCLUDE[wv](~/add/includes/wv-md.md)].       Jeśli wartość <xref:System.ServiceModel.ReceiveErrorHandling>, Trująca wiadomość zostanie przeniesiona do końcowego trującej.</xref:System.ServiceModel.ReceiveErrorHandling> Ta opcja jest dostępna tylko w usłudze MSMQ 4.0 i wymaga [!INCLUDE[wv](~/add/includes/wv-md.md)]."
   syntax:
     content: public System.ServiceModel.ReceiveErrorHandling ReceiveErrorHandling { get; set; }
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "A <xref href=&quot;System.ServiceModel.ReceiveErrorHandling&quot;></xref> value that specifies how poison and other messages that cannot be dispatched are handled."
+      description: "A <xref href=&quot;System.ServiceModel.ReceiveErrorHandling&quot;> </xref> wartość, która określa sposób obsługi poison i inne komunikaty, które nie mogą być wysyłane."
   overload: System.ServiceModel.MsmqBindingBase.ReceiveErrorHandling*
   exceptions: []
   platform:
@@ -252,13 +252,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets the maximum number of immediate delivery attempts on a message that is read from the application queue."
-  remarks: "If the maximum number of immediate delivery attempts for the message is made and the message is not accessed by the application, then the message is sent to a retry queue to attempt delivery at a later time. If no retry cycles are specified, then the messages is either sent to the poison-message queue, or a negative acknowledgement is sent back to the sender.       [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)] <xref:System.ServiceModel.MsmqBindingBase.MaxRetryCycles%2A> and <xref:System.ServiceModel.MsmqBindingBase.RetryCycleDelay%2A>."
+  summary: "Pobiera lub ustawia maksymalną liczbę prób dostarczenia natychmiastowego w przypadku komunikatu odczytywanego z kolejki aplikacji."
+  remarks: "Jeśli wprowadzono maksymalną liczbę prób natychmiastowego dostarczania dla wiadomości i wiadomości nie jest dostępna przez aplikację, komunikat jest wysyłany w do kolejki ponawiania próby dostarczenia w późniejszym czasie. Jeśli nie określono żadnych liczbę cykli ponownych prób, albo odesłana wiadomości do kolejki wiadomości poison lub negatywna są wysyłane do nadawcy.       [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)]<xref:System.ServiceModel.MsmqBindingBase.MaxRetryCycles%2A> and <xref:System.ServiceModel.MsmqBindingBase.RetryCycleDelay%2A>.</xref:System.ServiceModel.MsmqBindingBase.RetryCycleDelay%2A></xref:System.ServiceModel.MsmqBindingBase.MaxRetryCycles%2A>"
   syntax:
     content: public int ReceiveRetryCount { get; set; }
     return:
       type: System.Int32
-      description: "The maximum number of immediate delivery attempts. The default is 5."
+      description: "Maksymalna liczba prób natychmiastowej dostawy. Wartość domyślna to 5."
   overload: System.ServiceModel.MsmqBindingBase.ReceiveRetryCount*
   exceptions: []
   platform:
@@ -275,13 +275,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets a value that indicates the time delay between retry cycles when attempting to deliver a message that cannot be delivered immediately."
-  remarks: "A single retry cycle attempts to deliver a message to a receiving application a specified number of times. The number of attempts made is specified by the <xref:System.ServiceModel.MsmqBindingBase.ReceiveRetryCount%2A> property. If the application fails to access the message after the specified number of immediate retries, the message is sent to a retry queue. Subsequent retry cycles consist of the message being returned from the retry queue to the application queue to attempt delivery to the application again, after a delay specified by the RetryCycleDelay. The number of retry cycles is specified by <xref:System.ServiceModel.MsmqBindingBase.MaxRetryCycles%2A>."
+  summary: "Pobiera lub ustawia wartość wskazującą czas opóźnienia między kolejnymi próbami dostarczenia komunikatu, którego nie można było dostarczyć natychmiast."
+  remarks: "Jeden cykl prób dostarczenia komunikatu, do aplikacji odbierającej określoną liczbę razy. Liczba prób jest określona przez <xref:System.ServiceModel.MsmqBindingBase.ReceiveRetryCount%2A>Właściwości.</xref:System.ServiceModel.MsmqBindingBase.ReceiveRetryCount%2A> Jeśli aplikacja nie powiedzie się po określonej liczbie prób natychmiastowego dostęp do wiadomości, komunikat jest wysyłany do kolejki ponawiania. Wiadomości zostały zwrócone z kolejki ponawiania do kolejki aplikacji prób dostarczenia do aplikacji, z opóźnieniem określony przez RetryCycleDelay składają się liczbę cykli ponownych prób kolejne. Liczba cykli ponownych prób jest określona przez <xref:System.ServiceModel.MsmqBindingBase.MaxRetryCycles%2A>.</xref:System.ServiceModel.MsmqBindingBase.MaxRetryCycles%2A>"
   syntax:
     content: public TimeSpan RetryCycleDelay { get; set; }
     return:
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies the interval of time to wait before starting the next cycle of delivery attempts to the receiving application. The default value is 10 minutes."
+      description: "<xref:System.TimeSpan>, Który określa przedział czasu oczekiwania przed uruchomieniem następnego cyklu prób dostarczenia do aplikacji odbierającej.</xref:System.TimeSpan> Wartość domyślna to 10 minut."
   overload: System.ServiceModel.MsmqBindingBase.RetryCycleDelay*
   exceptions: []
   platform:
@@ -298,13 +298,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Returns the scheme for this binding."
-  remarks: "Message Queuing (MSMQ) supports transporting messages between queue managers using both the native MSMQ protocol and the SRMP protocol. Applications that use the queued transport binding can use both of these protocols. The protocol schemes supported by the queued transport binding are net.msmq for the native protocol, net.srmp for the SRMP protocol, and net.srmps for SRMP over HTTPS.       The <xref:System.ServiceModel.MsmqIntegration.MsmqIntegrationBinding> supports a single scheme, msmq.formatname, with which the user can specify the format name of the queue directly in the queue address."
+  summary: "Zwraca schematu dla tego powiązania."
+  remarks: "Usługi kolejkowania komunikatów (MSMQ) obsługuje transportu wiadomości między menedżerami kolejki przy użyciu zarówno natywnego protokołu usługi MSMQ, jak i protokołu SRMP. Aplikacje używające powiązanie transport z kolejką można użyć obu tych protokołów. Schematy protokołu obsługiwane przez powiązanie transport z kolejką są net.msmq natywnego protokołu, net.srmp protokołu SRMP i net.srmps dla SRMP za pośrednictwem protokołu HTTPS.       <xref:System.ServiceModel.MsmqIntegration.MsmqIntegrationBinding>Obsługuje jeden schemat, msmq.formatname, z którą użytkownik może określić nazwę formatu kolejki bezpośrednio w adres kolejki.</xref:System.ServiceModel.MsmqIntegration.MsmqIntegrationBinding>"
   syntax:
     content: public override string Scheme { get; }
     return:
       type: System.String
-      description: "The scheme for this binding. The scheme returned depends on the implementation of <xref href=&quot;System.ServiceModel.MsmqBindingBase&quot;></xref>. The <xref href=&quot;System.ServiceModel.NetMsmqBinding&quot;></xref> implementation returns &quot;net.msmq&quot;. The <xref href=&quot;System.ServiceModel.MsmqIntegration.MsmqIntegrationBinding&quot;></xref> implementation returns &quot;msmq.formatname&quot;."
+      description: "Schemat dla tego powiązania. Schemat zwrócony zależy od implementacji <xref href=&quot;System.ServiceModel.MsmqBindingBase&quot;> </xref>. <xref href=&quot;System.ServiceModel.NetMsmqBinding&quot;> </xref> Implementacja zwraca &quot;net.msmq&quot;. <xref href=&quot;System.ServiceModel.MsmqIntegration.MsmqIntegrationBinding&quot;> </xref> Implementacja zwraca &quot;msmq.formatname&quot;."
   overload: System.ServiceModel.MsmqBindingBase.Scheme*
   exceptions: []
   platform:
@@ -322,13 +322,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets a value that indicates whether incoming requests can be handled more efficiently synchronously or asynchronously."
-  remarks: "The <xref:System.ServiceModel.MsmqBindingBase.System.ServiceModel.Channels.IBindingRuntimePreferences.ReceiveSynchronously%2A> property is set to `true` when the <xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A> is `true`."
+  summary: "Pobiera wartość wskazującą, czy żądania przychodzące mogą być obsługiwane bardziej wydajne synchronicznie lub asynchronicznie."
+  remarks: "<xref:System.ServiceModel.MsmqBindingBase.System.ServiceModel.Channels.IBindingRuntimePreferences.ReceiveSynchronously%2A>Właściwość jest ustawiona na `true` podczas <xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A>jest `true`.</xref:System.ServiceModel.MsmqBindingBase.ExactlyOnce%2A> </xref:System.ServiceModel.MsmqBindingBase.System.ServiceModel.Channels.IBindingRuntimePreferences.ReceiveSynchronously%2A>"
   syntax:
     content: bool System.ServiceModel.Channels.IBindingRuntimePreferences.ReceiveSynchronously { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if requests can be handled more efficiently synchronously; otherwise<xref uid=&quot;langword_csharp_ false&quot; name=&quot; false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, to handle requests asynchronously."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli żądania są obsługiwane wydajniej synchronicznie; w przeciwnym razie<xref uid=&quot;langword_csharp_ false&quot; name=&quot; false&quot; href=&quot;&quot;></xref>. Wartość domyślna to <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>, do obsługi żądań asynchronicznie."
   overload: System.ServiceModel.MsmqBindingBase.System#ServiceModel#Channels#IBindingRuntimePreferences#ReceiveSynchronously*
   exceptions: []
   platform:
@@ -345,13 +345,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets the interval of time that indicates how long the messages processed by this binding can be in the queue before they expire."
-  remarks: "The TimeToLive property is set to ensure that time-sensitive messages do not become stale before they are processed by the receiving applications. A message in a queue that is not accessed by the receiving application within the time interval specified is expired. Expired messages are sent to a special queue called the dead-letter queue. The location of the dead-letter queue is set with the <xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A> property or to the appropriate default, based on assurances."
+  summary: "Pobiera lub ustawia odstęp czasu, która wskazuje, jak długo komunikaty przetwarzane przez to powiązanie mogą znajdować się w kolejce zanim wygasną."
+  remarks: "Właściwość TimeToLive jest ustawiona, aby upewnić się, że komunikaty o określonym terminie ważności nie nieodświeżone przetworzenia przez aplikacje odbierające. Wygasł wiadomości w kolejce, który nie jest dostępny przez aplikację odbierającą w określonym przedziale czasu. Wygasłe komunikaty są wysyłane do specjalnego kolejki o nazwie Kolejka utraconych wiadomości. Ustawiono lokalizację kolejki utraconych wiadomości <xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A>Właściwości lub odpowiedni oparte na gwarancji.</xref:System.ServiceModel.MsmqBindingBase.DeadLetterQueue%2A>"
   syntax:
     content: public TimeSpan TimeToLive { get; set; }
     return:
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that indicates how long the messages can be in the queue before they expire. The default value is 1 day."
+      description: "<xref:System.TimeSpan>Który wskazuje, jak długo komunikaty może być w kolejce, zanim wygasną.</xref:System.TimeSpan> Wartość domyślna to 1 dzień."
   overload: System.ServiceModel.MsmqBindingBase.TimeToLive*
   exceptions: []
   platform:
@@ -368,13 +368,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets a value that indicates whether messages processed by this binding should be traced."
-  remarks: "When tracing is enabled, report messages are created and sent to the report queue each time the message leaves or arrives at a Message Queuing (MSMQ) computer."
+  summary: "Pobiera lub ustawia wartość wskazującą, czy komunikaty przetwarzane przez to powiązanie powinny być śledzone."
+  remarks: "Gdy śledzenie jest włączone, wiadomości raportów tworzonych i wysyłanych do kolejki raportu za każdym razem wiadomość opuszcza lub dociera do komputera usługi kolejkowania komunikatów (MSMQ)."
   syntax:
     content: public bool UseMsmqTracing { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if messages processed by this binding should be traced; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli komunikaty przetwarzane przez to powiązanie powinny być śledzone; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Wartość domyślna to <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.MsmqBindingBase.UseMsmqTracing*
   exceptions: []
   platform:
@@ -391,13 +391,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets a value that indicates whether copies of messages processed by this binding should be stored in the source journal queue."
-  remarks: "Queued applications that keep a record of messages that have left the computer&quot;s outgoing queue can copy the messages to a journal queue. Once a message leaves the outgoing queue and an acknowledgment is received that the message was received on the destination computer, a copy of the message is kept in the sending computer&quot;s system journal queue."
+  summary: "Pobiera lub ustawia wartość wskazującą, czy kopie komunikatów przetwarzanych przez to powiązanie powinny być przechowywane w kolejce dziennika źródła."
+  remarks: "W kolejce aplikacji, które rejestrowanie komunikatów, które zostały zwolnione kolejki wychodzącej komputera można skopiować wiadomości do kolejki dziennika. Po komunikat pozostawia kolejek wychodzących i potwierdzenia otrzymania, czy wiadomość została odebrana na komputerze docelowym, kopia wiadomości jest przechowywana w kolejce dziennika systemu komputera wysyłającego."
   syntax:
     content: public bool UseSourceJournal { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if copies of messages processed by this binding should be stored in the source journal queue; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>czy kopie komunikatów przetwarzanych przez to powiązanie powinny być przechowywane w kolejce dziennika źródła; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Wartość domyślna to <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.MsmqBindingBase.UseSourceJournal*
   exceptions: []
   platform:
@@ -414,7 +414,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets a value that specifies the duration a message will be locked by the receive context feature."
+  summary: "Pobiera lub ustawia wartość, która określa czas, który wiadomość zostanie zablokowane przez funkcję kontekstu odbierania."
   remarks: >-
     > [!IMPORTANT]
 
@@ -423,7 +423,7 @@ items:
     content: public TimeSpan ValidityDuration { get; set; }
     return:
       type: System.TimeSpan
-      description: "A timespan object."
+      description: "Obiekt timespan."
   overload: System.ServiceModel.MsmqBindingBase.ValidityDuration*
   exceptions: []
   platform:
