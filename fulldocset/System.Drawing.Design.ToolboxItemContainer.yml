@@ -22,8 +22,8 @@ items:
   nameWithType: ToolboxItemContainer
   fullName: System.Drawing.Design.ToolboxItemContainer
   type: Class
-  summary: "Encapsulates a <xref href=&quot;System.Drawing.Design.ToolboxItem&quot;></xref>."
-  remarks: "ToolboxItemContainer is a simple class that encapsulates a <xref:System.Drawing.Design.ToolboxItem> for efficiency. By having a single class that is always loaded, you can defer the loading of the <xref:System.Drawing.Design.ToolboxItem> until it is needed. Because new classes can be derived from <xref:System.Drawing.Design.ToolboxItem>, you could load a <xref:System.Drawing.Design.ToolboxItem> that could, in turn, load an assembly that is not already in memory. For a large collection of <xref:System.Drawing.Design.ToolboxItem> objects, this could cause a large number of assemblies to be loaded, which decreases performance. Instead, the toolbox service deals only with ToolboxItemContainer objects and retrieves their contained <xref:System.Drawing.Design.ToolboxItem> only when necessary.       The ToolboxItemContainer is designed to hold any cached data from the <xref:System.Drawing.Design.ToolboxItem>. The default implementation only holds the filter of the <xref:System.Drawing.Design.ToolboxItem>, but deriving classes may choose to cache the name, image, and other information. ToolboxItemContainer objects support two forms of serialization: they can be serialized through standard runtime serialization, and they can also load and save themselves from a <xref:System.Windows.Forms.IDataObject?displayProperty=fullName>. The former provides a very easy way to save ToolboxItemContainer objects to a persistent storage. The latter provides a way to integrate ToolboxItemContainer objects with mixed data storage formats."
+  summary: "Hermetyzuje <xref href=&quot;System.Drawing.Design.ToolboxItem&quot;> </xref>."
+  remarks: "ToolboxItemContainer jest prostą klasę, która hermetyzuje <xref:System.Drawing.Design.ToolboxItem>w celu zwiększenia wydajności.</xref:System.Drawing.Design.ToolboxItem> Używanie jednej klasy, która zawsze jest ładowany, w przypadku opóźnienia ładowania <xref:System.Drawing.Design.ToolboxItem>dopóki nie jest wymagana.</xref:System.Drawing.Design.ToolboxItem> Ponieważ nowe klasy mogą pochodzić z <xref:System.Drawing.Design.ToolboxItem>, można załadować <xref:System.Drawing.Design.ToolboxItem>który z kolei można załadować zestawu, który nie jest już w pamięci.</xref:System.Drawing.Design.ToolboxItem> </xref:System.Drawing.Design.ToolboxItem> W przypadku dużych zbierania <xref:System.Drawing.Design.ToolboxItem>obiekty, może to powodować dużą liczbę zestawów do załadowania, co obniża wydajność.</xref:System.Drawing.Design.ToolboxItem> Zamiast tego usługa przybornika dotyczy jedynie obiekty ToolboxItemContainer i pobiera ich zawartych w niej <xref:System.Drawing.Design.ToolboxItem>tylko wtedy, gdy jest to konieczne.</xref:System.Drawing.Design.ToolboxItem>       ToolboxItemContainer jest przeznaczony do przechowywania wszystkie buforowane dane z <xref:System.Drawing.Design.ToolboxItem>.</xref:System.Drawing.Design.ToolboxItem> Domyślna implementacja zawiera jedynie filtrze <xref:System.Drawing.Design.ToolboxItem>, ale wyprowadzanie klas może dołączyć do pamięci podręcznej nazwę, obrazu i innych informacji.</xref:System.Drawing.Design.ToolboxItem> Obiekty ToolboxItemContainer obsługują dwa rodzaje serializacji: może być Zserializowany za pomocą serializacji standardowe środowiska uruchomieniowego i mogą także obciążenia i Zapisz sobie z <xref:System.Windows.Forms.IDataObject?displayProperty=fullName>.</xref:System.Windows.Forms.IDataObject?displayProperty=fullName> Pierwsza umożliwia bardzo łatwe do zapisywania obiektów ToolboxItemContainer do magazynu trwałego. Drugie umożliwia integrację obiektów ToolboxItemContainer z formatów przechowywania mieszane dane."
   syntax:
     content: 'public class ToolboxItemContainer : System.Runtime.Serialization.ISerializable'
   inheritance:
@@ -45,14 +45,14 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: "Initializes a new instance of the <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref> class from a <xref href=&quot;System.Drawing.Design.ToolboxItem&quot;></xref>."
-  remarks: "The container’s cache of information is filled by accessing properties on the <xref:System.Drawing.Design.ToolboxItem>."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref> klasę z <xref href=&quot;System.Drawing.Design.ToolboxItem&quot;> </xref>."
+  remarks: "Pamięć podręczna kontenera informacji jest wypełniony uzyskując dostęp do właściwości <xref:System.Drawing.Design.ToolboxItem>.</xref:System.Drawing.Design.ToolboxItem>"
   syntax:
     content: public ToolboxItemContainer (System.Drawing.Design.ToolboxItem item);
     parameters:
     - id: item
       type: System.Drawing.Design.ToolboxItem
-      description: "The <xref href=&quot;System.Drawing.Design.ToolboxItem&quot;></xref> for which to create a <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref>."
+      description: "<xref href=&quot;System.Drawing.Design.ToolboxItem&quot;> </xref> Dla której ma zostać utworzony <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref>."
   overload: System.Drawing.Design.ToolboxItemContainer.#ctor*
   exceptions: []
   platform:
@@ -69,14 +69,14 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: "Initializes a new instance of the <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref> class from a <xref href=&quot;System.Windows.Forms.IDataObject&quot;></xref>."
-  remarks: "The `data` parameter may contain data provided by the <xref:System.Drawing.Design.ToolboxItemContainer> class. It may contain data that can be read by one of the <xref:System.Drawing.Design.ToolboxItem> creators that have been supplied by the user. It may also be data with a clipboard format that has a <xref:System.Drawing.Design.ToolboxItem> creator assigned to it. In this case, the <xref:System.Drawing.Design.ToolboxItem> is created on demand."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref> klasę z <xref href=&quot;System.Windows.Forms.IDataObject&quot;> </xref>."
+  remarks: "`data` Parametr może zawierać dane dostarczone przez <xref:System.Drawing.Design.ToolboxItemContainer>klasę.</xref:System.Drawing.Design.ToolboxItemContainer> Może on zawierać dane, które mogą być odczytywane przez jedną z <xref:System.Drawing.Design.ToolboxItem>twórców, które zostały dostarczone przez użytkownika.</xref:System.Drawing.Design.ToolboxItem> Może to być również danych przy użyciu formatu schowka ma <xref:System.Drawing.Design.ToolboxItem>twórcy przypisane do niego.</xref:System.Drawing.Design.ToolboxItem> W takim przypadku <xref:System.Drawing.Design.ToolboxItem>jest tworzone na żądanie.</xref:System.Drawing.Design.ToolboxItem>"
   syntax:
     content: public ToolboxItemContainer (System.Windows.Forms.IDataObject data);
     parameters:
     - id: data
       type: System.Windows.Forms.IDataObject
-      description: "A data object that represents a <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref>."
+      description: "Obiekt danych reprezentujący <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref>."
   overload: System.Drawing.Design.ToolboxItemContainer.#ctor*
   exceptions: []
   platform:
@@ -93,16 +93,16 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: "Initializes a new instance of the <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref> class from a serialization stream."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref> klasy ze strumienia serializacji."
   syntax:
     content: protected ToolboxItemContainer (System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context);
     parameters:
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "The serialization information passed in by the serializer when deserializing the <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref>."
+      description: "Informacje o serializacji przekazany przez serializator podczas deserializacji <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref>."
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: "The streaming context passed in by the serializer when deserializing the <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref>."
+      description: "Kontekst przesyłania strumieniowego przekazany przez serializator podczas deserializacji <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref>."
   overload: System.Drawing.Design.ToolboxItemContainer.#ctor*
   exceptions: []
   platform:
@@ -119,16 +119,16 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: "Determines whether two <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref> instances are equal."
+  summary: "Określa, czy dwa <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref> wystąpienia są takie same."
   syntax:
     content: public override bool Equals (object obj);
     parameters:
     - id: obj
       type: System.Object
-      description: "The <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref> to compare with the current <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref>."
+      description: "<xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref> Do porównania z bieżącym <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref> is equal to the current <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli określony <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref> jest taki sam, jak bieżący <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref>; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Drawing.Design.ToolboxItemContainer.Equals*
   exceptions: []
   platform:
@@ -145,17 +145,17 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: "Returns a collection of <xref href=&quot;System.ComponentModel.ToolboxItemFilterAttribute&quot;></xref> objects that represent the current filter for the <xref href=&quot;System.Drawing.Design.ToolboxItem&quot;></xref>."
-  remarks: "The `creators` parameter is a collection of <xref:System.Drawing.Design.ToolboxItemCreator> objects that represent any custom <xref:System.Drawing.Design.ToolboxItem> creators that should be included when the filter is generated. Custom creators may contribute to the filters. This parameter can be `null` if no creators are needed.       The types stored in a <xref:System.Drawing.Design.ToolboxItem> may have a filter associated with them. Filters can be used to restrict the tools that can be placed on designers."
+  summary: "Zwraca kolekcję <xref href=&quot;System.ComponentModel.ToolboxItemFilterAttribute&quot;> </xref> obiektów, które reprezentują bieżący filtr dla <xref href=&quot;System.Drawing.Design.ToolboxItem&quot;> </xref>."
+  remarks: "`creators` Parametru jest kolekcją <xref:System.Drawing.Design.ToolboxItemCreator>obiektów, które reprezentują niestandardowe <xref:System.Drawing.Design.ToolboxItem>twórców, które mają zostać uwzględnione podczas generowania filtr.</xref:System.Drawing.Design.ToolboxItem> </xref:System.Drawing.Design.ToolboxItemCreator> Kreatory niestandardowe mogą przyczynić się do filtrów. Ten parametr może mieć `null` jeśli niezbędne są nie twórców.       Typy są przechowywane w <xref:System.Drawing.Design.ToolboxItem>może mieć skojarzone z nimi filtr.</xref:System.Drawing.Design.ToolboxItem> Filtry może być używany do ograniczania narzędzia, które można umieścić w projektantach."
   syntax:
     content: public virtual System.Collections.ICollection GetFilter (System.Collections.ICollection creators);
     parameters:
     - id: creators
       type: System.Collections.ICollection
-      description: "A collection of <xref href=&quot;System.Drawing.Design.ToolboxItemCreator&quot;></xref> objects."
+      description: "Kolekcja <xref href=&quot;System.Drawing.Design.ToolboxItemCreator&quot;> </xref> obiektów."
     return:
       type: System.Collections.ICollection
-      description: "A collection of <xref href=&quot;System.ComponentModel.ToolboxItemFilterAttribute&quot;></xref> objects. This never returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Kolekcja <xref href=&quot;System.ComponentModel.ToolboxItemFilterAttribute&quot;> </xref> obiektów. To nigdy nie zwraca <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Drawing.Design.ToolboxItemContainer.GetFilter*
   exceptions: []
   platform:
@@ -172,13 +172,13 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: "Returns the hash code for this instance."
+  summary: "Zwraca wartość skrótu dla tego wystąpienia."
   syntax:
     content: public override int GetHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "A hash code for the current <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref>."
+      description: "Wartość skrótu dla bieżącego <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref>."
   overload: System.Drawing.Design.ToolboxItemContainer.GetHashCode*
   exceptions: []
   platform:
@@ -195,16 +195,16 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: "Saves the serialization state for the object."
+  summary: "Zapisuje stan serializacji obiektu."
   syntax:
     content: protected virtual void GetObjectData (System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context);
     parameters:
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "The serialization information passed in by the serializer when serializing this object."
+      description: "Informacje o serializacji przekazany przez serializator podczas serializowania tego obiektu."
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: "The streaming context passed in by the serializer when serializing this object."
+      description: "Kontekst przesyłania strumieniowego przekazany przez serializator podczas serializowania tego obiektu."
   overload: System.Drawing.Design.ToolboxItemContainer.GetObjectData*
   exceptions: []
   platform:
@@ -221,17 +221,17 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: "Returns the <xref href=&quot;System.Drawing.Design.ToolboxItem&quot;></xref> contained in the <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref>."
-  remarks: "The `creators` parameter is a collection of <xref:System.Drawing.Design.ToolboxItemCreator> objects that represent any custom <xref:System.Drawing.Design.ToolboxItem> creators that should be included when the <xref:System.Drawing.Design.ToolboxItem> is obtained. This parameter can be `null` if no creators are needed.       The GetToolboxItem method returns a <xref:System.Drawing.Design.ToolboxItem> that represents the data stored in the <xref:System.Drawing.Design.ToolboxItemContainer>. GetToolboxItem never returns `null`, nor does it ever raise an exception, except in extreme cases (for example, out of memory). If a <xref:System.Drawing.Design.ToolboxItem> cannot be fabricated, the appropriate exception is embedded within a special <xref:System.Drawing.Design.ToolboxItem>. The exception is thrown when the <xref:System.Drawing.Design.ToolboxItem.CreateComponents%2A> method on this special <xref:System.Drawing.Design.ToolboxItem> is called. This puts the exception at the point of user action."
+  summary: "Zwraca <xref href=&quot;System.Drawing.Design.ToolboxItem&quot;> </xref> zawartych w <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref>."
+  remarks: "`creators` Parametru jest kolekcją <xref:System.Drawing.Design.ToolboxItemCreator>obiektów, które reprezentują niestandardowe <xref:System.Drawing.Design.ToolboxItem>twórców, które należy uwzględnić podczas obliczania <xref:System.Drawing.Design.ToolboxItem>są uzyskiwane.</xref:System.Drawing.Design.ToolboxItem> </xref:System.Drawing.Design.ToolboxItem> </xref:System.Drawing.Design.ToolboxItemCreator> Ten parametr może mieć `null` jeśli niezbędne są nie twórców.       Metoda GetToolboxItem zwraca <xref:System.Drawing.Design.ToolboxItem>reprezentujący dane przechowywane w <xref:System.Drawing.Design.ToolboxItemContainer>.</xref:System.Drawing.Design.ToolboxItemContainer> </xref:System.Drawing.Design.ToolboxItem> Nigdy nie zwraca GetToolboxItem `null`, ani nie jest ona kiedykolwiek zgłosić wyjątek, z wyjątkiem w ekstremalnych przypadkach (na przykład, Brak pamięci). Jeśli <xref:System.Drawing.Design.ToolboxItem>nie może być wykonane, odpowiedni wyjątek jest osadzony w specjalnej <xref:System.Drawing.Design.ToolboxItem>.</xref:System.Drawing.Design.ToolboxItem> </xref:System.Drawing.Design.ToolboxItem> Wyjątek jest zgłaszany, gdy <xref:System.Drawing.Design.ToolboxItem.CreateComponents%2A>metody w tym specjalnych <xref:System.Drawing.Design.ToolboxItem>jest wywoływana.</xref:System.Drawing.Design.ToolboxItem> </xref:System.Drawing.Design.ToolboxItem.CreateComponents%2A> Spowoduje to umieszczenie wyjątek w punkcie akcja ze strony użytkownika."
   syntax:
     content: public virtual System.Drawing.Design.ToolboxItem GetToolboxItem (System.Collections.ICollection creators);
     parameters:
     - id: creators
       type: System.Collections.ICollection
-      description: "A collection of <xref href=&quot;System.Drawing.Design.ToolboxItemCreator&quot;></xref> objects."
+      description: "Kolekcja <xref href=&quot;System.Drawing.Design.ToolboxItemCreator&quot;> </xref> obiektów."
     return:
       type: System.Drawing.Design.ToolboxItem
-      description: "The <xref href=&quot;System.Drawing.Design.ToolboxItem&quot;></xref> contained in the <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref>."
+      description: "<xref href=&quot;System.Drawing.Design.ToolboxItem&quot;> </xref> Zawartych w <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref>."
   overload: System.Drawing.Design.ToolboxItemContainer.GetToolboxItem*
   exceptions: []
   platform:
@@ -248,12 +248,12 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: "Gets a value indicating whether the underlying toolbox item has been deserialized."
+  summary: "Pobiera wartość wskazującą, czy podstawowy element przybornika został zdeserializowany."
   syntax:
     content: public bool IsCreated { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the underlying toolbox item has been deserialized; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli podstawowy element przybornika został zdeserializowany; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Drawing.Design.ToolboxItemContainer.IsCreated*
   exceptions: []
   platform:
@@ -270,12 +270,12 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: "Gets a value indicating if the <xref href=&quot;System.Drawing.Design.ToolboxItem&quot;></xref> contained in the <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref> is transient."
+  summary: "Pobiera z Jeśli wskazujące wartość <xref href=&quot;System.Drawing.Design.ToolboxItem&quot;> </xref> zawartych w <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref> jest przejściowy."
   syntax:
     content: public bool IsTransient { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, if the <xref href=&quot;System.Drawing.Design.ToolboxItem&quot;></xref> contained in the <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref> is marked as transient; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, jeśli <xref href=&quot;System.Drawing.Design.ToolboxItem&quot;> </xref> zawartych w <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref> jest oznaczony jako przejściowa; w przeciwnym razie <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Drawing.Design.ToolboxItemContainer.IsTransient*
   exceptions: []
   platform:
@@ -293,17 +293,17 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: "For a description of this member, see the <xref:System.Drawing.Design.ToolboxItemContainer.GetObjectData*> method."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Drawing.Design.ToolboxItemContainer> instance is cast to an <xref:System.Runtime.Serialization.ISerializable> interface."
+  summary: "Opis tego elementu członkowskiego, zobacz <xref:System.Drawing.Design.ToolboxItemContainer.GetObjectData*>metody.</xref:System.Drawing.Design.ToolboxItemContainer.GetObjectData*>"
+  remarks: "Ten element jest jawną implementacją elementu interfejsu. Można go używać tylko wtedy, gdy <xref:System.Drawing.Design.ToolboxItemContainer>wystąpienia jest rzutowane na <xref:System.Runtime.Serialization.ISerializable>interfejsu.</xref:System.Runtime.Serialization.ISerializable> </xref:System.Drawing.Design.ToolboxItemContainer>"
   syntax:
     content: void ISerializable.GetObjectData (System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context);
     parameters:
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "The serialization information passed in by the serializer when serializing this object."
+      description: "Informacje o serializacji przekazany przez serializator podczas serializowania tego obiektu."
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: "The streaming context passed in by the serializer when serializing this object."
+      description: "Kontekst przesyłania strumieniowego przekazany przez serializator podczas serializowania tego obiektu."
   overload: System.Drawing.Design.ToolboxItemContainer.System#Runtime#Serialization#ISerializable#GetObjectData*
   exceptions: []
   platform:
@@ -320,13 +320,13 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: "Gets an <xref href=&quot;System.Windows.Forms.IDataObject&quot;></xref> that describes this <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref>."
-  remarks: "The ToolboxData property creates the serialized version of the <xref:System.Drawing.Design.ToolboxItem>. The data object can be used by an application to store this <xref:System.Drawing.Design.ToolboxItem>. This data object is fabricated from the <xref:System.Drawing.Design.ToolboxItem>, if necessary."
+  summary: "Pobiera <xref href=&quot;System.Windows.Forms.IDataObject&quot;> </xref> opisujący to <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref>."
+  remarks: "Właściwość ToolboxData tworzy wersja serializowanego <xref:System.Drawing.Design.ToolboxItem>.</xref:System.Drawing.Design.ToolboxItem> Obiekt danych można używany przez aplikację do przechowywania tym <xref:System.Drawing.Design.ToolboxItem>.</xref:System.Drawing.Design.ToolboxItem> Ten obiekt danych jest wykonane z <xref:System.Drawing.Design.ToolboxItem>, jeśli to konieczne.</xref:System.Drawing.Design.ToolboxItem>"
   syntax:
     content: public virtual System.Windows.Forms.IDataObject ToolboxData { get; }
     return:
       type: System.Windows.Forms.IDataObject
-      description: "An <xref href=&quot;System.Windows.Forms.IDataObject&quot;></xref> that describes this <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;></xref>."
+      description: "<xref href=&quot;System.Windows.Forms.IDataObject&quot;> </xref> Opisujący to <xref href=&quot;System.Drawing.Design.ToolboxItemContainer&quot;> </xref>."
   overload: System.Drawing.Design.ToolboxItemContainer.ToolboxData*
   exceptions: []
   platform:
@@ -343,14 +343,14 @@ items:
   assemblies:
   - System.Drawing.Design
   namespace: System.Drawing.Design
-  summary: "Merges the container&quot;s filter with the filter from the given item."
-  remarks: "You should call the UpdateFilter method when the toolbox item is modified or configured. You should also call it if a new <xref:System.ComponentModel.TypeDescriptionProvider>, which the changes the filter, is added."
+  summary: "Scala filtru kontenera z filtrem z danego elementu."
+  remarks: "Powinien wywoływać metodę UpdateFilter, gdy element przybornika jest zmodyfikowany lub skonfigurowane. Należy także wywołać ją Jeśli nowy <xref:System.ComponentModel.TypeDescriptionProvider>, która zmiany filtr zostanie dodany.</xref:System.ComponentModel.TypeDescriptionProvider>"
   syntax:
     content: public void UpdateFilter (System.Drawing.Design.ToolboxItem item);
     parameters:
     - id: item
       type: System.Drawing.Design.ToolboxItem
-      description: "The source of the filter to merge with the container&quot;s filter."
+      description: "Źródło filtr do scalenia z filtrem kontenera."
   overload: System.Drawing.Design.ToolboxItemContainer.UpdateFilter*
   exceptions: []
   platform:

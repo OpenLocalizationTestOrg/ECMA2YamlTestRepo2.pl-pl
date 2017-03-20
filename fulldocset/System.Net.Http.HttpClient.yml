@@ -48,8 +48,8 @@ items:
   nameWithType: HttpClient
   fullName: System.Net.Http.HttpClient
   type: Class
-  summary: "Provides a base class for sending HTTP requests and receiving HTTP responses from a resource identified by a URI."
-  remarks: "The HttpClient class instance acts as a session to send HTTP requests. An HttpClient instance is a collection of settings applied to all requests executed by that instance. In addition, every HttpClient instance uses its own connection pool, isolating its requests from requests executed by other HttpClient instances.       The HttpClient also acts as a base class for more specific HTTP clients. An example would be a FacebookHttpClient providing additional methods specific to a Facebook web service (a GetFriends method, for instance).       By default, <xref:System.Net.HttpWebRequest> will be used to send requests to the server. This behavior can be modified by specifying a different channel in one of the constructor overloads taking a <xref:System.Net.Http.HttpMessageHandler> instance as parameter. If features like authentication or caching are required, <xref:System.Net.Http.WebRequestHandler> can be used to configure settings and the instance can be passed to the constructor. The returned handler can be passed to one of the constructor overloads taking a <xref:System.Net.Http.HttpMessageHandler> parameter.       If an app using HttpClient and related classes in the  <xref:System.Net.Http> namespace intends to download large amounts of data (50 megabytes or more), then the app should stream those downloads and not use the default buffering. If the default buffering is used the client memory usage will get very large, potentially resulting in substantially reduced performance.       The following methods are thread safe:      1.  <xref:System.Net.Http.HttpClient.CancelPendingRequests%2A>      2.  <xref:System.Net.Http.HttpClient.DeleteAsync%2A>      3.  <xref:System.Net.Http.HttpClient.GetAsync%2A>      4.  <xref:System.Net.Http.HttpClient.GetByteArrayAsync%2A>      5.  <xref:System.Net.Http.HttpClient.GetStreamAsync%2A>      6.  <xref:System.Net.Http.HttpClient.GetStringAsync%2A>      7.  <xref:System.Net.Http.HttpClient.PostAsync%2A>      8.  <xref:System.Net.Http.HttpClient.PutAsync%2A>      9. <xref:System.Net.Http.HttpClient.SendAsync%2A>       HttpClient is intended to be instantiated once and re-used throughout the life of an application. Instantiating an HttpClient class for every request will exhaust the number of sockets available under heavy loads. This will result in SocketException errors. Below is an example using HttpClient correctly.      ```c#   public class GoodController : ApiController   {       // OK       private static readonly HttpClient HttpClient;          static GoodController()       {           HttpClient = new HttpClient();       }   }      ```"
+  summary: "Udostępnia klasę podstawową do wysyłania żądań HTTP i odbierania odpowiedzi HTTP z zasobu identyfikowanego przez identyfikator URI."
+  remarks: "Wystąpienie klasy HttpClient działa jako sesji do wysyłania żądań HTTP. Wystąpienie HttpClient jest kolekcją ustawienia stosowane do wszystkich żądań wykonywanych przez to wystąpienie. Ponadto każde wystąpienie HttpClient używa własnego puli połączeń, izolowanie żądań z żądań wykonywanych przez inne wystąpienia HttpClient.       HttpClient działa również jako klasę podstawową dla bardziej konkretnych klientów HTTP. Przykładem może być FacebookHttpClient, zapewniając dodatkowe metody specyficzne dla usługi sieci web usługi Facebook (metoda GetFriends, na przykład).       Domyślnie <xref:System.Net.HttpWebRequest>będzie służyć do wysyłania żądań do serwera.</xref:System.Net.HttpWebRequest> To zachowanie można modyfikować, określając inny kanał w jednym z przeciążeń konstruktora biorąc <xref:System.Net.Http.HttpMessageHandler>wystąpienia jako parametr.</xref:System.Net.Http.HttpMessageHandler> Jeśli są wymagane, funkcji, takich jak uwierzytelnianie czy buforowanie <xref:System.Net.Http.WebRequestHandler>może być używane do konfigurowania ustawień i będzie można instancji być przekazany do konstruktora.</xref:System.Net.Http.WebRequestHandler> Zwrócony obsługi mogą być przekazywane do jednego z przeciążeń konstruktora biorąc <xref:System.Net.Http.HttpMessageHandler>parametru.</xref:System.Net.Http.HttpMessageHandler>       Jeśli aplikacji za pomocą HttpClient i klas pokrewnych w <xref:System.Net.Http>przestrzeni nazw zamierza pobrać dużych ilości danych (50 MB lub więcej), a następnie aplikacja powinna strumienia te pliki do pobrania i nie używać domyślnego buforowania.</xref:System.Net.Http> Jeśli używane jest domyślne buforowanie użycie pamięci klienta otrzyma bardzo duży, może spowodować znacznie zmniejszyć wydajność.       Wielowątkowość są następujące metody: 1.  <xref:System.Net.Http.HttpClient.CancelPendingRequests%2A>2.</xref:System.Net.Http.HttpClient.CancelPendingRequests%2A>  <xref:System.Net.Http.HttpClient.DeleteAsync%2A>3.</xref:System.Net.Http.HttpClient.DeleteAsync%2A>  <xref:System.Net.Http.HttpClient.GetAsync%2A>4.</xref:System.Net.Http.HttpClient.GetAsync%2A>  <xref:System.Net.Http.HttpClient.GetByteArrayAsync%2A>5.</xref:System.Net.Http.HttpClient.GetByteArrayAsync%2A>  <xref:System.Net.Http.HttpClient.GetStreamAsync%2A>6.</xref:System.Net.Http.HttpClient.GetStreamAsync%2A>  <xref:System.Net.Http.HttpClient.GetStringAsync%2A>7.</xref:System.Net.Http.HttpClient.GetStringAsync%2A>  <xref:System.Net.Http.HttpClient.PostAsync%2A>8.</xref:System.Net.Http.HttpClient.PostAsync%2A>  <xref:System.Net.Http.HttpClient.PutAsync%2A>9.</xref:System.Net.Http.HttpClient.PutAsync%2A> <xref:System.Net.Http.HttpClient.SendAsync%2A>HttpClient jest przeznaczony do użycia raz i ponownego użycia w całym cyklu życia aplikacji.</xref:System.Net.Http.HttpClient.SendAsync%2A> Utworzenie wystąpienia klasy HttpClient dla każdego żądania wyczerpie liczbę gniazd, które są dostępne pod dużym obciążeniem. Spowoduje to socketexception — błędy. Poniżej przedstawiono przykład poprawnie za pomocą elementu HttpClient.      ```c#   public class GoodController : ApiController   {       // OK       private static readonly HttpClient HttpClient;          static GoodController()       {           HttpClient = new HttpClient();       }   }      ```"
   example:
   - '[!code-cs[System.Net.Http.HttpClient#1](~/add/codesnippet/csharp/t-system.net.http.httpcl_1_1.cs)]'
   syntax:
@@ -74,7 +74,7 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Http.HttpClient&quot;></xref> class."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Net.Http.HttpClient&quot;> </xref> klasy."
   syntax:
     content: public HttpClient ();
     parameters: []
@@ -94,14 +94,14 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Http.HttpClient&quot;></xref> class with a specific handler."
-  remarks: "If `null` is specified for `handler` parameter, the <xref:System.Net.Http.WebRequestHandler> is used as transport handler."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Net.Http.HttpClient&quot;> </xref> klasy z określonym programem obsługi."
+  remarks: "Jeśli `null` określono `handler` parametru <xref:System.Net.Http.WebRequestHandler>jest używany jako program obsługi transportu.</xref:System.Net.Http.WebRequestHandler>"
   syntax:
     content: public HttpClient (System.Net.Http.HttpMessageHandler handler);
     parameters:
     - id: handler
       type: System.Net.Http.HttpMessageHandler
-      description: "The HTTP handler stack to use for sending requests."
+      description: "Stos programu obsługi HTTP używany do wysyłania żądań."
   overload: System.Net.Http.HttpClient.#ctor*
   exceptions: []
   platform:
@@ -118,16 +118,16 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Initializes a new instance of the <xref href=&quot;System.Net.Http.HttpClient&quot;></xref> class with a specific handler."
+  summary: "Inicjuje nowe wystąpienie klasy <xref href=&quot;System.Net.Http.HttpClient&quot;> </xref> klasy z określonym programem obsługi."
   syntax:
     content: public HttpClient (System.Net.Http.HttpMessageHandler handler, bool disposeHandler);
     parameters:
     - id: handler
       type: System.Net.Http.HttpMessageHandler
-      description: "The <xref href=&quot;System.Net.Http.HttpMessageHandler&quot;></xref> responsible for processing the HTTP response messages."
+      description: "<xref href=&quot;System.Net.Http.HttpMessageHandler&quot;> </xref> Odpowiedzialna za przetwarzanie komunikatów odpowiedzi HTTP."
     - id: disposeHandler
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the inner handler should be disposed of by Dispose(), <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if you intend to reuse the inner handler."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Jeśli wewnętrznym programem obsługi powinny być usuwane przez metody Dispose(), <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> Jeśli zamierzasz użyć ponownie wewnętrznym programem obsługi."
   overload: System.Net.Http.HttpClient.#ctor*
   exceptions: []
   platform:
@@ -144,13 +144,13 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Gets or sets the base address of Uniform Resource Identifier (URI) of the Internet resource used when sending requests."
-  remarks: "When sending a <xref:System.Net.Http.HttpRequestMessage> with a relative Uri, the message Uri will be added to the BaseAddress property to create an absolute Uri."
+  summary: "Pobiera lub ustawia adres podstawowy z zasobów identyfikator URI (Uniform) zasobu internetowego używanego podczas wysyłania żądań."
+  remarks: "Podczas wysyłania <xref:System.Net.Http.HttpRequestMessage>z względnym identyfikatorem Uri komunikat identyfikator Uri zostanie dodany do właściwość BaseAddress, aby utworzyć bezwzględnym identyfikatorem Uri.</xref:System.Net.Http.HttpRequestMessage>"
   syntax:
     content: public Uri BaseAddress { get; set; }
     return:
       type: System.Uri
-      description: "The base address of Uniform Resource Identifier (URI) of the Internet resource used when sending requests."
+      description: "Adres podstawowy z zasobów identyfikator URI (Uniform) zasobu internetowego używanego podczas wysyłania żądań."
   overload: System.Net.Http.HttpClient.BaseAddress*
   exceptions: []
   platform:
@@ -167,8 +167,8 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Cancel all pending requests on this instance."
-  remarks: "After calling this method, the <xref:System.Net.Http.HttpClient> instance can still be used to execute additional requests."
+  summary: "Anuluje wszystkie oczekujące żądania dla tego wystąpienia."
+  remarks: "Po wywołaniu tej metody <xref:System.Net.Http.HttpClient>wystąpienie może być nadal używane do wykonywania dodatkowych żądań.</xref:System.Net.Http.HttpClient>"
   syntax:
     content: public void CancelPendingRequests ();
     parameters: []
@@ -188,13 +188,13 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Gets the headers which should be sent with each request."
-  remarks: "Headers set on this property don&quot;t need to be set on request messages again."
+  summary: "Pobiera nagłówki, które mają być wysyłane z każdym żądaniem."
+  remarks: "Nagłówki, ustaw dla tej właściwości nie musi ponownie ustawić na komunikaty żądania."
   syntax:
     content: public System.Net.Http.Headers.HttpRequestHeaders DefaultRequestHeaders { get; }
     return:
       type: System.Net.Http.Headers.HttpRequestHeaders
-      description: "The headers which should be sent with each request."
+      description: "Nagłówki, które mają być wysyłane z każdym żądaniem."
   overload: System.Net.Http.HttpClient.DefaultRequestHeaders*
   exceptions: []
   platform:
@@ -211,17 +211,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a DELETE request to the specified Uri as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response (including content) is read."
+  summary: "Wyślij żądanie usunięcia do określonego identyfikatora Uri jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> DeleteAsync (string requestUri);
     parameters:
     - id: requestUri
       type: System.String
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.DeleteAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -229,10 +229,10 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The request message was already sent by the <xref href=&quot;System.Net.Http.HttpClient&quot;></xref> instance."
+    description: "Komunikat żądania została już wysłana przez <xref href=&quot;System.Net.Http.HttpClient&quot;> </xref> wystąpienia."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.DeleteAsync(System.Uri)
@@ -247,17 +247,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a DELETE request to the specified Uri as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response (including content) is read."
+  summary: "Wyślij żądanie usunięcia do określonego identyfikatora Uri jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> DeleteAsync (Uri requestUri);
     parameters:
     - id: requestUri
       type: System.Uri
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.DeleteAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -265,10 +265,10 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The request message was already sent by the <xref href=&quot;System.Net.Http.HttpClient&quot;></xref> instance."
+    description: "Komunikat żądania została już wysłana przez <xref href=&quot;System.Net.Http.HttpClient&quot;> </xref> wystąpienia."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.DeleteAsync(System.String,System.Threading.CancellationToken)
@@ -283,20 +283,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a DELETE request to the specified Uri with a cancellation token as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response (including content) is read."
+  summary: "Wyślij żądanie usunięcia do określonego identyfikatora Uri z tokenem anulowania jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> DeleteAsync (string requestUri, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: requestUri
       type: System.String
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "A cancellation token that can be used by other objects or threads to receive notice of cancellation."
+      description: "Token anulowania, używany przez inne obiekty lub wątki w celu odebrania powiadomienia o anulowaniu."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.DeleteAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -304,10 +304,10 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The request message was already sent by the <xref href=&quot;System.Net.Http.HttpClient&quot;></xref> instance."
+    description: "Komunikat żądania została już wysłana przez <xref href=&quot;System.Net.Http.HttpClient&quot;> </xref> wystąpienia."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.DeleteAsync(System.Uri,System.Threading.CancellationToken)
@@ -322,20 +322,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a DELETE request to the specified Uri with a cancellation token as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response (including content) is read."
+  summary: "Wyślij żądanie usunięcia do określonego identyfikatora Uri z tokenem anulowania jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> DeleteAsync (Uri requestUri, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: requestUri
       type: System.Uri
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "A cancellation token that can be used by other objects or threads to receive notice of cancellation."
+      description: "Token anulowania, używany przez inne obiekty lub wątki w celu odebrania powiadomienia o anulowaniu."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.DeleteAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -343,10 +343,10 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The request message was already sent by the <xref href=&quot;System.Net.Http.HttpClient&quot;></xref> instance."
+    description: "Komunikat żądania została już wysłana przez <xref href=&quot;System.Net.Http.HttpClient&quot;> </xref> wystąpienia."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.Dispose(System.Boolean)
@@ -361,14 +361,14 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.Net.Http.HttpClient&quot;></xref> and optionally disposes of the managed resources."
-  remarks: "This method is called by the public `Dispose()` method and the <xref:System.Object.Finalize%2A> method. `Dispose()` invokes the protected `Dispose(Boolean)` method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes `Dispose` with `disposing` set to `false`.       When the `disposing` parameter is `true`, this method releases all resources held by any managed objects that this <xref:System.Net.Http.HttpClient> references. This method invokes the `Dispose()` method of each referenced object.       When this method is called, the <xref:System.Net.Http.HttpClient.CancelPendingRequests%2A> method is called to abort all pending requests."
+  summary: "Zwalnia zasoby niezarządzane używane przez <xref href=&quot;System.Net.Http.HttpClient&quot;> </xref> i opcjonalnie usuwa zarządzane zasoby."
+  remarks: "Ta metoda jest wywoływana przez metodę publiczną `Dispose()` — metoda i <xref:System.Object.Finalize%2A>metody.</xref:System.Object.Finalize%2A> `Dispose()`wywołuje chronioną metodę `Dispose(Boolean)` metody z `disposing` ustawiono parametr `true`. <xref:System.Object.Finalize%2A>wywołuje `Dispose` z `disposing` ustawioną `false`.</xref:System.Object.Finalize%2A>       Gdy `disposing` parametr jest `true`, ta metoda zwalnia wszystkie zasoby zajmowane przez wszelkie obiekty zarządzane przez to <xref:System.Net.Http.HttpClient>odwołań.</xref:System.Net.Http.HttpClient> Ta metoda wywołuje `Dispose()` metody każdego odwołuje się do obiektu.       Gdy ta metoda jest wywoływana, <xref:System.Net.Http.HttpClient.CancelPendingRequests%2A>Metoda jest wywoływana wszystkie oczekujące żądania przerwania.</xref:System.Net.Http.HttpClient.CancelPendingRequests%2A>"
   syntax:
     content: protected override void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to releases only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Aby zwolnić zasoby zarządzane i niezarządzane; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> powoduje zwolnienie tylko niezarządzane zasoby."
   overload: System.Net.Http.HttpClient.Dispose*
   exceptions: []
   platform:
@@ -385,17 +385,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a GET request to the specified Uri as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response (including content) is read."
+  summary: "Wyślij żądanie GET do określonego identyfikatora Uri jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> GetAsync (string requestUri);
     parameters:
     - id: requestUri
       type: System.String
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.GetAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -403,7 +403,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.GetAsync(System.Uri)
@@ -418,17 +418,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a GET request to the specified Uri as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response (including content) is read."
+  summary: "Wyślij żądanie GET do określonego identyfikatora Uri jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> GetAsync (Uri requestUri);
     parameters:
     - id: requestUri
       type: System.Uri
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.GetAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -436,7 +436,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.GetAsync(System.String,System.Net.Http.HttpCompletionOption)
@@ -451,20 +451,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a GET request to the specified Uri with an HTTP completion option as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete based on the `completionOption` parameter after the part or all of the response (including content) is read."
+  summary: "Wyślij żądanie GET do określonego identyfikatora Uri z opcją zakończenia HTTP jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiekt zostanie ukończona, na podstawie `completionOption` parametru po części lub całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> GetAsync (string requestUri, System.Net.Http.HttpCompletionOption completionOption);
     parameters:
     - id: requestUri
       type: System.String
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     - id: completionOption
       type: System.Net.Http.HttpCompletionOption
-      description: "An HTTP completion option value that indicates when the operation should be considered completed."
+      description: "Wartość opcji ukończenia HTTP, która wskazuje, po operacji należy traktować jako zakończone."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.GetAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -472,7 +472,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.GetAsync(System.String,System.Threading.CancellationToken)
@@ -487,20 +487,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a GET request to the specified Uri with a cancellation token as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response (including content) is read."
+  summary: "Wyślij żądanie GET do określonego identyfikatora Uri z tokenem anulowania jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> GetAsync (string requestUri, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: requestUri
       type: System.String
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "A cancellation token that can be used by other objects or threads to receive notice of cancellation."
+      description: "Token anulowania, używany przez inne obiekty lub wątki w celu odebrania powiadomienia o anulowaniu."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.GetAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -508,7 +508,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.GetAsync(System.Uri,System.Net.Http.HttpCompletionOption)
@@ -523,20 +523,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a GET request to the specified Uri with an HTTP completion option as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete based on the `completionOption` parameter after the part or all of the response (including content) is read."
+  summary: "Wyślij żądanie GET do określonego identyfikatora Uri z opcją zakończenia HTTP jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiekt zostanie ukończona, na podstawie `completionOption` parametru po części lub całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> GetAsync (Uri requestUri, System.Net.Http.HttpCompletionOption completionOption);
     parameters:
     - id: requestUri
       type: System.Uri
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     - id: completionOption
       type: System.Net.Http.HttpCompletionOption
-      description: "An HTTP completion option value that indicates when the operation should be considered completed."
+      description: "Wartość opcji ukończenia HTTP, która wskazuje, po operacji należy traktować jako zakończone."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.GetAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -544,7 +544,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.GetAsync(System.Uri,System.Threading.CancellationToken)
@@ -559,20 +559,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a GET request to the specified Uri with a cancellation token as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response (including content) is read."
+  summary: "Wyślij żądanie GET do określonego identyfikatora Uri z tokenem anulowania jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> GetAsync (Uri requestUri, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: requestUri
       type: System.Uri
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "A cancellation token that can be used by other objects or threads to receive notice of cancellation."
+      description: "Token anulowania, używany przez inne obiekty lub wątki w celu odebrania powiadomienia o anulowaniu."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.GetAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -580,7 +580,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.GetAsync(System.String,System.Net.Http.HttpCompletionOption,System.Threading.CancellationToken)
@@ -595,23 +595,23 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a GET request to the specified Uri with an HTTP completion option and a cancellation token as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete based on the `completionOption` parameter after the part or all of the response (including content) is read."
+  summary: "Wyślij żądanie GET do określonego identyfikatora Uri z opcją zakończenia HTTP i token anulowania jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiekt zostanie ukończona, na podstawie `completionOption` parametru po części lub całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> GetAsync (string requestUri, System.Net.Http.HttpCompletionOption completionOption, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: requestUri
       type: System.String
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     - id: completionOption
       type: System.Net.Http.HttpCompletionOption
-      description: "An HTTP  completion option value that indicates when the operation should be considered completed."
+      description: "Wartość opcji ukończenia HTTP, która wskazuje, po operacji należy traktować jako zakończone."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "A cancellation token that can be used by other objects or threads to receive notice of cancellation."
+      description: "Token anulowania, używany przez inne obiekty lub wątki w celu odebrania powiadomienia o anulowaniu."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.GetAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -619,7 +619,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.GetAsync(System.Uri,System.Net.Http.HttpCompletionOption,System.Threading.CancellationToken)
@@ -634,23 +634,23 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a GET request to the specified Uri with an HTTP completion option and a cancellation token as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete based on the `completionOption` parameter after the part or all of the response (including content) is read."
+  summary: "Wyślij żądanie GET do określonego identyfikatora Uri z opcją zakończenia HTTP i token anulowania jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiekt zostanie ukończona, na podstawie `completionOption` parametru po części lub całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> GetAsync (Uri requestUri, System.Net.Http.HttpCompletionOption completionOption, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: requestUri
       type: System.Uri
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     - id: completionOption
       type: System.Net.Http.HttpCompletionOption
-      description: "An HTTP  completion option value that indicates when the operation should be considered completed."
+      description: "Wartość opcji ukończenia HTTP, która wskazuje, po operacji należy traktować jako zakończone."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "A cancellation token that can be used by other objects or threads to receive notice of cancellation."
+      description: "Token anulowania, używany przez inne obiekty lub wątki w celu odebrania powiadomienia o anulowaniu."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.GetAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -658,7 +658,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.GetByteArrayAsync(System.String)
@@ -673,17 +673,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a GET request to the specified Uri and return the response body as a byte array in an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response body is read."
+  summary: "Wyślij żądanie GET do określonego identyfikatora Uri i zwracać treść odpowiedzi jako tablicę bajtów w operacji asynchronicznej."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po jest do odczytu treści odpowiedzi całego.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<byte[]> GetByteArrayAsync (string requestUri);
     parameters:
     - id: requestUri
       type: System.String
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     return:
       type: System.Threading.Tasks.Task{System.Byte[]}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.GetByteArrayAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -691,7 +691,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.GetByteArrayAsync(System.Uri)
@@ -706,17 +706,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a GET request to the specified Uri and return the response body as a byte array in an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response body is read."
+  summary: "Wyślij żądanie GET do określonego identyfikatora Uri i zwracać treść odpowiedzi jako tablicę bajtów w operacji asynchronicznej."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po jest do odczytu treści odpowiedzi całego.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<byte[]> GetByteArrayAsync (Uri requestUri);
     parameters:
     - id: requestUri
       type: System.Uri
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     return:
       type: System.Threading.Tasks.Task{System.Byte[]}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.GetByteArrayAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -724,7 +724,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.GetStreamAsync(System.String)
@@ -739,17 +739,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a GET request to the specified Uri and return the response body as a stream in an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response body is read. This method does not buffer the stream."
+  summary: "Wyślij żądanie GET do określonego identyfikatora Uri i zwróć treść odpowiedzi jako strumień w operacji asynchronicznej."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po jest do odczytu treści odpowiedzi całego.</xref:System.Threading.Tasks.Task%601> Ta metoda nie zapewnia buforowania strumienia."
   syntax:
     content: public System.Threading.Tasks.Task<System.IO.Stream> GetStreamAsync (string requestUri);
     parameters:
     - id: requestUri
       type: System.String
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     return:
       type: System.Threading.Tasks.Task{System.IO.Stream}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.GetStreamAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -757,7 +757,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.GetStreamAsync(System.Uri)
@@ -772,17 +772,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a GET request to the specified Uri and return the response body as a stream in an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response body is read. This method does not buffer the stream."
+  summary: "Wyślij żądanie GET do określonego identyfikatora Uri i zwróć treść odpowiedzi jako strumień w operacji asynchronicznej."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po jest do odczytu treści odpowiedzi całego.</xref:System.Threading.Tasks.Task%601> Ta metoda nie zapewnia buforowania strumienia."
   syntax:
     content: public System.Threading.Tasks.Task<System.IO.Stream> GetStreamAsync (Uri requestUri);
     parameters:
     - id: requestUri
       type: System.Uri
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     return:
       type: System.Threading.Tasks.Task{System.IO.Stream}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.GetStreamAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -790,7 +790,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.GetStringAsync(System.String)
@@ -805,17 +805,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a GET request to the specified Uri and return the response body as a string in an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response body is read."
+  summary: "Wyślij żądanie GET do określonego identyfikatora Uri i zwróć treść odpowiedzi jako ciąg w operacji asynchronicznej."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po jest do odczytu treści odpowiedzi całego.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<string> GetStringAsync (string requestUri);
     parameters:
     - id: requestUri
       type: System.String
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     return:
       type: System.Threading.Tasks.Task{System.String}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.GetStringAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -823,7 +823,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.GetStringAsync(System.Uri)
@@ -838,17 +838,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a GET request to the specified Uri and return the response body as a string in an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response body is read."
+  summary: "Wyślij żądanie GET do określonego identyfikatora Uri i zwróć treść odpowiedzi jako ciąg w operacji asynchronicznej."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po jest do odczytu treści odpowiedzi całego.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<string> GetStringAsync (Uri requestUri);
     parameters:
     - id: requestUri
       type: System.Uri
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     return:
       type: System.Threading.Tasks.Task{System.String}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.GetStringAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -856,7 +856,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.MaxResponseContentBufferSize
@@ -871,24 +871,24 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Gets or sets the maximum number of bytes to buffer when reading the response content."
-  remarks: "An app can set the MaxResponseContentBufferSize property to a lower value to limit the size of the response to buffer when reading the response. If the size of the response content is greater than the  MaxResponseContentBufferSize property, an exception is thrown."
+  summary: "Pobiera lub ustawia maksymalną liczbę bajtów do zbuforowania podczas odczytywania zawartości odpowiedzi."
+  remarks: "Aplikację można ustawić właściwości MaxResponseContentBufferSize niższa wartość limit rozmiaru odpowiedzi do zbuforowania podczas odczytywania odpowiedzi. Jeśli rozmiar zawartości odpowiedzi jest większa niż wartość właściwości MaxResponseContentBufferSize, jest zwracany wyjątek."
   syntax:
     content: public long MaxResponseContentBufferSize { get; set; }
     return:
       type: System.Int64
-      description: "The maximum number of bytes to buffer when reading the response content. The default value for this property is 2 gigabytes."
+      description: "Maksymalna liczba bajtów do zbuforowania podczas odczytywania zawartości odpowiedzi. Wartość domyślna dla tej właściwości to 2 gigabajty."
   overload: System.Net.Http.HttpClient.MaxResponseContentBufferSize*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The size specified is less than or equal to zero."
+    description: "Określony rozmiar jest mniejszy niż lub równy zero."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An operation has already been started on the current instance."
+    description: "Operacja została już uruchomiona w bieżącym wystąpieniu."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The current instance has been disposed."
+    description: "Bieżące wystąpienie zostało usunięte."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.PostAsync(System.String,System.Net.Http.HttpContent)
@@ -903,20 +903,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a POST request to the specified Uri as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response (including content) is read."
+  summary: "Wyślij żądanie POST na określony identyfikator URI jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> PostAsync (string requestUri, System.Net.Http.HttpContent content);
     parameters:
     - id: requestUri
       type: System.String
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     - id: content
       type: System.Net.Http.HttpContent
-      description: "The HTTP request content sent to the server."
+      description: "Zawartość żądania HTTP wysyłane do serwera."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.PostAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -924,7 +924,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.PostAsync(System.Uri,System.Net.Http.HttpContent)
@@ -939,20 +939,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a POST request to the specified Uri as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response (including content) is read."
+  summary: "Wyślij żądanie POST na określony identyfikator URI jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> PostAsync (Uri requestUri, System.Net.Http.HttpContent content);
     parameters:
     - id: requestUri
       type: System.Uri
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     - id: content
       type: System.Net.Http.HttpContent
-      description: "The HTTP request content sent to the server."
+      description: "Zawartość żądania HTTP wysyłane do serwera."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.PostAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -960,7 +960,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.PostAsync(System.String,System.Net.Http.HttpContent,System.Threading.CancellationToken)
@@ -975,23 +975,23 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a POST request with a cancellation token as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response (including content) is read."
+  summary: "Wysłanie żądania POST do tokena anulowania jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> PostAsync (string requestUri, System.Net.Http.HttpContent content, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: requestUri
       type: System.String
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     - id: content
       type: System.Net.Http.HttpContent
-      description: "The HTTP request content sent to the server."
+      description: "Zawartość żądania HTTP wysyłane do serwera."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "A cancellation token that can be used by other objects or threads to receive notice of cancellation."
+      description: "Token anulowania, używany przez inne obiekty lub wątki w celu odebrania powiadomienia o anulowaniu."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.PostAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -999,7 +999,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.PostAsync(System.Uri,System.Net.Http.HttpContent,System.Threading.CancellationToken)
@@ -1014,23 +1014,23 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a POST request with a cancellation token as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response (including content) is read."
+  summary: "Wysłanie żądania POST do tokena anulowania jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> PostAsync (Uri requestUri, System.Net.Http.HttpContent content, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: requestUri
       type: System.Uri
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     - id: content
       type: System.Net.Http.HttpContent
-      description: "The HTTP request content sent to the server."
+      description: "Zawartość żądania HTTP wysyłane do serwera."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "A cancellation token that can be used by other objects or threads to receive notice of cancellation."
+      description: "Token anulowania, używany przez inne obiekty lub wątki w celu odebrania powiadomienia o anulowaniu."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.PostAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -1038,7 +1038,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.PutAsync(System.String,System.Net.Http.HttpContent)
@@ -1053,20 +1053,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a PUT request to the specified Uri as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response (including content) is read."
+  summary: "Wyślij żądanie PUT do określonego identyfikatora Uri jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> PutAsync (string requestUri, System.Net.Http.HttpContent content);
     parameters:
     - id: requestUri
       type: System.String
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     - id: content
       type: System.Net.Http.HttpContent
-      description: "The HTTP request content sent to the server."
+      description: "Zawartość żądania HTTP wysyłane do serwera."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.PutAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -1074,7 +1074,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.PutAsync(System.Uri,System.Net.Http.HttpContent)
@@ -1089,20 +1089,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a PUT request to the specified Uri as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response (including content) is read."
+  summary: "Wyślij żądanie PUT do określonego identyfikatora Uri jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> PutAsync (Uri requestUri, System.Net.Http.HttpContent content);
     parameters:
     - id: requestUri
       type: System.Uri
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     - id: content
       type: System.Net.Http.HttpContent
-      description: "The HTTP request content sent to the server."
+      description: "Zawartość żądania HTTP wysyłane do serwera."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.PutAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -1110,7 +1110,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.PutAsync(System.String,System.Net.Http.HttpContent,System.Threading.CancellationToken)
@@ -1125,23 +1125,23 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a PUT request with a cancellation token as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response (including content) is read."
+  summary: "Wyślij żądanie PUT z tokenem anulowania jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> PutAsync (string requestUri, System.Net.Http.HttpContent content, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: requestUri
       type: System.String
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     - id: content
       type: System.Net.Http.HttpContent
-      description: "The HTTP request content sent to the server."
+      description: "Zawartość żądania HTTP wysyłane do serwera."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "A cancellation token that can be used by other objects or threads to receive notice of cancellation."
+      description: "Token anulowania, używany przez inne obiekty lub wątki w celu odebrania powiadomienia o anulowaniu."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.PutAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -1149,7 +1149,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.PutAsync(System.Uri,System.Net.Http.HttpContent,System.Threading.CancellationToken)
@@ -1164,23 +1164,23 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send a PUT request with a cancellation token as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete after the whole response (including content) is read."
+  summary: "Wyślij żądanie PUT z tokenem anulowania jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi (w tym zawartości) jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> PutAsync (Uri requestUri, System.Net.Http.HttpContent content, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: requestUri
       type: System.Uri
-      description: "The Uri the request is sent to."
+      description: "Identyfikator Uri żądania jest wysyłane."
     - id: content
       type: System.Net.Http.HttpContent
-      description: "The HTTP request content sent to the server."
+      description: "Zawartość żądania HTTP wysyłane do serwera."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "A cancellation token that can be used by other objects or threads to receive notice of cancellation."
+      description: "Token anulowania, używany przez inne obiekty lub wątki w celu odebrania powiadomienia o anulowaniu."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.PutAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -1188,7 +1188,7 @@ items:
     description: "The <code>requestUri</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage)
@@ -1203,17 +1203,17 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send an HTTP request as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete once the entire response including content is read."
+  summary: "Wyślij żądanie HTTP jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi, w tym do zawartości jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> SendAsync (System.Net.Http.HttpRequestMessage request);
     parameters:
     - id: request
       type: System.Net.Http.HttpRequestMessage
-      description: "The HTTP request message to send."
+      description: "Komunikat żądania HTTP do wysłania."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.SendAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -1221,10 +1221,10 @@ items:
     description: "The <code>request</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The request message was already sent by the <xref href=&quot;System.Net.Http.HttpClient&quot;></xref> instance."
+    description: "Komunikat żądania została już wysłana przez <xref href=&quot;System.Net.Http.HttpClient&quot;> </xref> wystąpienia."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage,System.Net.Http.HttpCompletionOption)
@@ -1239,20 +1239,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send an HTTP request as an asynchronous operation."
-  remarks: "This operation will not block. Depending on the value of the `completionOption` parameter, the returned <xref:System.Threading.Tasks.Task%601> object will complete as soon as a response is available or the entire response including content is read."
+  summary: "Wyślij żądanie HTTP jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. W zależności od wartości `completionOption` parametr, zwracana <xref:System.Threading.Tasks.Task%601>obiektu zakończy się natychmiast odpowiedzi jest dostępna lub całej odpowiedzi, w tym do zawartości jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> SendAsync (System.Net.Http.HttpRequestMessage request, System.Net.Http.HttpCompletionOption completionOption);
     parameters:
     - id: request
       type: System.Net.Http.HttpRequestMessage
-      description: "The HTTP request message to send."
+      description: "Komunikat żądania HTTP do wysłania."
     - id: completionOption
       type: System.Net.Http.HttpCompletionOption
-      description: "When the operation should complete (as soon as a response is available or after reading the whole response content)."
+      description: "Operacja powinna po zakończeniu (jak odpowiedzi jest dostępna lub po odczytaniu całej odpowiedzi zawartości)."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.SendAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -1260,10 +1260,10 @@ items:
     description: "The <code>request</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The request message was already sent by the <xref href=&quot;System.Net.Http.HttpClient&quot;></xref> instance."
+    description: "Komunikat żądania została już wysłana przez <xref href=&quot;System.Net.Http.HttpClient&quot;> </xref> wystąpienia."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)
@@ -1278,20 +1278,20 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send an HTTP request as an asynchronous operation."
-  remarks: "This operation will not block. The returned <xref:System.Threading.Tasks.Task%601> object will complete once the entire response including content is read."
+  summary: "Wyślij żądanie HTTP jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. Zwrócona <xref:System.Threading.Tasks.Task%601>obiektu ukończy po całej odpowiedzi, w tym do zawartości jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public override System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> SendAsync (System.Net.Http.HttpRequestMessage request, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: request
       type: System.Net.Http.HttpRequestMessage
-      description: "The HTTP request message to send."
+      description: "Komunikat żądania HTTP do wysłania."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "The cancellation token to cancel operation."
+      description: "Token anulowania do anulowania operacji."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.SendAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -1299,10 +1299,10 @@ items:
     description: "The <code>request</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The request message was already sent by the <xref href=&quot;System.Net.Http.HttpClient&quot;></xref> instance."
+    description: "Komunikat żądania została już wysłana przez <xref href=&quot;System.Net.Http.HttpClient&quot;> </xref> wystąpienia."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.SendAsync(System.Net.Http.HttpRequestMessage,System.Net.Http.HttpCompletionOption,System.Threading.CancellationToken)
@@ -1317,23 +1317,23 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Send an HTTP request as an asynchronous operation."
-  remarks: "This operation will not block. Depending on the value of the `completionOption` parameter, the returned <xref:System.Threading.Tasks.Task%601> object will complete as soon as a response is available or the entire response including content is read."
+  summary: "Wyślij żądanie HTTP jako operację asynchroniczną."
+  remarks: "Ta operacja nie powoduje blokowania. W zależności od wartości `completionOption` parametr, zwracana <xref:System.Threading.Tasks.Task%601>obiektu zakończy się natychmiast odpowiedzi jest dostępna lub całej odpowiedzi, w tym do zawartości jest do odczytu.</xref:System.Threading.Tasks.Task%601>"
   syntax:
     content: public System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage> SendAsync (System.Net.Http.HttpRequestMessage request, System.Net.Http.HttpCompletionOption completionOption, System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: request
       type: System.Net.Http.HttpRequestMessage
-      description: "The HTTP request message to send."
+      description: "Komunikat żądania HTTP do wysłania."
     - id: completionOption
       type: System.Net.Http.HttpCompletionOption
-      description: "When the operation should complete (as soon as a response is available or after reading the whole response content)."
+      description: "Operacja powinna po zakończeniu (jak odpowiedzi jest dostępna lub po odczytaniu całej odpowiedzi zawartości)."
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "The cancellation token to cancel operation."
+      description: "Token anulowania do anulowania operacji."
     return:
       type: System.Threading.Tasks.Task{System.Net.Http.HttpResponseMessage}
-      description: "The task object representing the asynchronous operation."
+      description: "Obiekt zadania reprezentujący operację asynchroniczną."
   overload: System.Net.Http.HttpClient.SendAsync*
   exceptions:
   - type: System.ArgumentNullException
@@ -1341,10 +1341,10 @@ items:
     description: "The <code>request</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The request message was already sent by the <xref href=&quot;System.Net.Http.HttpClient&quot;></xref> instance."
+    description: "Komunikat żądania została już wysłana przez <xref href=&quot;System.Net.Http.HttpClient&quot;> </xref> wystąpienia."
   - type: System.Net.Http.HttpRequestException
     commentId: T:System.Net.Http.HttpRequestException
-    description: "The request failed due to an underlying issue such as network connectivity, DNS failure, server certificate validation or timeout."
+    description: "Żądanie nie powiodło się z powodu podstawowego problemu, takich jak łączność z siecią, błąd DNS, weryfikacji certyfikatu serwera lub limit czasu."
   platform:
   - net462
 - uid: System.Net.Http.HttpClient.Timeout
@@ -1359,24 +1359,24 @@ items:
   assemblies:
   - System.Net.Http
   namespace: System.Net.Http
-  summary: "Gets or sets the timespan to wait before the request times out."
-  remarks: "The default value is 100,000 milliseconds (100 seconds).       To set an infinite timeout, set the property value to <xref:System.Threading.Timeout.InfiniteTimeSpan>.       A Domain Name System (DNS) query may take up to 15 seconds to return or time out. If your request contains a host name that requires resolution and you set Timeout to a value less than 15 seconds, it may take 15 seconds or more before a <xref:System.Net.WebException> is thrown to indicate a timeout on your request.       The same timeout will apply for all requests using this <xref:System.Net.Http.HttpClient> instance.  You may also set different timeouts for individual requests using a <xref:System.Threading.CancellationTokenSource> on a task. Note that only the shorter of the two timeouts will apply."
+  summary: "Pobiera lub ustawia zakres czasu oczekiwania zanim upłynie limit czasu żądania."
+  remarks: "Wartość domyślna to 100 000 milisekund (100 sekund).       Aby skonfigurować nieskończonego limitu czasu, należy ustawić wartość właściwości <xref:System.Threading.Timeout.InfiniteTimeSpan>.</xref:System.Threading.Timeout.InfiniteTimeSpan>       Zapytanie systemu nazw domen (DNS, Domain Name System) może potrwać do 15 sekund do zwrócenia lub upłynął limit czasu. Jeśli żądanie zawiera nazwę hosta, która wymaga rozpoznawania i można ustawić limitu czasu na wartość mniej niż 15 sekund, może to zająć 15 sekund lub więcej przed <xref:System.Net.WebException>jest generowany, aby wskazać limitu czasu na żądanie.</xref:System.Net.WebException>       Tym samym limitu czasu zostaną zastosowane dla wszystkich żądań za pomocą tej <xref:System.Net.Http.HttpClient>wystąpienia.</xref:System.Net.Http.HttpClient>  Można również ustawić inny limitów czasu dla poszczególnych żądań przy użyciu <xref:System.Threading.CancellationTokenSource>dla zadania.</xref:System.Threading.CancellationTokenSource> Należy pamiętać, że tylko krótszą przekroczeń dwóch będą stosowane."
   syntax:
     content: public TimeSpan Timeout { get; set; }
     return:
       type: System.TimeSpan
-      description: "The timespan to wait before the request times out."
+      description: "Zakres czasu oczekiwania przed żądania upłynie limit czasu."
   overload: System.Net.Http.HttpClient.Timeout*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The timeout specified is less than or equal to zero and is not <xref:System.Threading.Timeout.InfiniteTimeSpan>."
+    description: "Określony limit czasu jest mniejsza lub równa zero, a nie <xref:System.Threading.Timeout.InfiniteTimeSpan>.</xref:System.Threading.Timeout.InfiniteTimeSpan>"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An operation has already been started on the current instance."
+    description: "Operacja została już uruchomiona w bieżącym wystąpieniu."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The current instance has been disposed."
+    description: "Bieżące wystąpienie zostało usunięte."
   platform:
   - net462
 references:
